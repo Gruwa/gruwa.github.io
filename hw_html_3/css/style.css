@@ -1,0 +1,161 @@
+body{
+    background-color: #f9f9f9;
+}
+.main{
+    width: 1060px;
+    margin: 0 auto;
+    padding: 50px;
+    border-left: 1px solid  #dbdbdb;
+    border-right: 1px solid  #dbdbdb;
+    background-color: #fff;
+
+}
+
+/*header*/
+header {
+    height: 120px;
+    margin-bottom: 40px;
+}
+.header-menu{
+    height: 40px;
+    margin-top: 40px;
+
+}
+.logo {
+    display: block;
+}
+
+.header-menu-ul{
+background-color: #494848;
+}
+
+.header-menu-point{
+    display: inline-block;
+    font-size: 14.67px;
+    font-family: OpenSans;
+    text-shadow: black 1px 1px 0;
+}
+
+.header-menu a {
+    color: #fff;
+}
+
+.header-menu-point{
+    padding: 14px 30px 14px 25px;
+}
+.header-menu-main{
+    padding-right: 62px;
+}
+
+.header-menu-about,
+.header-menu-cont{
+    padding-left: 65px;
+    padding-right: 65px;
+}
+
+.header-menu-point:hover{
+    border-left: 1px solid #838383 ;
+    border-right: 1px solid #838383 ;
+    background-color: #333;
+}
+
+
+
+/*content*/
+
+.content-menu{
+    float: left;
+    width: 240px;
+    margin-right: 48px;
+
+}
+
+.content-menu-point{
+    margin-bottom: -1px;
+    border: 1px solid #c8c8c8 ;
+    padding: 15px 0 14px 22px;
+    font-size: 13.33px;
+    font-family: OpenSans;
+
+}
+.content-menu a {
+    color: #656363;
+}
+
+.content-menu-point:hover{
+    padding: 15px 0 14px 35px;
+    background-color: #f9f9f9;
+}
+
+article {
+    width: 766px;
+    float: right;
+    margin-bottom: 80px;
+}
+
+.content-foto{
+    position: relative;
+    height: 398px;
+    border: 1px solid #c8c8c8;
+    margin-bottom: 40px;
+    background-color: white;
+}
+
+.content-foto img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.content-text{
+    padding-left: 25px;
+    padding-right: 30px;
+    font-size: 13.33px;
+}
+
+.clearfix{
+    clear: both;
+
+}
+
+/*footer*/
+
+footer {
+    display: block;
+    clear: both;
+    height: 40px;
+}
+.footer-menu-ul{
+    background-color: #e1e1e1;
+}
+
+.footer-menu-point{
+    display: inline-block;
+    padding: 14px 30px 14px 25px;
+    font-size: 13.33px;
+    font-family: OpenSans;
+}
+
+.footer-menu a {
+    color: #2c2c2c;
+}
+
+
+.footer-menu-main{
+    padding-right: 62px;
+}
+
+.footer-menu-about,
+.footer-menu-cont{
+    padding-left: 65px;
+    padding-right: 65px;
+}
+
+.footer-menu-point:hover{
+    text-decoration: underline;
+
+}
+.footer-menu-alright{
+    display: block;
+    float: right;
+}
