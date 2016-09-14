@@ -2,7 +2,7 @@ body{
     background-color: #f9f9f9;
 }
 .main{
-    width: 1060px;
+    width: 960px;
     margin: 0 auto;
     padding: 50px;
     border-left: 1px solid  #dbdbdb;
@@ -88,7 +88,7 @@ background-color: #494848;
 }
 
 article {
-    width: 766px;
+    width: 672px;
     float: right;
     margin-bottom: 80px;
 }
