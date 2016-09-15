@@ -8,22 +8,14 @@ body{
     padding: 0 70px;
     background-image: url("../img/background.png");
     background-repeat: no-repeat;
+}
 
 /*header*/
 
-}
-
-header{
+.header-main{
     height: 204px;
     width: 820px;
 
-}
-
-
-.header-google{
-    position: absolute;
-    left: 0;
-    top: 0;
 }
 
 .header-logo{
@@ -38,145 +30,78 @@ header{
     top: 152px;
     color: #dcdcdc;
     font-family: tahoma;
-    font-size: 8.47px;
+    font-size: 8px;
 }
 
 .header-contacts-us{
-    font-size: 10.16px;
+    font-size: 11px;
 }
 
 /*content*/
 .content-main{
     position:relative;
+    width:100%;
+    overflow:hidden;
+}
+
+.content-contries-box{
+    display: inline-block;
+}
+
+.content-contries-img{
+    width: 262px;
+    height: 180px;
+    border: 1px solid black;
+    border-radius: 4px;
 }
 
 .content-contries-india{
     float: left;
-    width: 269px;
-    height: 187px;
-    background-image: url("../img/foto.png");
-    background-repeat: no-repeat;
-    background-position: 0px 0px;
-    border-radius: 4px;
 
 }
 
 .content-contries-nepal{
-    display: inline-block;
-    margin: 0 6px;
-    width: 269px;
-    height: 187px;
-    border-radius: 4px;
-    background-image: url("../img/foto.png");
-    background-repeat: no-repeat;
-    background-position: -277px 0px;
+    margin-left: 14px;
 
 }
 
 .content-contries-tibet{
     float: right;
-    width: 269px;
-    height: 187px;
-    border-radius: 4px;
-    background-image: url("../img/foto.png");
-    background-repeat: no-repeat;
-    background-position: -554px 0px;
-
 }
 
 .content-contries-bhutan{
-    float: left;
-    width: 269px;
-    height: 187px;
     margin-top: 70px;
-    border-radius: 4px;
-    background-image: url("../img/foto.png");
-    background-repeat: no-repeat;
-    background-position: 0px -250px;
-
+    float: left;
 }
 
 .content-contries-sri-lanka{
-    display: inline-block;
-    width: 269px;
-    height: 187px;
-    margin: 0 6px;
+    margin-left: 14px;
     margin-top: 70px;
-    border-radius: 4px;
-    background-image: url("../img/foto.png");
-    background-repeat: no-repeat;
-    background-position: -277px -250px;
-
 
 }
 
 .content-contries-maldives{
-    float: right;
-    width: 269px;
-    height: 187px;
     margin-top: 70px;
-    border-radius: 4px;
-    background-image: url("../img/foto.png");
-    background-repeat: no-repeat;
-    background-position: -554px -250px;
-
+    float: right;
 
 }
 
-.india-p,
-.nepal-p,
-.tibet-p,
-.bhutan-p,
-.sri-lanka-p,
-.maldives-p{
-    position: absolute;
-    top: 394px;
-    left: 183px;
+.content-text1{
     font-family: tahoma;
-    font-size: 15.24px;
+    font-size: 15px;
     color: #e6e6e6;
+    text-align: center;
 }
 
-.nepal-p{
-    left: 457px;
+/*footer*/
 
-}
-
-
-.tibet-p{
-    left: 731px;
-
-}
-
-
-.bhutan-p{
-    top: 653px;
-    left: 183px;
-
-}
-
-
-.sri-lanka-p{
-    top: 653px;
-    left: 446px;
-
-}
-
-
-.maldives-p{
-    top: 653px;
-    left: 724px;
-}
-
-
-
-footer{
-    margin-top: 154px;
+.footer-main{
+    margin-top: 124px;
     padding: 30px;
 
 }
 
-footer p{
+.footer-text{
     color: #e6e6e6;
     font-family: Tahoma;
     font-size: 14px;
