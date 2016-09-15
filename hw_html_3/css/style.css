@@ -8,41 +8,45 @@ body{
     border-left: 1px solid  #dbdbdb;
     border-right: 1px solid  #dbdbdb;
     background-color: #fff;
+    font-family: OpenSansRegular;
 
 }
 
 /*header*/
-header {
+.header-all {
     height: 120px;
     margin-bottom: 40px;
 }
-.header-menu{
-    height: 40px;
-    margin-top: 40px;
 
-}
 .logo {
     display: block;
 }
 
-.header-menu-ul{
-background-color: #494848;
+.header-menu{
+    height: 40px;
+    margin-top: 40px;
+}
+
+.header-menu-list{
+    background-image: url("../img/fonmenuheader.png");
+    background-repeat: repeat-x;
 }
 
 .header-menu-point{
     display: inline-block;
-    font-size: 14.67px;
-    font-family: OpenSans;
+    padding: 13px 30px 13px 25px;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    font-size: 15px;
     text-shadow: black 1px 1px 0;
+
 }
 
 .header-menu a {
     color: #fff;
 }
 
-.header-menu-point{
-    padding: 14px 30px 14px 25px;
-}
+
 .header-menu-main{
     padding-right: 62px;
 }
@@ -54,6 +58,7 @@ background-color: #494848;
 }
 
 .header-menu-point:hover{
+
     border-left: 1px solid #838383 ;
     border-right: 1px solid #838383 ;
     background-color: #333;
@@ -62,6 +67,10 @@ background-color: #494848;
 
 
 /*content*/
+.content-main{
+    width:100%;
+    overflow:hidden;
+}
 
 .content-menu{
     float: left;
@@ -74,10 +83,9 @@ background-color: #494848;
     margin-bottom: -1px;
     border: 1px solid #c8c8c8 ;
     padding: 15px 0 14px 22px;
-    font-size: 13.33px;
-    font-family: OpenSans;
-
+    font-size: 14px;
 }
+
 .content-menu a {
     color: #656363;
 }
@@ -87,7 +95,7 @@ background-color: #494848;
     background-color: #f9f9f9;
 }
 
-article {
+.content-article1 {
     width: 672px;
     float: right;
     margin-bottom: 80px;
@@ -102,38 +110,37 @@ article {
 }
 
 .content-foto img{
+    display: block;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 .content-text{
+    display: block;
     padding-left: 25px;
     padding-right: 30px;
-    font-size: 13.33px;
+    font-size: 14px;
 }
 
-.clearfix{
-    clear: both;
-
-}
 
 /*footer*/
 
-footer {
+.footer-all {
     display: block;
     clear: both;
     height: 40px;
+    width:100%;
+    overflow:hidden;
 }
-.footer-menu-ul{
+.footer-menu-list{
     background-color: #e1e1e1;
 }
 
 .footer-menu-point{
     display: inline-block;
     padding: 14px 30px 14px 25px;
-    font-size: 13.33px;
-    font-family: OpenSans;
+    font-size: 14px;
 }
 
 .footer-menu a {

@@ -12,46 +12,48 @@ body {
     width: 500px;
 }
 
-h1 {
+/*header*/
+
+.title1 {
     font: bold 36px arial;
     text-transform: uppercase;
     text-align: center;
 }
 
 .img {
+    display: block;
     margin: 20px auto;
     width: 200px;
     height: 200px;
     background: grey url(../img/wooo.png) no-repeat center;
 }
 
-p,
-a {
+.text,
+.link {
     padding-bottom: 20px;
     font: 14px arial;
 }
 
 
-h2 {
+.title2 {
     font: bold 18px Myriad Pro;
     padding-bottom: 20px;
 
 }
 
-.content-1,
-.content-2,
-.content-3,
-.content-4 {
+/*content*/
+
+.content-box {
     padding: 20px 0;
     border-top: 2px solid #c4c4c4;
 }
 
-ul {
+.content-menu {
     padding-left: 40px;
     font: 14px Myriad Pro;
 }
 
-.content-2 p {
+.content-2 .text {
     padding-bottom: 0;
 }
 
