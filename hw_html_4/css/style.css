@@ -1,0 +1,236 @@
+body{
+    background-image: url("../img/background.png");
+    background-repeat: repeat-x;
+}
+
+.main{
+    margin: 38px auto 33px auto;
+    width: 1018px;
+    height: 991px;
+    font-family: tahoma;
+    background-image: url("../img/background2.png");
+    background-repeat: no-repeat;
+}
+
+.clearfix:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+    /*header*/
+.header-logo{
+        display: block;
+        margin-left: 90px;
+        margin-top: -28px;
+        float: left;
+    }
+.header-content{
+        float: right;
+        font-size: 12px;
+        color: #128aa7;
+        line-height: 1.5;
+        margin-top: 11px;
+        margin-right: 40px;
+
+    }
+.header-content-contacts{
+    margin-left: 236px;
+}
+
+.header-content-box{
+    display: inline-block;
+    margin-left: 13px;
+    margin-top: 28px;
+    color: #128aa7;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.header-foto{
+    display: block;
+    margin: 0 auto;
+    border-top: 1px solid #128aa7;
+    border-bottom:1px solid #128aa7;
+}
+
+.header-menu-box{
+    display: block;
+    margin: 0 auto;
+    border-top: 1px solid #cacbcb;
+    border-bottom: 1px solid black;
+    height: 28px;
+    width: 1000px;
+    box-shadow: 1px 1px 10px;
+    background-image: url("../img/panel.png");
+    background-repeat: repeat-x;
+
+
+}
+
+.header-menu-box-list{
+    display: inline-block;
+    font-size: 14px;
+    padding-top: 6px;
+
+}
+
+.header-menu-box-list a{
+    color: #fff;
+}
+
+.header-menu-box-list1{
+    margin-left: 67px;
+}
+
+.header-menu-box-list2{
+    margin-left: 67px;
+    position: relative;
+}
+
+.header-menu-box-list3{
+    margin-left: 63px;
+    position: relative;
+}
+
+.header-menu-box-list4{
+    margin-left: 78px;
+    position: relative;
+}
+
+.header-menu-box-list5{
+    margin-left: 66px;
+}
+
+.header-menu-box-list6{
+    margin-left: 73px;
+}
+
+.header-menu-box-list7{
+    margin-left: 62px;
+}
+
+.header-menu-box-list a:hover{
+    color: #cacbcb;
+
+
+}
+
+.header-menu-box-list2-submenu{
+    position: absolute;
+    background-color: #303030;
+    width: 150px;
+    display: none;
+    top: 25px;
+    box-shadow: 1px 1px 10px;
+}
+
+.header-menu-box-list2-submenu-1{
+    padding: 10px;
+}
+
+.header-menu-box-list3-submenu{
+    position: absolute;
+    background-color: #303030;
+    width: 150px;
+    display: none;
+    top: 25px;
+    box-shadow: 1px 1px 10px;
+}
+
+.header-menu-box-list3-submenu-1{
+    padding: 10px;
+}
+
+.header-menu-box-list4-submenu{
+    position: absolute;
+    background-color: #303030;
+    width: 150px;
+    display: none;
+    top: 25px;
+    box-shadow: 1px 1px 10px;
+}
+
+.header-menu-box-list4-submenu-1{
+    padding: 10px;
+}
+.header-menu-box-list2:hover .header-menu-box-list2-submenu{
+    display: block;
+}
+
+.header-menu-box-list3:hover .header-menu-box-list3-submenu{
+    display: block;
+}
+
+.header-menu-box-list4:hover .header-menu-box-list4-submenu{
+    display: block;
+}
+
+.header-menu{
+    position: relative;
+}
+
+.header-menu-tr{
+    position: absolute;
+    left: 305px;
+    top: 13px;
+}
+
+
+    /*content*/
+.content-main{
+    display: block;
+    width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: red;
+}
+/*основа левой колонки*/
+.fon1{
+    width: 100%;
+    background-color: #edeef0;
+    float: left;
+    position: relative;
+    right: 30%;/*отодвигаем фон для средней колонки*/
+}
+/*основа центральой колонки*/
+.fon2{
+    width: 100%;
+    float: left;
+    position: relative;
+    right: 40%; /*отодвигаем фон для правой колонки*/
+}
+/*основа правой колонки*/
+.fon3{
+    width: 100%;
+    float: left;
+    background-color: #edeef0;
+}
+
+.leftcolumn{
+    width: 30%;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    left: 70%;/*сумма смещения 1 и 2 фона*/
+}
+.centercolumn{
+    width: 30%;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    left: 70%;
+}
+.rightcolumn{
+    width: 39%;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    left: 70%;
+
+}
+    /*footer*/
+    .footer-main{
+        text-align: center;
+        font-size: 12px;
+    }
