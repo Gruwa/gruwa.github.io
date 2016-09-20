@@ -168,6 +168,7 @@ body{
 
 .header-menu{
     position: relative;
+    z-index: 5;
 }
 
 .header-menu-tr{
@@ -179,55 +180,86 @@ body{
 
     /*content*/
 .content-main{
-    display: block;
     width: 1000px;
     margin: 0 auto;
-    overflow: hidden;
-    background-color: red;
+
+
 }
 /*основа левой колонки*/
 .fon1{
     width: 100%;
-    background-color: #edeef0;
     float: left;
     position: relative;
-    right: 30%;/*отодвигаем фон для средней колонки*/
+    right: 40%;/*отодвигаем фон для средней колонки*/
 }
 /*основа центральой колонки*/
 .fon2{
     width: 100%;
     float: left;
     position: relative;
-    right: 40%; /*отодвигаем фон для правой колонки*/
+    right: 30%; /*отодвигаем фон для правой колонки*/
+
 }
 /*основа правой колонки*/
 .fon3{
     width: 100%;
     float: left;
-    background-color: #edeef0;
+
 }
 
 .leftcolumn{
-    width: 30%;
+    width: 20%;
     float: left;
     overflow: hidden;
     position: relative;
     left: 70%;/*сумма смещения 1 и 2 фона*/
+    margin-left: 9px;
+    background-color: #edeef0;
+    border-left: 1px solid #c7cacf;
+    border-right: 1px solid #c7cacf;
 }
 .centercolumn{
-    width: 30%;
-    float: left;
-    overflow: hidden;
-    position: relative;
-    left: 70%;
-}
-.rightcolumn{
-    width: 39%;
+    width: 56%;
     float: left;
     overflow: hidden;
     position: relative;
     left: 70%;
 
+
+}
+.rightcolumn{
+    width: 20%;
+    float: right;
+    margin-right: 9px;
+    overflow: hidden;
+    position: relative;
+    left: 70%;
+    background-color: #edeef0;
+    border-left: 1px solid #c7cacf;
+    border-right: 1px solid #c7cacf;
+
+}
+
+.column-info{
+        padding: 12px 0 0 15px;
+        text-align: justify;
+
+}
+
+.column-info h1{
+    font-size: 18px;
+    text-align: center;
+    line-height: 2;
+    font-family: tahoma;
+}
+
+.column-info a{
+    font-size: 14px;
+    text-align: left;;
+    line-height: 2;
+    font-family: tahoma;
+    text-decoration: none;
+    color: black;
 }
     /*footer*/
     .footer-main{
