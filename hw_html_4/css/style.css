@@ -4,7 +4,7 @@ body{
 }
 
 .main{
-    margin: 38px auto 33px auto;
+    margin: 38px auto 0 auto;
     width: 1018px;
     height: 991px;
     font-family: tahoma;
@@ -184,20 +184,23 @@ body{
     margin: 0 auto;
 
 
+
 }
 /*основа левой колонки*/
 .fon1{
     width: 100%;
     float: left;
     position: relative;
-    right: 40%;/*отодвигаем фон для средней колонки*/
+    right: 60%;/*отодвигаем фон для средней колонки*/
+
 }
 /*основа центральой колонки*/
 .fon2{
     width: 100%;
     float: left;
     position: relative;
-    right: 30%; /*отодвигаем фон для правой колонки*/
+    right: 20%; /*отодвигаем фон для правой колонки*/
+
 
 }
 /*основа правой колонки*/
@@ -205,40 +208,48 @@ body{
     width: 100%;
     float: left;
 
+
 }
 
 .leftcolumn{
     width: 20%;
+    height: 532px;
     float: left;
     overflow: hidden;
     position: relative;
-    left: 70%;/*сумма смещения 1 и 2 фона*/
+    left: 80%;/*сумма смещения 1 и 2 фона*/
     margin-left: 9px;
     background-color: #edeef0;
     border-left: 1px solid #c7cacf;
     border-right: 1px solid #c7cacf;
 }
+
+
+
 .centercolumn{
-    width: 56%;
+    width: 52%;
     float: left;
     overflow: hidden;
     position: relative;
-    left: 70%;
+    left: 80%;
 
 
 }
+
 .rightcolumn{
     width: 20%;
+    height: 532px;
     float: right;
     margin-right: 9px;
     overflow: hidden;
     position: relative;
-    left: 70%;
+    left: 80%;
     background-color: #edeef0;
     border-left: 1px solid #c7cacf;
     border-right: 1px solid #c7cacf;
 
 }
+
 
 .column-info{
         padding: 12px 0 0 15px;
@@ -255,14 +266,20 @@ body{
 
 .column-info a{
     font-size: 14px;
-    text-align: left;;
+    text-align: left;
     line-height: 2;
     font-family: tahoma;
     text-decoration: none;
     color: black;
 }
     /*footer*/
-    .footer-main{
-        text-align: center;
-        font-size: 12px;
+.footer-main{
+    font-size: 12px;
+
+    }
+    .footer-copyright{
+        display: inline-block;
+        color: #dee7ee;
+        font-family: tahoma;
+
     }
