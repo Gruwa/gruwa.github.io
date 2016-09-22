@@ -71,8 +71,9 @@ body{
 
 .header-menu-box-list{
     display: inline-block;
-    font-size: 14px;
     padding-top: 6px;
+    font-size: 14px;
+
 
 }
 
@@ -119,11 +120,11 @@ body{
 
 .header-menu-box-list2-submenu{
     position: absolute;
-    background-color: #303030;
     width: 150px;
     display: none;
     top: 25px;
     box-shadow: 1px 1px 10px;
+    background-color: #303030;
 }
 
 .header-menu-box-list2-submenu-1{
@@ -132,11 +133,11 @@ body{
 
 .header-menu-box-list3-submenu{
     position: absolute;
-    background-color: #303030;
     width: 150px;
     display: none;
     top: 25px;
     box-shadow: 1px 1px 10px;
+    background-color: #303030;
 }
 
 .header-menu-box-list3-submenu-1{
@@ -145,11 +146,11 @@ body{
 
 .header-menu-box-list4-submenu{
     position: absolute;
-    background-color: #303030;
     width: 150px;
     display: none;
     top: 25px;
     box-shadow: 1px 1px 10px;
+    background-color: #303030;
 }
 
 .header-menu-box-list4-submenu-1{
