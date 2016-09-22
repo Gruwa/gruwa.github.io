@@ -6,11 +6,17 @@ body{
 
 .main{
     margin: 38px auto 0 auto;
-    width: 1018px;
-    height: 991px;
+    width: 1000px;
     font-family: tahoma;
-    background-image: url("../img/background2.png");
-    background-repeat: no-repeat;
+    box-shadow: 1px 1px 20px;
+
+}
+
+.main-dop{
+    margin-bottom: 30px;
+    border-bottom: 1px solid black;
+    background-color: white;
+
 }
 
 .clearfix:after {
@@ -41,8 +47,7 @@ body{
 
 .header-content-box{
     display: inline-block;
-    margin-left: 13px;
-    margin-top: 28px;
+    margin: 28px 0 10px 13px;
     color: #128aa7;
     text-align: center;
     text-decoration: underline;
@@ -73,7 +78,6 @@ body{
     display: inline-block;
     padding-top: 6px;
     font-size: 14px;
-
 
 }
 
@@ -183,9 +187,6 @@ body{
     /*content*/
 .content-main{
 
-
-
-
 }
 /*основа левой колонки*/
 .fon1{
@@ -218,12 +219,10 @@ body{
     overflow: hidden;
     position: relative;
     left: 80%;/*сумма смещения 1 и 2 фона*/
-    margin-left: 9px;
     background-color: #edeef0;
     border-left: 1px solid #c7cacf;
     border-right: 1px solid #c7cacf;
 }
-
 
 
 .centercolumn{
@@ -239,7 +238,6 @@ body{
 .rightcolumn{
     width: 20%;
     float: right;
-    margin-right: 9px;
     overflow: hidden;
     position: relative;
     left: 80%;
@@ -272,9 +270,14 @@ body{
     color: black;
 }
     /*footer*/
+.footer-main{
+    display: block;
+
+}
 
 .footer-copyright{
-    margin-top: 8px;
+    position: relative;
+    top: 20px;
     color: #dee7ee;
     font-family: tahoma;
     font-size: 12px;
