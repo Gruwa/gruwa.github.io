@@ -1,6 +1,7 @@
 body{
     background-image: url("../img/background.png");
     background-repeat: repeat-x;
+    background-color: #0c739f;
 }
 
 .main{
@@ -180,8 +181,7 @@ body{
 
     /*content*/
 .content-main{
-    width: 1000px;
-    margin: 0 auto;
+
 
 
 
@@ -213,7 +213,7 @@ body{
 
 .leftcolumn{
     width: 20%;
-    height: 532px;
+    /*height: 532px;*/
     float: left;
     overflow: hidden;
     position: relative;
@@ -238,7 +238,7 @@ body{
 
 .rightcolumn{
     width: 20%;
-    height: 532px;
+    /*height: 532px;*/
     float: right;
     margin-right: 9px;
     overflow: hidden;
@@ -273,13 +273,11 @@ body{
     color: black;
 }
     /*footer*/
-.footer-main{
+
+.footer-copyright{
+    margin-top: 8px;
+    color: #dee7ee;
+    font-family: tahoma;
     font-size: 12px;
-
-    }
-    .footer-copyright{
-        display: inline-block;
-        color: #dee7ee;
-        font-family: tahoma;
-
+    text-align: center;
     }
