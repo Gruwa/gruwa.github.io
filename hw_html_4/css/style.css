@@ -213,7 +213,6 @@ body{
 
 .leftcolumn{
     width: 20%;
-    /*height: 532px;*/
     float: left;
     overflow: hidden;
     position: relative;
@@ -238,7 +237,6 @@ body{
 
 .rightcolumn{
     width: 20%;
-    /*height: 532px;*/
     float: right;
     margin-right: 9px;
     overflow: hidden;
