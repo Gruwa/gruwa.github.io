@@ -7,16 +7,14 @@ body{
 .main{
     margin: 38px auto 0 auto;
     width: 1000px;
-    font-family: tahoma;
     box-shadow: 1px 1px 20px;
-
+    font-family: tahoma;
 }
 
 .main-dop{
-    margin-bottom: 30px;
     border-bottom: 1px solid black;
     background-color: white;
-
+    overflow: hidden;
 }
 
 .clearfix:after {
@@ -26,12 +24,14 @@ body{
 }
 
     /*header*/
+
 .header-logo{
         display: block;
         margin-left: 90px;
         margin-top: -28px;
         float: left;
     }
+
 .header-content{
         float: right;
         font-size: 12px;
@@ -39,8 +39,8 @@ body{
         line-height: 1.5;
         margin-top: 11px;
         margin-right: 40px;
-
     }
+
 .header-content-contacts{
     margin-left: 236px;
 }
@@ -65,8 +65,8 @@ body{
     margin: 0 auto;
     border-top: 1px solid #cacbcb;
     border-bottom: 1px solid black;
-    height: 28px;
     width: 1000px;
+    height: 28px;
     box-shadow: 1px 1px 10px;
     background-image: url("../img/panel.png");
     background-repeat: repeat-x;
@@ -90,18 +90,18 @@ body{
 }
 
 .header-menu-box-list2{
-    margin-left: 67px;
     position: relative;
+    margin-left: 67px;
 }
 
 .header-menu-box-list3{
-    margin-left: 63px;
     position: relative;
+    margin-left: 63px;
 }
 
 .header-menu-box-list4{
-    margin-left: 78px;
     position: relative;
+    margin-left: 78px;
 }
 
 .header-menu-box-list5{
@@ -118,56 +118,25 @@ body{
 
 .header-menu-box-list a:hover{
     color: #cacbcb;
-
-
 }
 
-.header-menu-box-list2-submenu{
+.list-submenu{
     position: absolute;
+    top: 20px;
     width: 150px;
     display: none;
-    top: 25px;
     box-shadow: 1px 1px 10px;
     background-color: #303030;
 }
 
-.header-menu-box-list2-submenu-1{
-    padding: 10px;
-}
-
-.header-menu-box-list3-submenu{
-    position: absolute;
-    width: 150px;
-    display: none;
-    top: 25px;
-    box-shadow: 1px 1px 10px;
-    background-color: #303030;
-}
-
-.header-menu-box-list3-submenu-1{
-    padding: 10px;
-}
-
-.header-menu-box-list4-submenu{
-    position: absolute;
-    width: 150px;
-    display: none;
-    top: 25px;
-    box-shadow: 1px 1px 10px;
-    background-color: #303030;
-}
-
+.header-menu-box-list2-submenu-1,
+.header-menu-box-list3-submenu-1,
 .header-menu-box-list4-submenu-1{
     padding: 10px;
 }
-.header-menu-box-list2:hover .header-menu-box-list2-submenu{
-    display: block;
-}
 
-.header-menu-box-list3:hover .header-menu-box-list3-submenu{
-    display: block;
-}
-
+.header-menu-box-list2:hover .header-menu-box-list2-submenu,
+.header-menu-box-list3:hover .header-menu-box-list3-submenu,
 .header-menu-box-list4:hover .header-menu-box-list4-submenu{
     display: block;
 }
@@ -183,34 +152,33 @@ body{
     top: 13px;
 }
 
-
     /*content*/
-.content-main{
 
-}
 /*основа левой колонки*/
 .fon1{
     width: 100%;
     float: left;
     position: relative;
     right: 60%;/*отодвигаем фон для средней колонки*/
-
+    border-right: 1px solid #c7cacf;
+    background-color: #edeef0;
 }
-/*основа центральой колонки*/
+
+/*основа центральной колонки*/
 .fon2{
     width: 100%;
     float: left;
     position: relative;
     right: 20%; /*отодвигаем фон для правой колонки*/
-
-
+    background-color: white;
+    border-right: 1px solid #c7cacf;
 }
+
 /*основа правой колонки*/
 .fon3{
     width: 100%;
     float: left;
-
-
+    background-color: #edeef0;
 }
 
 .leftcolumn{
@@ -219,11 +187,7 @@ body{
     overflow: hidden;
     position: relative;
     left: 80%;/*сумма смещения 1 и 2 фона*/
-    background-color: #edeef0;
-    border-left: 1px solid #c7cacf;
-    border-right: 1px solid #c7cacf;
 }
-
 
 .centercolumn{
     width: 52%;
@@ -231,25 +195,18 @@ body{
     overflow: hidden;
     position: relative;
     left: 80%;
-
-
 }
 
 .rightcolumn{
     width: 20%;
-    float: right;
+    float: left;
     overflow: hidden;
     position: relative;
-    left: 80%;
-    background-color: #edeef0;
-    border-left: 1px solid #c7cacf;
-    border-right: 1px solid #c7cacf;
-
+    left: 85%;
 }
 
-
 .column-info{
-        padding: 12px 0 0 15px;
+        margin: 12px 0 0 15px;
         text-align: justify;
 
 }
@@ -269,15 +226,17 @@ body{
     text-decoration: none;
     color: black;
 }
+
     /*footer*/
+
 .footer-main{
     display: block;
+    margin: 15px 0;
 
 }
 
 .footer-copyright{
     position: relative;
-    top: 20px;
     color: #dee7ee;
     font-family: tahoma;
     font-size: 12px;
