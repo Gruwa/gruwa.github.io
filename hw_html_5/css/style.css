@@ -1,27 +1,26 @@
 body{
     background-color: rgb(40, 40, 40);
+    color: #fff;
     font-family: "helveticaneuecyr", sans-serif;
     font-size: 14px;
-    color: #fff;
 }
 
 .main{
     width: 1215px;
     height: 1063px;
     margin: 0 auto;
+    margin-bottom: 20px;
     background-color: rgb(173, 200, 209);
     background-image: url("../img/bg.png");
     background-repeat: repeat-x;
-    margin-bottom: 20px;
 }
 
 /*header*/
 
 .header-menu{
+    position: relative;
     height: 36px;
     background-image: url("../img/menu.png");
-    position: relative;
-
 }
 
 .header-menu-box{
@@ -33,10 +32,10 @@ body{
 
 .header-menu-box-list{
     display: inline-block;
-    line-height: 35.5px;
     padding: 0 10px 0 14px;
     border-left: 1px solid transparent;
     border-right: 1px solid transparent;
+    line-height: 36px;
 }
 
 .header-menu-box-list a{
@@ -49,11 +48,10 @@ body{
 }
 
 .header-menu-box-list7{
-    background-image: url("../img/menu_list7.png");
-    background-repeat: repeat-x;
     border-left:1px solid #459ad4;
     border-right: 1px solid #459ad4;
-
+    background-image: url("../img/menu_list7.png");
+    background-repeat: repeat-x;
 }
 
 .header-menu-box-list7 a{
@@ -68,8 +66,8 @@ body{
 
 .img-list6{
     position: absolute;
-    margin-top: 8px;
     right: 346px;
+    margin-top: 8px;
 }
 
 .header-menu-box-list5{
@@ -88,9 +86,131 @@ body{
 /*Content*/
 
 .content-main{
-    position: relative;
+    width: 1215px;
+    height: 815px;
+    padding-top: 213px;
+    background-image: url("../img/fon_foto.png");
 }
 
-.content-main-foto{
+.content-main-box{
+    width: 560px;
+    height: 613px;
+    margin: 0 auto;
+    background-color: rgb(201, 203, 189);
+    background-color: rgba(201, 203, 189, 0.5);
+}
+
+.content-main-box-head{
+    width: 560px;
+    height: 62px;
+    margin-bottom: 2px;
+    background-color: #000;
+    background-color: rgba(0, 0, 0, 0.5);
+    line-height: 62px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.content-main-box-block{
+    position: relative;
+    width: 560px;
+    height: 549px;
+    background-color: #000;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.content-main-box-block-facebook{
     position: absolute;
+    top: 36px;
+    left: 142px;
+    cursor: pointer;
+}
+
+.content-main-box-block-hrou{
+    position: absolute;
+    top: 103px;
+    left: 142px;
+}
+
+.content-main-box-block-hr{
+    width: 123px;
+    border-top: 1px solid #666;
+    border-bottom: 1px solid #000;
+    border-left:  1px solid #666;
+    border-right:  1px solid #666;
+}
+
+.content-main-box-block-ou{
+    margin: 0 3px 0 3px;
+    color: #999;
+    font-size: 14px;
+}
+
+.content-main-box-block-hr,
+.content-main-box-block-ou {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.content-main-box-blockcontent-main-box-block-form{
+    position: absolute;
+    top: 145px;
+    left: 142px;
+    display: block;
+}
+
+.content-main-box-blockcontent-main-box-block-form-text{
+    width: 274px;
+    height: 35px;
+    padding-left: 19px;
+    border: none;
+    border-bottom: 1px solid #484948;
+    margin-bottom: 16px;
+    background-color: #101010;
+    font-size: 14px;
+    font-family: "helveticaneuecyr", sans-serif;
+}
+
+.content-main-box-blockcontent-main-box-block-form-text:focus{
+    border: 1px solid #689bcc;
+    box-shadow: 0 0 15px #689bcc;
+    background-color: #1b5288;
+    color: #fffcfc;
+}
+
+.content-main-box-blockcontent-main-box-block-form-6{
+    margin-bottom: 24px;
+    font-family: "helveticaneuecyr", sans-serif;
+    font-size: 14px;
+}
+
+.content-main-box-blockcontent-main-box-block-form-6 p,
+.content-main-box-blockcontent-main-box-block-form-6 input{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.content-main-box-blockcontent-main-box-block-form-7{
+    width: 149px;
+    height: 34px;
+    border: 1px solid #459ad4;
+    border-radius: 3px;
+    margin-left: 63px;
+    box-shadow: 0 0 15px #459ad4;
+    background-image: url("../img/create.png");
+    background-repeat: repeat-x;
+    color: #fff;
+    font-family: "helveticaneuecyr", sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.content-main-box-blockcontent-main-box-block-footer{
+    position: absolute;
+    width: 350px;
+    top: 510px;
+    left: 110px;
+    text-align: center;
+    font-size: 11px;
+    line-height: 16px;
 }
