@@ -163,7 +163,7 @@ body{
     width: 274px;
     height: 35px;
     padding-left: 19px;
-    border: none;
+    border: 1px solid transparent;
     border-bottom: 1px solid #484948;
     margin-bottom: 16px;
     background-color: #101010;
