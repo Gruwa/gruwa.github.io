@@ -153,10 +153,9 @@ body{
 }
 
 .content-main-box-blockcontent-main-box-block-form{
-    position: absolute;
-    top: 145px;
-    left: 142px;
     display: block;
+    padding-top: 145px;
+    padding-left:  142px;
 }
 
 .content-main-box-blockcontent-main-box-block-form-text{
@@ -188,6 +187,12 @@ body{
 .content-main-box-blockcontent-main-box-block-form-6 input{
     display: inline-block;
     vertical-align: middle;
+    white-space: pre-wrap;
+
+}
+
+.content-main-box-blockcontent-main-box-block-form-6 p{
+    width: 274px;
 }
 
 .content-main-box-blockcontent-main-box-block-form-7{
