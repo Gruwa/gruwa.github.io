@@ -14,12 +14,13 @@ body{
     height: 32px;
     padding-left: 7px;
     margin-top: 18px;
-    /*background-color: silver;*/
-
 
 }
 
-
+.main-header div{
+    display: inline-block;
+    vertical-align: middle;
+}
 
 .main-header-img{
     position: relative;
@@ -33,7 +34,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0c3357', end
     border-radius: 22px;
 
 }
-
 
 .main-header-img img{
     position: absolute;
@@ -146,6 +146,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0c3357', end
 
     width: 74px;
     height: 19px;
+
     margin-left: 17px;
     box-shadow: 0 0 5px;
     border-radius: 5px;
@@ -153,15 +154,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0c3357', end
 
 .main-header-hll a{
     margin-left: 9px;
-}
-
-.main-header-box {
-    vertical-align: middle;
-
-}
-
-.main-header-box li{
-    display: inline-block;
 }
 
 .main-foto{
