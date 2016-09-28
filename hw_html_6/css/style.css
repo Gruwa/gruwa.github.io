@@ -15,15 +15,16 @@ body{
     padding-left: 7px;
     margin-top: 18px;
     background-color: silver;
-    line-height: 32px;
+    padding-top: 10px;
 
 }
+
+
 
 .main-header-img{
     position: relative;
     width: 22px;
     height: 22px;
-    display: inline-block;
     float: left;
     background: #0c3357;
 background: -moz-linear-gradient(top,  #0c3357 0%, #236988 100%);
@@ -32,7 +33,11 @@ background: linear-gradient(to bottom,  #0c3357 0%,#236988 100%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0c3357', endColorstr='#236988',GradientType=0 );
     border-radius: 22px;
 
+
+
+
 }
+
 
 .main-header-img img{
     position: absolute;
