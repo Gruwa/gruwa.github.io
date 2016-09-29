@@ -173,6 +173,7 @@ body{
     border-radius: 2px;
     padding-left: 112px;
     padding-right: 14px;
+
 }
 
 .main-nav-box,
@@ -242,4 +243,21 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f6787', end
     color: #0d5a8f;
     margin-right: 15px;
     margin-left: 11px;
+}
+
+.main-foundavto{
+    width: 388px;
+    height: 132px;
+    float: left;
+    border: 1px solid #9c9c9d;
+    box-shadow: 0 4px 6px #686868;
+    border-radius: 15px;
+    margin: 15px 0 12px 5px;
+    padding-left: 17px;
+    padding-right: 13px;
+}
+
+.main-foundavto-box1{
+    width: 100px;
+    height: 15px;
 }
