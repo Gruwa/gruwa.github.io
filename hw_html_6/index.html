@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="css/reset.css" media="screen" title="no title">
         <link rel="stylesheet" href="css/style.css" media="screen" title="no title">
-        <title>hw_html_5</title>
+        <title>hw_html_6</title>
     </head>
     <body>
         <div class="main">
@@ -36,8 +36,8 @@
                     </ul>
                 </div>
                 <div class="main-nav-customs">
-                    <div class="main-nav-customs-trash"><a href="#"><img src="img/trash.png" alt="" /></a>
-                    <p>товаров:<span>0</span>на сумму:<span>0.00 грн.</span></p></div>
+                    <div class="main-nav-customs-trash"><a href="#" class="main-nav-customs-trash-img"><img src="img/trash.png" alt="" /></a>
+                    <p><span class="main-nav-customs-trash-span1">товаров:</span><span class="main-nav-customs-trash-span2">0</span><span class="main-nav-customs-trash-span3">на сумму:</span><span class="main-nav-customs-trash-span4">0.00 грн.</span></p></div>
                 </div>
             </nav>
             <div class="main-foundavto clearfix">
@@ -126,11 +126,46 @@
                                 </label>
                                 </div>
                         </div>
-                    <span class="main-found-search"></span>
+                    <label><a href="#" class="main-found-search">поиск...</a> <input type="button" name="name11" value="" class="main-foundavto-button"></label>
                 </form>
             </div>
-            <div class="">
+            <div class="main-foundtire clearfix">
+                    <span class="main-foundtire-title">поиск шин</span>
+                    <form action="index.html" method="post" name="ptire">
+                            <div class="clearfix"><label>
+                            <div class="main-foundavto-text"><span class="main-foundavto-word1">Марка</span></div>
+                            <select class="main-foundtire-select1 main-foundtire-select" name="name12">
+                            <option></option>
+                            <option>Ширина1</option>
+                            <option>Ширина2</option>
+                            <option>Ширина3</option>
+                            </select>
+                            <span class="main-foundtire-slesh">/</span>
+                            <select class="main-foundtire-select2 main-foundtire-select" name="name13">
+                            <option></option>
+                            <option>Высота1</option>
+                            <option>Высота2</option>
+                            <option>Высота3</option>
+                            </select>
+                            </label>
+                            </div>
+                            <div class="clearfix"><label><div class="main-foundavto-text"><span class="main-foundavto-word1">R</span></div>
+                            <select class="main-foundtire-select3 main-foundtire-select" name="name13">
+                            <option>12</option>
+                            <option>R1</option>
+                            <option>R2</option>
+                            <option>R3</option>
+                            </select>
+                            </label>
+                            </div>
+                            <div class="clearfix"><div class="main-foundavto-text"><span class="main-foundavto-word1">Год выпуска</span></div>
+                            <label><input type="checkbox" name="name14" value=""><span class="main-foundavto-word1">лето</span></label>
+                            <label><input type="checkbox" name="name15" value=""><span class="main-foundavto-word1">зима</span></label>
+                            <label><input type="checkbox" name="name16" value=""><span class="main-foundavto-word1">всесез</span></label>
+                            </div>
 
+                        <label><a href="#" class="main-found-search">поиск...</a> <input type="button" name="name11" value="" class="main-foundavto-button"></label>
+                    </form>
             </div>
             <div class="">
 
