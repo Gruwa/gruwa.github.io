@@ -307,7 +307,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f6787', end
     color: #154468;
     text-align: center;
     display: block;
-    margin-bottom: -7px;
+    margin-bottom: -9px;
+    letter-spacing: 1.2px;
+    margin-right: 10px;
 }
 
 .main-foundavto-box1{
@@ -327,15 +329,20 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f6787', end
     color: #154468;
     margin-bottom: 12px;
     display: block;
+    margin-top: 1px;
+    margin-left: 3px;
+    letter-spacing: 1.3px;
 }
 
 .main-foundavto-box-title-box2{
     float: right;
+    margin-right: 4px;
+    margin-top: -1px;
 }
 
 .main-foundavto-select{
     width: 100px;
-    height: 15px;
+    height: 16px;
     /*for WebKit*/
     -webkit-appearance: none;
     /* for FF */
@@ -357,9 +364,86 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f6787', end
     cursor: pointer;
 }
 
+.main-foundavto-select1{
+    margin-top: -6px;
+}
+
+.main-foundavto-select2{
+    margin-top: 1px;
+}
+
+.main-foundavto-model-word1{
+    letter-spacing: 0.4px;
+}
+
+.main-foundavto-model-word2{
+    letter-spacing: 0.4px;
+}
+
 .main-foundavto-select3{
-    width: 53px;
-    margin-right: 47px;
+    width: 58px;
+    margin-right: 42px;
+    margin-top: 1px;
+}
+
+.main-foundavto-year-word1{
+    letter-spacing: 0.4px;
+}
+
+.main-foundavto-year-word2{
+    letter-spacing: 0.9px;
+}
+
+.main-foundavto-select4{
+    margin-top: 1px;
+}
+
+.main-foundavto-kompl-word1{
+    letter-spacing: 0.4px;
+}
+
+.main-foundavto-select5{
+    width: 102px;
+    margin-right: 0px;
+    margin-top: -6px;
+}
+
+.main-foundavto-select6{
+    width: 102px;
+    margin-right: 0px;
+    margin-top: 1px;
+}
+
+.main-foundavto-type-word1{
+        letter-spacing: 0.4px;
+}
+
+.main-foundavto-type-word2{
+        letter-spacing: 0.8px;
+}
+
+.main-foundavto-select7{
+    width: 58px;
+    margin-right: 44px;
+    margin-top: 1px;
+}
+
+.main-foundavto-tire-year-word1{
+        letter-spacing: 0.4px;
+}
+
+.main-foundavto-tire-year-word2{
+        letter-spacing: 0.8px;
+}
+
+.main-foundavto-select8{
+    width: 102px;
+    margin-right: 0px;
+    margin-top: 1px;
+}
+
+.main-foundavto-tire-kompl-word1{
+        letter-spacing: 0.2px;
 }
 
 .main-foundavto-text{
@@ -367,6 +451,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f6787', end
     float: left;
     line-height: 7px;
     margin-bottom: 5px;
+    letter-spacing: 0.2px;
 }
 
 .main-foundavto-select::-ms-expand {
@@ -398,18 +483,20 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f6787', end
     color: #154467;
     float: right;
     cursor: pointer;
+    margin-top: 4px;
+    margin-right: -2px;
 }
 
 .main-foundtire{
     box-sizing: border-box;
-    width: 191px;
+    width: 192px;
     height: 135px;
     float: left;
     border: 1px solid #9c9c9d;
     box-shadow: 0 4px 6px #686868;
     border-radius: 15px;
-    margin: 15px 0 12px 5px;
-    padding-left: 11px;
+    margin: 14px 0 12px 15px;
+    padding-left: 6px;
     padding-right: 13px;
 
 
@@ -420,6 +507,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f6787', end
     font-size: 12px;
     font-weight: bolder;
     color: #114165;
+    margin-left: 4px;
+    letter-spacing: 1px;
 }
 
 .main-foundtire-select{
@@ -446,8 +535,32 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f6787', end
      float: right;
     cursor: pointer;
 }
+
+.main-foundtire-text{
+    display: block;
+    float: left;
+    line-height: 7px;
+    margin-bottom: 5px;
+    letter-spacing: 0.2px;
+    font-family: "Lucida Sans Unicode", sans-serif;
+    font-size: 10px;
+    margin-top: 16px;
+    margin-left: 7px;
+}
+
+.main-foundtire-select1{
+    margin-top: 6px;
+    width: 54px;
+}
+
+.main-foundtire-select2{
+    margin-top: 6px;
+    width: 52px;
+}
+
 .main-foundtire-slesh{
     float: right;
     margin-left: 5px;
     margin-right: 5px;
+    margin-top: 9px;
 }
