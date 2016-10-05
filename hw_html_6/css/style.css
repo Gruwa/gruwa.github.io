@@ -508,13 +508,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f6787', end
     font-weight: bolder;
     color: #114165;
     margin-left: 4px;
+    margin-top: 2px;
     letter-spacing: 1px;
+    display: block;
 }
 
 .main-foundtire-select{
     box-sizing: border-box;
     width: 50px;
-    height: 16px;
+    height: 17px;
     /*for WebKit*/
     -webkit-appearance: none;
     /* for FF */
@@ -553,8 +555,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f6787', end
 }
 
 .main-foundtire-select1{
-    margin-top: 6px;
-    width: 54px;
+    margin-top: 7px;
+    width: 52px;
 }
 
 .main-foundtire-select2{
@@ -580,4 +582,54 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f6787', end
     margin-left: 39px;
     font-size: 11px;
     font-family: Arial, sans-serif;
+}
+
+.main-foundtire-season-word1{
+    margin-top: 4px;
+    font-family: "Lucida Sans Unicode", sans-serif;
+    font-size: 10px;
+    color: #000;
+}
+
+.main-foundtire-season-summer{
+    float: right;
+    margin-right: 79px;
+
+}
+
+.main-foundtire-season-checkbox-span{
+    font-family: "Lucida Sans Unicode", sans-serif;
+    font-size: 12px;
+    color: #000;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 0px;
+}
+
+.main-foundtire-season-checkbox{
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 0px;
+    margin-top: 3px;
+}
+
+.main-foundtire-season-checkbox2{
+
+}
+
+.main-foundtire-season-checkbox3{
+
+}
+
+.main-foundtire-season-winter{
+    float: right;
+    margin-right: 78px;
+    margin-top: -5px;
+
+}
+
+.main-foundtire-season-all{
+    float: right;
+    margin-right: 78px;
+    margin-top: -5px;
 }
