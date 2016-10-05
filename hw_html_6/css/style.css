@@ -404,13 +404,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f6787', end
 
 .main-foundavto-select5{
     width: 102px;
-    margin-right: 0px;
     margin-top: -6px;
 }
 
 .main-foundavto-select6{
     width: 102px;
-    margin-right: 0px;
     margin-top: 1px;
 }
 
@@ -438,7 +436,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f6787', end
 
 .main-foundavto-select8{
     width: 102px;
-    margin-right: 0px;
     margin-top: 1px;
 }
 
@@ -479,12 +476,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f6787', end
     font-family: Arial, sans-serif;
     font-style: italic;
     text-decoration: underline;
-    text-transform: uppercase;
     color: #154467;
     float: right;
     cursor: pointer;
-    margin-top: 4px;
-    margin-right: -2px;
+    margin-top: 2px;
+    margin-right: 8px;
 }
 
 .main-foundtire{
@@ -530,7 +526,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f6787', end
      border-top: 1px solid #949494;
      border-left: 1px solid #949494;
      box-shadow: inset 1px 1px 3px #b0b0b0;
-     background-image: url('../img/arrow.png');
+     background-image: url(../img/arrow.png);
      background-repeat: no-repeat;
      background-position: right center;
      margin-bottom: 5px;
@@ -548,10 +544,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f6787', end
     font-size: 10px;
     margin-top: 16px;
     margin-left: 7px;
-}
-
-.main-foundtire-word1{
-
 }
 
 .main-foundtire-select1{
@@ -603,23 +595,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f6787', end
     color: #000;
     display: inline-block;
     vertical-align: middle;
-    margin-right: 0px;
+
 }
 
 .main-foundtire-season-checkbox{
     display: inline-block;
     vertical-align: middle;
-    margin-right: 0px;
     margin-top: 3px;
 }
 
-.main-foundtire-season-checkbox2{
-
-}
-
-.main-foundtire-season-checkbox3{
-
-}
 
 .main-foundtire-season-winter{
     float: right;
@@ -630,6 +614,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f6787', end
 
 .main-foundtire-season-all{
     float: right;
-    margin-right: 78px;
-    margin-top: -5px;
+    margin-right: 69px;
+    margin-top: -6px;;
+}
+
+.main-foundtire-search{
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    font-style: italic;
+    text-decoration: underline;
+    color: #154467;
+    float: right;
+    cursor: pointer;
+    margin-top: -6px;
+    margin-right: 6px;
+
 }
