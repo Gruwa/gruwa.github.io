@@ -537,22 +537,21 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f6787', end
 .main-foundtire-text{
     display: block;
     float: left;
-    line-height: 7px;
     margin-bottom: 5px;
     letter-spacing: 0.2px;
     font-family: "Lucida Sans Unicode", sans-serif;
     font-size: 10px;
     margin-top: 16px;
-    margin-left: 7px;
+    margin-left: 6px;
 }
 
 .main-foundtire-select1{
     margin-top: 7px;
-    width: 52px;
+    width: 53px;
 }
 
 .main-foundtire-select2{
-    margin-top: 6px;
+    margin-top: 8px;
     width: 52px;
 }
 
@@ -565,19 +564,20 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f6787', end
 
 .main-foundtire-select3{
     margin-right: 74px;
-    margin-top: 2px;
-    width: 45px;
+    margin-top: 1px;
+    width: 46px;
 }
 
 .main-foundtire-r-word1{
-    margin-top: 9px;
-    margin-left: 39px;
+    margin-top: 5px;
+    margin-left: 38px;
     font-size: 11px;
     font-family: Arial, sans-serif;
 }
 
 .main-foundtire-season-word1{
-    margin-top: 4px;
+    margin-top: 1px;
+    margin-left: 7px;
     font-family: "Lucida Sans Unicode", sans-serif;
     font-size: 10px;
     color: #000;
@@ -585,9 +585,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f6787', end
 
 .main-foundtire-season-summer{
     float: right;
-    margin-right: 79px;
+    margin-right: 80px;
+    margin-top: -1px;
 
 }
+
 
 .main-foundtire-season-checkbox-span{
     font-family: "Lucida Sans Unicode", sans-serif;
@@ -598,24 +600,43 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f6787', end
 
 }
 
+.main-foundtire-season-summer-span{
+    margin-left: -3px;
+    margin-top: -2px;
+}
+
+.main-foundtire-season-winter-span{
+    margin-top: -2px;
+    margin-left: -4px;
+}
+
+.main-foundtire-season-all-span{
+    margin-left: -3px;
+    margin-top: -2px;
+}
+
 .main-foundtire-season-checkbox{
     display: inline-block;
     vertical-align: middle;
     margin-top: 3px;
 }
 
+.main-foundtire-season-checkbox1{
+
+}
+
 
 .main-foundtire-season-winter{
     float: right;
-    margin-right: 78px;
-    margin-top: -5px;
+    margin-right: 79px;
+    margin-top: -6px;
 
 }
 
 .main-foundtire-season-all{
     float: right;
     margin-right: 69px;
-    margin-top: -6px;;
+    margin-top: -5px;;
 }
 
 .main-foundtire-search{
@@ -629,4 +650,90 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f6787', end
     margin-top: -6px;
     margin-right: 6px;
 
+}
+.main-founddisk{
+    width: 266px;
+    height: 133px;
+    float: right;
+    box-sizing: border-box;
+    border: 1px solid #9c9c9d;
+    box-shadow: 0 4px 6px #686868;
+    border-radius: 16px;
+    margin: 10px 7px 12px 0;
+    padding-left: 8px;
+    padding-right: 13px;
+}
+
+.main-founddisk-title{
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bolder;
+    color: #114165;
+    margin-top: 3px;
+    letter-spacing: 2px;
+    display: block;
+
+}
+
+.main-founddisk-column1{
+    box-sizing: border-box;
+    width: 166px;
+    height: 106px;
+    border-right: 1px solid #bdc6ca;
+}
+
+.main-founddisk-column1-text{
+    float: left;
+    margin-left: 7px;
+    margin-top: 4px;
+    letter-spacing: 0.7px;
+}
+
+.main-founddisk-column1-word1{
+    font-size: 10px;
+    font-family: "Lucida Sans Unicode", sans-serif;
+    color: #000;
+}
+
+.main-founddisk-column1-word2{
+    font-size: 9px;
+    font-family: "Lucida Sans Unicode", sans-serif;
+    color: #77858b;
+}
+
+.main-founddisk-column1-select1{
+    margin-right: 9px;
+    margin-top: 5px;
+    width: 58px;
+    height: 17px;
+    font-size: 11px;
+    font-family: "Arial", sans-serif;
+    color: #000;
+    letter-spacing: 1px;
+    padding-left: 2px;
+}
+
+.main-founddisk-column1-text-2{
+    float: left;
+    margin-left: 7px;
+    margin-top: -7px;
+    letter-spacing: 0.7px;
+}
+
+.main-founddisk-column1-word2-2{
+    display: block;
+    margin-top: -1px;
+}
+
+
+.main-founddisk-column1-select2{
+    margin-right: 17px;
+    margin-top: 9px;
+    width: 50px;
+    height: 17px;
+    font-size: 11px;
+    font-family: "Arial", sans-serif;
+    color: #000;
+    letter-spacing: 1px;
+    padding-left: 4px;
 }
