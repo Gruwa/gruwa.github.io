@@ -11,6 +11,7 @@ body{
 .main{
     width: 909px;
     margin: 0 auto;
+    overflow: hidden;
 }
 
 /*header*/
@@ -652,14 +653,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f6787', end
 
 }
 .main-founddisk{
-    width: 266px;
+    width: 268px;
     height: 133px;
     float: right;
     box-sizing: border-box;
     border: 1px solid #9c9c9d;
     box-shadow: 0 4px 6px #686868;
     border-radius: 16px;
-    margin: 10px 7px 12px 0;
+    margin: 10px 5px 12px 0;
     padding-left: 8px;
     padding-right: 13px;
 }
@@ -677,9 +678,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f6787', end
 
 .main-founddisk-column1{
     box-sizing: border-box;
-    width: 166px;
+    width: 168px;
     height: 106px;
     border-right: 1px solid #bdc6ca;
+    float: left;
 }
 
 .main-founddisk-column1-text{
@@ -702,7 +704,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f6787', end
 }
 
 .main-founddisk-column1-select1{
-    margin-right: 9px;
+    margin-right: 11px;
     margin-top: 5px;
     width: 58px;
     height: 17px;
@@ -727,7 +729,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f6787', end
 
 
 .main-founddisk-column1-select2{
-    margin-right: 17px;
+    margin-right: 19px;
     margin-top: 9px;
     width: 50px;
     height: 17px;
@@ -736,4 +738,159 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f6787', end
     color: #000;
     letter-spacing: 1px;
     padding-left: 4px;
+}
+
+.main-founddisk-column1-text-3{
+    float: left;
+    margin-left: 7px;
+    margin-top: -8px;
+    letter-spacing: 0.7px;
+}
+
+.main-founddisk-column1-word2-3{
+    display: block;
+    margin-top: -1px;
+    line-height: 10px;
+}
+
+.main-founddisk-column1-select3{
+    margin-right: 11px;
+    margin-top: 10px;
+    width: 58px;
+    height: 17px;
+    font-size: 11px;
+    font-family: "Arial", sans-serif;
+    color: #000;
+    letter-spacing: 1px;
+    padding-left: 2px;
+}
+
+.main-founddisk-column2{
+    box-sizing: border-box;
+    width: 75px;
+    height: 106px;
+    float: right;
+}
+
+.main-founddisk-column2-text{
+    float: left;
+    margin-left: 7px;
+}
+
+.main-founddisk-column2-word1{
+    margin-top: 6px;
+    letter-spacing: 1.2px;
+    display: block;
+    text-transform: uppercase;
+    font-size: 9px;
+    font-family: "Lucida Sans Unicode", sans-serif;
+    color: #000;
+}
+
+.main-founddisk-column2-word2{
+    display: block;
+    font-size: 8px;
+    font-family: "Lucida Sans Unicode", sans-serif;
+    color: #77858b;
+    letter-spacing: 0.6px;
+}
+
+.main-founddisk-column2-select1{
+    margin-right: 8px;
+    margin-top: 3px;
+    width: 58px;
+    height: 17px;
+    font-size: 11px;
+    font-family: "Arial", sans-serif;
+    color: #000;
+    letter-spacing: 1px;
+    padding-left: 2px;
+}
+
+
+
+.main-founddisk-column2-word1-2{
+    margin-top: 3px;
+    margin-left: 1px;
+    letter-spacing: 1.2px;
+    display: block;
+    text-transform: uppercase;
+    font-size: 9px;
+    font-family: "Lucida Sans Unicode", sans-serif;
+    color: #000;
+}
+
+.main-founddisk-column2-word2-2{
+    display: block;
+    font-size: 8px;
+    font-family: "Lucida Sans Unicode", sans-serif;
+    color: #77858b;
+    letter-spacing: 0.6px;
+}
+
+.main-founddisk-column2-select2{
+    margin-right: 8px;
+    margin-top: 3px;
+    width: 58px;
+    height: 17px;
+    font-size: 11px;
+    font-family: "Arial", sans-serif;
+    color: #000;
+    letter-spacing: 1px;
+    padding-left: 2px;
+}
+
+.main-founddisk-search{
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    font-style: italic;
+    text-decoration: underline;
+    color: #154467;
+    float: right;
+    cursor: pointer;
+    margin-top: 3px;
+    margin-right: 5px;
+    display: block;
+    letter-spacing: 0.3px;
+}
+
+.fon-leftColumn {  /* фон для левой колонки (синий) */
+    width: 100%;
+    background: #3d2af0;
+    float: left;
+    position: relative;
+    right: 57.8%; /* обнажаем красный фон для центральной колонки. 30% - ширина центральной колонки */
+}
+.fon-centerColumn {/* фон для центральной колонки (красный) */
+    width: 100%;
+    background: #e34456;
+    float: left;
+    position: relative;
+    right: 21.1%; /* обнажаем желтый фон для правой колонки. 40% - ширина правой колонки */
+}
+.fon-rightColumn {/* фон для правой колонки (желтый) */
+    width: 100%;
+    background: #e3e244;
+    float: left;
+}
+.leftColumn {
+    width: 21.1%;
+    float: left;
+    overflow: hidden; /* страховка от ломки верстки объектами шире размера колонки-родителя */
+    position:relative;
+    left:78.9%; /* возвращаем колонки с контентом на свои позиции. 70% - сумма смещений оберток fon1 и fon2 */
+}
+.centerColumn {
+    width: 57.8%;
+    float: left;
+    overflow: hidden;
+    position:relative;
+    left:78.9%;
+}
+.rightColumn {
+    width: 21.1%;
+    float: left;
+    overflow: hidden;
+    position:relative;
+    left:78.9%;
 }
