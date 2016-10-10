@@ -622,9 +622,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f6787', end
     margin-top: 3px;
 }
 
-.main-foundtire-season-checkbox1{
-
-}
 
 
 .main-foundtire-season-winter{
@@ -886,7 +883,25 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f6787', end
     overflow: hidden;
     position:relative;
     left:78.9%;
+    border-radius: 3px;
+    background-image: -moz-linear-gradient( 90deg, rgb(35,75,93) 0%, rgb(118,141,151) 57%, rgb(201,207,209) 100%);
+    background-image: -webkit-linear-gradient( 90deg, rgb(35,75,93) 0%, rgb(118,141,151) 57%, rgb(201,207,209) 100%);
+    background-image: -ms-linear-gradient( 90deg, rgb(35,75,93) 0%, rgb(118,141,151) 57%, rgb(201,207,209) 100%);
+
+
 }
+
+.centerColumn-main{
+    display: table;
+    box-sizing: border-box;
+    width: 475px;
+    margin: 15px 29px 28px 23px;
+    
+
+}
+
+
+
 .rightColumn {
     width: 21.1%;
     float: left;
