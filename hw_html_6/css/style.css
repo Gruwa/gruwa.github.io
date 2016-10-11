@@ -896,8 +896,84 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f6787', end
     box-sizing: border-box;
     width: 475px;
     margin: 15px 29px 28px 23px;
-    
 
+
+
+}
+.centerColumn-main-line{
+    display: table-row;
+}
+
+.centerColumn-main-line1-box{
+    display: table-cell;
+    width: 142px;
+    height: 177px;
+    margin-left: 24px;
+    box-sizing: border-box;
+    background-color: white;
+    border: 1px solid black;
+    
+}
+
+._01 {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 1000px;
+  height: 1310px;
+  z-index: 125;
+}
+._90_00_грн_ {
+  font-size: 17.546px;
+  font-family: "Arial";
+  color: rgb(17, 65, 101);
+  font-weight: bold;
+  font-style: italic;
+  line-height: 0.627;
+  text-align: center;
+  -moz-transform: matrix( 0.91187526419384,0,0,0.91187526419384,0,0);
+  -webkit-transform: matrix( 0.91187526419384,0,0,0.91187526419384,0,0);
+  -ms-transform: matrix( 0.91187526419384,0,0,0.91187526419384,0,0);
+  position: absolute;
+  left: 292.15px;
+  top: 681.723px;
+  z-index: 124;
+}
+.Goodyear__Ultra_Grip_Extreme {
+  font-size: 16px;
+  font-family: "Lucida Sans Unicode";
+  color: rgb(32, 105, 136);
+  line-height: 0.875;
+  text-align: center;
+  -moz-transform: matrix( 0.91187526419384,0,0,0.91187526419384,0,0);
+  -webkit-transform: matrix( 0.91187526419384,0,0,0.91187526419384,0,0);
+  -ms-transform: matrix( 0.91187526419384,0,0,0.91187526419384,0,0);
+  position: absolute;
+  left: 266.984px;
+  top: 520.716px;
+  z-index: 123;
+}
+.Layer_5 {
+  background-image: url("Layer 5.png");
+  position: absolute;
+  left: 289px;
+  top: 542px;
+  width: 74px;
+  height: 118px;
+  z-index: 122;
+}
+.Shape_18 {
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(164, 174, 177);
+  border-radius: 7px;
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  left: 256px;
+  top: 534px;
+  width: 142px;
+  height: 131px;
+  z-index: 121;
 }
 
 
