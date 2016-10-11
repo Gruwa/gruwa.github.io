@@ -904,7 +904,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f6787', end
     display: table-row;
 }
 
-.centerColumn-main-line1-box{
+.centerColumn-main-line-box{
     display: table-cell;
     width: 142px;
     height: 177px;
@@ -912,7 +912,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f6787', end
     box-sizing: border-box;
     background-color: white;
     border: 1px solid black;
-    
+
 }
 
 ._01 {
