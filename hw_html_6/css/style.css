@@ -884,97 +884,115 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f6787', end
     position:relative;
     left:78.9%;
     border-radius: 3px;
-    background-image: -moz-linear-gradient( 90deg, rgb(35,75,93) 0%, rgb(118,141,151) 57%, rgb(201,207,209) 100%);
-    background-image: -webkit-linear-gradient( 90deg, rgb(35,75,93) 0%, rgb(118,141,151) 57%, rgb(201,207,209) 100%);
-    background-image: -ms-linear-gradient( 90deg, rgb(35,75,93) 0%, rgb(118,141,151) 57%, rgb(201,207,209) 100%);
-
-
-}
-
-.centerColumn-main{
-    display: table;
-    box-sizing: border-box;
-    width: 475px;
-    margin: 15px 29px 28px 23px;
-
-
+    background: #e5e7e8;
+    background: -moz-linear-gradient(top,  #e5e7e8 0%, #93a7b0 100%);
+    background: -webkit-linear-gradient(top,  #e5e7e8 0%,#93a7b0 100%);
+    background: linear-gradient(to bottom,  #e5e7e8 0%,#93a7b0 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5e7e8', endColorstr='#93a7b0',GradientType=0 );
+    padding-bottom: 24px;
 
 }
+
 .centerColumn-main-line{
-    display: table-row;
+    margin-left: 20px;
 }
 
 .centerColumn-main-line-box{
-    display: table-cell;
-    width: 142px;
+    width: 144px;
     height: 177px;
-    margin-left: 24px;
     box-sizing: border-box;
-    background-color: white;
-    border: 1px solid black;
+    margin: 17px 24px 6px 0px;
+    float: left;
+    overflow: hidden;
+    text-align: center;
 
 }
 
-._01 {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  width: 1000px;
-  height: 1310px;
-  z-index: 125;
+.centerColumn-main-line-box-a{
+    display: block;
 }
-._90_00_грн_ {
-  font-size: 17.546px;
-  font-family: "Arial";
-  color: rgb(17, 65, 101);
-  font-weight: bold;
-  font-style: italic;
-  line-height: 0.627;
-  text-align: center;
-  -moz-transform: matrix( 0.91187526419384,0,0,0.91187526419384,0,0);
-  -webkit-transform: matrix( 0.91187526419384,0,0,0.91187526419384,0,0);
-  -ms-transform: matrix( 0.91187526419384,0,0,0.91187526419384,0,0);
-  position: absolute;
-  left: 292.15px;
-  top: 681.723px;
-  z-index: 124;
+
+.centerColumn-main-line-box-span1{
+    color: #206988;
+    font-size: 15px;
+    font-family: "Lucida Sans Unicode", sans-serif;
 }
-.Goodyear__Ultra_Grip_Extreme {
-  font-size: 16px;
-  font-family: "Lucida Sans Unicode";
-  color: rgb(32, 105, 136);
-  line-height: 0.875;
-  text-align: center;
-  -moz-transform: matrix( 0.91187526419384,0,0,0.91187526419384,0,0);
-  -webkit-transform: matrix( 0.91187526419384,0,0,0.91187526419384,0,0);
-  -ms-transform: matrix( 0.91187526419384,0,0,0.91187526419384,0,0);
-  position: absolute;
-  left: 266.984px;
-  top: 520.716px;
-  z-index: 123;
+
+.centerColumn-main-line-box-span2{
+    color: #1f2528;
+    font-size: 13px;
+    font-family: "Lucida Sans Unicode", sans-serif;
+    display: block;
+    letter-spacing: -0.1px
 }
-.Layer_5 {
-  background-image: url("Layer 5.png");
-  position: absolute;
-  left: 289px;
-  top: 542px;
-  width: 74px;
-  height: 118px;
-  z-index: 122;
+
+.centerColumn-main-line-box-span3{
+    color: #114165;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    display: block;
+    margin-top: -13px;
+    margin-left: 8px;
+    letter-spacing: 1px;
 }
-.Shape_18 {
-  border-style: solid;
-  border-width: 1px;
-  border-color: rgb(164, 174, 177);
-  border-radius: 7px;
-  background-color: rgb(255, 255, 255);
-  position: absolute;
-  left: 256px;
-  top: 534px;
-  width: 142px;
-  height: 131px;
-  z-index: 121;
+
+.centerColumn-main-line-box-span4{
+    font-size: 12px;
 }
+
+.centerColumn-main-line-box-span-img{
+    display: block;
+    box-sizing: border-box;
+    width: 139px;
+    height: 130px;
+    border: 1px solid #b0b9bc;
+    border-radius: 7px;
+    background-color: #fff;
+    margin-top: -16px;
+    margin-left: 1px;
+    padding-top: 5px;
+}
+
+.centerColumn-main-line-box2-span1{
+        margin-left: 5px;
+}
+
+.centerColumn-main-line-box2-span2{
+    margin-left: 1px;
+}
+
+.centerColumn-main-line-box2-span3{
+    letter-spacing: 1px;
+    margin-left: 7px;
+    margin-top: -12px;
+}
+
+.centerColumn-main-line-box2-span4{
+    letter-spacing: 0px;
+    margin-left: 6px;
+}
+
+.centerColumn-main-line-box3-span1{
+        margin-left: 5px;
+}
+
+.centerColumn-main-line-box3-span2{
+        margin-left: -3px;
+}
+
+.centerColumn-main-line-box3-span3{
+    letter-spacing: 1px;
+    margin-left: 5px;
+    margin-top: -13px;
+}
+
+.centerColumn-main-line-box3-span4{
+    letter-spacing: 0px;
+    margin-left: 3px;
+}
+
 
 
 
