@@ -860,14 +860,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f6787', end
 }
 .fon-centerColumn {/* фон для центральной колонки (красный) */
     width: 100%;
-    background: #e34456;
     float: left;
     position: relative;
     right: 21.1%; /* обнажаем желтый фон для правой колонки. 40% - ширина правой колонки */
+    background: red;
 }
 .fon-rightColumn {/* фон для правой колонки (желтый) */
     width: 100%;
-    background: #e3e244;
+    background: yellow;
     float: left;
 }
 .leftColumn {
@@ -877,6 +877,47 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f6787', end
     position:relative;
     left:78.9%; /* возвращаем колонки с контентом на свои позиции. 70% - сумма смещений оберток fon1 и fon2 */
 }
+
+.leftColumn-header{
+    width: 179px;
+    height: 25px;
+    border: 1px solid #8b979c;
+    box-shadow: 1px 1px 4px #969696;
+    margin-top: 6px;
+    border-radius: 12px;
+}
+
+.leftColumn-header-img{
+    display: inline-block;
+    border-radius: 50%;
+    background-image: -moz-linear-gradient( -90deg, rgb(32,105,136) 0%, rgb(17,65,101) 59%, rgb(15,58,94) 85%, rgb(12,50,86) 100%);
+    background-image: -webkit-linear-gradient( -90deg, rgb(32,105,136) 0%, rgb(17,65,101) 59%, rgb(15,58,94) 85%, rgb(12,50,86) 100%);
+    background-image: -ms-linear-gradient( -90deg, rgb(32,105,136) 0%, rgb(17,65,101) 59%, rgb(15,58,94) 85%, rgb(12,50,86) 100%);
+    width: 22px;
+    height: 21px;
+    vertical-align: middle;
+}
+
+
+.Shape_13 {
+  border-radius: 50%;
+  background-image: -moz-linear-gradient( -90deg, rgb(32,105,136) 0%, rgb(17,65,101) 59%, rgb(15,58,94) 85%, rgb(12,50,86) 100%);
+  background-image: -webkit-linear-gradient( -90deg, rgb(32,105,136) 0%, rgb(17,65,101) 59%, rgb(15,58,94) 85%, rgb(12,50,86) 100%);
+  background-image: -ms-linear-gradient( -90deg, rgb(32,105,136) 0%, rgb(17,65,101) 59%, rgb(15,58,94) 85%, rgb(12,50,86) 100%);
+  position: absolute;
+  width: 22px;
+  height: 21px;
+
+}
+
+
+
+
+.leftColumn-header-span{
+    display: inline-block;
+    vertical-align: middle;
+}
+
 .centerColumn {
     width: 57.8%;
     float: left;
@@ -993,6 +1034,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f6787', end
     margin-left: 3px;
 }
 
+.centerColumn-main-line3{
+    margin-top: 5px;
+}
 
 
 
