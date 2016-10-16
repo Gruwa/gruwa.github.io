@@ -851,22 +851,22 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f6787', end
     letter-spacing: 0.3px;
 }
 
-.fon-leftColumn {  /* Ñ„Ð¾Ð½ Ð´Ð»Ñ Ð»ÐµÐ²Ð¾Ð¹ ÐºÐ¾Ð»Ð¾Ð½ÐºÐ¸ (ÑÐ¸Ð½Ð¸Ð¹) */
+.fon-leftColumn {
     width: 100%;
     float: left;
     position: relative;
-    right: 57.8%; /* Ð¾Ð±Ð½Ð°Ð¶Ð°ÐµÐ¼ ÐºÑ€Ð°ÑÐ½Ñ‹Ð¹ Ñ„Ð¾Ð½ Ð´Ð»Ñ Ñ†ÐµÐ½Ñ‚Ñ€Ð°Ð»ÑŒÐ½Ð¾Ð¹ ÐºÐ¾Ð»Ð¾Ð½ÐºÐ¸. 30% - ÑˆÐ¸Ñ€Ð¸Ð½Ð° Ñ†ÐµÐ½Ñ‚Ñ€Ð°Ð»ÑŒÐ½Ð¾Ð¹ ÐºÐ¾Ð»Ð¾Ð½ÐºÐ¸ */
+    right: 57.8%;
     margin-top: 4px;
 }
 
-.fon-centerColumn {/* Ñ„Ð¾Ð½ Ð´Ð»Ñ Ñ†ÐµÐ½Ñ‚Ñ€Ð°Ð»ÑŒÐ½Ð¾Ð¹ ÐºÐ¾Ð»Ð¾Ð½ÐºÐ¸ (ÐºÑ€Ð°ÑÐ½Ñ‹Ð¹) */
+.fon-centerColumn {
     width: 100%;
     float: left;
     position: relative;
-    right: 21.1%; /* Ð¾Ð±Ð½Ð°Ð¶Ð°ÐµÐ¼ Ð¶ÐµÐ»Ñ‚Ñ‹Ð¹ Ñ„Ð¾Ð½ Ð´Ð»Ñ Ð¿Ñ€Ð°Ð²Ð¾Ð¹ ÐºÐ¾Ð»Ð¾Ð½ÐºÐ¸. 40% - ÑˆÐ¸Ñ€Ð¸Ð½Ð° Ð¿Ñ€Ð°Ð²Ð¾Ð¹ ÐºÐ¾Ð»Ð¾Ð½ÐºÐ¸ */
+    right: 21.1%;
 }
 
-.fon-rightColumn {/* Ñ„Ð¾Ð½ Ð´Ð»Ñ Ð¿Ñ€Ð°Ð²Ð¾Ð¹ ÐºÐ¾Ð»Ð¾Ð½ÐºÐ¸ (Ð¶ÐµÐ»Ñ‚Ñ‹Ð¹) */
+.fon-rightColumn {
     width: 100%;
     float: left;
 }
@@ -874,10 +874,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f6787', end
 .leftColumn {
     width: 21.1%;
     float: left;
-    overflow: hidden; /* ÑÑ‚Ñ€Ð°Ñ…Ð¾Ð²ÐºÐ° Ð¾Ñ‚ Ð»Ð¾Ð¼ÐºÐ¸ Ð²ÐµÑ€ÑÑ‚ÐºÐ¸ Ð¾Ð±ÑŠÐµÐºÑ‚Ð°Ð¼Ð¸ ÑˆÐ¸Ñ€Ðµ Ñ€Ð°Ð·Ð¼ÐµÑ€Ð° ÐºÐ¾Ð»Ð¾Ð½ÐºÐ¸-Ñ€Ð¾Ð´Ð¸Ñ‚ÐµÐ»Ñ */
+    overflow: hidden;
     position:relative;
-    left:78.9%; /* Ð²Ð¾Ð·Ð²Ñ€Ð°Ñ‰Ð°ÐµÐ¼ ÐºÐ¾Ð»Ð¾Ð½ÐºÐ¸ Ñ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚Ð¾Ð¼ Ð½Ð° ÑÐ²Ð¾Ð¸ Ð¿Ð¾Ð·Ð¸Ñ†Ð¸Ð¸. 70% - ÑÑƒÐ¼Ð¼Ð° ÑÐ¼ÐµÑ‰ÐµÐ½Ð¸Ð¹ Ð¾Ð±ÐµÑ€Ñ‚Ð¾Ðº fon1 Ð¸ fon2 */
+    left:78.9%;
     margin-top: -4px;
+
 }
 
 .leftColumn-header{
@@ -967,40 +968,42 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f6787', end
     margin-left: 2px;
 }
 
-.leftColumn-box2{
+.leftColumn-box{
     margin-left: 36px;
     color: #465961;
-
-
 }
 
-.leftColumn-box2-li-span-circle{
-        border-style: solid;
-        border-width: 2px;
-        border-color: #79878d;
-        border-radius: 50%;
-        background-color: #fff;
-        width: 3px;
-        height: 3px;
-        display: block;
-        float: left;
-        margin-top: 9px;
-        margin-right: 4px;;
-
-}
-
-.leftColumn-box2 li:hover .leftColumn-box2-li-span-circle{
-    border-color: #0c3256;
-}
-
-.leftColumn-box2-li-span{
+.leftColumn-box-li-span{
     font-size: 13px;
     font-family: "Lucida Sans Unicode", sans-serif;
     letter-spacing: -0.2px;
-    line-height: 2;
+    line-height: 1.95;
+    display: block;
 }
 
-.leftColumn-box2 li:hover .leftColumn-box2-li-span{
+.leftColumn-box-li-span::before{
+    content: "";
+    border-style: solid;
+    border-width: 2px;
+    border-color: #79878d;
+    border-radius: 50%;
+    background-color: #fff;
+    width: 3px;
+    height: 3px;
+    display: block;
+    float: left;
+    margin-top: 9px;
+    margin-right: 4px;
+
+}
+
+
+.leftColumn-box-li-span:hover::before{
+    border-color: #0c3256;
+}
+
+
+.leftColumn-box-li-span:hover {
     color: #0c3256;
     font-size: 14px;
     font-family: "Arial", sans-serif;
@@ -1008,27 +1011,35 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f6787', end
     font-style: italic;
     text-decoration: underline;
     letter-spacing: 0.1px;
+    margin-bottom: -2.1px;
+
 
 }
 
-.leftColumn-box2 li:hover{
-    margin-bottom: -2px;
-
+.leftColumn-box2{
+position: absolute;
+top: 75px;
+left: 0px;
 }
 
-.leftColumn-box2 li:last-child:hover{
-    margin-bottom: -5px
+.leftColumn-box4{
+top: 202px;
+position: absolute;
 }
 
+.leftColumn-box6{
+margin-top: 1px;
+}
 
 .leftColumn-box3{
     width: 147px;
-    height: 26px;
+    height: 27px;
     border: 1px solid #8b979c;
     box-shadow: 1px 1px 4px #969696;
-    margin-top: -3px;
+    margin-top: 101px;
     border-radius: 12px;
     margin-left: 2px;
+    display: block;
 }
 
 .leftColumn-box3-img{
@@ -1053,6 +1064,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f6787', end
     top: 4px;
     width: 12px;
     height: 12px;
+    display: block;
 }
 
 .leftColumn-box3-span{
@@ -1067,65 +1079,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f6787', end
     margin-left: 3px;
 }
 
-.leftColumn-box4{
-    margin-left: 36px;
-    color: #465961;
-    margin-top: -2px;
-
-}
-
-.leftColumn-box4-li-span-circle{
-        border-style: solid;
-        border-width: 2px;
-        border-color: #79878d;
-        border-radius: 50%;
-        background-color: #fff;
-        width: 3px;
-        height: 3px;
-        display: block;
-        float: left;
-        margin-top: 9px;
-        margin-right: 4px;;
-
-}
-
-.leftColumn-box4 li:hover .leftColumn-box4-li-span-circle{
-    border-color: #0c3256;
-}
-
-.leftColumn-box4-li-span{
-    font-size: 13px;
-    font-family: "Lucida Sans Unicode", sans-serif;
-    letter-spacing: -0.2px;
-    line-height: 2;
-}
-
-.leftColumn-box4 li:hover .leftColumn-box4-li-span{
-    color: #0c3256;
-    font-size: 14px;
-    font-family: "Arial", sans-serif;
-    font-weight: bold;
-    font-style: italic;
-    text-decoration: underline;
-    letter-spacing: 0.1px;
-}
-
-.leftColumn-box4 li:hover{
-
-    margin-bottom: -2px;
-
-}
-
-.leftColumn-box4 li:last-child:hover{
-    margin-bottom: -6px
-}
 
 .leftColumn-box5{
     width: 147px;
     height: 26px;
     border: 1px solid #8b979c;
     box-shadow: 1px 1px 4px #969696;
-    margin-top: -4px;
+    margin-top: 97px;
     margin-left: 2px;
     border-radius: 12px;
 }
@@ -1164,55 +1124,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f6787', end
     float: left;
     margin-top: 7px;
     margin-left: 3px;
-}
-
-.leftColumn-box6{
-    margin-left: 36px;
-    color: #465961;
-
-
-}
-
-.leftColumn-box6-li-span-circle{
-        border-style: solid;
-        border-width: 2px;
-        border-color: #79878d;
-        border-radius: 50%;
-        background-color: #fff;
-        width: 3px;
-        height: 3px;
-        display: block;
-        float: left;
-        margin-top: 9px;
-        margin-right: 4px;;
-
-}
-
-.leftColumn-box6 li:hover .leftColumn-box6-li-span-circle{
-    border-color: #0c3256;
-}
-
-.leftColumn-box6-li-span{
-    font-size: 13px;
-    font-family: "Lucida Sans Unicode", sans-serif;
-    letter-spacing: -0.2px;
-    line-height: 2;
-}
-
-.leftColumn-box6 li:hover .leftColumn-box6-li-span{
-    color: #0c3256;
-    font-size: 14px;
-    font-family: "Arial", sans-serif;
-    font-weight: bold;
-    font-style: italic;
-    text-decoration: underline;
-    letter-spacing: 0.1px;
-}
-
-.leftColumn-box6 li:hover{
-
-    margin-bottom: -2px;
-
 }
 
 .centerColumn {
