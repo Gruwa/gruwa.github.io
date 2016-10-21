@@ -1,0 +1,16 @@
+body{
+    background-color: #fff;
+}
+
+.clearfix:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+.main{
+    width: 909px;
+    margin: 0 auto;
+}
+
+/*header*/
