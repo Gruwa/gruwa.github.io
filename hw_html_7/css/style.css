@@ -9,7 +9,7 @@ body{
 }
 
 .wrapper{
-    /*width: 2400px;*/
+    width: 2400px;
     margin: 0 auto;
     color: #f9f9f9;
 }
