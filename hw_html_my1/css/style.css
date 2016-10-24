@@ -7,26 +7,12 @@ header{
 }
 
 .column1{
-    width: 20%;
-    display: block;
-    float: left;
+        display: block;
     background-color: blue;
 
 }
 
-.column2{
-    width: 960px;
-    display: block;
-    float: left;
-    background-color: black
-}
 
-.column3{
-    width: 20%;
-    display: block;
-    float: right;
-    background-color: red;
-}
 
 footer{
     clear: both;
