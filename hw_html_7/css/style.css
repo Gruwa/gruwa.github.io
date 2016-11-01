@@ -189,8 +189,13 @@ header{
 
 .circle__3{
     content:'\25BA';
-    font-size: 23px;
+    font-size: 14px;
     color: #114165;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 13px;
+    left: 13px
 
 }
 
