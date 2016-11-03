@@ -188,30 +188,48 @@ header{
 }
 
 .circle__3{
-    content:'\25BA';
-    font-size: 14px;
-    color: #114165;
+    font-size: 36px;
+    color: #fff;
     position: absolute;
     width: 50px;
     height: 50px;
-    top: 13px;
-    left: 13px
-
+    top: 22px;
+    left: 25px;
 }
 
-.Shape_14 {
-  border-style: solid;
-  border-width: 3px;
-  border-color: rgb(0, 0, 0);
-  background-color: rgb(255, 255, 255);
-  opacity: 0.2;
-  position: absolute;
-  left: 1470px;
-  top: 408px;
-  width: 74px;
-  height: 74px;
-  z-index: 108;
+.slider__box:after{
+    content: '\203A';
+    font-size: 73px;
+    font-weight: bold;
+    color: #fff;
+    position: absolute;
+    top: 156px;
+    right: 399px;
 }
+
+.slider__box:before{
+    content: '\2039';
+    font-size: 73px;
+    font-weight: bold;
+    color: #fff;
+    position: absolute;
+    top: 156px;
+    left: 400px;
+}
+
+.navigation{
+    margin-top: 10px;
+}
+
+.navigation__circle1{
+    display: block;
+    background-color: #000;
+    opacity: 0.302;
+    border-radius: 50%;
+    width: 17px;
+    height: 17px;
+}
+
 
 
 
