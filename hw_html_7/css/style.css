@@ -278,8 +278,8 @@ header{
     box-sizing: border-box;
     float: left;
     width: 33%;
-    padding-right: 20px;
-    padding-top: 76px;
+    padding-right: 19px;
+    padding-top: 77px;
 }
 
 .info--2{
@@ -288,7 +288,10 @@ header{
 }
 
 .info--3{
-    padding-left: 33px;    float: right;    padding-right: 0;}
+    padding-left: 33px;
+    float: right;
+    padding-right: 0px;
+    }
 
 .info::before{
     display: block;
@@ -298,15 +301,15 @@ header{
     background-image: url(../img/info.png);
     background-repeat: no-repeat;
     float: left;
-    margin: 4px 22px 115px 7px;
+    margin: 5px 22px 115px 10px;
 }
 
 .info--2::before{
-    background-position: 131px 0px;
+    background-position: -70px 0px;
 }
 
 .info--3::before{
-    background-position: 163px 0px;
+    background-position: -37px 0px;
 }
 
 .info__title{
@@ -328,23 +331,29 @@ header{
     margin-top: 7px;
 }
 
+.info__main--3 {
+    margin-right: -2px;
+}
+
 .info__readmore{
     display: block;
     font-size: 18px;
     font-family: "LeagueGothicRegular", sans-serif;
     color: #fff;
     text-transform: uppercase;
-    margin-top: 7px;
-    margin-right: 21px;
+    margin-top: 5px;
+    margin-right: 19px;
     float: right;
     margin-bottom: 68px;
 }
 
 .info__readmore--2{
-    margin-right: 15px;}
+    margin-right: 11px;
+    }
 
 .info__readmore--3{
-    margin-right: 4px;}
+    margin-right: 1px;
+    }
 
 .info__readmore:hover{
     text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.8);
@@ -368,8 +377,8 @@ header{
     float: left;
     width: 45%;
     padding-right: 39px;
-    margin-top: 101px;
-    margin-left: 20px;
+    margin-top: 100px;
+    margin-left: 23px;
     padding-top: 30px;
     padding-left: 40px;
     letter-spacing: -0.1px;
@@ -410,12 +419,12 @@ header{
     color: #454545;
     padding-top: 9px;
     line-height: 1.5;
-    letter-spacing: -0.05px;
+    letter-spacing: -0.1px;
 }
 
 .navigation--vacancy{
     padding-left: 128px;
-    padding-top: 62px;
+    padding-top: 60px;
     }
 
 .navigation__circle--vacancy{
@@ -445,8 +454,8 @@ header{
     box-sizing: border-box;
     float: right;
     width: 52%;
-    padding-top: 131px;
-    padding-left: 47px;
+    padding-top: 130px;
+    padding-left: 49px;
 }
 
 .updates__title{
@@ -477,6 +486,10 @@ header{
     margin-left: -66px;
     margin-top: -4px;
     }
+
+.updates__1--3{
+margin-top: -2px;
+}
 
 .updates__1--2::before{
     background-image: url(../img/img2_updates.png);
@@ -509,8 +522,8 @@ header{
     color: #454545;
     text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.004);
     float: right;
-    margin-top: 1px;
-    margin-right: 24px;
+    margin-top: 2px;
+    margin-right: 22px;
     letter-spacing: -0.2px;
     margin-bottom: 91px;
 }
@@ -576,13 +589,163 @@ header{
 /*box4*/
 
 .box4{
-    height: 396px;
-    box-sizing: border-box;
+    width: 100%;
     background: #ececec;
 }
 
-footer{
-    height: 114px;
+.box4__wrapper{
+    width: 960px;
+    margin: 0 auto;
+}
+
+.column1{
+    display: block;
     box-sizing: border-box;
+    width: 30%;
+    float: left;
+    padding-top: 95px;
+}
+
+.column1__title{
+    font-family: "LeagueGothicRegular", sans-serif;
+    font-size: 48px;
+    text-transform: uppercase;
+    color: #454545;
+    text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.004);
+    letter-spacing: -0.4px;
+    margin-left: -1px;
+}
+
+.column1__titledop{
+    color: #b9b9b9;
+}
+
+.column1__cpoyright{
+    display: block;
+    box-sizing: border-box;
+    padding-top: 13px;
+    font-family: "Georgia", sans-serif;
+    font-size: 16px;
+    color: #c5c5c5;
+    font-style: italic;
+    letter-spacing: -0.2px;
+    text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.004);
+    }
+
+.column1__main{
+    display: block;
+    box-sizing: border-box;
+    font-family: "OpenSansLight", sans-serif;
+    font-size: 16px;
+    color: #787878;
+    text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.004);
+    margin-top: -6px;
+    letter-spacing: -0.1px;
+    line-height: 1.5;
+    margin-bottom: 94px;
+}
+
+.column2{
+    display: block;
+    box-sizing: border-box;
+    width: 35%;
+    float: left;
+    padding-top: 97px;
+    padding-left: 50px;
+}
+
+.column2__title{
+    font-family: "LeagueGothicRegular", sans-serif;
+    font-size: 30px;
+    text-transform: uppercase;
+    color: #454545;
+    text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.004);
+    letter-spacing: -0.2px;
+}
+
+.column2__main{
+    display: block;
+    box-sizing: border-box;
+    font-family: "OpenSansLight", sans-serif;
+    font-size: 16px;
+    color: #787878;
+    text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.004);
+    margin-top: 7px;
+    letter-spacing: -0.05px;
+    line-height: 1.5;
+}
+
+.column3{
+    display: block;
+    box-sizing: border-box;
+    width: 35%;
+    float: left;
+    padding-top: 97px;
+    padding-left: 54px;
+}
+
+.column3__title{
+    font-family: "LeagueGothicRegular", sans-serif;
+    font-size: 30px;
+    text-transform: uppercase;
+    color: #454545;
+    text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.004);
+    letter-spacing: -0.2px;
+}
+
+.column3__main{
+    display: block;
+    box-sizing: border-box;
+    font-family: "OpenSansLight", sans-serif;
+    font-size: 16px;
+    color: #787878;
+    text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.004);
+    margin-top: 7px;
+    letter-spacing: -0.05px;
+    line-height: 1.5;
+}
+
+/*footer*/
+
+footer{
+    width: 100%;
     background: url(../img/bg-footer.jpg) no-repeat;
+}
+
+.footer__wrapper{
+    width: 960px;
+    margin: 0 auto;
+}
+
+.nav--footer{
+display: block;
+box-sizing: border-box;
+float: left;
+margin-top: 47px;
+margin-left: -5px;
+margin-bottom: 47px;
+}
+
+.nav__li--footer{
+margin-right: 29px;
+}
+
+.nav__a--footer{
+font-size: 20px;
+}
+
+.footer__designed{
+    display: block;
+    box-sizing: border-box;
+    float: right;
+    margin-top: 54px;
+    margin-right: -1px;
+    color: #fff;
+    font-family: "OpenSansLight", sans-serif;
+    font-size: 12px;
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4);
+}
+
+.footer__designeddop{
+    font-family: "OpenSansExtraBold", sans-serif;
 }
