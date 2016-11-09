@@ -366,7 +366,8 @@ header{
     display: block;
     box-sizing: border-box;
     float: left;
-    width: 41%;
+    width: 45%;
+    padding-right: 39px;
     margin-top: 101px;
     margin-left: 20px;
     padding-top: 30px;
@@ -374,6 +375,19 @@ header{
     letter-spacing: -0.1px;
     background-image: url(../img/fon_vacancy.png);
     background-repeat: no-repeat;
+}
+
+.vacancy::before{
+    display: block;
+    content: "";
+    width: 51px;
+    height: 51px;
+    border-radius: 50%;
+    background-image: url(../img/foto_man.png);
+    background-repeat: no-repeat;
+    float: left;
+    margin-left: -63px;
+    margin-top: -13px;
 }
 
 .vacncy__logo{
@@ -426,23 +440,140 @@ header{
 
 }
 
-
-
-
 .updates{
     display: block;
     box-sizing: border-box;
     float: right;
-    width: 56%;
-    height: 525px;
+    width: 52%;
+    padding-top: 131px;
+    padding-left: 47px;
 }
 
+.updates__title{
+    font-family: "LeagueGothicRegular", sans-serif;
+    font-size: 30px;
+    text-transform: uppercase;
+    color: #454545;
+    letter-spacing: -0.2px;
+}
+
+.updates__1{
+    display: block;
+    box-sizing: border-box;
+    margin-top: 19px;
+    margin-left: 67px;
+    margin-bottom: 26px;
+    }
+
+.updates__1::before{
+    display: block;
+    content: "";
+    width: 49px;
+    height: 49px;
+    border-radius: 50%;
+    background-image: url(../img/img1_updates.png);
+    background-repeat: no-repeat;
+    float: left;
+    margin-left: -66px;
+    margin-top: -4px;
+    }
+
+.updates__1--2::before{
+    background-image: url(../img/img2_updates.png);
+}
+
+.updates__1--3::before{
+    background-image: url(../img/img3_updates.png);
+}
+
+.line1__title{
+    font-family: "OpenSansExtraBold", sans-serif;
+    font-size: 16px;
+    color: #454545;
+}
+
+.line1__dates{
+    font-family: "OpenSansLight", sans-serif;
+    font-size: 16px;
+    color: #454545;
+    display: block;
+    box-sizing: border-box;
+    margin-top: 8px;
+    letter-spacing: -0.15px;
+}
+
+.updates__readmore{
+    font-family: "LeagueGothicRegular", sans-serif;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #454545;
+    text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.004);
+    float: right;
+    margin-top: 1px;
+    margin-right: 24px;
+    letter-spacing: -0.2px;
+    margin-bottom: 91px;
+}
+
+/*box3*/
+
 .box3{
-    height: 122px;
+    width: 100%;
     box-sizing: border-box;
     border-top: 1px solid #d8d8d8;
     border-bottom: 1px solid #d8d8d8;
 }
+
+.box3__wrapper{
+    width: 960px;
+    margin: 0 auto;
+}
+
+.company-logo{
+    display: block;    box-sizing: border-box;    padding-top: 24px;    padding-bottom: 30px;    padding-left: 24px;}
+
+.company-logo__1{
+    display: block;
+    box-sizing: border-box;
+    width: 70px;
+    height: 65px;
+    background-image: url(../img/company_logo.png);
+    background-repeat: no-repeat;
+    background-position: 1px 0px;
+    float: left;
+    margin-left: 66px;
+}
+
+.company-logo__1--2{
+    background-position: -135px 0px;
+    margin-left: 67px;
+}
+
+.company-logo__1--3{
+    width: 64px;
+    background-position: -271px 0px;
+}
+
+.company-logo__1--4{
+    height: 64px;
+    background-position: -402px 0px;
+}
+
+.company-logo__1--5{
+    width: 117px;
+    background-position: -525px 0px;
+    margin-left: 54px;
+}
+
+.company-logo__1--6{
+    width: 87px;
+    height: 64px;
+    background-position: -696px 0px;
+    margin-left: 55px;
+    margin-top: 2px;
+}
+
+/*box4*/
 
 .box4{
     height: 396px;
