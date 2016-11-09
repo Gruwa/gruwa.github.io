@@ -18,12 +18,11 @@ body{
 /*header*/
 
 header{
-    height: 846px;
     box-sizing: border-box;
     background: url(../img/bg-header.jpg) no-repeat;
     background-position-x: center;
     position: relative;
-
+    padding-bottom: 1px;
 }
 
 .header__wrapper{
@@ -101,17 +100,17 @@ header{
     width: 100%;
     height: 400px;
     z-index: 20;
-
+    margin-bottom: 60px;
 }
 
 .slider-opasity {
     display: block;
-    margin-top: -510px;
+    margin-top: -508px;
+    margin-bottom: 169px;
     background-color: #000;
     opacity: 0.2;
     height: 400px;
     z-index: 10;
-    max-width: 2400px;
 }
 
 .slider__box{
@@ -227,10 +226,8 @@ header{
 }
 
 .navigation{
-    /* max-width: 960px; */
-    margin: 0 auto;
     box-sizing: border-box;
-    padding-top: 94px;
+    padding-top: 34px;
     padding-left: 705px;
 }
 
@@ -238,7 +235,7 @@ header{
     display: block;
     box-sizing: border-box;
     float: left;
-    margin-left: 6px;
+    margin-left: 9px;
     background-color: #000;
     opacity: 0.302;
     border-radius: 50%;
@@ -488,7 +485,8 @@ header{
     }
 
 .updates__1--3{
-margin-top: -2px;
+
+margin-top: -2px;
 }
 
 .updates__1--2::before{
@@ -543,7 +541,12 @@ header{
 }
 
 .company-logo{
-    display: block;    box-sizing: border-box;    padding-top: 24px;    padding-bottom: 30px;    padding-left: 24px;}
+    display: block;
+    box-sizing: border-box;
+    padding-top: 24px;
+    padding-bottom: 30px;
+    padding-left: 24px;
+}
 
 .company-logo__1{
     display: block;
@@ -718,20 +721,28 @@ footer{
 }
 
 .nav--footer{
-display: block;
-box-sizing: border-box;
-float: left;
-margin-top: 47px;
-margin-left: -5px;
-margin-bottom: 47px;
+
+display: block;
+
+box-sizing: border-box;
+
+float: left;
+
+margin-top: 47px;
+
+margin-left: -5px;
+
+margin-bottom: 47px;
 }
 
 .nav__li--footer{
-margin-right: 29px;
+
+margin-right: 29px;
 }
 
 .nav__a--footer{
-font-size: 20px;
+
+font-size: 20px;
 }
 
 .footer__designed{

@@ -1,0 +1,25 @@
+@media screen and (max-width: 768px) {
+
+    .header__wrapper,
+    .box1__wrapper,
+    .box2__wrapper,
+    .box3__wrapper,
+    .box4__wrapper,
+    .footer__wrapper{
+        max-width: 768px;
+        }
+    .logo{
+        padding-left: 8px;
+        padding-top: 74px;
+    }
+
+    .nav{
+        margin-left: 3px;
+        margin-top: 37px;
+    }
+    .slider{
+        height: none;
+    }
+
+
+}
