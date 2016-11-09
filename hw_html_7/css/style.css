@@ -227,7 +227,7 @@ header{
 }
 
 .navigation{
-    max-width: 960px;
+    /* max-width: 960px; */
     margin: 0 auto;
     box-sizing: border-box;
     padding-top: 94px;
@@ -366,7 +366,7 @@ header{
     display: block;
     box-sizing: border-box;
     float: left;
-    width: 50%;
+    width: 41%;
     margin-top: 101px;
     margin-left: 20px;
     padding-top: 30px;
@@ -395,7 +395,6 @@ header{
     font-size: 16px;
     color: #454545;
     padding-top: 9px;
-    padding-right: 90px;
     line-height: 1.5;
     letter-spacing: -0.05px;
 }
@@ -434,7 +433,7 @@ header{
     display: block;
     box-sizing: border-box;
     float: right;
-    width: 50%;
+    width: 56%;
     height: 525px;
 }
 
