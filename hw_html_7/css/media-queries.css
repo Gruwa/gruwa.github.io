@@ -15,11 +15,17 @@
 
     .nav{
         margin-left: 3px;
-        margin-top: 37px;
+        margin-top: 35px;
     }
     .slider{
-        height: none;
+        margin-top: 93px;
     }
-
+    .slider__p{
+        font-size: 48px;        margin-left: 31px;        letter-spacing: -0.7px;    }
+    .slider__p--span1{
+        margin-top: 23px;        display: block;        font-size: 24px;        letter-spacing: -0.3px;    }
+    .slider__p--span2{
+        
+    }
 
 }
