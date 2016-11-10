@@ -101,6 +101,7 @@ header{
     height: 400px;
     z-index: 20;
     margin-bottom: 60px;
+    position: relative;
 }
 
 .slider-opasity {
@@ -211,8 +212,8 @@ header{
     font-weight: bold;
     color: #fff;
     position: absolute;
-    top: 432px;
-    right: 400px;
+    top: 162px;
+    right: -40px;
 }
 
 .slider:before{
@@ -220,9 +221,10 @@ header{
     font-size: 73px;
     font-weight: bold;
     color: #fff;
+    margin-left: -55px;
     position: absolute;
-    top: 432px;
-    left: 400px;
+    top: 162px;
+    left: -40px;
 }
 
 .navigation{
