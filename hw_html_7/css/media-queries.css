@@ -1,4 +1,4 @@
-@media screen and (max-width: 768px) {
+@media screen and (max-width:960px) {
 
     .header__wrapper,
     .box1__wrapper,
@@ -6,7 +6,7 @@
     .box3__wrapper,
     .box4__wrapper,
     .footer__wrapper{
-        max-width: 768px;
+        max-width:768px;
         }
 
         /*header*/
@@ -165,3 +165,263 @@
         margin-left: 2px;
         margin-bottom: 133px;
     }    .footer__designed{        margin-top: 102px;        margin-right: 13px;    }}
+
+
+@media screen and (max-width:768px) {
+
+    .header__wrapper,
+    .box1__wrapper,
+    .box2__wrapper,
+    .box3__wrapper,
+    .box4__wrapper,
+    .footer__wrapper{
+        max-width:480px;
+        }
+
+        /*header*/
+
+    .logo{
+        padding-left: 8px;
+        padding-top: 74px;
+    }
+
+    .nav{
+        margin-left: 3px;
+        margin-top: 35px;
+    }
+
+    .slider{
+        margin-top: 93px;
+        margin-bottom: 0px;
+    }
+
+    .slider:before {
+        margin-left: 0px;
+        left: -3px;
+        top: 139px;
+        }
+
+    .slider:after{
+        right: 1px;
+        top: 139px;
+    }
+
+    .slider__p{
+        font-size: 48px;
+        margin-left: 31px;
+        width: 269px;
+    }
+
+    .slider__p--span0{
+        letter-spacing: -0.7px;
+        font-size: 48px;
+        margin-top: 91px;
+    }
+
+    .slider__p--span1{
+        margin-top: -30px;
+        font-size: 24px;
+        letter-spacing: -0.3px;
+        overflow: hidden;
+        line-height: 1;
+        height: 20px;
+    }
+
+    .slider__p--span2{
+        margin-top: -37px;
+        letter-spacing: -1px;
+        height: 100px;
+        line-height: 1.5;
+        overflow: hidden;
+    }
+
+    .iphone{
+        margin-top: -39px;
+        margin-right: 38px;
+    }
+
+    .iphone-copy{
+        margin-top: 39px;
+        margin-right: -54px;
+    }
+
+    .navigation{
+        padding-left: 524px;
+        padding-top: 22px;
+    }
+
+    .slider-opasity{
+        margin-top: -451px;
+        margin-bottom: 153px;
+    }
+
+    /*box1*/
+
+    .info{
+        padding-left: 8px;
+        padding-top: 72px;
+    }
+
+    .info::before{
+        margin-bottom: 133px;
+    }
+
+    .info__title{
+        font-size: 24px;
+        display: block;
+        box-sizing: border-box;
+        padding-top: 5px;
+    }
+
+    .info__main{
+        box-sizing: border-box;
+        margin-top: -13px;
+        overflow: hidden;
+        height: 140px;
+    }
+
+    .info__readmore{
+        margin-top: -4px;
+        margin-right: 10px;
+        margin-bottom: 67px;
+    }
+
+    .info--2{
+        padding-left: 13px;
+    }
+
+    .info__readmore--2{
+        margin-right: 24px;
+    }
+
+    .info--3{
+        padding-left: 20px;
+    }
+
+    .info__readmore--3{
+        margin-right: 17px;
+    }
+
+    /*box2*/
+
+    .vacancy{
+        margin-left: 30px;
+        width: 41%;
+    }
+
+    .vacncy__logo{
+        font-size: 24px;
+        display: block;
+        width: 88px;
+        overflow: hidden;
+    }
+
+    .vacancy__main{
+        margin-top: -17px;
+        overflow: hidden;
+        height: 152px;
+    }
+
+    .navigation--vacancy{
+        padding-left: 71px;
+        padding-top: 67px;
+    }
+
+    .updates{
+        padding-left: 44px;
+    }
+
+    .line1__dates{
+        overflow: hidden;
+        height: 18px;
+    }
+
+    .updates__readmore{
+        display: none;
+    }
+
+    .updates__readmore--moreblog{
+        display: block;
+        margin-top: -2px;
+        margin-right: 17px;
+    }
+
+    /*box3*/
+
+    .company-logo{
+        padding-left: 0px;
+    }
+
+    .company-logo__1{
+        margin-left: 9px;
+    }
+
+    .company-logo__1--2{
+        margin-left: 57px;
+    }
+
+    .company-logo__1--3{
+        margin-left: 56px;
+    }
+
+    .company-logo__1--4{
+        margin-left: 57px;
+        margin-top: 2px;
+    }
+
+    .company-logo__1--5{
+        margin-left: 43px;
+    }
+
+    .company-logo__1--6{
+        margin-left: 44px;
+    }
+
+    /*box4*/
+
+    .column1,
+    .column2{
+        display: none;
+    }
+
+    .column3{
+        padding-left: 7px;
+        padding-top: 101px;
+        width: 29%;
+        margin-bottom: 95px;
+    }
+
+    .column3__title{
+        font-size: 24px;
+    }
+
+    .column3__main{
+        margin-top: 9px;
+        overflow: hidden;
+        height: 167px;
+    }
+
+    .column4,
+    .column5{
+        display: block;
+    }
+
+    .column5{
+        margin-left: 49px;
+        margin-right: 47px;
+    }
+
+    /*footer*/
+
+    .nav--footer{
+        margin-top: 46px;
+        margin-left: 2px;
+        margin-bottom: 133px;
+    }
+
+    .footer__designed{
+        margin-top: 102px;
+        margin-right: 13px;
+    }
+
+}
