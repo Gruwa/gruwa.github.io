@@ -93,7 +93,7 @@ header{
     border-bottom: 2px solid #edbfff;
 }
 
-.nav__active{
+.nav__main {
     display: none;
 }
 
