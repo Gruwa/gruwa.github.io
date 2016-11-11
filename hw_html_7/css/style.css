@@ -93,6 +93,10 @@ header{
     border-bottom: 2px solid #edbfff;
 }
 
+.nav__active{
+    display: none;
+}
+
 .slider{
     display: block;
     box-sizing: border-box;
