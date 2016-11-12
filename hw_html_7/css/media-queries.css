@@ -447,12 +447,13 @@
     }
 
     .slider__p--span1{
-        margin-top: -37px;
+        margin-top: -40px;
         font-size: 18px;
         letter-spacing: -0.3px;
         overflow: hidden;
-        line-height: 1;
+        line-height: 1.2;
         height: 20px;
+        max-width: 206px;
     }
 
     .slider__p--span2{
@@ -504,11 +505,11 @@
 
     .navigation{
         padding-left: 193px;
-        padding-top: 6px;
+        padding-top: 31px;
     }
 
     .slider-opasity{
-        margin-top: -299px;
+        margin-top: -308px;
         margin-bottom: 98px;
         height: 246px;
     }
@@ -581,6 +582,9 @@
         overflow: visible;
     }
 
+    .vacncy__logo--title{
+}
+
     .vacancy__main{
         margin-top: 4px;
         overflow: hidden;
@@ -597,6 +601,14 @@
         float: left;
         padding-top: 50px;
         width: 87%;
+    }
+
+    .updates__1{
+
+    }
+
+    .updates__title{
+        
     }
 
     .line1__dates{
@@ -619,10 +631,12 @@
 
     .company-logo{
         padding-left: 0px;
+        padding-bottom: 0px;
     }
 
     .company-logo__1{
-        margin-left: 9px;
+        margin-left: 78px;
+        margin-top: 13px;
     }
 
     .company-logo__1--2{
@@ -635,15 +649,18 @@
 
     .company-logo__1--4{
         margin-left: 57px;
-        margin-top: 2px;
+        margin-top: 24px;
     }
 
     .company-logo__1--5{
         margin-left: 43px;
+        margin-top: 24px;
     }
 
     .company-logo__1--6{
         margin-left: 44px;
+        margin-top: 24px;
+        margin-bottom: 42px;
     }
 
     /*box4*/

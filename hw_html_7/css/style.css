@@ -122,8 +122,6 @@ header{
     display: block;
     width: 100%;
     margin: 0 auto;
-
-
 }
 
 .slider__p{
@@ -221,7 +219,8 @@ header{
     left: 25px;
 }
 
-.slider:after{
+.slider:after,
+.slider:before{
     content: '\203A';
     font-size: 73px;
     font-weight: bold;
@@ -229,17 +228,12 @@ header{
     position: absolute;
     top: 162px;
     right: -40px;
+    cursor: pointer;
 }
 
 .slider:before{
     content: '\2039';
-    font-size: 73px;
-    font-weight: bold;
-    color: #fff;
     margin-left: -55px;
-    position: absolute;
-    top: 162px;
-    left: -40px;
 }
 
 .navigation{
