@@ -576,30 +576,27 @@
 
     .vacncy__logo{
         font-size: 30px;
-        display: block;
+        display: inline;
         width: 100%;
         overflow: visible;
     }
 
-    .vacncy__logo--title{
-
-    }
-
     .vacancy__main{
-        margin-top: -17px;
+        margin-top: 4px;
         overflow: hidden;
         height: 152px;
     }
 
     .navigation--vacancy{
-        padding-left: 71px;
-        padding-top: 67px;
+        padding-left: 118px;
+        padding-top: 82px;
     }
 
     .updates{
-        padding-left: 79px;
+        padding-left: 80px;
         float: left;
-        padding-top: 33px;
+        padding-top: 50px;
+        width: 87%;
     }
 
     .line1__dates{
@@ -614,7 +611,8 @@
     .updates__readmore--moreblog{
         display: block;
         margin-top: -2px;
-        margin-right: 17px;
+        margin-right: -2px;
+        margin-bottom: 88px;
     }
 
     /*box3*/
