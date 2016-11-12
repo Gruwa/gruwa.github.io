@@ -245,7 +245,7 @@
     /*footer*/
 
     .nav--footer{
-        margin-top: 46px;
+        marging-top: 32px;
         margin-left: 2px;
         margin-bottom: 133px;
     }
@@ -608,7 +608,7 @@
     }
 
     .updates__title{
-        
+
     }
 
     .line1__dates{
@@ -671,10 +671,18 @@
     }
 
     .column3{
+        float: none;
         padding-left: 7px;
-        padding-top: 101px;
-        width: 29%;
-        margin-bottom: 95px;
+        width: 100%;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+    }
+
+    .column3--box{
+margin-top: 34px;
+padding-left: 15px;
+padding-bottom: 65px;
     }
 
     .column3__title{
@@ -684,30 +692,38 @@
     .column3__main{
         margin-top: 9px;
         overflow: hidden;
-        height: 167px;
+        height: 121px;
     }
 
-    .column4,
-    .column5{
+    .column4{
         display: block;
+        padding-top: 79px;
+        margin-left: 8px;
     }
 
     .column5{
-        margin-left: 49px;
-        margin-right: 47px;
+        margin-left: 15px;
+        margin-top: 31px;
+        display: block;
+        padding-left: 0px;
     }
 
     /*footer*/
 
     .nav--footer{
         margin-top: 46px;
-        margin-left: 2px;
-        margin-bottom: 133px;
+        margin-left: 14px;
+        margin-bottom: 36px;
     }
 
     .footer__designed{
-        margin-top: 102px;
-        margin-right: 13px;
+        margin-top: 0px;
+        margin-right: 172px;
+        margin-bottom: 87px;
+    }
+
+    .nav__li--footer{
+        margin-right: 10px;
     }
 
 }
