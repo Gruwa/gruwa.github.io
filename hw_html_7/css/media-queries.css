@@ -713,6 +713,7 @@
     .footer__wrapper{
         max-width:320px;
         }
+        
     .box4__wrapper {
         display: none;
     }
@@ -875,12 +876,6 @@
         height: 220px;
     }
 
-    .slider:before {
-    }
-
-    .slider:after{
-    }
-
     .slider__p{
         margin-left: 65px;
         width: 206px;
@@ -900,41 +895,11 @@
     }
 
     .iphone{
-    display: none;
-    }
-
-    .iphone__img{
-        width: 138px;
-    }
-
-    .circle{
-        top: 104px;
-        left: 44px;
-    }
-
-    .circle__1{
-        height: 52px;
-    }
-
-    .circle__2{
-        width: 34px;
-        height: 34px;
-        top: 9px;
-        left: 9px;
-    }
-
-    .circle__3{
-        top: 16px;
-        left: 16px;
-        font-size: 22px;
+        display: none;
     }
 
     .iphone-copy{
-    display: none;
-    }
-
-    .iphone-copy__img{
-        width: 90px;
+        display: none;
     }
 
     .navigation{
@@ -944,7 +909,7 @@
     }
 
     .slider-opasity{
-    display: none;
+        display: none;
     }
 
     /*box1*/
@@ -958,11 +923,8 @@
         margin-bottom: 69px;
     }
 
-    .info__title{
-    }
-
     .info__main{
-    margin-top: -14px;
+        margin-top: -14px;
     }
 
     .info__readmore{
@@ -998,8 +960,8 @@
     }
 
     .vacancy::before{
-    margin-top: -4px;
-    margin-left: -60px;
+        margin-top: -4px;
+        margin-left: -60px;
     }
 
     .vacncy__logo{
@@ -1009,9 +971,9 @@
     }
 
     .vacncy__logo--title{
-margin-top: 2px;
-letter-spacing: -0.3px;
-}
+        margin-top: 2px;
+        letter-spacing: -0.3px;
+    }
 
     .vacancy__main{
         margin-top: -13px;
@@ -1033,9 +995,9 @@
     }
 
     .line1__title{
-overflow: hidden;
-height: 17px;
-display: block;
+        overflow: hidden;
+        height: 17px;
+        display: block;
     }
 
     .line1__dates{
@@ -1046,12 +1008,12 @@
     }
 
     .updates__1{
-    margin-bottom: 23px;
+        margin-bottom: 23px;
     }
 
     .updates__1--2{
-margin-bottom: 32px;
-}
+        margin-bottom: 32px;
+    }
 
     .updates__readmore{
         display: none;
@@ -1104,48 +1066,7 @@
 
     /*box4*/
 
-    .column1,
-    .column2{
-        display: none;
-    }
 
-    .column3{
-        float: none;
-        padding-left: 7px;
-        width: 100%;
-        padding-top: 0px;
-        padding-bottom: 0px;
-        margin-bottom: 0px;
-    }
-
-    .column3--box{
-        margin-top: 34px;
-        padding-left: 15px;
-        padding-bottom: 65px;
-    }
-
-    .column3__title{
-        font-size: 24px;
-    }
-
-    .column3__main{
-        margin-top: 9px;
-        overflow: hidden;
-        height: 121px;
-    }
-
-    .column4{
-        display: block;
-        padding-top: 79px;
-        margin-left: 8px;
-    }
-
-    .column5{
-        margin-left: 15px;
-        margin-top: 31px;
-        display: block;
-        padding-left: 0px;
-    }
 
     /*footer*/
 
