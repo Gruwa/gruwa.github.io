@@ -71,22 +71,23 @@ header{
  }
 
  .nav__li--space{
-     letter-spacing: -0.2px;
-     margin-left: 1px;
+    margin-left: 1px;
+    letter-spacing: -0.2px;
 }
 
-.nav__li--6 {
+.nav__li--6{
     margin-right: -12px;
 }
 
 .nav__a{
+    padding: 0 5px;
     font-family: "LeagueGothicRegular", sans-serif;
     font-size: 24px;
     color: #fff;
     text-align: left;
     text-transform: uppercase;
     text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4);
-    padding: 0 5px;
+
 }
 
 .nav__a:hover {
@@ -98,24 +99,27 @@ header{
 }
 
 .slider{
-    display: block;
-    box-sizing: border-box;
-    margin-top: 179px;
+    position: relative;
     width: 100%;
     height: 400px;
     z-index: 20;
+    display: block;
+    box-sizing: border-box;
+    margin-top: 179px;
     margin-bottom: 60px;
-    position: relative;
+
+
 }
 
 .slider-opasity {
+    height: 400px;
+    z-index: 10;
     display: block;
     margin-top: -508px;
     margin-bottom: 169px;
     background-color: #000;
     opacity: 0.2;
-    height: 400px;
-    z-index: 10;
+
 }
 
 .slider__box{
