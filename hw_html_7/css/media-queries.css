@@ -736,12 +736,11 @@
         position: absolute;
         left: 35px;
         top: 97px;
-        display: none;
         z-index: 100;
+        display: none;
     }
 
     .nav__list--480{
-        opacity: 0.902;
         width: 246px;
         height: 260px;
         display: block;
@@ -755,89 +754,90 @@
         -webkit-box-shadow: 0px 10px 16px 0px rgba(0,0,0,0.2);
         -moz-box-shadow: 0px 10px 16px 0px rgba(0,0,0,0.2);
         box-shadow: 0px 10px 16px 0px rgba(0,0,0,0.2);
+        opacity: 0.902;
     }
 
     .nav__li--480{
+        height: 40px;
         margin: 0;
         padding: 0;
         display: block;
         box-sizing: border-box;
-        text-align: center;
-        height: 40px;
         padding-top: 14px;
         padding-bottom: 14px;
         border-bottom: 1px solid #000;
         border-radius: 10px 10px 0 0;
+        text-align: center;
     }
 
     .nav__li--2--480{
+        height: 40px;
         margin: 0;
         padding: 0;
         display: block;
         box-sizing: border-box;
-        text-align: center;
-        height: 40px;
         padding-top: 14px;
         padding-bottom: 14px;
         border-top: 1px solid #523e5a;
         border-bottom: 1px solid #000;
         border-radius: 0;
+        text-align: center;
     }
 
     .nav__li--3--480{
+        height: 40px;
         margin: 0;
         padding: 0;
         display: block;
         box-sizing: border-box;
-        text-align: center;
-        height: 40px;
         padding-top: 14px;
         padding-bottom: 14px;
         border-top: 1px solid #523e5a;
         border-bottom: 1px solid #000;
         border-radius: 0;
+        text-align: center;
     }
 
     .nav__li--4--480{
+        height: 40px;
         margin: 0;
         padding: 0;
         display: block;
         box-sizing: border-box;
-        text-align: center;
-        height: 40px;
         padding-top: 14px;
         padding-bottom: 14px;
         border-top: 1px solid #523e5a;
         border-bottom: 1px solid #000;
         border-radius: 0;
+        text-align: center;
     }
 
     .nav__li--5--480{
+        height: 40px;
         margin: 0;
         padding: 0;
         display: block;
         box-sizing: border-box;
-        text-align: center;
-        height: 40px;
         padding-top: 14px;
         padding-bottom: 14px;
         border-top: 1px solid #523e5a;
         border-bottom: 1px solid #000;
         border-radius: 0;
+        text-align: center;
     }
 
     .nav__li--6--480{
+        height: 60px;
         margin: 0;
         padding: 0;
         display: block;
         box-sizing: border-box;
-        text-align: center;
-        height: 60px;
         padding-top: 14px;
         padding-bottom: 14px;
         border-top: 1px solid #523e5a;
         border-bottom: none;
         border-radius: 0 0 10px 10px;
+        text-align: center;
     }
 
     .nav__a--480:hover {
@@ -872,16 +872,15 @@
         display: none;
     }
 
-
     .slider{
+        height: 220px;
         margin-top: 44px;
         margin-bottom: 0px;
-        height: 220px;
     }
 
     .slider__p{
-        margin-left: 65px;
         width: 206px;
+        margin-left: 65px;
     }
 
     .slider__p--span0{
@@ -956,9 +955,9 @@
     /*box2*/
 
     .vacancy{
-        margin-left: 40px;
         width: 82%;
         margin-top: 60px;
+        margin-left: 40px;
         padding-right: 25px;
     }
 
@@ -979,35 +978,35 @@
     }
 
     .vacancy__main{
-        margin-top: -13px;
-        padding-top: 0px;
-        margin-left: 3px;
         height: 164px;
+        margin-top: -13px;
+        margin-left: 3px;
+        padding-top: 0px;
     }
 
     .navigation--vacancy{
+        margin-bottom: 52px;
         padding-left: 56px;
         padding-top: 54px;
-        margin-bottom: 52px;
     }
 
     .updates{
+        width: 87%;
         padding-left: 19px;
         float: none;
-        width: 87%;
     }
 
     .line1__title{
-        overflow: hidden;
         height: 17px;
+        overflow: hidden;
         display: block;
     }
 
     .line1__dates{
-        overflow: hidden;
         height: 18px;
-        padding-top: 0px;
+        overflow: hidden;
         margin-top: -10px;
+        padding-top: 0px;
     }
 
     .updates__1{
@@ -1069,12 +1068,10 @@
 
     /*box4*/
 
-
-
     /*footer*/
 
     .nav--footer{
-    display: none;
+        display: none;
     }
 
     .footer__designed{
