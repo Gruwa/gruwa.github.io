@@ -27,9 +27,9 @@
     }
 
     .slider:before {
-        margin-left: 0px;
         left: -3px;
         top: 139px;
+        margin-left: 0px;
     }
 
     .slider:after{
@@ -38,30 +38,30 @@
     }
 
     .slider__p{
-        font-size: 48px;
-        margin-left: 31px;
         width: 269px;
+        margin-left: 31px;
+        font-size: 48px;
     }
 
     .slider__p--span0{
+        margin-top: 91px;
         letter-spacing: -0.7px;
         font-size: 48px;
-        margin-top: 91px;
     }
 
     .slider__p--span1{
+        height: 20px;
         margin-top: -30px;
         font-size: 24px;
         letter-spacing: -0.3px;
         overflow: hidden;
         line-height: 1;
-        height: 20px;
     }
 
     .slider__p--span2{
+        height: 100px;
         margin-top: -37px;
         letter-spacing: -1px;
-        height: 100px;
         line-height: 1.5;
         overflow: hidden;
     }
@@ -105,10 +105,11 @@
     }
 
     .info__main{
+        height: 140px;
         box-sizing: border-box;
         margin-top: -13px;
         overflow: hidden;
-        height: 140px;
+
     }
 
     .info__readmore{
@@ -136,21 +137,22 @@
     /*box2*/
 
     .vacancy{
-        margin-left: 30px;
         width: 41%;
+        margin-left: 30px;
+
     }
 
     .vacncy__logo{
+        width: 88px;
         font-size: 24px;
         display: block;
-        width: 88px;
         overflow: hidden;
     }
 
     .vacancy__main{
+        height: 152px;
         margin-top: -17px;
         overflow: hidden;
-        height: 152px;
     }
 
     .navigation--vacancy{
@@ -163,8 +165,8 @@
     }
 
     .line1__dates{
-        overflow: hidden;
         height: 18px;
+        overflow: hidden;
     }
 
     .updates__readmore{
@@ -216,9 +218,9 @@
     }
 
     .column3{
+        width: 29%;
         padding-left: 7px;
         padding-top: 101px;
-        width: 29%;
         margin-bottom: 95px;
     }
 
@@ -227,9 +229,9 @@
     }
 
     .column3__main{
+        height: 167px;
         margin-top: 9px;
         overflow: hidden;
-        height: 167px;
     }
 
     .column4,
@@ -283,12 +285,11 @@
         position: absolute;
         left: 111px;
         top: 95px;
-        display: none;
         z-index: 100;
+        display: none;
     }
 
     .nav__list--480{
-        opacity: 0.902;
         width: 246px;
         height: 260px;
         display: block;
@@ -302,89 +303,90 @@
         -webkit-box-shadow: 0px 10px 16px 0px rgba(0,0,0,0.2);
         -moz-box-shadow: 0px 10px 16px 0px rgba(0,0,0,0.2);
         box-shadow: 0px 10px 16px 0px rgba(0,0,0,0.2);
+        opacity: 0.902;
     }
 
     .nav__li--480{
         margin: 0;
         padding: 0;
+        height: 40px;
         display: block;
         box-sizing: border-box;
-        text-align: center;
-        height: 40px;
         padding-top: 14px;
         padding-bottom: 14px;
         border-bottom: 1px solid #000;
         border-radius: 10px 10px 0 0;
+        text-align: center;
     }
 
     .nav__li--2--480{
+        height: 40px;
         margin: 0;
         padding: 0;
         display: block;
         box-sizing: border-box;
-        text-align: center;
-        height: 40px;
         padding-top: 14px;
         padding-bottom: 14px;
         border-top: 1px solid #523e5a;
         border-bottom: 1px solid #000;
         border-radius: 0;
+        text-align: center;
     }
 
     .nav__li--3--480{
+        height: 40px;
         margin: 0;
         padding: 0;
         display: block;
         box-sizing: border-box;
-        text-align: center;
-        height: 40px;
         padding-top: 14px;
         padding-bottom: 14px;
         border-top: 1px solid #523e5a;
         border-bottom: 1px solid #000;
         border-radius: 0;
+        text-align: center;
     }
 
     .nav__li--4--480{
+        height: 40px;
         margin: 0;
         padding: 0;
         display: block;
         box-sizing: border-box;
-        text-align: center;
-        height: 40px;
         padding-top: 14px;
         padding-bottom: 14px;
         border-top: 1px solid #523e5a;
         border-bottom: 1px solid #000;
         border-radius: 0;
+        text-align: center;
     }
 
     .nav__li--5--480{
+        height: 40px;
         margin: 0;
         padding: 0;
         display: block;
         box-sizing: border-box;
-        text-align: center;
-        height: 40px;
         padding-top: 14px;
         padding-bottom: 14px;
         border-top: 1px solid #523e5a;
         border-bottom: 1px solid #000;
         border-radius: 0;
+        text-align: center;
     }
 
     .nav__li--6--480{
+        height: 60px;
         margin: 0;
         padding: 0;
         display: block;
         box-sizing: border-box;
-        text-align: center;
-        height: 60px;
         padding-top: 14px;
         padding-bottom: 14px;
         border-top: 1px solid #523e5a;
         border-bottom: none;
         border-radius: 0 0 10px 10px;
+        text-align: center;
     }
 
     .nav__a--480:hover {
@@ -416,9 +418,9 @@
 
 
     .slider{
+        height: 253px;
         margin-top: 44px;
         margin-bottom: 0px;
-        height: 253px;
     }
 
     .slider:before {
@@ -431,25 +433,27 @@
     }
 
     .slider__p{
+        width: 269px;
         font-size: 48px;
         margin-left: 37px;
-        width: 269px;
     }
 
     .slider__p--span0{
+        margin-top: 91px;
         letter-spacing: -0.7px;
         font-size: 36px;
-        margin-top: 91px;
+
     }
 
     .slider__p--span1{
+        height: 20px;
+        max-width: 206px;
+        overflow: hidden;
         margin-top: -40px;
         font-size: 18px;
         letter-spacing: -0.3px;
-        overflow: hidden;
         line-height: 1.2;
-        height: 20px;
-        max-width: 206px;
+
     }
 
     .slider__p--span2{
@@ -502,9 +506,9 @@
     }
 
     .slider-opasity{
+        height: 246px;
         margin-top: -308px;
         margin-bottom: 98px;
-        height: 246px;
     }
 
     /*box1*/
@@ -556,22 +560,22 @@
     /*box2*/
 
     .vacancy{
-        margin-left: 39px;
         width: 87%;
+        margin-left: 39px;
         margin-top: 69px;
     }
 
     .vacncy__logo{
-        font-size: 30px;
-        display: inline;
         width: 100%;
         overflow: visible;
+        font-size: 30px;
+        display: inline;
     }
 
     .vacancy__main{
-        margin-top: 4px;
-        overflow: hidden;
         height: 152px;
+        overflow: hidden;
+        margin-top: 4px;
     }
 
     .navigation--vacancy{
@@ -580,15 +584,15 @@
     }
 
     .updates{
+        width: 87%;
         padding-left: 80px;
         float: left;
         padding-top: 50px;
-        width: 87%;
     }
 
     .line1__dates{
-        overflow: hidden;
         height: 18px;
+        overflow: hidden;
     }
 
     .updates__readmore{
@@ -646,9 +650,9 @@
     }
 
     .column3{
+        width: 100%;
         float: none;
         padding-left: 7px;
-        width: 100%;
         padding-top: 0px;
         padding-bottom: 0px;
         margin-bottom: 0px;
@@ -700,7 +704,6 @@
     .nav__li--footer{
         margin-right: 10px;
     }
-
 }
 
 @media screen and (max-width:480px) {
@@ -713,7 +716,7 @@
     .footer__wrapper{
         max-width:320px;
         }
-        
+
     .box4__wrapper {
         display: none;
     }
@@ -733,12 +736,11 @@
         position: absolute;
         left: 35px;
         top: 97px;
-        display: none;
         z-index: 100;
+        display: none;
     }
 
     .nav__list--480{
-        opacity: 0.902;
         width: 246px;
         height: 260px;
         display: block;
@@ -752,89 +754,90 @@
         -webkit-box-shadow: 0px 10px 16px 0px rgba(0,0,0,0.2);
         -moz-box-shadow: 0px 10px 16px 0px rgba(0,0,0,0.2);
         box-shadow: 0px 10px 16px 0px rgba(0,0,0,0.2);
+        opacity: 0.902;
     }
 
     .nav__li--480{
+        height: 40px;
         margin: 0;
         padding: 0;
         display: block;
         box-sizing: border-box;
-        text-align: center;
-        height: 40px;
         padding-top: 14px;
         padding-bottom: 14px;
         border-bottom: 1px solid #000;
         border-radius: 10px 10px 0 0;
+        text-align: center;
     }
 
     .nav__li--2--480{
+        height: 40px;
         margin: 0;
         padding: 0;
         display: block;
         box-sizing: border-box;
-        text-align: center;
-        height: 40px;
         padding-top: 14px;
         padding-bottom: 14px;
         border-top: 1px solid #523e5a;
         border-bottom: 1px solid #000;
         border-radius: 0;
+        text-align: center;
     }
 
     .nav__li--3--480{
+        height: 40px;
         margin: 0;
         padding: 0;
         display: block;
         box-sizing: border-box;
-        text-align: center;
-        height: 40px;
         padding-top: 14px;
         padding-bottom: 14px;
         border-top: 1px solid #523e5a;
         border-bottom: 1px solid #000;
         border-radius: 0;
+        text-align: center;
     }
 
     .nav__li--4--480{
+        height: 40px;
         margin: 0;
         padding: 0;
         display: block;
         box-sizing: border-box;
-        text-align: center;
-        height: 40px;
         padding-top: 14px;
         padding-bottom: 14px;
         border-top: 1px solid #523e5a;
         border-bottom: 1px solid #000;
         border-radius: 0;
+        text-align: center;
     }
 
     .nav__li--5--480{
+        height: 40px;
         margin: 0;
         padding: 0;
         display: block;
         box-sizing: border-box;
-        text-align: center;
-        height: 40px;
         padding-top: 14px;
         padding-bottom: 14px;
         border-top: 1px solid #523e5a;
         border-bottom: 1px solid #000;
         border-radius: 0;
+        text-align: center;
     }
 
     .nav__li--6--480{
+        height: 60px;
         margin: 0;
         padding: 0;
         display: block;
         box-sizing: border-box;
-        text-align: center;
-        height: 60px;
         padding-top: 14px;
         padding-bottom: 14px;
         border-top: 1px solid #523e5a;
         border-bottom: none;
         border-radius: 0 0 10px 10px;
+        text-align: center;
     }
 
     .nav__a--480:hover {
@@ -869,16 +872,15 @@
         display: none;
     }
 
-
     .slider{
+        height: 220px;
         margin-top: 44px;
         margin-bottom: 0px;
-        height: 220px;
     }
 
     .slider__p{
-        margin-left: 65px;
         width: 206px;
+        margin-left: 65px;
     }
 
     .slider__p--span0{
@@ -953,9 +955,9 @@
     /*box2*/
 
     .vacancy{
-        margin-left: 40px;
         width: 82%;
         margin-top: 60px;
+        margin-left: 40px;
         padding-right: 25px;
     }
 
@@ -976,35 +978,35 @@
     }
 
     .vacancy__main{
-        margin-top: -13px;
-        padding-top: 0px;
-        margin-left: 3px;
         height: 164px;
+        margin-top: -13px;
+        margin-left: 3px;
+        padding-top: 0px;
     }
 
     .navigation--vacancy{
+        margin-bottom: 52px;
         padding-left: 56px;
         padding-top: 54px;
-        margin-bottom: 52px;
     }
 
     .updates{
+        width: 87%;
         padding-left: 19px;
         float: none;
-        width: 87%;
     }
 
     .line1__title{
-        overflow: hidden;
         height: 17px;
+        overflow: hidden;
         display: block;
     }
 
     .line1__dates{
-        overflow: hidden;
         height: 18px;
-        padding-top: 0px;
+        overflow: hidden;
         margin-top: -10px;
+        padding-top: 0px;
     }
 
     .updates__1{
@@ -1066,12 +1068,10 @@
 
     /*box4*/
 
-
-
     /*footer*/
 
     .nav--footer{
-    display: none;
+        display: none;
     }
 
     .footer__designed{
