@@ -276,7 +276,7 @@
 
     .logo{
         margin-left: 152px;
-        margin-top: 4px;
+        margin-top: 0px;
     }
 
     .nav--480{
@@ -422,8 +422,6 @@
     }
 
     .slider:before {
-        margin-left: 0px;
-        left: -3px;
         top: 68px;
     }
 
@@ -524,15 +522,9 @@
 
     .info__title{
         font-size: 24px;
-        display: block;
-        box-sizing: border-box;
-        padding-top: 5px;
     }
 
     .info__main{
-        box-sizing: border-box;
-        margin-top: -13px;
-        overflow: hidden;
         height: 72px;
         letter-spacing: -0.06px;
     }
@@ -544,7 +536,6 @@
     }
 
     .info--2{
-        padding-left: 17px;
         padding-top: 20px;
     }
 
@@ -722,6 +713,9 @@
     .footer__wrapper{
         max-width:320px;
         }
+    .box4__wrapper {
+        display: none;
+    }
 
         /*header*/
 
@@ -730,14 +724,14 @@
     }
 
     .logo{
-        margin-left: 64px;
-        margin-top: 3px;
+        margin-left: 76px;
+        padding-top: 76px;
     }
 
     .nav--480{
         position: absolute;
-        left: 111px;
-        top: 95px;
+        left: 35px;
+        top: 97px;
         display: none;
         z-index: 100;
     }
@@ -861,7 +855,7 @@
     }
 
     .nav__main{
-        margin-left: 126px;
+        margin-left: 138px;
         margin-top: 38px;
         display: block;
     }
@@ -878,40 +872,26 @@
     .slider{
         margin-top: 44px;
         margin-bottom: 0px;
-        height: 253px;
+        height: 220px;
     }
 
     .slider:before {
-        margin-left: 0px;
-        left: -3px;
-        top: 68px;
     }
 
     .slider:after{
-        right: -1px;
-        top: 69px;
     }
 
     .slider__p{
-        font-size: 48px;
-        margin-left: 37px;
-        width: 269px;
+        margin-left: 65px;
+        width: 206px;
     }
 
     .slider__p--span0{
-        letter-spacing: -0.7px;
-        font-size: 36px;
-        margin-top: 91px;
+        letter-spacing: -0.5px;
     }
 
     .slider__p--span1{
-        margin-top: -40px;
-        font-size: 18px;
-        letter-spacing: -0.3px;
-        overflow: hidden;
-        line-height: 1.2;
-        height: 20px;
-        max-width: 206px;
+        letter-spacing: -0.2px;
     }
 
     .slider__p--span2{
@@ -920,8 +900,7 @@
     }
 
     .iphone{
-        margin-top: -19px;
-        margin-right: 31px;
+    display: none;
     }
 
     .iphone__img{
@@ -951,8 +930,7 @@
     }
 
     .iphone-copy{
-        margin-top: -154px;
-        margin-right: -35px;
+    display: none;
     }
 
     .iphone-copy__img{
@@ -960,23 +938,20 @@
     }
 
     .navigation{
-        padding-left: 193px;
-        padding-top: 31px;
+        padding-left: 116px;
+        padding-top: 0px;
+        margin-bottom: 69px;
     }
 
     .slider-opasity{
-        margin-top: -308px;
-        margin-bottom: 98px;
-        height: 246px;
+    display: none;
     }
 
     /*box1*/
 
     .info{
-        float: none;
-        width: 100%;
-        padding-left: 17px;
-        padding-top: 74px;
+        padding-left: 20px;
+        padding-top: 66px;
     }
 
     .info::before{
@@ -984,104 +959,121 @@
     }
 
     .info__title{
-        font-size: 24px;
-        display: block;
-        box-sizing: border-box;
-        padding-top: 5px;
     }
 
     .info__main{
-        box-sizing: border-box;
-        margin-top: -13px;
-        overflow: hidden;
-        height: 72px;
-        letter-spacing: -0.06px;
+    margin-top: -14px;
     }
 
     .info__readmore{
-        margin-top: -1px;
         margin-right: 7px;
-        margin-bottom: 0px;
+        margin-top: 2px;
     }
 
     .info--2{
-        padding-left: 17px;
-        padding-top: 20px;
+        padding-top: 19px;
     }
 
     .info__readmore--2{
-        margin-right: 27px;
+        margin-right: 26px;
     }
 
     .info--3{
-        padding-left: 17px;
-        padding-top: 25px;
-        margin-bottom: 69px;
+        padding-left: 20px;
+        padding-top: 34px;
+        margin-bottom: 66px;
     }
 
     .info__readmore--3{
-        margin-right: 27px;
+        margin-right: 26px;
     }
 
     /*box2*/
 
     .vacancy{
-        margin-left: 39px;
-        width: 87%;
-        margin-top: 69px;
+        margin-left: 40px;
+        width: 82%;
+        margin-top: 60px;
+        padding-right: 25px;
+    }
+
+    .vacancy::before{
+    margin-top: -4px;
+    margin-left: -60px;
     }
 
     .vacncy__logo{
-        font-size: 30px;
-        display: inline;
-        width: 100%;
-        overflow: visible;
+        font-size: 24px;
+        display: block;
+        margin-top: 4px;
     }
 
+    .vacncy__logo--title{
+margin-top: 2px;
+letter-spacing: -0.3px;
+}
+
     .vacancy__main{
-        margin-top: 4px;
-        overflow: hidden;
-        height: 152px;
+        margin-top: -13px;
+        padding-top: 0px;
+        margin-left: 3px;
+        height: 164px;
     }
 
     .navigation--vacancy{
-        padding-left: 118px;
-        padding-top: 82px;
+        padding-left: 56px;
+        padding-top: 54px;
+        margin-bottom: 52px;
     }
 
     .updates{
-        padding-left: 80px;
-        float: left;
-        padding-top: 50px;
+        padding-left: 19px;
+        float: none;
         width: 87%;
+    }
+
+    .line1__title{
+overflow: hidden;
+height: 17px;
+display: block;
     }
 
     .line1__dates{
         overflow: hidden;
         height: 18px;
+        padding-top: 0px;
+        margin-top: -10px;
     }
+
+    .updates__1{
+    margin-bottom: 23px;
+    }
+
+    .updates__1--2{
+margin-bottom: 32px;
+}
 
     .updates__readmore{
         display: none;
     }
 
     .updates__readmore--moreblog{
-        display: block;
-        margin-top: -2px;
-        margin-right: -2px;
+        margin-top: 0px;
+        margin-right: -16px;
         margin-bottom: 88px;
+        display: block;
     }
 
     /*box3*/
 
     .company-logo{
         padding-left: 0px;
-        padding-bottom: 0px;
+        padding-bottom: 32px;
     }
 
     .company-logo__1{
-        margin-left: 78px;
-        margin-top: 13px;
+        margin-left: 60px;
+        margin-top: 29px;
     }
 
     .company-logo__1--2{
@@ -1089,22 +1081,24 @@
     }
 
     .company-logo__1--3{
-        margin-left: 56px;
+        margin-left: 71px;
+        margin-top: 59px;
     }
 
     .company-logo__1--4{
         margin-left: 57px;
-        margin-top: 24px;
+        margin-top: 59px;
+        margin-right: 56px;
     }
 
     .company-logo__1--5{
-        margin-left: 43px;
-        margin-top: 24px;
+        margin-left: -96px;
+        margin-top: 41px;
     }
 
     .company-logo__1--6{
         margin-left: 44px;
-        margin-top: 24px;
+        margin-top: 42px;
         margin-bottom: 42px;
     }
 
@@ -1156,19 +1150,13 @@
     /*footer*/
 
     .nav--footer{
-        margin-top: 46px;
-        margin-left: 14px;
-        margin-bottom: 36px;
+    display: none;
     }
 
     .footer__designed{
-        margin-top: 0px;
-        margin-right: 172px;
-        margin-bottom: 87px;
-    }
-
-    .nav__li--footer{
-        margin-right: 10px;
+        margin-top: 41px;
+        margin-right: 91px;
+        margin-bottom: 148px;
     }
 
 }

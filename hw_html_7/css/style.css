@@ -233,7 +233,7 @@ header{
 
 .slider:before{
     content: '\2039';
-    margin-left: -55px;
+    right: 979px;
 }
 
 .navigation{
