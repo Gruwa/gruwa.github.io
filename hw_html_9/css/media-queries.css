@@ -428,12 +428,12 @@
     }
 
     .slider:after{
-        right: -1px;
+        right: 2px;
         top: 69px;
     }
 
     .slider__p{
-        width: 269px;
+        width: 260px;
         font-size: 48px;
         margin-left: 37px;
     }
@@ -463,7 +463,7 @@
 
     .iphone{
         margin-top: -19px;
-        margin-right: 31px;
+        margin-right: 22px;
     }
 
     .iphone__img{
@@ -531,6 +531,7 @@
     .info__main{
         height: 72px;
         letter-spacing: -0.06px;
+        width: 100%;
     }
 
     .info__readmore{
@@ -650,7 +651,7 @@
     }
 
     .column3{
-        width: 100%;
+        width: 94%;
         float: none;
         padding-left: 7px;
         padding-top: 0px;
@@ -672,6 +673,7 @@
         margin-top: 9px;
         overflow: hidden;
         height: 121px;
+        width: 96%;
     }
 
     .column4{
