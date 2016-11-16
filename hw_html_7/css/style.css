@@ -223,7 +223,7 @@ header{
 .slider:before{
     position: absolute;
     top: 162px;
-    right: -40px;
+    right: 2px;
     content: '\203A';
     font-size: 73px;
     font-weight: bold;
@@ -317,6 +317,7 @@ header{
 
 .info--3::before{
     background-position: -37px 0px;
+    margin: 5px 8px 115px 10px;
 }
 
 .info__title{
@@ -339,7 +340,7 @@ header{
 }
 
 .info__main--3 {
-    margin-right: -2px;
+    margin-right: 0px;
 }
 
 .info__readmore{
@@ -359,7 +360,7 @@ header{
 }
 
 .info__readmore--3{
-    margin-right: 1px;
+    margin-right: 5px;
 }
 
 .info__readmore:hover{
@@ -759,7 +760,7 @@ footer{
     box-sizing: border-box;
     float: right;
     margin-top: 54px;
-    margin-right: -1px;
+    margin-right: 3px;
     color: #fff;
     font-family: "OpenSansLight", sans-serif;
     font-size: 12px;
