@@ -52,20 +52,44 @@ a {
 	padding-top: 73px;
 }
 
-.nav__main{
+.nav__main {
     display: none;
-}
-
-.nav__a:hover {
-    border-bottom: 2px solid #edbfff;
 }
 
 .slider-opasity{
 	filter: alpha(opacity=10);
 	position: relative;
 	top: -508px;
-	margin-bottom: -316px;
+	margin-bottom: -320px;
+}
 
+.navigation__circle{
+	background-color: transparent;
+	background-image: url(../img/nav_circle1.png);
+	background-repeat: no-repeat;
+}
+
+.navigation__circle:focus{
+	background-color: transparent;
+	background-image: url(../img/nav_circle1s.png);
+	background-repeat: no-repeat;
+	border: none;
+}
+
+.navigation__circle--vacancy{
+	border: none;
+	background-color: transparent;
+	background-image: url(../img/nav_circle2.png);
+	background-repeat: no-repeat;
+	margin-top: 30px;
+}
+
+.navigation__circle--vacancy:focus{
+	background-color: transparent;
+	background-image: url(../img/nav_circle2s.png);
+	background-repeat: no-repeat;
+	border: none;
+	filter: none;
 }
 
 .navigation{
@@ -84,4 +108,10 @@ a {
 
 .company-logo__1--6{
 	background-position: -693px 0px;
+}
+
+.circle__2{
+	background-image: url(../img/iPhone-4_circle.png);
+	background-repeat: no-repeat;
+	background-color: transparent;
 }
