@@ -48,17 +48,40 @@ a {
 	}
 
 /*end reset css*/
+.header__box {
+	padding-top: 73px;
+}
 
 .nav__main{
     display: none;
 }
 
-.nav__a{
-    color: black;
+.nav__a:hover {
+    border-bottom: 2px solid #edbfff;
+}
+
+.slider-opasity{
+	filter: alpha(opacity=10);
+	position: relative;
+	top: -508px;
+	margin-bottom: -316px;
+
+}
+
+.navigation{
+    box-sizing: border-box;
+    padding-top: 34px;
+    padding-left: 705px;
+}
+
+.navigation--vacancy {
+	padding-left: 105px;
 }
 
 .logo{
     padding-top: 0px;
-    margin-top: 73px;
+}
 
+.company-logo__1--6{
+	background-position: -693px 0px;
 }

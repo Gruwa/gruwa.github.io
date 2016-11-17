@@ -17,7 +17,7 @@ body{
 
 /*header*/
 
-header{
+.header{
     box-sizing: border-box;
     background: url(../img/bg-header.jpg) no-repeat;
     background-position-x: center;
@@ -728,7 +728,7 @@ header{
 
 /*footer*/
 
-footer{
+.footer{
     width: 100%;
     background: url(../img/bg-footer.jpg) no-repeat;
 }

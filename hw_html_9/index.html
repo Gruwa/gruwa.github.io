@@ -2,11 +2,13 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="css/reset.css" media="screen" title="no title">
-        <link rel="stylesheet" href="css/font.css" media="screen" title="no title">
-        <link rel="stylesheet" href="css/style.css" media="screen" title="no title">
-        <link rel="stylesheet" href="css/media-queries.css" media="screen" title="no title">
-
+        <link rel="stylesheet" href="css/reset.css" media="screen">
+        <link rel="stylesheet" href="css/font.css" media="screen">
+        <link rel="stylesheet" href="css/style.css" media="screen">
+        <link rel="stylesheet" href="css/media-queries.css" media="screen">
+        <!--[if lt IE 9]>
+        <link rel="stylesheet" href="css/ie.css" media="screen">
+        <![endif]-->
         <!--[if lt IE 9]>
         <script src="html5shiv.js"></script>
         <script src="https://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
@@ -16,15 +18,15 @@
     <body>
     <div class="wrapper">
 
-            <header class="clearfix">
+            <div class="header clearfix">
                 <div class="header__wrapper clearfix">
                 <div class="header__box">
                 <a href="#" class="logo">PINGBULL<span class="logo__span">ER</span></a>
 
-                <nav class="nav nav__main">
+                <div class="nav nav__main">
                     <ul class="nav__list">
                         <li class="nav__li nav__li--main"><a href="#" class="nav__a nav__a--main">home</a>
-                <nav class="nav nav--480">
+                <div class="nav nav--480">
                     <ul class="nav__list nav__list--480">
                         <li class="nav__li nav__li--480"><a href="#" class="nav__a nav__a--480">home</a></li>
                         <li class="nav__li nav__li--2 nav__li--480 nav__li--2--480"><a href="#" class="nav__a nav__a--480">about</a></li>
@@ -33,11 +35,11 @@
                         <li class="nav__li nav__li--space nav__li--480 nav__li--5 nav__li--5--480"><a href="#" class="nav__a nav__a--480">lorem ipsum</a></li>
                         <li class="nav__li nav__li--space nav__li--480 nav__li--6 nav__li--6--480"><a href="#" class="nav__a nav__a--480">dolor sit amet</a></li>
                     </ul>
-                </nav>
+                </div>
                         </li>
                     </ul>
-                </nav>
-                <nav class="nav nav__960">
+                </div>
+                <div class="nav nav__960">
                     <ul class="nav__list">
                         <li class="nav__li"><a href="#" class="nav__a">home</a></li>
                         <li class="nav__li nav__li--2"><a href="#" class="nav__a">about</a></li>
@@ -46,7 +48,7 @@
                         <li class="nav__li nav__li--space nav__li--5"><a href="#" class="nav__a">lorem ipsum</a></li>
                         <li class="nav__li nav__li--space nav__li--6"><a href="#" class="nav__a">dolor sit amet</a></li>
                     </ul>
-                </nav>
+                </div>
                 </div>
                 <div class="slider">
                     <div class="slider__box clearfix">
@@ -71,7 +73,7 @@
                 </div>
             </div>
             <div class="slider-opasity"></div>
-            </header>
+        </div>
 
             <div class="box1">
                 <div class="box1__wrapper clearfix">
@@ -165,9 +167,9 @@
                 </div>
             </div>
 
-            <footer>
+            <div class="footer">
                 <div class="footer__wrapper clearfix">
-                <nav class="nav nav--footer">
+                <div class="nav nav--footer">
                     <ul>
                         <li class="nav__li nav__li--footer"><a href="#" class="nav__a nav__a--footer">home</a></li>
                         <li class="nav__li nav__li--footer"><a href="#" class="nav__a nav__a--footer">about</a></li>
@@ -176,10 +178,10 @@
                         <li class="nav__li nav__li--space nav__li--footer"><a href="#" class="nav__a nav__a--footer">lorem ipsum</a></li>
                         <li class="nav__li nav__li--space nav__li--6 nav__li--footer"><a href="#" class="nav__a nav__a--footer">dolor sit amet</a></li>
                     </ul>
-                </nav>
+                </div>
                 <span class="footer__designed">Designed by <span class="footer__designeddop">Pingbull AS</span></span>
                 </div>
-            </footer>
+            </div>
 
 
     </div>
