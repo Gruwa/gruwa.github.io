@@ -1,8 +1,9 @@
-var mybox = 5;
 
-// alert(mybox);
-alert(mybox);
+var man;
 
-/*alert(mybox);
-alert(mybox);
-*/  
+earth = 'Земля';
+admin = name;
+
+alert (admin);
+
+console.log ('admin', admin)
