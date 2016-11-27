@@ -1,9 +1,6 @@
 
-var man;
+var user = prompt('Name', 'default');
 
-earth = 'Земля';
-admin = name;
+alert (user);
 
-alert (admin);
-
-console.log ('admin', admin)
+console.log ('Name', user);
