@@ -5,6 +5,60 @@
 //
 // console.log ('Name', user);
 
-var year = prompt('В каком году появилась спецификация ECMA-262 5.1?', '');
+// var js = prompt ('Каково «официальное» название JavaScript?', '');
+//
+// if (js == 'ECMAScript') {
+//     alert ('Верно!');
+// } else {
+//     alert ('Не знаете? «ECMAScript»!');
+// }
 
-if (year != 2011) alert( 'А вот и неправильно!' );
+// var js = prompt ('Введите число', '');
+// if (js > 0) {
+//     alert (1);
+// } else if (js < 0){
+//     alert (-1);
+// } else {
+//     alert (0);
+// }
+
+// var login = prompt ('Введите логин', '');
+// if (login == 'Админ') {
+//     var pas = prompt ('Введите пароль', '');
+//     if (pas == 'Чёрный Властелин') {
+//         alert ('Добро пожаловать!')
+//     } else if (pas == null) {
+//     alert ('Вход отменен');
+// } else {
+//     alert ('Пароль не верен');
+// }
+// } else if (login == null) {
+//     alert ('Вход отменен');
+// } else {
+//     alert ('Я Вас не знаю');
+// }
+
+// if (a + b < 4) {
+//   result = 'Мало';
+// } else {
+//   result = 'Много';
+// }
+//
+// var number = (a + b < 4) ? 'Мало' : 'Много';
+
+var message;
+
+if (login == 'Вася') {
+  message = 'Привет';
+} else if (login == 'Директор') {
+  message = 'Здравствуйте';
+} else if (login == '') {
+  message = 'Нет логина';
+} else {
+  message = '';
+}
+
+var message = (login == 'Вася') ? 'Привет' :
+(login == 'Директор') ? 'Здравствуйте' :
+(login == '') ? 'Нет логина' :
+'';
