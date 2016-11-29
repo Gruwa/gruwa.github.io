@@ -46,19 +46,43 @@
 //
 // var number = (a + b < 4) ? 'Мало' : 'Много';
 
-var message;
+// var message;
+//
+// if (login == 'Вася') {
+//   message = 'Привет';
+// } else if (login == 'Директор') {
+//   message = 'Здравствуйте';
+// } else if (login == '') {
+//   message = 'Нет логина';
+// } else {
+//   message = '';
+// }
+//
+// var message = (login == 'Вася') ? 'Привет' :
+// (login == 'Директор') ? 'Здравствуйте' :
+// (login == '') ? 'Нет логина' :
+// '';
 
-if (login == 'Вася') {
-  message = 'Привет';
-} else if (login == 'Директор') {
-  message = 'Здравствуйте';
-} else if (login == '') {
-  message = 'Нет логина';
+// var age = prompt ('Your age', '');
+//
+// if (age == 14 || age > 14 && age < 90 || age == 90) {
+//     alert ('Baf-baf');
+// } else {
+//     alert ('go away!')
+// }
+
+// var age = prompt ('Your age', '');
+//
+// if (age < 14 || age > 90) {
+//     alert ('Baf-baf');
+// } else {
+//     alert ('go away!')
+// }
+
+var age = prompt ('Your age', '');
+
+if (age != 14 && age != 90 && age < 14 && age > 90) {
+    alert ('Baf-baf');
 } else {
-  message = '';
+    alert ('go away!')
 }
-
-var message = (login == 'Вася') ? 'Привет' :
-(login == 'Директор') ? 'Здравствуйте' :
-(login == '') ? 'Нет логина' :
-'';
