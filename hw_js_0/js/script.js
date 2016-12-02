@@ -153,10 +153,15 @@
 var a = prompt ('Введите начало интервала простых чисел', '');
 var b = prompt ('Введите конец интервала простых чисел', '');
 
-while (a <= b, a > 1, b > 1) {
-    start: for (var i = a; i <= b; i++) {}
+while (a <= b, a > 1, b > 1, a != null, b != null) {
+    for (var i = a; i <= b; i++) {
 
-    // var m =  ; //от 2 до i-1
+        for (var d = 2, k = i - 1; d == k; d++) {
+        if (k % d == 0) {
+                continue;
+        }
+            }
+
 
     if (i % m == 0) {
             continue;
@@ -165,10 +170,10 @@ while (a <= b, a > 1, b > 1) {
 }
 
 
-if (a > b, a < 1, b < 1){
+if (a > b, a < 1, b < 1, a = null, b = null) {
     alert ('Интервал ошибочен, введите значения заново');
 }
-
+}
 
 // for (var i = a; i < b; i++) {
 //     var m =  ; //от 2 до i-1
