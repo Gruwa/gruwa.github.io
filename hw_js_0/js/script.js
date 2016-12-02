@@ -150,38 +150,37 @@
 //  var num = prompt("Введите число больше 100?", 0);
 // } while (num <= 100 && num != null)            ;
 
-var a = prompt ('Введите начало интервала простых чисел', '');
-var b = prompt ('Введите конец интервала простых чисел', '');
-
-while (a <= b, a > 1, b > 1, a != null, b != null) {
-    for (var i = a; i <= b; i++) {
-
-        for (var d = 2, k = i - 1; d == k; d++) {
-        if (k % d == 0) {
-                continue;
-        }
-            }
-
-
-    if (i % m == 0) {
-            continue;
-    }
-    alert (i);
-}
-
-
-if (a > b, a < 1, b < 1, a = null, b = null) {
-    alert ('Интервал ошибочен, введите значения заново');
-}
-}
-
-// for (var i = a; i < b; i++) {
-//     var m =  ; //от 2 до i-1
+// var a = prompt ('Введите начало интервала простых чисел', '');
+// var b = prompt ('Введите конец интервала простых чисел', '');
 //
-//     if (i < 1 && i % m == 0) continue;
-//     alert (i);
+// while (a <= b, a > 1, b > 1, a != null, b != null) {
+//     for (var i = a; i <= b; i++) {
+//
+//         for (var d = 2, k = i - 1; d == k; i++, d++) {
+//         if (k % d == 0) {
+//                 continue;
+//         }
+//             }
+//
+//      console.log(i);
 // }
 // }
-// else {
-//  alert ('Интервал ошибочен, введите значения заново');
+//
+// if (a > b, a < 1, b < 1) {
+//     alert ('Интервал ошибочен, введите значения заново');
 // }
+// }
+
+for (var i = 2; i <= 10; i++) {
+
+    // for (var d = 2, k = i - 1; d == k; d++) {
+    // if (k % d == 0) {
+    //         continue;
+    // }
+    //     }
+
+if (i % m == 0) {
+        continue;
+}
+alert (i);
+}
