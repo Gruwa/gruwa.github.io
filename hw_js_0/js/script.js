@@ -114,3 +114,74 @@
 // undefined + 1 // NaN + 1 ili (1) ( если к NaN добавлять число будет всегда - NaN (not a number))
 // null == "\n0\n" // true 0==0 (не правильно, ответ false, т.к. При сравнении == с null преобразования не происходит, есть жёсткое правило: null == undefined и только)
 // +null == +"\n0\n" // true 0==0
+
+// var i = 0;
+// while (++i < 5) alert( i ); // 1 2 3 4
+
+// var i = 0;
+// while (i++ < 5) alert( i ); // 1 2 3 4 5
+
+// for (var i = 0; i < 5; i++) alert( i ); // 0 1 2 3 4
+
+// for (var i = 0; i < 5; ++i) alert( i ); // 0 1 2 3 4
+
+// for (var i = 2; i <= 10; i++) {
+//     if (i % 2 != 0) continue;
+//     alert(i);
+//     }
+
+// for (var i = 0; i < 3; i++) {
+//   alert( "номер " + i + "!" );
+// }
+
+// var i = 0;
+// do {
+//     alert( "номер " + i + "!" );
+//     i++;
+// } while (i < 3)
+
+
+// do {
+//     var i = prompt ('Введите число больше 100', '');
+//     if (i > 100) continue;
+// }while (i <= 100); - не правильно
+// должно быть так:
+// do {
+//  var num = prompt("Введите число больше 100?", 0);
+// } while (num <= 100 && num != null)            ;
+
+var a = prompt ('Введите начало интервала простых чисел', '');
+var b = prompt ('Введите конец интервала простых чисел', '');
+
+while (a <= b, a > 1, b > 1, a != null, b != null) {
+    for (var i = a; i <= b; i++) {
+
+        for (var d = 2, k = i - 1; d == k; d++) {
+        if (k % d == 0) {
+                continue;
+        }
+            }
+
+
+    if (i % m == 0) {
+            continue;
+    }
+    alert (i);
+}
+
+
+if (a > b, a < 1, b < 1, a = null, b = null) {
+    alert ('Интервал ошибочен, введите значения заново');
+}
+}
+
+// for (var i = a; i < b; i++) {
+//     var m =  ; //от 2 до i-1
+//
+//     if (i < 1 && i % m == 0) continue;
+//     alert (i);
+// }
+// }
+// else {
+//  alert ('Интервал ошибочен, введите значения заново');
+// }
