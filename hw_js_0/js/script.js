@@ -171,16 +171,27 @@
 // }
 // }
 
-for (var i = 2; i <= 10; i++) {
+// for (var i = 2; i <= 10; i++) {
+//
+//     // for (var d = 2, k = i - 1; d == k; d++) {
+//     // if (k % d == 0) {
+//     //         continue;
+//     // }
+//     //     }
+//
+// if (i % m == 0) {
+//         continue;
+// }
+// alert (i);
+// }
 
-    // for (var d = 2, k = i - 1; d == k; d++) {
-    // if (k % d == 0) {
-    //         continue;
-    // }
-    //     }
 
-if (i % m == 0) {
-        continue;
-}
-alert (i);
-}
+// if (browser == 'ie') {
+//     alert('О, да у Вас IE!');
+// } else
+//     if (browser == 'Chrome' || browser == 'Firefox' || browser == 'Safari' || browser == 'Opera') {
+//     alert( 'Да, и эти браузеры мы поддерживаем' );
+// } else {
+//     alert( 'Мы надеемся, что и в вашем браузере все ок!' );
+// }
+// забыл поставить  || browser == 
