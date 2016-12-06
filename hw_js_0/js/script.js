@@ -209,3 +209,72 @@
 //     alert( '2, 3' );
 //         break;
 // }
+
+
+
+// function checkAge(age) {
+//     var yourAge = (age > 18) ? true : confirm('Родители разрешили?');
+// }
+// не верно
+// function checkAge(age) {
+//     var yourAge = (age > 18) || false;
+// }
+// не верно
+//
+// Надо так
+// function checkAge(age) {
+//   return (age > 18) ? true : confirm('Родители разрешили?');
+// }
+//
+// function checkAge(age) {
+//   return (age > 18) || confirm('Родители разрешили?');
+// }
+
+// function min(a, b) {
+//     if ( a <= b ) {
+//         return a;
+//     } else {
+//         return b;
+//     }
+// }
+//
+// function min(a, b) {
+//     return (a < b) ? a : b;
+// }
+// наконец то.. хоть что-то
+
+// var a = prompt ('Укажите число', '');
+// var b = prompt ('Укажите степень', '');
+//
+// if (b < 1) {
+//     alert ('Введите степень больше 1, а не ' + b)
+// } else {
+//     pow(a, b);
+// }
+//
+//
+// function pow(a, b) {
+//
+//     for (var c = a, d = 1; d != b; d++) {
+//             c = c * a;
+//         }
+//     console.log (c);
+//     alert (c);
+// }
+
+// условие для чисел больше 1 забыл (доделал)
+
+var n = prompt ('Укажите число', '');
+sumTo (n);
+
+function sumTo (n) {
+
+for (var d = n - 1; d >= 1; d--) {
+    n = n + d;
+
+console.log (n);
+}
+
+console.log (n);
+alert (n);
+}
