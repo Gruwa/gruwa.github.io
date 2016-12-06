@@ -264,17 +264,26 @@
 
 // условие для чисел больше 1 забыл (доделал)
 
-var n = prompt ('Укажите число', '');
-sumTo (n);
+// 1.
+//     var n = +prompt ('Укажите число', '');
+//     sumTo(n);
+//
+//         function sumTo(n) {
+//     for (var k = n; n > 1; n--) {
+//         k = k + n-1;
+//     }
+//
+//         console.log (k);
+//             alert (k);
+//     }
 
-function sumTo (n) {
-
-for (var d = n - 1; d >= 1; d--) {
-    n = n + d;
-
-console.log (n);
+// 2.
+function pow(x, n) {
+  if (n != 1) { // пока n != 1, сводить вычисление pow(x,n) к pow(x,n-1)
+    return x * pow(x, n - 1);
+  } else {
+    return x;
+  }
 }
 
-console.log (n);
-alert (n);
-}
+alert( pow(2, 3) );
