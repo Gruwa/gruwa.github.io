@@ -150,38 +150,131 @@
 //  var num = prompt("Введите число больше 100?", 0);
 // } while (num <= 100 && num != null)            ;
 
-var a = prompt ('Введите начало интервала простых чисел', '');
-var b = prompt ('Введите конец интервала простых чисел', '');
-
-while (a <= b, a > 1, b > 1, a != null, b != null) {
-    for (var i = a; i <= b; i++) {
-
-        for (var d = 2, k = i - 1; d == k; d++) {
-        if (k % d == 0) {
-                continue;
-        }
-            }
-
-
-    if (i % m == 0) {
-            continue;
-    }
-    alert (i);
-}
-
-
-if (a > b, a < 1, b < 1, a = null, b = null) {
-    alert ('Интервал ошибочен, введите значения заново');
-}
-}
-
-// for (var i = a; i < b; i++) {
-//     var m =  ; //от 2 до i-1
+// var a = prompt ('Введите начало интервала простых чисел', '');
+// var b = prompt ('Введите конец интервала простых чисел', '');
 //
-//     if (i < 1 && i % m == 0) continue;
-//     alert (i);
+// while (a <= b, a > 1, b > 1, a != null, b != null) {
+//     for (var i = a; i <= b; i++) {
+//
+//         for (var d = 2, k = i - 1; d == k; i++, d++) {
+//         if (k % d == 0) {
+//                 continue;
+//         }
+//             }
+//
+//      console.log(i);
 // }
 // }
-// else {
-//  alert ('Интервал ошибочен, введите значения заново');
+//
+// if (a > b, a < 1, b < 1) {
+//     alert ('Интервал ошибочен, введите значения заново');
 // }
+// }
+
+// for (var i = 2; i <= 10; i++) {
+//
+//     // for (var d = 2, k = i - 1; d == k; d++) {
+//     // if (k % d == 0) {
+//     //         continue;
+//     // }
+//     //     }
+//
+// if (i % m == 0) {
+//         continue;
+// }
+// alert (i);
+// }
+
+
+// if (browser == 'ie') {
+//     alert('О, да у Вас IE!');
+// } else
+//     if (browser == 'Chrome' || browser == 'Firefox' || browser == 'Safari' || browser == 'Opera') {
+//     alert( 'Да, и эти браузеры мы поддерживаем' );
+// } else {
+//     alert( 'Мы надеемся, что и в вашем браузере все ок!' );
+// }
+// забыл поставить  || и browser ==
+
+// var a = +prompt('a?', '');
+// switch (a) {
+//     case 0:
+//     alert( 0 );
+//         break;
+//     case 1:
+//     alert( 1 );
+//         break;
+//     case 2:
+//     case 3:
+//     alert( '2, 3' );
+//         break;
+// }
+
+
+
+// function checkAge(age) {
+//     var yourAge = (age > 18) ? true : confirm('Родители разрешили?');
+// }
+// не верно
+// function checkAge(age) {
+//     var yourAge = (age > 18) || false;
+// }
+// не верно
+//
+// Надо так
+// function checkAge(age) {
+//   return (age > 18) ? true : confirm('Родители разрешили?');
+// }
+//
+// function checkAge(age) {
+//   return (age > 18) || confirm('Родители разрешили?');
+// }
+
+// function min(a, b) {
+//     if ( a <= b ) {
+//         return a;
+//     } else {
+//         return b;
+//     }
+// }
+//
+// function min(a, b) {
+//     return (a < b) ? a : b;
+// }
+// наконец то.. хоть что-то
+
+// var a = prompt ('Укажите число', '');
+// var b = prompt ('Укажите степень', '');
+//
+// if (b < 1) {
+//     alert ('Введите степень больше 1, а не ' + b)
+// } else {
+//     pow(a, b);
+// }
+//
+//
+// function pow(a, b) {
+//
+//     for (var c = a, d = 1; d != b; d++) {
+//             c = c * a;
+//         }
+//     console.log (c);
+//     alert (c);
+// }
+
+// условие для чисел больше 1 забыл (доделал)
+
+var n = prompt ('Укажите число', '');
+sumTo (n);
+
+function sumTo (n) {
+
+for (var d = n - 1; d >= 1; d--) {
+    n = n + d;
+
+console.log (n);
+}
+
+console.log (n);
+alert (n);
+}
