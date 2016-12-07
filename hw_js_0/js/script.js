@@ -265,25 +265,60 @@
 // условие для чисел больше 1 забыл (доделал)
 
 // 1.
-//     var n = +prompt ('Укажите число', '');
-//     sumTo(n);
-//
-//         function sumTo(n) {
-//     for (var k = n; n > 1; n--) {
-//         k = k + n-1;
-//     }
-//
-//         console.log (k);
-//             alert (k);
-//     }
+    // var n = +prompt ('Укажите число', '');
+    //  var k = n;
+    // alert ( sumTo(n, k) );
+    //
+    //     function sumTo(n, k) {
+    // for (; n > 1; n--) {
+    //     k = k + n-1;
+    // }
+    //     return k;
+    // }
 
 // 2.
-function pow(x, n) {
-  if (n != 1) { // пока n != 1, сводить вычисление pow(x,n) к pow(x,n-1)
-    return x * pow(x, n - 1);
-  } else {
-    return x;
-  }
-}
+// var n = +prompt ('Укажите число', '');
+// alert( sumTo(n) );
+//
+// function sumTo(n) {
+//   if (n > 1) { // пока n > 1, сводить вычисление pow(n) к pow(n-1)
+//     return n + sumTo(n - 1);
+//   } else {
+//     return n;
+//   }
+// }
 
-alert( pow(2, 3) );
+// 3.
+// var n = +prompt ('Укажите число', '');
+// var k = 1;
+// alert( sumTo(n, k) );
+//
+// function sumTo(n, k) {
+//     k = (n * (n + 1)) / 2;
+//     return k;
+// }
+// console.log(k);
+//
+// (можно написать короче
+// function sumTo(n) {
+// return n * (n + 1) / 2;
+// }
+// alert( sumTo(n) );
+// )
+
+// var n = +prompt ('Укажите число', '');
+// alert( fact(n) );
+//
+// function fact(n) {
+//   if (n == 1) {
+//     return 1;
+// } else if (n == 0){
+//     return 0;
+// } else {
+//         console.log( fact(n-1) );
+//     return fact(n - 2) + fact(n - 1);
+//
+// }
+// }
+//
+//     console.log( fact(n) );
