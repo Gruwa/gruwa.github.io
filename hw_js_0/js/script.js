@@ -323,26 +323,26 @@
 //
 //     console.log( fact(n) );
 
-var n = +prompt ('Укажите число', '');
-    if ( fib(n) <= 0 || fib(n) >= 0) {
-        alert( fib(n) );
-    }else {
-        alert ('Укажите число!');
-    }
-
-
-function fib(n){
-    if (n == 0) {
-        return 0;
-    } else
-    if (n == 1 || n == -1) {
-        return 1;
-    } else if (n >= 2) {
-        return fib(n - 1) + fib(n - 2);
-    } else if (n <= -2){
-        return fib(n + 1) - fib(n + 2);
-    } else {
-        return;
-    }
-
-}
+// var n = +prompt ('Укажите число', '');
+//     if ( fib(n) <= 0 || fib(n) >= 0) {
+//         alert( fib(n) );
+//     }else {
+//         alert ('Укажите число!');
+//     }
+//
+//
+// function fib(n){
+//     if (n == 0) {
+//         return 0;
+//     } else
+//     if (n == 1 || n == -1) {
+//         return 1;
+//     } else if (n >= 2) {
+//         return fib(n - 1) + fib(n - 2);
+//     } else if (n <= -2){
+//         return fib(n + 2) - fib(n + 1);
+//     } else {
+//         return;
+//     }
+//
+// }
