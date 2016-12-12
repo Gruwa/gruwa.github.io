@@ -360,3 +360,18 @@
 // } else {
 //   alert( pow(x, n) );
 // }
+
+ // var n = +prompt ('Укажите число', '');
+ // var m = +prompt ('Укажите число', '');
+ //
+ // if ( isNumeric(n, m) == true) {
+ //      alert( n + m );
+ // } else {
+ //     alert( 'Попробуйте еще раз' );
+ // }
+ //
+ // function isNumeric(n, m) {
+ //   return !isNaN( parseFloat( n + m ) ) && isFinite( n + m );
+ // }
+
+alert( 6.35.toFixed(1) );
