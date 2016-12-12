@@ -320,5 +320,5 @@
 //
 // }
 // }
-//
+//      console.log( fact(n) );
 //     console.log( fact(n) );
