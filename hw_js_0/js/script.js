@@ -320,7 +320,6 @@
 //
 // }
 // }
-//      console.log( fact(n) );
 //     console.log( fact(n) );
 
 // var n = +prompt ('Укажите число', '');
