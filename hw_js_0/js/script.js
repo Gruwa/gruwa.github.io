@@ -374,4 +374,34 @@
  //   return !isNaN( parseFloat( n + m ) ) && isFinite( n + m );
  // }
 
-alert( 6.35.toFixed(1) );
+// alert( 6.35.toFixed(1) );
+
+// var result = 0.16 + 0.2;
+// alert( +result.toFixed(10) + '$' );
+
+// var i = 0;
+// while (i != 10) {
+//   i += 0.2;
+//   console.log(i);
+// }
+
+var n = +prompt ('Введите дробноеое число', '');
+var m = n;
+var k = -n;
+console.log(m);
+console.log(k);
+console.log( Math.floor(n) );
+if ( isNumeric( n ) == true || n >= 0 ) {
+    alert ( ( n - Math.floor(n) ).toFixed(10) );
+} else if (isNumeric( n ) == true || n < 0 ) {
+
+    alert ( ( m - Math.floor(k) ).toFixed(10) );
+
+} else {
+    alert( 'Попробуйте еще раз' );
+}
+
+function isNumeric( n ) {
+  return !isNaN( parseFloat( n ) ) && isFinite( n );
+}
+//(с минусом работает некоррррректно)
