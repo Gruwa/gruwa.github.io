@@ -385,23 +385,54 @@
 //   console.log(i);
 // }
 
-var n = +prompt ('Введите дробноеое число', '');
-var m = n;
-var k = -n;
-console.log(m);
-console.log(k);
-console.log( Math.floor(n) );
-if ( isNumeric( n ) == true || n >= 0 ) {
-    alert ( ( n - Math.floor(n) ).toFixed(10) );
-} else if (isNumeric( n ) == true || n < 0 ) {
+// Как получить дробную часть числа?
 
-    alert ( ( m - Math.floor(k) ).toFixed(10) );
+// var n = +prompt ('Введите дробноеое число', '');
+// var m = n;
+// var k = -n;
 
-} else {
-    alert( 'Попробуйте еще раз' );
+// console.log('m=', m);
+// console.log('k=', k);
+// console.log( 'округленное до целого k=', Math.floor(k) );
+// console.log( 'округленное до целого n=', Math.floor(n) );
+
+// if ( isNumeric( n ) == true || n >= 0 ) {
+//     alert ( ( n - Math.floor( n ) ).toFixed(10) );
+// } else if (isNumeric( n ) == true || n < 0 ) {
+//
+//     alert ( ( Math.floor( -n ) + n ).toFixed(10) );
+//
+// } else {
+//     alert( 'Попробуйте еще раз' );
+// }
+//
+// function isNumeric( n ) {
+//   return !isNaN( parseFloat( n ) ) && isFinite( n );
+// }
+// //(с минусом работает некоррррректно)
+
+// Вариант 2 короче
+
+// var n = +prompt ('Введите дробноеое число', '');
+
+
+//  var n = +prompt ('Введите дробноеое число', '');
+//        alert ( getDecimal(n) );
+//
+// function getDecimal(n) {
+// if (n >= 0) {
+//        return ( n - Math.floor( n ) ).toFixed(10);
+// } else {
+//         return ( Math.floor( -n ) + n ).toFixed(10);
+// }
+// }
+
+// !!! Формула Бине
+
+var n = +prompt ('Введите число', '');
+
+alert ( fibBinet(n) );
+
+function fibBinet(n) {
+    return Math.round( ( Math.pow( ( (1 + Math.sqrt(5) ) / 2 ), n ) ) / Math.sqrt(5) );
 }
-
-function isNumeric( n ) {
-  return !isNaN( parseFloat( n ) ) && isFinite( n );
-}
-//(с минусом работает некоррррректно)
