@@ -429,10 +429,30 @@
 
 // !!! Формула Бине
 
-var n = +prompt ('Введите число', '');
+// var n = +prompt ('Введите число', '');
+//
+// alert ( fibBinet(n) );
+//
+// function fibBinet(n) {
+//     return Math.round( ( Math.pow( ( (1 + Math.sqrt(5) ) / 2 ), n ) ) / Math.sqrt(5) );
+// }
 
-alert ( fibBinet(n) );
+// // Случайное из интервала (min, max)
+//
+// var min = 5,
+//   max = 10;
+//
+// alert( min + Math.random() * (max - min) );
 
-function fibBinet(n) {
-    return Math.round( ( Math.pow( ( (1 + Math.sqrt(5) ) / 2 ), n ) ) / Math.sqrt(5) );
-}
+// // Случайное целое из интервала (min, max)
+//
+// var n = +prompt ('Введите min', '');
+// var m = +prompt ('Введите max', '');
+//
+// console.log( randomInteger( n, m ) );
+//
+// function randomInteger( n, m ) {
+//     return Math.round( n + Math.random() * (m - n) );
+// }
+//
+// // Для метода округления нужно проверять диапазон на минимальном диапазоне, что бы вероятность округления была у всех в диапазхоне одинаковая. (минимальный диапазон от 1 до 3, у 1 вероятность - 0.5, у 2 - 1, у 3 вероятность 0.5) Тут не учел диапазон нужно к максимуму прибавить 0.5 от минимума отнять 0.5
