@@ -456,3 +456,27 @@
 // }
 //
 // // Для метода округления нужно проверять диапазон на минимальном диапазоне, что бы вероятность округления была у всех в диапазхоне одинаковая. (минимальный диапазон от 1 до 3, у 1 вероятность - 0.5, у 2 - 1, у 3 вероятность 0.5) Тут не учел диапазон нужно к максимуму прибавить 0.5 от минимума отнять 0.5
+
+// // Сделать первый символ заглавным
+//
+// var str = prompt ('Введите текст', '');
+//
+// console.log( ucFirst(str) );
+//
+// function ucFirst(str){
+//     return str.charAt(0).toUpperCase() + str.slice(1);
+// }
+
+var str = prompt ('Введите текст', '');
+var target1 = 'viagra';
+var target2 = 'xxxxx';
+console.log( checkSpam(str) );
+
+function checkSpam(str){
+
+    if ( str.indexOf('viagra') || str.indexOf('xxxxx') ) {
+        return true;
+    } else {
+        return false;
+    }
+}
