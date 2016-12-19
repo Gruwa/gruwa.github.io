@@ -467,16 +467,25 @@
 //     return str.charAt(0).toUpperCase() + str.slice(1);
 // }
 
+// Проверьте спам
+
 var str = prompt ('Введите текст', '');
 var target1 = 'viagra';
 var target2 = 'xxxxx';
 console.log( checkSpam(str) );
 
 function checkSpam(str){
+    str = str.toLowerCase();
 
-    if ( str.indexOf('viagra') || str.indexOf('xxxxx') ) {
+    if (~str.indexOf('viagra') || ~str.indexOf('xxxxx') ) {
         return true;
     } else {
         return false;
     }
 }
+
+// или так function checkSpam(str) {
+//   var lowerStr = str.toLowerCase();
+//
+//   return !!(~lowerStr.indexOf('viagra') || ~lowerStr.indexOf('xxx'));
+// }
