@@ -467,25 +467,63 @@
 //     return str.charAt(0).toUpperCase() + str.slice(1);
 // }
 
-// Проверьте спам
-
-var str = prompt ('Введите текст', '');
-var target1 = 'viagra';
-var target2 = 'xxxxx';
-console.log( checkSpam(str) );
-
-function checkSpam(str){
-    str = str.toLowerCase();
-
-    if (~str.indexOf('viagra') || ~str.indexOf('xxxxx') ) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-// или так function checkSpam(str) {
-//   var lowerStr = str.toLowerCase();
+// // Проверьте спам
 //
-//   return !!(~lowerStr.indexOf('viagra') || ~lowerStr.indexOf('xxx'));
+// var str = prompt ('Введите текст', '');
+// var target1 = 'viagra';
+// var target2 = 'xxxxx';
+// console.log( checkSpam(str) );
+//
+// function checkSpam(str){
+//     str = str.toLowerCase();
+//
+//     if (~str.indexOf('viagra') || ~str.indexOf('xxxxx') ) {
+//         return true;
+//     } else {
+//         return false;
+//     }
 // }
+//
+// // или так function checkSpam(str) {
+// //   var lowerStr = str.toLowerCase();
+// //
+// //   return !!(~lowerStr.indexOf('viagra') || ~lowerStr.indexOf('xxx'));
+// // }
+
+// // Усечение строки
+//
+// var str = prompt ('Введите текст', '');
+// var maxlength = +prompt ('Введите максимальную длину строки', '');
+// console.log( truncate(str, maxlength) );
+//
+// function truncate(str, maxlength) {
+//     if ( str.length > maxlength ) {
+//         return str.slice(0, maxlength - 3) + '...';
+//     } else {
+//         return str;
+//     }
+//     }
+//
+// // // или так
+// // function truncate(str, maxlength) {
+// //     return str.length > maxlength ? str.slice(0, maxlength - 3) + '...' : str;
+// //     }
+
+// // Выделить число
+//
+// var str = '$' + prompt ('Введите число', '');
+//
+// console.log( str );
+// console.log( extractCurrencyValue(str) );
+//
+// function extractCurrencyValue(str) {
+//     return str.slice(1);
+// }
+
+// // Первый объект
+//
+// var user {};
+// user.name = 'Вася';
+// user.surname = 'Петров';
+// user.name = 'Сергей';
+// delete user.name;
