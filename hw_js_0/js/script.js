@@ -531,7 +531,11 @@
 // Определите, пуст ли объект
 
 function isEmpty(obj) {
-  /* ваш код */
+    var k = 0;
+  for (var key in obj) {
+     k++;
+  }
+  return;
 }
 
 var schedule = {};
