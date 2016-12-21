@@ -530,17 +530,147 @@
 
 // Определите, пуст ли объект
 
-function isEmpty(obj) {
-    var k = 0;
-  for (var key in obj) {
-     k++;
-  }
-  return;
+// function isEmpty(obj) {
+//   for (var key in obj) {
+//       return false;
+//   }
+//  return true;
+// }
+//
+// var schedule = {};
+//
+// alert( isEmpty(schedule) ); // true
+//
+// schedule["8:30"] = "подъём";
+//
+// alert( isEmpty(schedule) ); // false
+
+// // Сумма свойств
+//
+// "use strict";
+// var salary = 0;
+// var salaries = {
+//   "Вася": 100,
+//   "Leся": 200,
+//   "Петя": 300,
+//   "Даша": 250
+// };
+//
+// function isEmpty(obj) {
+//   for (var key in obj) {
+//     salary = salary + obj[key];
+//     // можно записать sum += salaries[name];
+//   }
+//         return salary;
+//  }
+//
+// console.log( isEmpty(salaries) );
+//
+// //... ваш код выведет 650
+
+// // Свойство с наибольшим значением
+//
+//  "use strict";
+// var salary = 0, name;
+// var salaries = {
+//   "Вася": 100,
+//   "Leся": 200,
+//   "Петя": 300,
+//   "Даша": 250
+// };
+//
+// function isEmpty(obj) {
+//   for (var key in obj) {
+//     if (salary < obj[key]) {
+//         name = key;
+//         salary = obj[key];
+//       }
+//     }
+//     if (salary > 0) {
+//         return name;
+//     } else {
+//         return name = 'нет сотрудников';
+//     }
+//
+//  }
+//
+// console.log( isEmpty(salaries) );
+
+// // Умножьте численные свойства на 2
+//
+// "use strict";
+// var salary = 0, name;
+// var menu = {
+//   width: 200,
+//   height: 300,
+//   height1: 650,
+//   height2: 150,
+//   title: "My menu"
+// };
+//
+// function isNumeric(n) {
+//   return !isNaN(parseFloat(n)) && isFinite(n)
+// }
+//
+// function isEmpty(obj) {
+//  for (var key in obj) {
+//      if ( isNumeric( obj[key] ) ) {
+//          obj[key] = 2 * obj[key];  //можно записать obj[key] *= 2;
+//          console.log( isNumeric( obj[key] ) );
+//          console.log( obj[key] );
+//      }
+//    }
+//
+//        return obj;
+// }
+//
+// console.log( isEmpty(menu) );
+
+// // Получить последний элемент массива
+//
+// var goods = ["Яблоко", "Груша", "Слива"];
+// var t = goods.pop();
+// console.log(t);
+// console.log(goods);
+// goods.push(t);
+// console.log(goods);
+// // второй вариант  var lastItem = goods[goods.length - 1];
+
+// // Добавить новый элемент в массив
+//
+// var goods = ["Яблоко", "Груша", "Слива"];
+// goods.push('Компьютер');
+// console.log(goods);
+
+// // Создание массива
+//
+// var styles = ['Джаз', 'Блюз'];
+// console.log(styles);
+// styles.push('Рок-н-Ролл');
+// console.log(styles);
+// styles[styles.length - 2] = 'Классика';
+// console.log(styles);
+// styles.shift(); alert( styles );
+// console.log(styles);
+// styles.unshift( 'Рэп', 'Регги' );
+// console.log(styles);
+
+// // Получить случайное значение из массива
+//
+// var rand = 0 + Math.floor(Math.random() * (3 + 1 - 0)); //для универсальности можно написать var rand = 0 + Math.floor(Math.random() * (arr.length - 1 + 1 - 0));
+// console.log(rand);
+// var arr = ["Яблоко", "Апельсин", "Груша", "Лимон"];
+// alert( arr[rand] );
+
+// Создайте калькулятор для введённых значений
+var number = prompt ('Введите число', '');
+
+function isNumeric(n) {
+  return !isNaN(parseFloat(n)) && isFinite(n);
 }
 
-var schedule = {};
-alert( isEmpty(schedule) ); // true
+if ( isNumeric(number) ) {
 
-schedule["8:30"] = "подъём";
+} else {
 
-alert( isEmpty(schedule) ); // false
+}
