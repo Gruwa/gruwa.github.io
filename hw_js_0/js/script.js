@@ -662,15 +662,55 @@
 // var arr = ["Яблоко", "Апельсин", "Груша", "Лимон"];
 // alert( arr[rand] );
 
-// Создайте калькулятор для введённых значений
-var number = prompt ('Введите число', '');
+// // Создайте калькулятор для введённых значений
+// var numbers = [];
+// var numb, t = 0;
+//
+// function isNumeric(n) {
+//   return !isNaN(parseFloat(n)) && isFinite(n);
+// }
+//
+// function functionName(numb) {
+//     while ( isNumeric( numb = prompt ('Введите число', '') ) ) {
+//   numbers.push(numb);
+// }
+// console.log(numbers);
+//     for (var i = 0; i < numbers.length; i++) {
+//         t = t + +numbers[i]; //Записать можно так t += numbers[i];
+//         console.log(t);
+// }
+//     return t;
+// }
+// console.log( functionName(numb) );
 
-function isNumeric(n) {
-  return !isNaN(parseFloat(n)) && isFinite(n);
+// // Поиск в массиве
+//
+// var arr = ["test", 2, 1.5, false];
+// var value = prompt ('Введите значение', '');
+//
+// function find(arr, value) {
+//     for (var i = 0; i < arr.length; i++) {
+//             if ( value == arr[i] ) {
+//                 return value;
+//             }
+//             }
+//             return -1;
+//     }
+//
+//
+// console.log( find(arr, value) );
+
+// Фильтр диапазона
+
+
+
+var arr = [5, 4, 3, 8, 0];
+
+var filtered = filterRange(arr, 3, 5);
+
+function filterRange(arr, a, b) {
+
 }
 
-if ( isNumeric(number) ) {
 
-} else {
-
-}
+console.log( filtered );
