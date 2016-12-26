@@ -703,14 +703,22 @@
 // Фильтр диапазона
 
 
-
 var arr = [5, 4, 3, 8, 0];
-
-var filtered = filterRange(arr, 3, 5);
+var filter = arr;
+var key = 0;
 
 function filterRange(arr, a, b) {
-
+    for (var key in arr) {
+  filter[key] = arr[key];
+    }
+    for (var key in filter) {
+         if ( a != filter[key] ) { filter.shift() };
+     }
+    // for (var key in filter) {
+    //     if ( b != filter[key] ) { filter.length = filter[key] };
+    // }
+    return filter;
 }
 
 
-console.log( filtered );
+console.log( filterRange(filter, 3, 5) );
