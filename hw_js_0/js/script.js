@@ -703,22 +703,19 @@
 // Фильтр диапазона
 
 
-var arr = [5, 4, 3, 8, 0];
-var filter = arr;
-var key = 0;
-
-function filterRange(arr, a, b) {
-    for (var key in arr) {
-  filter[key] = arr[key];
-    }
-    for (var key in filter) {
-         if ( a != filter[key] ) { filter.shift() };
-     }
-    // for (var key in filter) {
-    //     if ( b != filter[key] ) { filter.length = filter[key] };
-    // }
-    return filter;
-}
-
+var arr = [5, 4, 7, 8, 0, 8, 3, 6, 2, 11, 75, 44, 5, 21, 57, 84];
+var filter = [];
 
 console.log( filterRange(filter, 3, 5) );
+
+        function filterRange(filter, a, b) {
+            for (var key in arr) {
+          filter[key] = arr[key];
+            }
+            for (var key in filter) {
+                 if ( a > filter[key] || filter[key] > b ) {
+                     delete filter[key];
+                 }
+         }
+         return filter;
+}
