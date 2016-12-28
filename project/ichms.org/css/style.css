@@ -1,0 +1,32 @@
+body{
+    background-color: #fff;
+}
+
+.clearfix:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+.wrapper{
+    max-width: 2400px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    color: #f9f9f9;
+}
+
+/*header*/
+
+
+
+/*footer*/
+
+.footer{
+    width: 100%;
+    background: url(../img/bg-footer.jpg) no-repeat;
+}
+
+.footer__wrapper{
+    max-width: 960px;
+    margin: 0 auto;
+}
