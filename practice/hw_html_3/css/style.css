@@ -1,0 +1,168 @@
+body{
+    background-color: #f9f9f9;
+}
+.main{
+    width: 960px;
+    margin: 0 auto;
+    padding: 50px;
+    border-left: 1px solid  #dbdbdb;
+    border-right: 1px solid  #dbdbdb;
+    background-color: #fff;
+    font-family: OpenSansRegular;
+
+}
+
+/*header*/
+.header-all {
+    height: 120px;
+    margin-bottom: 40px;
+}
+
+.logo {
+    display: block;
+}
+
+.header-menu{
+    height: 40px;
+    margin-top: 40px;
+}
+
+.header-menu-list{
+    background-image: url("../img/fonmenuheader.png");
+    background-repeat: repeat-x;
+}
+
+.header-menu-point{
+    display: inline-block;
+    padding: 12px 30px 12px 25px;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    font-size: 15px;
+    text-shadow: black 1px 1px 0;
+
+}
+
+.header-menu a {
+    color: #fff;
+}
+
+
+.header-menu-main{
+    padding-right: 62px;
+}
+
+.header-menu-about,
+.header-menu-cont{
+    padding-left: 65px;
+    padding-right: 65px;
+}
+
+.header-menu-point:hover{
+
+    border-left: 1px solid #838383 ;
+    border-right: 1px solid #838383 ;
+    background-color: #333;
+}
+
+
+
+/*content*/
+.content-main{
+    width:100%;
+    overflow:hidden;
+}
+
+.content-menu{
+    float: left;
+    width: 240px;
+    margin-right: 48px;
+
+}
+
+.content-menu-point{
+    margin-bottom: -1px;
+    border: 1px solid #c8c8c8 ;
+    padding: 15px 0 14px 22px;
+    font-size: 14px;
+}
+
+.content-menu a {
+    color: #656363;
+}
+
+.content-menu-point:hover{
+    padding: 15px 0 14px 35px;
+    background-color: #f9f9f9;
+}
+
+.content-article1 {
+    width: 672px;
+    float: right;
+    margin-bottom: 80px;
+}
+
+.content-foto{
+    position: relative;
+    height: 398px;
+    border: 1px solid #c8c8c8;
+    margin-bottom: 40px;
+    background-color: white;
+}
+
+.content-foto img{
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.content-text{
+    display: block;
+    padding-left: 25px;
+    padding-right: 30px;
+    font-size: 14px;
+}
+
+
+/*footer*/
+
+.footer-all {
+    display: block;
+    clear: both;
+    height: 40px;
+    width:100%;
+    overflow:hidden;
+}
+.footer-menu-list{
+    background-color: #e1e1e1;
+}
+
+.footer-menu-point{
+    display: inline-block;
+    padding: 14px 30px 14px 25px;
+    font-size: 14px;
+}
+
+.footer-menu a {
+    color: #2c2c2c;
+}
+
+
+.footer-menu-main{
+    padding-right: 62px;
+}
+
+.footer-menu-about,
+.footer-menu-cont{
+    padding-left: 65px;
+    padding-right: 65px;
+}
+
+.footer-menu-point:hover{
+    text-decoration: underline;
+
+}
+.footer-menu-alright{
+    display: block;
+    float: right;
+}
