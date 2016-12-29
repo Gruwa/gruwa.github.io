@@ -27,16 +27,20 @@ body{
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#223c65', endColorstr='#4390bb',GradientType=1 );
     background: linear-gradient(25deg, #16528D 15%, #26A7D5 97%);
 }
+.navbar{
+    /*background: black;*/
 
-.navbar__header{
-    padding: 30px 0;
 }
 
 .logo{
-    color: #fff;
-    font-size: 38px;
-    font-weight: bold;
+    display: blocwwk;
+    max-width: 150px;
+    float: left;
+    margin-left: 150px;
+}
 
+.navbar-inner--header{
+        background-color: black;
 }
 
 /*footer*/
