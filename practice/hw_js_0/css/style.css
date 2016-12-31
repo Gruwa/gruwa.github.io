@@ -1,0 +1,9 @@
+.Layer_3 {
+  background-image: url("Layer 3.png");
+  position: absolute;
+  left: 0px;
+  top: 266px;
+  width: 780px;
+  height: 61px;
+  z-index: 5;
+}
