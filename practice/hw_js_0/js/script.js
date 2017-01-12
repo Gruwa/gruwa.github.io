@@ -720,8 +720,42 @@
 //          return filter;
 // }
 
-var arr = ["Я", "изучаю", "JavaScript"];
+// // Сделать pow по спецификации
+// // проверка функции pow
+// function pow(x, n) {
+//   var result = 1;
+//   if ( parseInt(n) != n ) { // можно (Math.round(n) != n)
+//      return NaN;
+//   } else if (n > 0) {
+//   for (var i = 0; i < n; i++) {
+//     result *= x;
+//   }
+//   } else if (n < 0){
+//     return NaN;
+//   }
+//
+//   return result;
+// }
 
-arr.splice(2, 0, "сложный", "язык");
+// // Перепишите цикл через map
+//
+// var arr = ["Есть", "жизнь", "на", "Марсе"];
+//
+// // var arrLength = [];
+// // for (var i = 0; i < arr.length; i++) {
+// //   arrLength[i] = arr[i].length;
+// // }
+//
+// var arrLength = arr.map( function(name) {
+//         return name.length;
+// });
+//
+// alert( arrLength ); // 4,5,2,5
 
-alert( arr );
+function f(undefined,8,9,0);
+
+function f(x) {
+        for (var i = 0; i < arguments.length; i++) {
+             alert arguments[i] || arguments[i] === undefined ? 1 : 0;
+        }
+}
