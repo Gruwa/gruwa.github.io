@@ -24,24 +24,6 @@ describe("Проверка программы", function() {
 
     });
 
-    // describe("Проверка копирования массива", function(){
-    //
-    //     var newName = ['Вася', 'Коля', 'Диод', 'Дождь', 'Клен', 'Дуб', 'Пчел', 'Слон'];
-    //     var a = 5;
-    //     // var result = ;
-    //
-    //     for (var i = 0; i < a; i++) {
-    //         it(" находится в базе", function() {
-    //             assert.equal(newName[i], Registration(), "Сравнение");
-    //              });
-    //         // if (newName[i] != list[i]){
-    //         //
-    //         //
-    //         //  }
-    //     }
-    //
-    //
-    //
-    // });
+    
 
 });
