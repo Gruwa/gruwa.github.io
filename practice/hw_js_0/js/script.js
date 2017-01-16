@@ -752,10 +752,15 @@
 //
 // alert( arrLength ); // 4,5,2,5
 
-function f(undefined,8,9,0);
-
-function f(x) {
-        for (var i = 0; i < arguments.length; i++) {
-             alert arguments[i] || arguments[i] === undefined ? 1 : 0;
-        }
+var calculator = {
+    read: function() {
+        this.a = +prompt('Значение 1', '');
+        this.b = +prompt('Значение 2', '');
+    },
+    sum: function() {
+        return this.a + this.b;
+    },
+    mul: function() {
+        return this.a * this.b;
+    }
 }
