@@ -164,6 +164,8 @@ body{
     box-sizing: border-box;
     max-width: 1024px;
     margin: 0 auto;
+    margin-top: 25px;
+    padding: 0 50px;
 }
 
 .footer__box1{
