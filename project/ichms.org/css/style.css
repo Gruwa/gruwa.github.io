@@ -110,7 +110,6 @@ body{
 .active{
     display: inline-block;
     color: #29386c;
-    font-weight: bold;
     line-height: 25px;
 
 }
