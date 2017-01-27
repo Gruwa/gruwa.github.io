@@ -1,5 +1,5 @@
 body{
-    background-color: #fff;
+    background-color: #F4F7F9;
 }
 
 .clearfix:after {
@@ -9,27 +9,57 @@ body{
 }
 
 .wrapper{
-    max-width: 1024px;
+    max-width: 100%;
     box-sizing: border-box;
     margin: 0 auto;
 }
 
 /*header*/
-.header{
+header{
     width: 100%;
+    background-color: #0E89BE;
 }
 
 .wrapper--header{
+    max-width: 1024px;
+    margin: 0 auto 5px auto;
     box-sizing: border-box;
     height: 200px;
-    background-color: #0E89BE;
-    margin: 5px 0;
+    position: relative;
+
 }
 .logo{
     display: block;
     float: left;
-    margin-left: 150px;
+    margin-left: 50px;
 }
+
+.header__box{
+    display: block;
+    float: right;
+    position: absolute;
+    top: 46px;
+    right: 38px;
+    font-family: "PT Sans", sans-serif;
+    font-size: 18px;
+    color: #8FCEE8;
+
+}
+
+.box__contact--mail{
+    font-family: "PT Sans", sans-serif;
+    font-size: 18px;
+    color: #8FCEE8;
+}
+
+.navbar-inner{
+    border: none;
+    box-shadow: none;
+
+}
+
+
+
 
 /*content*/
 
@@ -39,6 +69,8 @@ body{
 
 .wrapper--content{
     overflow: hidden;
+    margin: 0 auto;
+    max-width: 1024px;
 }
 
 .fon1 {
