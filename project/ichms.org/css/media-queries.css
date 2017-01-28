@@ -1,11 +1,91 @@
+@media screen and (max-width:1024px) {
+
+    .aboutUs{
+        display: none;
+    }
+
+    .aboutUs--1024{
+        display: block;
+    }
+}
+
 @media screen and (max-width:960px) {
+    .logo{
+        display: none;
+    }
+
+    .logo--960{
+        display: block;
+        width: 227px;
+        margin-top: 25px;
+        margin-bottom: 5px;
+        float: left;
+    }
+
+    .header__box{
+        top: 18px;
+        line-height: 10px;
+        font-size: 15px;
+    }
+
+    .box__contact--mail{
+        font-size: 15px;
+    }
+
+    .contacts{
+        display: none;
+    }
+
+    .contacts--960{
+        display: block;
+    }
+
+    .servis{
+        display: none;
+    }
+
+     .servis--960{
+         display: block;
+     }
+
+     .contuctUs{
+         display: none;
+     }
 
 }
 
 @media screen and (max-width:768px) {
+    .header__box{
+        display: none;
+    }
+
+    .logo--768{
+        display: none;
+    }
+
+    .main--768{
+        display: none;
+    }
+
+    .navbar-inner a.brand--768{
+        display: block;
+        width: 95px;
+        margin-top: 2px;
+    }
+
+    .content{
+        margin-top: 0;
+    }
+
+
+
 
 }
 
 @media screen and (max-width:480px) {
+
+}
+
+@media screen and (max-width:400px) {
 
 }

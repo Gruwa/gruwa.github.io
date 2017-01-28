@@ -8,26 +8,13 @@ body{
     display: block;
 }
 
-.wrapper{
-    max-width: 100%;
-    box-sizing: border-box;
-    margin: 0 auto;
-}
+
 
 /*header*/
 header{
-    width: 100%;
     background-color: #0E89BE;
 }
 
-.wrapper--header{
-    max-width: 1440px;
-    margin: 0 auto 0 auto;
-    box-sizing: border-box;
-    height: 240px;
-    position: relative;
-
-}
 .logo{
     display: block;
     float: left;
@@ -53,8 +40,8 @@ header{
 
 .navigation{
     width: 100%;
-    position: absolute;
-    top: 200px;
+    position: relative;;
+    z-index: 2;
 
 }
 
@@ -77,7 +64,7 @@ header{
 .navbar .nav > li > a{
         color: #8FCEE8;
         text-shadow: none;
-
+        font-size: 16px;
         font-family: "PT Sans", sans-serif;
         text-transform: uppercase;
 }
@@ -103,7 +90,25 @@ header{
 
 }
 
+.aboutUs--960{
+    display: none;
+}
 
+.logo--960{
+    display: none;
+}
+
+.contacts--960{
+    display: none;
+}
+
+.servis--960{
+    display: none;
+}
+
+.navbar-inner a.brand--768{
+    display: none;
+}
 
 /*content*/
 
@@ -180,26 +185,10 @@ header{
 }
 
 
-
-
 /*footer*/
 
-.footer{
-    width: 100%;
-}
-
-.wrapper--footer{
+.footer__info{
     display: block;
-    box-sizing: border-box;
-    max-width: 1440px;
     margin: 0 auto;
-    margin-top: 25px;
-    padding: 0 50px;
-}
-
-.footer__box1{
-    display: block;
-    box-sizing: border-box;
-    float: right;
     color: #0E89BE;
 }
