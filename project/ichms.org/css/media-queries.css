@@ -78,14 +78,28 @@
     }
 
 
-
-
 }
 
-@media screen and (max-width:480px) {
+@media screen and (max-width:650px) {
+    .navigation{
+        display: none;
+    }
 
-}
+    .navigation--650{
+        display: block;
+        text-align: center;
+        margin: 0 0 10px 0;
+    }
 
-@media screen and (max-width:400px) {
+    .navigation__logo--650{
+        display: block;
+        margin-bottom: 10px;
+
+    }
+
+    .banner--clone {
+        background-color: inherit;
+    }
+
 
 }

@@ -11,7 +11,7 @@
     };
 
     // Initialise with options
-    var banner = new Headhesive('.navigation', options);
+    var banner = new Headhesive('.navigation', options) && new Headhesive('.navigation--650', options);
 
     // Headhesive destroy
     // banner.destroy();

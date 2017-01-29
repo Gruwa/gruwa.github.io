@@ -110,6 +110,15 @@ header{
     display: none;
 }
 
+.navigation--650{
+    display: none;
+}
+
+.navigation__logo--650{
+    display: none;
+}
+
+
 /*content*/
 
 .content{
