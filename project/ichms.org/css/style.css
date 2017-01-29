@@ -90,30 +90,12 @@ header{
 
 }
 
-.aboutUs--960{
-    display: none;
-}
-
-.logo--960{
-    display: none;
-}
-
-.contacts--960{
-    display: none;
-}
-
-.servis--960{
-    display: none;
-}
-
-.navbar-inner a.brand--768{
-    display: none;
-}
-
-.navigation--650{
-    display: none;
-}
-
+.aboutUs--960,
+.logo--960,
+.contacts--960,
+.servis--960,
+.navbar-inner a.brand--768,
+.navigation--650,
 .navigation__logo--650{
     display: none;
 }
