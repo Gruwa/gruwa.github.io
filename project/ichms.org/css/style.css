@@ -90,6 +90,7 @@ header{
 
 }
 
+.aboutUs--1024,
 .aboutUs--960,
 .logo--960,
 .contacts--960,
@@ -99,6 +100,26 @@ header{
 .navigation__logo--650{
     display: none;
 }
+
+.ftp__spisok1{
+    list-style: lower-latin;
+    padding-left: 30px;
+}
+
+.ftp__spisok2{
+    list-style: circle;
+    padding-left: 30px;
+}
+
+.thumbnail--publMater{
+    margin-bottom: 30px;
+}
+
+.active__img img{
+    width: 200px;
+}
+
+
 
 
 /*content*/
@@ -144,7 +165,7 @@ header{
     text-align: center;
 }
 
-.active{
+.active__img{
     display: inline-block;
     color: #29386c;
     line-height: 25px;
