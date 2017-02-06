@@ -752,15 +752,75 @@
 //
 // alert( arrLength ); // 4,5,2,5
 
-var calculator = {
-    read: function() {
-        this.a = +prompt('Значение 1', '');
-        this.b = +prompt('Значение 2', '');
-    },
-    sum: function() {
-        return this.a + this.b;
-    },
-    mul: function() {
-        return this.a * this.b;
-    }
-}
+// var calculator = {
+//     read: function() {
+//         this.a = +prompt('Значение 1', '');
+//         this.b = +prompt('Значение 2', '');
+//     },
+//     sum: function() {
+//         return this.a + this.b;
+//     },
+//     mul: function() {
+//         return this.a * this.b;
+//     }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// new Date(0) - 0 // 0
+// new Array(1)[0] + "" //
+// ({})[0]
+// [1] + 1 //11
+// [1,2] + [3,4] //1.23.4
+// [] + null + 1 // "" + null +1 //null1
+// [[0]][0][0] //0
+// ({} + {})// ""
+
+
+
+// var calculator = new Calculator(){
+//     this.read = function() {
+//         var a = prompt ("Введите число", ""); // this.a = +prompt ("Введите число a", 0);
+//         var b = prompt ("Введите число", ""); // this.b = +prompt ("Введите число b", 0);
+//     }
+//     this.sum = function() {
+//         return a + b; //return this.a + this.b;
+//     }
+//     this.mul = function() {
+//         return a * b; //return this.a * this.b;
+//     }
+//
+// }
+
+// var accumulator = new Accumulator(1);
+// function Accumulator(startingValue){
+//     this.value = startingValue;
+//     this.read = function() {
+//         this.value += +prompt ("Введите число", "");
+//     }
+// }
+//
+// accumulator.read();
+// accumulator.read();
+// alert( accumulator.value );
+
+// document.head
+// document.body.children[1]
+// document.body.children[1].lastChild
+
+// if (elem.childrenNodes.length < 0) { //!elem.childrenNodes.length
+//         alert ("узел elem пуст");
+// }
