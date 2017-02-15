@@ -838,9 +838,9 @@ NewList();
 
     function NewList() {
             for (var text = prompt ('Cодержимое пункта', ''); text != null & text != ''; text = prompt ('Cодержимое пункта', '')) {
-                var newLi = document.createElement('li');
-                newUl.insertBefore(newLi, newLi.nextSibling);
-                newLi.innerHTML = text;
+                    var newLi = document.createElement('li');
+                    newUl.insertBefore(newLi, newLi.nextSibling);
+                    newLi.innerHTML = text;
             }
             return;
     }
