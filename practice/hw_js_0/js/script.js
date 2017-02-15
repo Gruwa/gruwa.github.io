@@ -827,20 +827,20 @@
 
 'use strict';
 var body = document.body;
-var newText = body.createTextNode ("Создание списка !!Как же это круто!!");
-var newUl = body.createElement('ul');
+var newText = document.createTextNode('Создание списка, Как же это круто!!');
+body.insertBefore(newText, body.firstChild);
+var newUl = document.createElement('ul');
 newUl.className = 'list';
-document.body.insertBefore(newText, body.firstChild);
-document.body.insertBefore(newUl, newText.nextSibling);
+body.insertBefore(newUl, newText.nextSibling);
 
 NewList();
 
 
     function NewList() {
-            for (var text = prompt ('Cодержимое пункта', ''); text != null & text != '';) {
-                var newLi = list.createElement('li');
-                list.insertBefore(newLi, list.firstChild);
-                li.innerHTML = text;
+            for (var text = prompt ('Cодержимое пункта', ''); text != null & text != ''; text = prompt ('Cодержимое пункта', '')) {
+                var newLi = document.createElement('li');
+                newUl.insertBefore(newLi, newLi.nextSibling);
+                newLi.innerHTML = text;
             }
             return;
     }
