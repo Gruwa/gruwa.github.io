@@ -633,7 +633,7 @@
 // console.log(t);
 // console.log(goods);
 // goods.push(t);
-// console.log(goods);
+// console.log(goods); z
 // // второй вариант  var lastItem = goods[goods.length - 1];
 
 // // Добавить новый элемент в массив
@@ -824,3 +824,23 @@
 // if (elem.childrenNodes.length < 0) { //!elem.childrenNodes.length
 //         alert ("узел elem пуст");
 // }
+
+'use strict';
+var body = document.body;
+var newText = body.createTextNode ("Создание списка !!Как же это круто!!");
+var newUl = body.createElement('ul');
+newUl.className = 'list';
+document.body.insertBefore(newText, body.firstChild);
+document.body.insertBefore(newUl, newText.nextSibling);
+
+NewList();
+
+
+    function NewList() {
+            for (var text = prompt ('Cодержимое пункта', ''); text != null & text != '';) {
+                var newLi = list.createElement('li');
+                list.insertBefore(newLi, list.firstChild);
+                li.innerHTML = text;
+            }
+            return;
+    }
