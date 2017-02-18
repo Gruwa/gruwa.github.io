@@ -30,15 +30,19 @@ var test = {
         head.style.fontSize = '20px';
         var content = document.createElement('div');
         wrapper.insertBefore(content, head.nextSibling);
-        content.display = "block";
         content.style.maxWidth = '300px';
         content.style.margin = "0px auto 0px auto";
         var testOl = document.createElement('ol');
         content.insertBefore(testOl, testOl.nextSibling);
+        testOl.style.listStyleType = 'decimal';
         var button = document.createElement('button');
         var textButton = document.createTextNode('Проверить мои результаты');
         button.appendChild(textButton);
         wrapper.insertBefore(button, content.nextSibling);
+        button.style.display = "block";
+        button.style.margin = "0px auto 0px auto";
+        var input = document.createElement("INPUT");
+        input.setAttribute("type", "checkbox");
 
         Test(this);
         function Test(obj) {
@@ -56,9 +60,18 @@ var test = {
                         ul.appendChild(li);
                     }
                     return ul;
+                    }
                 }
             }
-        }
+
+            var allLi = document.querySelectorAll('ul > li');
+            console.log(allLi);
+            for (var key in allLi) {
+                console.log(key);
+                // key.insertAdjacentElement("beforeBegin", 'input');
+            }
+
+            // content.testOl.li.ul.children[0].before(input1);
 
     },
 
