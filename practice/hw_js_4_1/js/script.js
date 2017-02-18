@@ -28,15 +28,18 @@ var test = {
         head.innerHTML = 'Тест по программированию';
         head.style.fontSize = '20px';
         head.style.maxWidth = '300px';
-        head.classList.add('label', 'label-success');
+        head.style.margin = "0px auto 0px auto";
+        head.classList.add('page-header');
         var content = document.createElement('div');
         wrapper.insertBefore(content, head.nextSibling);
-        content.style.maxWidth = '300px';
+        content.style.maxWidth = '250px';
         content.style.margin = "0px auto 0px auto";
         var testOl = document.createElement('ol');
         content.insertBefore(testOl, testOl.nextSibling);
         testOl.style.listStyleType = 'decimal';
         testOl.classList.add('list-group');
+        testOl.style.marginTop = '20px';
+        testOl.style.marginBottom = '20px';
         var button = document.createElement('button');
         var textButton = document.createTextNode('Проверить мои результаты');
         button.appendChild(textButton);
@@ -59,6 +62,8 @@ var test = {
                 function TestLi(obj2) {
                     var ul = document.createElement('ul');
                     ul.classList.add('list-group', 'clearfix:after');
+                    ul.style.marginTop = '10px';
+                    ul.style.marginBottom = '10px';
                     for (var key in obj2) {
                         var li = document.createElement('li');
                         li.classList.add('list-group-item');
@@ -78,6 +83,7 @@ var test = {
                     input.setAttribute("type", "checkbox");
                     input.style.float = 'left';
                     allLi[i].insertAdjacentElement("beforeBegin", input);
+                    input.style.marginRight = '5px';
                 }
 
 
