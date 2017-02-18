@@ -26,8 +26,9 @@ var test = {
         var head = document.createElement('p');
         wrapper.insertBefore(head, head.nextSibling);
         head.innerHTML = 'Тест по программированию';
-        head.style.textAlign = 'center';
         head.style.fontSize = '20px';
+        head.style.maxWidth = '300px';
+        head.classList.add('label', 'label-success');
         var content = document.createElement('div');
         wrapper.insertBefore(content, head.nextSibling);
         content.style.maxWidth = '300px';
@@ -35,16 +36,19 @@ var test = {
         var testOl = document.createElement('ol');
         content.insertBefore(testOl, testOl.nextSibling);
         testOl.style.listStyleType = 'decimal';
+        testOl.classList.add('list-group');
         var button = document.createElement('button');
         var textButton = document.createTextNode('Проверить мои результаты');
         button.appendChild(textButton);
         wrapper.insertBefore(button, content.nextSibling);
         button.style.display = "block";
         button.style.margin = "0px auto 0px auto";
-        var input = document.createElement("INPUT");
-        input.setAttribute("type", "checkbox");
+        button.classList.add('btn', 'btn-primary');
+
 
         Test(this);
+        TestCheckBox(this);
+
         function Test(obj) {
             for (var key in obj) {
                 if (key == "creatTest") continue;
@@ -54,24 +58,35 @@ var test = {
                 li.appendChild(TestLi(obj[key]));
                 function TestLi(obj2) {
                     var ul = document.createElement('ul');
+                    ul.classList.add('list-group', 'clearfix:after');
                     for (var key in obj2) {
                         var li = document.createElement('li');
+                        li.classList.add('list-group-item');
                         li.innerHTML = key;
                         ul.appendChild(li);
                     }
                     return ul;
                     }
                 }
-            }
 
-            var allLi = document.querySelectorAll('ul > li');
-            console.log(allLi);
-            for (var key in allLi) {
-                console.log(key);
-                // key.insertAdjacentElement("beforeBegin", 'input');
             }
+        function TestCheckBox(obj) {
+                var allLi = document.querySelectorAll('ul > li');
+                for (var i = 0; i < allLi.length; i++) {
+                    allLi[i].classList.add('listLi' + i);
+                    var input = document.createElement("INPUT");
+                    input.setAttribute("type", "checkbox");
+                    input.style.float = 'left';
+                    allLi[i].insertAdjacentElement("beforeBegin", input);
+                }
 
-            // content.testOl.li.ul.children[0].before(input1);
+
+                var allInput = document.querySelectorAll('ul > input');
+                for (var i = 0; i < allInput.length; i++) {
+                    var classNameInput = allInput[i].className = 'listInput' + i;
+                }
+
+        }
 
     },
 
