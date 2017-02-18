@@ -1,3 +1,5 @@
+'use strict';
+
 
 // var user = prompt('Name', 'default');
 //
@@ -825,22 +827,113 @@
 //         alert ("узел elem пуст");
 // }
 
-'use strict';
-var body = document.body;
-var newText = document.createTextNode('Создание списка, Как же это круто!!');
-body.insertBefore(newText, body.firstChild);
-var newUl = document.createElement('ul');
-newUl.className = 'list';
-body.insertBefore(newUl, newText.nextSibling);
 
-NewList();
+// var body = document.body;
+// var newText = document.createTextNode('Создание списка, Как же это круто!!');
+// body.insertBefore(newText, body.firstChild);
+// var newUl = document.createElement('ul');
+// newUl.className = 'list';
+// body.insertBefore(newUl, newText.nextSibling);
+//
+// NewList();
+//
+//
+//     function NewList() {
+//             for (var text = prompt ('Cодержимое пункта', ''); text != null & text != ''; text = prompt ('Cодержимое пункта', '')) {
+//                     var newLi = document.createElement('li');
+//                     newUl.insertBefore(newLi, newLi.nextSibling);
+//                     var newText = document.createTextNode(text);
+//                     newLi.insertBefore(newText, newLi.firstChild);
+//             }
+//             return;
+//     }
+
+// var data = {
+//     "Рыбы": {
+//         "Форель": {},
+//         "Щука": {}
+//     },
+//
+//     "Деревья": {
+//         "Хвойные": {
+//             "Лиственница": {},
+//             "Ель": {}
+//         },
+//         "Цветковые": {
+//              "Берёза": {},
+//              "Тополь": {}
+//          }
+//      }
+// };
+//
+// function createTree(container, obj) {
+//       container.innerHTML = createTreeText(obj);
+//     }
+//
+// function createTreeDom(obj) {
+//       // если нет детей, то рекурсивный вызов ничего не возвращает
+//       // так что вложенный UL не будет создан
+//       if (isObjectEmpty(obj)) return;
+//
+//       var ul = document.createElement('ul');
+//
+//       for (var key in obj) {
+//         var li = document.createElement('li');
+//         li.innerHTML = key;
+//
+//         var childrenUl = createTreeDom(obj[key]);
+//         if (childrenUl) li.appendChild(childrenUl);
+//
+//         ul.appendChild(li);
+//       }
+//
+//       return ul;
+//     }
+//
+//
+//     function isObjectEmpty(obj) {
+//       for (var key in obj) {
+//         return false;
+//       }
+//       return true;
+//     }
+//
+//     var container = document.getElementById('container');
+//     createTree(container, data);
 
 
-    function NewList() {
-            for (var text = prompt ('Cодержимое пункта', ''); text != null & text != ''; text = prompt ('Cодержимое пункта', '')) {
-                    var newLi = document.createElement('li');
-                    newUl.insertBefore(newLi, newLi.nextSibling);
-                    newLi.innerHTML = text;
-            }
-            return;
-    }
+//
+// function ListWorld() {
+//     var newUl = document.createElement('ul');
+//     document.body.insertBefore(newUl, document.body.firstChild);
+//     for (var key in list) {
+//         console.log(key);
+//         var newLi = document.createElement('li');
+//         newUl.insertBefore(newLi, newLi.nextSibling);
+//         newLi.innerHTML = key;
+//         console.log( key[i] );
+//         // for (var key2 in key) {
+//         //     console.log(key2);
+//         //     var newLi = document.createElement('li');
+//         //     newUl.insertBefore(newLi, newLi.nextSibling);
+//         //     newLi.innerHTML = key2;
+//         // }
+//
+//         // if (key != undefined) {
+//
+//
+//         // } else {
+//         //     return;
+//         // }
+//
+//
+// }
+//
+//
+// }
+//
+// // var newUl = document.createElement('ul');
+// // newUl.parentNode.insertBefore(newUl, newUl.nextSibling);
+
+var list = document.body.children[1];
+list.insertAdjacentHTML('beforeEnd', '<li>3</li><li>4</li><li>5</li>');
