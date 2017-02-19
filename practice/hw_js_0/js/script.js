@@ -935,5 +935,21 @@
 // // var newUl = document.createElement('ul');
 // // newUl.parentNode.insertBefore(newUl, newUl.nextSibling);
 
-var list = document.body.children[1];
-list.insertAdjacentHTML('beforeEnd', '<li>3</li><li>4</li><li>5</li>');
+// var list = document.body.children[1];
+// list.insertAdjacentHTML('beforeEnd', '<li>3</li><li>4</li><li>5</li>');
+
+
+// var input = document.getElementById('hider');
+//  input.addEventListener('click', klickButton);
+//  function klickButton(){
+//    var div = document.getElementById('text');
+//    div.style.display = 'none';
+//    input.removeEventListener('click', klickButton);
+//  }
+
+var input = document.getElementById('hider');
+ input.addEventListener('click', klickButton);
+ function klickButton(){
+   input.style.display = 'none';
+   input.removeEventListener('click', klickButton);
+ }
