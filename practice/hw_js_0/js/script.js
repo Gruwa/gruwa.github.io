@@ -947,9 +947,34 @@
 //    input.removeEventListener('click', klickButton);
 //  }
 
-var input = document.getElementById('hider');
- input.addEventListener('click', klickButton);
- function klickButton(){
-   input.style.display = 'none';
-   input.removeEventListener('click', klickButton);
- }
+// var input = document.getElementById('hider');
+//  input.addEventListener('click', klickButton);
+//  function klickButton(){
+//    input.style.display = 'none';
+//    input.removeEventListener('click', klickButton);
+//  }
+
+    var button = document.querySelector('button');
+   var div = document.getElementsByClassName('pane');
+   for (var i = 0; i < div.length; i++) {
+       var button2 = button.cloneNode(true);
+       button2.style.position = "absolute";
+       button2.style.right = '5px';
+       button2.style.top = '5px';
+       button2.classList.add('button' + i);
+       div[i].appendChild(button2);
+       div[i].style.position = "relative";
+       var body = document.querySelector('body');
+       body.addEventListener('click', klickButton);
+       function klickButton(e){
+           var target = e.target;
+           if (target.tagName != 'BUTTON') return;
+           target.parentElement.style.display = 'none';
+           target.removeEventListener('click', klickButton);
+        }
+   };
+   button.style.display = 'none';
+
+
+
+    // div[key].insertBefore(button[0], button[0].nextSibling);
