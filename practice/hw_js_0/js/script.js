@@ -954,27 +954,57 @@
 //    input.removeEventListener('click', klickButton);
 //  }
 
-    var button = document.querySelector('button');
-   var div = document.getElementsByClassName('pane');
-   for (var i = 0; i < div.length; i++) {
-       var button2 = button.cloneNode(true);
-       button2.style.position = "absolute";
-       button2.style.right = '5px';
-       button2.style.top = '5px';
-       button2.classList.add('button' + i);
-       div[i].appendChild(button2);
-       div[i].style.position = "relative";
-       var body = document.querySelector('body');
-       body.addEventListener('click', klickButton);
-       function klickButton(e){
-           var target = e.target;
-           if (target.tagName != 'BUTTON') return;
-           target.parentElement.style.display = 'none';
-           target.removeEventListener('click', klickButton);
-        }
-   };
-   button.style.display = 'none';
-
-
-
-    // div[key].insertBefore(button[0], button[0].nextSibling);
+// var button = document.querySelector('button');
+//    var div = document.getElementsByClassName('pane');
+//    for (var i = 0; i < div.length; i++) {
+//        var button2 = button.cloneNode(true);
+//        button2.style.position = "absolute";
+//        button2.style.right = '5px';
+//        button2.style.top = '5px';
+//        button2.classList.add('button' + i);
+//        div[i].appendChild(button2);
+//        div[i].style.position = "relative";
+//        var body = document.querySelector('body');
+//        body.addEventListener('click', klickButton);
+//        function klickButton(e){
+//            var target = e.target;
+//            if (target.tagName != 'BUTTON') return;
+//            target.parentElement.style.display = 'none';
+//            target.removeEventListener('click', klickButton);
+//         }
+//    };
+//    button.style.display = 'none';
+// [20:46:40 | Изменены 20:47:58] Oleg Zmijuk: <script>
+// // ищем кнопку по классу, это более точно чем по button
+// var removeButton = document.querySelector('.remove-button');
+//
+// // сразу задаём стили, которые будут в наших кнопках один раз,
+// // чтоб не делать это в цикле 3 раза
+// removeButton.style.position = "absolute";
+// removeButton.style.right = '5px';
+// removeButton.style.top = '5px';
+//
+// var paneList = document.getElementsByClassName('pane');
+//
+// // циклом вставляем кнопку в каждый блок
+// for (var i = 0; i < paneList.length; i++) {
+// var buttonCopy = removeButton.cloneNode(true);
+// paneList[i].appendChild(buttonCopy);
+// paneList[i].style.position = "relative";
+// };
+//
+// removeButton.style.display = 'none';
+//
+// document.body.addEventListener('click', сlickButton);
+//
+// function сlickButton(e){
+// var target = e.target;
+// // если элемент это кнопка для удаления
+// if (target.className === 'remove-button') {
+// target.parentElement.style.display = 'none';
+// target.removeEventListener('click', klickButton);
+// };
+// }
+// </script>
+// [20:46:45] Oleg Zmijuk: так будет более правильно
+// //
