@@ -23,8 +23,8 @@ function gallery() {
     var divBlock2 = document.createElement('div');
     divGallery.insertBefore(divBlock2, divGallery.divBlock);
     divBlock2.classList.add('clearfix:after');
-    // var divBlock3 = document.createElement('div');
-    // divGallery.insertBefore(divBlock3, divGallery.divBlock2);
+    var divBlock3 = document.createElement('div');
+    divGallery.insertBefore(divBlock3, divGallery.divBlock2);
     var aImgSmall = document.createElement('a');
     divBlock2.insertBefore(aImgSmall, divBlock2.lastChild);
     aImgSmall.style.border = 'solid 1px #ccc';
@@ -35,19 +35,19 @@ function gallery() {
     aImgSmall.style.display = 'block';
     aImgSmall.onmouseenter = function(){aImgSmall.style.borderColor = '#FF9900'};
     aImgSmall.onmouseleave = function(){aImgSmall.style.borderColor = '#ccc'};
-    aImgSmall.href = 'https://js.cx/gallery/img2-lg.jpg';
+    aImgSmall.href = 'https://js.cx/gallery/img1-lg.jpg';
     aImgSmall.style.cssFloat = 'left';
     var imgSmall = document.createElement('img');
     aImgSmall.insertBefore(imgSmall, aImgSmall.lastChild);
-    imgSmall.src = 'https://js.cx/gallery/img2-thumb.jpg';
+    imgSmall.src = 'https://js.cx/gallery/img1-thumb.jpg';
     imgSmall.alt = 'miniature';
     var imgBigList = ['https://js.cx/gallery/img1-lg.jpg', 'https://js.cx/gallery/img2-lg.jpg', 'https://js.cx/gallery/img3-lg.jpg', 'https://js.cx/gallery/img4-lg.jpg', 'https://js.cx/gallery/img5-lg.jpg', 'https://js.cx/gallery/img6-lg.jpg'];
     var imgSmallLinkList = ['https://js.cx/gallery/img1-thumb.jpg', 'https://js.cx/gallery/img2-thumb.jpg', 'https://js.cx/gallery/img3-thumb.jpg', 'https://js.cx/gallery/img4-thumb.jpg', 'https://js.cx/gallery/img5-thumb.jpg', 'https://js.cx/gallery/img6-thumb.jpg'];
     for (var i = 0; i < imgSmallLinkList.length; i++) {
         var aImgSmallClone = aImgSmall.cloneNode(true);
         divBlock2.insertBefore(aImgSmallClone, aImgSmall.nextSibling);
-        imgSmall.src = imgSmallLinkList[i];
-
+        imgSmall.src = imgSmallLinkList[i]; console.log(imgSmallLinkList[i]);
+        aImgSmallClone.href = imgBigList[i]; console.log(imgBigList[i]);
     };
 
 
