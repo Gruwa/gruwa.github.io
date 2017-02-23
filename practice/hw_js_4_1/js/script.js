@@ -21,35 +21,63 @@ var data = {
 var app = {
         creatTest: function(){
             var ListElement = {
-                'div' : {'wrapper'},
-                'p' : {'page-header', 'header'},
-                'div' : {'content'},
-                'ol' : {'list-group', 'testOl'},
-                'button' : {'btn', 'btn-primary', 'button'}
+                'div' : {
+                    'wrapper' :{},
+                },
+                'p' : {
+                    'page-header'  : {},
+                    'header' : {},
+                },
+                'content' : {
+                    'content' : {},
+                },
+                'ol' : {
+                    'list-group' : {},
+                    'testOl' : {},
+                },
+                'button' : {
+                    'btn' : {},
+                    'btn-primary' :{},
+                    'button' :{},
+                },
             }
-            function DomElements() {
-                var element = document.createElement('div');
-                document.body.insertBefore(element, element.nextSibling);
-                element.classList.add('wrapper');
+
+            DomElements(ListElement);
+
+            function DomElements(obj) {
+                for (var key in obj) {
+
+                    var element = document.createElement(key);
+                    document.body.insertBefore(element, element.nextSibling);
+
+                    DomElementsList(obj[key], element);
+
+                    function DomElementsList(obj2, element) {
+                        for (var key in obj2) {
+                            element.classList.add(key) ;
+                            if (key != 'wrapper') {
+                                var div = document.querySelector(".wrapper");
+                                div.insertBefore(element, element.nextSibling);
+                                };
+                            if (key == 'testOl') {
+                                var div = document.querySelector(".content");
+                                div.insertBefore(element, element.nextSibling);
+                                };
+                            if (key == 'header') {
+                                var div = document.querySelector(".header");
+                                div.innerHTML = 'Тест по программированию';
+                                    }
+                            if (key == 'button') {
+                                var div = document.querySelector(".button");
+                                var textButton = document.createTextNode('Проверить мои результаты');
+                                div.appendChild(textButton);
+                            }
+
+                        };
+                    }
+                };
+
             }
-            var wrapper = document.createElement('div');
-            document.body.insertBefore(wrapper, wrapper.nextSibling);
-            wrapper.classList.add('wrapper');
-            var head = document.createElement('p');
-            wrapper.insertBefore(head, head.nextSibling);
-            head.innerHTML = 'Тест по программированию';
-            head.classList.add('page-header', 'header');
-            var content = document.createElement('div');
-            wrapper.insertBefore(content, head.nextSibling);
-            content.classList.add('content');
-            var testOl = document.createElement('ol');
-            content.insertBefore(testOl, testOl.nextSibling);
-            testOl.classList.add('list-group', 'testOl');
-            var button = document.createElement('button');
-            var textButton = document.createTextNode('Проверить мои результаты');
-            button.appendChild(textButton);
-            wrapper.insertBefore(button, content.nextSibling);
-            button.classList.add('btn', 'btn-primary', 'button');
 
             Test(data);
             TestCheckBox(app);
@@ -58,6 +86,7 @@ var app = {
                 for (var key in obj) {
                     var li = document.createElement('li');
                     li.innerHTML = key;
+                    var testOl = document.querySelector(".testOl");
                     testOl.appendChild(li);
                     li.appendChild(TestLi(obj[key]));
                     function TestLi(obj2) {

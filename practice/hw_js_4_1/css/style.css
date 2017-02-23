@@ -28,6 +28,7 @@ body{
 .content {
     max-width: 250px;
     margin: 0px auto;
+    display: block;
 }
 
 .testOl {
