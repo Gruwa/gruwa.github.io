@@ -8,12 +8,38 @@ body{
     display: block;
 }
 
-
+.wrapper {
+    max-width: 1024px;
+    padding: 30px;
+    margin: 0px auto 0px auto;
+    background-color: #fff;
+}
 
 /*header*/
 
+.header {
+    max-width: 300px;
+    margin: 0px auto;
+    font-size: 20px;
+}
+
 /*content*/
 
+.content {
+    max-width: 250px;
+    margin: 0px auto;
+    display: block;
+}
 
+.testOl {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    list-style-type: decimal;
+}
+
+.button {
+    display: block;
+    margin: 0px auto;
+}
 
 /*footer*/
