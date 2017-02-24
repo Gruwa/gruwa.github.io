@@ -42,4 +42,14 @@ body{
     margin: 0px auto;
 }
 
+.input[type=checkbox] {
+    float: left;
+    margin-right: 5px;
+}
+
+.listUl {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 /*footer*/

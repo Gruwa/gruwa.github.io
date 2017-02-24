@@ -20,27 +20,71 @@ var data = {
 
 var app = {
         creatTest: function(){
-            var ListElement = {
-                'div' : {
-                    'wrapper' :{},
-                },
-                'p' : {
-                    'page-header'  : {},
-                    'header' : {},
-                },
-                'content' : {
-                    'content' : {},
-                },
-                'ol' : {
-                    'list-group' : {},
-                    'testOl' : {},
-                },
-                'button' : {
-                    'btn' : {},
-                    'btn-primary' :{},
-                    'button' :{},
-                },
+
+            var listElement = {
+                        div: {
+                            'tagName' : {'div' : {}},
+                            'className' : {'wrapper' : {}},
+                        },
+                        head: {
+                            'tagname' : {'p' : {}},
+                            'className' : {'header' : {}, 'page-header' : {}},
+                            'content' : {'Тест по программированию' : {}},
+                        },
+                        content: {
+                            'tagname' : {'content' : {}},
+                            'className' : {'content' : {}},
+                        },
+                        button: {
+                            'tagname' : {'button' : {}},
+                            'className' : {'btn' : {}, 'btn-primary' : {}, 'button' : {}},
+                        },
+                        ol: {
+                            'tagname' : {'ol' : {}},
+                            'className' : {'list-group' : {}, 'testOl' : {}},
+                        },
+                        ul: {
+                            'tagname' : {'ul' : {}},
+                            'className' : {'list-group' : {}, 'clearfix:after' : {}},
+                        },
+                        li: {
+                            'tagname' : {'li' : {}},
+                            'className' : {'list-group-item' : {}},
+                        },
+                        input: {
+                            'tagname' : {'input' : {}},
+                            'className' : {'input' : {}},
+                        },
+
+                }
+
+            document.body.insertBefore(createElement(config), createElement(config).nextSibling);
+
+            function createElement(config) {
+              var element = document.createElement(config.tagName);
+
+              if (config.className) {
+                element.className = config.className;
+              }
+
+              if (config.content) {
+                element.innerHTML = config.content;
+              }
+
+            //   if (config.tagName == 'button') {
+            //       var textButton = document.createTextNode('Проверить мои результаты');
+            //       element.appendChild(textButton);
+            //   }
+
+              return element;
             }
+
+            console.log();
+        }
+    }
+
+
+app.creatTest();
 
 
 
