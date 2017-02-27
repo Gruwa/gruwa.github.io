@@ -21,65 +21,106 @@ var data = {
 var app = {
         creatTest: function(){
 
-            var listElement = {
-                        div: {
-                            'tagName' : {'div' : {}},
-                            'className' : {'wrapper' : {}},
-                        },
-                        head: {
-                            'tagname' : {'p' : {}},
-                            'className' : {'header' : {}, 'page-header' : {}},
-                            'content' : {'Тест по программированию' : {}},
-                        },
-                        content: {
-                            'tagname' : {'content' : {}},
-                            'className' : {'content' : {}},
-                        },
-                        button: {
-                            'tagname' : {'button' : {}},
-                            'className' : {'btn' : {}, 'btn-primary' : {}, 'button' : {}},
-                        },
-                        ol: {
-                            'tagname' : {'ol' : {}},
-                            'className' : {'list-group' : {}, 'testOl' : {}},
-                        },
-                        ul: {
-                            'tagname' : {'ul' : {}},
-                            'className' : {'list-group' : {}, 'clearfix:after' : {}},
-                        },
-                        li: {
-                            'tagname' : {'li' : {}},
-                            'className' : {'list-group-item' : {}},
-                        },
-                        input: {
-                            'tagname' : {'input' : {}},
-                            'className' : {'input' : {}},
-                        },
+            var div = {
+                tagName : 'div',
+                className : 'wrapper',
+            };
 
-                }
+            var head = {
+                tagName : 'p',
+                className : ('header', 'page-header'),
+                content : ('Тест по программированию'),
+            };
+            var content = {
+                tagName : 'content',
+                className : 'content',
+            };
+            var button = {
+                tagName : 'button',
+                className : ['btn', 'btn-primary', 'button'],
+            };
+            var ol = {
+                tagName : 'ol',
+                className : ('list-group', 'testOl'),
+            };
+            var ul = {
+                tagName : 'ul',
+                className : ('list-group', 'clearfix:after'),
+            };
+            var li = {
+                tagName : 'li',
+                className : 'list-group-item',
+            };
+            var input = {
+                tagName : 'input',
+                className : 'input',
+            };
 
-            document.body.insertBefore(createElement(config), createElement(config).nextSibling);
+
+            // var listElement = {
+            //             div: {
+            //                 'tagName' : {'div' : {}},
+            //                 'className' : {'wrapper' : {}},
+            //             },
+            //             head: {
+            //                 'tagName' : {'p' : {}},
+            //                 'className' : {'header' : {}, 'page-header' : {}},
+            //                 'content' : {'Тест по программированию' : {}},
+            //             },
+            //             content: {
+            //                 'tagName' : {'content' : {}},
+            //                 'className' : {'content' : {}},
+            //             },
+            //             button: {
+            //                 'tagName' : {'button' : {}},
+            //                 'className' : {'btn' : {}, 'btn-primary' : {}, 'button' : {}},
+            //             },
+            //             ol: {
+            //                 'tagName' : {'ol' : {}},
+            //                 'className' : {'list-group' : {}, 'testOl' : {}},
+            //             },
+            //             ul: {
+            //                 'tagName' : {'ul' : {}},
+            //                 'className' : {'list-group' : {}, 'clearfix:after' : {}},
+            //             },
+            //             li: {
+            //                 'tagName' : {'li' : {}},
+            //                 'className' : {'list-group-item' : {}},
+            //             },
+            //             input: {
+            //                 'tagName' : {'input' : {}},
+            //                 'className' : {'input' : {}},
+            //             },
+
+                // }
+
+
+            var elem = new createElement(button);
+                        console.log(elem);
 
             function createElement(config) {
               var element = document.createElement(config.tagName);
 
               if (config.className) {
-                element.className = config.className;
+                  for (var i = 0; i < config.className.length; i++) {
+                     element.classList.add(config.className[i]);
+                  }
+
               }
 
               if (config.content) {
                 element.innerHTML = config.content;
               }
 
-            //   if (config.tagName == 'button') {
-            //       var textButton = document.createTextNode('Проверить мои результаты');
-            //       element.appendChild(textButton);
-            //   }
+              if (config.tagName == 'button') {
+                  var textButton = document.createTextNode('Проверить мои результаты');
+                  element.appendChild(textButton);
+              }
 
               return element;
             }
 
-            console.log();
+
         }
     }
 
