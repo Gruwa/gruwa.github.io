@@ -29,7 +29,7 @@ var app = {
             var head = {
                 tagName : 'p',
                 className : ['header', 'page-header'],
-                content : ('Тест по программированию'),
+                content : 'Тест по программированию',
             };
             var content = {
                 tagName : 'content',
@@ -99,26 +99,26 @@ var app = {
             Test(data);
             TestCheckBox(app);
 
-                function Test(obj) {
-                    for (var key in obj) {
-                        var olList = new createElement(ol);
-                        content.insertBefore(olList, olList.nextSibling);
-                        var liList = new createElement(li);
-                        liList.innerHTML = key; console.log(key);
-                        olList.appendChild(liList);
-                        liList.appendChild(TestLi(obj[key]));
-                        function TestLi(obj2) {
-                            var ulList = new createElement(ul);
-                            for (var key in obj2) {
-                                var liList2 = new createElement(li);
-                                liList2.innerHTML = key;
-                                ulList.appendChild(liList2);
-                            };
-                            return ulList;
-                            }
+            function Test(obj) {
+                for (var key in obj) {
+                    var olList = new createElement(ol);
+                    content.insertBefore(olList, olList.nextSibling);
+                    var liList = new createElement(li);
+                    liList.innerHTML = key; console.log(key);
+                    olList.appendChild(liList);
+                    liList.appendChild(TestLi(obj[key]));
+                    function TestLi(obj2) {
+                        var ulList = new createElement(ul);
+                        for (var key in obj2) {
+                            var liList2 = new createElement(li);
+                            liList2.innerHTML = key;
+                            ulList.appendChild(liList2);
                         };
+                        return ulList;
+                            }
+                    };
 
-                    }
+                }
                 function TestCheckBox(obj) {
                         var allLi = document.querySelectorAll('ul > li');
                         for (var i = 0; i < allLi.length; i++) {
