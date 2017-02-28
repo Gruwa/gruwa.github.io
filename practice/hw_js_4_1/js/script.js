@@ -51,60 +51,23 @@ var app = {
                 tagName : 'li',
                 className : ['list-group-item'],
             };
-            var INPUT = {
-                tagName : 'input',
+            var input = {
+                tagName : 'INPUT',
                 className : ['input'],
             };
-
-
-            // var listElement = {
-            //             div: {
-            //                 'tagName' : {'div' : {}},
-            //                 'className' : {'wrapper' : {}},
-            //             },
-            //             head: {
-            //                 'tagName' : {'p' : {}},
-            //                 'className' : {'header' : {}, 'page-header' : {}},
-            //                 'content' : {'Тест по программированию' : {}},
-            //             },
-            //             content: {
-            //                 'tagName' : {'content' : {}},
-            //                 'className' : {'content' : {}},
-            //             },
-            //             button: {
-            //                 'tagName' : {'button' : {}},
-            //                 'className' : {'btn' : {}, 'btn-primary' : {}, 'button' : {}},
-            //             },
-            //             ol: {
-            //                 'tagName' : {'ol' : {}},
-            //                 'className' : {'list-group' : {}, 'testOl' : {}},
-            //             },
-            //             ul: {
-            //                 'tagName' : {'ul' : {}},
-            //                 'className' : {'list-group' : {}, 'clearfix:after' : {}},
-            //             },
-            //             li: {
-            //                 'tagName' : {'li' : {}},
-            //                 'className' : {'list-group-item' : {}},
-            //             },
-            //             input: {
-            //                 'tagName' : {'input' : {}},
-            //                 'className' : {'input' : {}},
-            //             },
-            // }
-
-
 
             var box = new createElement(div);
             document.body.insertBefore(box, box.nextSibling);
             var elem = new createElement(head);
             box.insertBefore(elem, elem.nextSibling);
             var content = new createElement(content);
-            box.insertBefore(elem, elem.nextSibling);
+            box.insertBefore(content, content.nextSibling);
             elem = new createElement(button);
             box.insertBefore(elem, elem.nextSibling);
 
             console.log(elem);
+            console.log(input.tagName);
+
 
             function createElement(config) {
               var element = document.createElement(config.tagName);
@@ -112,41 +75,46 @@ var app = {
               if (config.className) {
                   for (var i = 0; i < config.className.length; i++) {
                      element.classList.add(config.className[i]);
-                  }
+                 };
 
               };
 
               if (config.content) {
                 element.innerHTML = config.content;
-            };
+                };
 
               if (config.tagName == 'button') {
                   var textButton = document.createTextNode('Проверить мои результаты');
                   element.appendChild(textButton);
               };
 
+              if (config.tagName == 'INPUT') {
+                  element.setAttribute("type", "checkbox");
+              };
+
+
               return element;
-                }
+            }
 
             Test(data);
             TestCheckBox(app);
 
                 function Test(obj) {
                     for (var key in obj) {
-                        li = new createElement(li);
-                        li.innerHTML = key;
-                        ol = new createElement(ol);
-                        content.insertBefore(ol, ol.nextSibling);
-                        ol.appendChild(li);
-                        li.appendChild(TestLi(obj[key]));
+                        var olList = new createElement(ol);
+                        content.insertBefore(olList, olList.nextSibling);
+                        var liList = new createElement(li);
+                        liList.innerHTML = key; console.log(key);
+                        olList.appendChild(liList);
+                        liList.appendChild(TestLi(obj[key]));
                         function TestLi(obj2) {
-                            ul = new createElement(ul);
+                            var ulList = new createElement(ul);
                             for (var key in obj2) {
-                                li =  new createElement(li);
-                                li.innerHTML = key;
-                                ul.appendChild(li);
+                                var liList2 = new createElement(li);
+                                liList2.innerHTML = key;
+                                ulList.appendChild(liList2);
                             };
-                            return ul;
+                            return ulList;
                             }
                         };
 
@@ -155,103 +123,53 @@ var app = {
                         var allLi = document.querySelectorAll('ul > li');
                         for (var i = 0; i < allLi.length; i++) {
                             allLi[i].classList.add('listLi' + i);
-                            var input = new createElement(INPUT);
-                            allLi[i].insertAdjacentElement("beforeBegin", input);
+                            var inputList = new createElement(input);
+                            allLi[i].insertAdjacentElement("beforeBegin", inputList);
                         };
                         var allInput = document.querySelectorAll('ul > input');
                         for (var i = 0; i < allInput.length; i++) {
-                            var classNameInput = allInput[i].className = 'listInput' + i;
+                            allInput[i].classList.add('listInput' + i);
                         }
 
                 }
-
-
-
-
         }
     }
 
 
 app.creatTest();
 
-
-            //
-            // DomElements(data);
-            //
-            // function DomElements(obj) {
-            //     for (var key in obj) {
-            //
-            //         var element = document.createElement(key);
-            //         document.body.insertBefore(element, element.nextSibling);
-            //
-            //         DomElementsList(obj[key], element);
-            //
-            //         function DomElementsList(obj2, element) {
-            //             for (var key in obj2) {
-            //                 element.classList.add(key) ;
-            //                 if (key != 'wrapper') {
-            //                     var div = document.querySelector(".wrapper");
-            //                     div.insertBefore(element, element.nextSibling);
-            //                     };
-            //                 if (key == 'testOl') {
-            //                     var div = document.querySelector(".content");
-            //                     div.insertBefore(element, element.nextSibling);
-            //                     };
-            //                 if (key == 'header') {
-            //                     var div = document.querySelector(".header");
-            //                     div.innerHTML = 'Тест по программированию';
-            //                         }
-            //                 if (key == 'button') {
-            //                     var div = document.querySelector(".button");
-            //                     var textButton = document.createTextNode('Проверить мои результаты');
-            //                     div.appendChild(textButton);
-            //                 }
-            //
-            //             };
-            //         }
-            //     };
-            //
-            // }
-            //
-            // Test(data);
-            // TestCheckBox(app);
-            //
-            // function Test(obj) {
-            //     for (var key in obj) {
-            //         var li = document.createElement('li');
-            //         li.innerHTML = key;
-            //         var testOl = document.querySelector(".testOl");
-            //         testOl.appendChild(li);
-            //         li.appendChild(TestLi(obj[key]));
-            //         function TestLi(obj2) {
-            //             var ul = document.createElement('ul');
-            //             ul.classList.add('list-group', 'clearfix:after');
-            //             ul.style.marginTop = '10px';
-            //             ul.style.marginBottom = '10px';
-            //             for (var key in obj2) {
-            //                 var li = document.createElement('li');
-            //                 li.classList.add('list-group-item');
-            //                 li.innerHTML = key;
-            //                 ul.appendChild(li);
-            //             }
-            //             return ul;
-            //             }
-            //         }
-            //
-            //     }
-            // function TestCheckBox(obj) {
-            //         var allLi = document.querySelectorAll('ul > li');
-            //         for (var i = 0; i < allLi.length; i++) {
-            //             allLi[i].classList.add('listLi' + i);
-            //             var input = document.createElement("INPUT");
-            //             input.setAttribute("type", "checkbox");
-            //             input.style.float = 'left';
-            //             allLi[i].insertAdjacentElement("beforeBegin", input);
-            //             input.style.marginRight = '5px';
-            //         }
-            //         var allInput = document.querySelectorAll('ul > input');
-            //         for (var i = 0; i < allInput.length; i++) {
-            //             var classNameInput = allInput[i].className = 'listInput' + i;
-            //         }
-            //
-            // }
+// var listElement = {
+//             div: {
+//                 'tagName' : {'div' : {}},
+//                 'className' : {'wrapper' : {}},
+//             },
+//             head: {
+//                 'tagName' : {'p' : {}},
+//                 'className' : {'header' : {}, 'page-header' : {}},
+//                 'content' : {'Тест по программированию' : {}},
+//             },
+//             content: {
+//                 'tagName' : {'content' : {}},
+//                 'className' : {'content' : {}},
+//             },
+//             button: {
+//                 'tagName' : {'button' : {}},
+//                 'className' : {'btn' : {}, 'btn-primary' : {}, 'button' : {}},
+//             },
+//             ol: {
+//                 'tagName' : {'ol' : {}},
+//                 'className' : {'list-group' : {}, 'testOl' : {}},
+//             },
+//             ul: {
+//                 'tagName' : {'ul' : {}},
+//                 'className' : {'list-group' : {}, 'clearfix:after' : {}},
+//             },
+//             li: {
+//                 'tagName' : {'li' : {}},
+//                 'className' : {'list-group-item' : {}},
+//             },
+//             input: {
+//                 'tagName' : {'input' : {}},
+//                 'className' : {'input' : {}},
+//             },
+// }

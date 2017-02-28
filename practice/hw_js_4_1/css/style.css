@@ -11,7 +11,7 @@ body{
 .wrapper {
     max-width: 1024px;
     padding: 30px;
-    margin: 0px auto 0px auto;
+    margin: 0 auto 0 auto;
     background-color: #fff;
 }
 
@@ -19,7 +19,7 @@ body{
 
 .header {
     max-width: 300px;
-    margin: 0px auto;
+    margin: 0 auto;
     font-size: 20px;
 }
 
@@ -27,7 +27,7 @@ body{
 
 .content {
     max-width: 250px;
-    margin: 0px auto;
+    margin: 0 auto;
     display: block;
 }
 
@@ -39,10 +39,10 @@ body{
 
 .button {
     display: block;
-    margin: 0px auto;
+    margin: 0 auto;
 }
 
-.input[type=checkbox] {
+.input {
     float: left;
     margin-right: 5px;
 }
