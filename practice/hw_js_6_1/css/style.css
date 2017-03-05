@@ -1,0 +1,62 @@
+body{
+    background-color: #F4F7F9;
+}
+
+.clearfix:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+.wrapper {
+    max-width: 1024px;
+    padding: 30px;
+    margin: 0 auto;
+    background-color: #fff;
+}
+
+/*header*/
+
+
+/*content*/
+
+.content {
+    margin: 0 auto;
+    display: block;
+
+}
+
+.timer {
+        margin-top: 100px;
+        text-align: center;
+
+}
+.box__outTimer{
+    text-align: left;
+    margin: 0 auto;
+    width: 800px;
+    height: 100px;
+}
+
+.outTimer {
+    height: 60px;
+    font-size: 100px;
+    font-weight: bold;
+    display: block;
+
+
+}
+
+button {
+    width: 250px;
+    height: 60px;
+    margin: 10px;
+    font-size: 50px;
+
+}
+
+
+
+
+
+/*footer*/
