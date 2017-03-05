@@ -1,4 +1,4 @@
-// 'use strict';
+'use strict';
 
 var timer = document.getElementById('outTimer');
 var startPauseBtn = document.getElementById('startPause');
@@ -8,6 +8,7 @@ var watch = new Stopwatch(timer);
 startPauseBtn.addEventListener('click', function () {
     if (watch.isOn) {
         watch.stop();
+
     } else {
         watch.start();
     }
