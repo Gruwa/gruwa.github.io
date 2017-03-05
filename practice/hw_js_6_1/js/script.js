@@ -8,25 +8,27 @@ var watch = new Stopwatch(timer);
 startPauseBtn.addEventListener('click', function () {
     if (watch.isOn) {
         watch.stop();
-
+        startPauseBtn.textContent = 'Start';
     } else {
         watch.start();
-    }
+        startPauseBtn.textContent = 'Pause';
+    };
 });
-
 clearBtn.addEventListener('click', function() {
+    if (watch.isOn) {
+        startPauseBtn.textContent = 'Start';
+    };
     watch.reset();
 });
 
-
-    function Stopwatch(elem) {
+function Stopwatch(elem) {
         var time = 0;
         var interval;
         var offset;
         this.isOn = false;
         this.start = function() {
                 if (!this.isOn) {
-                    interval = setInterval(update.bind(this), 10);
+                    interval = setInterval(this.update.bind(this), 10);
                     offset = Date.now();
                     this.isOn = true;
                 };
@@ -39,19 +41,18 @@ clearBtn.addEventListener('click', function() {
                 };
             };
         this.reset = function () {
+                clearInterval(interval);
+                interval = null;
+                this.isOn = false;
                 time = 0;
-                update();
+                this.update();
             };
-
-
-        function update() {
-            console.log(this.isOn);
+        this.update = function() {
                 if (this.isOn) {
                     time += delta();
                 };
                 var formattedTime = timeFormatter(time);
                 elem.textContent = formattedTime;
-                console.log(formattedTime);
             }
         function delta() {
                 var now = Date.now();
