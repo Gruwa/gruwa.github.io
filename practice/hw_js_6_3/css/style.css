@@ -23,7 +23,13 @@ body{
 .content {
     margin: 0 auto;
     display: block;
+    text-align: center;
+}
 
+.pList {
+    margin: 0;
+    font-size: 40px;
+    line-height: 40px;
 }
 
 .timer {

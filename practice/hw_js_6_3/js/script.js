@@ -3,22 +3,34 @@
 var timer = document.getElementById('outTimer');
 var startPauseBtn = document.getElementById('startPause');
 var clearBtn = document.getElementById('clear');
+var splitBtn = document.getElementById('split');
+var number = 0;
 var watch = new Stopwatch(timer);
 
 startPauseBtn.addEventListener('click', function () {
     if (watch.isOn) {
         watch.stop();
         startPauseBtn.textContent = 'Start';
+        var element = document.createElement('p');
+        var box = document.getElementsByClassName('content');
+        element.innerHTML = ++number + '. ' + timer.innerHTML;
+        element.classList.add('pList');
+        box[0].insertBefore(element, element.nextSibling);
+
     } else {
         watch.start();
         startPauseBtn.textContent = 'Pause';
     };
+
 });
 clearBtn.addEventListener('click', function() {
     if (watch.isOn) {
         startPauseBtn.textContent = 'Start';
     };
     watch.reset();
+});
+splitBtn.addEventListener('click', function() {
+    watch.split();
 });
 
 function Stopwatch(elem) {
