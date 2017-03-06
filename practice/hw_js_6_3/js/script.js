@@ -28,6 +28,8 @@ clearBtn.addEventListener('click', function() {
         startPauseBtn.textContent = 'Start';
     };
     watch.reset();
+    $("p").remove(".pList");
+    number = 0;
 });
 splitBtn.addEventListener('click', function() {
     watch.split();
