@@ -47,16 +47,14 @@ body{
 
 }
 
-.btn {
+button {
     width: 250px;
     height: 60px;
     margin: 10px;
     font-size: 50px;
+
 }
 
-.row {
-    margin: 0;
-}
 
 
 
