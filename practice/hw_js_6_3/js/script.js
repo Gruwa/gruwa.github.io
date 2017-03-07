@@ -11,12 +11,7 @@ startPauseBtn.addEventListener('click', function () {
     if (watch.isOn) {
         watch.stop();
         startPauseBtn.textContent = 'Start';
-        var element = document.createElement('p');
-        var box = document.getElementsByClassName('content');
-        element.innerHTML = ++number + '. ' + timer.innerHTML;
-        element.classList.add('pList');
-        box[0].insertBefore(element, element.nextSibling);
-
+        watch.result();
     } else {
         watch.start();
         startPauseBtn.textContent = 'Pause';
@@ -61,6 +56,9 @@ function Stopwatch(elem) {
                 time = 0;
                 this.update();
             };
+        this.split = function() {
+            this.result();
+        };
         this.update = function() {
                 if (this.isOn) {
                     time += delta();
@@ -68,6 +66,17 @@ function Stopwatch(elem) {
                 var formattedTime = timeFormatter(time);
                 elem.textContent = formattedTime;
             }
+        this.result = function() {
+            var element = document.createElement('p');
+            var box = document.getElementsByClassName('content');
+            if (!watch.isOn) {
+                element.innerHTML = ++number + '. ' + 'Stop ' + timer.innerHTML;
+            } if (watch.isOn) {
+                element.innerHTML = ++number + '. ' + 'Split ' + timer.innerHTML;
+            } else {};
+            element.classList.add('pList');
+            box[0].insertBefore(element, element.nextSibling);
+        }
         function delta() {
                 var now = Date.now();
                 var timePassed = now - offset;
