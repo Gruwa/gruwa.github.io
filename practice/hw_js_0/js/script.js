@@ -1150,63 +1150,113 @@
 //
 // app.creatTest();
 
-var listElement = {
-            div: {
-                'tagName' : {'div' : {}},
-                'className' : {'wrapper' : {}},
-            },
-            head: {
-                'tagName' : {'p' : {}},
-                'className' : {'header' : {}, 'page-header' : {}},
-                'content' : {'Тест по программированию' : {}},
-            },
-            content: {
-                'tagName' : {'content' : {}},
-                'className' : {'content' : {}},
-            },
-            button: {
-                'tagName' : {'button' : {}},
-                'className' : {'btn' : {}, 'btn-primary' : {}, 'button' : {}},
-            },
-            ol: {
-                'tagName' : {'ol' : {}},
-                'className' : {'list-group' : {}, 'testOl' : {}},
-            },
-            ul: {
-                'tagName' : {'ul' : {}},
-                'className' : {'list-group' : {}, 'clearfix:after' : {}},
-            },
-            li: {
-                'tagName' : {'li' : {}},
-                'className' : {'list-group-item' : {}},
-            },
-            input: {
-                'tagName' : {'input' : {}},
-                'className' : {'input' : {}},
-            },
-};
+// var listElement = {
+//             div: {
+//                 'tagName' : {'div' : {}},
+//                 'className' : {'wrapper' : {}},
+//             },
+//             head: {
+//                 'tagName' : {'p' : {}},
+//                 'className' : {'header' : {}, 'page-header' : {}},
+//                 'content' : {'Тест по программированию' : {}},
+//             },
+//             content: {
+//                 'tagName' : {'content' : {}},
+//                 'className' : {'content' : {}},
+//             },
+//             button: {
+//                 'tagName' : {'button' : {}},
+//                 'className' : {'btn' : {}, 'btn-primary' : {}, 'button' : {}},
+//             },
+//             ol: {
+//                 'tagName' : {'ol' : {}},
+//                 'className' : {'list-group' : {}, 'testOl' : {}},
+//             },
+//             ul: {
+//                 'tagName' : {'ul' : {}},
+//                 'className' : {'list-group' : {}, 'clearfix:after' : {}},
+//             },
+//             li: {
+//                 'tagName' : {'li' : {}},
+//                 'className' : {'list-group-item' : {}},
+//             },
+//             input: {
+//                 'tagName' : {'input' : {}},
+//                 'className' : {'input' : {}},
+//             },
+// };
 
 
 
-ObjElem('div');
+// ObjElem('div');
+//
+// var deepCopy = function ObjElem(obj) {
+//     for (var key in listElement) {
+//         if (key == obj) {
+//
+//             if (typeof obj != "object") {
+//                 return obj;
+//             }
+//
+//             var copy = obj.constructor();
+//             for (var key in obj) {
+//                 if (typeof obj[key] == "object") {
+//                     copy[key] = this.deepCopy(obj[key]);
+//                 } else {
+//                     copy[key] = obj[key];
+//                 }
+//             }
+//         };
+//     };
+//     return copy;
+// };
 
-var deepCopy = function ObjElem(obj) {
-    for (var key in listElement) {
-        if (key == obj) {
+// $(document).ready(function(){
+//     var element = $('.wrapper')''
+// });
 
-            if (typeof obj != "object") {
-                return obj;
-            }
+$(function() {
+    // var $element = $('.wrapper')[0];
+    // чистый дом элемент, если есть - [0] (первый элемент,т.к. коллекция)
+    var $element = $('.wrapper');
+    var $par = $element.find('p');
+    $par.addClass('red');
+    $par.css('color', 'white');
+    // можно записать объектом
+    $par.css({
+            color: 'white',
+            background: 'black'
+        });
+    $par.attr('href', 'http://try.jquery.com/')
+    // можно записать кратко так
+    $par
+    .addClass('red');
+    .css({
+            color: 'white',
+            background: 'black'
+        });
+    .attr('href', 'http://try.jquery.com/');
+    // вставка элемента div
+    $('body').append('<div>fdsafsdgsafg</div>');
+    // удаление элемента par
+    $par.remove();
+    // добавление обработчика событий
+    $par.on('click', function(){
+        alert('test');
+    })
+    // удаление обработчика событий
+    $par.off('click', function(){
+        alert('test');
+    })
+    // метод 1 клика, обработчик события , который позволяет сработать 1 раз
+    $par.one('click', function(){
+        alert('test');
+    })
+    // в 1 колбеке можно подписываться на несколько ивентов
+    $par.one('click dblclick', function(){
+        alert('test');
+    })
 
-            var copy = obj.constructor();
-            for (var key in obj) {
-                if (typeof obj[key] == "object") {
-                    copy[key] = this.deepCopy(obj[key]);
-                } else {
-                    copy[key] = obj[key];
-                }
-            }
-        };
-    };
-    return copy;
-};
+
+
+});
