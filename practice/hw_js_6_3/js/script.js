@@ -22,6 +22,7 @@ clearBtn.addEventListener('click', function() {
     if (watch.isOn) {
         startPauseBtn.textContent = 'Start';
     };
+
     watch.reset();
     $("p").remove(".pList");
     number = 0;
@@ -85,6 +86,7 @@ function Stopwatch(elem) {
     function delta() {
         var now = Date.now();
         var timePassed = now - offset;
+
         offset = now;
         return timePassed;
     }
