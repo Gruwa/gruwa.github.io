@@ -59,7 +59,11 @@ function Stopwatch(elem) {
         this.update();
     };
     this.split = function() {
-        this.result();
+        if (!watch.isOn) {
+            return;
+        } if (watch.isOn) {
+            this.result();
+        } else {};
     };
     this.update = function() {
         if (this.isOn) {
