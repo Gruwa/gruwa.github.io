@@ -1,0 +1,22 @@
+body{
+    background-color: #F4F7F9;
+}
+
+.clearfix:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+.wrapper {
+    max-width: 1024px;
+    padding: 30px;
+    margin: 0 auto;
+    background-color: #fff;
+}
+
+/*header*/
+
+/*content*/
+
+/*footer*/
