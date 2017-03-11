@@ -1,32 +1,31 @@
 'use strict';
 
 $(document).ready(function() {
-    $('.form').find('input').on('mouseenter', function() {
-        var block = $(this);
-        var data = $(this).data('text');
+    var div;
 
-        if(data == 'firstname'){
-            var key = 'Please provide your firstname.';
-            hover(key);
-        }if(data == 'lastname'){
-            var key = 'Please provide your lastname.';
-            hover(key);
-        }if(data == 'address'){
-            var key = 'Your home or work address.';
-            hover(key);
-        }else {};
+    $('.form').find('input').hover(function() {
+        click ($(this));
+    }, function(){
+        $(div).animate({opacity: 'hide', top: '60px'}, 'fast');
+        $(this).parent().parent().find('.input_help').remove();
+    });
+    $('.show_help').on('click', function() {
+        var array = $('.form').find('input');
 
-        function hover(text) {
-            var div = document.createElement('div');
-            $(div).toggleClass('input_help');
-            $(div).text(text);
-            $(block).parent().append(div);
-            console.log(block);
-            $(div).animate({opacity: 'show', top: '-75'}, 'slow');
+        for (var i = 0; i < array.length; i++) {
+            var element = array[i];
+            click (element);
         }
 
     });
-    $('.form').find('input').on('mouseleave', function(){
-        // $('.input_help').remove();
-    });
+
+    function click (key) {
+        var hoverText = $(key).attr("name");
+
+        div = document.createElement('div');
+        $(div).addClass('input_help');
+        $(key).parent().append(div);
+        $(div).text(hoverText);
+        $(div).animate({opacity: 'show', top: '23px'});
+    }
 });

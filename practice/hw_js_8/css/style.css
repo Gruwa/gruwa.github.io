@@ -50,11 +50,23 @@ input {
 
 .input_box{
     margin-bottom: 50px;
+    position: relative;
 }
 
 label {
 display: inline-block;
 width: 120px;
+}
+
+.input_help {
+    position: absolute;
+    top: 23px;
+    left: 196px;
+    color: #fff;
+    box-sizing: border-box;
+    border: 1px solid #bfbfbf;
+    padding: 10px;
+    background: #63ADF9;
 }
 
 /*footer*/
