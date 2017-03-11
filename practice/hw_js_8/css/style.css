@@ -67,9 +67,14 @@ label {
     box-sizing: border-box;
     padding: 10px;
     border: 1px solid #bfbfbf;
-    background: #63ADF9;
     color: #fff;
+    background: -moz-linear-gradient(top, rgba(122,188,255,0.7) 0%, rgba(96,171,248,0.83) 44%, rgba(64,150,238,1) 100%);
+    background: -webkit-linear-gradient(top, rgba(122,188,255,0.7) 0%,rgba(96,171,248,0.83) 44%,rgba(64,150,238,1) 100%);
+    background: linear-gradient(to bottom, rgba(122,188,255,0.7) 0%,rgba(96,171,248,0.83) 44%,rgba(64,150,238,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b37abcff', endColorstr='#4096ee',GradientType=0 );
+    
 }
+
 .button {
     background-color: #63ADF9;
     color: #fff;
