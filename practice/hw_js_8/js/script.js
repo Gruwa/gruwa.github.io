@@ -7,7 +7,7 @@ $(document).ready(function() {
         click ($(this));
     }, function(){
         $(div).animate({opacity: 'hide', top: '60px'}, 'fast');
-        $(this).parent().parent().find('.input_help').remove();
+        $(this).parent().find('.input_help').remove();
     });
     $('.show_help').on('click', function() {
         var array = $('.form').find('input');
