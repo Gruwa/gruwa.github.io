@@ -1,0 +1,52 @@
+body{
+    background-color: #F4F7F9;
+}
+
+.clearfix:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+.wrapper {
+    max-width: 1024px;
+    padding: 30px;
+    margin: 0 auto;
+    background-color: #fff;
+}
+
+/*plugins*/
+
+/*start jcarousel*/
+.jcarousel {
+    position: relative;
+    overflow: hidden;
+}
+.jcarousel ul {
+    width: 20000em;
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+/*
+These are the item elements. jCarousel works best, if the items
+have a fixed width and height (but it's not required).
+*/
+.jcarousel li {
+    float: left;
+}
+/*end jcarousel*/
+
+/*header*/
+
+/*content*/
+
+.box_jcarusel {
+    box-sizing: border-box;
+    max-width: 640px;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+/*footer*/
