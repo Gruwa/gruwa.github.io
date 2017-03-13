@@ -12,7 +12,7 @@ body{
     max-width: 1024px;
     padding: 30px;
     margin: 0 auto;
-    background-color: #fff;
+    background-color: #3b57a5;
 }
 
 /*plugins*/
@@ -42,11 +42,27 @@ have a fixed width and height (but it's not required).
 
 /*content*/
 
-.box_jcarusel {
+.box_jcarousel {
     box-sizing: border-box;
-    max-width: 640px;
-    padding: 20px;
+    max-width: 650px;
+    padding: 5px;
     margin: 0 auto;
+    background-color: #fff;
+    border-radius: 8px;
+    position: relative;
+}
+.box_jcarousel a{
+    display: block;
+    position: absolute;
+    top: 180px;
+    color: #fff;
+    font-size: 100px;
+}
+.jcarousel-prev{
+    left: -70px;
+}
+.jcarousel-next{
+    right: -70px;
 }
 
 /*footer*/
