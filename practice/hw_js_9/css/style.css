@@ -12,7 +12,7 @@ body{
     max-width: 1024px;
     padding: 30px;
     margin: 0 auto;
-    background-color: #3b57a5;
+    background-color: #c6c6c6;
 }
 
 /*plugins*/
@@ -38,6 +38,120 @@ have a fixed width and height (but it's not required).
 }
 /*end jcarousel*/
 
+/*start ikSelect*/
+.ik_select {
+    margin: 0 auto;
+    padding-right: 48px;
+    padding-left: 28px;
+    height: 35px;
+    border: 2px solid #3958E6;
+    border-radius: 30px;
+    background: #5483F1;
+
+    /*
+    Wraps all the plugin's HTML code.
+    Probably you should not add any styles here
+    */
+}
+.ik_select_link::after {
+    position: absolute;
+    top: 34%;
+    right: 11px;
+    font-size: 15px;
+    content: "\25BC";
+    color: #fff;
+    cursor: pointer;
+    /* Fake select you click on to open the dropdown */
+}
+.ik_select_list_inner{
+
+}
+.ik_select_link_focus {
+
+    /* Focused state of the fake select */
+}
+.ik_select_link_disabled {
+
+    /* Disabled state of the fake select */
+}
+.ik_select_link_text {
+    position: absolute;
+    color: #fff;
+    top: 12%;
+    cursor: pointer;
+    /*
+    Wrapper for the text inside the link.
+    It's best to add some width limiting rules here like
+    display:block;
+    overflow:hidden;
+    white-space:nowrap;
+        text-overflow:ellipsis;
+        */
+    }
+
+.ik_select_dropdown {
+    top: 39px;
+
+    /*
+    Dropdown wrapper. Needed for script calculations.
+    You should not add any visual styles here.
+    You can shift the position of the dropdown
+    by changing top and left values like
+    top: -2px;
+    left: -5px;
+    */
+}
+.ik_select_list {
+    padding: 10px;
+    width: 150px;
+    height: 120px;
+    border: 2px solid #3958E6;
+    border-radius: 10px;
+    background: #5483F1;
+    -webkit-box-shadow: 1px 1px 10px 3px #9EB1FF;
+    box-shadow: 1px 1px 10px 3px #9EB1FF;
+
+    /*
+    Wrapper for the options list.
+    Now that's a good place to add visual styles.
+    */
+}
+.ik_select_list span:hover{
+
+}
+.ik_select_optgroup {
+
+    /* Optgroup */
+}
+.ik_select_optgroup_label {
+    /* Optgroup label */
+}
+.ik_select_option {
+    /* Option */
+}
+.ik_select_option_label {
+
+        /* Option label */
+    }
+.ik_select_hover {
+    cursor: pointer;
+    color: #fff:
+    /* The hovered state of an option */
+}
+.ik_select_active {
+    /* The active state of an option */
+}
+.ik_select_filter_wrap {
+    /* Wrapper for the filter input */
+}
+.ik_select_filter {
+    /* Filter input */
+}
+.ik_nothing_found {
+        /* Block that's shown when there's nothing found. */
+    }
+/*end ikSelect*/
+
 /*header*/
 
 /*content*/
@@ -46,6 +160,7 @@ have a fixed width and height (but it's not required).
     box-sizing: border-box;
     max-width: 650px;
     padding: 5px;
+    padding-bottom: 0px;
     margin: 0 auto;
     background-color: #fff;
     border-radius: 8px;
@@ -63,6 +178,14 @@ have a fixed width and height (but it's not required).
 }
 .jcarousel-next{
     right: -70px;
+}
+
+.box_select {
+    box-sizing: border-box;
+    max-width: 300px;
+    height: 300px;
+    margin: 20px auto;
+
 }
 
 /*footer*/
