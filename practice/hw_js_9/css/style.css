@@ -12,7 +12,7 @@ body{
     max-width: 1024px;
     padding: 30px;
     margin: 0 auto;
-    background-color: #c6c6c6;
+    background-color: #cdd;
 }
 
 /*plugins*/
@@ -56,7 +56,7 @@ have a fixed width and height (but it's not required).
 .ik_select_link::after {
     position: absolute;
     top: 34%;
-    right: 11px;
+    right: 21px;
     font-size: 15px;
     content: "\25BC";
     color: #fff;
@@ -76,9 +76,11 @@ have a fixed width and height (but it's not required).
 }
 .ik_select_link_text {
     position: absolute;
+    margin-left: 20px;
     color: #fff;
     top: 12%;
     cursor: pointer;
+    font-size: 28px;
     /*
     Wrapper for the text inside the link.
     It's best to add some width limiting rules here like
@@ -103,42 +105,50 @@ have a fixed width and height (but it's not required).
 }
 .ik_select_list {
     padding: 10px;
-    width: 150px;
-    height: 120px;
+    width: 190px;
+    height: 200px;
     border: 2px solid #3958E6;
     border-radius: 10px;
     background: #5483F1;
     -webkit-box-shadow: 1px 1px 10px 3px #9EB1FF;
     box-shadow: 1px 1px 10px 3px #9EB1FF;
 
+
     /*
     Wrapper for the options list.
     Now that's a good place to add visual styles.
     */
 }
-.ik_select_list span:hover{
 
-}
 .ik_select_optgroup {
 
     /* Optgroup */
 }
 .ik_select_optgroup_label {
+    margin-top: 15px;
+    margin-left: 5px;
+    font-size: 18px;
+    color: #53ff00;
     /* Optgroup label */
 }
 .ik_select_option {
+    margin: 5px;
+    font-size: 20px;
+    opacity: 0.65;
     /* Option */
 }
 .ik_select_option_label {
-
+    margin-left: 20px;
         /* Option label */
     }
 .ik_select_hover {
     cursor: pointer;
-    color: #fff:
+    color: #fff;
+    opacity: 1;
     /* The hovered state of an option */
 }
 .ik_select_active {
+    opacity: 1;
     /* The active state of an option */
 }
 .ik_select_filter_wrap {
@@ -187,5 +197,60 @@ have a fixed width and height (but it's not required).
     margin: 20px auto;
 
 }
+.box_checkbox {
+    box-sizing: border-box;
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+/* start checkbox_csss*/
+.checkbox_css{
+    float: right;
+    color: #465961;
+    overflow: hidden;
+}
+.chekbox1{
+    margin-left: 22px;
+    position: relative;
+
+}
+.chekbox1-checkbox{
+    position: absolute;
+    margin-left: -99999px;
+    }
+.chekbox1-label{
+    cursor: pointer;
+    margin-top: 8px;
+    display: inline-block;
+    font-size: 22px;
+    font-family: "Lucida Sans Unicode", sans-serif;
+    color: #465961;
+}
+.chekbox1-label::before{
+    border: 1px solid #114165;
+    background-color: #fff;
+    content: "";
+    width: 12px;
+    height: 12px;
+    margin-left: -23px;
+    margin-top: 3px;
+    line-height: 6px;
+    position: absolute;
+    box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, 0.75);
+}
+.chekbox1-checkbox:checked + .chekbox1-label::before{
+    content: "\2713";
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+    font-size: 20px;
+    color: #114165;
+    text-align: center;
+}
+.chekbox1-label-disabled::before {
+    content: "\2713";
+    opacity: 0.4;
+}
+
+/*end checkbox_css*/
+
 
 /*footer*/

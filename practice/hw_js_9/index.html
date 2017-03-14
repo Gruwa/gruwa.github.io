@@ -18,12 +18,34 @@
             </div>
             <div class="box_select">
                 <select class="" name="Subaru">
-                    <option value="Impreza sti">Impreza sti</option>
-                    <option value="Impreza wrx">Impreza wrx</option>
-                    <option value="Forester">Forester</option>
-                    <option value="Outback">Outback</option>
-                    <option value="Tribeca">Tribeca</option>
+                    <optgroup label="Impreza">
+                        <option value="Impreza_STI">Impreza STI</option>
+                        <option value="Impreza_WRX">Impreza WRX</option>
+                    </optgroup>
+                    <optgroup label="Forester">
+                        <option value="Forester_sti">Forester STI</option>
+                        <option value="Forester_cs">Forester CS</option>
+                        <option value="Forester_xt">Forester XT</option>
+                        <option value="Forester_xs">Forester XS</option>
+                    </optgroup>
+                    <optgroup label="Other">
+                        <option value="Outback">Outback</option>
+                        <option value="Tribeca">Tribeca</option>
+                    </optgroup>
                 </select>
+            </div>
+            <div class="box_checkbox clearfix">
+                <div class="checkbox_jquery">
+
+                </div>
+                <div class="checkbox_css">
+                        <div class="chekbox1"><input type="checkbox" id="chekbox1" name="name-chekbox" value="" class="chekbox1-checkbox"><label for="chekbox1" class="chekbox1-label">Бренд 1</label>
+                        </div>
+                        <div class="chekbox1"><input type="checkbox" id="chekbox2" name="name-chekbox" value="" class="chekbox1-checkbox"><label for="chekbox2" class="chekbox1-label">Бренд 2</label>
+                        </div>
+                        <div class="chekbox1"><input type="checkbox" id="chekbox3" name="name-chekbox" value="" class="chekbox1-checkbox" disabled><label for="chekbox3" class="chekbox1-label chekbox1-label-disabled">Бренд 3</label>
+                        </div>
+                </div>
             </div>
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

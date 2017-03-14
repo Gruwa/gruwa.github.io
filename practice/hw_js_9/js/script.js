@@ -1,6 +1,6 @@
 'use strict';
 
-$(document).ready(function() {
+(function($, undefined) {
     // start jcarousel
         $(function() {
             var $allPhoto = 10;
@@ -45,4 +45,4 @@ $(document).ready(function() {
         })
     // end ikSelect
 
-});
+})(jQuery);
