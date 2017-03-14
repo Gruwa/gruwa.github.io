@@ -9,8 +9,8 @@ body{
 }
 
 .wrapper {
-    max-width: 1024px;
-    padding: 30px;
+    max-width: 2024px;
+    /*padding: 30px;*/
     margin: 0 auto;
     background-color: #cdd;
 }
@@ -163,6 +163,97 @@ have a fixed width and height (but it's not required).
 /*end ikSelect*/
 
 /*header*/
+.header {
+    margin-bottom: 40px;
+
+}
+
+.main_menu {
+    background-color: #FF6464;
+}
+.menu {
+    max-width: 400px;
+    margin: 0 auto;
+
+}
+.menu > li {
+    display: block;
+    float: left;
+    margin: 0 15px 6px 15px;
+    height: 26px;
+}
+a:hover{
+    color: black;
+}
+.menu > li a{
+    font-size: 12px;
+}
+
+li a {
+    font-family: 'Ubuntu', sans-serif;
+    color: #fff;
+}
+.dropdown {
+    position: relative;
+}
+.dropdown:after{
+    content: "\2713";
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+    font-size: 20px;
+    color: #114165;
+    text-align: center;
+}
+.sub__menu {
+    left: -99999px;
+    position: absolute;
+    z-index: 1;
+    opacity:0;
+    -webkit-transition:0.25s linear opacity;
+    padding-top: 0;
+    padding-bottom: 10px;
+
+}
+.sub__menu li{
+    width: 77px;
+    padding: 5px 20px 5px 10px;
+    background-color: #E14B4B;
+}
+.dropdown0:hover .sub__menu0{
+    left:0;
+    opacity:1;
+    color: black;
+}
+.sub__menu0 {
+    top: 27px;
+    left: -19px;
+    -webkit-box-shadow: 1px 5px 7px 2px #383838;
+    box-shadow: 1px 5px 7px 2px #383838;
+}
+.dropdown1:hover .sub__menu1{
+    left: 112px;
+    opacity:1;
+    color: black;
+}
+/*.sub__menu1, .sub__menu0{
+    display: block;
+    color: black;
+}*/
+.sub__menu1 {
+    top: 2px;
+    -webkit-box-shadow: 1px 5px 7px 2px #383838;
+    box-shadow: 1px 5px 7px 2px #383838;
+}
+.dropdown2:hover .sub__menu2{
+    left: 77px;
+    opacity:1;
+    color: black;
+}
+.sub__menu2 {
+    top: -30px;
+    -webkit-box-shadow: 1px 5px 7px 2px #383838;
+    box-shadow: 1px 5px 7px 2px #383838;
+}
+
 
 /*content*/
 
