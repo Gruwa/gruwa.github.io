@@ -201,6 +201,7 @@
                 quantity : '4',
                 data : 'dropdown_jq3',
                 tagName : 'li',
+                className : [''],
             };
             var $a = {
                 data : 'a_jq',
@@ -212,27 +213,42 @@
 
             var $nav_jq = new createElement($nav);
 
-            var $menu_jq = new createElement($ul_menu_jq);
-            var $menu_jq_li = li($li_dropdown_jq0, $menu_jq, $li_dropdown_jq0.quantity);
+            menu($ul_menu_jq, $li_dropdown_jq0, $ul_menu_jq.className[0], 3);
+            menu($ul_sub__menu_jq0, $li_dropdown_jq1, $ul_sub__menu_jq0.className[1], 2);
+            menu($ul_sub__menu_jq1, $li_dropdown_jq2, $ul_sub__menu_jq1.className[1], 5);
+            menu($ul_sub__menu_jq2, $li_dropdown_jq3);
 
-            $( '.menu_jq' ).find( 'li:nth-child(3)' )[0].classList.add( $li_dropdown_jq0.className[0], $li_dropdown_jq0.className[1] );
+            function menu(ul, list, location, numberLi) {
+                var $menu_jq = new createElement(ul);
+                var $menu_jq_li = creatLi(list, $menu_jq, list.quantity);
 
-            var $sub__menu0 = new createElement($ul_sub__menu_jq0);
-            var $menu_jq_li1 = li($li_dropdown_jq1, $sub__menu0, $li_dropdown_jq1.quantity);
+                var k = '.'+location;
+                var z = $( k ).find( 'li:nth-child('+numberLi+')' )[0];
+                $(z).addClass( ''+list.className[0]+' '+list.className[1]+'' );
 
-            $( '.sub__menu_jq0' ).find( 'li:nth-child(2)' )[0].classList.add( $li_dropdown_jq1.className[0], $li_dropdown_jq1.className[1] );
+            }
 
-            var $sub__menu1 = new createElement($ul_sub__menu_jq1);
-            var $menu_jq_li2 = li($li_dropdown_jq2, $sub__menu1, $li_dropdown_jq2.quantity);
-
-            $( '.sub__menu_jq1' ).find( 'li:nth-child(5)' )[0].classList.add( $li_dropdown_jq2.className[0], $li_dropdown_jq2.className[1] );
-
-            var $sub__menu2 = new createElement($ul_sub__menu_jq2);
-            var $menu_jq_li3 = li($li_dropdown_jq3, $sub__menu2, $li_dropdown_jq3.quantity);
+            // var $menu_jq = new createElement($ul_menu_jq);
+            // var $menu_jq_li = creatLi($li_dropdown_jq0, $menu_jq, $li_dropdown_jq0.quantity);
+            //
+            // $( '.menu_jq' ).find( 'li:nth-child(3)' )[0].classList.add( $li_dropdown_jq0.className[0], $li_dropdown_jq0.className[1] );
+            //
+            // var $sub__menu0 = new createElement($ul_sub__menu_jq0);
+            // var $menu_jq_li1 = creatLi($li_dropdown_jq1, $sub__menu0, $li_dropdown_jq1.quantity);
+            //
+            // $( '.sub__menu_jq0' ).find( 'li:nth-child(2)' )[0].classList.add( $li_dropdown_jq1.className[0], $li_dropdown_jq1.className[1] );
+            //
+            // var $sub__menu1 = new createElement($ul_sub__menu_jq1);
+            // var $menu_jq_li2 = creatLi($li_dropdown_jq2, $sub__menu1, $li_dropdown_jq2.quantity);
+            //
+            // $( '.sub__menu_jq1' ).find( 'li:nth-child(5)' )[0].classList.add( $li_dropdown_jq2.className[0], $li_dropdown_jq2.className[1] );
+            //
+            // var $sub__menu2 = new createElement($ul_sub__menu_jq2);
+            // var $menu_jq_li3 = creatLi($li_dropdown_jq3, $sub__menu2, $li_dropdown_jq3.quantity);
 
             var $menu_jq_li_a = new createElement($a);
 
-            function li(key, location, number) {
+            function creatLi(key, location, number) {
                 for (var i = 0; i < number; i++) {
                     $(location).append(new createElement(key));
                 };
@@ -257,7 +273,6 @@
                  };
                 if ( key.data == 'sub__menu_jq1' ) {
                     $('.dropdown_jq1').append($element);
-                    console.log($element);
                     $element.classList.add( key.className[0], key.className[1] );
                  };
                 if ( key.data == 'sub__menu_jq2' ) {
