@@ -155,22 +155,119 @@
 
     // start menu_jquery
         $(function () {
-            var $nav_jq = $('header').append(createElement('nav'));
-            var $menu = $('.main_menu_jquery').append(createElement('ul'));
-            $menu.className = 'menu_jq, clearfix';
+            var $nav = {
+                tagName : 'nav',
+                className : ['main_menu_jquery'],
+            };
+            var $ul_menu_jq = {
+                data : 'menu_jq',
+                tagName : 'ul',
+                className : ['menu_jq', 'clearfix'],
+            };
+            var $ul_sub__menu_jq0 = {
+                data : 'sub__menu_jq0',
+                tagName : 'ul',
+                className : ['sub__menu_jq', 'sub__menu_jq0'],
+            };
+            var $ul_sub__menu_jq1 = {
+                data : 'sub__menu_jq1',
+                tagName : 'ul',
+                className : ['sub__menu_jq', 'sub__menu_jq1'],
+            };
+            var $ul_sub__menu_jq2 = {
+                data : 'sub__menu_jq2',
+                tagName : 'ul',
+                className : ['sub__menu_jq', 'sub__menu_jq2'],
+            };
+            var $li_dropdown_jq0 = {
+                quantity : '5',
+                data : 'dropdown_jq0',
+                tagName : 'li',
+                className : ['dropdown_jq', 'dropdown_jq0'],
+            };
+            var $li_dropdown_jq1 = {
+                quantity : '6',
+                data : 'dropdown_jq1',
+                tagName : 'li',
+                className : ['dropdown_jq', 'dropdown_jq1'],
+            };
+            var $li_dropdown_jq2 = {
+                quantity : '5',
+                data : 'dropdown_jq2',
+                tagName : 'li',
+                className : ['dropdown_jq', 'dropdown_jq2'],
+            };
+            var $li_dropdown_jq3 = {
+                quantity : '4',
+                data : 'dropdown_jq3',
+                tagName : 'li',
+            };
+            var $a = {
+                data : 'a_jq',
+                tagName : 'a',
+                content : 'Nav',
+                href : '#',
+            };
 
-            for (var i = 0; i < 5; i++) {
-                var $li_menu = $($men).append(createElement('li'));
-            }
 
+            var $nav_jq = new createElement($nav);
 
+            var $menu_jq = new createElement($ul_menu_jq);
+            var $menu_jq_li = li($li_dropdown_jq0, $menu_jq, $li_dropdown_jq0.quantity);
 
+            $( '.menu_jq' ).find( 'li:nth-child(3)' )[0].classList.add( $li_dropdown_jq0.className[0], $li_dropdown_jq0.className[1] );
+
+            var $sub__menu0 = new createElement($ul_sub__menu_jq0);
+            var $menu_jq_li1 = li($li_dropdown_jq1, $sub__menu0, $li_dropdown_jq1.quantity);
+
+            $( '.sub__menu_jq0' ).find( 'li:nth-child(2)' )[0].classList.add( $li_dropdown_jq1.className[0], $li_dropdown_jq1.className[1] );
+
+            var $sub__menu1 = new createElement($ul_sub__menu_jq1);
+            var $menu_jq_li2 = li($li_dropdown_jq2, $sub__menu1, $li_dropdown_jq2.quantity);
+
+            $( '.sub__menu_jq1' ).find( 'li:nth-child(5)' )[0].classList.add( $li_dropdown_jq2.className[0], $li_dropdown_jq2.className[1] );
+
+            var $sub__menu2 = new createElement($ul_sub__menu_jq2);
+            var $menu_jq_li3 = li($li_dropdown_jq3, $sub__menu2, $li_dropdown_jq3.quantity);
+
+            var $menu_jq_li_a = new createElement($a);
+
+            function li(key, location, number) {
+                for (var i = 0; i < number; i++) {
+                    $(location).append(new createElement(key));
+                };
+            };
             function createElement(key) {
-                var $element = document.createElement(key);
-                if ( key == 'nav' ) {$element.className = 'main_menu_jquery'};
-                if (key == 'li' && $(key).find('ul')) {$element.className = 'dropdown_jq';};
-                // if (key == 'li' && $(key).parent($menu)) {$($menu).append($element);};
-                // if (key == 'a') {$element.attr({'href':'#', 'content':'Nav'})};
+                var $element = document.createElement(key.tagName);
+
+                if (key.content) {
+                    $element.innerHTML = key.content;
+                 };
+                if ( key.tagName == 'nav' ) {
+                    $('.header').append($element);
+                    $element.className = 'main_menu_jquery';
+                 };
+                if ( key.data == 'menu_jq' ) {
+                    $('.main_menu_jquery').append($element);
+                    $element.classList.add( key.className[0], key.className[1] );
+                 };
+                if ( key.data == 'sub__menu_jq0' ) {
+                   $('.dropdown_jq0').append($element);
+                   $element.classList.add( key.className[0], key.className[1] );
+                 };
+                if ( key.data == 'sub__menu_jq1' ) {
+                    $('.dropdown_jq1').append($element);
+                    console.log($element);
+                    $element.classList.add( key.className[0], key.className[1] );
+                 };
+                if ( key.data == 'sub__menu_jq2' ) {
+                    $('.dropdown_jq2').append($element);
+                    $element.classList.add( key.className[0], key.className[1] );
+                 };
+                if ( key.data == 'a_jq' ) {
+                    $('.menu_jq').find('li').append($element).find('a').attr('href', key.href);
+                 };
+
                 return $element;
             }
         });
