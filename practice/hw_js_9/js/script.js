@@ -156,11 +156,11 @@
     // start menu_jquery
         $(function () {
             var $nav_jq = $('header').append(createElement('nav'));
-            var $menu = $($nav_jq).append(createElement('ul'));
+            var $menu = $('.main_menu_jquery').append(createElement('ul'));
             $menu.className = 'menu_jq, clearfix';
 
             for (var i = 0; i < 5; i++) {
-                var $li_menu = createElement('li');
+                var $li_menu = $($men).append(createElement('li'));
             }
 
 
@@ -168,11 +168,9 @@
             function createElement(key) {
                 var $element = document.createElement(key);
                 if ( key == 'nav' ) {$element.className = 'main_menu_jquery'};
-                // if ( key == 'ul' && $(key).parent($nav_jq) ) { $menu.className = 'menu_jq, clearfix';};
-                console.log(key);
                 if (key == 'li' && $(key).find('ul')) {$element.className = 'dropdown_jq';};
-                if (key == 'li' && $(key).parent($menu)) {$($menu).append($element);};
-                if (key == 'a') {$element.attr({'href':'#', 'content':'Nav'})};
+                // if (key == 'li' && $(key).parent($menu)) {$($menu).append($element);};
+                // if (key == 'a') {$element.attr({'href':'#', 'content':'Nav'})};
                 return $element;
             }
         });
