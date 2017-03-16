@@ -156,8 +156,9 @@
     // start menu_jquery
         $(function () {
             var $nav = {
+                data : 'nav',
                 tagName : 'nav',
-                className : ['main_menu_jquery'],
+                className : ['main_menu_jquery', 'nav'],
             };
             var $ul_menu_jq = {
                 data : 'menu_jq',
@@ -210,7 +211,6 @@
                 href : '#',
             };
 
-
             var $nav_jq = new createElement($nav);
 
             menu($ul_menu_jq, $li_dropdown_jq0, $ul_menu_jq.className[0], 3);
@@ -218,33 +218,12 @@
             menu($ul_sub__menu_jq1, $li_dropdown_jq2, $ul_sub__menu_jq1.className[1], 5);
             menu($ul_sub__menu_jq2, $li_dropdown_jq3);
 
-            function menu(ul, list, location, numberLi) {
+            function menu( ul, list, location, numberLi ) {
                 var $menu_jq = new createElement(ul);
                 var $menu_jq_li = creatLi(list, $menu_jq, list.quantity);
-
-                var k = '.'+location;
-                var z = $( k ).find( 'li:nth-child('+numberLi+')' )[0];
+                var z = $( '.'+location ).find( 'li:nth-child('+numberLi+')' )[0];
                 $(z).addClass( ''+list.className[0]+' '+list.className[1]+'' );
-
-            }
-
-            // var $menu_jq = new createElement($ul_menu_jq);
-            // var $menu_jq_li = creatLi($li_dropdown_jq0, $menu_jq, $li_dropdown_jq0.quantity);
-            //
-            // $( '.menu_jq' ).find( 'li:nth-child(3)' )[0].classList.add( $li_dropdown_jq0.className[0], $li_dropdown_jq0.className[1] );
-            //
-            // var $sub__menu0 = new createElement($ul_sub__menu_jq0);
-            // var $menu_jq_li1 = creatLi($li_dropdown_jq1, $sub__menu0, $li_dropdown_jq1.quantity);
-            //
-            // $( '.sub__menu_jq0' ).find( 'li:nth-child(2)' )[0].classList.add( $li_dropdown_jq1.className[0], $li_dropdown_jq1.className[1] );
-            //
-            // var $sub__menu1 = new createElement($ul_sub__menu_jq1);
-            // var $menu_jq_li2 = creatLi($li_dropdown_jq2, $sub__menu1, $li_dropdown_jq2.quantity);
-            //
-            // $( '.sub__menu_jq1' ).find( 'li:nth-child(5)' )[0].classList.add( $li_dropdown_jq2.className[0], $li_dropdown_jq2.className[1] );
-            //
-            // var $sub__menu2 = new createElement($ul_sub__menu_jq2);
-            // var $menu_jq_li3 = creatLi($li_dropdown_jq3, $sub__menu2, $li_dropdown_jq3.quantity);
+            };
 
             var $menu_jq_li_a = new createElement($a);
 
@@ -259,26 +238,41 @@
                 if (key.content) {
                     $element.innerHTML = key.content;
                  };
-                if ( key.tagName == 'nav' ) {
-                    $('.header').append($element);
-                    $element.className = 'main_menu_jquery';
+
+                 appendElement( $nav.data, 'header' );
+                 appendElement( $ul_menu_jq.data, $nav.className[0] );
+                 appendElement( $ul_sub__menu_jq0.data, $li_dropdown_jq0.className[1] );
+                 appendElement( $ul_sub__menu_jq1.data, $li_dropdown_jq1.className[1] );
+                 appendElement( $ul_sub__menu_jq2.data, $li_dropdown_jq2.className[1] );
+
+                 function appendElement( elem, location ) {
+                     if ( key.data == ''+elem+'' ) {
+                         $('.'+location).append($element);
+                         $element.classList.add( key.className[0], key.className[1] );
+                      };
                  };
-                if ( key.data == 'menu_jq' ) {
-                    $('.main_menu_jquery').append($element);
-                    $element.classList.add( key.className[0], key.className[1] );
-                 };
-                if ( key.data == 'sub__menu_jq0' ) {
-                   $('.dropdown_jq0').append($element);
-                   $element.classList.add( key.className[0], key.className[1] );
-                 };
-                if ( key.data == 'sub__menu_jq1' ) {
-                    $('.dropdown_jq1').append($element);
-                    $element.classList.add( key.className[0], key.className[1] );
-                 };
-                if ( key.data == 'sub__menu_jq2' ) {
-                    $('.dropdown_jq2').append($element);
-                    $element.classList.add( key.className[0], key.className[1] );
-                 };
+
+                // if ( key.data == 'nav' ) {
+                //     $('.header').append($element);
+                //     $element.classList.add( key.className[0], key.className[1] );
+                //  };
+                // if ( key.data == 'menu_jq' ) {
+                //     $('.main_menu_jquery').append($element);
+                //     $element.classList.add( key.className[0], key.className[1] );
+                //  };
+                // if ( key.data == 'sub__menu_jq0' ) {
+                //    $('.dropdown_jq0').append($element);
+                //    $element.classList.add( key.className[0], key.className[1] );
+                //  };
+                // if ( key.data == 'sub__menu_jq1' ) {
+                //     $('.dropdown_jq1').append($element);
+                //     $element.classList.add( key.className[0], key.className[1] );
+                //  };
+                // if ( key.data == 'sub__menu_jq2' ) {
+                //     $('.dropdown_jq2').append($element);
+                //     $element.classList.add( key.className[0], key.className[1] );
+                //  };
+
                 if ( key.data == 'a_jq' ) {
                     $('.menu_jq').find('li').append($element).find('a').attr('href', key.href);
                  };
