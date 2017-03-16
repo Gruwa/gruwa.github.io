@@ -258,6 +258,50 @@
 
                 return $element;
             }
+
+            data();
+
+            function data() {
+                $('.main_menu_jquery').css({
+                    'background-color' : '#FF6464',
+                    'margin-bottom' : '50px',
+                });
+                $('.menu_jq').css({
+                    'max-width' : '400px',
+                    'margin' : '0 auto',
+                });
+                $('.menu_jq > li').css({
+                    'display': 'block',
+                    'float': 'left',
+                    'margin': '5px 15px 6px 15px',
+                    'height': '26px',
+                });
+                $('a:hover').css({
+                    'color': 'black',
+                });
+                $('.menu_jq > li a').css({
+                    'font-size': '12px',
+                });
+                $('li a').css({
+                    'font-family': "'Ubuntu', sans-serif",
+                    'color': '#ffffff',
+                });
+                $('.dropdown_jq').css({
+                    'position': 'relative',
+                });
+                $('.dropdown_jq:after').css({
+                    // 'content': "\25BC",
+                    'font-size': '8px',
+                    'color': '#fff',
+                    'margin-left': '7px',
+                });
+                $('.sub__menu_jq li').css({
+                    'width': '77px',
+                    'padding': '5px 20px 5px 10px',
+                    'background-color': '#E14B4B',
+                    'margin-top': '1px',
+                });
+            }
         });
     // end menu_jquery
 
