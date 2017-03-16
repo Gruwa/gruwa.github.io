@@ -252,27 +252,6 @@
                       };
                  };
 
-                // if ( key.data == 'nav' ) {
-                //     $('.header').append($element);
-                //     $element.classList.add( key.className[0], key.className[1] );
-                //  };
-                // if ( key.data == 'menu_jq' ) {
-                //     $('.main_menu_jquery').append($element);
-                //     $element.classList.add( key.className[0], key.className[1] );
-                //  };
-                // if ( key.data == 'sub__menu_jq0' ) {
-                //    $('.dropdown_jq0').append($element);
-                //    $element.classList.add( key.className[0], key.className[1] );
-                //  };
-                // if ( key.data == 'sub__menu_jq1' ) {
-                //     $('.dropdown_jq1').append($element);
-                //     $element.classList.add( key.className[0], key.className[1] );
-                //  };
-                // if ( key.data == 'sub__menu_jq2' ) {
-                //     $('.dropdown_jq2').append($element);
-                //     $element.classList.add( key.className[0], key.className[1] );
-                //  };
-
                 if ( key.data == 'a_jq' ) {
                     $('.menu_jq').find('li').append($element).find('a').attr('href', key.href);
                  };
