@@ -348,4 +348,123 @@
         });
     // end menu_jquery
 
+    // start menu_js
+    var js_nav = {
+        data : 'nav',
+        tagName : 'nav',
+        className : ['main_menu_js', 'nav'],
+    };
+    var js_ul_menu = {
+        data : 'menu_js',
+        tagName : 'ul',
+        className : ['menu_js', 'clearfix'],
+    };
+    var js_ul_sub__menu_js0 = {
+        data : 'sub__menu_js0',
+        tagName : 'ul',
+        className : ['sub__menu_js', 'sub__menu_js0'],
+    };
+    var js_ul_sub__menu_js1 = {
+        data : 'sub__menu_js1',
+        tagName : 'ul',
+        className : ['sub__menu_js', 'sub__menu_js1'],
+    };
+    var js_ul_sub__menu_js2 = {
+        data : 'sub__menu_js2',
+        tagName : 'ul',
+        className : ['sub__menu_js', 'sub__menu_js2'],
+    };
+    var js_li_dropdown_js0 = {
+        quantity : '5',
+        data : 'dropdown_js0',
+        tagName : 'li',
+        className : ['dropdown_js', 'dropdown_js0'],
+    };
+    var js_li_dropdown_js1 = {
+        quantity : '6',
+        data : 'dropdown_js1',
+        tagName : 'li',
+        className : ['dropdown_js', 'dropdown_js1'],
+    };
+    var js_li_dropdown_js2 = {
+        quantity : '5',
+        data : 'dropdown_js2',
+        tagName : 'li',
+        className : ['dropdown_js', 'dropdown_js2'],
+    };
+    var js_li_dropdown = {
+        quantity : '4',
+        data : 'dropdown_js3',
+        tagName : 'li',
+        className : [''],
+    };
+    var js_a = {
+        data : 'a_js',
+        tagName : 'a',
+        content : 'Nav',
+        href : '#',
+    };
+
+        var nav_js = new createElement_js(js_nav);
+
+        menu_js(js_ul_menu_js, js_li_dropdown_js0, js_ul_menu.className[0], 3);
+        menu_js(js_ul_sub__menu_js0, js_li_dropdown_js1, js_ul_sub__menu_js0.className[1], 2);
+        menu_js(js_ul_sub__menu_js1, js_li_dropdown_js2, js_ul_sub__menu_js1.className[1], 5);
+        menu_js(js_ul_sub__menu_js2, js_li_dropdown_js3);
+
+        function menu_js( ul, list, location, numberLi ) {
+                    var $menu_jq = new createElement_js(ul);
+                    var $menu_jq_li = creatLi_js(list, $menu_jq, list.quantity);
+                    // var z = $( '.'+location ).find( 'li:nth-child('+numberLi+')' )[0];
+                    // $(z).addClass( ''+list.className[0]+' '+list.className[1]+'' );
+
+                    var zx = document.getElementsByClassName('.'+location);
+                    var xz = zx.getElementsByClassName( 'li:nth-child('+numberLi+')' )[0];
+                    xz.classList.add( ''+list.className[0]+' '+list.className[1]+'' );
+                };
+
+        var js_menu_js_li_a = new createElement_js(js_a);
+
+        function creatLi_js(key, location, number) {
+            for (var i = 0; i < number; i++) {
+                // $(location).append(new createElement_js(key));
+                var k = document.getElementsByClassName(location);
+                k.append(new createElement_js(key));
+                // document.
+            };
+        };
+
+        function createElement_js(key) {
+            var element_js = document.createElement(key.tagName);
+
+            if (key.content) {
+                element_js.innerHTML = key.content;
+             };
+
+             appendElement_js( js_nav.data, 'header' );
+             appendElement_js( js_ul_menu.data, js_nav.className[0] );
+             appendElement_js( js_ul_sub__menu_js0.data, js_li_dropdown_js0.className[1] );
+             appendElement_js( js_ul_sub__menu_js1.data, js_li_dropdown_js1.className[1] );
+             appendElement_js( js_ul_sub__menu_js2.data, js_li_dropdown_js2.className[1] );
+
+             function appendElement_js( elem, location ) {
+                 if ( key.data == ''+elem+'' ) {
+                    //  $('.'+location).append(element_js);
+
+                    // ТУУУУТТТТТ
+                    var nameChild = document.getElementsByClassName(location);
+                    nameChild.insertBefore(element_js);
+                    element_js.classList.add( key.className[0], key.className[1] );
+                  };
+             };
+
+            if ( key.data == 'a_js' ) {
+                $('.menu_js').find('li').append(element_js).find('a').attr('href', key.href);
+             };
+
+            return element_js;
+        }
+
+    // end menu_js
+
 })(jQuery);
