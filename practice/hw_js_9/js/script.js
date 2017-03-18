@@ -476,6 +476,7 @@
                 'height': '26px',
                 'width' : '70px',
                 'text-align' : 'center',
+                'background-color' : '#FF6464',
             });
             $('.menu_js > li a').css({
                 'font-size': '12px',
@@ -518,14 +519,50 @@
                 'box-shadow' : '1px 5px 7px 2px #383838',
             });
 
-            $('.sub__menu_js0 li').hover(function(event) {
-                    $(event.target).animate({backgroundColor: '#FF6464', backgroundColor: '#E14B4B'}, 'slow');
-                }, function() {
-                    $(event.target).animate({backgroundColor: '#E14B4B', backgroundColor: '#FF6464'}, 'fast');
-            });
+            // $('.sub__menu_js0 li').hover(function(event) {
+            //         $(event.target).animate({backgroundColor: '#FF6464', backgroundColor: '#E14B4B'}, 'slow');
+            //     }, function() {
+            //         $(event.target).animate({backgroundColor: '#E14B4B', backgroundColor: '#FF6464'}, 'fast');
+            // });
 
-            // var liHover = document.getElementsByClassName('sub__menu_js0i');
-            // liHover[0].getElementsByTagName('li');
+            var sub__menuHover = document.getElementsByClassName('sub__menu_js0');
+            var liHover = sub__menuHover[0].getElementsByTagName('li');
+
+            for (var i = 0; i < liHover.length; i++) {
+                // liHover[i].classList.add( 'allLi_js' );
+                liHover[i].onmouseover = function(event){
+                    // $(event.target).animate({backgroundColor: '#FF6464', backgroundColor: '#E14B4B'}, 'slow');
+                    colorOver(event.target);
+                };
+                liHover[i].onmouseout = function(event){
+                    // $(event.target).animate({backgroundColor: '#E14B4B', backgroundColor: '#FF6464'}, 'fast');
+                    colorOut(event.target);
+                };
+            }
+
+
+            function colorOver(key) {
+                key.classList.add( 'allLi_js' );
+                setInterval(function () {
+                    key.style.backgroundColor = '#E14B4B';
+                }, 5000);
+            };
+
+            function colorOut(key) {
+                key.classList.remove( 'allLi_js' );
+                setInterval(function () {
+                    key.style.backgroundColor = '#FF6464';
+                }, 5000);
+            };
+            //
+            // for (var i = 0; i < liHover.length; i++) {
+            //     // liHover[i].classList.add( 'allLi_js' );
+            //     // liHover[i].onmouseover = function(event){
+            //     liHover[i].onmouseover( function() {
+            //         color(liHover[i]);
+            //     });
+            // }
+
 
 
 
