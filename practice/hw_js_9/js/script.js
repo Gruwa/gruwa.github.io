@@ -519,52 +519,30 @@
                 'box-shadow' : '1px 5px 7px 2px #383838',
             });
 
-            // $('.sub__menu_js0 li').hover(function(event) {
-            //         $(event.target).animate({backgroundColor: '#FF6464', backgroundColor: '#E14B4B'}, 'slow');
-            //     }, function() {
-            //         $(event.target).animate({backgroundColor: '#E14B4B', backgroundColor: '#FF6464'}, 'fast');
-            // });
-
             var sub__menuHover = document.getElementsByClassName('sub__menu_js0');
             var liHover = sub__menuHover[0].getElementsByTagName('li');
 
             for (var i = 0; i < liHover.length; i++) {
-                // liHover[i].classList.add( 'allLi_js' );
                 liHover[i].onmouseover = function(event){
-                    // $(event.target).animate({backgroundColor: '#FF6464', backgroundColor: '#E14B4B'}, 'slow');
                     colorOver(event.target);
                 };
                 liHover[i].onmouseout = function(event){
-                    // $(event.target).animate({backgroundColor: '#E14B4B', backgroundColor: '#FF6464'}, 'fast');
-                    colorOut(event.target);
+                    var eOut = event.target
+                    eOut.style.backgroundColor = '#FF6464';
                 };
-            }
-
+            };
 
             function colorOver(key) {
-                key.classList.add( 'allLi_js' );
-                setInterval(function () {
-                    key.style.backgroundColor = '#E14B4B';
-                }, 5000);
+                var clr = [ '#FF6464', '#FE6363', '#FD6363', '#FB6161', '#F95F5F', '#F65D5D', '#F45B5B', '#F05757', '#EE5656', '#ED5555', '#E95252', '#E75050', '#E54F4F', '#E34D4D', '#E24C4C', '#E14B4B' ];
+                var i = 0;
+                var a = setInterval ( function() {
+                    i++;
+                    key.style.backgroundColor = clr[i];
+                    if ( i == 15 ) {
+                        clearInterval(a);
+                    };
+                },50);
             };
-
-            function colorOut(key) {
-                key.classList.remove( 'allLi_js' );
-                setInterval(function () {
-                    key.style.backgroundColor = '#FF6464';
-                }, 5000);
-            };
-            //
-            // for (var i = 0; i < liHover.length; i++) {
-            //     // liHover[i].classList.add( 'allLi_js' );
-            //     // liHover[i].onmouseover = function(event){
-            //     liHover[i].onmouseover( function() {
-            //         color(liHover[i]);
-            //     });
-            // }
-
-
-
 
             $('.sub__menu_js').animate({ 'opacity': 'hide'});
             // var wert = document.getElementsByClassName('sub__menu_js');
