@@ -394,6 +394,9 @@
         content : 'Nav',
         href : '#',
     };
+    var js_display = {
+        className : ['sub__menu_js_display'],
+    };
 
         var nav_js = new createElement_js(js_nav);
 
@@ -501,22 +504,28 @@
                 'padding-top': '0',
                 'z-index': '1',
             });
+            $('.sub__menu_js_display').css({
+                'left' : '-999999px',
+            });
             $('.sub__menu_js0').css({
                 'top': '27px',
                 '-webkit-box-shadow': '1px 5px 7px 2px #383838',
                 'box-shadow': '1px 5px 7px 2px #383838',
+                'display' : 'none',
             });
             $('.sub__menu_js1').css({
                 'top': '2px',
                 'left': '97px',
                 '-webkit-box-shadow': '1px 5px 7px 2px #383838',
                 'box-shadow': '1px 5px 7px 2px #383838',
+                'display' : 'none',
             });
             $('.sub__menu_js2').css({
                 'top': '-30px',
                 'left': '97px',
                 '-webkit-box-shadow' : '1px 5px 7px 2px #383838',
                 'box-shadow' : '1px 5px 7px 2px #383838',
+                'display' : 'none',
             });
 
             var sub__menuHover = document.getElementsByClassName('sub__menu_js0');
@@ -544,21 +553,25 @@
                 },50);
             };
 
-            $('.sub__menu_js').animate({ 'opacity': 'hide'});
-            // var wert = document.getElementsByClassName('sub__menu_js');
-            // wert[0].animate({ 'opacity': 'hide'});
+            var sub__menuElem = document.getElementsByClassName('sub__menu_js');
+            for (var i = 0; i < sub__menuElem.length; i++) {
+                sub__menuElem[i].classList.add(js_display.className[0]);
+            };
 
-            dropdownJsHover( js_li_dropdown_js0.className[1], js_ul_sub__menu_js0.className[1] );
+            dropdownJsHover( js_li_dropdown_js0.className[1], js_ul_sub__menu_js0.className[0] );
             dropdownJsHover( js_li_dropdown_js1.className[1], js_ul_sub__menu_js1.className[1] );
             dropdownJsHover( js_li_dropdown_js2.className[1], js_ul_sub__menu_js2.className[1] );
 
             function dropdownJsHover(who, where) {
-                $('.'+who).hover(function() {
-                        $('.'+where).animate({ 'opacity': 'show', });
-                    },
-                     function() {
-                        $('.'+where).animate({ 'opacity': 'hide'});
-                });
+
+                var li_dropdownHover = document.getElementsByClassName(who);
+                    li_dropdownHover[0].onmouseover = function(event){
+                        document.getElementsByClassName(where)[0].style.display = "block";
+                    };
+                    li_dropdownHover[0].onmouseout = function(event){
+
+                        document.getElementsByClassName(where)[0].style.display = "none";
+                    };
             };
 
         }
