@@ -16,7 +16,7 @@
                     $html_elem += $last;
                 };
                 $('.jcarousel').find('ul').html($html_elem);
-            }
+            };
 
             $('.jcarousel').jcarousel();
 

@@ -1,0 +1,28 @@
+body{
+    background-color: #F4F7F9;
+}
+
+.clearfix:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+.wrapper {
+    max-width: 2024px;
+    margin: 0 auto;
+    background-color: #000;
+}
+
+/*header*/
+
+/*content*/
+
+.carusel20170319 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -50px 0 0 -400px;
+}
+
+/*footer*/
