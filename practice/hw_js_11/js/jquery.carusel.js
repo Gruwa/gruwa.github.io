@@ -17,6 +17,7 @@
                 'float' : 'left',
             });
             $('.carousel-list').css({
+                'position' : 'relative',
                 'list-style' : 'none',
                 'width': '10000px',
                 'padding': '0px,'
@@ -58,7 +59,17 @@
             };
             $('.carusel20170319').find('ul').html($html_elem);
         };
-        $
+
+        var leftUIEl = $('.carousel-arrow-left');
+        var rightUIEl = $('.carousel-arrow-right');
+        var elementsList = $('.carousel-list');
+        var pixelsOffset = 125;
+        var currentLeftValue = 0;
+
+        leftUIEl.click(function() {
+        });
+       rightUIEl.click(function() {
+        });
 
 
         data();
