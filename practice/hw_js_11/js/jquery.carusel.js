@@ -54,7 +54,7 @@
             $('.carousel-hider').html('<ul class="carousel-list"></ul>');
 
             for (var i = 1; i <= key; i++) {
-                $('.carusel20170319').find('ul').html($k).find('img:last').attr({src: './img/foto ('+i+').jpg', width : widthImg, class : 'imgGallery'});
+                $('.carusel20170319').find('ul').html($k).find('img:last').attr({src: './img/img ('+i+').jpg', width : widthImg, class : 'imgGallery'});
                 var $last = $('ul:last').html();
                 $html_elem += $last;
             };
@@ -76,7 +76,7 @@
                 elementsList.animate({ left : currentLeftValue + "px"}, 500);
             };
         });
-       rightUIEl.click(function() {
+        rightUIEl.click(function() {
            if (currentLeftValue != minimumOffset) {
                 currentLeftValue -= 125;
                 elementsList.animate({ left : currentLeftValue + "px"}, 500);
@@ -87,4 +87,5 @@
         data();
         return this;
     };
+
 })(jQuery);
