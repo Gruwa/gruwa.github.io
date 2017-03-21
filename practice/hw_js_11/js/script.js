@@ -5,6 +5,7 @@
         $quantityImg: '10',
         $widthImg : '100'
     });
+    //  start John Resig
     var $html = $('#homework1').html();
     var $data = {
         name : 'Золотаренко Алексей Дмитриевич',
@@ -24,7 +25,7 @@
     };
     var $content = tmpl($html, $data);
     $('.wrapper').append($content);
-
+    //end  John Resig
 
 
 })(jQuery);
