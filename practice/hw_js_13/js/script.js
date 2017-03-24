@@ -1,4 +1,4 @@
-(function($, undefined) {
+$(function() {
 
     'use strict';
 
@@ -120,11 +120,23 @@
             },
 
             logicalTest: function(){
-                $('#listInput0').parent().click(function(event) {
-                    if (event.target == $('listInput0') || document.getElementById("listInput0").checked == false){
-                        document.getElementById("listInput0").checked == true;
-                        document.getElementById("listInput1").disabled == true;
-                        document.getElementById("listInput2").disabled == true;
+
+                function disable(myCheck) {
+                    var k = document.getElementById("myCheck");
+                    k.disabled = true;
+                }
+
+                function undisable(myCheck) {
+                    document.getElementById("myCheck").disabled = false;
+                }
+
+                $('#listInput0').change(function(event) {
+                    if (event.target == $('#listInput0') || document.getElementById("listInput0").checked != false){
+                        disable("listInput1");
+                        disable("listInput2");
+                        // document.getElementById("#listInput0").checked == true;
+                        // document.getElementById("#listInput1").disabled == true;
+                        // document.getElementById("#listInput2").disabled == true;
                     } else {
 
                     }
@@ -142,4 +154,5 @@
     app.logicalTest();
 
 
-})(jQuery);
+
+});
