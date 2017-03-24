@@ -1,6 +1,6 @@
 'use strict';
 
-(function($, undefined) {
+$(function(){
     var $div;
 
     $('.form').find('input').hover(function() {
