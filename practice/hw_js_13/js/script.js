@@ -121,29 +121,42 @@ $(function() {
 
             logicalTest: function(){
 
-                function disable(myCheck) {
-                    var k = document.getElementById("myCheck");
-                    k.disabled = true;
+                function checkbox(master, firstLow, secondLow) {
+                    $(master).change(function(event) {
+                        if (event.target == $(master) || document.getElementById(master.id).checked != false){
+                            $(firstLow).attr('disabled', 'disabled');
+                            $(secondLow).attr('disabled', 'disabled');
+                        } if (event.target == $(master) || document.getElementById(master.id).checked == false){
+                            $(firstLow).removeAttr('disabled');
+                            $(secondLow).removeAttr('disabled');
+                        };
+                    });
                 }
+                checkbox(listInput0, listInput1, listInput2);
+                checkbox(listInput1, listInput0, listInput2);
+                checkbox(listInput2, listInput1, listInput0);
+                checkbox(listInput3, listInput4, listInput5);
+                checkbox(listInput4, listInput3, listInput5);
+                checkbox(listInput5, listInput4, listInput3);
+                checkbox(listInput6, listInput7, listInput8);
+                checkbox(listInput7, listInput6, listInput8);
+                checkbox(listInput8, listInput7, listInput6);
 
-                function undisable(myCheck) {
-                    document.getElementById("myCheck").disabled = false;
-                }
-
-                $('#listInput0').change(function(event) {
-                    if (event.target == $('#listInput0') || document.getElementById("listInput0").checked != false){
-                        disable("listInput1");
-                        disable("listInput2");
-                        // document.getElementById("#listInput0").checked == true;
-                        // document.getElementById("#listInput1").disabled == true;
-                        // document.getElementById("#listInput2").disabled == true;
-                    } else {
-
+                $('button').click(function(event) {
+                    try {
+                        if (document.getElementById('listInput1').checked != false && document.getElementById('listInput5').checked != false && document.getElementById('listInput8').checked != false ) {
+                            alert('DFE')
+                        } else {
+                            alert('FUUUU')
+                        }
+                    } finally {
+                        $('input').removeAttr('disabled');
+                        $('input').attr('checked', false);
+                        // $('input').removeAttr('checked');
+                        // document.getElementsByTagName('input').checked = '';
                     }
 
-
                 });
-
 
 
             }
