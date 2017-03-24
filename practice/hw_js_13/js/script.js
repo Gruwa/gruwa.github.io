@@ -1,9 +1,6 @@
 (function($, undefined) {
 
     'use strict';
-    var $html = $('#testForm').html();
-    var $testContent = tmpl($html, $data);
-    $('body').append($testContent);
 
 // Server
     var $ServerData = {
@@ -29,19 +26,25 @@
 
     var $jsData;
     try {
+        localStorage.setItem('test', $Server);
+
         var $testData = localStorage.getItem('test');
 
-        localStorage.setItem('test', $Server);
-            $jsData = JSON.parse($testData);
+        $jsData = JSON.parse($testData);
 
         } catch (e) {
             $jsData = JSON.parse($Server);
     }
 
+    var $html = $('#testForm').html();
+
     var $data = {
-        headerText : 'Тест по программированию',
-        button : 'NJKHNsdgvv',
+         head : 'Тест по программированию',
     };
+
+    var $testContent = tmpl($html, $data);
+
+    $('body').append($testContent);
 
     var app = {
             creatTest: function(){
@@ -110,15 +113,33 @@
                             };
                             var allInput = document.querySelectorAll('ul > input');
                             for (var i = 0; i < allInput.length; i++) {
-                                allInput[i].classList.add('listInput' + i);
+                                allInput[i].id = ('listInput' + i);
                             };
 
                     }
+            },
+
+            logicalTest: function(){
+                $('#listInput0').parent().click(function(event) {
+                    if (event.target == $('listInput0') || document.getElementById("listInput0").checked == false){
+                        document.getElementById("listInput0").checked == true;
+                        document.getElementById("listInput1").disabled == true;
+                        document.getElementById("listInput2").disabled == true;
+                    } else {
+
+                    }
+
+
+                });
+
+
+
             }
         };
 
 
     app.creatTest();
+    app.logicalTest();
 
 
 })(jQuery);
