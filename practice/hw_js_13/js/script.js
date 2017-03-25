@@ -145,9 +145,17 @@ $(function() {
                 $('.buttonEndForm').click(function(event) {
                     try {
                         if (document.getElementById('listInput1').checked != false && document.getElementById('listInput5').checked != false && document.getElementById('listInput8').checked != false ) {
-                            $('.modal-content').html('Поздравляем Вы прошли 876345 круг ада. Надеемся в следующий раз Вам не повезет больше!');
+                            var number = getRandom(776345, 956872)
+                            function getRandom(min, max)
+                                {return parseInt(Math.random() * (max - min) + min);}
+                            var textEndTest = 'Поздравляем <p>Вы прошли '+number+' круг ада.</p> Надеемся в следующий раз Вам больше не повезет!';
+                            app.modalWindow(textEndTest);
                         } else {
-                            $('.modal-content').html('Вы исчерпали свою удачу. <p>Ваш котел номер 5429  за 15 поворотом.</p> <p>УВАЖАЕМЫЕ просьба картошку из котла НЕ ЖРАТЬ!</p>');
+                            var number = getRandom(4345, 6872)
+                            function getRandom(min, max)
+                                {return parseInt(Math.random() * (max - min) + min);}
+                            var textEndTest = 'Вы исчерпали свою удачу. <p>Ваш котел номер '+number+' за поворотом.</p> <p>УВАЖАЕМЫЕ, просьба картошку из котла НЕ ЖРАТЬ!</p>';
+                            app.modalWindow(textEndTest);
                         }
                     } finally {
                         $('input').removeAttr('disabled');
@@ -158,14 +166,23 @@ $(function() {
                     }
 
                 });
+            },
 
-
+            modalWindow: function(key) {
+                $('.backgroundModal')[0].style.display = "block";
+                $('.windowModal').html(key);
+                $('.windowModal').animate({top: '50%'}, '10900');
+                $('.backgroundModal').one('click', function(event) {
+                    $('.backgroundModal')[0].style.display = "none";
+                    $('.windowModal').animate({top: '-150%'}, 'fast');
+                });
             }
         };
 
 
     app.creatTest();
     app.logicalTest();
+
 
 
 
