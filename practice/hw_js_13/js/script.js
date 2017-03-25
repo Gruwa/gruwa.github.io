@@ -85,9 +85,9 @@ $(function() {
                 }
 
                 function Test(obj) {
+                    var olList = new createElement(ol);
+                    document.getElementsByClassName('content')[0].appendChild(olList);
                     for (var key in obj) {
-                        var olList = new createElement(ol);
-                        document.getElementsByClassName('content')[0].appendChild(olList);
                         var liList = new createElement(li);
                         liList.innerHTML = key;
                         olList.appendChild(liList);
