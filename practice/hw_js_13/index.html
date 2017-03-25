@@ -14,7 +14,15 @@
                 <p class="header page-header"><%=head%></p>
                 <content class="content">
                 </content>
-                <button class="btn btn-primary button">Проверить мои результаты</button>
+                <button type="button" class="btn btn-primary button buttonEndForm" data-toggle="modal" data-target=".bs-example-modal-sm">Проверить мои результаты</button>
+                <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                  <div class="modal-dialog modal-sm" role="document">
+                    <div class="modal-content">
+                      ...
+                    </div>
+                  </div>
+                </div>
+
             </div>
         </script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

@@ -142,18 +142,19 @@ $(function() {
                 checkbox(listInput7, listInput6, listInput8);
                 checkbox(listInput8, listInput7, listInput6);
 
-                $('button').click(function(event) {
+                $('.buttonEndForm').click(function(event) {
                     try {
                         if (document.getElementById('listInput1').checked != false && document.getElementById('listInput5').checked != false && document.getElementById('listInput8').checked != false ) {
-                            alert('DFE')
+                            $('.modal-content').html('Поздравляем Вы прошли 876345 круг ада. Надеемся в следующий раз Вам не повезет больше!');
                         } else {
-                            alert('FUUUU')
+                            $('.modal-content').html('Вы исчерпали свою удачу. <p>Ваш котел номер 5429  за 15 поворотом.</p> <p>УВАЖАЕМЫЕ просьба картошку из котла НЕ ЖРАТЬ!</p>');
                         }
                     } finally {
                         $('input').removeAttr('disabled');
-                        $('input').attr('checked', false);
-                        // $('input').removeAttr('checked');
-                        // document.getElementsByTagName('input').checked = '';
+                        var inputArray = document.getElementsByTagName('input');
+                        for (var i = 0; i < inputArray.length; i++) {
+                            inputArray[i].checked = false;
+                        }
                     }
 
                 });
