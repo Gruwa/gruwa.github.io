@@ -121,30 +121,23 @@ $(function() {
 
             logicalTest: function(){
 
-                function checkbox(master, firstLow, secondLow) {
-                    $(master).change(function(event) {
-                        if (event.target == $(master) || document.getElementById(master.id).checked != false){
-                            $(firstLow).attr('disabled', 'disabled');
-                            $(secondLow).attr('disabled', 'disabled');
-                        } if (event.target == $(master) || document.getElementById(master.id).checked == false){
-                            $(firstLow).removeAttr('disabled');
-                            $(secondLow).removeAttr('disabled');
+                function checkbox() {
+                    $('input').change(function(event) {
+                        if ( $(event.target).parent('ul').find('input:checked').length == 2) {
+                            console.log($(event.target).parent('ul').find('input:checked').length);
+                            $(event.target).parent('ul').find('input:not(:checked)').attr('disabled', 'disabled');
+                        } if ( $(event.target).parent('ul').find('input:checked').length != 2) {
+                            $(event.target).parent('ul').find('input:not(:checked)').removeAttr('disabled');
                         };
+
                     });
                 }
-                checkbox(listInput0, listInput1, listInput2);
-                checkbox(listInput1, listInput0, listInput2);
-                checkbox(listInput2, listInput1, listInput0);
-                checkbox(listInput3, listInput4, listInput5);
-                checkbox(listInput4, listInput3, listInput5);
-                checkbox(listInput5, listInput4, listInput3);
-                checkbox(listInput6, listInput7, listInput8);
-                checkbox(listInput7, listInput6, listInput8);
-                checkbox(listInput8, listInput7, listInput6);
+
+                checkbox();
 
                 $('.buttonEndForm').click(function(event) {
                     try {
-                        if (document.getElementById('listInput1').checked != false && document.getElementById('listInput5').checked != false && document.getElementById('listInput8').checked != false ) {
+                        if (document.getElementById('listInput1').checked != false && document.getElementById('listInput5').checked != false && document.getElementById('listInput8').checked != false && document.getElementById('listInput0').checked != false && document.getElementById('listInput3').checked != false && document.getElementById('listInput7').checked != false ) {
                             var number = getRandom(776345, 956872)
                             function getRandom(min, max)
                                 {return parseInt(Math.random() * (max - min) + min);}
