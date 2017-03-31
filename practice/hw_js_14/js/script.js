@@ -78,7 +78,7 @@ $(function() {
                 },
                 405 : {
                     text: 'Вариант ответа №3',
-                    id: 205,
+                    id: 405,
                     content: true,
                 },
             },
@@ -111,168 +111,123 @@ $(function() {
 
     $('body').append($testContent);
 
-    // var app = {
-    //         creatTest: function(){
-    //             var ol = {
-    //                 tagName : 'ol',
-    //                 className : ['list-group', 'testOl'],
-    //             };
-    //             var ul = {
-    //                 tagName : 'ul',
-    //                 className : ['list-group', 'clearfix'],
-    //             };
-    //             var li = {
-    //                 tagName : 'li',
-    //                 className : ['list-group-item'],
-    //             };
-    //             var input = {
-    //                 tagName : 'INPUT',
-    //                 className : ['input'],
-    //             };
-    //
-    //             Test($jsData);
-    //
-    //             TestCheckBox(app);
-    //
-    //             function createElement(config) {
-    //                   var element = document.createElement(config.tagName);
-    //
-    //                   if (config.className) {
-    //                       for (var i = 0; i < config.className.length; i++) {
-    //                          element.classList.add(config.className[i]);
-    //                      };
-    //
-    //                   };
-    //                   if (config.tagName == 'INPUT') {
-    //                       element.setAttribute("type", "checkbox");
-    //                   };
-    //                   return element;
-    //             }
-    //
-    //             function Test(obj) {
-    //                 var olList = new createElement(ol);
-    //                 document.getElementsByClassName('content')[0].appendChild(olList);
-    //                 for (var key in obj) {
-    //                     var liList = new createElement(li);
-    //                     liList.innerHTML = key;
-    //                     olList.appendChild(liList);
-    //                     liList.appendChild(TestLi(obj[key]));
-    //                     function TestLi(obj2) {
-    //                         var ulList = new createElement(ul);
-    //                         for (var key in obj2) {
-    //                             var liList2 = new createElement(li);
-    //                             liList2.innerHTML = key;
-    //                             ulList.appendChild(liList2);
-    //                         };
-    //                         return ulList;
-    //                             }
-    //                     };
-    //
-    //                 }
-    //                 function TestCheckBox(obj) {
-    //                         var allLi = document.querySelectorAll('ul > li');
-    //                         for (var i = 0; i < allLi.length; i++) {
-    //                             allLi[i].classList.add('listLi' + i);
-    //                             var inputList = new createElement(input);
-    //                              allLi[i].insertAdjacentElement("beforeBegin", inputList);
-    //                         };
-    //                         var allInput = document.querySelectorAll('ul > input');
-    //                         for (var i = 0; i < allInput.length; i++) {
-    //                             allInput[i].id = ('listInput' + i);
-    //                         };
-    //
-    //                 }
-    //         },
-    //
-    //         logicalTest: function(){
-    //
-    //             function checkbox() {
-    //                 $('input').change(function(event) {
-    //                     if ( $(event.target).parent('ul').find('input:checked').length == 2) {
-    //                         console.log($(event.target).parent('ul').find('input:checked').length);
-    //                         $(event.target).parent('ul').find('input:not(:checked)').attr('disabled', 'disabled');
-    //                     } if ( $(event.target).parent('ul').find('input:checked').length != 2) {
-    //                         $(event.target).parent('ul').find('input:not(:checked)').removeAttr('disabled');
-    //                     };
-    //
-    //                 });
-    //             }
-    //
-    //             checkbox();
-    //
-    //             $('.buttonEndForm').click(function(event) {
-    //                 try {
-    //                     if (document.getElementById('listInput1').checked != false && document.getElementById('listInput5').checked != false && document.getElementById('listInput8').checked != false && document.getElementById('listInput0').checked != false && document.getElementById('listInput3').checked != false && document.getElementById('listInput7').checked != false ) {
-    //                         var number = getRandom(776345, 956872)
-    //                         function getRandom(min, max)
-    //                             {return parseInt(Math.random() * (max - min) + min);}
-    //                         var textEndTest = 'Поздравляем <p>Вы прошли '+number+' круг ада.</p> Надеемся в следующий раз Вам больше не повезет!';
-    //                         app.modalWindow(textEndTest);
-    //                     } else {
-    //                         var number = getRandom(4345, 6872)
-    //                         function getRandom(min, max)
-    //                             {return parseInt(Math.random() * (max - min) + min);}
-    //                         var textEndTest = 'Вы исчерпали свою удачу. <p>Ваш котел номер '+number+' за поворотом.</p> <p>УВАЖАЕМЫЕ, просьба картошку из котла НЕ ЖРАТЬ!</p>';
-    //                         app.modalWindow(textEndTest);
-    //                     }
-    //                 } finally {
-    //                     $('input').removeAttr('disabled');
-    //                     var inputArray = document.getElementsByTagName('input');
-    //                     for (var i = 0; i < inputArray.length; i++) {
-    //                         inputArray[i].checked = false;
-    //                     }
-    //                 }
-    //
-    //             });
-    //         },
-    //
-    //         modalWindow: function(key) {
-    //             $('.backgroundModal')[0].style.display = "block";
-    //             $('.windowModal').html(key);
-    //             $('.windowModal').animate({top: '50%'}, '10900');
-    //             $('.backgroundModal').one('click', function(event) {
-    //                 $('.backgroundModal')[0].style.display = "none";
-    //                 $('.windowModal').animate({top: '-150%'}, 'fast');
-    //             });
-    //         }
-    //     };
-    //
-    //
-    // app.creatTest();
-    // app.logicalTest();
+    var app = {
+
+            logicalTest: function(){
+
+                // function checkbox() {
+                //     $('input:checked').change(function(event) {
+                //         if ( $(event.target).parent('ul').find('input:checked').length == 2) {
+                //             console.log($(event.target).parent('ul').find('input:checked').length);
+                //             $(event.target).parent('ul').find('input:not(:checked)').attr('disabled', 'disabled');
+                //         } if ( $(event.target).parent('ul').find('input:checked').length != 2) {
+                //             $(event.target).parent('ul').find('input:not(:checked)').removeAttr('disabled');
+                //         };
+                //
+                //     });
+                // }
+                //
+                // checkbox();
+
+                for (var key in $jsData) {
+
+                }
+
+                console.log(document.getElementById('101'));
+                $('.buttonEndForm').click(function(event) {
+                    // for (var i = 0; i < $('input:checked').length; i++) {
+                    //         console.log($('input:checked'));
+                    //         var k = $('input:checked')[i].id;
+                            //
+                            // - найти все инпуты
+                            // - найти в них все чекнутые проверить по тру
+                            // - найти все не чекнутые и проверить на фелс.
+                            //
+                            // ---
+                            // найти все инпуты, проверяем по 1, если чекнутый тогда конт == труб если не чекнутый тогда конт == фелс , если все ок тогда победаб если нет тогда проигрыш
+                            for (var key in $jsData) {
+                                for (var key2 in $jsData[key]) {
+                                    console.log($jsData[key][key2].content);
+                                    var inputs = $('input');
+                                    for (var i = 0; i < inputs.length; i++){
+                                        console.log($('#'+inputs[i].id).parent().find('input:checked'));
+                                        if ($('#'+inputs[i].id).parent().find('input:checked')[0] && $jsData[key][key2].content == true) {
+                                            console.log('DFE');
+                                        };
+
+                                    };
+
+
+                                };
+                            };
+
+
+
+
+                            // $jsData['Вопрос №1'[101[content]]] ===>
+                            // $jsData['Вопрос №1'[inputs[i].id[content]]]
+
+                    // try {
+                    // for (var i = 0; i < $('input:checked').length; i++) {
+                    //         console.log($('input:checked'));
+                    //         var k = $('input:checked')[i].id;
+                    //         $(k)
+                    //         console.log(k);
+                    //         if (k.content == false) {
+                    //             var number = getRandom(4345, 6872)
+                    //             function getRandom(min, max)
+                    //                 {return parseInt(Math.random() * (max - min) + min);}
+                    //             var textEndTest = 'Вы исчерпали свою удачу. <p>Ваш котел номер '+number+' за поворотом.</p> <p>УВАЖАЕМЫЕ, просьба картошку из котла НЕ ЖРАТЬ!</p>';
+                    //             app.modalWindow(textEndTest);
+                    //             return ;
+                    //         };
+                    //     };
+                    //     var number = getRandom(776345, 956872)
+                    //     function getRandom(min, max)
+                    //         {return parseInt(Math.random() * (max - min) + min);}
+                    //     var textEndTest = 'Поздравляем <p>Вы прошли '+number+' круг ада.</p> Надеемся в следующий раз Вам больше не повезет!';
+                    //     app.modalWindow(textEndTest);
+                        // $('input:checked')
+                        // if ($('input:checked').find('selector')
+                        //     // document.getElementById('listInput1').checked != false && document.getElementById('listInput5').checked != false && document.getElementById('listInput8').checked != false && document.getElementById('listInput0').checked != false && document.getElementById('listInput3').checked != false && document.getElementById('listInput7').checked != false
+                        // ) {
+                        //     var number = getRandom(776345, 956872)
+                        //     function getRandom(min, max)
+                        //         {return parseInt(Math.random() * (max - min) + min);}
+                        //     var textEndTest = 'Поздравляем <p>Вы прошли '+number+' круг ада.</p> Надеемся в следующий раз Вам больше не повезет!';
+                        //     app.modalWindow(textEndTest);
+                        // } else {
+                        //     var number = getRandom(4345, 6872)
+                        //     function getRandom(min, max)
+                        //         {return parseInt(Math.random() * (max - min) + min);}
+                        //     var textEndTest = 'Вы исчерпали свою удачу. <p>Ваш котел номер '+number+' за поворотом.</p> <p>УВАЖАЕМЫЕ, просьба картошку из котла НЕ ЖРАТЬ!</p>';
+                        //     app.modalWindow(textEndTest);
+                        // }
+                    // } finally {
+                    //     $('input').removeAttr('disabled');
+                    //     var inputArray = document.getElementsByTagName('input');
+                    //     for (var i = 0; i < inputArray.length; i++) {
+                    //         inputArray[i].checked = false;
+                    //     }
+                    // }
+
+                });
+            },
+
+            modalWindow: function(key) {
+                $('.backgroundModal')[0].style.display = "block";
+                $('.windowModal').html(key);
+                $('.windowModal').animate({top: '50%'}, '10900');
+                $('.backgroundModal').one('click', function(event) {
+                    $('.backgroundModal')[0].style.display = "none";
+                    $('.windowModal').animate({top: '-150%'}, 'fast');
+                });
+            }
+        };
+
+    app.logicalTest();
 
 
 
 
 });
-
-//
-//     <%=for (var i = 0; i < $($jsData).length; i++) {%>
-//         <li class="list-group-item"><%=$jsData[i]%></li>
-//         <%=$question = $jsData[i];%>
-//         <%=for (var i = 0; i < $($question).length; i++) {%>
-//             <ul class="list-group clearfix">
-//                 <label for="<%=$($question[i]).id%>">
-//                 <input type="checkbox" class="input" id="<%=$($question[i]).id%>" >
-//                 <li class="list-group-item"><%=$($question[i]).text%></li>
-//                 </label>
-//             </ul>
-//         <%};%>
-//     <%};%>
-
-// <% for (var variable in $jsData) { var k = %>
-//     <li class="list-group-item"><%= variable %></li>
-//     <%console.log($jsData.variable);%>
-//
-//     <%for (var variable2 in [variable]) { %>
-//         <%console.log($(variable2));%>
-//         <ul class="list-group clearfix">
-//             <label for="<%= variable2.id %>">
-//             <input type="checkbox" class="input" id="<%= variable2.id %>" >
-//             <li class="list-group-item"><%= variable2.text %></li>
-//             <%console.log(variable2.text);%>
-//             </label>
-//         </ul>
-//     <% }; %>
-//
-// <% }; %>

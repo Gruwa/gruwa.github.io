@@ -12,25 +12,20 @@
 
         <script type="text/test" id="testForm">
             <div class="wrapper">
-                <p class="header page-header">ээээээ</p>
+                <p class="header page-header"><%= head %></p>
                 <content class="content">
                     <ol class="list-group testOl">
-                    <%console.log($jsData);%>
-                    <% for (var variable in $jsData) {%>
-                        <li class="list-group-item"><%= variable %></li>
-                        <%console.log($jsData.variable);%>
-
-                        <%for (var variable2 in [variable]) { %>
-                            <%console.log($(variable2));%>
-                            <ul class="list-group clearfix">
-                                <label for="<%= variable2.id %>">
-                                <input type="checkbox" class="input" id="<%= variable2.id %>" >
-                                <li class="list-group-item"><%= variable2.text %></li>
-                                <%console.log(variable2.text);%>
-                                </label>
-                            </ul>
+                    <% for (var key in $jsData) {%>
+                        <li class="list-group-item"><%= key %></li>
+                        <ul class="list-group clearfix">
+                        <%for (var key2 in $jsData[key]) {
+                            var obj = $jsData[key];%>
+                                    <label for="<%= obj[key2].id %>">
+                                    <input type="checkbox" class="input" id="<%= obj[key2].id %>" data-content="<%= obj[key2].content %>">
+                                    <li class="list-group-item"><%= obj[key2].text %></li>
+                                    </label>
                         <% }; %>
-
+                        </ul>
                     <% }; %>
                     </ol>
                 </content>
