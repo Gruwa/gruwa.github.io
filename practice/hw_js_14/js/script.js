@@ -115,15 +115,10 @@ $(function() {
 
             logicalTest: function(){
 
-                console.log(document.getElementById('101'));
                 $('.buttonEndForm').click(function(event) {
-
                     for (var key in $jsData) {
                         for (var key2 in $jsData[key]) {
-                            console.log($jsData[key][key2].content);
                             var inputs = $jsData[key][key2].id;
-                            console.log($('#'+inputs).length);
-                            console.log( $('#'+inputs).parent().find('input:checked')[0] );
                             for (var i = 0; i < $('#'+inputs).parent().find('input').length; i++){
                                 if ( $('#'+inputs).parent().find('input:checked')[0] &&
                                 $jsData[key][key2].content != true) {
@@ -137,22 +132,29 @@ $(function() {
                                 };
                                 if ( $jsData[key][key2].content == true && $('#'+inputs).parent().find('input:checked')[0] == undefined) {
                                     var number = getRandom(4345, 6872)
+                                    var textEndTest = 'Вы исчерпали свою удачу. <p>Ваш котел номер '+number+' за поворотом.</p> <p>УВАЖАЕМЫЕ, просьба картошку из котла НЕ ЖРАТЬ!</p>';
+                                    
+                                    app.modalWindow(textEndTest);
+
                                     function getRandom(min, max) {
                                         return parseInt(Math.random() * (max - min) + min);
                                     }
-                                    var textEndTest = 'Вы исчерпали свою удачу. <p>Ваш котел номер '+number+' за поворотом.</p> <p>УВАЖАЕМЫЕ, просьба картошку из котла НЕ ЖРАТЬ!</p>';
-                                    app.modalWindow(textEndTest);
+
                                     return ;
                                 };
                             };
                         };
                     };
 
-                    var number = getRandom(776345, 956872)
-                    function getRandom(min, max)
-                        {return parseInt(Math.random() * (max - min) + min);}
+                    var number = getRandom(776345, 956872);
                     var textEndTest = 'Поздравляем <p>Вы прошли '+number+' круг ада.</p> Надеемся в следующий раз Вам больше не повезет!';
+
                     app.modalWindow(textEndTest);
+
+                    function getRandom(min, max){
+                        return parseInt(Math.random() * (max - min) + min);
+                    }
+
                     return ;
                 });
             },
