@@ -21,7 +21,7 @@
                         <%for (var key2 in $jsData[key]) {
                             var obj = $jsData[key];%>
                                     <label for="<%= obj[key2].id %>">
-                                    <input type="checkbox" class="input" id="<%= obj[key2].id %>" data-content="<%= obj[key2].content %>">
+                                    <input type="checkbox" class="input" id="<%= obj[key2].id %>">
                                     <li class="list-group-item"><%= obj[key2].text %></li>
                                     </label>
                         <% }; %>

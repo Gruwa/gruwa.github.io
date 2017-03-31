@@ -38,7 +38,7 @@ $(function() {
                     content: true,
                 },
                 204 : {
-                    text: 'Вариант ответа №3',
+                    text: 'Вариант ответа №4',
                     id: 204,
                     content: true,
                 },
@@ -72,12 +72,12 @@ $(function() {
                     content: false,
                 },
                 404 : {
-                    text: 'Вариант ответа №3',
+                    text: 'Вариант ответа №4',
                     id: 404,
                     content: true,
                 },
                 405 : {
-                    text: 'Вариант ответа №3',
+                    text: 'Вариант ответа №5',
                     id: 405,
                     content: true,
                 },
@@ -115,102 +115,45 @@ $(function() {
 
             logicalTest: function(){
 
-                // function checkbox() {
-                //     $('input:checked').change(function(event) {
-                //         if ( $(event.target).parent('ul').find('input:checked').length == 2) {
-                //             console.log($(event.target).parent('ul').find('input:checked').length);
-                //             $(event.target).parent('ul').find('input:not(:checked)').attr('disabled', 'disabled');
-                //         } if ( $(event.target).parent('ul').find('input:checked').length != 2) {
-                //             $(event.target).parent('ul').find('input:not(:checked)').removeAttr('disabled');
-                //         };
-                //
-                //     });
-                // }
-                //
-                // checkbox();
-
-                for (var key in $jsData) {
-
-                }
-
                 console.log(document.getElementById('101'));
                 $('.buttonEndForm').click(function(event) {
-                    // for (var i = 0; i < $('input:checked').length; i++) {
-                    //         console.log($('input:checked'));
-                    //         var k = $('input:checked')[i].id;
-                            //
-                            // - найти все инпуты
-                            // - найти в них все чекнутые проверить по тру
-                            // - найти все не чекнутые и проверить на фелс.
-                            //
-                            // ---
-                            // найти все инпуты, проверяем по 1, если чекнутый тогда конт == труб если не чекнутый тогда конт == фелс , если все ок тогда победаб если нет тогда проигрыш
-                            for (var key in $jsData) {
-                                for (var key2 in $jsData[key]) {
-                                    console.log($jsData[key][key2].content);
-                                    var inputs = $('input');
-                                    for (var i = 0; i < inputs.length; i++){
-                                        console.log($('#'+inputs[i].id).parent().find('input:checked'));
-                                        if ($('#'+inputs[i].id).parent().find('input:checked')[0] && $jsData[key][key2].content == true) {
-                                            console.log('DFE');
-                                        };
 
-                                    };
-
-
+                    for (var key in $jsData) {
+                        for (var key2 in $jsData[key]) {
+                            console.log($jsData[key][key2].content);
+                            var inputs = $jsData[key][key2].id;
+                            console.log($('#'+inputs).length);
+                            console.log( $('#'+inputs).parent().find('input:checked')[0] );
+                            for (var i = 0; i < $('#'+inputs).parent().find('input').length; i++){
+                                if ( $('#'+inputs).parent().find('input:checked')[0] &&
+                                $jsData[key][key2].content != true) {
+                                    var number = getRandom(4345, 6872)
+                                    function getRandom(min, max) {
+                                        return parseInt(Math.random() * (max - min) + min);
+                                    }
+                                    var textEndTest = 'Вы исчерпали свою удачу. <p>Ваш котел номер '+number+' за поворотом.</p> <p>УВАЖАЕМЫЕ, просьба картошку из котла НЕ ЖРАТЬ!</p>';
+                                    app.modalWindow(textEndTest);
+                                    return ;
+                                };
+                                if ( $jsData[key][key2].content == true && $('#'+inputs).parent().find('input:checked')[0] == undefined) {
+                                    var number = getRandom(4345, 6872)
+                                    function getRandom(min, max) {
+                                        return parseInt(Math.random() * (max - min) + min);
+                                    }
+                                    var textEndTest = 'Вы исчерпали свою удачу. <p>Ваш котел номер '+number+' за поворотом.</p> <p>УВАЖАЕМЫЕ, просьба картошку из котла НЕ ЖРАТЬ!</p>';
+                                    app.modalWindow(textEndTest);
+                                    return ;
                                 };
                             };
+                        };
+                    };
 
-
-
-
-                            // $jsData['Вопрос №1'[101[content]]] ===>
-                            // $jsData['Вопрос №1'[inputs[i].id[content]]]
-
-                    // try {
-                    // for (var i = 0; i < $('input:checked').length; i++) {
-                    //         console.log($('input:checked'));
-                    //         var k = $('input:checked')[i].id;
-                    //         $(k)
-                    //         console.log(k);
-                    //         if (k.content == false) {
-                    //             var number = getRandom(4345, 6872)
-                    //             function getRandom(min, max)
-                    //                 {return parseInt(Math.random() * (max - min) + min);}
-                    //             var textEndTest = 'Вы исчерпали свою удачу. <p>Ваш котел номер '+number+' за поворотом.</p> <p>УВАЖАЕМЫЕ, просьба картошку из котла НЕ ЖРАТЬ!</p>';
-                    //             app.modalWindow(textEndTest);
-                    //             return ;
-                    //         };
-                    //     };
-                    //     var number = getRandom(776345, 956872)
-                    //     function getRandom(min, max)
-                    //         {return parseInt(Math.random() * (max - min) + min);}
-                    //     var textEndTest = 'Поздравляем <p>Вы прошли '+number+' круг ада.</p> Надеемся в следующий раз Вам больше не повезет!';
-                    //     app.modalWindow(textEndTest);
-                        // $('input:checked')
-                        // if ($('input:checked').find('selector')
-                        //     // document.getElementById('listInput1').checked != false && document.getElementById('listInput5').checked != false && document.getElementById('listInput8').checked != false && document.getElementById('listInput0').checked != false && document.getElementById('listInput3').checked != false && document.getElementById('listInput7').checked != false
-                        // ) {
-                        //     var number = getRandom(776345, 956872)
-                        //     function getRandom(min, max)
-                        //         {return parseInt(Math.random() * (max - min) + min);}
-                        //     var textEndTest = 'Поздравляем <p>Вы прошли '+number+' круг ада.</p> Надеемся в следующий раз Вам больше не повезет!';
-                        //     app.modalWindow(textEndTest);
-                        // } else {
-                        //     var number = getRandom(4345, 6872)
-                        //     function getRandom(min, max)
-                        //         {return parseInt(Math.random() * (max - min) + min);}
-                        //     var textEndTest = 'Вы исчерпали свою удачу. <p>Ваш котел номер '+number+' за поворотом.</p> <p>УВАЖАЕМЫЕ, просьба картошку из котла НЕ ЖРАТЬ!</p>';
-                        //     app.modalWindow(textEndTest);
-                        // }
-                    // } finally {
-                    //     $('input').removeAttr('disabled');
-                    //     var inputArray = document.getElementsByTagName('input');
-                    //     for (var i = 0; i < inputArray.length; i++) {
-                    //         inputArray[i].checked = false;
-                    //     }
-                    // }
-
+                    var number = getRandom(776345, 956872)
+                    function getRandom(min, max)
+                        {return parseInt(Math.random() * (max - min) + min);}
+                    var textEndTest = 'Поздравляем <p>Вы прошли '+number+' круг ада.</p> Надеемся в следующий раз Вам больше не повезет!';
+                    app.modalWindow(textEndTest);
+                    return ;
                 });
             },
 
@@ -222,12 +165,13 @@ $(function() {
                     $('.backgroundModal')[0].style.display = "none";
                     $('.windowModal').animate({top: '-150%'}, 'fast');
                 });
-            }
+                var inputArray = document.getElementsByTagName('input');
+                for (var i = 0; i < inputArray.length; i++) {
+                    inputArray[i].checked = false;
+                }
+            },
         };
 
     app.logicalTest();
-
-
-
 
 });
