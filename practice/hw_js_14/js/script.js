@@ -133,7 +133,7 @@ $(function() {
                                 if ( $jsData[key][key2].content == true && $('#'+inputs).parent().find('input:checked')[0] == undefined) {
                                     var number = getRandom(4345, 6872)
                                     var textEndTest = 'Вы исчерпали свою удачу. <p>Ваш котел номер '+number+' за поворотом.</p> <p>УВАЖАЕМЫЕ, просьба картошку из котла НЕ ЖРАТЬ!</p>';
-                                    
+
                                     app.modalWindow(textEndTest);
 
                                     function getRandom(min, max) {
@@ -167,7 +167,9 @@ $(function() {
                     $('.backgroundModal')[0].style.display = "none";
                     $('.windowModal').animate({top: '-150%'}, 'fast');
                 });
+
                 var inputArray = document.getElementsByTagName('input');
+                
                 for (var i = 0; i < inputArray.length; i++) {
                     inputArray[i].checked = false;
                 }
