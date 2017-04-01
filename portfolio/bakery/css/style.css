@@ -1,0 +1,33 @@
+body{
+    background-color: #F4F7F9;
+}
+
+.clearfix:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+.wrapper {
+    max-width: 1600px;
+    /*padding: 30px;*/
+    margin: 0 auto;
+    background-color: #fff;
+}
+
+/*header*/
+
+.header {
+    height: 902px;
+    background-image: url('../img/header.jpg');
+}
+
+.nav {
+    height: 70px;
+    padding: 0 170px;
+    background-color: rgba(86, 83, 76, 0.529);
+}
+
+/*content*/
+
+/*footer*/
