@@ -20,12 +20,152 @@ body{
 .header {
     height: 902px;
     background-image: url('../img/header.jpg');
+    background-repeat: no-repeat;
 }
 
 .nav {
+    box-sizing: border-box;
     height: 70px;
     padding: 0 170px;
     background-color: rgba(86, 83, 76, 0.529);
+    padding-top: 30px;
+
+}
+
+.nav__logo {
+    color: #fff;
+    font-family: 'scriptinaregular', sans-serif;
+    font-size: 30px;
+    letter-spacing: 20px;
+    margin-top: -9px;
+    float: left;
+    margin-right: 60px;
+
+}
+
+.menu__header{
+    float: left;
+}
+
+.menu__list {
+    padding-right: 45px;
+    display: inline-block;
+}
+
+.menu__list a {
+    color: #fff;
+    font-family: 'alegreyaregular', sans-serif;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.menu__list::after {
+    padding-left: 45px;
+    content: '\02dc';
+    vertical-align: middle;
+    font-size: 14px;
+    display: inline-block;
+    padding-top: 7px;
+    color: #fff;
+}
+
+.menu__list:last-child::after{
+    display: none;
+}
+
+.menu__list:last-child {
+    padding-right: 0px;
+}
+
+.icons {
+    float: right;
+}
+
+.icon__twitter {
+    display: inline-block;
+    width: 17px;
+    height: 16px;
+    background-image: url('../img/icons.png');
+    background-repeat: no-repeat;
+}
+
+.icon__fb {
+    display: inline-block;
+    width: 12px;
+    height: 16px;
+    background-image: url('../img/icons.png');
+    background-repeat: no-repeat;
+    background-position: -16px 0px;
+    margin-left: 30px;
+}
+
+.icon__inst {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url('../img/icons.png');
+    background-repeat: no-repeat;
+    background-position: -28px 0px;
+    margin-left: 30px;
+}
+
+.header__content {
+    padding: 215px 70px 0 70px;
+}
+
+.header__slogan {
+    font-size: 92px;
+    font-family: playfair_displaybold, sans-serif;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    text-shadow: 0px 1px 0px rgba(61, 48, 41, 0.004);
+    margin-bottom: 55px;
+}
+
+.dashed_line {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 67px;
+
+}
+
+.header__text {
+    margin: 0 auto;
+    margin-bottom: 67px;
+    font-size: 24px;
+    font-family: 'proxima_nova_rgregular', sans-serif;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    text-shadow: 0px 1px 0px rgba(61, 48, 41, 0.004);
+    width: 544px;
+    line-height: 1.5;
+
+}
+
+#header__button {
+    display: block;
+    margin: 0 auto;
+    border-width: 1px;
+    border-color: rgb(158, 156, 147);
+    border-style: dashed;
+    background-color: rgba(86, 83, 76, 0.529);
+    width: 198px;
+    height: 48px;
+    cursor: pointer;
+}
+
+#header__button:hover {
+    background-color: rgba(86, 83, 76, 0.8);
+}
+
+
+#header__button span {
+    font-size: 14px;
+    font-family: 'alegreyabold', sans-serif;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    line-height: 1.714;
+    letter-spacing: 3px;
 }
 
 /*content*/

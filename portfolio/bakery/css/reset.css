@@ -49,4 +49,7 @@ table {
 a {
 	text-decoration: none;
 
-	}
+}
+button:focus {
+	    outline: none;
+}
