@@ -1,3 +1,4 @@
+/**/
 @font-face {
     font-family: 'scriptinaregular';
     src: url('../font/scriptin-webfont.eot');
@@ -8,7 +9,7 @@
     font-style: normal;
 
 }
-
+/**/
 @font-face {
     font-family: 'alegreyaregular';
     src: url('../font/alegreya-regular-webfont.eot');
@@ -50,7 +51,7 @@
 
 
 
-
+/**/
 @font-face {
     font-family: 'alegreyabold';
     src: url('../font/alegreya-bold-webfont.eot');
@@ -122,7 +123,7 @@
 
 
 
-
+/**/
 @font-face {
     font-family: 'playfair_displaybold';
     src: url('../font/playfairdisplay-bold-webfont.eot');
@@ -175,7 +176,7 @@
     font-weight: normal;
     font-style: normal;
 }
-
+/**/
 @font-face {
     font-family: 'proxima_nova_rgregular';
     src: url('../font/proxima-nova-58e030f8066af-webfont.eot');
