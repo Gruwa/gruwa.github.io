@@ -19,10 +19,10 @@
                         <li class="list-group-item" id="<%=$jsData[i].id%>"><%= $jsData[i].text %>
                             <ul class="list-group clearfix">
                                 <%var $answers = $jsData[i].answers;%>
-                                <%for (var k = 0; k < $answers.length; k++) {%>
-                                    <label for="<%= $answers[k].id %>">
-                                    <input type="checkbox" class="input" id="<%= $answers[k].id %>">
-                                    <li class="list-group-item"><%= $answers[k].text %></li>
+                                <%for (var j = 0; j < $answers.length; j++) {%>
+                                    <label for="<%= $answers[j].id %>">
+                                    <input type="checkbox" class="input" id="<%= $answers[j].id %>">
+                                    <li class="list-group-item"><%= $answers[j].text %></li>
                                     </label>
                                 <%};%>
                             </ul>

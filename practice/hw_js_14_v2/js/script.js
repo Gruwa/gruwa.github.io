@@ -107,8 +107,8 @@ $(function() {
                 $('.buttonEndForm').click(function(event) {
                     for (var i = 0; i < $jsData.length; i++) {
                         var $answers = $jsData[i].answers;
-                        for (var k = 0; k < $answers.length; k++) {
-                            if ( $('#'+$answers[k].id).parent().find('input:checked')[0] && $answers[k].correct != true) {
+                        for (var j = 0; j < $answers.length; j++) {
+                            if ( $('#'+$answers[j].id).parent().find('input:checked')[0] && $answers[j].correct != true) {
                                     var number = getRandom(4345, 6872);
                                     var textEndTest = 'Вы исчерпали свою удачу. <p>Ваш котел номер '+number+' за поворотом.</p> <p>УВАЖАЕМЫЕ, просьба картошку из котла НЕ ЖРАТЬ!</p>';
 
@@ -119,7 +119,7 @@ $(function() {
                                     app.modalWindow(textEndTest);
                                     return ;
                                 };
-                                if ( $answers[k].correct == true && $('#'+$answers[k].id).parent().find('input:checked')[0] == undefined) {
+                                if ( $answers[j].correct == true && $('#'+$answers[j].id).parent().find('input:checked')[0] == undefined) {
                                     var number = getRandom(4345, 6872);
                                     var textEndTest = 'Вы исчерпали свою удачу. <p>Ваш котел номер '+number+' за поворотом.</p> <p>УВАЖАЕМЫЕ, просьба картошку из котла НЕ ЖРАТЬ!</p>';
 
