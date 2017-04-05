@@ -1,4 +1,4 @@
-// весь изменяемый контент у тебя должен хранится в чётко определённых полях
+// весь изменяемый контент должен хранится в чётко определённых полях
 // структура данных должна быть удобна для обработки
 
 $(function() {
@@ -105,33 +105,32 @@ $(function() {
             logicalTest: function(){
 
                 $('.buttonEndForm').click(function(event) {
-                    for (var key in $jsData) {
-                        for (var key2 in $jsData[key]) {
-                            var inputs = $jsData[key][key2].id;
-                            for (var i = 0; i < $('#'+inputs).parent().find('input').length; i++){
-                                if ( $('#'+inputs).parent().find('input:checked')[0] &&
-                                $jsData[key][key2].content != true) {
-                                    var number = getRandom(4345, 6872)
-                                    function getRandom(min, max) {
-                                        return parseInt(Math.random() * (max - min) + min);
-                                    }
+                    for (var i = 0; i < $jsData.length; i++) {
+                        var $answers = $jsData[i].answers;
+                        for (var k = 0; k < $answers.length; k++) {
+                            if ( $('#'+$answers[k].id).parent().find('input:checked')[0] && $answers[k].correct != true) {
+                                    var number = getRandom(4345, 6872);
                                     var textEndTest = 'Вы исчерпали свою удачу. <p>Ваш котел номер '+number+' за поворотом.</p> <p>УВАЖАЕМЫЕ, просьба картошку из котла НЕ ЖРАТЬ!</p>';
-                                    app.modalWindow(textEndTest);
-                                    return ;
-                                };
-                                if ( $jsData[key][key2].content == true && $('#'+inputs).parent().find('input:checked')[0] == undefined) {
-                                    var number = getRandom(4345, 6872)
-                                    var textEndTest = 'Вы исчерпали свою удачу. <p>Ваш котел номер '+number+' за поворотом.</p> <p>УВАЖАЕМЫЕ, просьба картошку из котла НЕ ЖРАТЬ!</p>';
-
-                                    app.modalWindow(textEndTest);
 
                                     function getRandom(min, max) {
                                         return parseInt(Math.random() * (max - min) + min);
                                     }
 
+                                    app.modalWindow(textEndTest);
                                     return ;
                                 };
-                            };
+                                if ( $answers[k].correct == true && $('#'+$answers[k].id).parent().find('input:checked')[0] == undefined) {
+                                    var number = getRandom(4345, 6872);
+                                    var textEndTest = 'Вы исчерпали свою удачу. <p>Ваш котел номер '+number+' за поворотом.</p> <p>УВАЖАЕМЫЕ, просьба картошку из котла НЕ ЖРАТЬ!</p>';
+
+                                    function getRandom(min, max) {
+                                        return parseInt(Math.random() * (max - min) + min);
+                                    }
+
+                                    app.modalWindow(textEndTest);
+                                    return ;
+                                };
+
                         };
                     };
 
@@ -161,7 +160,7 @@ $(function() {
 
                 for (var i = 0; i < inputArray.length; i++) {
                     inputArray[i].checked = false;
-                }
+                };
             },
         };
 
