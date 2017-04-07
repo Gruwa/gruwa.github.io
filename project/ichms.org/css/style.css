@@ -97,7 +97,8 @@ header{
 .servis--960,
 .navbar-inner a.brand--768,
 .navigation--650,
-.navigation__logo--650{
+.navigation__logo--650,
+.actual--650 {
     display: none;
 }
 

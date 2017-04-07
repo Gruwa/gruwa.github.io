@@ -97,6 +97,10 @@
 
     }
 
+    .actual--650{
+        display: block;
+    }
+
     .banner--clone {
         background-color: inherit;
     }

@@ -1,3 +1,4 @@
+$(function() {
 
     // Set options
     var options = {
@@ -15,3 +16,5 @@
 
     // Headhesive destroy
     // banner.destroy();
+
+});

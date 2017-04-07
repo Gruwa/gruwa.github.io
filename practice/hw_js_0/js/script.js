@@ -1,11 +1,6 @@
 'use strict';
 
-// (function($){
-//     $(function() {
-//
-//
-//     });
-// }(jQuery);
+
 
 
 // var user = prompt('Name', 'default');
