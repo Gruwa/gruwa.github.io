@@ -1,5 +1,12 @@
 'use strict';
 
+// (function($){
+//     $(function() {
+//
+//
+//     });
+// }(jQuery);
+
 
 // var user = prompt('Name', 'default');
 //
@@ -1215,48 +1222,76 @@
 //     var element = $('.wrapper')''
 // });
 
-$(function() {
-    // var $element = $('.wrapper')[0];
-    // чистый дом элемент, если есть - [0] (первый элемент,т.к. коллекция)
-    var $element = $('.wrapper');
-    var $par = $element.find('p');
-    $par.addClass('red');
-    $par.css('color', 'white');
-    // можно записать объектом
-    $par.css({
-            color: 'white',
-            background: 'black'
-        });
-    $par.attr('href', 'http://try.jquery.com/')
-    // можно записать кратко так
-    $par
-    .addClass('red');
-    .css({
-            color: 'white',
-            background: 'black'
-        });
-    .attr('href', 'http://try.jquery.com/');
-    // вставка элемента div
-    $('body').append('<div>fdsafsdgsafg</div>');
-    // удаление элемента par
-    $par.remove();
-    // добавление обработчика событий
-    $par.on('click', function(){
-        alert('test');
-    })
-    // удаление обработчика событий
-    $par.off('click', function(){
-        alert('test');
-    })
-    // метод 1 клика, обработчик события , который позволяет сработать 1 раз
-    $par.one('click', function(){
-        alert('test');
-    })
-    // в 1 колбеке можно подписываться на несколько ивентов
-    $par.one('click dblclick', function(){
-        alert('test');
-    })
+// $(function() {
+//     // var $element = $('.wrapper')[0];
+//     // чистый дом элемент, если есть - [0] (первый элемент,т.к. коллекция)
+//     var $element = $('.wrapper');
+//     var $par = $element.find('p');
+//     $par.addClass('red');
+//     $par.css('color', 'white');
+//     // можно записать объектом
+//     $par.css({
+//             color: 'white',
+//             background: 'black'
+//         });
+//     $par.attr('href', 'http://try.jquery.com/')
+//     // можно записать кратко так
+//     $par
+//     .addClass('red');
+//     .css({
+//             color: 'white',
+//             background: 'black'
+//         });
+//     .attr('href', 'http://try.jquery.com/');
+//     // вставка элемента div
+//     $('body').append('<div>fdsafsdgsafg</div>');
+//     // удаление элемента par
+//     $par.remove();
+//     // добавление обработчика событий
+//     $par.on('click', function(){
+//         alert('test');
+//     })
+//     // удаление обработчика событий
+//     $par.off('click', function(){
+//         alert('test');
+//     })
+//     // метод 1 клика, обработчик события , который позволяет сработать 1 раз
+//     $par.one('click', function(){
+//         alert('test');
+//     })
+//     // в 1 колбеке можно подписываться на несколько ивентов
+//     $par.one('click dblclick', function(){
+//         alert('test');
+//     })
+//
+//
+//
+// });
 
+(function($){
+    $(function() {
 
+        var xhr = new XMLHttpRequest();
 
-});
+        xhr.open('GET', '/my/url', true);
+
+        xhr.send();
+
+        xhr.onreadystatechange = function() {
+          if (this.readyState != 4) return;
+
+          // по окончании запроса доступны:
+          // status, statusText
+          // responseText, responseXML (при content-type: text/xml)
+
+          if (this.status != 200) {
+            // обработать ошибку
+            alert( 'ошибка: ' + (this.status ? this.statusText : 'запрос не удался') );
+            return;
+          }
+
+          // получить результат из this.responseText или this.responseXML
+        }
+
+    });
+}(jQuery);
