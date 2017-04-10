@@ -138,10 +138,10 @@ $('header').find('#actualIn').append($testContent);
 $('header').find('#actualIn650').append($testContent);
 
 
-$html = $('#conf').html();
-
-var $testContentConf = tmpl($html, $data);
-
-$('header').find('#confIn').append($testContentConf);
+// $html = $('#conf').html();
+//
+// var $testContentConf = tmpl($html, $data);
+//
+// $('header').find('#confIn').append($testContentConf);
 
 });
