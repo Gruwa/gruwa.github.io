@@ -1,16 +1,23 @@
 $(function() {
+    'use strict';
 
-    window.ServerPhotoCallback = function(jQueryObj, Object) {
-        console.log();
-        console.log(arguments);
+    window.ServerPhotoCallback = function($data) {
+            console.log($data);
+            var $html = $('#resultTenor').html();
+            var $dataTmpl = {
+                 $data: $data,
+            };
+            var $SearchContent = tmpl($html, $dataTmpl);
+            $('#resultTenorIn').html('');
+            $('#resultTenorIn').append($SearchContent);
+
+
     }
 
     $('form').submit(function(event) {
         /* Act on the event */
         event.preventDefault();
         var $value = $('#searchTenor').val();
-
-
 
         $.ajax({
             url: 'https://pixabay.com/api/',
@@ -21,17 +28,14 @@ $(function() {
                 q: $value,
                 image_type: 'photo',
                 callback: 'ServerPhotoCallback',
+                per_page: '100'
             },
-            success: function() {
-                console.log("success");
-            },
-            error: function() {
-                console.log("error");
-            },
+
 
         });
 
     });
+
 
 });
 

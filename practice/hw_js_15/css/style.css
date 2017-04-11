@@ -29,4 +29,20 @@ body{
     margin-top: 0;
 }
 
+#resultTenorIn {
+    margin-top: 50px;
+
+}
+
+.resultTenorList {
+    margin-top: 50px;
+}
+
+.resultTenorImg {
+    float: left;
+    margin: 0 20px 0 0;
+}
+a {
+    cursor: pointer;
+}
 /*footer*/
