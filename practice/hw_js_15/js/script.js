@@ -1,6 +1,6 @@
 $(function() {
 
-    function ServerPhotoCallback(jQueryObj, data) {
+    window.ServerPhotoCallback = function(jQueryObj, data) {
         console.log('data', data);
     }
 
