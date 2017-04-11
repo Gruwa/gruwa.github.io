@@ -1,7 +1,8 @@
 $(function() {
 
-    window.ServerPhotoCallback = function(jQueryObj, data) {
-        console.log('data', data);
+    window.ServerPhotoCallback = function(jQueryObj, Object) {
+        console.log();
+        console.log(arguments);
     }
 
     $('form').submit(function(event) {
