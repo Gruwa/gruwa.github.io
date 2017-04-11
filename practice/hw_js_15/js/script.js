@@ -2,7 +2,9 @@ $(function() {
 
     $('form').submit(function(event) {
         /* Act on the event */
+        event.preventDefault();
         var $value = $('#searchTenor').val();
+
 
 
         $.ajax({
@@ -13,9 +15,6 @@ $(function() {
                 key: '5069177-dbb9700ef5f333933be917c5e',
                 q: $value,
                 image_type: 'photo',
-
-
-
             }
         }).done(function() {
             console.log("success");
