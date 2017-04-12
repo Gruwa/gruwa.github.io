@@ -34,5 +34,46 @@ $(function() {
 
     });
 
+// start 16 домашка
+
+function human() {
+    this.name = 'Vasya';
+    this.age = '47';
+    this.sex = 'on the beach';
+    this.stature = '150mm';
+    this.weight = '1500kg';
+}
+function student() {
+    this.study = 'Univercity';
+    this.scholarship = '0,1 coin';
+    this.watchFilms = function() {
+        alert('Watch films');
+    };
+}
+// или можно вынести отдельно в prototype
+// student.prototype.watchFilms = function() {
+//     alert('Watch films');
+// }
+function worker() {
+    this.job = 'Tower keeper';
+    this.salary = '10,5 coin';
+    this.wantWork = function() {
+        alert('Work, work, work');
+    };
+}
+// или можно вынести отдельно в prototype
+// worker.prototype.wantWork = function() {
+//     alert('Work, work, work');
+// }
+
+student.prototype = new human();
+worker.prototype = new student();
+
+var newStudent =  new student();
+var newWorker =  new worker();
+console.log('newStudent', newStudent);
+console.log('newWorker', newWorker);
+
+// end 16 домашка
 
 });
