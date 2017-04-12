@@ -4,19 +4,15 @@ $(function() {
     window.ServerPhotoCallback = function($data) {
             var $html = $('#resultTenor').html();
             var $dataTmpl = {
-                 $data: $data,
+                $data: $data
             };
             var $SearchContent = tmpl($html, $dataTmpl);
             $('#resultTenorIn').html('');
             $('#resultTenorIn').append($SearchContent);
-
-
     }
-
     $('form').submit(function(event) {
         event.preventDefault();
         var $value = $('#searchTenor').val();
-
         $.ajax({
             url: 'https://pixabay.com/api/',
             method: 'GET',
@@ -27,15 +23,10 @@ $(function() {
                 image_type: 'photo',
                 callback: 'ServerPhotoCallback',
                 per_page: '100'
-            },
-
-
+            }
         });
-
     });
-
 // start 16 домашка
-
 function human() {
     this.name = 'Vasya';
     this.age = '47';
@@ -65,15 +56,13 @@ function worker() {
 // worker.prototype.wantWork = function() {
 //     alert('Work, work, work');
 // }
-
 student.prototype = new human();
 worker.prototype = new student();
 
 var newStudent =  new student();
 var newWorker =  new worker();
+
 console.log('newStudent', newStudent);
 console.log('newWorker', newWorker);
-
 // end 16 домашка
-
 });
