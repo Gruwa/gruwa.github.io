@@ -2,7 +2,6 @@ $(function() {
     'use strict';
 
     window.ServerPhotoCallback = function($data) {
-            console.log($data);
             var $html = $('#resultTenor').html();
             var $dataTmpl = {
                  $data: $data,
@@ -15,7 +14,6 @@ $(function() {
     }
 
     $('form').submit(function(event) {
-        /* Act on the event */
         event.preventDefault();
         var $value = $('#searchTenor').val();
 
@@ -38,14 +36,3 @@ $(function() {
 
 
 });
-
-
-
-
-// }).done(function() {
-//     console.log("success");
-// }).fail(function() {
-//     console.log("error");
-// }).always(function() {
-//     console.log($value);
-//     console.log("complete");
