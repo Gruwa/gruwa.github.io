@@ -1,14 +1,10 @@
-$(function() {
+$(function () {
     'use strict';
 
-    window.ServerPhotoCallback = function($data) {
-            var $html = $('#resultTenor').html();
-            var $dataTmpl = {
-                $data: $data
-            };
-            var $SearchContent = tmpl($html, $dataTmpl);
-            $('#resultTenorIn').html('');
-            $('#resultTenorIn').append($SearchContent);
+    window.ServerPhotoCallback = function ($data) {
+        var $html = $('#resultTenor').html(), $dataTmpl = { $data: $data }, $SearchContent = tmpl($html, $dataTmpl);
+    $('#resultTenorIn').html('');
+    $('#resultTenorIn').append($SearchContent);
     }
     $('form').submit(function(event) {
         event.preventDefault();
