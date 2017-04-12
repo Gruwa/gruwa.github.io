@@ -3,8 +3,8 @@ $(function () {
 
     window.ServerPhotoCallback = function ($data) {
         var $html = $('#resultTenor').html(), $dataTmpl = { $data: $data }, $SearchContent = tmpl($html, $dataTmpl);
-    $('#resultTenorIn').html('');
-    $('#resultTenorIn').append($SearchContent);
+        $('#resultTenorIn').html('');
+        $('#resultTenorIn').append($SearchContent);
     }
     $('form').submit(function(event) {
         event.preventDefault();
