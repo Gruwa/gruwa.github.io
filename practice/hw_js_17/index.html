@@ -18,7 +18,6 @@
             <%for (var i = 0; i < $photos.length; i++) {%>
                 <li class="resultTenorList clearfix"> <a class="resultTenorImg" href="<%=$photos[i].webformatURL%>"><img src="<%=$photos[i].previewURL%>" alt="<%=$photos[i].tags%>"></a><h3><a href="<%=$photos[i].pageURL%>"><%=$photos[i].type%></a></h3><p>Comments: <%=$photos[i].comments%>, downloads: <%=$photos[i].downloads%>, favorites: <%=$photos[i].favorites%>, likes: <%=$photos[i].likes%>, views: <%=$photos[i].views%></p></li>
             <%};%>
-
         </script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
         <script src="js/dest/script.main.min.js" charset="utf-8"></script>
