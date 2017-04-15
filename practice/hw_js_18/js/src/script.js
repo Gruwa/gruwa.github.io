@@ -1,3 +1,6 @@
+@import '.bootstrap'
+@import '.template'
+
 $(function () {
     'use strict';
     window.ServerPhotoCallback = function ($data) {
