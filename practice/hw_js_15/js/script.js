@@ -1,6 +1,5 @@
 $(function () {
     'use strict';
-
     window.ServerPhotoCallback = function ($data) {
         var $html = $('#resultTenor').html(), $dataTmpl = { $data: $data }, $SearchContent = tmpl($html, $dataTmpl);
         $('#resultTenorIn').html('');
