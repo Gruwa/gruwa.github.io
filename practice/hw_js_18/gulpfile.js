@@ -9,7 +9,6 @@ var stylus = require ('gulp-stylus'); //хороший вопрос
 var uncss = require('gulp-uncss'); //удаляет не используемый цсс
 var uglifycss = require('gulp-uglifycss'); //минимизация файлов css
 
-
 gulp.task('default', function () {
     gulp.src('css/src/**/*.css')
         // .pipe(stylus())
