@@ -9,11 +9,16 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "gulp": "^3.9.1",
+    "gulp": "github:gulpjs/gulp#4.0",
     "gulp-concat": "^2.6.1",
+    "gulp-concat-css": "^2.3.0",
     "gulp-debug": "^3.1.0",
     "gulp-sourcemaps": "^2.6.0",
     "gulp-stylus": "^2.6.0",
-    "gulp-uglify": "^2.1.2"
+    "gulp-uglify": "^2.1.2",
+    "gulp-uncss": "^1.0.6"
+  },
+  "dependencies": {
+    "gulp-uglifycss": "^1.0.8"
   }
 }
