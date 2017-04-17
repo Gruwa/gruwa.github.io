@@ -6,7 +6,7 @@ var uglify = require ('gulp-uglify'); //минимизация файлов
 var debug = require ('gulp-debug'); //дебагер
 var sourcemaps = require ('gulp-sourcemaps'); // отчет по проведенным изменениям
 var stylus = require ('gulp-stylus'); //хороший вопрос
-var uncss = require('gulp-uncss'); //удаляет не используемый цсс
+// var uncss = require('gulp-uncss'); //удаляет не используемый цсс
 var uglifycss = require('gulp-uglifycss'); //минимизация файлов css
 
 
@@ -16,7 +16,7 @@ gulp.task('default', function (callback) {
         // .pipe(stylus())
         .pipe(debug({title: 'stylus'}))
         .pipe(sourcemaps.init())
-        .pipe(uncss({html: 'index.html'}))
+        // .pipe(uncss({html: 'index.html'}))
         .pipe(debug({title: 'uncss'}))
         .pipe(uglifycss())
         .pipe(debug({title: 'uglify'}))
