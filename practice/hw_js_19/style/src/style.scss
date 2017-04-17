@@ -1,0 +1,15 @@
+@import 'reset';
+$white: #fff;
+body {
+    background-color: $white;
+}
+.clearfix:after {
+    clear: both;
+    content: "";
+    display: block;
+}
+.wrapper {
+    margin: 0 auto;
+    max-width: 1024px;
+    padding: 30px;
+}
