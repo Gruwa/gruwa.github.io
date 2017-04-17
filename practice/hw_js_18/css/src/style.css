@@ -45,3 +45,7 @@ a {
     cursor: pointer;
 }
 /*footer*/
+
+.footer {
+    color: red;
+}
