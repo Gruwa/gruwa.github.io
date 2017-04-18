@@ -135,12 +135,21 @@ body {
 
 .clearfix:after {
   clear: both;
-  content: "";
+  content: '';
   display: block; }
 
 .wrapper {
   margin: 0 auto;
-  max-width: 1024px;
-  padding: 30px; }
+  max-width: 1160px; }
+
+.header {
+  margin: 36px 0;
+  max-width: 100%; }
+
+.logo {
+  float: left; }
+
+.social {
+  float: right; }
 
 /*# sourceMappingURL=style.css.map */
