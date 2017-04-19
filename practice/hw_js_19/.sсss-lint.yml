@@ -7,6 +7,9 @@ plugin_directories: ['.scss-linters']
 # installed)
 plugin_gems: []
 
+# Default severity of all linters.
+severity: warning
+
 linters:
   BangFormat:
     enabled: true
@@ -21,6 +24,9 @@ linters:
     enabled: true
     convention: zero # or `none`
 
+  ChainedClasses:
+    enabled: false
+
   ColorKeyword:
     enabled: true
 
@@ -29,6 +35,7 @@ linters:
 
   Comment:
     enabled: true
+    style: silent
 
   DebugStatement:
     enabled: true
@@ -109,6 +116,10 @@ linters:
   PlaceholderInExtend:
     enabled: true
 
+  PrivateNamingConvention:
+    enabled: false
+    prefix: _
+
   PropertyCount:
     enabled: false
     include_nested: false
@@ -123,6 +134,7 @@ linters:
   PropertySpelling:
     enabled: true
     extra_properties: []
+    disabled_properties: []
 
   PropertyUnits:
     enabled: true
@@ -136,6 +148,9 @@ linters:
       'dpi', 'dpcm', 'dppx',                   # Resolution
       '%']                                     # Other
     properties: {}
+
+  PseudoElement:
+    enabled: true
 
   QualifyingElement:
     enabled: true
@@ -153,7 +168,7 @@ linters:
 
   Shorthand:
     enabled: true
-    allowed_shorthands: [1, 2, 3]
+    allowed_shorthands: [1, 2, 3, 4]
 
   SingleLinePerProperty:
     enabled: true
@@ -166,6 +181,11 @@ linters:
     enabled: true
     style: one_space # or 'no_space', or 'at_least_one_space'
 
+  SpaceAfterComment:
+    enabled: false
+    style: one_space # or 'no_space', or 'at_least_one_space'
+    allow_empty_comments: true
+
   SpaceAfterPropertyColon:
     enabled: true
     style: one_space # or 'no_space', or 'at_least_one_space', or 'aligned'
@@ -173,12 +193,16 @@ linters:
   SpaceAfterPropertyName:
     enabled: true
 
+  SpaceAfterVariableColon:
+    enabled: false
+    style: one_space # or 'no_space', 'at_least_one_space' or 'one_space_or_newline'
+
   SpaceAfterVariableName:
     enabled: true
 
   SpaceAroundOperator:
     enabled: true
-    style: one_space # or 'no_space'
+    style: one_space # or 'at_least_one_space', or 'no_space'
 
   SpaceBeforeBrace:
     enabled: true

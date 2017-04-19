@@ -1,5 +1,6 @@
-@import 'reset';
-@import 'color';
+@import    'reset';
+@import    'color';
+@import    'font';
 body {
     background-color: $white;
 }
@@ -12,4 +13,4 @@ body {
     margin: 0 auto;
     max-width: 1160px;
 }
-@import 'header';
+@import     'header';

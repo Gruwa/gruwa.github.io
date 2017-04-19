@@ -1,13 +1,92 @@
+@mixin social {
+    background-image: url('../../img/social.png');
+    background-repeat: no-repeat;
+    cursor: pointer;
+    display: block;
+    float: right;
+    height: 17px;
+    margin-left: 15px;
+    width: 18px;
+}
+@mixin menulist {
+    box-sizing: border-box;
+    float: left;
+    border-right: solid 1px $border-nav;
+    padding: 22px 36px;
+}
+@mixin menulista {
+    color: $color-menu-list;
+    font-family: 'ubuntu_condensedregular', sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+}
 .header {
     margin: 36px 0;
     max-width: 100%;
 }
-.headBox {
-
+.head_box {
+    margin-bottom: 36px;
+    .logo {
+        float: left;
+    }
+    .social {
+        float: right;
+        .skype {
+            @include social;
+            background-position: -62px -17px;
+            &:hover {
+                background-position: -62px 0;
+            }
+        }
+        .in {
+            @include social;
+            background-position: -45px -17px;
+            &:hover {
+                background-position: -45px 0;
+            }
+        }
+        .rss {
+            @include social;
+            background-position: -27px -17px;
+            &:hover {
+                background-position: -27px 0;
+            }
+        }
+        .twitter {
+            @include social;
+            background-position: -10px -17px;
+            &:hover {
+                background-position: -10px 0;
+            }
+        }
+        .facebook {
+            @include social;
+            background-position: 0 -17px;
+            width: 12px;
+            &:hover {
+                background-position: 0 0;
+            }
+        }
+    }
 }
-.logo {
-    float: left;
-}
-.social {
-    float: right;
+.nav {
+    background-color: $background-nav;
+    .menu_header {
+        float: left;
+        .menu_list {
+            @include menulist;
+            a {
+                @include menulista;
+                &:hover {
+                    color: $color-menu-a-hover;
+                }
+            }
+            &:first-child{
+                background-color: $color-menu-list-focus;
+            }
+        }
+    }
+    .search {
+        float: right;
+    }
 }
