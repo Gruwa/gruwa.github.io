@@ -246,6 +246,37 @@ body {
       .nav .menu_header .menu_list:first-child {
         background-color: #248cec; }
   .nav .search {
-    float: right; }
+    float: right;
+    position: relative; }
+    .nav .search .gsc-search-button {
+      position: absolute;
+      top: 10px;
+      right: 9px;
+      background-color: transparent;
+      border: 0;
+      padding: 0;
+      background-image: transparent; }
+    .nav .search .gsc-input-box {
+      border-color: #181a1d;
+      width: 243px;
+      height: 42px;
+      background-color: #35383c;
+      padding-right: 15px; }
+    .nav .search .gsc-input {
+      background-image: none !important;
+      background-color: transparent !important;
+      text-indent: 0 !important;
+      padding-right: 0 !important;
+      font-size: 12px !important;
+      line-height: 36px;
+      color: rgba(255, 255, 255, 0.15) !important; }
+    .nav .search .gsc-control-cse {
+      background-color: transparent;
+      padding: 8px;
+      border: 0; }
+    .nav .search .gsc-search-box {
+      margin: 0; }
+    .nav .search .gsst_a {
+      display: none; }
 
 /*# sourceMappingURL=style.css.map */

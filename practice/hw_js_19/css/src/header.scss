@@ -88,5 +88,43 @@
     }
     .search {
         float: right;
+        position: relative;
+        .gsc-search-button {
+            position: absolute;
+            top: 10px;
+            right: 9px;
+            background-color: transparent;
+            border: 0;
+            padding: 0;
+            background-image: transparent;
+
+        }
+        .gsc-input-box {
+            border-color: rgb(24, 26, 29);
+            width: 243px;
+            height: 42px;
+            background-color: rgb(53, 56, 60);
+            padding-right: 15px;
+        }
+        .gsc-input {
+            background-image: none !important;
+            background-color: transparent !important;
+            text-indent: 0 !important;
+            padding-right: 0 !important;
+            font-size: 12px !important;
+            line-height: 36px;
+            color: rgba(255, 255, 255, .15) !important;
+        }
+        .gsc-control-cse {
+            background-color: transparent;
+            padding: 8px;
+            border: 0;
+        }
+        .gsc-search-box {
+            margin: 0;
+        }
+        .gsst_a {
+            display: none;
+        }
     }
 }
