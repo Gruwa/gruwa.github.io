@@ -20,7 +20,7 @@ module.exports = function(grunt) {
           concat: {
               dest: {
                 src: ['js/src/*.js'],
-                dest: 'css/dest/script.js'
+                dest: 'js/dest/script.js'
               }
           },
           uglify: {
