@@ -1,12 +1,12 @@
 @mixin social {
+    display: block;
+    height: 17px;
+    width: 18px;
+    float: right;
+    margin-left: 15px;
     background-image: url('../../img/social.png');
     background-repeat: no-repeat;
     cursor: pointer;
-    display: block;
-    float: right;
-    height: 17px;
-    margin-left: 15px;
-    width: 18px;
 }
 @mixin menulist {
     box-sizing: border-box;
@@ -15,13 +15,13 @@
     padding: 22px 36px;
 }
 @mixin menulista {
-    color: $color-menu-list;
     font-family: 'ubuntu_condensedregular', sans-serif;
     font-size: 14px;
     text-transform: uppercase;
+    color: $color-menu-list;
 }
 .header {
-    margin: 36px 0;
+    margin: 36px 0 40px;
     max-width: 100%;
 }
 .head_box {
@@ -87,38 +87,36 @@
         }
     }
     .search {
-        float: right;
         position: relative;
+        float: right;
         .gsc-search-button {
             position: absolute;
-            top: 10px;
             right: 9px;
-            background-color: transparent;
+            top: 10px;
             border: 0;
             padding: 0;
-            background-image: transparent;
-
+            background-color: transparent;
         }
         .gsc-input-box {
-            border-color: rgb(24, 26, 29);
             width: 243px;
             height: 42px;
-            background-color: rgb(53, 56, 60);
             padding-right: 15px;
+            border-color: $color-border-input;
+            background-color: $color-background-input;
         }
         .gsc-input {
-            background-image: none !important;
-            background-color: transparent !important;
-            text-indent: 0 !important;
             padding-right: 0 !important;
+            // background-image: none !important;
+            background-color: transparent !important;
+            // text-indent: 0 !important;
             font-size: 12px !important;
             line-height: 36px;
-            color: rgba(255, 255, 255, .85) !important;
+            color: $color-input-color !important;
         }
         .gsc-control-cse {
-            background-color: transparent;
             padding: 8px;
             border: 0;
+            background-color: transparent;
         }
         .gsc-search-box {
             margin: 0;
