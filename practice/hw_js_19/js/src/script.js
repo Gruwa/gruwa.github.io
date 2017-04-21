@@ -1,5 +1,5 @@
 $(function () {
     'use strict';
-    $(".owl-carousel").owlCarousel();
+    $('.bxslider').bxSlider();
     console.log($('#___gcse_0'));
 });

@@ -1,16 +1,3 @@
-$(function () {
-    'use strict';
-  (function() {
-    var cx = '012577494148929298528:dq_ytgguf-c';
-    var gcse = document.createElement('script');
-    gcse.type = 'text/javascript';
-    gcse.async = true;
-    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(gcse, s);
-  })();
-});
-
 /**
  * bxSlider v4.2.12
  * Copyright 2013-2015 Steven Wanderski
@@ -1618,9 +1605,3 @@ $(function () {
   };
 
 })(jQuery);
-
-$(function () {
-    'use strict';
-    $('.bxslider').bxSlider();
-    console.log($('#___gcse_0'));
-});
