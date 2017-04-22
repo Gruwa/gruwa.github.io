@@ -1,0 +1,50 @@
+@mixin servis {
+    float: left;
+    max-width: 260px;
+    margin-left: 40px;
+}
+@mixin imgservis {
+    display: inline-block;
+    width: 260px;
+    height: 260px;
+    margin-bottom: 34px;
+    background-image: url('../../img/servis1.jpg');
+    background-repeat: no-repeat;
+    border: 0;
+}
+@mixin textservis {
+    font-family: 'ubuntumedium', sans-serif;
+    font-size: 16px;
+    color: $color-servis-text;
+    text-align: center;
+}
+.servis-box {
+    @include wrapper;
+    padding: 48px 0 70px;
+    background-color: $background2;
+    .title-servis {
+        margin-bottom: 44px;
+        font-family: 'ubuntumedium', sans-serif;
+        font-size: 24px;
+        color: $color-servis-text;
+    }
+    .servis {
+        @include servis;
+        .img-servis {
+            @include imgservis;
+        }
+        a:hover .text-servis{
+            @include ahover;
+        }
+        a:hover .img-servis{
+            background-image:url('../../img/servis1.png');
+        }
+    }
+    .servis1 {
+        margin-left: 0;
+    }
+    .text-servis {
+        @include textservis;
+    }
+
+}

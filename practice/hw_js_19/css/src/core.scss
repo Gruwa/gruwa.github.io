@@ -1,0 +1,34 @@
+@mixin wrapper {
+    margin: 0 auto;
+    max-width: 1160px;
+}
+body {
+    background-color: $background;
+}
+.clearfix:after {
+    clear: both;
+    content: '';
+    display: block;
+}
+.wrapper {
+    margin: 0 auto;
+    max-width: 100%;
+}
+.wrapper1 {
+    background-color: $background;
+}
+.wrapper2 {
+    background-color: #2a2d32;
+}
+.wrapper3 {
+    background-color: #f7f7f7;
+}
+.wrapper4 {
+    background-color: $background;
+}
+.wrapper5 {
+    background-color: #2a2d32;
+}
+.wrapper6 {
+    background-color: rgba(255,255,255, .05);
+}

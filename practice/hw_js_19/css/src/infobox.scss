@@ -1,3 +1,86 @@
-.infoBox {
-    margin: 65px 0 79px;
+@mixin infbox {
+    float: left;
+    max-width: 360px;
+    max-height: 191px;
+    margin-left: 40px;
+}
+@mixin number {
+    box-sizing: border-box;
+    float: left;
+    margin-right: 17px;
+    margin-top: -15px;
+    font-family: 'ubuntumedium', sans-serif;
+    font-size: 90px;
+    color: $color-infobox-number;
+}
+@mixin boxcontent {
+    float: left;
+    width: 240px;
+}
+@mixin boxtitle {
+    font-family: 'ubuntumedium', sans-serif;
+    font-size: 20px;
+    color: $color-infobox-boxt;
+    margin: 20px 0 27px;
+}
+@mixin boxinfo {
+    font-family: 'arial', sans-serif;
+    font-size: 13px;
+    color: $color-infobox-boxinfo;
+    line-height: 1.538;
+    margin-bottom: 26px;
+}
+@mixin boxreadmore {
+    margin-bottom: 87px;
+}
+@mixin readmore {
+    font-family: 'ubuntumedium', sans-serif;
+    font-size: 13px;
+    color: $color-infobox-boxt;
+    &:hover {
+        color: $color-infobox-readmore-focus;
+    }
+    &:hover .readmore-span{
+        background-position: -11px 0px;
+    }
+}
+@mixin readmorespan {
+    display: inline-block;
+    width: 10px;
+    height: 9px;
+    margin-left: 9px;
+    background-image: url('../../img/row.png');
+    background-repeat: no-repeat;
+}
+.info-boxes {
+    @include wrapper;
+    padding: 65px 0 79px;
+    background-color: $background;
+}
+.inf-box {
+    @include infbox;
+    .number {
+        @include number;
+    }
+    .box-content {
+        @include boxcontent;
+        .box-title {
+            @include boxtitle;
+        }
+        .box-info {
+            @include boxinfo;
+        }
+        .box-readmore {
+            @include boxreadmore;
+        }
+        .readmore {
+            @include readmore;
+        }
+        .readmore-span {
+            @include readmorespan;
+        }
+    }
+}
+.inf-box1 {
+    margin-left: 0;
 }

@@ -1,19 +1,9 @@
-@import    'reset';
-@import    'color';
-@import    'font';
-body {
-    background-color: $white;
-}
-.clearfix:after {
-    clear: both;
-    content: '';
-    display: block;
-}
-.wrapper {
-    margin: 0 auto;
-    max-width: 1160px;
-}
+@import     'reset';
+@import     'color';
+@import     'font';
+@import     'core';
 @import     'header';
 @import     'jquery.bxslider';
 @import     'sliderbox';
 @import     'infobox';
+@import     'servisbox';

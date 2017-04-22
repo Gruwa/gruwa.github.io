@@ -20,9 +20,12 @@
     text-transform: uppercase;
     color: $color-menu-list;
 }
+@mixin ahover {
+    color: $color-a-hover1;
+}
 .header {
-    margin: 36px 0 40px;
-    max-width: 100%;
+    @include wrapper;
+    padding: 36px 0 40px;
 }
 .head_box {
     margin-bottom: 36px;
@@ -70,7 +73,7 @@
     }
 }
 .nav {
-    background-color: $background-nav;
+    background-color: $background2;
     .menu_header {
         float: left;
         .menu_list {
@@ -78,7 +81,7 @@
             a {
                 @include menulista;
                 &:hover {
-                    color: $color-menu-a-hover;
+                    @include ahover;
                 }
             }
             &:first-child{
