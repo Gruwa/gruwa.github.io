@@ -575,28 +575,90 @@ ul.bxslider {
     font-family: 'ubuntumedium', sans-serif;
     font-size: 24px;
     color: #fff; }
-  .servis-box .servis {
+  .servis-box .servis1 {
     float: left;
     max-width: 260px;
-    margin-left: 40px; }
-    .servis-box .servis .img-servis {
+    margin-left: 40px;
+    margin-left: 0; }
+    .servis-box .servis1 .img-servis1 {
       display: inline-block;
       width: 260px;
       height: 260px;
       margin-bottom: 34px;
-      background-image: url("../../img/servis1.jpg");
       background-repeat: no-repeat;
-      border: 0; }
-    .servis-box .servis a:hover .text-servis {
+      border: 0;
+      background-image: url("../../img/servis1.jpg"); }
+    .servis-box .servis1 a:hover .text-servis1 {
       color: #f4b60d; }
-    .servis-box .servis a:hover .img-servis {
+    .servis-box .servis1 a:hover .img-servis1 {
       background-image: url("../../img/servis1.png"); }
-  .servis-box .servis1 {
-    margin-left: 0; }
-  .servis-box .text-servis {
-    font-family: 'ubuntumedium', sans-serif;
-    font-size: 16px;
-    color: #fff;
-    text-align: center; }
+    .servis-box .servis1 .text-servis1 {
+      font-family: 'ubuntumedium', sans-serif;
+      font-size: 16px;
+      color: #fff;
+      text-align: center; }
+  .servis-box .servis2 {
+    float: left;
+    max-width: 260px;
+    margin-left: 40px; }
+    .servis-box .servis2 .img-servis2 {
+      display: inline-block;
+      width: 260px;
+      height: 260px;
+      margin-bottom: 34px;
+      background-repeat: no-repeat;
+      border: 0;
+      background-image: url("../../img/servis2.jpg"); }
+    .servis-box .servis2 a:hover .text-servis2 {
+      color: #f4b60d; }
+    .servis-box .servis2 a:hover .img-servis2 {
+      background-image: url("../../img/servis2.png"); }
+    .servis-box .servis2 .text-servis2 {
+      font-family: 'ubuntumedium', sans-serif;
+      font-size: 16px;
+      color: #fff;
+      text-align: center; }
+  .servis-box .servis3 {
+    float: left;
+    max-width: 260px;
+    margin-left: 40px; }
+    .servis-box .servis3 .img-servis3 {
+      display: inline-block;
+      width: 260px;
+      height: 260px;
+      margin-bottom: 34px;
+      background-repeat: no-repeat;
+      border: 0;
+      background-image: url("../../img/servis3.jpg"); }
+    .servis-box .servis3 a:hover .text-servis3 {
+      color: #f4b60d; }
+    .servis-box .servis3 a:hover .img-servis3 {
+      background-image: url("../../img/servis3.png"); }
+    .servis-box .servis3 .text-servis3 {
+      font-family: 'ubuntumedium', sans-serif;
+      font-size: 16px;
+      color: #fff;
+      text-align: center; }
+  .servis-box .servis4 {
+    float: left;
+    max-width: 260px;
+    margin-left: 40px; }
+    .servis-box .servis4 .img-servis4 {
+      display: inline-block;
+      width: 260px;
+      height: 260px;
+      margin-bottom: 34px;
+      background-repeat: no-repeat;
+      border: 0;
+      background-image: url("../../img/servis4.jpg"); }
+    .servis-box .servis4 a:hover .text-servis4 {
+      color: #f4b60d; }
+    .servis-box .servis4 a:hover .img-servis4 {
+      background-image: url("../../img/servis4.png"); }
+    .servis-box .servis4 .text-servis4 {
+      font-family: 'ubuntumedium', sans-serif;
+      font-size: 16px;
+      color: #fff;
+      text-align: center; }
 
 /*# sourceMappingURL=style.css.map */
