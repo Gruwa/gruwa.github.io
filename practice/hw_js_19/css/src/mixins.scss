@@ -1,0 +1,68 @@
+@mixin wrapper($pt: 0, $pb: 0, $bc: $background) {
+    max-width: 1160px;
+    padding: $pt 0 $pb;
+    margin: 0 auto;
+    background-color: $bc;
+}
+@mixin wrapperback($bc: $background) {
+    background-color: $bc;
+}
+@mixin fontubumed($fs: 24px, $c: $color-servis-text, $ff: 'ubuntumedium') {
+    font-family: $ff, sans-serif;
+    font-size: $fs;
+    color: $c;
+}
+@mixin social($bpx: -62px, $bpy: -17px, $wid: 18px) {
+    display: block;
+    height: 17px;
+    width: $wid;
+    float: right;
+    margin-left: 15px;
+    background-image: url('../../img/social.png');
+    background-repeat: no-repeat;
+    background-position: $bpx $bpy;
+    cursor: pointer;
+}
+@mixin menulist {
+    box-sizing: border-box;
+    float: left;
+    border-right: solid 1px $border-nav;
+    padding: 22px 36px;
+}
+@mixin menulista {
+    @include fontubumed(14px, $color-menu-list, 'ubuntu_condensedregular');
+    text-transform: uppercase;
+}
+@mixin ahover {
+    color: $color-hover;
+}
+@mixin servis($ml: 40px) {
+    float: left;
+    max-width: 260px;
+    margin-left: $ml;
+}
+@mixin imgservis($bi: none) {
+    display: inline-block;
+    width: 260px;
+    height: 260px;
+    margin-bottom: 34px;
+    background-image: $bi;
+    background-repeat: no-repeat;
+    border: 0;
+}
+@mixin textservis {
+    @include fontubumed(16px, $color-servis-text);
+    text-align: center;
+}
+@mixin infbox($ml: 40px) {
+    float: left;
+    max-width: 360px;
+    max-height: 191px;
+    margin-left: $ml;
+}
+@mixin margin($mt: 0, $mr: 0, $mb: 0, $ml: 0) {
+    margin-top: $mt;
+    margin-right: $mr;
+    margin-bottom: $mb;
+    margin-left: $ml;
+}

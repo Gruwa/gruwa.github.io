@@ -1,86 +1,45 @@
-@mixin infbox {
-    float: left;
-    max-width: 360px;
-    max-height: 191px;
-    margin-left: 40px;
-}
-@mixin number {
-    box-sizing: border-box;
-    float: left;
-    margin-right: 17px;
-    margin-top: -15px;
-    font-family: 'ubuntumedium', sans-serif;
-    font-size: 90px;
-    color: $color-infobox-number;
-}
-@mixin boxcontent {
-    float: left;
-    width: 240px;
-}
-@mixin boxtitle {
-    font-family: 'ubuntumedium', sans-serif;
-    font-size: 20px;
-    color: $color-infobox-boxt;
-    margin: 20px 0 27px;
-}
-@mixin boxinfo {
-    font-family: 'arial', sans-serif;
-    font-size: 13px;
-    color: $color-infobox-boxinfo;
-    line-height: 1.538;
-    margin-bottom: 26px;
-}
-@mixin boxreadmore {
-    margin-bottom: 87px;
-}
-@mixin readmore {
-    font-family: 'ubuntumedium', sans-serif;
-    font-size: 13px;
-    color: $color-infobox-boxt;
-    &:hover {
-        color: $color-infobox-readmore-focus;
-    }
-    &:hover .readmore-span{
-        background-position: -11px 0px;
-    }
-}
-@mixin readmorespan {
-    display: inline-block;
-    width: 10px;
-    height: 9px;
-    margin-left: 9px;
-    background-image: url('../../img/row.png');
-    background-repeat: no-repeat;
-}
 .info-boxes {
-    @include wrapper;
-    padding: 65px 0 79px;
-    background-color: $background;
+    @include wrapper(65px, 79px);
 }
 .inf-box {
-    @include infbox;
+    @include infbox(0);
     .number {
-        @include number;
+        @include fontubumed(90px, $color-infobox-number);
+        @include margin(-15px, 17px);
+        box-sizing: border-box;
+        float: left;
     }
     .box-content {
-        @include boxcontent;
+        float: left;
+        width: 240px;
         .box-title {
-            @include boxtitle;
+            @include fontubumed(20px, $color-infobox-boxt);
+            @include margin(20px, 0, 27px);
         }
         .box-info {
-            @include boxinfo;
+            @include fontubumed(13px, $color-infobox-boxinfo, 'arial');
+            line-height: 1.538;
+            @include margin(0, 0, 26px);
         }
         .box-readmore {
-            @include boxreadmore;
+            @include margin(0, 0, 87px);
         }
         .readmore {
-            @include readmore;
+            @include fontubumed(13px, $color-infobox-boxt);
+            &:hover {
+                color: $color-focus;
+            }
+            &:hover .readmore-span{
+                background-position: -11px 0px;
+            }
         }
         .readmore-span {
-            @include readmorespan;
+            @include margin(0, 0, 0, 9px);
+            display: inline-block;
+            width: 10px;
+            height: 9px;
+            background-image: url('../../img/row.png');
+            background-repeat: no-repeat;
         }
     }
-}
-.inf-box1 {
-    margin-left: 0;
 }

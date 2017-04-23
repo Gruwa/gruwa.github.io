@@ -1,44 +1,19 @@
-@mixin servis {
-    float: left;
-    max-width: 260px;
-    margin-left: 40px;
-}
-@mixin imgservis {
-    display: inline-block;
-    width: 260px;
-    height: 260px;
-    margin-bottom: 34px;
-    background-repeat: no-repeat;
-    border: 0;
-}
-@mixin textservis {
-    font-family: 'ubuntumedium', sans-serif;
-    font-size: 16px;
-    color: $color-servis-text;
-    text-align: center;
-}
 .servis-box {
-    @include wrapper;
-    padding: 48px 0 70px;
-    background-color: $background2;
+    @include wrapper(48px, 70px, $background2);
     .title-servis {
         margin-bottom: 44px;
-        font-family: 'ubuntumedium', sans-serif;
-        font-size: 24px;
-        color: $color-servis-text;
+        @include fontubumed;
     }
     .servis1 {
-        @include servis;
-        margin-left: 0;
+        @include servis(0);
         .img-servis1 {
-            @include imgservis;
-            background-image: url('../../img/servis1.jpg');
+            @include imgservis(url('../../img/servis1.jpg'));
         }
         a:hover .text-servis1{
             @include ahover;
         }
         a:hover .img-servis1{
-            background-image:url('../../img/servis1.png');
+            @include imgservis(url('../../img/servis1.png'));
         }
         .text-servis1 {
             @include textservis;
@@ -47,14 +22,13 @@
     .servis2 {
         @include servis;
         .img-servis2 {
-            @include imgservis;
-            background-image: url('../../img/servis2.jpg');
+            @include imgservis(url('../../img/servis2.jpg'));
         }
         a:hover .text-servis2{
             @include ahover;
         }
         a:hover .img-servis2{
-            background-image:url('../../img/servis2.png');
+            @include imgservis(url('../../img/servis2.png'));
         }
         .text-servis2 {
             @include textservis;
@@ -63,14 +37,13 @@
     .servis3 {
         @include servis;
         .img-servis3 {
-            @include imgservis;
-            background-image: url('../../img/servis3.jpg');
+            @include imgservis(url('../../img/servis3.jpg'));
         }
         a:hover .text-servis3{
             @include ahover;
         }
         a:hover .img-servis3{
-            background-image:url('../../img/servis3.png');
+            @include imgservis(url('../../img/servis3.png'));
         }
         .text-servis3 {
             @include textservis;
@@ -79,14 +52,13 @@
     .servis4 {
         @include servis;
         .img-servis4 {
-            @include imgservis;
-            background-image: url('../../img/servis4.jpg');
+            @include imgservis(url('../../img/servis4.jpg'));
         }
         a:hover .text-servis4{
             @include ahover;
         }
         a:hover .img-servis4{
-            background-image:url('../../img/servis4.png');
+            @include imgservis(url('../../img/servis4.png'));
         }
         .text-servis4 {
             @include textservis;

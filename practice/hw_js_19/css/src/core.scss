@@ -1,34 +1,26 @@
-@mixin wrapper {
-    margin: 0 auto;
-    max-width: 1160px;
-}
 body {
-    background-color: $background;
+    @include wrapperback;
 }
 .clearfix:after {
     clear: both;
     content: '';
     display: block;
 }
-.wrapper {
-    margin: 0 auto;
-    max-width: 100%;
-}
 .wrapper1 {
-    background-color: $background;
+    @include wrapperback;
 }
 .wrapper2 {
-    background-color: #2a2d32;
+    @include wrapperback($background2);
 }
 .wrapper3 {
-    background-color: #f7f7f7;
+    @include wrapperback($background3);
 }
 .wrapper4 {
-    background-color: $background;
+    @include wrapperback;
 }
 .wrapper5 {
-    background-color: #2a2d32;
+    @include wrapperback($background2);
 }
 .wrapper6 {
-    background-color: rgba(255,255,255, .05);
+    @include wrapperback($background4);
 }

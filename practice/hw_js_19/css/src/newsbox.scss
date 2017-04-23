@@ -1,0 +1,19 @@
+.news-box {
+    @include wrapper(64px, 83px, $background3);
+    .latest-news-title {
+        @include fontubumed(24px, $color-text);
+        @include margin(0, 0, 49px);
+    }
+    .news-boxes-content {
+        width: 560px;
+        &::before {
+            display: block;
+            width: 40px;
+            height: 40px;
+            @include wrapperback($background5);
+        }
+    }
+    .content-box {
+        @include margin(0, 0, 30px);
+    }
+}

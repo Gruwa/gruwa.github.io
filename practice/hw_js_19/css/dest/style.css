@@ -151,10 +151,6 @@ body {
   content: '';
   display: block; }
 
-.wrapper {
-  margin: 0 auto;
-  max-width: 100%; }
-
 .wrapper1 {
   background-color: #fff; }
 
@@ -174,9 +170,10 @@ body {
   background-color: rgba(255, 255, 255, 0.05); }
 
 .header {
-  margin: 0 auto;
   max-width: 1160px;
-  padding: 36px 0 40px; }
+  padding: 36px 0 40px;
+  margin: 0 auto;
+  background-color: #fff; }
 
 .head_box {
   margin-bottom: 36px; }
@@ -192,10 +189,18 @@ body {
       margin-left: 15px;
       background-image: url("../../img/social.png");
       background-repeat: no-repeat;
-      cursor: pointer;
-      background-position: -62px -17px; }
+      background-position: -62px -17px;
+      cursor: pointer; }
       .head_box .social .skype:hover {
-        background-position: -62px 0; }
+        display: block;
+        height: 17px;
+        width: 18px;
+        float: right;
+        margin-left: 15px;
+        background-image: url("../../img/social.png");
+        background-repeat: no-repeat;
+        background-position: -62px 0;
+        cursor: pointer; }
     .head_box .social .in {
       display: block;
       height: 17px;
@@ -204,10 +209,18 @@ body {
       margin-left: 15px;
       background-image: url("../../img/social.png");
       background-repeat: no-repeat;
-      cursor: pointer;
-      background-position: -45px -17px; }
+      background-position: -45px -17px;
+      cursor: pointer; }
       .head_box .social .in:hover {
-        background-position: -45px 0; }
+        display: block;
+        height: 17px;
+        width: 18px;
+        float: right;
+        margin-left: 15px;
+        background-image: url("../../img/social.png");
+        background-repeat: no-repeat;
+        background-position: -45px 0;
+        cursor: pointer; }
     .head_box .social .rss {
       display: block;
       height: 17px;
@@ -216,10 +229,18 @@ body {
       margin-left: 15px;
       background-image: url("../../img/social.png");
       background-repeat: no-repeat;
-      cursor: pointer;
-      background-position: -27px -17px; }
+      background-position: -27px -17px;
+      cursor: pointer; }
       .head_box .social .rss:hover {
-        background-position: -27px 0; }
+        display: block;
+        height: 17px;
+        width: 18px;
+        float: right;
+        margin-left: 15px;
+        background-image: url("../../img/social.png");
+        background-repeat: no-repeat;
+        background-position: -27px 0;
+        cursor: pointer; }
     .head_box .social .twitter {
       display: block;
       height: 17px;
@@ -228,23 +249,38 @@ body {
       margin-left: 15px;
       background-image: url("../../img/social.png");
       background-repeat: no-repeat;
-      cursor: pointer;
-      background-position: -10px -17px; }
+      background-position: -10px -17px;
+      cursor: pointer; }
       .head_box .social .twitter:hover {
-        background-position: -10px 0; }
+        display: block;
+        height: 17px;
+        width: 18px;
+        float: right;
+        margin-left: 15px;
+        background-image: url("../../img/social.png");
+        background-repeat: no-repeat;
+        background-position: -10px 0;
+        cursor: pointer; }
     .head_box .social .facebook {
       display: block;
       height: 17px;
-      width: 18px;
+      width: 12px;
       float: right;
       margin-left: 15px;
       background-image: url("../../img/social.png");
       background-repeat: no-repeat;
-      cursor: pointer;
       background-position: 0 -17px;
-      width: 12px; }
+      cursor: pointer; }
       .head_box .social .facebook:hover {
-        background-position: 0 0; }
+        display: block;
+        height: 17px;
+        width: 12px;
+        float: right;
+        margin-left: 15px;
+        background-image: url("../../img/social.png");
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        cursor: pointer; }
 
 .nav {
   background-color: #2a2d32; }
@@ -256,10 +292,10 @@ body {
       border-right: solid 1px #000;
       padding: 22px 36px; }
       .nav .menu_header .menu_list a {
-        font-family: 'ubuntu_condensedregular', sans-serif;
+        font-family: "ubuntu_condensedregular", sans-serif;
         font-size: 14px;
-        text-transform: uppercase;
-        color: #fff; }
+        color: #fff;
+        text-transform: uppercase; }
         .nav .menu_header .menu_list a:hover {
           color: #f4b60d; }
       .nav .menu_header .menu_list:first-child {
@@ -472,8 +508,10 @@ ul.bxslider {
   padding: 10px; }
 
 .slider-box {
+  max-width: 1160px;
+  padding: 0 0 0;
   margin: 0 auto;
-  max-width: 1160px; }
+  background-color: #fff; }
 
 .bx-wrapper {
   border: 0; }
@@ -512,42 +550,53 @@ ul.bxslider {
   background: #000; }
 
 .info-boxes {
-  margin: 0 auto;
   max-width: 1160px;
   padding: 65px 0 79px;
+  margin: 0 auto;
   background-color: #fff; }
 
 .inf-box {
   float: left;
   max-width: 360px;
   max-height: 191px;
-  margin-left: 40px; }
+  margin-left: 0; }
   .inf-box .number {
-    box-sizing: border-box;
-    float: left;
-    margin-right: 17px;
-    margin-top: -15px;
-    font-family: 'ubuntumedium', sans-serif;
+    font-family: "ubuntumedium", sans-serif;
     font-size: 90px;
-    color: rgba(42, 43, 46, 0.1); }
+    color: rgba(42, 43, 46, 0.1);
+    margin-top: -15px;
+    margin-right: 17px;
+    margin-bottom: 0;
+    margin-left: 0;
+    box-sizing: border-box;
+    float: left; }
   .inf-box .box-content {
     float: left;
     width: 240px; }
     .inf-box .box-content .box-title {
-      font-family: 'ubuntumedium', sans-serif;
+      font-family: "ubuntumedium", sans-serif;
       font-size: 20px;
       color: #2a2b2e;
-      margin: 20px 0 27px; }
+      margin-top: 20px;
+      margin-right: 0;
+      margin-bottom: 27px;
+      margin-left: 0; }
     .inf-box .box-content .box-info {
-      font-family: 'arial', sans-serif;
+      font-family: "arial", sans-serif;
       font-size: 13px;
       color: #8a8a8a;
       line-height: 1.538;
-      margin-bottom: 26px; }
+      margin-top: 0;
+      margin-right: 0;
+      margin-bottom: 26px;
+      margin-left: 0; }
     .inf-box .box-content .box-readmore {
-      margin-bottom: 87px; }
+      margin-top: 0;
+      margin-right: 0;
+      margin-bottom: 87px;
+      margin-left: 0; }
     .inf-box .box-content .readmore {
-      font-family: 'ubuntumedium', sans-serif;
+      font-family: "ubuntumedium", sans-serif;
       font-size: 13px;
       color: #2a2b2e; }
       .inf-box .box-content .readmore:hover {
@@ -555,45 +604,50 @@ ul.bxslider {
       .inf-box .box-content .readmore:hover .readmore-span {
         background-position: -11px 0px; }
     .inf-box .box-content .readmore-span {
+      margin-top: 0;
+      margin-right: 0;
+      margin-bottom: 0;
+      margin-left: 9px;
       display: inline-block;
       width: 10px;
       height: 9px;
-      margin-left: 9px;
       background-image: url("../../img/row.png");
       background-repeat: no-repeat; }
 
-.inf-box1 {
-  margin-left: 0; }
-
 .servis-box {
-  margin: 0 auto;
   max-width: 1160px;
   padding: 48px 0 70px;
+  margin: 0 auto;
   background-color: #2a2d32; }
   .servis-box .title-servis {
     margin-bottom: 44px;
-    font-family: 'ubuntumedium', sans-serif;
+    font-family: "ubuntumedium", sans-serif;
     font-size: 24px;
     color: #fff; }
   .servis-box .servis1 {
     float: left;
     max-width: 260px;
-    margin-left: 40px;
     margin-left: 0; }
     .servis-box .servis1 .img-servis1 {
       display: inline-block;
       width: 260px;
       height: 260px;
       margin-bottom: 34px;
+      background-image: url("../../img/servis1.jpg");
       background-repeat: no-repeat;
-      border: 0;
-      background-image: url("../../img/servis1.jpg"); }
+      border: 0; }
     .servis-box .servis1 a:hover .text-servis1 {
       color: #f4b60d; }
     .servis-box .servis1 a:hover .img-servis1 {
-      background-image: url("../../img/servis1.png"); }
+      display: inline-block;
+      width: 260px;
+      height: 260px;
+      margin-bottom: 34px;
+      background-image: url("../../img/servis1.png");
+      background-repeat: no-repeat;
+      border: 0; }
     .servis-box .servis1 .text-servis1 {
-      font-family: 'ubuntumedium', sans-serif;
+      font-family: "ubuntumedium", sans-serif;
       font-size: 16px;
       color: #fff;
       text-align: center; }
@@ -606,15 +660,21 @@ ul.bxslider {
       width: 260px;
       height: 260px;
       margin-bottom: 34px;
+      background-image: url("../../img/servis2.jpg");
       background-repeat: no-repeat;
-      border: 0;
-      background-image: url("../../img/servis2.jpg"); }
+      border: 0; }
     .servis-box .servis2 a:hover .text-servis2 {
       color: #f4b60d; }
     .servis-box .servis2 a:hover .img-servis2 {
-      background-image: url("../../img/servis2.png"); }
+      display: inline-block;
+      width: 260px;
+      height: 260px;
+      margin-bottom: 34px;
+      background-image: url("../../img/servis2.png");
+      background-repeat: no-repeat;
+      border: 0; }
     .servis-box .servis2 .text-servis2 {
-      font-family: 'ubuntumedium', sans-serif;
+      font-family: "ubuntumedium", sans-serif;
       font-size: 16px;
       color: #fff;
       text-align: center; }
@@ -627,15 +687,21 @@ ul.bxslider {
       width: 260px;
       height: 260px;
       margin-bottom: 34px;
+      background-image: url("../../img/servis3.jpg");
       background-repeat: no-repeat;
-      border: 0;
-      background-image: url("../../img/servis3.jpg"); }
+      border: 0; }
     .servis-box .servis3 a:hover .text-servis3 {
       color: #f4b60d; }
     .servis-box .servis3 a:hover .img-servis3 {
-      background-image: url("../../img/servis3.png"); }
+      display: inline-block;
+      width: 260px;
+      height: 260px;
+      margin-bottom: 34px;
+      background-image: url("../../img/servis3.png");
+      background-repeat: no-repeat;
+      border: 0; }
     .servis-box .servis3 .text-servis3 {
-      font-family: 'ubuntumedium', sans-serif;
+      font-family: "ubuntumedium", sans-serif;
       font-size: 16px;
       color: #fff;
       text-align: center; }
@@ -648,17 +714,49 @@ ul.bxslider {
       width: 260px;
       height: 260px;
       margin-bottom: 34px;
+      background-image: url("../../img/servis4.jpg");
       background-repeat: no-repeat;
-      border: 0;
-      background-image: url("../../img/servis4.jpg"); }
+      border: 0; }
     .servis-box .servis4 a:hover .text-servis4 {
       color: #f4b60d; }
     .servis-box .servis4 a:hover .img-servis4 {
-      background-image: url("../../img/servis4.png"); }
+      display: inline-block;
+      width: 260px;
+      height: 260px;
+      margin-bottom: 34px;
+      background-image: url("../../img/servis4.png");
+      background-repeat: no-repeat;
+      border: 0; }
     .servis-box .servis4 .text-servis4 {
-      font-family: 'ubuntumedium', sans-serif;
+      font-family: "ubuntumedium", sans-serif;
       font-size: 16px;
       color: #fff;
       text-align: center; }
+
+.news-box {
+  max-width: 1160px;
+  padding: 64px 0 83px;
+  margin: 0 auto;
+  background-color: #f7f7f7; }
+  .news-box .latest-news-title {
+    font-family: "ubuntumedium", sans-serif;
+    font-size: 24px;
+    color: #2a2d32;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 49px;
+    margin-left: 0; }
+  .news-box .news-boxes-content {
+    width: 560px; }
+    .news-box .news-boxes-content::before {
+      display: block;
+      width: 40px;
+      height: 40px;
+      background-color: #248cec; }
+  .news-box .content-box {
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 30px;
+    margin-left: 0; }
 
 /*# sourceMappingURL=style.css.map */

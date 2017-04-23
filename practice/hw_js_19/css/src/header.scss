@@ -1,31 +1,5 @@
-@mixin social {
-    display: block;
-    height: 17px;
-    width: 18px;
-    float: right;
-    margin-left: 15px;
-    background-image: url('../../img/social.png');
-    background-repeat: no-repeat;
-    cursor: pointer;
-}
-@mixin menulist {
-    box-sizing: border-box;
-    float: left;
-    border-right: solid 1px $border-nav;
-    padding: 22px 36px;
-}
-@mixin menulista {
-    font-family: 'ubuntu_condensedregular', sans-serif;
-    font-size: 14px;
-    text-transform: uppercase;
-    color: $color-menu-list;
-}
-@mixin ahover {
-    color: $color-a-hover1;
-}
 .header {
-    @include wrapper;
-    padding: 36px 0 40px;
+    @include wrapper(36px, 40px);
 }
 .head_box {
     margin-bottom: 36px;
@@ -36,44 +10,38 @@
         float: right;
         .skype {
             @include social;
-            background-position: -62px -17px;
             &:hover {
-                background-position: -62px 0;
+                @include social(-62px, 0);
             }
         }
         .in {
-            @include social;
-            background-position: -45px -17px;
+            @include social(-45px, -17px);
             &:hover {
-                background-position: -45px 0;
+                @include social(-45px, 0);
             }
         }
         .rss {
-            @include social;
-            background-position: -27px -17px;
+            @include social(-27px, -17px);
             &:hover {
-                background-position: -27px 0;
+                @include social(-27px, 0);
             }
         }
         .twitter {
-            @include social;
-            background-position: -10px -17px;
+            @include social(-10px, -17px);
             &:hover {
-                background-position: -10px 0;
+                @include social(-10px, 0);
             }
         }
         .facebook {
-            @include social;
-            background-position: 0 -17px;
-            width: 12px;
+            @include social(0, -17px, 12px);
             &:hover {
-                background-position: 0 0;
+                @include social(0, 0, 12px);
             }
         }
     }
 }
 .nav {
-    background-color: $background2;
+    @include wrapperback($background2);
     .menu_header {
         float: left;
         .menu_list {
@@ -85,7 +53,7 @@
                 }
             }
             &:first-child{
-                background-color: $color-menu-list-focus;
+                @include wrapperback($color-focus);
             }
         }
     }
