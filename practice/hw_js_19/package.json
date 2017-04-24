@@ -9,13 +9,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "bootstrap": "^4.0.0-alpha.6",
     "grunt": "^1.0.1",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-cssmin": "^2.1.0",
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-uglify": "^2.3.0",
     "grunt-contrib-watch": "^1.0.0",
-    "grunt-sass": "^2.0.0"
+    "grunt-sass": "^2.0.0",
+    "sass-lint": "^1.10.2"
   }
 }
