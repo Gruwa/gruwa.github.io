@@ -1,19 +1,87 @@
+@mixin contentdate($bc: $background5, $t: 12px, $pt: 15px, $c: $color-text2) {
+    position: absolute;
+    top: $t;
+    left: -17px;
+    display: block;
+    box-sizing: border-box;
+    width: 40px;
+    height: 40px;
+    @include padding($pt);
+    text-align: center;
+    @include wrapperback($bc);
+    color: $c;
+}
 .news-box {
     @include wrapper(64px, 83px, $background3);
-    .latest-news-title {
-        @include fontubumed(24px, $color-text);
-        @include margin(0, 0, 49px);
-    }
-    .news-boxes-content {
+    .latest-news {
+        float: left;
         width: 560px;
-        &::before {
-            display: block;
-            width: 40px;
-            height: 40px;
-            @include wrapperback($background5);
+        @include margin(0, 40px);
+        .latest-news-title {
+            @include fontubumed(24px, $color-text);
+            @include margin(0, 0, 49px);
+        }
+        .content-box {
+            @include margin(0, 0, 30px);
+            position: relative;
+            .content-month {
+                @include contentdate;
+            }
+            .content-day {
+                @include contentdate($background6, 52px, 14px, $color-text3);
+            }
+            .content-img {
+                @include margin(0, 33px);
+                float: left;
+            }
+            .content-info {
+                max-width: 377px;
+                float: right;
+            }
+            .content-info-title a{
+                @include fontubumed(16px, $color-text);
+                line-height: 1.25;
+                &:hover {
+                    @include fontubumed(16px, $color-hover2);
+                }
+            }
+            .content-info-by {
+                @include fontubumed(13px, $color-text5, 'arial');
+                line-height: 1.538;
+                span {
+                    @include fontubumed(13px, $color-text6, 'arial');
+                    @include margin(0, 10px);
+                }
+                span:last-child {
+                    @include margin;
+                }
+            }
+            .content-info-text {
+                @include fontubumed(13px, $color-text4, 'arial');
+                line-height: 1.538;
+                display: inline-block;
+                @include margin(28px);
+            }
+
         }
     }
-    .content-box {
-        @include margin(0, 0, 30px);
+    .banners-place {
+        float: left;
+        .banners-place-title {
+            @include fontubumed(24px, $color-text);
+            @include margin(0, 0, 49px);
+        }
+        .panel {
+            width: 523px;
+            height: 39px;
+            @include wrapperback($background6);
+            .accordion-plus {
+                box-sizing: border-box;
+                float: left;
+                width: 39px;
+                height: 100%;
+                border-right: 1px solid rgba(255, 255, 255, .2);
+            }
+        }
     }
 }

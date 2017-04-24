@@ -12,6 +12,18 @@
     font-size: $fs;
     color: $c;
 }
+@mixin margin($mt: 0, $mr: 0, $mb: 0, $ml: 0) {
+    margin-top: $mt;
+    margin-right: $mr;
+    margin-bottom: $mb;
+    margin-left: $ml;
+}
+@mixin padding($pt: 0, $pr: 0, $pb: 0, $pl: 0) {
+    padding-top: $pt;
+    padding-right: $pr;
+    padding-bottom: $pb;
+    padding-left: $pl;
+}
 @mixin social($bpx: -62px, $bpy: -17px, $wid: 18px) {
     display: block;
     height: 17px;
@@ -58,11 +70,5 @@
     float: left;
     max-width: 360px;
     max-height: 191px;
-    margin-left: $ml;
-}
-@mixin margin($mt: 0, $mr: 0, $mb: 0, $ml: 0) {
-    margin-top: $mt;
-    margin-right: $mr;
-    margin-bottom: $mb;
     margin-left: $ml;
 }

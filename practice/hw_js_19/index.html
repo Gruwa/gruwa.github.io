@@ -96,18 +96,18 @@
                 <div class="news-box clearfix">
                     <div class="latest-news">
                         <p class="latest-news-title">Latest News</p>
-                        <div class="news-boxes-content">
-                            <div class="content-box clearfix">
-                                <img src="#" alt="" class="content-img">
-                                <div class="content-info">
-                                    <p class="content-info-title"><span></span></p>
-                                    <p class="content-info-text"></p>
-                                </div>
+                        <div id="latestNewsIn"></div>
+                    </div>
+                    <div class="banners-place">
+                        <p class="banners-place-title">Banners Place</p>
+                        <div class="panel">
+                            <div class="accordion">
+                                <p class="accordion-plus">/2212;</p><p>Accordion Panel 1</p>
+                            </div>
+                            <div class="accordion_text">
+                                <p></p>
                             </div>
                         </div>
-                    </div>
-                    <div class="banner-place">
-
                     </div>
                 </div>
             </div>
@@ -126,6 +126,21 @@
             </div>
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
+        <script type="text/tmpl" id="latestNews">
+                <%var $array = $data.data;
+                for (var i = 0; i < $array.length; i++) {%>
+                    <div class="content-box clearfix">
+                        <p class="content-month"><%=$array[i].month%></p>
+                        <p class="content-day"><%=$array[i].day%></p>
+                        <img src=<%=$array[i].imageSrc%> alt="" class="content-img">
+                        <div class="content-info">
+                        <p class="content-info-title"><a href="#"><%=$array[i].title%></a></p>
+                        <p class="content-info-by">by <span><%=$array[i].author%></span>Comments (<span><%=$array[i].coments%></span>)</p>
+                        <p class="content-info-text"><%=$array[i].text%></p>
+                        </div>
+                    </div>
+                <%}%>
+        </script>
         <script src="js/dest/script.js" charset="utf-8"></script>
     </body>
 </html>

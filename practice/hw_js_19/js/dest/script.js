@@ -1622,5 +1622,81 @@ $(function () {
 $(function () {
     'use strict';
     $('.bxslider').bxSlider();
-    console.log($('#___gcse_0'));
+//Server start
+    var $ServerData =
+    {
+    id: 100,
+    data: [
+            {
+            id: 101,
+            title: "Advanced Machinery Helps Improve Quality",
+            month: 'Jan',
+            day: 23,
+            imageSrc: 'img/news1.jpg',
+            author: 'cmsmasters',
+            coments: 6,
+            text: "Cum sociis natoque penatibus et magnis dis parturient ontesmus. Pro vel nibh et elit mollis commodo et nec augueique Nemo enim ipsam voluptatem quia ptas sit aspernatur samomo enim ipsam voluptatem."
+            },
+            {
+            id: 102,
+            title: "Powerful Techniques for Advanced Service",
+            month: 'Jan',
+            day: 21,
+            imageSrc: 'img/news2.jpg',
+            author: 'cmsmasters',
+            coments: 3,
+            text: "Cum sociis natoque penatibus et magnis dis parturient ontesmus. Pro vel nibh et elit mollis commodo et nec augueique Nemo enim ipsam voluptatem quia ptas sit aspernatur samomo enim ipsam voluptatem."
+            }
+        ]
+    };
+    var $Server = JSON.stringify($ServerData);
+//Server end
+
+    var $jsData = JSON.parse($Server);
+    var $html = $('#latestNews').html();
+    var $dataTmpl = {
+        $data: $jsData
+    };
+    var $content = tmpl($html, $dataTmpl);
+    $('#latestNewsIn').html('');
+    $('#latestNewsIn').append($content);
 });
+
+// see:
+// http://ejohn.org/blog/javascript-micro-templating/
+
+// Simple JavaScript Templating
+// John Resig - http://ejohn.org/ - MIT Licensed
+(function(){
+  var cache = {};
+
+  this.tmpl = function tmpl(str, data){
+    // Figure out if we're getting a template, or if we need to
+    // load the template - and be sure to cache the result.
+    var fn = !/\W/.test(str) ?
+      cache[str] = cache[str] ||
+        tmpl(document.getElementById(str).innerHTML) :
+
+      // Generate a reusable function that will serve as a template
+      // generator (and which will be cached).
+      new Function("obj",
+        "var p=[],print=function(){p.push.apply(p,arguments);};" +
+
+        // Introduce the data as local variables using with(){}
+        "with(obj){p.push('" +
+
+        // Convert the template into pure JavaScript
+        str
+          .replace(/[\r\t\n]/g, " ")
+          .split("<%").join("\t")
+          .replace(/((^|%>)[^\t]*)'/g, "$1\r")
+          .replace(/\t=(.*?)%>/g, "',$1,'")
+          .split("\t").join("');")
+          .split("%>").join("p.push('")
+          .split("\r").join("\\'")
+      + "');}return p.join('');");
+
+    // Provide some basic currying to the user
+    return data ? fn( data ) : fn;
+  };
+})();
