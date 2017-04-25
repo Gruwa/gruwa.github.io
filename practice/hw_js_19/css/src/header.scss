@@ -41,7 +41,7 @@
     }
 }
 .nav {
-    @include wrapperback($background2);
+    @include groundimg($background2);
     .menu_header {
         float: left;
         .menu_list {
@@ -53,7 +53,7 @@
                 }
             }
             &:first-child{
-                @include wrapperback($color-focus);
+                @include groundimg($color-focus);
             }
         }
     }

@@ -8,7 +8,7 @@
     height: 40px;
     @include padding($pt);
     text-align: center;
-    @include wrapperback($bc);
+    @include groundimg($bc);
     color: $c;
 }
 .news-box {
@@ -74,15 +74,44 @@
         .panel {
             width: 523px;
             height: 39px;
-            @include wrapperback($background6);
+            @include groundimg($background);
+            @include margin(0, 0, 5px);
+            .accordion {
+                box-sizing: border-box;
+                border: 1px solid #e8e8e8;
+            }
             .accordion-plus {
+                @include margin(15px, 15px, 0, 15px);
+                @include groundimg(none, url('../../img/plus.png'), -11px, 0);
                 box-sizing: border-box;
                 float: left;
-                width: 39px;
-                height: 39px;
-                border-right: 1px solid rgba(255, 255, 255, .2);
-                // @include padding(14px);
+                width: 9px;
+                height: 9px;
+                cursor: pointer;
             }
+            .accordion-panel {
+                @include padding(13px, 0, 0, 13px);
+                @include fontubumed(13px, $color-text);
+                float: left;
+                box-sizing: border-box;
+                height: 38px;
+                border-left: 1px solid #e8e8e8;
+                text-transform: uppercase;
+                cursor: pointer;
+            }
+            .accordion-plus-focus {
+                @include groundimg(none, url('../../img/plus.png'));
+            }
+            .accordion-panel-focus {
+                @include fontubumed(13px, $color-text2);
+                border-left: 1px solid rgba(255, 255, 255, .2);
+            }
+        }
+        .panel:last-child {
+            @include margin;
+        }
+        .panel-focus {
+            @include groundimg($background6);
         }
     }
 }

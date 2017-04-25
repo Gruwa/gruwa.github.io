@@ -1,5 +1,5 @@
 body {
-    @include wrapperback;
+    @include groundimg;
 }
 .clearfix:after {
     clear: both;
@@ -7,20 +7,20 @@ body {
     display: block;
 }
 .wrapper1 {
-    @include wrapperback;
+    @include groundimg;
 }
 .wrapper2 {
-    @include wrapperback($background2);
+    @include groundimg($background2);
 }
 .wrapper3 {
-    @include wrapperback($background3);
+    @include groundimg($background3);
 }
 .wrapper4 {
-    @include wrapperback;
+    @include groundimg;
 }
 .wrapper5 {
-    @include wrapperback($background2);
+    @include groundimg($background2);
 }
 .wrapper6 {
-    @include wrapperback($background4);
+    @include groundimg($background4);
 }
