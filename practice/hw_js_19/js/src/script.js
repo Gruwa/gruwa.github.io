@@ -2,7 +2,7 @@ $(function () {
     'use strict';
     $('.bxslider').bxSlider();
 //Server start
-    var $ServerData =
+    let $ServerData =
     {
     id: 100,
     data: [
@@ -28,32 +28,42 @@ $(function () {
             }
         ]
     };
-    var $Server = JSON.stringify($ServerData);
+    let $Server = JSON.stringify($ServerData);
 //Server end
-
-    var $jsData = JSON.parse($Server);
-    var $html = $('#latestNews').html();
-    var $dataTmpl = {
+    let $jsData = JSON.parse($Server);
+    let $html = $('#latestNews').html();
+    let $dataTmpl = {
         $data: $jsData
     };
-    var $content = tmpl($html, $dataTmpl);
+    let $content = tmpl($html, $dataTmpl);
     $('#latestNewsIn').html('');
     $('#latestNewsIn').append($content);
-//news-box
-    $('.panel').on('click', function(e) {
-        var elem = $(e.target).parent();
-        console.log(elem);
-        console.log($('.panel').find('p.accordion-panel-focus'));
-        if ($('.panel').find('p.accordion-panel-focus').length != 0) {
-            $('.panel').find('.accordion-panel').removeClass('accordion-panel-focus');
-            $('.panel').find('.accordion-plus').removeClass('accordion-plus-focus');
-            $('.panel').removeClass('panel-focus');
-        } else {
-            $(e.target).find('.accordion-panel').addClass('accordion-panel-focus');
-            $(e.target).find('.accordion-plus').addClass('accordion-plus-focus');
-            $(e.target).addClass('panel-focus');
+//banner-box
+    $('.accordion').on('click', '.accordion-panel, .accordion-plus', function(e) {
+        let elem = $(e.target);
+        Element();
+        function Element() {
+            if ( $('.panel').find('.accordion-panel-focus').length != 0 && (elem[0].className  == 'accordion-panel' || elem[0].className  == 'accordion-plus')) {
+                $('.panel').find('.accordion-panel').removeClass('accordion-panel-focus');
+                $('.panel').find('.accordion-plus').removeClass('accordion-plus-focus');
+                $('.panel').find('.panel-focus').removeClass('panel-focus');
+                $(e.target).parent().find('.accordion-panel').addClass('accordion-panel-focus');
+                $(e.target).parent().find('.accordion-plus').addClass('accordion-plus-focus');
+                $(e.target).parent().addClass('panel-focus');
+                return;
+            };
+            if ($('.panel').find('.accordion-panel-focus').length == 0) {
+                $(e.target).parent().find('.accordion-panel').addClass('accordion-panel-focus');
+                $(e.target).parent().find('.accordion-plus').addClass('accordion-plus-focus');
+                $(e.target).parent().addClass('panel-focus');
+                return;
+            };
+            if ($('.panel').find('.accordion-panel-focus').length != 0) {
+                $('.panel').find('.accordion-panel').removeClass('accordion-panel-focus');
+                $('.panel').find('.accordion-plus').removeClass('accordion-plus-focus');
+                $('.panel').find('.panel-focus').removeClass('panel-focus');
+                return;
+            };
         }
-
-        /* Act on the event */
     });
 });
