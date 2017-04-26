@@ -10,8 +10,7 @@ $(function () {
     s.parentNode.insertBefore(gcse, s);
   })();
 });
-
-/**
+;/**
  * bxSlider v4.2.12
  * Copyright 2013-2015 Steven Wanderski
  * Written while drinking Belgian ales and listening to jazz
@@ -1618,12 +1617,11 @@ $(function () {
   };
 
 })(jQuery);
-
-$(function () {
+;$(function () {
     'use strict';
     $('.bxslider').bxSlider();
 //Server start
-    let $ServerData =
+    var $ServerData =
     {
     id: 100,
     data: [
@@ -1649,19 +1647,19 @@ $(function () {
             }
         ]
     };
-    let $Server = JSON.stringify($ServerData);
+    var $Server = JSON.stringify($ServerData);
 //Server end
-    let $jsData = JSON.parse($Server);
-    let $html = $('#latestNews').html();
-    let $dataTmpl = {
+    var $jsData = JSON.parse($Server);
+    var $html = $('#latestNews').html();
+    var $dataTmpl = {
         $data: $jsData
     };
-    let $content = tmpl($html, $dataTmpl);
+    var $content = tmpl($html, $dataTmpl);
     $('#latestNewsIn').html('');
     $('#latestNewsIn').append($content);
 //banner-box
     $('.accordion').on('click', '.accordion-panel, .accordion-plus', function(e) {
-        let elem = $(e.target);
+        var elem = $(e.target);
         Element();
         function Element() {
             if ( $('.panel').find('.accordion-panel-focus').length != 0 && (elem[0].className == 'accordion-panel' || elem[0].className == 'accordion-plus')) {
@@ -1692,8 +1690,7 @@ $(function () {
         }
     });
 });
-
-// see:
+;// see:
 // http://ejohn.org/blog/javascript-micro-templating/
 
 // Simple JavaScript Templating
