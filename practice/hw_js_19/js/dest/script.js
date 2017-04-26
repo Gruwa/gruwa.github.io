@@ -1668,7 +1668,7 @@ $(function () {
                 $('.panel').find('.accordion-panel').removeClass('accordion-panel-focus');
                 $('.panel').find('.accordion-plus').removeClass('accordion-plus-focus');
                 $('.panel').find('.panel-focus').removeClass('panel-focus');
-                $('.panel').find('.accordion-text').fadeOut('fast');
+                $('.panel').find('.accordion-text').css('display', 'none');
                 $(e.target).parent().find('.accordion-panel').addClass('accordion-panel-focus');
                 $(e.target).parent().find('.accordion-plus').addClass('accordion-plus-focus');
                 $(e.target).parent().addClass('panel-focus');
@@ -1686,7 +1686,7 @@ $(function () {
                 $('.panel').find('.accordion-panel').removeClass('accordion-panel-focus');
                 $('.panel').find('.accordion-plus').removeClass('accordion-plus-focus');
                 $('.panel').find('.panel-focus').removeClass('panel-focus');
-                $('.panel').find('.accordion-text').fadeOut('fast');
+                $('.panel').find('.accordion-text').css('display', 'none');
                 return;
             };
         }

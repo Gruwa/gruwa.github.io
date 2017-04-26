@@ -72,3 +72,16 @@
     max-width: 360px;
     max-height: 191px;
 }
+@mixin contentdate($bc: $background5, $t: 12px, $pt: 15px, $c: $color-text2) {
+    position: absolute;
+    top: $t;
+    left: -17px;
+    display: block;
+    box-sizing: border-box;
+    width: 40px;
+    height: 40px;
+    @include padding($pt);
+    text-align: center;
+    @include groundimg($bc);
+    color: $c;
+}

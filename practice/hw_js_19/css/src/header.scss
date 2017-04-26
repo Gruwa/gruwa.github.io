@@ -9,21 +9,23 @@
     .social {
         float: right;
         .skype {
-            @include social;
+            @include social(-62px, -18px, 18px);
             &:hover {
-                @include social(-62px, 0);
+                @include social(-62px, -1px);
             }
         }
         .in {
             @include social(-45px, -17px);
+            width: 17px;
             &:hover {
                 @include social(-45px, 0);
+                width: 17px;
             }
         }
         .rss {
-            @include social(-27px, -17px);
+            @include social(-28px, -17px, 17px);
             &:hover {
-                @include social(-27px, 0);
+                @include social(-28px, 0, 17px);
             }
         }
         .twitter {
@@ -33,9 +35,9 @@
             }
         }
         .facebook {
-            @include social(0, -17px, 12px);
+            @include social(0, -17px, 11px);
             &:hover {
-                @include social(0, 0, 12px);
+                @include social(0, 0, 11px);
             }
         }
     }
@@ -67,6 +69,9 @@
             border: 0;
             padding: 0;
             background-color: transparent;
+        }
+        .gsc-search-button:focus {
+            outline: none;
         }
         .gsc-input-box {
             width: 243px;
