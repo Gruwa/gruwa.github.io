@@ -72,11 +72,11 @@
             @include margin(0, 0, 49px);
         }
         .panel {
-            width: 523px;
-            height: 39px;
-            @include groundimg($background);
+            width: 560px;
+            height: 100%;
             @include margin(0, 0, 5px);
             .accordion {
+                @include groundimg($background);
                 box-sizing: border-box;
                 border: 1px solid #e8e8e8;
             }
@@ -99,6 +99,16 @@
                 text-transform: uppercase;
                 cursor: pointer;
             }
+            .accordion-text {
+                display: none;
+                width: 521px;
+                @include padding(30px, 0, 55px, 39px);
+                @include groundimg(none);
+                p {
+                    @include fontubumed(12px, $color-text4, 'arial');
+                    line-height: 1.538;
+                }
+            }
             .accordion-plus-focus {
                 @include groundimg(none, url('../../img/plus.png'));
             }
@@ -106,12 +116,12 @@
                 @include fontubumed(13px, $color-text2);
                 border-left: 1px solid rgba(255, 255, 255, .2);
             }
+            .panel-focus {
+                @include groundimg($background6);
+            }
         }
         .panel:last-child {
             @include margin;
-        }
-        .panel-focus {
-            @include groundimg($background6);
         }
     }
 }

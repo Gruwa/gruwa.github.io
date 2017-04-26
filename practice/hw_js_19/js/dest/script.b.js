@@ -1818,21 +1818,25 @@ $(function () {
         $('.panel').find('.accordion-panel').removeClass('accordion-panel-focus');
         $('.panel').find('.accordion-plus').removeClass('accordion-plus-focus');
         $('.panel').find('.panel-focus').removeClass('panel-focus');
+        $('.panel').find('.accordion-text').fadeOut('fast');
         $(e.target).parent().find('.accordion-panel').addClass('accordion-panel-focus');
         $(e.target).parent().find('.accordion-plus').addClass('accordion-plus-focus');
         $(e.target).parent().addClass('panel-focus');
+        $(e.target).parent().parent().find('.accordion-text').fadeIn(700);
         return;
       };
       if ($('.panel').find('.accordion-panel-focus').length == 0) {
         $(e.target).parent().find('.accordion-panel').addClass('accordion-panel-focus');
         $(e.target).parent().find('.accordion-plus').addClass('accordion-plus-focus');
         $(e.target).parent().addClass('panel-focus');
+        $(e.target).parent().parent().find('.accordion-text').fadeIn(700);
         return;
       };
       if ($('.panel').find('.accordion-panel-focus').length != 0) {
         $('.panel').find('.accordion-panel').removeClass('accordion-panel-focus');
         $('.panel').find('.accordion-plus').removeClass('accordion-plus-focus');
         $('.panel').find('.panel-focus').removeClass('panel-focus');
+        $('.panel').find('.accordion-text').fadeOut('fast');
         return;
       };
     }

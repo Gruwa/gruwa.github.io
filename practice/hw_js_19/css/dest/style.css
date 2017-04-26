@@ -1022,17 +1022,17 @@ ul.bxslider {
       margin-bottom: 49px;
       margin-left: 0; }
     .news-box .banners-place .panel {
-      width: 523px;
-      height: 39px;
-      background-color: #fff;
-      background-image: none;
-      background-repeat: no-repeat;
-      background-position: 0 0;
+      width: 560px;
+      height: 100%;
       margin-top: 0;
       margin-right: 0;
       margin-bottom: 5px;
       margin-left: 0; }
       .news-box .banners-place .panel .accordion {
+        background-color: #fff;
+        background-image: none;
+        background-repeat: no-repeat;
+        background-position: 0 0;
         box-sizing: border-box;
         border: 1px solid #e8e8e8; }
       .news-box .banners-place .panel .accordion-plus {
@@ -1063,6 +1063,22 @@ ul.bxslider {
         border-left: 1px solid #e8e8e8;
         text-transform: uppercase;
         cursor: pointer; }
+      .news-box .banners-place .panel .accordion-text {
+        display: none;
+        width: 521px;
+        padding-top: 30px;
+        padding-right: 0;
+        padding-bottom: 55px;
+        padding-left: 39px;
+        background-color: none;
+        background-image: none;
+        background-repeat: no-repeat;
+        background-position: 0 0; }
+        .news-box .banners-place .panel .accordion-text p {
+          font-family: "arial", sans-serif;
+          font-size: 12px;
+          color: #8a8a8a;
+          line-height: 1.538; }
       .news-box .banners-place .panel .accordion-plus-focus {
         background-color: none;
         background-image: url("../../img/plus.png");
@@ -1073,15 +1089,15 @@ ul.bxslider {
         font-size: 13px;
         color: #fff;
         border-left: 1px solid rgba(255, 255, 255, 0.2); }
+      .news-box .banners-place .panel .panel-focus {
+        background-color: #f4b60d;
+        background-image: none;
+        background-repeat: no-repeat;
+        background-position: 0 0; }
     .news-box .banners-place .panel:last-child {
       margin-top: 0;
       margin-right: 0;
       margin-bottom: 0;
       margin-left: 0; }
-    .news-box .banners-place .panel-focus {
-      background-color: #f4b60d;
-      background-image: none;
-      background-repeat: no-repeat;
-      background-position: 0 0; }
 
 /*# sourceMappingURL=style.css.map */
