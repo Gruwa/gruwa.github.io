@@ -21,7 +21,9 @@
     "grunt-contrib-uglify": "^2.3.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-sass": "^2.0.0",
+    "gulp-image-optimize": "0.0.3",
     "load-grunt-tasks": "^3.5.2",
+    "lodash": "^4.17.4",
     "sass-lint": "^1.10.2"
   }
 }
