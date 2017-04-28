@@ -286,12 +286,40 @@ var $Server = JSON.stringify($ServerData);
 var $jsData = JSON.parse($Server);
 var $data = $jsData.data;
 
+// 1. Массив скиллов (поле skills) всех людей, не должно быть повторяющихся скиллов, так же они должны быть отсортированы по алфавиту;
 console.log($data);
+// var $k = _.map($data, 'skills');
+// console.log('$k', $k);
+// var $z = _.reduce($k, function(flattened, other) {
+//   return flattened.concat(other);
+// }, []);
+// console.log('$z', $z);
+// var $e = _.union($z)
+// console.log('$e', $e);
+// var $t = _.sortBy($e);
+// console.log('$t', $t);
 
-var $skills = _.map($data, 'skills');
-var t = _.union($skills[0], $skills[1], $skills[2], $skills[3], $skills[4], $skills[5], $skills[6]);
+// c перемешиванием shuffle
+var $skills =
+_.sortBy(_.uniq(_.shuffle(_.reduce(_.map($data, 'skills'), function(flattened, other) { return flattened.concat(other);}, []))));
+console.log($skills);
+// Как не старался все по алфавиту кроме !!!"Lorem"!!! В обоих случаях/ если сделатьс именами то все работает.
 
-console.log($skills[0]);
-console.log(t);
+// 2. Массив имен (поле name) людей, отсортированных в зависимости от количества их друзей (friends);
+
+console.log($data);
+var $t1 = _.map($data, 'name');
+var $t12 = _.map($data, 'friends');
+console.log('$t1', $t1);
+console.log('$t12', $t12);
+var $t2 = _.reduce($t1, function(flattened, other) {
+  return flattened.concat(other);
+}, []);
+console.log('$t2', $t2);
+var $e = _.union($t2)
+console.log('$e', $e);
+var $t = _.sortBy($e);
+console.log('$t', $t);
+
 
 });
