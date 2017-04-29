@@ -1,0 +1,45 @@
+.info-boxes {
+    @include wrapper(65px, 79px);
+}
+.inf-box {
+    @include infbox(0);
+    .number {
+        @include fontubumed(90px, $color-infobox-number);
+        @include margin(-15px, 17px);
+        box-sizing: border-box;
+        float: left;
+    }
+    .box-content {
+        float: left;
+        width: 240px;
+        .box-title {
+            @include fontubumed(20px, $color-text3);
+            @include margin(20px, 0, 27px);
+        }
+        .box-info {
+            @include fontubumed(13px, $color-infobox-boxinfo, 'arial');
+            line-height: 1.538;
+            @include margin(0, 0, 26px);
+        }
+        .box-readmore {
+            @include margin(0, 0, 87px);
+        }
+        .readmore {
+            @include fontubumed(13px, $color-text3);
+            &:hover {
+                color: $color-focus;
+            }
+            &:hover .readmore-span{
+                background-position: -11px 0px;
+            }
+        }
+        .readmore-span {
+            @include margin(0, 0, 0, 9px);
+            display: inline-block;
+            width: 10px;
+            height: 9px;
+            background-image: url('../../img/row.png');
+            background-repeat: no-repeat;
+        }
+    }
+}
