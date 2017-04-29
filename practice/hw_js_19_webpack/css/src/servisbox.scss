@@ -1,0 +1,67 @@
+.servis-box {
+    @include wrapper(48px, 70px, $background2);
+    .title-servis {
+        margin-bottom: 44px;
+        @include fontubumed;
+    }
+    .servis1 {
+        @include servis(0);
+        .img-servis1 {
+            @include imgservis(url('../../img/servis1.jpg'));
+        }
+        a:hover .text-servis1{
+            @include ahover;
+        }
+        a:hover .img-servis1{
+            @include imgservis(url('../../img/servis1.png'));
+        }
+        .text-servis1 {
+            @include textservis;
+        }
+    }
+    .servis2 {
+        @include servis;
+        .img-servis2 {
+            @include imgservis(url('../../img/servis2.jpg'));
+        }
+        a:hover .text-servis2{
+            @include ahover;
+        }
+        a:hover .img-servis2{
+            @include imgservis(url('../../img/servis2.png'));
+        }
+        .text-servis2 {
+            @include textservis;
+        }
+    }
+    .servis3 {
+        @include servis;
+        .img-servis3 {
+            @include imgservis(url('../../img/servis3.jpg'));
+        }
+        a:hover .text-servis3{
+            @include ahover;
+        }
+        a:hover .img-servis3{
+            @include imgservis(url('../../img/servis3.png'));
+        }
+        .text-servis3 {
+            @include textservis;
+        }
+    }
+    .servis4 {
+        @include servis;
+        .img-servis4 {
+            @include imgservis(url('../../img/servis4.jpg'));
+        }
+        a:hover .text-servis4{
+            @include ahover;
+        }
+        a:hover .img-servis4{
+            @include imgservis(url('../../img/servis4.png'));
+        }
+        .text-servis4 {
+            @include textservis;
+        }
+    }
+}
