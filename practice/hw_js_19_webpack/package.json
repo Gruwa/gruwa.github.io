@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "babel-loader": "^5.4.2"
+    "babel-loader": "^5.4.2",
+    "babel-runtime": "^6.23.0",
+    "webpack": "^1.15.0"
   }
 }
