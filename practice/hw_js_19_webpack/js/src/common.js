@@ -1,2 +1,2 @@
 'use strict';
-console.log(elem);
+// свои общиенастройки для сборки

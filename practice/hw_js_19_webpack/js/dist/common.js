@@ -101,7 +101,7 @@ var common =
 /* 0 */
 /***/ (function(module, exports) {
 
-	eval("'use strict';\nconsole.log(elem);\n\n//////////////////\n// WEBPACK FOOTER\n// ./common.js\n// module id = 0\n// module chunks = 0\n//# sourceURL=webpack:///./common.js?");
+	eval("'use strict';\n// свои общиенастройки для сборки\n\n//////////////////\n// WEBPACK FOOTER\n// ./common.js\n// module id = 0\n// module chunks = 0\n//# sourceURL=webpack:///./common.js?");
 
 /***/ })
 /******/ ]);
