@@ -43,7 +43,7 @@ $(function () {
     };
     //
     //
-    let $content = tmpl($html, $dataTmpl);
+    let $content = script.welcome3($html, $dataTmpl);
     $('#latestNewsIn').html('');
     $('#latestNewsIn').append($content);
 //banner-box
