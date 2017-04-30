@@ -4,11 +4,17 @@ const NODE_ENV = process.env.NODE_ENV || "development";//сборка прода
 const webpack = require('webpack'); //подключение локального вебпека(установленного в папку проекта - как у гальпа)
 
 module.exports = {
-    entry: "./js/src/script", //путь к файлу чо всеми прописанными модулями
+    context: __dirname + "/js/src", // общий путь к папке с исходдными файламиб благодаря чему можно не указывать везде полный путь
+
+    entry: {
+        script: "./script", //путь к файлу со всеми прописанными модулями для этой сборки
+        dopmodules: "./dopmodules",
+        common: "./common"// в ручную создается файл common.js в директориии сюда прописывается, в него входят обчие куски и тот код который мы в начале допишем , опять же общий для всех js файлов этой сборки. Если написать ["./script", "./common"] тогда в common будет обязательно вклучено содержание сборки script
+    },
     output: {
         path: __dirname + "/js/dist", //путь к конечному файлу
-        filename: "build.js", //конечный файл
-        library: "home" //подключения библеотеки, т.е. подключение всех переменных из сбокри через home.peremennaya
+        filename: "[name].js", //конечный файл
+        library: "[name]" //подключения библеотеки, т.е. подключение всех переменных из сбокри через home.peremennaya
     },
     watch: NODE_ENV == "development", //включения вотча в девелопменте
 
@@ -21,8 +27,14 @@ module.exports = {
     devtool: NODE_ENV == "development" ? "eval" : "source-map",
 // плагины
     plugins: [
-        new webpack.DefinePlugin({
+        new webpack.NoErrorsPlugin(), // не будут создаваться файлы при ошибке компиляции
+        new webpack.DefinePlugin({ //для запускарежима разраба и продакшена
             NODE_ENV: JSON.stringify(NODE_ENV)
+        }),
+        new webpack.optimize.CommonsChunkPlugin({ //выделяет общую часть из сборок и помещает ее в 1 файл
+            name: "common",
+            chunks: ['dopmodules', 'script'], // указываем конкретно из каких файлов выносить общую составляющую]
+            minChunks: 2 // Сколько раз минимум должен встречаться общий код, что бы его вынести в чанк
         })
     ],
 // лоадерсы
@@ -33,4 +45,15 @@ module.exports = {
         }]
     }
 
+};
+
+if (NODE_ENV == "production") {
+    module.exports.plugins.push(
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false,
+                // можно добавить другие настройки кроме ворнинга
+            }
+        })
+    );
 }

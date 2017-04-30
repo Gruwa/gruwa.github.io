@@ -126,6 +126,13 @@
      * Initializes namespace settings to be used throughout plugin
      */
     var init = function() {
+        //
+        debugger;
+        if (NODE_ENV == 'development') {
+            console.log(el);
+        };
+        //
+
       // Return if slider is already initialized
       if ($(el).data('bxSlider')) { return; }
       // merge user-supplied options with the defaults
