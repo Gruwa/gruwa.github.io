@@ -18,7 +18,8 @@ module.exports = {
     },
 
     externals: {    //подключение переменных из подключаемых библиотек, (lodash, jquery и др...)
-        lodash: "_"
+        lodash: "_",
+        jQuery: "$"
     },
 
     watch: NODE_ENV == "development", //включения вотча в девелопменте
@@ -29,7 +30,7 @@ module.exports = {
     },
 // source-map - навигания по коду подключенным файлам, а не в конечном файле
 // (для продакшена - "source-map"(отдельным файлом долго), для разработки - "eval"(быстрая пересборка), )
-    devtool: NODE_ENV == "development" ? "eval" : "source-map",
+    // devtool: NODE_ENV == "development" ? "eval" : "source-map",
 // плагины
     plugins: [
         new webpack.NoErrorsPlugin(), // не будут создаваться файлы при ошибке компиляции
@@ -52,13 +53,13 @@ module.exports = {
 
 };
 
-if (NODE_ENV == "production") {
-    module.exports.plugins.push(
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false,
-                // можно добавить другие настройки кроме ворнинга
-            }
-        })
-    );
-}
+// if (NODE_ENV == "production") {
+//     module.exports.plugins.push(
+//         new webpack.optimize.UglifyJsPlugin({
+//             compress: {
+//                 warnings: false,
+//                 // можно добавить другие настройки кроме ворнинга
+//             }
+//         })
+//     );
+// }

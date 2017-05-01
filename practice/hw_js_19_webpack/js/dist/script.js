@@ -3,7 +3,24 @@ webpackJsonp_name_([2],[
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	eval("'use strict';\n// Подключение всех нужный скрипт файлов\n\nvar _interopRequireDefault = __webpack_require__(3)['default'];\n\n// в формате старом\n\nvar _myscript = __webpack_require__(5);\n\nvar _myscript2 = _interopRequireDefault(_myscript);\n\n// в формате ES2015\n\n// для доступа ко всем переменным в файлах\nvar welcome3 = __webpack_require__(6).tmpl;exports.welcome = _myscript2['default'];\nexports.welcome3 = welcome3;\n\nconsole.log('welcome3', script);\n\n//////////////////\n// WEBPACK FOOTER\n// ./script.js\n// module id = 0\n// module chunks = 2\n//# sourceURL=webpack:///./script.js?");
+	'use strict';
+	// Подключение всех нужный скрипт файлов
+
+	var _interopRequireDefault = __webpack_require__(3)['default'];
+
+	// в формате старом
+
+	var _myscript = __webpack_require__(5);
+
+	var _myscript2 = _interopRequireDefault(_myscript);
+
+	// в формате ES2015
+	var welcome3 = __webpack_require__(6).tmpl;var _ = __webpack_require__(7);
+	var $ = __webpack_require__(8);
+
+	// для доступа ко всем переменным в файлах
+	exports.welcome = _myscript2['default'];
+	exports.welcome3 = welcome3;
 
 /***/ }),
 /* 1 */,
@@ -11,25 +28,155 @@ webpackJsonp_name_([2],[
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	eval("\"use strict\";\n\nmodule.exports = __webpack_require__(4);\n\n//////////////////\n// WEBPACK FOOTER\n// C:/Users/Al/work_git/gruwa.github.io/practice/hw_js_19_webpack/~/babel-runtime/helpers/interop-require-default.js\n// module id = 3\n// module chunks = 2\n//# sourceURL=webpack:///C:/Users/Al/work_git/gruwa.github.io/practice/hw_js_19_webpack/~/babel-runtime/helpers/interop-require-default.js?");
+	"use strict";
+
+	module.exports = __webpack_require__(4);
 
 /***/ }),
 /* 4 */
 /***/ (function(module, exports) {
 
-	eval("\"use strict\";\n\nexports.__esModule = true;\n\nexports[\"default\"] = function (obj) {\n  return obj && obj.__esModule ? obj : {\n    \"default\": obj\n  };\n};\n\n//////////////////\n// WEBPACK FOOTER\n// C:/Users/Al/work_git/gruwa.github.io/practice/hw_js_19_webpack/~/babel-runtime/helpers/interopRequireDefault.js\n// module id = 4\n// module chunks = 2\n//# sourceURL=webpack:///C:/Users/Al/work_git/gruwa.github.io/practice/hw_js_19_webpack/~/babel-runtime/helpers/interopRequireDefault.js?");
+	"use strict";
+
+	exports.__esModule = true;
+
+	exports["default"] = function (obj) {
+	  return obj && obj.__esModule ? obj : {
+	    "default": obj
+	  };
+	};
 
 /***/ }),
 /* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	eval("'use strict';\n\n$(function () {\n    'use strict';\n    $('.bxslider').bxSlider();\n    //Server start\n    var $ServerData = {\n        id: 100,\n        data: [{\n            id: 101,\n            title: \"Advanced Machinery Helps Improve Quality\",\n            month: 'Jan',\n            day: 23,\n            imageSrc: 'img/news1.jpg',\n            author: 'cmsmasters',\n            coments: 6,\n            text: \"Cum sociis natoque penatibus et magnis dis parturient ontesmus. Pro vel nibh et elit mollis commodo et nec augueique Nemo enim ipsam voluptatem quia ptas sit aspernatur samomo enim ipsam voluptatem.\"\n        }, {\n            id: 102,\n            title: \"Powerful Techniques for Advanced Service\",\n            month: 'Jan',\n            day: 21,\n            imageSrc: 'img/news2.jpg',\n            author: 'cmsmasters',\n            coments: 3,\n            text: \"Cum sociis natoque penatibus et magnis dis parturient ontesmus. Pro vel nibh et elit mollis commodo et nec augueique Nemo enim ipsam voluptatem quia ptas sit aspernatur samomo enim ipsam voluptatem.\"\n        }]\n    };\n    var $Server = JSON.stringify($ServerData);\n    //Server end\n    var $jsData = JSON.parse($Server);\n    var $html = $('#latestNews').html();\n    var $dataTmpl = {\n        $data: $jsData\n    };\n    //\n    //\n    debugger;\n    if (true) {\n        console.log($dataTmpl);\n    };\n    //\n    //\n    var $content = script.welcome3($html, $dataTmpl);\n    $('#latestNewsIn').html('');\n    $('#latestNewsIn').append($content);\n    //banner-box\n    $('.accordion').on('click', '.accordion-panel, .accordion-plus', function (e) {\n        var elem = $(e.target);\n        Element();\n        function Element() {\n            debugger;\n            if ($('.panel').find('.accordion-panel-focus').length != 0 && (elem[0].className == 'accordion-panel' || elem[0].className == 'accordion-plus')) {\n                $('.panel').find('.accordion-panel').removeClass('accordion-panel-focus');\n                $('.panel').find('.accordion-plus').removeClass('accordion-plus-focus');\n                $('.panel').find('.panel-focus').removeClass('panel-focus');\n                $('.panel').find('.accordion-text').css('display', 'none');\n                $(e.target).parent().find('.accordion-panel').addClass('accordion-panel-focus');\n                $(e.target).parent().find('.accordion-plus').addClass('accordion-plus-focus');\n                $(e.target).parent().addClass('panel-focus');\n                $(e.target).parent().parent().find('.accordion-text').fadeIn(700);\n                return;\n            };\n            if ($('.panel').find('.accordion-panel-focus').length == 0) {\n                $(e.target).parent().find('.accordion-panel').addClass('accordion-panel-focus');\n                $(e.target).parent().find('.accordion-plus').addClass('accordion-plus-focus');\n                $(e.target).parent().addClass('panel-focus');\n                $(e.target).parent().parent().find('.accordion-text').fadeIn(700);\n                return;\n            };\n            if ($('.panel').find('.accordion-panel-focus').length != 0) {\n                $('.panel').find('.accordion-panel').removeClass('accordion-panel-focus');\n                $('.panel').find('.accordion-plus').removeClass('accordion-plus-focus');\n                $('.panel').find('.panel-focus').removeClass('panel-focus');\n                $('.panel').find('.accordion-text').css('display', 'none');\n                return;\n            };\n        }\n    });\n});\n\n//////////////////\n// WEBPACK FOOTER\n// ./myscript.js\n// module id = 5\n// module chunks = 2\n//# sourceURL=webpack:///./myscript.js?");
+	'use strict';
+
+	$(function () {
+	    'use strict';
+	    $('.bxslider').bxSlider();
+	    //Server start
+	    var $ServerData = {
+	        id: 100,
+	        data: [{
+	            id: 101,
+	            title: "Advanced Machinery Helps Improve Quality",
+	            month: 'Jan',
+	            day: 23,
+	            imageSrc: 'img/news1.jpg',
+	            author: 'cmsmasters',
+	            coments: 6,
+	            text: "Cum sociis natoque penatibus et magnis dis parturient ontesmus. Pro vel nibh et elit mollis commodo et nec augueique Nemo enim ipsam voluptatem quia ptas sit aspernatur samomo enim ipsam voluptatem."
+	        }, {
+	            id: 102,
+	            title: "Powerful Techniques for Advanced Service",
+	            month: 'Jan',
+	            day: 21,
+	            imageSrc: 'img/news2.jpg',
+	            author: 'cmsmasters',
+	            coments: 3,
+	            text: "Cum sociis natoque penatibus et magnis dis parturient ontesmus. Pro vel nibh et elit mollis commodo et nec augueique Nemo enim ipsam voluptatem quia ptas sit aspernatur samomo enim ipsam voluptatem."
+	        }]
+	    };
+	    var $Server = JSON.stringify($ServerData);
+	    //Server end
+	    var $jsData = JSON.parse($Server);
+	    var $html = $('#latestNews').html();
+	    var $dataTmpl = {
+	        $data: $jsData
+	    };
+	    //
+	    //
+	    debugger;
+	    if (true) {
+	        console.log($dataTmpl);
+	    };
+	    //
+	    //
+	    var $content = script.welcome3($html, $dataTmpl);
+	    $('#latestNewsIn').html('');
+	    $('#latestNewsIn').append($content);
+	    //banner-box
+	    $('.accordion').on('click', '.accordion-panel, .accordion-plus', function (e) {
+	        var elem = $(e.target);
+	        Element();
+	        function Element() {
+	            debugger;
+	            if ($('.panel').find('.accordion-panel-focus').length != 0 && (elem[0].className == 'accordion-panel' || elem[0].className == 'accordion-plus')) {
+	                $('.panel').find('.accordion-panel').removeClass('accordion-panel-focus');
+	                $('.panel').find('.accordion-plus').removeClass('accordion-plus-focus');
+	                $('.panel').find('.panel-focus').removeClass('panel-focus');
+	                $('.panel').find('.accordion-text').css('display', 'none');
+	                $(e.target).parent().find('.accordion-panel').addClass('accordion-panel-focus');
+	                $(e.target).parent().find('.accordion-plus').addClass('accordion-plus-focus');
+	                $(e.target).parent().addClass('panel-focus');
+	                $(e.target).parent().parent().find('.accordion-text').fadeIn(700);
+	                return;
+	            };
+	            if ($('.panel').find('.accordion-panel-focus').length == 0) {
+	                $(e.target).parent().find('.accordion-panel').addClass('accordion-panel-focus');
+	                $(e.target).parent().find('.accordion-plus').addClass('accordion-plus-focus');
+	                $(e.target).parent().addClass('panel-focus');
+	                $(e.target).parent().parent().find('.accordion-text').fadeIn(700);
+	                return;
+	            };
+	            if ($('.panel').find('.accordion-panel-focus').length != 0) {
+	                $('.panel').find('.accordion-panel').removeClass('accordion-panel-focus');
+	                $('.panel').find('.accordion-plus').removeClass('accordion-plus-focus');
+	                $('.panel').find('.panel-focus').removeClass('panel-focus');
+	                $('.panel').find('.accordion-text').css('display', 'none');
+	                return;
+	            };
+	        }
+	    });
+	});
 
 /***/ }),
 /* 6 */
 /***/ (function(module, exports) {
 
-	eval("// see:\n// http://ejohn.org/blog/javascript-micro-templating/\n\n// Simple JavaScript Templating\n// John Resig - http://ejohn.org/ - MIT Licensed\n\n\"use strict\";\n\nvar cache = {};\n\nfunction tmpl(str, data) {\n  // Figure out if we're getting a template, or if we need to\n  // load the template - and be sure to cache the result.\n  var fn = !/\\W/.test(str) ? cache[str] = cache[str] || tmpl(document.getElementById(str).innerHTML) :\n\n  // Generate a reusable function that will serve as a template\n  // generator (and which will be cached).\n  new Function(\"obj\", \"var p=[],print=function(){p.push.apply(p,arguments);};\" +\n\n  // Introduce the data as local variables using with(){}\n  \"with(obj){p.push('\" +\n\n  // Convert the template into pure JavaScript\n  str.replace(/[\\r\\t\\n]/g, \" \").split(\"<%\").join(\"\\t\").replace(/((^|%>)[^\\t]*)'/g, \"$1\\r\").replace(/\\t=(.*?)%>/g, \"',$1,'\").split(\"\\t\").join(\"');\").split(\"%>\").join(\"p.push('\").split(\"\\r\").join(\"\\\\'\") + \"');}return p.join('');\");\n\n  // Provide some basic currying to the user\n  return data ? fn(data) : fn;\n};\n\nexports.tmpl = tmpl;\n\n//////////////////\n// WEBPACK FOOTER\n// ./template.js\n// module id = 6\n// module chunks = 2\n//# sourceURL=webpack:///./template.js?");
+	// see:
+	// http://ejohn.org/blog/javascript-micro-templating/
+
+	// Simple JavaScript Templating
+	// John Resig - http://ejohn.org/ - MIT Licensed
+
+	"use strict";
+
+	var cache = {};
+
+	function tmpl(str, data) {
+	  // Figure out if we're getting a template, or if we need to
+	  // load the template - and be sure to cache the result.
+	  var fn = !/\W/.test(str) ? cache[str] = cache[str] || tmpl(document.getElementById(str).innerHTML) :
+
+	  // Generate a reusable function that will serve as a template
+	  // generator (and which will be cached).
+	  new Function("obj", "var p=[],print=function(){p.push.apply(p,arguments);};" +
+
+	  // Introduce the data as local variables using with(){}
+	  "with(obj){p.push('" +
+
+	  // Convert the template into pure JavaScript
+	  str.replace(/[\r\t\n]/g, " ").split("<%").join("\t").replace(/((^|%>)[^\t]*)'/g, "$1\r").replace(/\t=(.*?)%>/g, "',$1,'").split("\t").join("');").split("%>").join("p.push('").split("\r").join("\\'") + "');}return p.join('');");
+
+	  // Provide some basic currying to the user
+	  return data ? fn(data) : fn;
+	};
+
+	exports.tmpl = tmpl;
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports) {
+
+	module.exports = _;
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports) {
+
+	module.exports = $;
 
 /***/ })
 ]);

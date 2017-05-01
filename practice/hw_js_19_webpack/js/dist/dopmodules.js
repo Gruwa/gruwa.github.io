@@ -3,19 +3,1808 @@ webpackJsonp_name_([1],[
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	eval("'use strict';\n\n'use trict';\n// Подключение всех нужный скрипт файлов\nvar welcome1 = __webpack_require__(1);\nvar welcome2 = __webpack_require__(2);\n// var welcome3 = require('./template'); // в формате старом\n\n// для доступа ко всем переменным в файлах\nexports.welcome1 = welcome1;\nexports.welcome2 = welcome2;\n// exports.welcome3 = welcome3;\n\n//////////////////\n// WEBPACK FOOTER\n// ./dopmodules.js\n// module id = 0\n// module chunks = 1\n//# sourceURL=webpack:///./dopmodules.js?");
+	'use strict';
+
+	'use trict';
+	// Подключение всех нужный скрипт файлов
+	var welcome1 = __webpack_require__(1);
+	var welcome2 = __webpack_require__(2);
+	// var welcome3 = require('./template'); // в формате старом
+
+	// для доступа ко всем переменным в файлах
+	exports.welcome1 = welcome1;
+	exports.welcome2 = welcome2;
+	// exports.welcome3 = welcome3;
 
 /***/ }),
 /* 1 */
 /***/ (function(module, exports) {
 
-	eval("'use strict';\n\n$(function () {\n  'use strict';\n  (function () {\n    var cx = '012577494148929298528:dq_ytgguf-c';\n    var gcse = document.createElement('script');\n    gcse.type = 'text/javascript';\n    gcse.async = true;\n    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;\n    var s = document.getElementsByTagName('script')[0];\n    s.parentNode.insertBefore(gcse, s);\n  })();\n});\n\n//////////////////\n// WEBPACK FOOTER\n// ./google.js\n// module id = 1\n// module chunks = 1\n//# sourceURL=webpack:///./google.js?");
+	'use strict';
+
+	$(function () {
+	  'use strict';
+	  (function () {
+	    var cx = '012577494148929298528:dq_ytgguf-c';
+	    var gcse = document.createElement('script');
+	    gcse.type = 'text/javascript';
+	    gcse.async = true;
+	    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+	    var s = document.getElementsByTagName('script')[0];
+	    s.parentNode.insertBefore(gcse, s);
+	  })();
+	});
 
 /***/ }),
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	eval("/**\n * bxSlider v4.2.12\n * Copyright 2013-2015 Steven Wanderski\n * Written while drinking Belgian ales and listening to jazz\n * Licensed under MIT (http://opensource.org/licenses/MIT)\n */\n\n'use strict';\n\n;(function ($) {\n\n  var defaults = {\n\n    // GENERAL\n    mode: 'horizontal',\n    slideSelector: '',\n    infiniteLoop: true,\n    hideControlOnEnd: false,\n    speed: 500,\n    easing: null,\n    slideMargin: 0,\n    startSlide: 0,\n    randomStart: false,\n    captions: false,\n    ticker: false,\n    tickerHover: false,\n    adaptiveHeight: false,\n    adaptiveHeightSpeed: 500,\n    video: false,\n    useCSS: true,\n    preloadImages: 'visible',\n    responsive: true,\n    slideZIndex: 50,\n    wrapperClass: 'bx-wrapper',\n\n    // TOUCH\n    touchEnabled: true,\n    swipeThreshold: 50,\n    oneToOneTouch: true,\n    preventDefaultSwipeX: true,\n    preventDefaultSwipeY: false,\n\n    // ACCESSIBILITY\n    ariaLive: true,\n    ariaHidden: true,\n\n    // KEYBOARD\n    keyboardEnabled: false,\n\n    // PAGER\n    pager: true,\n    pagerType: 'full',\n    pagerShortSeparator: ' / ',\n    pagerSelector: null,\n    buildPager: null,\n    pagerCustom: null,\n\n    // CONTROLS\n    controls: true,\n    nextText: 'Next',\n    prevText: 'Prev',\n    nextSelector: null,\n    prevSelector: null,\n    autoControls: false,\n    startText: 'Start',\n    stopText: 'Stop',\n    autoControlsCombine: false,\n    autoControlsSelector: null,\n\n    // AUTO\n    auto: false,\n    pause: 4000,\n    autoStart: true,\n    autoDirection: 'next',\n    stopAutoOnClick: false,\n    autoHover: false,\n    autoDelay: 0,\n    autoSlideForOnePage: false,\n\n    // CAROUSEL\n    minSlides: 1,\n    maxSlides: 1,\n    moveSlides: 0,\n    slideWidth: 0,\n    shrinkItems: false,\n\n    // CALLBACKS\n    onSliderLoad: function onSliderLoad() {\n      return true;\n    },\n    onSlideBefore: function onSlideBefore() {\n      return true;\n    },\n    onSlideAfter: function onSlideAfter() {\n      return true;\n    },\n    onSlideNext: function onSlideNext() {\n      return true;\n    },\n    onSlidePrev: function onSlidePrev() {\n      return true;\n    },\n    onSliderResize: function onSliderResize() {\n      return true;\n    }\n  };\n\n  $.fn.bxSlider = function (options) {\n\n    if (this.length === 0) {\n      return this;\n    }\n\n    // support multiple elements\n    if (this.length > 1) {\n      this.each(function () {\n        $(this).bxSlider(options);\n      });\n      return this;\n    }\n\n    // create a namespace to be used throughout the plugin\n    var slider = {},\n\n    // set a reference to our slider element\n    el = this,\n\n    // get the original window dimens (thanks a lot IE)\n    windowWidth = $(window).width(),\n        windowHeight = $(window).height();\n\n    // Return if slider is already initialized\n    if ($(el).data('bxSlider')) {\n      return;\n    }\n\n    /**\n     * ===================================================================================\n     * = PRIVATE FUNCTIONS\n     * ===================================================================================\n     */\n\n    /**\n     * Initializes namespace settings to be used throughout plugin\n     */\n    var init = function init() {\n      //\n      debugger;\n      if (true) {\n        console.log(el);\n      };\n      //\n\n      // Return if slider is already initialized\n      if ($(el).data('bxSlider')) {\n        return;\n      }\n      // merge user-supplied options with the defaults\n      slider.settings = $.extend({}, defaults, options);\n      // parse slideWidth setting\n      slider.settings.slideWidth = parseInt(slider.settings.slideWidth);\n      // store the original children\n      slider.children = el.children(slider.settings.slideSelector);\n      // check if actual number of slides is less than minSlides / maxSlides\n      if (slider.children.length < slider.settings.minSlides) {\n        slider.settings.minSlides = slider.children.length;\n      }\n      if (slider.children.length < slider.settings.maxSlides) {\n        slider.settings.maxSlides = slider.children.length;\n      }\n      // if random start, set the startSlide setting to random number\n      if (slider.settings.randomStart) {\n        slider.settings.startSlide = Math.floor(Math.random() * slider.children.length);\n      }\n      // store active slide information\n      slider.active = { index: slider.settings.startSlide };\n      // store if the slider is in carousel mode (displaying / moving multiple slides)\n      slider.carousel = slider.settings.minSlides > 1 || slider.settings.maxSlides > 1 ? true : false;\n      // if carousel, force preloadImages = 'all'\n      if (slider.carousel) {\n        slider.settings.preloadImages = 'all';\n      }\n      // calculate the min / max width thresholds based on min / max number of slides\n      // used to setup and update carousel slides dimensions\n      slider.minThreshold = slider.settings.minSlides * slider.settings.slideWidth + (slider.settings.minSlides - 1) * slider.settings.slideMargin;\n      slider.maxThreshold = slider.settings.maxSlides * slider.settings.slideWidth + (slider.settings.maxSlides - 1) * slider.settings.slideMargin;\n      // store the current state of the slider (if currently animating, working is true)\n      slider.working = false;\n      // initialize the controls object\n      slider.controls = {};\n      // initialize an auto interval\n      slider.interval = null;\n      // determine which property to use for transitions\n      slider.animProp = slider.settings.mode === 'vertical' ? 'top' : 'left';\n      // determine if hardware acceleration can be used\n      slider.usingCSS = slider.settings.useCSS && slider.settings.mode !== 'fade' && (function () {\n        // create our test div element\n        var div = document.createElement('div'),\n\n        // css transition properties\n        props = ['WebkitPerspective', 'MozPerspective', 'OPerspective', 'msPerspective'];\n        // test for each property\n        for (var i = 0; i < props.length; i++) {\n          if (div.style[props[i]] !== undefined) {\n            slider.cssPrefix = props[i].replace('Perspective', '').toLowerCase();\n            slider.animProp = '-' + slider.cssPrefix + '-transform';\n            return true;\n          }\n        }\n        return false;\n      })();\n      // if vertical mode always make maxSlides and minSlides equal\n      if (slider.settings.mode === 'vertical') {\n        slider.settings.maxSlides = slider.settings.minSlides;\n      }\n      // save original style data\n      el.data('origStyle', el.attr('style'));\n      el.children(slider.settings.slideSelector).each(function () {\n        $(this).data('origStyle', $(this).attr('style'));\n      });\n\n      // perform all DOM / CSS modifications\n      setup();\n    };\n\n    /**\n     * Performs all DOM and CSS modifications\n     */\n    var setup = function setup() {\n      var preloadSelector = slider.children.eq(slider.settings.startSlide); // set the default preload selector (visible)\n\n      // wrap el in a wrapper\n      el.wrap('<div class=\"' + slider.settings.wrapperClass + '\"><div class=\"bx-viewport\"></div></div>');\n      // store a namespace reference to .bx-viewport\n      slider.viewport = el.parent();\n\n      // add aria-live if the setting is enabled and ticker mode is disabled\n      if (slider.settings.ariaLive && !slider.settings.ticker) {\n        slider.viewport.attr('aria-live', 'polite');\n      }\n      // add a loading div to display while images are loading\n      slider.loader = $('<div class=\"bx-loading\" />');\n      slider.viewport.prepend(slider.loader);\n      // set el to a massive width, to hold any needed slides\n      // also strip any margin and padding from el\n      el.css({\n        width: slider.settings.mode === 'horizontal' ? slider.children.length * 1000 + 215 + '%' : 'auto',\n        position: 'relative'\n      });\n      // if using CSS, add the easing property\n      if (slider.usingCSS && slider.settings.easing) {\n        el.css('-' + slider.cssPrefix + '-transition-timing-function', slider.settings.easing);\n        // if not using CSS and no easing value was supplied, use the default JS animation easing (swing)\n      } else if (!slider.settings.easing) {\n          slider.settings.easing = 'swing';\n        }\n      // make modifications to the viewport (.bx-viewport)\n      slider.viewport.css({\n        width: '100%',\n        overflow: 'hidden',\n        position: 'relative'\n      });\n      slider.viewport.parent().css({\n        maxWidth: getViewportMaxWidth()\n      });\n      // apply css to all slider children\n      slider.children.css({\n        float: slider.settings.mode === 'horizontal' ? 'left' : 'none',\n        listStyle: 'none',\n        position: 'relative'\n      });\n      // apply the calculated width after the float is applied to prevent scrollbar interference\n      slider.children.css('width', getSlideWidth());\n      // if slideMargin is supplied, add the css\n      if (slider.settings.mode === 'horizontal' && slider.settings.slideMargin > 0) {\n        slider.children.css('marginRight', slider.settings.slideMargin);\n      }\n      if (slider.settings.mode === 'vertical' && slider.settings.slideMargin > 0) {\n        slider.children.css('marginBottom', slider.settings.slideMargin);\n      }\n      // if \"fade\" mode, add positioning and z-index CSS\n      if (slider.settings.mode === 'fade') {\n        slider.children.css({\n          position: 'absolute',\n          zIndex: 0,\n          display: 'none'\n        });\n        // prepare the z-index on the showing element\n        slider.children.eq(slider.settings.startSlide).css({ zIndex: slider.settings.slideZIndex, display: 'block' });\n      }\n      // create an element to contain all slider controls (pager, start / stop, etc)\n      slider.controls.el = $('<div class=\"bx-controls\" />');\n      // if captions are requested, add them\n      if (slider.settings.captions) {\n        appendCaptions();\n      }\n      // check if startSlide is last slide\n      slider.active.last = slider.settings.startSlide === getPagerQty() - 1;\n      // if video is true, set up the fitVids plugin\n      if (slider.settings.video) {\n        el.fitVids();\n      }\n      if (slider.settings.preloadImages === 'all' || slider.settings.ticker) {\n        preloadSelector = slider.children;\n      }\n      // only check for control addition if not in \"ticker\" mode\n      if (!slider.settings.ticker) {\n        // if controls are requested, add them\n        if (slider.settings.controls) {\n          appendControls();\n        }\n        // if auto is true, and auto controls are requested, add them\n        if (slider.settings.auto && slider.settings.autoControls) {\n          appendControlsAuto();\n        }\n        // if pager is requested, add it\n        if (slider.settings.pager) {\n          appendPager();\n        }\n        // if any control option is requested, add the controls wrapper\n        if (slider.settings.controls || slider.settings.autoControls || slider.settings.pager) {\n          slider.viewport.after(slider.controls.el);\n        }\n        // if ticker mode, do not allow a pager\n      } else {\n          slider.settings.pager = false;\n        }\n      loadElements(preloadSelector, start);\n    };\n\n    var loadElements = function loadElements(selector, callback) {\n      var total = selector.find('img:not([src=\"\"]), iframe').length,\n          count = 0;\n      if (total === 0) {\n        callback();\n        return;\n      }\n      selector.find('img:not([src=\"\"]), iframe').each(function () {\n        $(this).one('load error', function () {\n          if (++count === total) {\n            callback();\n          }\n        }).each(function () {\n          if (this.complete) {\n            $(this).trigger('load');\n          }\n        });\n      });\n    };\n\n    /**\n     * Start the slider\n     */\n    var start = function start() {\n      // if infinite loop, prepare additional slides\n      if (slider.settings.infiniteLoop && slider.settings.mode !== 'fade' && !slider.settings.ticker) {\n        var slice = slider.settings.mode === 'vertical' ? slider.settings.minSlides : slider.settings.maxSlides,\n            sliceAppend = slider.children.slice(0, slice).clone(true).addClass('bx-clone'),\n            slicePrepend = slider.children.slice(-slice).clone(true).addClass('bx-clone');\n        if (slider.settings.ariaHidden) {\n          sliceAppend.attr('aria-hidden', true);\n          slicePrepend.attr('aria-hidden', true);\n        }\n        el.append(sliceAppend).prepend(slicePrepend);\n      }\n      // remove the loading DOM element\n      slider.loader.remove();\n      // set the left / top position of \"el\"\n      setSlidePosition();\n      // if \"vertical\" mode, always use adaptiveHeight to prevent odd behavior\n      if (slider.settings.mode === 'vertical') {\n        slider.settings.adaptiveHeight = true;\n      }\n      // set the viewport height\n      slider.viewport.height(getViewportHeight());\n      // make sure everything is positioned just right (same as a window resize)\n      el.redrawSlider();\n      // onSliderLoad callback\n      slider.settings.onSliderLoad.call(el, slider.active.index);\n      // slider has been fully initialized\n      slider.initialized = true;\n      // bind the resize call to the window\n      if (slider.settings.responsive) {\n        $(window).bind('resize', resizeWindow);\n      }\n      // if auto is true and has more than 1 page, start the show\n      if (slider.settings.auto && slider.settings.autoStart && (getPagerQty() > 1 || slider.settings.autoSlideForOnePage)) {\n        initAuto();\n      }\n      // if ticker is true, start the ticker\n      if (slider.settings.ticker) {\n        initTicker();\n      }\n      // if pager is requested, make the appropriate pager link active\n      if (slider.settings.pager) {\n        updatePagerActive(slider.settings.startSlide);\n      }\n      // check for any updates to the controls (like hideControlOnEnd updates)\n      if (slider.settings.controls) {\n        updateDirectionControls();\n      }\n      // if touchEnabled is true, setup the touch events\n      if (slider.settings.touchEnabled && !slider.settings.ticker) {\n        initTouch();\n      }\n      // if keyboardEnabled is true, setup the keyboard events\n      if (slider.settings.keyboardEnabled && !slider.settings.ticker) {\n        $(document).keydown(keyPress);\n      }\n    };\n\n    /**\n     * Returns the calculated height of the viewport, used to determine either adaptiveHeight or the maxHeight value\n     */\n    var getViewportHeight = function getViewportHeight() {\n      var height = 0;\n      // first determine which children (slides) should be used in our height calculation\n      var children = $();\n      // if mode is not \"vertical\" and adaptiveHeight is false, include all children\n      if (slider.settings.mode !== 'vertical' && !slider.settings.adaptiveHeight) {\n        children = slider.children;\n      } else {\n        // if not carousel, return the single active child\n        if (!slider.carousel) {\n          children = slider.children.eq(slider.active.index);\n          // if carousel, return a slice of children\n        } else {\n            // get the individual slide index\n            var currentIndex = slider.settings.moveSlides === 1 ? slider.active.index : slider.active.index * getMoveBy();\n            // add the current slide to the children\n            children = slider.children.eq(currentIndex);\n            // cycle through the remaining \"showing\" slides\n            for (i = 1; i <= slider.settings.maxSlides - 1; i++) {\n              // if looped back to the start\n              if (currentIndex + i >= slider.children.length) {\n                children = children.add(slider.children.eq(i - 1));\n              } else {\n                children = children.add(slider.children.eq(currentIndex + i));\n              }\n            }\n          }\n      }\n      // if \"vertical\" mode, calculate the sum of the heights of the children\n      if (slider.settings.mode === 'vertical') {\n        children.each(function (index) {\n          height += $(this).outerHeight();\n        });\n        // add user-supplied margins\n        if (slider.settings.slideMargin > 0) {\n          height += slider.settings.slideMargin * (slider.settings.minSlides - 1);\n        }\n        // if not \"vertical\" mode, calculate the max height of the children\n      } else {\n          height = Math.max.apply(Math, children.map(function () {\n            return $(this).outerHeight(false);\n          }).get());\n        }\n\n      if (slider.viewport.css('box-sizing') === 'border-box') {\n        height += parseFloat(slider.viewport.css('padding-top')) + parseFloat(slider.viewport.css('padding-bottom')) + parseFloat(slider.viewport.css('border-top-width')) + parseFloat(slider.viewport.css('border-bottom-width'));\n      } else if (slider.viewport.css('box-sizing') === 'padding-box') {\n        height += parseFloat(slider.viewport.css('padding-top')) + parseFloat(slider.viewport.css('padding-bottom'));\n      }\n\n      return height;\n    };\n\n    /**\n     * Returns the calculated width to be used for the outer wrapper / viewport\n     */\n    var getViewportMaxWidth = function getViewportMaxWidth() {\n      var width = '100%';\n      if (slider.settings.slideWidth > 0) {\n        if (slider.settings.mode === 'horizontal') {\n          width = slider.settings.maxSlides * slider.settings.slideWidth + (slider.settings.maxSlides - 1) * slider.settings.slideMargin;\n        } else {\n          width = slider.settings.slideWidth;\n        }\n      }\n      return width;\n    };\n\n    /**\n     * Returns the calculated width to be applied to each slide\n     */\n    var getSlideWidth = function getSlideWidth() {\n      var newElWidth = slider.settings.slideWidth,\n          // start with any user-supplied slide width\n      wrapWidth = slider.viewport.width(); // get the current viewport width\n      // if slide width was not supplied, or is larger than the viewport use the viewport width\n      if (slider.settings.slideWidth === 0 || slider.settings.slideWidth > wrapWidth && !slider.carousel || slider.settings.mode === 'vertical') {\n        newElWidth = wrapWidth;\n        // if carousel, use the thresholds to determine the width\n      } else if (slider.settings.maxSlides > 1 && slider.settings.mode === 'horizontal') {\n          if (wrapWidth > slider.maxThreshold) {\n            return newElWidth;\n          } else if (wrapWidth < slider.minThreshold) {\n            newElWidth = (wrapWidth - slider.settings.slideMargin * (slider.settings.minSlides - 1)) / slider.settings.minSlides;\n          } else if (slider.settings.shrinkItems) {\n            newElWidth = Math.floor((wrapWidth + slider.settings.slideMargin) / Math.ceil((wrapWidth + slider.settings.slideMargin) / (newElWidth + slider.settings.slideMargin)) - slider.settings.slideMargin);\n          }\n        }\n      return newElWidth;\n    };\n\n    /**\n     * Returns the number of slides currently visible in the viewport (includes partially visible slides)\n     */\n    var getNumberSlidesShowing = function getNumberSlidesShowing() {\n      var slidesShowing = 1,\n          childWidth = null;\n      if (slider.settings.mode === 'horizontal' && slider.settings.slideWidth > 0) {\n        // if viewport is smaller than minThreshold, return minSlides\n        if (slider.viewport.width() < slider.minThreshold) {\n          slidesShowing = slider.settings.minSlides;\n          // if viewport is larger than maxThreshold, return maxSlides\n        } else if (slider.viewport.width() > slider.maxThreshold) {\n            slidesShowing = slider.settings.maxSlides;\n            // if viewport is between min / max thresholds, divide viewport width by first child width\n          } else {\n              childWidth = slider.children.first().width() + slider.settings.slideMargin;\n              slidesShowing = Math.floor((slider.viewport.width() + slider.settings.slideMargin) / childWidth);\n            }\n        // if \"vertical\" mode, slides showing will always be minSlides\n      } else if (slider.settings.mode === 'vertical') {\n          slidesShowing = slider.settings.minSlides;\n        }\n      return slidesShowing;\n    };\n\n    /**\n     * Returns the number of pages (one full viewport of slides is one \"page\")\n     */\n    var getPagerQty = function getPagerQty() {\n      var pagerQty = 0,\n          breakPoint = 0,\n          counter = 0;\n      // if moveSlides is specified by the user\n      if (slider.settings.moveSlides > 0) {\n        if (slider.settings.infiniteLoop) {\n          pagerQty = Math.ceil(slider.children.length / getMoveBy());\n        } else {\n          // when breakpoint goes above children length, counter is the number of pages\n          while (breakPoint < slider.children.length) {\n            ++pagerQty;\n            breakPoint = counter + getNumberSlidesShowing();\n            counter += slider.settings.moveSlides <= getNumberSlidesShowing() ? slider.settings.moveSlides : getNumberSlidesShowing();\n          }\n        }\n        // if moveSlides is 0 (auto) divide children length by sides showing, then round up\n      } else {\n          pagerQty = Math.ceil(slider.children.length / getNumberSlidesShowing());\n        }\n      return pagerQty;\n    };\n\n    /**\n     * Returns the number of individual slides by which to shift the slider\n     */\n    var getMoveBy = function getMoveBy() {\n      // if moveSlides was set by the user and moveSlides is less than number of slides showing\n      if (slider.settings.moveSlides > 0 && slider.settings.moveSlides <= getNumberSlidesShowing()) {\n        return slider.settings.moveSlides;\n      }\n      // if moveSlides is 0 (auto)\n      return getNumberSlidesShowing();\n    };\n\n    /**\n     * Sets the slider's (el) left or top position\n     */\n    var setSlidePosition = function setSlidePosition() {\n      var position, lastChild, lastShowingIndex;\n      // if last slide, not infinite loop, and number of children is larger than specified maxSlides\n      if (slider.children.length > slider.settings.maxSlides && slider.active.last && !slider.settings.infiniteLoop) {\n        if (slider.settings.mode === 'horizontal') {\n          // get the last child's position\n          lastChild = slider.children.last();\n          position = lastChild.position();\n          // set the left position\n          setPositionProperty(-(position.left - (slider.viewport.width() - lastChild.outerWidth())), 'reset', 0);\n        } else if (slider.settings.mode === 'vertical') {\n          // get the last showing index's position\n          lastShowingIndex = slider.children.length - slider.settings.minSlides;\n          position = slider.children.eq(lastShowingIndex).position();\n          // set the top position\n          setPositionProperty(-position.top, 'reset', 0);\n        }\n        // if not last slide\n      } else {\n          // get the position of the first showing slide\n          position = slider.children.eq(slider.active.index * getMoveBy()).position();\n          // check for last slide\n          if (slider.active.index === getPagerQty() - 1) {\n            slider.active.last = true;\n          }\n          // set the respective position\n          if (position !== undefined) {\n            if (slider.settings.mode === 'horizontal') {\n              setPositionProperty(-position.left, 'reset', 0);\n            } else if (slider.settings.mode === 'vertical') {\n              setPositionProperty(-position.top, 'reset', 0);\n            }\n          }\n        }\n    };\n\n    /**\n     * Sets the el's animating property position (which in turn will sometimes animate el).\n     * If using CSS, sets the transform property. If not using CSS, sets the top / left property.\n     *\n     * @param value (int)\n     *  - the animating property's value\n     *\n     * @param type (string) 'slide', 'reset', 'ticker'\n     *  - the type of instance for which the function is being\n     *\n     * @param duration (int)\n     *  - the amount of time (in ms) the transition should occupy\n     *\n     * @param params (array) optional\n     *  - an optional parameter containing any variables that need to be passed in\n     */\n    var setPositionProperty = function setPositionProperty(value, type, duration, params) {\n      var animateObj, propValue;\n      // use CSS transform\n      if (slider.usingCSS) {\n        // determine the translate3d value\n        propValue = slider.settings.mode === 'vertical' ? 'translate3d(0, ' + value + 'px, 0)' : 'translate3d(' + value + 'px, 0, 0)';\n        // add the CSS transition-duration\n        el.css('-' + slider.cssPrefix + '-transition-duration', duration / 1000 + 's');\n        if (type === 'slide') {\n          // set the property value\n          el.css(slider.animProp, propValue);\n          if (duration !== 0) {\n            // bind a callback method - executes when CSS transition completes\n            el.bind('transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd', function (e) {\n              //make sure it's the correct one\n              if (!$(e.target).is(el)) {\n                return;\n              }\n              // unbind the callback\n              el.unbind('transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd');\n              updateAfterSlideTransition();\n            });\n          } else {\n            //duration = 0\n            updateAfterSlideTransition();\n          }\n        } else if (type === 'reset') {\n          el.css(slider.animProp, propValue);\n        } else if (type === 'ticker') {\n          // make the transition use 'linear'\n          el.css('-' + slider.cssPrefix + '-transition-timing-function', 'linear');\n          el.css(slider.animProp, propValue);\n          if (duration !== 0) {\n            el.bind('transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd', function (e) {\n              //make sure it's the correct one\n              if (!$(e.target).is(el)) {\n                return;\n              }\n              // unbind the callback\n              el.unbind('transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd');\n              // reset the position\n              setPositionProperty(params.resetValue, 'reset', 0);\n              // start the loop again\n              tickerLoop();\n            });\n          } else {\n            //duration = 0\n            setPositionProperty(params.resetValue, 'reset', 0);\n            tickerLoop();\n          }\n        }\n        // use JS animate\n      } else {\n          animateObj = {};\n          animateObj[slider.animProp] = value;\n          if (type === 'slide') {\n            el.animate(animateObj, duration, slider.settings.easing, function () {\n              updateAfterSlideTransition();\n            });\n          } else if (type === 'reset') {\n            el.css(slider.animProp, value);\n          } else if (type === 'ticker') {\n            el.animate(animateObj, duration, 'linear', function () {\n              setPositionProperty(params.resetValue, 'reset', 0);\n              // run the recursive loop after animation\n              tickerLoop();\n            });\n          }\n        }\n    };\n\n    /**\n     * Populates the pager with proper amount of pages\n     */\n    var populatePager = function populatePager() {\n      var pagerHtml = '',\n          linkContent = '',\n          pagerQty = getPagerQty();\n      // loop through each pager item\n      for (var i = 0; i < pagerQty; i++) {\n        linkContent = '';\n        // if a buildPager function is supplied, use it to get pager link value, else use index + 1\n        if (slider.settings.buildPager && $.isFunction(slider.settings.buildPager) || slider.settings.pagerCustom) {\n          linkContent = slider.settings.buildPager(i);\n          slider.pagerEl.addClass('bx-custom-pager');\n        } else {\n          linkContent = i + 1;\n          slider.pagerEl.addClass('bx-default-pager');\n        }\n        // var linkContent = slider.settings.buildPager && $.isFunction(slider.settings.buildPager) ? slider.settings.buildPager(i) : i + 1;\n        // add the markup to the string\n        pagerHtml += '<div class=\"bx-pager-item\"><a href=\"\" data-slide-index=\"' + i + '\" class=\"bx-pager-link\">' + linkContent + '</a></div>';\n      }\n      // populate the pager element with pager links\n      slider.pagerEl.html(pagerHtml);\n    };\n\n    /**\n     * Appends the pager to the controls element\n     */\n    var appendPager = function appendPager() {\n      if (!slider.settings.pagerCustom) {\n        // create the pager DOM element\n        slider.pagerEl = $('<div class=\"bx-pager\" />');\n        // if a pager selector was supplied, populate it with the pager\n        if (slider.settings.pagerSelector) {\n          $(slider.settings.pagerSelector).html(slider.pagerEl);\n          // if no pager selector was supplied, add it after the wrapper\n        } else {\n            slider.controls.el.addClass('bx-has-pager').append(slider.pagerEl);\n          }\n        // populate the pager\n        populatePager();\n      } else {\n        slider.pagerEl = $(slider.settings.pagerCustom);\n      }\n      // assign the pager click binding\n      slider.pagerEl.on('click touchend', 'a', clickPagerBind);\n    };\n\n    /**\n     * Appends prev / next controls to the controls element\n     */\n    var appendControls = function appendControls() {\n      slider.controls.next = $('<a class=\"bx-next\" href=\"\">' + slider.settings.nextText + '</a>');\n      slider.controls.prev = $('<a class=\"bx-prev\" href=\"\">' + slider.settings.prevText + '</a>');\n      // bind click actions to the controls\n      slider.controls.next.bind('click touchend', clickNextBind);\n      slider.controls.prev.bind('click touchend', clickPrevBind);\n      // if nextSelector was supplied, populate it\n      if (slider.settings.nextSelector) {\n        $(slider.settings.nextSelector).append(slider.controls.next);\n      }\n      // if prevSelector was supplied, populate it\n      if (slider.settings.prevSelector) {\n        $(slider.settings.prevSelector).append(slider.controls.prev);\n      }\n      // if no custom selectors were supplied\n      if (!slider.settings.nextSelector && !slider.settings.prevSelector) {\n        // add the controls to the DOM\n        slider.controls.directionEl = $('<div class=\"bx-controls-direction\" />');\n        // add the control elements to the directionEl\n        slider.controls.directionEl.append(slider.controls.prev).append(slider.controls.next);\n        // slider.viewport.append(slider.controls.directionEl);\n        slider.controls.el.addClass('bx-has-controls-direction').append(slider.controls.directionEl);\n      }\n    };\n\n    /**\n     * Appends start / stop auto controls to the controls element\n     */\n    var appendControlsAuto = function appendControlsAuto() {\n      slider.controls.start = $('<div class=\"bx-controls-auto-item\"><a class=\"bx-start\" href=\"\">' + slider.settings.startText + '</a></div>');\n      slider.controls.stop = $('<div class=\"bx-controls-auto-item\"><a class=\"bx-stop\" href=\"\">' + slider.settings.stopText + '</a></div>');\n      // add the controls to the DOM\n      slider.controls.autoEl = $('<div class=\"bx-controls-auto\" />');\n      // bind click actions to the controls\n      slider.controls.autoEl.on('click', '.bx-start', clickStartBind);\n      slider.controls.autoEl.on('click', '.bx-stop', clickStopBind);\n      // if autoControlsCombine, insert only the \"start\" control\n      if (slider.settings.autoControlsCombine) {\n        slider.controls.autoEl.append(slider.controls.start);\n        // if autoControlsCombine is false, insert both controls\n      } else {\n          slider.controls.autoEl.append(slider.controls.start).append(slider.controls.stop);\n        }\n      // if auto controls selector was supplied, populate it with the controls\n      if (slider.settings.autoControlsSelector) {\n        $(slider.settings.autoControlsSelector).html(slider.controls.autoEl);\n        // if auto controls selector was not supplied, add it after the wrapper\n      } else {\n          slider.controls.el.addClass('bx-has-controls-auto').append(slider.controls.autoEl);\n        }\n      // update the auto controls\n      updateAutoControls(slider.settings.autoStart ? 'stop' : 'start');\n    };\n\n    /**\n     * Appends image captions to the DOM\n     */\n    var appendCaptions = function appendCaptions() {\n      // cycle through each child\n      slider.children.each(function (index) {\n        // get the image title attribute\n        var title = $(this).find('img:first').attr('title');\n        // append the caption\n        if (title !== undefined && ('' + title).length) {\n          $(this).append('<div class=\"bx-caption\"><span>' + title + '</span></div>');\n        }\n      });\n    };\n\n    /**\n     * Click next binding\n     *\n     * @param e (event)\n     *  - DOM event object\n     */\n    var clickNextBind = function clickNextBind(e) {\n      e.preventDefault();\n      if (slider.controls.el.hasClass('disabled')) {\n        return;\n      }\n      // if auto show is running, stop it\n      if (slider.settings.auto && slider.settings.stopAutoOnClick) {\n        el.stopAuto();\n      }\n      el.goToNextSlide();\n    };\n\n    /**\n     * Click prev binding\n     *\n     * @param e (event)\n     *  - DOM event object\n     */\n    var clickPrevBind = function clickPrevBind(e) {\n      e.preventDefault();\n      if (slider.controls.el.hasClass('disabled')) {\n        return;\n      }\n      // if auto show is running, stop it\n      if (slider.settings.auto && slider.settings.stopAutoOnClick) {\n        el.stopAuto();\n      }\n      el.goToPrevSlide();\n    };\n\n    /**\n     * Click start binding\n     *\n     * @param e (event)\n     *  - DOM event object\n     */\n    var clickStartBind = function clickStartBind(e) {\n      el.startAuto();\n      e.preventDefault();\n    };\n\n    /**\n     * Click stop binding\n     *\n     * @param e (event)\n     *  - DOM event object\n     */\n    var clickStopBind = function clickStopBind(e) {\n      el.stopAuto();\n      e.preventDefault();\n    };\n\n    /**\n     * Click pager binding\n     *\n     * @param e (event)\n     *  - DOM event object\n     */\n    var clickPagerBind = function clickPagerBind(e) {\n      var pagerLink, pagerIndex;\n      e.preventDefault();\n      if (slider.controls.el.hasClass('disabled')) {\n        return;\n      }\n      // if auto show is running, stop it\n      if (slider.settings.auto && slider.settings.stopAutoOnClick) {\n        el.stopAuto();\n      }\n      pagerLink = $(e.currentTarget);\n      if (pagerLink.attr('data-slide-index') !== undefined) {\n        pagerIndex = parseInt(pagerLink.attr('data-slide-index'));\n        // if clicked pager link is not active, continue with the goToSlide call\n        if (pagerIndex !== slider.active.index) {\n          el.goToSlide(pagerIndex);\n        }\n      }\n    };\n\n    /**\n     * Updates the pager links with an active class\n     *\n     * @param slideIndex (int)\n     *  - index of slide to make active\n     */\n    var updatePagerActive = function updatePagerActive(slideIndex) {\n      // if \"short\" pager type\n      var len = slider.children.length; // nb of children\n      if (slider.settings.pagerType === 'short') {\n        if (slider.settings.maxSlides > 1) {\n          len = Math.ceil(slider.children.length / slider.settings.maxSlides);\n        }\n        slider.pagerEl.html(slideIndex + 1 + slider.settings.pagerShortSeparator + len);\n        return;\n      }\n      // remove all pager active classes\n      slider.pagerEl.find('a').removeClass('active');\n      // apply the active class for all pagers\n      slider.pagerEl.each(function (i, el) {\n        $(el).find('a').eq(slideIndex).addClass('active');\n      });\n    };\n\n    /**\n     * Performs needed actions after a slide transition\n     */\n    var updateAfterSlideTransition = function updateAfterSlideTransition() {\n      // if infinite loop is true\n      if (slider.settings.infiniteLoop) {\n        var position = '';\n        // first slide\n        if (slider.active.index === 0) {\n          // set the new position\n          position = slider.children.eq(0).position();\n          // carousel, last slide\n        } else if (slider.active.index === getPagerQty() - 1 && slider.carousel) {\n            position = slider.children.eq((getPagerQty() - 1) * getMoveBy()).position();\n            // last slide\n          } else if (slider.active.index === slider.children.length - 1) {\n              position = slider.children.eq(slider.children.length - 1).position();\n            }\n        if (position) {\n          if (slider.settings.mode === 'horizontal') {\n            setPositionProperty(-position.left, 'reset', 0);\n          } else if (slider.settings.mode === 'vertical') {\n            setPositionProperty(-position.top, 'reset', 0);\n          }\n        }\n      }\n      // declare that the transition is complete\n      slider.working = false;\n      // onSlideAfter callback\n      slider.settings.onSlideAfter.call(el, slider.children.eq(slider.active.index), slider.oldIndex, slider.active.index);\n    };\n\n    /**\n     * Updates the auto controls state (either active, or combined switch)\n     *\n     * @param state (string) \"start\", \"stop\"\n     *  - the new state of the auto show\n     */\n    var updateAutoControls = function updateAutoControls(state) {\n      // if autoControlsCombine is true, replace the current control with the new state\n      if (slider.settings.autoControlsCombine) {\n        slider.controls.autoEl.html(slider.controls[state]);\n        // if autoControlsCombine is false, apply the \"active\" class to the appropriate control\n      } else {\n          slider.controls.autoEl.find('a').removeClass('active');\n          slider.controls.autoEl.find('a:not(.bx-' + state + ')').addClass('active');\n        }\n    };\n\n    /**\n     * Updates the direction controls (checks if either should be hidden)\n     */\n    var updateDirectionControls = function updateDirectionControls() {\n      if (getPagerQty() === 1) {\n        slider.controls.prev.addClass('disabled');\n        slider.controls.next.addClass('disabled');\n      } else if (!slider.settings.infiniteLoop && slider.settings.hideControlOnEnd) {\n        // if first slide\n        if (slider.active.index === 0) {\n          slider.controls.prev.addClass('disabled');\n          slider.controls.next.removeClass('disabled');\n          // if last slide\n        } else if (slider.active.index === getPagerQty() - 1) {\n            slider.controls.next.addClass('disabled');\n            slider.controls.prev.removeClass('disabled');\n            // if any slide in the middle\n          } else {\n              slider.controls.prev.removeClass('disabled');\n              slider.controls.next.removeClass('disabled');\n            }\n      }\n    };\n\n    /**\n     * Initializes the auto process\n     */\n    var initAuto = function initAuto() {\n      // if autoDelay was supplied, launch the auto show using a setTimeout() call\n      if (slider.settings.autoDelay > 0) {\n        var timeout = setTimeout(el.startAuto, slider.settings.autoDelay);\n        // if autoDelay was not supplied, start the auto show normally\n      } else {\n          el.startAuto();\n\n          //add focus and blur events to ensure its running if timeout gets paused\n          $(window).focus(function () {\n            el.startAuto();\n          }).blur(function () {\n            el.stopAuto();\n          });\n        }\n      // if autoHover is requested\n      if (slider.settings.autoHover) {\n        // on el hover\n        el.hover(function () {\n          // if the auto show is currently playing (has an active interval)\n          if (slider.interval) {\n            // stop the auto show and pass true argument which will prevent control update\n            el.stopAuto(true);\n            // create a new autoPaused value which will be used by the relative \"mouseout\" event\n            slider.autoPaused = true;\n          }\n        }, function () {\n          // if the autoPaused value was created be the prior \"mouseover\" event\n          if (slider.autoPaused) {\n            // start the auto show and pass true argument which will prevent control update\n            el.startAuto(true);\n            // reset the autoPaused value\n            slider.autoPaused = null;\n          }\n        });\n      }\n    };\n\n    /**\n     * Initializes the ticker process\n     */\n    var initTicker = function initTicker() {\n      var startPosition = 0,\n          position,\n          transform,\n          value,\n          idx,\n          ratio,\n          property,\n          newSpeed,\n          totalDimens;\n      // if autoDirection is \"next\", append a clone of the entire slider\n      if (slider.settings.autoDirection === 'next') {\n        el.append(slider.children.clone().addClass('bx-clone'));\n        // if autoDirection is \"prev\", prepend a clone of the entire slider, and set the left position\n      } else {\n          el.prepend(slider.children.clone().addClass('bx-clone'));\n          position = slider.children.first().position();\n          startPosition = slider.settings.mode === 'horizontal' ? -position.left : -position.top;\n        }\n      setPositionProperty(startPosition, 'reset', 0);\n      // do not allow controls in ticker mode\n      slider.settings.pager = false;\n      slider.settings.controls = false;\n      slider.settings.autoControls = false;\n      // if autoHover is requested\n      if (slider.settings.tickerHover) {\n        if (slider.usingCSS) {\n          idx = slider.settings.mode === 'horizontal' ? 4 : 5;\n          slider.viewport.hover(function () {\n            transform = el.css('-' + slider.cssPrefix + '-transform');\n            value = parseFloat(transform.split(',')[idx]);\n            setPositionProperty(value, 'reset', 0);\n          }, function () {\n            totalDimens = 0;\n            slider.children.each(function (index) {\n              totalDimens += slider.settings.mode === 'horizontal' ? $(this).outerWidth(true) : $(this).outerHeight(true);\n            });\n            // calculate the speed ratio (used to determine the new speed to finish the paused animation)\n            ratio = slider.settings.speed / totalDimens;\n            // determine which property to use\n            property = slider.settings.mode === 'horizontal' ? 'left' : 'top';\n            // calculate the new speed\n            newSpeed = ratio * (totalDimens - Math.abs(parseInt(value)));\n            tickerLoop(newSpeed);\n          });\n        } else {\n          // on el hover\n          slider.viewport.hover(function () {\n            el.stop();\n          }, function () {\n            // calculate the total width of children (used to calculate the speed ratio)\n            totalDimens = 0;\n            slider.children.each(function (index) {\n              totalDimens += slider.settings.mode === 'horizontal' ? $(this).outerWidth(true) : $(this).outerHeight(true);\n            });\n            // calculate the speed ratio (used to determine the new speed to finish the paused animation)\n            ratio = slider.settings.speed / totalDimens;\n            // determine which property to use\n            property = slider.settings.mode === 'horizontal' ? 'left' : 'top';\n            // calculate the new speed\n            newSpeed = ratio * (totalDimens - Math.abs(parseInt(el.css(property))));\n            tickerLoop(newSpeed);\n          });\n        }\n      }\n      // start the ticker loop\n      tickerLoop();\n    };\n\n    /**\n     * Runs a continuous loop, news ticker-style\n     */\n    var tickerLoop = function tickerLoop(resumeSpeed) {\n      var speed = resumeSpeed ? resumeSpeed : slider.settings.speed,\n          position = { left: 0, top: 0 },\n          reset = { left: 0, top: 0 },\n          animateProperty,\n          resetValue,\n          params;\n\n      // if \"next\" animate left position to last child, then reset left to 0\n      if (slider.settings.autoDirection === 'next') {\n        position = el.find('.bx-clone').first().position();\n        // if \"prev\" animate left position to 0, then reset left to first non-clone child\n      } else {\n          reset = slider.children.first().position();\n        }\n      animateProperty = slider.settings.mode === 'horizontal' ? -position.left : -position.top;\n      resetValue = slider.settings.mode === 'horizontal' ? -reset.left : -reset.top;\n      params = { resetValue: resetValue };\n      setPositionProperty(animateProperty, 'ticker', speed, params);\n    };\n\n    /**\n     * Check if el is on screen\n     */\n    var isOnScreen = function isOnScreen(el) {\n      var win = $(window),\n          viewport = {\n        top: win.scrollTop(),\n        left: win.scrollLeft()\n      },\n          bounds = el.offset();\n\n      viewport.right = viewport.left + win.width();\n      viewport.bottom = viewport.top + win.height();\n      bounds.right = bounds.left + el.outerWidth();\n      bounds.bottom = bounds.top + el.outerHeight();\n\n      return !(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom);\n    };\n\n    /**\n     * Initializes keyboard events\n     */\n    var keyPress = function keyPress(e) {\n      var activeElementTag = document.activeElement.tagName.toLowerCase(),\n          tagFilters = 'input|textarea',\n          p = new RegExp(activeElementTag, ['i']),\n          result = p.exec(tagFilters);\n\n      if (result == null && isOnScreen(el)) {\n        if (e.keyCode === 39) {\n          clickNextBind(e);\n          return false;\n        } else if (e.keyCode === 37) {\n          clickPrevBind(e);\n          return false;\n        }\n      }\n    };\n\n    /**\n     * Initializes touch events\n     */\n    var initTouch = function initTouch() {\n      // initialize object to contain all touch values\n      slider.touch = {\n        start: { x: 0, y: 0 },\n        end: { x: 0, y: 0 }\n      };\n      slider.viewport.bind('touchstart MSPointerDown pointerdown', onTouchStart);\n\n      //for browsers that have implemented pointer events and fire a click after\n      //every pointerup regardless of whether pointerup is on same screen location as pointerdown or not\n      slider.viewport.on('click', '.bxslider a', function (e) {\n        if (slider.viewport.hasClass('click-disabled')) {\n          e.preventDefault();\n          slider.viewport.removeClass('click-disabled');\n        }\n      });\n    };\n\n    /**\n     * Event handler for \"touchstart\"\n     *\n     * @param e (event)\n     *  - DOM event object\n     */\n    var onTouchStart = function onTouchStart(e) {\n      //disable slider controls while user is interacting with slides to avoid slider freeze that happens on touch devices when a slide swipe happens immediately after interacting with slider controls\n      slider.controls.el.addClass('disabled');\n\n      if (slider.working) {\n        e.preventDefault();\n        slider.controls.el.removeClass('disabled');\n      } else {\n        // record the original position when touch starts\n        slider.touch.originalPos = el.position();\n        var orig = e.originalEvent,\n            touchPoints = typeof orig.changedTouches !== 'undefined' ? orig.changedTouches : [orig];\n        // record the starting touch x, y coordinates\n        slider.touch.start.x = touchPoints[0].pageX;\n        slider.touch.start.y = touchPoints[0].pageY;\n\n        if (slider.viewport.get(0).setPointerCapture) {\n          slider.pointerId = orig.pointerId;\n          slider.viewport.get(0).setPointerCapture(slider.pointerId);\n        }\n        // bind a \"touchmove\" event to the viewport\n        slider.viewport.bind('touchmove MSPointerMove pointermove', onTouchMove);\n        // bind a \"touchend\" event to the viewport\n        slider.viewport.bind('touchend MSPointerUp pointerup', onTouchEnd);\n        slider.viewport.bind('MSPointerCancel pointercancel', onPointerCancel);\n      }\n    };\n\n    /**\n     * Cancel Pointer for Windows Phone\n     *\n     * @param e (event)\n     *  - DOM event object\n     */\n    var onPointerCancel = function onPointerCancel(e) {\n      /* onPointerCancel handler is needed to deal with situations when a touchend\n      doesn't fire after a touchstart (this happens on windows phones only) */\n      setPositionProperty(slider.touch.originalPos.left, 'reset', 0);\n\n      //remove handlers\n      slider.controls.el.removeClass('disabled');\n      slider.viewport.unbind('MSPointerCancel pointercancel', onPointerCancel);\n      slider.viewport.unbind('touchmove MSPointerMove pointermove', onTouchMove);\n      slider.viewport.unbind('touchend MSPointerUp pointerup', onTouchEnd);\n      if (slider.viewport.get(0).releasePointerCapture) {\n        slider.viewport.get(0).releasePointerCapture(slider.pointerId);\n      }\n    };\n\n    /**\n     * Event handler for \"touchmove\"\n     *\n     * @param e (event)\n     *  - DOM event object\n     */\n    var onTouchMove = function onTouchMove(e) {\n      var orig = e.originalEvent,\n          touchPoints = typeof orig.changedTouches !== 'undefined' ? orig.changedTouches : [orig],\n\n      // if scrolling on y axis, do not prevent default\n      xMovement = Math.abs(touchPoints[0].pageX - slider.touch.start.x),\n          yMovement = Math.abs(touchPoints[0].pageY - slider.touch.start.y),\n          value = 0,\n          change = 0;\n\n      // x axis swipe\n      if (xMovement * 3 > yMovement && slider.settings.preventDefaultSwipeX) {\n        e.preventDefault();\n        // y axis swipe\n      } else if (yMovement * 3 > xMovement && slider.settings.preventDefaultSwipeY) {\n          e.preventDefault();\n        }\n      if (slider.settings.mode !== 'fade' && slider.settings.oneToOneTouch) {\n        // if horizontal, drag along x axis\n        if (slider.settings.mode === 'horizontal') {\n          change = touchPoints[0].pageX - slider.touch.start.x;\n          value = slider.touch.originalPos.left + change;\n          // if vertical, drag along y axis\n        } else {\n            change = touchPoints[0].pageY - slider.touch.start.y;\n            value = slider.touch.originalPos.top + change;\n          }\n        setPositionProperty(value, 'reset', 0);\n      }\n    };\n\n    /**\n     * Event handler for \"touchend\"\n     *\n     * @param e (event)\n     *  - DOM event object\n     */\n    var onTouchEnd = function onTouchEnd(e) {\n      slider.viewport.unbind('touchmove MSPointerMove pointermove', onTouchMove);\n      //enable slider controls as soon as user stops interacing with slides\n      slider.controls.el.removeClass('disabled');\n      var orig = e.originalEvent,\n          touchPoints = typeof orig.changedTouches !== 'undefined' ? orig.changedTouches : [orig],\n          value = 0,\n          distance = 0;\n      // record end x, y positions\n      slider.touch.end.x = touchPoints[0].pageX;\n      slider.touch.end.y = touchPoints[0].pageY;\n      // if fade mode, check if absolute x distance clears the threshold\n      if (slider.settings.mode === 'fade') {\n        distance = Math.abs(slider.touch.start.x - slider.touch.end.x);\n        if (distance >= slider.settings.swipeThreshold) {\n          if (slider.touch.start.x > slider.touch.end.x) {\n            el.goToNextSlide();\n          } else {\n            el.goToPrevSlide();\n          }\n          el.stopAuto();\n        }\n        // not fade mode\n      } else {\n          // calculate distance and el's animate property\n          if (slider.settings.mode === 'horizontal') {\n            distance = slider.touch.end.x - slider.touch.start.x;\n            value = slider.touch.originalPos.left;\n          } else {\n            distance = slider.touch.end.y - slider.touch.start.y;\n            value = slider.touch.originalPos.top;\n          }\n          // if not infinite loop and first / last slide, do not attempt a slide transition\n          if (!slider.settings.infiniteLoop && (slider.active.index === 0 && distance > 0 || slider.active.last && distance < 0)) {\n            setPositionProperty(value, 'reset', 200);\n          } else {\n            // check if distance clears threshold\n            if (Math.abs(distance) >= slider.settings.swipeThreshold) {\n              if (distance < 0) {\n                el.goToNextSlide();\n              } else {\n                el.goToPrevSlide();\n              }\n              el.stopAuto();\n            } else {\n              // el.animate(property, 200);\n              setPositionProperty(value, 'reset', 200);\n            }\n          }\n        }\n      slider.viewport.unbind('touchend MSPointerUp pointerup', onTouchEnd);\n      if (slider.viewport.get(0).releasePointerCapture) {\n        slider.viewport.get(0).releasePointerCapture(slider.pointerId);\n      }\n    };\n\n    /**\n     * Window resize event callback\n     */\n    var resizeWindow = function resizeWindow(e) {\n      // don't do anything if slider isn't initialized.\n      if (!slider.initialized) {\n        return;\n      }\n      // Delay if slider working.\n      if (slider.working) {\n        window.setTimeout(resizeWindow, 10);\n      } else {\n        // get the new window dimens (again, thank you IE)\n        var windowWidthNew = $(window).width(),\n            windowHeightNew = $(window).height();\n        // make sure that it is a true window resize\n        // *we must check this because our dinosaur friend IE fires a window resize event when certain DOM elements\n        // are resized. Can you just die already?*\n        if (windowWidth !== windowWidthNew || windowHeight !== windowHeightNew) {\n          // set the new window dimens\n          windowWidth = windowWidthNew;\n          windowHeight = windowHeightNew;\n          // update all dynamic elements\n          el.redrawSlider();\n          // Call user resize handler\n          slider.settings.onSliderResize.call(el, slider.active.index);\n        }\n      }\n    };\n\n    /**\n     * Adds an aria-hidden=true attribute to each element\n     *\n     * @param startVisibleIndex (int)\n     *  - the first visible element's index\n     */\n    var applyAriaHiddenAttributes = function applyAriaHiddenAttributes(startVisibleIndex) {\n      var numberOfSlidesShowing = getNumberSlidesShowing();\n      // only apply attributes if the setting is enabled and not in ticker mode\n      if (slider.settings.ariaHidden && !slider.settings.ticker) {\n        // add aria-hidden=true to all elements\n        slider.children.attr('aria-hidden', 'true');\n        // get the visible elements and change to aria-hidden=false\n        slider.children.slice(startVisibleIndex, startVisibleIndex + numberOfSlidesShowing).attr('aria-hidden', 'false');\n      }\n    };\n\n    /**\n     * Returns index according to present page range\n     *\n     * @param slideOndex (int)\n     *  - the desired slide index\n     */\n    var setSlideIndex = function setSlideIndex(slideIndex) {\n      if (slideIndex < 0) {\n        if (slider.settings.infiniteLoop) {\n          return getPagerQty() - 1;\n        } else {\n          //we don't go to undefined slides\n          return slider.active.index;\n        }\n        // if slideIndex is greater than children length, set active index to 0 (this happens during infinite loop)\n      } else if (slideIndex >= getPagerQty()) {\n          if (slider.settings.infiniteLoop) {\n            return 0;\n          } else {\n            //we don't move to undefined pages\n            return slider.active.index;\n          }\n          // set active index to requested slide\n        } else {\n            return slideIndex;\n          }\n    };\n\n    /**\n     * ===================================================================================\n     * = PUBLIC FUNCTIONS\n     * ===================================================================================\n     */\n\n    /**\n     * Performs slide transition to the specified slide\n     *\n     * @param slideIndex (int)\n     *  - the destination slide's index (zero-based)\n     *\n     * @param direction (string)\n     *  - INTERNAL USE ONLY - the direction of travel (\"prev\" / \"next\")\n     */\n    el.goToSlide = function (slideIndex, direction) {\n      // onSlideBefore, onSlideNext, onSlidePrev callbacks\n      // Allow transition canceling based on returned value\n      var performTransition = true,\n          moveBy = 0,\n          position = { left: 0, top: 0 },\n          lastChild = null,\n          lastShowingIndex,\n          eq,\n          value,\n          requestEl;\n      // store the old index\n      slider.oldIndex = slider.active.index;\n      //set new index\n      slider.active.index = setSlideIndex(slideIndex);\n\n      // if plugin is currently in motion, ignore request\n      if (slider.working || slider.active.index === slider.oldIndex) {\n        return;\n      }\n      // declare that plugin is in motion\n      slider.working = true;\n\n      performTransition = slider.settings.onSlideBefore.call(el, slider.children.eq(slider.active.index), slider.oldIndex, slider.active.index);\n\n      // If transitions canceled, reset and return\n      if (typeof performTransition !== 'undefined' && !performTransition) {\n        slider.active.index = slider.oldIndex; // restore old index\n        slider.working = false; // is not in motion\n        return;\n      }\n\n      if (direction === 'next') {\n        // Prevent canceling in future functions or lack there-of from negating previous commands to cancel\n        if (!slider.settings.onSlideNext.call(el, slider.children.eq(slider.active.index), slider.oldIndex, slider.active.index)) {\n          performTransition = false;\n        }\n      } else if (direction === 'prev') {\n        // Prevent canceling in future functions or lack there-of from negating previous commands to cancel\n        if (!slider.settings.onSlidePrev.call(el, slider.children.eq(slider.active.index), slider.oldIndex, slider.active.index)) {\n          performTransition = false;\n        }\n      }\n\n      // check if last slide\n      slider.active.last = slider.active.index >= getPagerQty() - 1;\n      // update the pager with active class\n      if (slider.settings.pager || slider.settings.pagerCustom) {\n        updatePagerActive(slider.active.index);\n      }\n      // // check for direction control update\n      if (slider.settings.controls) {\n        updateDirectionControls();\n      }\n      // if slider is set to mode: \"fade\"\n      if (slider.settings.mode === 'fade') {\n        // if adaptiveHeight is true and next height is different from current height, animate to the new height\n        if (slider.settings.adaptiveHeight && slider.viewport.height() !== getViewportHeight()) {\n          slider.viewport.animate({ height: getViewportHeight() }, slider.settings.adaptiveHeightSpeed);\n        }\n        // fade out the visible child and reset its z-index value\n        slider.children.filter(':visible').fadeOut(slider.settings.speed).css({ zIndex: 0 });\n        // fade in the newly requested slide\n        slider.children.eq(slider.active.index).css('zIndex', slider.settings.slideZIndex + 1).fadeIn(slider.settings.speed, function () {\n          $(this).css('zIndex', slider.settings.slideZIndex);\n          updateAfterSlideTransition();\n        });\n        // slider mode is not \"fade\"\n      } else {\n          // if adaptiveHeight is true and next height is different from current height, animate to the new height\n          if (slider.settings.adaptiveHeight && slider.viewport.height() !== getViewportHeight()) {\n            slider.viewport.animate({ height: getViewportHeight() }, slider.settings.adaptiveHeightSpeed);\n          }\n          // if carousel and not infinite loop\n          if (!slider.settings.infiniteLoop && slider.carousel && slider.active.last) {\n            if (slider.settings.mode === 'horizontal') {\n              // get the last child position\n              lastChild = slider.children.eq(slider.children.length - 1);\n              position = lastChild.position();\n              // calculate the position of the last slide\n              moveBy = slider.viewport.width() - lastChild.outerWidth();\n            } else {\n              // get last showing index position\n              lastShowingIndex = slider.children.length - slider.settings.minSlides;\n              position = slider.children.eq(lastShowingIndex).position();\n            }\n            // horizontal carousel, going previous while on first slide (infiniteLoop mode)\n          } else if (slider.carousel && slider.active.last && direction === 'prev') {\n              // get the last child position\n              eq = slider.settings.moveSlides === 1 ? slider.settings.maxSlides - getMoveBy() : (getPagerQty() - 1) * getMoveBy() - (slider.children.length - slider.settings.maxSlides);\n              lastChild = el.children('.bx-clone').eq(eq);\n              position = lastChild.position();\n              // if infinite loop and \"Next\" is clicked on the last slide\n            } else if (direction === 'next' && slider.active.index === 0) {\n                // get the last clone position\n                position = el.find('> .bx-clone').eq(slider.settings.maxSlides).position();\n                slider.active.last = false;\n                // normal non-zero requests\n              } else if (slideIndex >= 0) {\n                  //parseInt is applied to allow floats for slides/page\n                  requestEl = slideIndex * parseInt(getMoveBy());\n                  position = slider.children.eq(requestEl).position();\n                }\n\n          /* If the position doesn't exist\n           * (e.g. if you destroy the slider on a next click),\n           * it doesn't throw an error.\n           */\n          if (typeof position !== 'undefined') {\n            value = slider.settings.mode === 'horizontal' ? -(position.left - moveBy) : -position.top;\n            // plugin values to be animated\n            setPositionProperty(value, 'slide', slider.settings.speed);\n          } else {\n            slider.working = false;\n          }\n        }\n      if (slider.settings.ariaHidden) {\n        applyAriaHiddenAttributes(slider.active.index * getMoveBy());\n      }\n    };\n\n    /**\n     * Transitions to the next slide in the show\n     */\n    el.goToNextSlide = function () {\n      // if infiniteLoop is false and last page is showing, disregard call\n      if (!slider.settings.infiniteLoop && slider.active.last) {\n        return;\n      }\n      var pagerIndex = parseInt(slider.active.index) + 1;\n      el.goToSlide(pagerIndex, 'next');\n    };\n\n    /**\n     * Transitions to the prev slide in the show\n     */\n    el.goToPrevSlide = function () {\n      // if infiniteLoop is false and last page is showing, disregard call\n      if (!slider.settings.infiniteLoop && slider.active.index === 0) {\n        return;\n      }\n      var pagerIndex = parseInt(slider.active.index) - 1;\n      el.goToSlide(pagerIndex, 'prev');\n    };\n\n    /**\n     * Starts the auto show\n     *\n     * @param preventControlUpdate (boolean)\n     *  - if true, auto controls state will not be updated\n     */\n    el.startAuto = function (preventControlUpdate) {\n      // if an interval already exists, disregard call\n      if (slider.interval) {\n        return;\n      }\n      // create an interval\n      slider.interval = setInterval(function () {\n        if (slider.settings.autoDirection === 'next') {\n          el.goToNextSlide();\n        } else {\n          el.goToPrevSlide();\n        }\n      }, slider.settings.pause);\n      // if auto controls are displayed and preventControlUpdate is not true\n      if (slider.settings.autoControls && preventControlUpdate !== true) {\n        updateAutoControls('stop');\n      }\n    };\n\n    /**\n     * Stops the auto show\n     *\n     * @param preventControlUpdate (boolean)\n     *  - if true, auto controls state will not be updated\n     */\n    el.stopAuto = function (preventControlUpdate) {\n      // if no interval exists, disregard call\n      if (!slider.interval) {\n        return;\n      }\n      // clear the interval\n      clearInterval(slider.interval);\n      slider.interval = null;\n      // if auto controls are displayed and preventControlUpdate is not true\n      if (slider.settings.autoControls && preventControlUpdate !== true) {\n        updateAutoControls('start');\n      }\n    };\n\n    /**\n     * Returns current slide index (zero-based)\n     */\n    el.getCurrentSlide = function () {\n      return slider.active.index;\n    };\n\n    /**\n     * Returns current slide element\n     */\n    el.getCurrentSlideElement = function () {\n      return slider.children.eq(slider.active.index);\n    };\n\n    /**\n     * Returns a slide element\n     * @param index (int)\n     *  - The index (zero-based) of the element you want returned.\n     */\n    el.getSlideElement = function (index) {\n      return slider.children.eq(index);\n    };\n\n    /**\n     * Returns number of slides in show\n     */\n    el.getSlideCount = function () {\n      return slider.children.length;\n    };\n\n    /**\n     * Return slider.working variable\n     */\n    el.isWorking = function () {\n      return slider.working;\n    };\n\n    /**\n     * Update all dynamic slider elements\n     */\n    el.redrawSlider = function () {\n      // resize all children in ratio to new screen size\n      slider.children.add(el.find('.bx-clone')).outerWidth(getSlideWidth());\n      // adjust the height\n      slider.viewport.css('height', getViewportHeight());\n      // update the slide position\n      if (!slider.settings.ticker) {\n        setSlidePosition();\n      }\n      // if active.last was true before the screen resize, we want\n      // to keep it last no matter what screen size we end on\n      if (slider.active.last) {\n        slider.active.index = getPagerQty() - 1;\n      }\n      // if the active index (page) no longer exists due to the resize, simply set the index as last\n      if (slider.active.index >= getPagerQty()) {\n        slider.active.last = true;\n      }\n      // if a pager is being displayed and a custom pager is not being used, update it\n      if (slider.settings.pager && !slider.settings.pagerCustom) {\n        populatePager();\n        updatePagerActive(slider.active.index);\n      }\n      if (slider.settings.ariaHidden) {\n        applyAriaHiddenAttributes(slider.active.index * getMoveBy());\n      }\n    };\n\n    /**\n     * Destroy the current instance of the slider (revert everything back to original state)\n     */\n    el.destroySlider = function () {\n      // don't do anything if slider has already been destroyed\n      if (!slider.initialized) {\n        return;\n      }\n      slider.initialized = false;\n      $('.bx-clone', this).remove();\n      slider.children.each(function () {\n        if ($(this).data('origStyle') !== undefined) {\n          $(this).attr('style', $(this).data('origStyle'));\n        } else {\n          $(this).removeAttr('style');\n        }\n      });\n      if ($(this).data('origStyle') !== undefined) {\n        this.attr('style', $(this).data('origStyle'));\n      } else {\n        $(this).removeAttr('style');\n      }\n      $(this).unwrap().unwrap();\n      if (slider.controls.el) {\n        slider.controls.el.remove();\n      }\n      if (slider.controls.next) {\n        slider.controls.next.remove();\n      }\n      if (slider.controls.prev) {\n        slider.controls.prev.remove();\n      }\n      if (slider.pagerEl && slider.settings.controls && !slider.settings.pagerCustom) {\n        slider.pagerEl.remove();\n      }\n      $('.bx-caption', this).remove();\n      if (slider.controls.autoEl) {\n        slider.controls.autoEl.remove();\n      }\n      clearInterval(slider.interval);\n      if (slider.settings.responsive) {\n        $(window).unbind('resize', resizeWindow);\n      }\n      if (slider.settings.keyboardEnabled) {\n        $(document).unbind('keydown', keyPress);\n      }\n      //remove self reference in data\n      $(this).removeData('bxSlider');\n    };\n\n    /**\n     * Reload the slider (revert all DOM changes, and re-initialize)\n     */\n    el.reloadSlider = function (settings) {\n      if (settings !== undefined) {\n        options = settings;\n      }\n      el.destroySlider();\n      init();\n      //store reference to self in order to access public functions later\n      $(el).data('bxSlider', this);\n    };\n\n    init();\n\n    $(el).data('bxSlider', this);\n\n    // returns the current jQuery object\n    return this;\n  };\n})(jQuery);\n\n//////////////////\n// WEBPACK FOOTER\n// ./jquery.bxslider.js\n// module id = 2\n// module chunks = 1\n//# sourceURL=webpack:///./jquery.bxslider.js?");
+	/**
+	 * bxSlider v4.2.12
+	 * Copyright 2013-2015 Steven Wanderski
+	 * Written while drinking Belgian ales and listening to jazz
+	 * Licensed under MIT (http://opensource.org/licenses/MIT)
+	 */
+
+	'use strict';
+
+	;(function ($) {
+
+	  var defaults = {
+
+	    // GENERAL
+	    mode: 'horizontal',
+	    slideSelector: '',
+	    infiniteLoop: true,
+	    hideControlOnEnd: false,
+	    speed: 500,
+	    easing: null,
+	    slideMargin: 0,
+	    startSlide: 0,
+	    randomStart: false,
+	    captions: false,
+	    ticker: false,
+	    tickerHover: false,
+	    adaptiveHeight: false,
+	    adaptiveHeightSpeed: 500,
+	    video: false,
+	    useCSS: true,
+	    preloadImages: 'visible',
+	    responsive: true,
+	    slideZIndex: 50,
+	    wrapperClass: 'bx-wrapper',
+
+	    // TOUCH
+	    touchEnabled: true,
+	    swipeThreshold: 50,
+	    oneToOneTouch: true,
+	    preventDefaultSwipeX: true,
+	    preventDefaultSwipeY: false,
+
+	    // ACCESSIBILITY
+	    ariaLive: true,
+	    ariaHidden: true,
+
+	    // KEYBOARD
+	    keyboardEnabled: false,
+
+	    // PAGER
+	    pager: true,
+	    pagerType: 'full',
+	    pagerShortSeparator: ' / ',
+	    pagerSelector: null,
+	    buildPager: null,
+	    pagerCustom: null,
+
+	    // CONTROLS
+	    controls: true,
+	    nextText: 'Next',
+	    prevText: 'Prev',
+	    nextSelector: null,
+	    prevSelector: null,
+	    autoControls: false,
+	    startText: 'Start',
+	    stopText: 'Stop',
+	    autoControlsCombine: false,
+	    autoControlsSelector: null,
+
+	    // AUTO
+	    auto: false,
+	    pause: 4000,
+	    autoStart: true,
+	    autoDirection: 'next',
+	    stopAutoOnClick: false,
+	    autoHover: false,
+	    autoDelay: 0,
+	    autoSlideForOnePage: false,
+
+	    // CAROUSEL
+	    minSlides: 1,
+	    maxSlides: 1,
+	    moveSlides: 0,
+	    slideWidth: 0,
+	    shrinkItems: false,
+
+	    // CALLBACKS
+	    onSliderLoad: function onSliderLoad() {
+	      return true;
+	    },
+	    onSlideBefore: function onSlideBefore() {
+	      return true;
+	    },
+	    onSlideAfter: function onSlideAfter() {
+	      return true;
+	    },
+	    onSlideNext: function onSlideNext() {
+	      return true;
+	    },
+	    onSlidePrev: function onSlidePrev() {
+	      return true;
+	    },
+	    onSliderResize: function onSliderResize() {
+	      return true;
+	    }
+	  };
+
+	  $.fn.bxSlider = function (options) {
+
+	    if (this.length === 0) {
+	      return this;
+	    }
+
+	    // support multiple elements
+	    if (this.length > 1) {
+	      this.each(function () {
+	        $(this).bxSlider(options);
+	      });
+	      return this;
+	    }
+
+	    // create a namespace to be used throughout the plugin
+	    var slider = {},
+
+	    // set a reference to our slider element
+	    el = this,
+
+	    // get the original window dimens (thanks a lot IE)
+	    windowWidth = $(window).width(),
+	        windowHeight = $(window).height();
+
+	    // Return if slider is already initialized
+	    if ($(el).data('bxSlider')) {
+	      return;
+	    }
+
+	    /**
+	     * ===================================================================================
+	     * = PRIVATE FUNCTIONS
+	     * ===================================================================================
+	     */
+
+	    /**
+	     * Initializes namespace settings to be used throughout plugin
+	     */
+	    var init = function init() {
+	      //
+	      debugger;
+	      if (true) {
+	        console.log(el);
+	      };
+	      //
+
+	      // Return if slider is already initialized
+	      if ($(el).data('bxSlider')) {
+	        return;
+	      }
+	      // merge user-supplied options with the defaults
+	      slider.settings = $.extend({}, defaults, options);
+	      // parse slideWidth setting
+	      slider.settings.slideWidth = parseInt(slider.settings.slideWidth);
+	      // store the original children
+	      slider.children = el.children(slider.settings.slideSelector);
+	      // check if actual number of slides is less than minSlides / maxSlides
+	      if (slider.children.length < slider.settings.minSlides) {
+	        slider.settings.minSlides = slider.children.length;
+	      }
+	      if (slider.children.length < slider.settings.maxSlides) {
+	        slider.settings.maxSlides = slider.children.length;
+	      }
+	      // if random start, set the startSlide setting to random number
+	      if (slider.settings.randomStart) {
+	        slider.settings.startSlide = Math.floor(Math.random() * slider.children.length);
+	      }
+	      // store active slide information
+	      slider.active = { index: slider.settings.startSlide };
+	      // store if the slider is in carousel mode (displaying / moving multiple slides)
+	      slider.carousel = slider.settings.minSlides > 1 || slider.settings.maxSlides > 1 ? true : false;
+	      // if carousel, force preloadImages = 'all'
+	      if (slider.carousel) {
+	        slider.settings.preloadImages = 'all';
+	      }
+	      // calculate the min / max width thresholds based on min / max number of slides
+	      // used to setup and update carousel slides dimensions
+	      slider.minThreshold = slider.settings.minSlides * slider.settings.slideWidth + (slider.settings.minSlides - 1) * slider.settings.slideMargin;
+	      slider.maxThreshold = slider.settings.maxSlides * slider.settings.slideWidth + (slider.settings.maxSlides - 1) * slider.settings.slideMargin;
+	      // store the current state of the slider (if currently animating, working is true)
+	      slider.working = false;
+	      // initialize the controls object
+	      slider.controls = {};
+	      // initialize an auto interval
+	      slider.interval = null;
+	      // determine which property to use for transitions
+	      slider.animProp = slider.settings.mode === 'vertical' ? 'top' : 'left';
+	      // determine if hardware acceleration can be used
+	      slider.usingCSS = slider.settings.useCSS && slider.settings.mode !== 'fade' && (function () {
+	        // create our test div element
+	        var div = document.createElement('div'),
+
+	        // css transition properties
+	        props = ['WebkitPerspective', 'MozPerspective', 'OPerspective', 'msPerspective'];
+	        // test for each property
+	        for (var i = 0; i < props.length; i++) {
+	          if (div.style[props[i]] !== undefined) {
+	            slider.cssPrefix = props[i].replace('Perspective', '').toLowerCase();
+	            slider.animProp = '-' + slider.cssPrefix + '-transform';
+	            return true;
+	          }
+	        }
+	        return false;
+	      })();
+	      // if vertical mode always make maxSlides and minSlides equal
+	      if (slider.settings.mode === 'vertical') {
+	        slider.settings.maxSlides = slider.settings.minSlides;
+	      }
+	      // save original style data
+	      el.data('origStyle', el.attr('style'));
+	      el.children(slider.settings.slideSelector).each(function () {
+	        $(this).data('origStyle', $(this).attr('style'));
+	      });
+
+	      // perform all DOM / CSS modifications
+	      setup();
+	    };
+
+	    /**
+	     * Performs all DOM and CSS modifications
+	     */
+	    var setup = function setup() {
+	      var preloadSelector = slider.children.eq(slider.settings.startSlide); // set the default preload selector (visible)
+
+	      // wrap el in a wrapper
+	      el.wrap('<div class="' + slider.settings.wrapperClass + '"><div class="bx-viewport"></div></div>');
+	      // store a namespace reference to .bx-viewport
+	      slider.viewport = el.parent();
+
+	      // add aria-live if the setting is enabled and ticker mode is disabled
+	      if (slider.settings.ariaLive && !slider.settings.ticker) {
+	        slider.viewport.attr('aria-live', 'polite');
+	      }
+	      // add a loading div to display while images are loading
+	      slider.loader = $('<div class="bx-loading" />');
+	      slider.viewport.prepend(slider.loader);
+	      // set el to a massive width, to hold any needed slides
+	      // also strip any margin and padding from el
+	      el.css({
+	        width: slider.settings.mode === 'horizontal' ? slider.children.length * 1000 + 215 + '%' : 'auto',
+	        position: 'relative'
+	      });
+	      // if using CSS, add the easing property
+	      if (slider.usingCSS && slider.settings.easing) {
+	        el.css('-' + slider.cssPrefix + '-transition-timing-function', slider.settings.easing);
+	        // if not using CSS and no easing value was supplied, use the default JS animation easing (swing)
+	      } else if (!slider.settings.easing) {
+	          slider.settings.easing = 'swing';
+	        }
+	      // make modifications to the viewport (.bx-viewport)
+	      slider.viewport.css({
+	        width: '100%',
+	        overflow: 'hidden',
+	        position: 'relative'
+	      });
+	      slider.viewport.parent().css({
+	        maxWidth: getViewportMaxWidth()
+	      });
+	      // apply css to all slider children
+	      slider.children.css({
+	        float: slider.settings.mode === 'horizontal' ? 'left' : 'none',
+	        listStyle: 'none',
+	        position: 'relative'
+	      });
+	      // apply the calculated width after the float is applied to prevent scrollbar interference
+	      slider.children.css('width', getSlideWidth());
+	      // if slideMargin is supplied, add the css
+	      if (slider.settings.mode === 'horizontal' && slider.settings.slideMargin > 0) {
+	        slider.children.css('marginRight', slider.settings.slideMargin);
+	      }
+	      if (slider.settings.mode === 'vertical' && slider.settings.slideMargin > 0) {
+	        slider.children.css('marginBottom', slider.settings.slideMargin);
+	      }
+	      // if "fade" mode, add positioning and z-index CSS
+	      if (slider.settings.mode === 'fade') {
+	        slider.children.css({
+	          position: 'absolute',
+	          zIndex: 0,
+	          display: 'none'
+	        });
+	        // prepare the z-index on the showing element
+	        slider.children.eq(slider.settings.startSlide).css({ zIndex: slider.settings.slideZIndex, display: 'block' });
+	      }
+	      // create an element to contain all slider controls (pager, start / stop, etc)
+	      slider.controls.el = $('<div class="bx-controls" />');
+	      // if captions are requested, add them
+	      if (slider.settings.captions) {
+	        appendCaptions();
+	      }
+	      // check if startSlide is last slide
+	      slider.active.last = slider.settings.startSlide === getPagerQty() - 1;
+	      // if video is true, set up the fitVids plugin
+	      if (slider.settings.video) {
+	        el.fitVids();
+	      }
+	      if (slider.settings.preloadImages === 'all' || slider.settings.ticker) {
+	        preloadSelector = slider.children;
+	      }
+	      // only check for control addition if not in "ticker" mode
+	      if (!slider.settings.ticker) {
+	        // if controls are requested, add them
+	        if (slider.settings.controls) {
+	          appendControls();
+	        }
+	        // if auto is true, and auto controls are requested, add them
+	        if (slider.settings.auto && slider.settings.autoControls) {
+	          appendControlsAuto();
+	        }
+	        // if pager is requested, add it
+	        if (slider.settings.pager) {
+	          appendPager();
+	        }
+	        // if any control option is requested, add the controls wrapper
+	        if (slider.settings.controls || slider.settings.autoControls || slider.settings.pager) {
+	          slider.viewport.after(slider.controls.el);
+	        }
+	        // if ticker mode, do not allow a pager
+	      } else {
+	          slider.settings.pager = false;
+	        }
+	      loadElements(preloadSelector, start);
+	    };
+
+	    var loadElements = function loadElements(selector, callback) {
+	      var total = selector.find('img:not([src=""]), iframe').length,
+	          count = 0;
+	      if (total === 0) {
+	        callback();
+	        return;
+	      }
+	      selector.find('img:not([src=""]), iframe').each(function () {
+	        $(this).one('load error', function () {
+	          if (++count === total) {
+	            callback();
+	          }
+	        }).each(function () {
+	          if (this.complete) {
+	            $(this).trigger('load');
+	          }
+	        });
+	      });
+	    };
+
+	    /**
+	     * Start the slider
+	     */
+	    var start = function start() {
+	      // if infinite loop, prepare additional slides
+	      if (slider.settings.infiniteLoop && slider.settings.mode !== 'fade' && !slider.settings.ticker) {
+	        var slice = slider.settings.mode === 'vertical' ? slider.settings.minSlides : slider.settings.maxSlides,
+	            sliceAppend = slider.children.slice(0, slice).clone(true).addClass('bx-clone'),
+	            slicePrepend = slider.children.slice(-slice).clone(true).addClass('bx-clone');
+	        if (slider.settings.ariaHidden) {
+	          sliceAppend.attr('aria-hidden', true);
+	          slicePrepend.attr('aria-hidden', true);
+	        }
+	        el.append(sliceAppend).prepend(slicePrepend);
+	      }
+	      // remove the loading DOM element
+	      slider.loader.remove();
+	      // set the left / top position of "el"
+	      setSlidePosition();
+	      // if "vertical" mode, always use adaptiveHeight to prevent odd behavior
+	      if (slider.settings.mode === 'vertical') {
+	        slider.settings.adaptiveHeight = true;
+	      }
+	      // set the viewport height
+	      slider.viewport.height(getViewportHeight());
+	      // make sure everything is positioned just right (same as a window resize)
+	      el.redrawSlider();
+	      // onSliderLoad callback
+	      slider.settings.onSliderLoad.call(el, slider.active.index);
+	      // slider has been fully initialized
+	      slider.initialized = true;
+	      // bind the resize call to the window
+	      if (slider.settings.responsive) {
+	        $(window).bind('resize', resizeWindow);
+	      }
+	      // if auto is true and has more than 1 page, start the show
+	      if (slider.settings.auto && slider.settings.autoStart && (getPagerQty() > 1 || slider.settings.autoSlideForOnePage)) {
+	        initAuto();
+	      }
+	      // if ticker is true, start the ticker
+	      if (slider.settings.ticker) {
+	        initTicker();
+	      }
+	      // if pager is requested, make the appropriate pager link active
+	      if (slider.settings.pager) {
+	        updatePagerActive(slider.settings.startSlide);
+	      }
+	      // check for any updates to the controls (like hideControlOnEnd updates)
+	      if (slider.settings.controls) {
+	        updateDirectionControls();
+	      }
+	      // if touchEnabled is true, setup the touch events
+	      if (slider.settings.touchEnabled && !slider.settings.ticker) {
+	        initTouch();
+	      }
+	      // if keyboardEnabled is true, setup the keyboard events
+	      if (slider.settings.keyboardEnabled && !slider.settings.ticker) {
+	        $(document).keydown(keyPress);
+	      }
+	    };
+
+	    /**
+	     * Returns the calculated height of the viewport, used to determine either adaptiveHeight or the maxHeight value
+	     */
+	    var getViewportHeight = function getViewportHeight() {
+	      var height = 0;
+	      // first determine which children (slides) should be used in our height calculation
+	      var children = $();
+	      // if mode is not "vertical" and adaptiveHeight is false, include all children
+	      if (slider.settings.mode !== 'vertical' && !slider.settings.adaptiveHeight) {
+	        children = slider.children;
+	      } else {
+	        // if not carousel, return the single active child
+	        if (!slider.carousel) {
+	          children = slider.children.eq(slider.active.index);
+	          // if carousel, return a slice of children
+	        } else {
+	            // get the individual slide index
+	            var currentIndex = slider.settings.moveSlides === 1 ? slider.active.index : slider.active.index * getMoveBy();
+	            // add the current slide to the children
+	            children = slider.children.eq(currentIndex);
+	            // cycle through the remaining "showing" slides
+	            for (i = 1; i <= slider.settings.maxSlides - 1; i++) {
+	              // if looped back to the start
+	              if (currentIndex + i >= slider.children.length) {
+	                children = children.add(slider.children.eq(i - 1));
+	              } else {
+	                children = children.add(slider.children.eq(currentIndex + i));
+	              }
+	            }
+	          }
+	      }
+	      // if "vertical" mode, calculate the sum of the heights of the children
+	      if (slider.settings.mode === 'vertical') {
+	        children.each(function (index) {
+	          height += $(this).outerHeight();
+	        });
+	        // add user-supplied margins
+	        if (slider.settings.slideMargin > 0) {
+	          height += slider.settings.slideMargin * (slider.settings.minSlides - 1);
+	        }
+	        // if not "vertical" mode, calculate the max height of the children
+	      } else {
+	          height = Math.max.apply(Math, children.map(function () {
+	            return $(this).outerHeight(false);
+	          }).get());
+	        }
+
+	      if (slider.viewport.css('box-sizing') === 'border-box') {
+	        height += parseFloat(slider.viewport.css('padding-top')) + parseFloat(slider.viewport.css('padding-bottom')) + parseFloat(slider.viewport.css('border-top-width')) + parseFloat(slider.viewport.css('border-bottom-width'));
+	      } else if (slider.viewport.css('box-sizing') === 'padding-box') {
+	        height += parseFloat(slider.viewport.css('padding-top')) + parseFloat(slider.viewport.css('padding-bottom'));
+	      }
+
+	      return height;
+	    };
+
+	    /**
+	     * Returns the calculated width to be used for the outer wrapper / viewport
+	     */
+	    var getViewportMaxWidth = function getViewportMaxWidth() {
+	      var width = '100%';
+	      if (slider.settings.slideWidth > 0) {
+	        if (slider.settings.mode === 'horizontal') {
+	          width = slider.settings.maxSlides * slider.settings.slideWidth + (slider.settings.maxSlides - 1) * slider.settings.slideMargin;
+	        } else {
+	          width = slider.settings.slideWidth;
+	        }
+	      }
+	      return width;
+	    };
+
+	    /**
+	     * Returns the calculated width to be applied to each slide
+	     */
+	    var getSlideWidth = function getSlideWidth() {
+	      var newElWidth = slider.settings.slideWidth,
+	          // start with any user-supplied slide width
+	      wrapWidth = slider.viewport.width(); // get the current viewport width
+	      // if slide width was not supplied, or is larger than the viewport use the viewport width
+	      if (slider.settings.slideWidth === 0 || slider.settings.slideWidth > wrapWidth && !slider.carousel || slider.settings.mode === 'vertical') {
+	        newElWidth = wrapWidth;
+	        // if carousel, use the thresholds to determine the width
+	      } else if (slider.settings.maxSlides > 1 && slider.settings.mode === 'horizontal') {
+	          if (wrapWidth > slider.maxThreshold) {
+	            return newElWidth;
+	          } else if (wrapWidth < slider.minThreshold) {
+	            newElWidth = (wrapWidth - slider.settings.slideMargin * (slider.settings.minSlides - 1)) / slider.settings.minSlides;
+	          } else if (slider.settings.shrinkItems) {
+	            newElWidth = Math.floor((wrapWidth + slider.settings.slideMargin) / Math.ceil((wrapWidth + slider.settings.slideMargin) / (newElWidth + slider.settings.slideMargin)) - slider.settings.slideMargin);
+	          }
+	        }
+	      return newElWidth;
+	    };
+
+	    /**
+	     * Returns the number of slides currently visible in the viewport (includes partially visible slides)
+	     */
+	    var getNumberSlidesShowing = function getNumberSlidesShowing() {
+	      var slidesShowing = 1,
+	          childWidth = null;
+	      if (slider.settings.mode === 'horizontal' && slider.settings.slideWidth > 0) {
+	        // if viewport is smaller than minThreshold, return minSlides
+	        if (slider.viewport.width() < slider.minThreshold) {
+	          slidesShowing = slider.settings.minSlides;
+	          // if viewport is larger than maxThreshold, return maxSlides
+	        } else if (slider.viewport.width() > slider.maxThreshold) {
+	            slidesShowing = slider.settings.maxSlides;
+	            // if viewport is between min / max thresholds, divide viewport width by first child width
+	          } else {
+	              childWidth = slider.children.first().width() + slider.settings.slideMargin;
+	              slidesShowing = Math.floor((slider.viewport.width() + slider.settings.slideMargin) / childWidth);
+	            }
+	        // if "vertical" mode, slides showing will always be minSlides
+	      } else if (slider.settings.mode === 'vertical') {
+	          slidesShowing = slider.settings.minSlides;
+	        }
+	      return slidesShowing;
+	    };
+
+	    /**
+	     * Returns the number of pages (one full viewport of slides is one "page")
+	     */
+	    var getPagerQty = function getPagerQty() {
+	      var pagerQty = 0,
+	          breakPoint = 0,
+	          counter = 0;
+	      // if moveSlides is specified by the user
+	      if (slider.settings.moveSlides > 0) {
+	        if (slider.settings.infiniteLoop) {
+	          pagerQty = Math.ceil(slider.children.length / getMoveBy());
+	        } else {
+	          // when breakpoint goes above children length, counter is the number of pages
+	          while (breakPoint < slider.children.length) {
+	            ++pagerQty;
+	            breakPoint = counter + getNumberSlidesShowing();
+	            counter += slider.settings.moveSlides <= getNumberSlidesShowing() ? slider.settings.moveSlides : getNumberSlidesShowing();
+	          }
+	        }
+	        // if moveSlides is 0 (auto) divide children length by sides showing, then round up
+	      } else {
+	          pagerQty = Math.ceil(slider.children.length / getNumberSlidesShowing());
+	        }
+	      return pagerQty;
+	    };
+
+	    /**
+	     * Returns the number of individual slides by which to shift the slider
+	     */
+	    var getMoveBy = function getMoveBy() {
+	      // if moveSlides was set by the user and moveSlides is less than number of slides showing
+	      if (slider.settings.moveSlides > 0 && slider.settings.moveSlides <= getNumberSlidesShowing()) {
+	        return slider.settings.moveSlides;
+	      }
+	      // if moveSlides is 0 (auto)
+	      return getNumberSlidesShowing();
+	    };
+
+	    /**
+	     * Sets the slider's (el) left or top position
+	     */
+	    var setSlidePosition = function setSlidePosition() {
+	      var position, lastChild, lastShowingIndex;
+	      // if last slide, not infinite loop, and number of children is larger than specified maxSlides
+	      if (slider.children.length > slider.settings.maxSlides && slider.active.last && !slider.settings.infiniteLoop) {
+	        if (slider.settings.mode === 'horizontal') {
+	          // get the last child's position
+	          lastChild = slider.children.last();
+	          position = lastChild.position();
+	          // set the left position
+	          setPositionProperty(-(position.left - (slider.viewport.width() - lastChild.outerWidth())), 'reset', 0);
+	        } else if (slider.settings.mode === 'vertical') {
+	          // get the last showing index's position
+	          lastShowingIndex = slider.children.length - slider.settings.minSlides;
+	          position = slider.children.eq(lastShowingIndex).position();
+	          // set the top position
+	          setPositionProperty(-position.top, 'reset', 0);
+	        }
+	        // if not last slide
+	      } else {
+	          // get the position of the first showing slide
+	          position = slider.children.eq(slider.active.index * getMoveBy()).position();
+	          // check for last slide
+	          if (slider.active.index === getPagerQty() - 1) {
+	            slider.active.last = true;
+	          }
+	          // set the respective position
+	          if (position !== undefined) {
+	            if (slider.settings.mode === 'horizontal') {
+	              setPositionProperty(-position.left, 'reset', 0);
+	            } else if (slider.settings.mode === 'vertical') {
+	              setPositionProperty(-position.top, 'reset', 0);
+	            }
+	          }
+	        }
+	    };
+
+	    /**
+	     * Sets the el's animating property position (which in turn will sometimes animate el).
+	     * If using CSS, sets the transform property. If not using CSS, sets the top / left property.
+	     *
+	     * @param value (int)
+	     *  - the animating property's value
+	     *
+	     * @param type (string) 'slide', 'reset', 'ticker'
+	     *  - the type of instance for which the function is being
+	     *
+	     * @param duration (int)
+	     *  - the amount of time (in ms) the transition should occupy
+	     *
+	     * @param params (array) optional
+	     *  - an optional parameter containing any variables that need to be passed in
+	     */
+	    var setPositionProperty = function setPositionProperty(value, type, duration, params) {
+	      var animateObj, propValue;
+	      // use CSS transform
+	      if (slider.usingCSS) {
+	        // determine the translate3d value
+	        propValue = slider.settings.mode === 'vertical' ? 'translate3d(0, ' + value + 'px, 0)' : 'translate3d(' + value + 'px, 0, 0)';
+	        // add the CSS transition-duration
+	        el.css('-' + slider.cssPrefix + '-transition-duration', duration / 1000 + 's');
+	        if (type === 'slide') {
+	          // set the property value
+	          el.css(slider.animProp, propValue);
+	          if (duration !== 0) {
+	            // bind a callback method - executes when CSS transition completes
+	            el.bind('transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd', function (e) {
+	              //make sure it's the correct one
+	              if (!$(e.target).is(el)) {
+	                return;
+	              }
+	              // unbind the callback
+	              el.unbind('transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd');
+	              updateAfterSlideTransition();
+	            });
+	          } else {
+	            //duration = 0
+	            updateAfterSlideTransition();
+	          }
+	        } else if (type === 'reset') {
+	          el.css(slider.animProp, propValue);
+	        } else if (type === 'ticker') {
+	          // make the transition use 'linear'
+	          el.css('-' + slider.cssPrefix + '-transition-timing-function', 'linear');
+	          el.css(slider.animProp, propValue);
+	          if (duration !== 0) {
+	            el.bind('transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd', function (e) {
+	              //make sure it's the correct one
+	              if (!$(e.target).is(el)) {
+	                return;
+	              }
+	              // unbind the callback
+	              el.unbind('transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd');
+	              // reset the position
+	              setPositionProperty(params.resetValue, 'reset', 0);
+	              // start the loop again
+	              tickerLoop();
+	            });
+	          } else {
+	            //duration = 0
+	            setPositionProperty(params.resetValue, 'reset', 0);
+	            tickerLoop();
+	          }
+	        }
+	        // use JS animate
+	      } else {
+	          animateObj = {};
+	          animateObj[slider.animProp] = value;
+	          if (type === 'slide') {
+	            el.animate(animateObj, duration, slider.settings.easing, function () {
+	              updateAfterSlideTransition();
+	            });
+	          } else if (type === 'reset') {
+	            el.css(slider.animProp, value);
+	          } else if (type === 'ticker') {
+	            el.animate(animateObj, duration, 'linear', function () {
+	              setPositionProperty(params.resetValue, 'reset', 0);
+	              // run the recursive loop after animation
+	              tickerLoop();
+	            });
+	          }
+	        }
+	    };
+
+	    /**
+	     * Populates the pager with proper amount of pages
+	     */
+	    var populatePager = function populatePager() {
+	      var pagerHtml = '',
+	          linkContent = '',
+	          pagerQty = getPagerQty();
+	      // loop through each pager item
+	      for (var i = 0; i < pagerQty; i++) {
+	        linkContent = '';
+	        // if a buildPager function is supplied, use it to get pager link value, else use index + 1
+	        if (slider.settings.buildPager && $.isFunction(slider.settings.buildPager) || slider.settings.pagerCustom) {
+	          linkContent = slider.settings.buildPager(i);
+	          slider.pagerEl.addClass('bx-custom-pager');
+	        } else {
+	          linkContent = i + 1;
+	          slider.pagerEl.addClass('bx-default-pager');
+	        }
+	        // var linkContent = slider.settings.buildPager && $.isFunction(slider.settings.buildPager) ? slider.settings.buildPager(i) : i + 1;
+	        // add the markup to the string
+	        pagerHtml += '<div class="bx-pager-item"><a href="" data-slide-index="' + i + '" class="bx-pager-link">' + linkContent + '</a></div>';
+	      }
+	      // populate the pager element with pager links
+	      slider.pagerEl.html(pagerHtml);
+	    };
+
+	    /**
+	     * Appends the pager to the controls element
+	     */
+	    var appendPager = function appendPager() {
+	      if (!slider.settings.pagerCustom) {
+	        // create the pager DOM element
+	        slider.pagerEl = $('<div class="bx-pager" />');
+	        // if a pager selector was supplied, populate it with the pager
+	        if (slider.settings.pagerSelector) {
+	          $(slider.settings.pagerSelector).html(slider.pagerEl);
+	          // if no pager selector was supplied, add it after the wrapper
+	        } else {
+	            slider.controls.el.addClass('bx-has-pager').append(slider.pagerEl);
+	          }
+	        // populate the pager
+	        populatePager();
+	      } else {
+	        slider.pagerEl = $(slider.settings.pagerCustom);
+	      }
+	      // assign the pager click binding
+	      slider.pagerEl.on('click touchend', 'a', clickPagerBind);
+	    };
+
+	    /**
+	     * Appends prev / next controls to the controls element
+	     */
+	    var appendControls = function appendControls() {
+	      slider.controls.next = $('<a class="bx-next" href="">' + slider.settings.nextText + '</a>');
+	      slider.controls.prev = $('<a class="bx-prev" href="">' + slider.settings.prevText + '</a>');
+	      // bind click actions to the controls
+	      slider.controls.next.bind('click touchend', clickNextBind);
+	      slider.controls.prev.bind('click touchend', clickPrevBind);
+	      // if nextSelector was supplied, populate it
+	      if (slider.settings.nextSelector) {
+	        $(slider.settings.nextSelector).append(slider.controls.next);
+	      }
+	      // if prevSelector was supplied, populate it
+	      if (slider.settings.prevSelector) {
+	        $(slider.settings.prevSelector).append(slider.controls.prev);
+	      }
+	      // if no custom selectors were supplied
+	      if (!slider.settings.nextSelector && !slider.settings.prevSelector) {
+	        // add the controls to the DOM
+	        slider.controls.directionEl = $('<div class="bx-controls-direction" />');
+	        // add the control elements to the directionEl
+	        slider.controls.directionEl.append(slider.controls.prev).append(slider.controls.next);
+	        // slider.viewport.append(slider.controls.directionEl);
+	        slider.controls.el.addClass('bx-has-controls-direction').append(slider.controls.directionEl);
+	      }
+	    };
+
+	    /**
+	     * Appends start / stop auto controls to the controls element
+	     */
+	    var appendControlsAuto = function appendControlsAuto() {
+	      slider.controls.start = $('<div class="bx-controls-auto-item"><a class="bx-start" href="">' + slider.settings.startText + '</a></div>');
+	      slider.controls.stop = $('<div class="bx-controls-auto-item"><a class="bx-stop" href="">' + slider.settings.stopText + '</a></div>');
+	      // add the controls to the DOM
+	      slider.controls.autoEl = $('<div class="bx-controls-auto" />');
+	      // bind click actions to the controls
+	      slider.controls.autoEl.on('click', '.bx-start', clickStartBind);
+	      slider.controls.autoEl.on('click', '.bx-stop', clickStopBind);
+	      // if autoControlsCombine, insert only the "start" control
+	      if (slider.settings.autoControlsCombine) {
+	        slider.controls.autoEl.append(slider.controls.start);
+	        // if autoControlsCombine is false, insert both controls
+	      } else {
+	          slider.controls.autoEl.append(slider.controls.start).append(slider.controls.stop);
+	        }
+	      // if auto controls selector was supplied, populate it with the controls
+	      if (slider.settings.autoControlsSelector) {
+	        $(slider.settings.autoControlsSelector).html(slider.controls.autoEl);
+	        // if auto controls selector was not supplied, add it after the wrapper
+	      } else {
+	          slider.controls.el.addClass('bx-has-controls-auto').append(slider.controls.autoEl);
+	        }
+	      // update the auto controls
+	      updateAutoControls(slider.settings.autoStart ? 'stop' : 'start');
+	    };
+
+	    /**
+	     * Appends image captions to the DOM
+	     */
+	    var appendCaptions = function appendCaptions() {
+	      // cycle through each child
+	      slider.children.each(function (index) {
+	        // get the image title attribute
+	        var title = $(this).find('img:first').attr('title');
+	        // append the caption
+	        if (title !== undefined && ('' + title).length) {
+	          $(this).append('<div class="bx-caption"><span>' + title + '</span></div>');
+	        }
+	      });
+	    };
+
+	    /**
+	     * Click next binding
+	     *
+	     * @param e (event)
+	     *  - DOM event object
+	     */
+	    var clickNextBind = function clickNextBind(e) {
+	      e.preventDefault();
+	      if (slider.controls.el.hasClass('disabled')) {
+	        return;
+	      }
+	      // if auto show is running, stop it
+	      if (slider.settings.auto && slider.settings.stopAutoOnClick) {
+	        el.stopAuto();
+	      }
+	      el.goToNextSlide();
+	    };
+
+	    /**
+	     * Click prev binding
+	     *
+	     * @param e (event)
+	     *  - DOM event object
+	     */
+	    var clickPrevBind = function clickPrevBind(e) {
+	      e.preventDefault();
+	      if (slider.controls.el.hasClass('disabled')) {
+	        return;
+	      }
+	      // if auto show is running, stop it
+	      if (slider.settings.auto && slider.settings.stopAutoOnClick) {
+	        el.stopAuto();
+	      }
+	      el.goToPrevSlide();
+	    };
+
+	    /**
+	     * Click start binding
+	     *
+	     * @param e (event)
+	     *  - DOM event object
+	     */
+	    var clickStartBind = function clickStartBind(e) {
+	      el.startAuto();
+	      e.preventDefault();
+	    };
+
+	    /**
+	     * Click stop binding
+	     *
+	     * @param e (event)
+	     *  - DOM event object
+	     */
+	    var clickStopBind = function clickStopBind(e) {
+	      el.stopAuto();
+	      e.preventDefault();
+	    };
+
+	    /**
+	     * Click pager binding
+	     *
+	     * @param e (event)
+	     *  - DOM event object
+	     */
+	    var clickPagerBind = function clickPagerBind(e) {
+	      var pagerLink, pagerIndex;
+	      e.preventDefault();
+	      if (slider.controls.el.hasClass('disabled')) {
+	        return;
+	      }
+	      // if auto show is running, stop it
+	      if (slider.settings.auto && slider.settings.stopAutoOnClick) {
+	        el.stopAuto();
+	      }
+	      pagerLink = $(e.currentTarget);
+	      if (pagerLink.attr('data-slide-index') !== undefined) {
+	        pagerIndex = parseInt(pagerLink.attr('data-slide-index'));
+	        // if clicked pager link is not active, continue with the goToSlide call
+	        if (pagerIndex !== slider.active.index) {
+	          el.goToSlide(pagerIndex);
+	        }
+	      }
+	    };
+
+	    /**
+	     * Updates the pager links with an active class
+	     *
+	     * @param slideIndex (int)
+	     *  - index of slide to make active
+	     */
+	    var updatePagerActive = function updatePagerActive(slideIndex) {
+	      // if "short" pager type
+	      var len = slider.children.length; // nb of children
+	      if (slider.settings.pagerType === 'short') {
+	        if (slider.settings.maxSlides > 1) {
+	          len = Math.ceil(slider.children.length / slider.settings.maxSlides);
+	        }
+	        slider.pagerEl.html(slideIndex + 1 + slider.settings.pagerShortSeparator + len);
+	        return;
+	      }
+	      // remove all pager active classes
+	      slider.pagerEl.find('a').removeClass('active');
+	      // apply the active class for all pagers
+	      slider.pagerEl.each(function (i, el) {
+	        $(el).find('a').eq(slideIndex).addClass('active');
+	      });
+	    };
+
+	    /**
+	     * Performs needed actions after a slide transition
+	     */
+	    var updateAfterSlideTransition = function updateAfterSlideTransition() {
+	      // if infinite loop is true
+	      if (slider.settings.infiniteLoop) {
+	        var position = '';
+	        // first slide
+	        if (slider.active.index === 0) {
+	          // set the new position
+	          position = slider.children.eq(0).position();
+	          // carousel, last slide
+	        } else if (slider.active.index === getPagerQty() - 1 && slider.carousel) {
+	            position = slider.children.eq((getPagerQty() - 1) * getMoveBy()).position();
+	            // last slide
+	          } else if (slider.active.index === slider.children.length - 1) {
+	              position = slider.children.eq(slider.children.length - 1).position();
+	            }
+	        if (position) {
+	          if (slider.settings.mode === 'horizontal') {
+	            setPositionProperty(-position.left, 'reset', 0);
+	          } else if (slider.settings.mode === 'vertical') {
+	            setPositionProperty(-position.top, 'reset', 0);
+	          }
+	        }
+	      }
+	      // declare that the transition is complete
+	      slider.working = false;
+	      // onSlideAfter callback
+	      slider.settings.onSlideAfter.call(el, slider.children.eq(slider.active.index), slider.oldIndex, slider.active.index);
+	    };
+
+	    /**
+	     * Updates the auto controls state (either active, or combined switch)
+	     *
+	     * @param state (string) "start", "stop"
+	     *  - the new state of the auto show
+	     */
+	    var updateAutoControls = function updateAutoControls(state) {
+	      // if autoControlsCombine is true, replace the current control with the new state
+	      if (slider.settings.autoControlsCombine) {
+	        slider.controls.autoEl.html(slider.controls[state]);
+	        // if autoControlsCombine is false, apply the "active" class to the appropriate control
+	      } else {
+	          slider.controls.autoEl.find('a').removeClass('active');
+	          slider.controls.autoEl.find('a:not(.bx-' + state + ')').addClass('active');
+	        }
+	    };
+
+	    /**
+	     * Updates the direction controls (checks if either should be hidden)
+	     */
+	    var updateDirectionControls = function updateDirectionControls() {
+	      if (getPagerQty() === 1) {
+	        slider.controls.prev.addClass('disabled');
+	        slider.controls.next.addClass('disabled');
+	      } else if (!slider.settings.infiniteLoop && slider.settings.hideControlOnEnd) {
+	        // if first slide
+	        if (slider.active.index === 0) {
+	          slider.controls.prev.addClass('disabled');
+	          slider.controls.next.removeClass('disabled');
+	          // if last slide
+	        } else if (slider.active.index === getPagerQty() - 1) {
+	            slider.controls.next.addClass('disabled');
+	            slider.controls.prev.removeClass('disabled');
+	            // if any slide in the middle
+	          } else {
+	              slider.controls.prev.removeClass('disabled');
+	              slider.controls.next.removeClass('disabled');
+	            }
+	      }
+	    };
+
+	    /**
+	     * Initializes the auto process
+	     */
+	    var initAuto = function initAuto() {
+	      // if autoDelay was supplied, launch the auto show using a setTimeout() call
+	      if (slider.settings.autoDelay > 0) {
+	        var timeout = setTimeout(el.startAuto, slider.settings.autoDelay);
+	        // if autoDelay was not supplied, start the auto show normally
+	      } else {
+	          el.startAuto();
+
+	          //add focus and blur events to ensure its running if timeout gets paused
+	          $(window).focus(function () {
+	            el.startAuto();
+	          }).blur(function () {
+	            el.stopAuto();
+	          });
+	        }
+	      // if autoHover is requested
+	      if (slider.settings.autoHover) {
+	        // on el hover
+	        el.hover(function () {
+	          // if the auto show is currently playing (has an active interval)
+	          if (slider.interval) {
+	            // stop the auto show and pass true argument which will prevent control update
+	            el.stopAuto(true);
+	            // create a new autoPaused value which will be used by the relative "mouseout" event
+	            slider.autoPaused = true;
+	          }
+	        }, function () {
+	          // if the autoPaused value was created be the prior "mouseover" event
+	          if (slider.autoPaused) {
+	            // start the auto show and pass true argument which will prevent control update
+	            el.startAuto(true);
+	            // reset the autoPaused value
+	            slider.autoPaused = null;
+	          }
+	        });
+	      }
+	    };
+
+	    /**
+	     * Initializes the ticker process
+	     */
+	    var initTicker = function initTicker() {
+	      var startPosition = 0,
+	          position,
+	          transform,
+	          value,
+	          idx,
+	          ratio,
+	          property,
+	          newSpeed,
+	          totalDimens;
+	      // if autoDirection is "next", append a clone of the entire slider
+	      if (slider.settings.autoDirection === 'next') {
+	        el.append(slider.children.clone().addClass('bx-clone'));
+	        // if autoDirection is "prev", prepend a clone of the entire slider, and set the left position
+	      } else {
+	          el.prepend(slider.children.clone().addClass('bx-clone'));
+	          position = slider.children.first().position();
+	          startPosition = slider.settings.mode === 'horizontal' ? -position.left : -position.top;
+	        }
+	      setPositionProperty(startPosition, 'reset', 0);
+	      // do not allow controls in ticker mode
+	      slider.settings.pager = false;
+	      slider.settings.controls = false;
+	      slider.settings.autoControls = false;
+	      // if autoHover is requested
+	      if (slider.settings.tickerHover) {
+	        if (slider.usingCSS) {
+	          idx = slider.settings.mode === 'horizontal' ? 4 : 5;
+	          slider.viewport.hover(function () {
+	            transform = el.css('-' + slider.cssPrefix + '-transform');
+	            value = parseFloat(transform.split(',')[idx]);
+	            setPositionProperty(value, 'reset', 0);
+	          }, function () {
+	            totalDimens = 0;
+	            slider.children.each(function (index) {
+	              totalDimens += slider.settings.mode === 'horizontal' ? $(this).outerWidth(true) : $(this).outerHeight(true);
+	            });
+	            // calculate the speed ratio (used to determine the new speed to finish the paused animation)
+	            ratio = slider.settings.speed / totalDimens;
+	            // determine which property to use
+	            property = slider.settings.mode === 'horizontal' ? 'left' : 'top';
+	            // calculate the new speed
+	            newSpeed = ratio * (totalDimens - Math.abs(parseInt(value)));
+	            tickerLoop(newSpeed);
+	          });
+	        } else {
+	          // on el hover
+	          slider.viewport.hover(function () {
+	            el.stop();
+	          }, function () {
+	            // calculate the total width of children (used to calculate the speed ratio)
+	            totalDimens = 0;
+	            slider.children.each(function (index) {
+	              totalDimens += slider.settings.mode === 'horizontal' ? $(this).outerWidth(true) : $(this).outerHeight(true);
+	            });
+	            // calculate the speed ratio (used to determine the new speed to finish the paused animation)
+	            ratio = slider.settings.speed / totalDimens;
+	            // determine which property to use
+	            property = slider.settings.mode === 'horizontal' ? 'left' : 'top';
+	            // calculate the new speed
+	            newSpeed = ratio * (totalDimens - Math.abs(parseInt(el.css(property))));
+	            tickerLoop(newSpeed);
+	          });
+	        }
+	      }
+	      // start the ticker loop
+	      tickerLoop();
+	    };
+
+	    /**
+	     * Runs a continuous loop, news ticker-style
+	     */
+	    var tickerLoop = function tickerLoop(resumeSpeed) {
+	      var speed = resumeSpeed ? resumeSpeed : slider.settings.speed,
+	          position = { left: 0, top: 0 },
+	          reset = { left: 0, top: 0 },
+	          animateProperty,
+	          resetValue,
+	          params;
+
+	      // if "next" animate left position to last child, then reset left to 0
+	      if (slider.settings.autoDirection === 'next') {
+	        position = el.find('.bx-clone').first().position();
+	        // if "prev" animate left position to 0, then reset left to first non-clone child
+	      } else {
+	          reset = slider.children.first().position();
+	        }
+	      animateProperty = slider.settings.mode === 'horizontal' ? -position.left : -position.top;
+	      resetValue = slider.settings.mode === 'horizontal' ? -reset.left : -reset.top;
+	      params = { resetValue: resetValue };
+	      setPositionProperty(animateProperty, 'ticker', speed, params);
+	    };
+
+	    /**
+	     * Check if el is on screen
+	     */
+	    var isOnScreen = function isOnScreen(el) {
+	      var win = $(window),
+	          viewport = {
+	        top: win.scrollTop(),
+	        left: win.scrollLeft()
+	      },
+	          bounds = el.offset();
+
+	      viewport.right = viewport.left + win.width();
+	      viewport.bottom = viewport.top + win.height();
+	      bounds.right = bounds.left + el.outerWidth();
+	      bounds.bottom = bounds.top + el.outerHeight();
+
+	      return !(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom);
+	    };
+
+	    /**
+	     * Initializes keyboard events
+	     */
+	    var keyPress = function keyPress(e) {
+	      var activeElementTag = document.activeElement.tagName.toLowerCase(),
+	          tagFilters = 'input|textarea',
+	          p = new RegExp(activeElementTag, ['i']),
+	          result = p.exec(tagFilters);
+
+	      if (result == null && isOnScreen(el)) {
+	        if (e.keyCode === 39) {
+	          clickNextBind(e);
+	          return false;
+	        } else if (e.keyCode === 37) {
+	          clickPrevBind(e);
+	          return false;
+	        }
+	      }
+	    };
+
+	    /**
+	     * Initializes touch events
+	     */
+	    var initTouch = function initTouch() {
+	      // initialize object to contain all touch values
+	      slider.touch = {
+	        start: { x: 0, y: 0 },
+	        end: { x: 0, y: 0 }
+	      };
+	      slider.viewport.bind('touchstart MSPointerDown pointerdown', onTouchStart);
+
+	      //for browsers that have implemented pointer events and fire a click after
+	      //every pointerup regardless of whether pointerup is on same screen location as pointerdown or not
+	      slider.viewport.on('click', '.bxslider a', function (e) {
+	        if (slider.viewport.hasClass('click-disabled')) {
+	          e.preventDefault();
+	          slider.viewport.removeClass('click-disabled');
+	        }
+	      });
+	    };
+
+	    /**
+	     * Event handler for "touchstart"
+	     *
+	     * @param e (event)
+	     *  - DOM event object
+	     */
+	    var onTouchStart = function onTouchStart(e) {
+	      //disable slider controls while user is interacting with slides to avoid slider freeze that happens on touch devices when a slide swipe happens immediately after interacting with slider controls
+	      slider.controls.el.addClass('disabled');
+
+	      if (slider.working) {
+	        e.preventDefault();
+	        slider.controls.el.removeClass('disabled');
+	      } else {
+	        // record the original position when touch starts
+	        slider.touch.originalPos = el.position();
+	        var orig = e.originalEvent,
+	            touchPoints = typeof orig.changedTouches !== 'undefined' ? orig.changedTouches : [orig];
+	        // record the starting touch x, y coordinates
+	        slider.touch.start.x = touchPoints[0].pageX;
+	        slider.touch.start.y = touchPoints[0].pageY;
+
+	        if (slider.viewport.get(0).setPointerCapture) {
+	          slider.pointerId = orig.pointerId;
+	          slider.viewport.get(0).setPointerCapture(slider.pointerId);
+	        }
+	        // bind a "touchmove" event to the viewport
+	        slider.viewport.bind('touchmove MSPointerMove pointermove', onTouchMove);
+	        // bind a "touchend" event to the viewport
+	        slider.viewport.bind('touchend MSPointerUp pointerup', onTouchEnd);
+	        slider.viewport.bind('MSPointerCancel pointercancel', onPointerCancel);
+	      }
+	    };
+
+	    /**
+	     * Cancel Pointer for Windows Phone
+	     *
+	     * @param e (event)
+	     *  - DOM event object
+	     */
+	    var onPointerCancel = function onPointerCancel(e) {
+	      /* onPointerCancel handler is needed to deal with situations when a touchend
+	      doesn't fire after a touchstart (this happens on windows phones only) */
+	      setPositionProperty(slider.touch.originalPos.left, 'reset', 0);
+
+	      //remove handlers
+	      slider.controls.el.removeClass('disabled');
+	      slider.viewport.unbind('MSPointerCancel pointercancel', onPointerCancel);
+	      slider.viewport.unbind('touchmove MSPointerMove pointermove', onTouchMove);
+	      slider.viewport.unbind('touchend MSPointerUp pointerup', onTouchEnd);
+	      if (slider.viewport.get(0).releasePointerCapture) {
+	        slider.viewport.get(0).releasePointerCapture(slider.pointerId);
+	      }
+	    };
+
+	    /**
+	     * Event handler for "touchmove"
+	     *
+	     * @param e (event)
+	     *  - DOM event object
+	     */
+	    var onTouchMove = function onTouchMove(e) {
+	      var orig = e.originalEvent,
+	          touchPoints = typeof orig.changedTouches !== 'undefined' ? orig.changedTouches : [orig],
+
+	      // if scrolling on y axis, do not prevent default
+	      xMovement = Math.abs(touchPoints[0].pageX - slider.touch.start.x),
+	          yMovement = Math.abs(touchPoints[0].pageY - slider.touch.start.y),
+	          value = 0,
+	          change = 0;
+
+	      // x axis swipe
+	      if (xMovement * 3 > yMovement && slider.settings.preventDefaultSwipeX) {
+	        e.preventDefault();
+	        // y axis swipe
+	      } else if (yMovement * 3 > xMovement && slider.settings.preventDefaultSwipeY) {
+	          e.preventDefault();
+	        }
+	      if (slider.settings.mode !== 'fade' && slider.settings.oneToOneTouch) {
+	        // if horizontal, drag along x axis
+	        if (slider.settings.mode === 'horizontal') {
+	          change = touchPoints[0].pageX - slider.touch.start.x;
+	          value = slider.touch.originalPos.left + change;
+	          // if vertical, drag along y axis
+	        } else {
+	            change = touchPoints[0].pageY - slider.touch.start.y;
+	            value = slider.touch.originalPos.top + change;
+	          }
+	        setPositionProperty(value, 'reset', 0);
+	      }
+	    };
+
+	    /**
+	     * Event handler for "touchend"
+	     *
+	     * @param e (event)
+	     *  - DOM event object
+	     */
+	    var onTouchEnd = function onTouchEnd(e) {
+	      slider.viewport.unbind('touchmove MSPointerMove pointermove', onTouchMove);
+	      //enable slider controls as soon as user stops interacing with slides
+	      slider.controls.el.removeClass('disabled');
+	      var orig = e.originalEvent,
+	          touchPoints = typeof orig.changedTouches !== 'undefined' ? orig.changedTouches : [orig],
+	          value = 0,
+	          distance = 0;
+	      // record end x, y positions
+	      slider.touch.end.x = touchPoints[0].pageX;
+	      slider.touch.end.y = touchPoints[0].pageY;
+	      // if fade mode, check if absolute x distance clears the threshold
+	      if (slider.settings.mode === 'fade') {
+	        distance = Math.abs(slider.touch.start.x - slider.touch.end.x);
+	        if (distance >= slider.settings.swipeThreshold) {
+	          if (slider.touch.start.x > slider.touch.end.x) {
+	            el.goToNextSlide();
+	          } else {
+	            el.goToPrevSlide();
+	          }
+	          el.stopAuto();
+	        }
+	        // not fade mode
+	      } else {
+	          // calculate distance and el's animate property
+	          if (slider.settings.mode === 'horizontal') {
+	            distance = slider.touch.end.x - slider.touch.start.x;
+	            value = slider.touch.originalPos.left;
+	          } else {
+	            distance = slider.touch.end.y - slider.touch.start.y;
+	            value = slider.touch.originalPos.top;
+	          }
+	          // if not infinite loop and first / last slide, do not attempt a slide transition
+	          if (!slider.settings.infiniteLoop && (slider.active.index === 0 && distance > 0 || slider.active.last && distance < 0)) {
+	            setPositionProperty(value, 'reset', 200);
+	          } else {
+	            // check if distance clears threshold
+	            if (Math.abs(distance) >= slider.settings.swipeThreshold) {
+	              if (distance < 0) {
+	                el.goToNextSlide();
+	              } else {
+	                el.goToPrevSlide();
+	              }
+	              el.stopAuto();
+	            } else {
+	              // el.animate(property, 200);
+	              setPositionProperty(value, 'reset', 200);
+	            }
+	          }
+	        }
+	      slider.viewport.unbind('touchend MSPointerUp pointerup', onTouchEnd);
+	      if (slider.viewport.get(0).releasePointerCapture) {
+	        slider.viewport.get(0).releasePointerCapture(slider.pointerId);
+	      }
+	    };
+
+	    /**
+	     * Window resize event callback
+	     */
+	    var resizeWindow = function resizeWindow(e) {
+	      // don't do anything if slider isn't initialized.
+	      if (!slider.initialized) {
+	        return;
+	      }
+	      // Delay if slider working.
+	      if (slider.working) {
+	        window.setTimeout(resizeWindow, 10);
+	      } else {
+	        // get the new window dimens (again, thank you IE)
+	        var windowWidthNew = $(window).width(),
+	            windowHeightNew = $(window).height();
+	        // make sure that it is a true window resize
+	        // *we must check this because our dinosaur friend IE fires a window resize event when certain DOM elements
+	        // are resized. Can you just die already?*
+	        if (windowWidth !== windowWidthNew || windowHeight !== windowHeightNew) {
+	          // set the new window dimens
+	          windowWidth = windowWidthNew;
+	          windowHeight = windowHeightNew;
+	          // update all dynamic elements
+	          el.redrawSlider();
+	          // Call user resize handler
+	          slider.settings.onSliderResize.call(el, slider.active.index);
+	        }
+	      }
+	    };
+
+	    /**
+	     * Adds an aria-hidden=true attribute to each element
+	     *
+	     * @param startVisibleIndex (int)
+	     *  - the first visible element's index
+	     */
+	    var applyAriaHiddenAttributes = function applyAriaHiddenAttributes(startVisibleIndex) {
+	      var numberOfSlidesShowing = getNumberSlidesShowing();
+	      // only apply attributes if the setting is enabled and not in ticker mode
+	      if (slider.settings.ariaHidden && !slider.settings.ticker) {
+	        // add aria-hidden=true to all elements
+	        slider.children.attr('aria-hidden', 'true');
+	        // get the visible elements and change to aria-hidden=false
+	        slider.children.slice(startVisibleIndex, startVisibleIndex + numberOfSlidesShowing).attr('aria-hidden', 'false');
+	      }
+	    };
+
+	    /**
+	     * Returns index according to present page range
+	     *
+	     * @param slideOndex (int)
+	     *  - the desired slide index
+	     */
+	    var setSlideIndex = function setSlideIndex(slideIndex) {
+	      if (slideIndex < 0) {
+	        if (slider.settings.infiniteLoop) {
+	          return getPagerQty() - 1;
+	        } else {
+	          //we don't go to undefined slides
+	          return slider.active.index;
+	        }
+	        // if slideIndex is greater than children length, set active index to 0 (this happens during infinite loop)
+	      } else if (slideIndex >= getPagerQty()) {
+	          if (slider.settings.infiniteLoop) {
+	            return 0;
+	          } else {
+	            //we don't move to undefined pages
+	            return slider.active.index;
+	          }
+	          // set active index to requested slide
+	        } else {
+	            return slideIndex;
+	          }
+	    };
+
+	    /**
+	     * ===================================================================================
+	     * = PUBLIC FUNCTIONS
+	     * ===================================================================================
+	     */
+
+	    /**
+	     * Performs slide transition to the specified slide
+	     *
+	     * @param slideIndex (int)
+	     *  - the destination slide's index (zero-based)
+	     *
+	     * @param direction (string)
+	     *  - INTERNAL USE ONLY - the direction of travel ("prev" / "next")
+	     */
+	    el.goToSlide = function (slideIndex, direction) {
+	      // onSlideBefore, onSlideNext, onSlidePrev callbacks
+	      // Allow transition canceling based on returned value
+	      var performTransition = true,
+	          moveBy = 0,
+	          position = { left: 0, top: 0 },
+	          lastChild = null,
+	          lastShowingIndex,
+	          eq,
+	          value,
+	          requestEl;
+	      // store the old index
+	      slider.oldIndex = slider.active.index;
+	      //set new index
+	      slider.active.index = setSlideIndex(slideIndex);
+
+	      // if plugin is currently in motion, ignore request
+	      if (slider.working || slider.active.index === slider.oldIndex) {
+	        return;
+	      }
+	      // declare that plugin is in motion
+	      slider.working = true;
+
+	      performTransition = slider.settings.onSlideBefore.call(el, slider.children.eq(slider.active.index), slider.oldIndex, slider.active.index);
+
+	      // If transitions canceled, reset and return
+	      if (typeof performTransition !== 'undefined' && !performTransition) {
+	        slider.active.index = slider.oldIndex; // restore old index
+	        slider.working = false; // is not in motion
+	        return;
+	      }
+
+	      if (direction === 'next') {
+	        // Prevent canceling in future functions or lack there-of from negating previous commands to cancel
+	        if (!slider.settings.onSlideNext.call(el, slider.children.eq(slider.active.index), slider.oldIndex, slider.active.index)) {
+	          performTransition = false;
+	        }
+	      } else if (direction === 'prev') {
+	        // Prevent canceling in future functions or lack there-of from negating previous commands to cancel
+	        if (!slider.settings.onSlidePrev.call(el, slider.children.eq(slider.active.index), slider.oldIndex, slider.active.index)) {
+	          performTransition = false;
+	        }
+	      }
+
+	      // check if last slide
+	      slider.active.last = slider.active.index >= getPagerQty() - 1;
+	      // update the pager with active class
+	      if (slider.settings.pager || slider.settings.pagerCustom) {
+	        updatePagerActive(slider.active.index);
+	      }
+	      // // check for direction control update
+	      if (slider.settings.controls) {
+	        updateDirectionControls();
+	      }
+	      // if slider is set to mode: "fade"
+	      if (slider.settings.mode === 'fade') {
+	        // if adaptiveHeight is true and next height is different from current height, animate to the new height
+	        if (slider.settings.adaptiveHeight && slider.viewport.height() !== getViewportHeight()) {
+	          slider.viewport.animate({ height: getViewportHeight() }, slider.settings.adaptiveHeightSpeed);
+	        }
+	        // fade out the visible child and reset its z-index value
+	        slider.children.filter(':visible').fadeOut(slider.settings.speed).css({ zIndex: 0 });
+	        // fade in the newly requested slide
+	        slider.children.eq(slider.active.index).css('zIndex', slider.settings.slideZIndex + 1).fadeIn(slider.settings.speed, function () {
+	          $(this).css('zIndex', slider.settings.slideZIndex);
+	          updateAfterSlideTransition();
+	        });
+	        // slider mode is not "fade"
+	      } else {
+	          // if adaptiveHeight is true and next height is different from current height, animate to the new height
+	          if (slider.settings.adaptiveHeight && slider.viewport.height() !== getViewportHeight()) {
+	            slider.viewport.animate({ height: getViewportHeight() }, slider.settings.adaptiveHeightSpeed);
+	          }
+	          // if carousel and not infinite loop
+	          if (!slider.settings.infiniteLoop && slider.carousel && slider.active.last) {
+	            if (slider.settings.mode === 'horizontal') {
+	              // get the last child position
+	              lastChild = slider.children.eq(slider.children.length - 1);
+	              position = lastChild.position();
+	              // calculate the position of the last slide
+	              moveBy = slider.viewport.width() - lastChild.outerWidth();
+	            } else {
+	              // get last showing index position
+	              lastShowingIndex = slider.children.length - slider.settings.minSlides;
+	              position = slider.children.eq(lastShowingIndex).position();
+	            }
+	            // horizontal carousel, going previous while on first slide (infiniteLoop mode)
+	          } else if (slider.carousel && slider.active.last && direction === 'prev') {
+	              // get the last child position
+	              eq = slider.settings.moveSlides === 1 ? slider.settings.maxSlides - getMoveBy() : (getPagerQty() - 1) * getMoveBy() - (slider.children.length - slider.settings.maxSlides);
+	              lastChild = el.children('.bx-clone').eq(eq);
+	              position = lastChild.position();
+	              // if infinite loop and "Next" is clicked on the last slide
+	            } else if (direction === 'next' && slider.active.index === 0) {
+	                // get the last clone position
+	                position = el.find('> .bx-clone').eq(slider.settings.maxSlides).position();
+	                slider.active.last = false;
+	                // normal non-zero requests
+	              } else if (slideIndex >= 0) {
+	                  //parseInt is applied to allow floats for slides/page
+	                  requestEl = slideIndex * parseInt(getMoveBy());
+	                  position = slider.children.eq(requestEl).position();
+	                }
+
+	          /* If the position doesn't exist
+	           * (e.g. if you destroy the slider on a next click),
+	           * it doesn't throw an error.
+	           */
+	          if (typeof position !== 'undefined') {
+	            value = slider.settings.mode === 'horizontal' ? -(position.left - moveBy) : -position.top;
+	            // plugin values to be animated
+	            setPositionProperty(value, 'slide', slider.settings.speed);
+	          } else {
+	            slider.working = false;
+	          }
+	        }
+	      if (slider.settings.ariaHidden) {
+	        applyAriaHiddenAttributes(slider.active.index * getMoveBy());
+	      }
+	    };
+
+	    /**
+	     * Transitions to the next slide in the show
+	     */
+	    el.goToNextSlide = function () {
+	      // if infiniteLoop is false and last page is showing, disregard call
+	      if (!slider.settings.infiniteLoop && slider.active.last) {
+	        return;
+	      }
+	      var pagerIndex = parseInt(slider.active.index) + 1;
+	      el.goToSlide(pagerIndex, 'next');
+	    };
+
+	    /**
+	     * Transitions to the prev slide in the show
+	     */
+	    el.goToPrevSlide = function () {
+	      // if infiniteLoop is false and last page is showing, disregard call
+	      if (!slider.settings.infiniteLoop && slider.active.index === 0) {
+	        return;
+	      }
+	      var pagerIndex = parseInt(slider.active.index) - 1;
+	      el.goToSlide(pagerIndex, 'prev');
+	    };
+
+	    /**
+	     * Starts the auto show
+	     *
+	     * @param preventControlUpdate (boolean)
+	     *  - if true, auto controls state will not be updated
+	     */
+	    el.startAuto = function (preventControlUpdate) {
+	      // if an interval already exists, disregard call
+	      if (slider.interval) {
+	        return;
+	      }
+	      // create an interval
+	      slider.interval = setInterval(function () {
+	        if (slider.settings.autoDirection === 'next') {
+	          el.goToNextSlide();
+	        } else {
+	          el.goToPrevSlide();
+	        }
+	      }, slider.settings.pause);
+	      // if auto controls are displayed and preventControlUpdate is not true
+	      if (slider.settings.autoControls && preventControlUpdate !== true) {
+	        updateAutoControls('stop');
+	      }
+	    };
+
+	    /**
+	     * Stops the auto show
+	     *
+	     * @param preventControlUpdate (boolean)
+	     *  - if true, auto controls state will not be updated
+	     */
+	    el.stopAuto = function (preventControlUpdate) {
+	      // if no interval exists, disregard call
+	      if (!slider.interval) {
+	        return;
+	      }
+	      // clear the interval
+	      clearInterval(slider.interval);
+	      slider.interval = null;
+	      // if auto controls are displayed and preventControlUpdate is not true
+	      if (slider.settings.autoControls && preventControlUpdate !== true) {
+	        updateAutoControls('start');
+	      }
+	    };
+
+	    /**
+	     * Returns current slide index (zero-based)
+	     */
+	    el.getCurrentSlide = function () {
+	      return slider.active.index;
+	    };
+
+	    /**
+	     * Returns current slide element
+	     */
+	    el.getCurrentSlideElement = function () {
+	      return slider.children.eq(slider.active.index);
+	    };
+
+	    /**
+	     * Returns a slide element
+	     * @param index (int)
+	     *  - The index (zero-based) of the element you want returned.
+	     */
+	    el.getSlideElement = function (index) {
+	      return slider.children.eq(index);
+	    };
+
+	    /**
+	     * Returns number of slides in show
+	     */
+	    el.getSlideCount = function () {
+	      return slider.children.length;
+	    };
+
+	    /**
+	     * Return slider.working variable
+	     */
+	    el.isWorking = function () {
+	      return slider.working;
+	    };
+
+	    /**
+	     * Update all dynamic slider elements
+	     */
+	    el.redrawSlider = function () {
+	      // resize all children in ratio to new screen size
+	      slider.children.add(el.find('.bx-clone')).outerWidth(getSlideWidth());
+	      // adjust the height
+	      slider.viewport.css('height', getViewportHeight());
+	      // update the slide position
+	      if (!slider.settings.ticker) {
+	        setSlidePosition();
+	      }
+	      // if active.last was true before the screen resize, we want
+	      // to keep it last no matter what screen size we end on
+	      if (slider.active.last) {
+	        slider.active.index = getPagerQty() - 1;
+	      }
+	      // if the active index (page) no longer exists due to the resize, simply set the index as last
+	      if (slider.active.index >= getPagerQty()) {
+	        slider.active.last = true;
+	      }
+	      // if a pager is being displayed and a custom pager is not being used, update it
+	      if (slider.settings.pager && !slider.settings.pagerCustom) {
+	        populatePager();
+	        updatePagerActive(slider.active.index);
+	      }
+	      if (slider.settings.ariaHidden) {
+	        applyAriaHiddenAttributes(slider.active.index * getMoveBy());
+	      }
+	    };
+
+	    /**
+	     * Destroy the current instance of the slider (revert everything back to original state)
+	     */
+	    el.destroySlider = function () {
+	      // don't do anything if slider has already been destroyed
+	      if (!slider.initialized) {
+	        return;
+	      }
+	      slider.initialized = false;
+	      $('.bx-clone', this).remove();
+	      slider.children.each(function () {
+	        if ($(this).data('origStyle') !== undefined) {
+	          $(this).attr('style', $(this).data('origStyle'));
+	        } else {
+	          $(this).removeAttr('style');
+	        }
+	      });
+	      if ($(this).data('origStyle') !== undefined) {
+	        this.attr('style', $(this).data('origStyle'));
+	      } else {
+	        $(this).removeAttr('style');
+	      }
+	      $(this).unwrap().unwrap();
+	      if (slider.controls.el) {
+	        slider.controls.el.remove();
+	      }
+	      if (slider.controls.next) {
+	        slider.controls.next.remove();
+	      }
+	      if (slider.controls.prev) {
+	        slider.controls.prev.remove();
+	      }
+	      if (slider.pagerEl && slider.settings.controls && !slider.settings.pagerCustom) {
+	        slider.pagerEl.remove();
+	      }
+	      $('.bx-caption', this).remove();
+	      if (slider.controls.autoEl) {
+	        slider.controls.autoEl.remove();
+	      }
+	      clearInterval(slider.interval);
+	      if (slider.settings.responsive) {
+	        $(window).unbind('resize', resizeWindow);
+	      }
+	      if (slider.settings.keyboardEnabled) {
+	        $(document).unbind('keydown', keyPress);
+	      }
+	      //remove self reference in data
+	      $(this).removeData('bxSlider');
+	    };
+
+	    /**
+	     * Reload the slider (revert all DOM changes, and re-initialize)
+	     */
+	    el.reloadSlider = function (settings) {
+	      if (settings !== undefined) {
+	        options = settings;
+	      }
+	      el.destroySlider();
+	      init();
+	      //store reference to self in order to access public functions later
+	      $(el).data('bxSlider', this);
+	    };
+
+	    init();
+
+	    $(el).data('bxSlider', this);
+
+	    // returns the current jQuery object
+	    return this;
+	  };
+	})(jQuery);
 
 /***/ })
 ]);
