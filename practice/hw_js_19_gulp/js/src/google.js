@@ -1,5 +1,5 @@
+'use strict';
 $(function () {
-    'use strict';
   (function() {
     var cx = '012577494148929298528:dq_ytgguf-c';
     var gcse = document.createElement('script');
