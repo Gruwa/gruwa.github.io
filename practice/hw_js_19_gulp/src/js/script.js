@@ -2,7 +2,7 @@ $(function () {
     'use strict';
     $('.bxslider').bxSlider();
 //Server start
-    var $ServerData =
+    let $ServerData =
     {
     id: 100,
     data: [
@@ -28,19 +28,19 @@ $(function () {
             }
         ]
     };
-    var $Server = JSON.stringify($ServerData);
+    let $Server = JSON.stringify($ServerData);
 //Server end
-    var $jsData = JSON.parse($Server);
-    var $html = $('#latestNews').html();
-    var $dataTmpl = {
+    let $jsData = JSON.parse($Server);
+    let $html = $('#latestNews').html();
+    let $dataTmpl = {
         $data: $jsData
     };
-    var $content = tmpl($html, $dataTmpl);
+    let $content = tmpl($html, $dataTmpl);
     $('#latestNewsIn').html('');
     $('#latestNewsIn').append($content);
 //banner-box
     $('.accordion').on('click', '.accordion-panel, .accordion-plus', function(e) {
-        var elem = $(e.target);
+        let elem = $(e.target);
         Element();
         function Element() {
             if ( $('.panel').find('.accordion-panel-focus').length != 0 && (elem[0].className == 'accordion-panel' || elem[0].className == 'accordion-plus')) {
