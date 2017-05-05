@@ -1,13 +1,13 @@
 // весь изменяемый контент должен хранится в чётко определённых полях
 // структура данных должна быть удобна для обработки
 
-$(function() {
+$(function () {
 
     'use strict';
 
 // Server
 
-    var $ServerData = [
+    let $ServerData = [
     {
     id: 110,
     text: "Текст вопроса 1",
@@ -73,15 +73,15 @@ $(function() {
     },
 ];
 
-    var $Server = JSON.stringify($ServerData);
+    const $Server = JSON.stringify($ServerData);
 // end Server
 
 
-    var $jsData;
+    let $jsData;
     try {
         localStorage.setItem('test', $Server);
 
-        var $testData = localStorage.getItem('test');
+        let $testData = localStorage.getItem('test');
 
         $jsData = JSON.parse($testData);
 
@@ -89,28 +89,28 @@ $(function() {
             $jsData = JSON.parse($Server);
     }
 
-    var $html = $('#testForm').html();
+    let $html = $('#testForm').html();
 
-    var $data = {
+    let $data = {
          head : 'Тест по программированию',
          $jsData: $jsData,
     };
 
-    var $testContent = tmpl($html, $data);
+    let $testContent = tmpl($html, $data);
 
     $('body').append($testContent);
 
-    var app = {
+    let app = {
 
             logicalTest: function(){
 
                 $('.buttonEndForm').click(function(event) {
-                    for (var i = 0; i < $jsData.length; i++) {
-                        var $answers = $jsData[i].answers;
-                        for (var j = 0; j < $answers.length; j++) {
+                    for (let i = 0; i < $jsData.length; i++) {
+                        let $answers = $jsData[i].answers;
+                        for (let j = 0; j < $answers.length; j++) {
                             if ( $('#'+$answers[j].id).parent().find('input:checked')[0] && $answers[j].correct != true) {
-                                    var number = getRandom(4345, 6872);
-                                    var textEndTest = 'Вы исчерпали свою удачу. <p>Ваш котел номер '+number+' за поворотом.</p> <p>УВАЖАЕМЫЕ, просьба картошку из котла НЕ ЖРАТЬ!</p>';
+                                    let number = getRandom(4345, 6872);
+                                    let textEndTest = 'Вы исчерпали свою удачу. <p>Ваш котел номер '+number+' за поворотом.</p> <p>УВАЖАЕМЫЕ, просьба картошку из котла НЕ ЖРАТЬ!</p>';
 
                                     function getRandom(min, max) {
                                         return parseInt(Math.random() * (max - min) + min);
@@ -118,10 +118,10 @@ $(function() {
 
                                     app.modalWindow(textEndTest);
                                     return ;
-                                }; 
+                                };
                                 if ( $answers[j].correct == true && $('#'+$answers[j].id).parent().find('input:checked')[0] == undefined) {
-                                    var number = getRandom(4345, 6872);
-                                    var textEndTest = 'Вы исчерпали свою удачу. <p>Ваш котел номер '+number+' за поворотом.</p> <p>УВАЖАЕМЫЕ, просьба картошку из котла НЕ ЖРАТЬ!</p>';
+                                    let number = getRandom(4345, 6872);
+                                    let textEndTest = 'Вы исчерпали свою удачу. <p>Ваш котел номер '+number+' за поворотом.</p> <p>УВАЖАЕМЫЕ, просьба картошку из котла НЕ ЖРАТЬ!</p>';
 
                                     function getRandom(min, max) {
                                         return parseInt(Math.random() * (max - min) + min);
@@ -134,8 +134,8 @@ $(function() {
                         };
                     };
 
-                    var number = getRandom(776345, 956872);
-                    var textEndTest = 'Поздравляем <p>Вы прошли '+number+' круг ада.</p> Надеемся в следующий раз Вам больше не повезет!';
+                    let number = getRandom(776345, 956872);
+                    let textEndTest = 'Поздравляем <p>Вы прошли '+number+' круг ада.</p> Надеемся в следующий раз Вам больше не повезет!';
 
                     app.modalWindow(textEndTest);
 
@@ -156,9 +156,9 @@ $(function() {
                     $('.windowModal').animate({top: '-150%'}, 'fast');
                 });
 
-                var inputArray = document.getElementsByTagName('input');
+                let inputArray = document.getElementsByTagName('input');
 
-                for (var i = 0; i < inputArray.length; i++) {
+                for (let i = 0; i < inputArray.length; i++) {
                     inputArray[i].checked = false;
                 };
             },
