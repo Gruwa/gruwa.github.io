@@ -118,7 +118,7 @@ $(function() {
 
                                     app.modalWindow(textEndTest);
                                     return ;
-                                };
+                                }; 
                                 if ( $answers[j].correct == true && $('#'+$answers[j].id).parent().find('input:checked')[0] == undefined) {
                                     var number = getRandom(4345, 6872);
                                     var textEndTest = 'Вы исчерпали свою удачу. <p>Ваш котел номер '+number+' за поворотом.</p> <p>УВАЖАЕМЫЕ, просьба картошку из котла НЕ ЖРАТЬ!</p>';
