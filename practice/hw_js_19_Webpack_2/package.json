@@ -1,8 +1,8 @@
 {
-  "name": "hw_js_19_webpack_webstorm",
+  "name": "hw_js_19_webpack_2",
   "version": "1.0.0",
   "description": "",
-  "main": "webpack.config.js",
+  "main": "OLD.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
