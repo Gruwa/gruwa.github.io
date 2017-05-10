@@ -37,4 +37,4 @@ function tmpl(str, data){
     return data ? fn( data ) : fn;
   };
 
-  };
+    };
