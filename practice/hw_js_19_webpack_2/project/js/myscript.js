@@ -1,8 +1,10 @@
 module.exports = function myscript() {
     $(function () {
         'use strict';
+
         const template = require('./template');
         template();
+
         $('.bxslider').bxSlider();
     //Server start
         let $ServerData =
@@ -38,12 +40,7 @@ module.exports = function myscript() {
         let $dataTmpl = {
             $data: $jsData
         };
-        //
-        //
-
-        //
-        //
-        let $content = tmpl($html, $dataTmpl);
+        let $content = template.tmpl($html, $dataTmpl);
         $('#latestNewsIn').html('');
         $('#latestNewsIn').append($content);
     //banner-box
