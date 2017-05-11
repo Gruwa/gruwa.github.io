@@ -20,16 +20,11 @@ module.exports = {
             test: /\.jsx?$/,
             exclude: /(node_modules)/,
             loader: 'babel?optional[]=runtime'
-        }],
-        loaders: [{
-            test: /\.jsx?$/,
-            exclude: /(node_modules)/,
-            loader: 'babel?optional[]=runtime'
-        }]
+        }]        
     },
     plagins: [
         new webpack.DefinePlugin({
-            NODE_ENV: NODE_ENV
+            NODE_ENV: JSON.stringify(NODE_ENV)
         })
         // new webpack.EnvironmentPlugin('NODE_ENV', 'USER')
     ]
