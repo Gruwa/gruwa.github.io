@@ -47,57 +47,35 @@ var script =
 
 	'use strict';
 	
-	var _interopRequireDefault = __webpack_require__(1)['default'];
-	
-	var _google = __webpack_require__(3);
+	var _google = __webpack_require__(1);
 	
 	var _google2 = _interopRequireDefault(_google);
 	
-	var _bxslider = __webpack_require__(4);
+	var _bxslider = __webpack_require__(2);
 	
 	var _bxslider2 = _interopRequireDefault(_bxslider);
 	
-	var _myscript = __webpack_require__(5);
+	var _myscript = __webpack_require__(3);
 	
 	var _myscript2 = _interopRequireDefault(_myscript);
 	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
 	// запись на ES6
-	var template = __webpack_require__(7); // запись на ES5
+	var template = __webpack_require__(5); // запись на ES5
 	
 	template('script');
-	(0, _google2['default'])('script');
-	(0, _bxslider2['default'])('script');
-	(0, _myscript2['default'])('script');
+	(0, _google2.default)('script');
+	(0, _bxslider2.default)('script');
+	(0, _myscript2.default)('script');
 	
-	exports.google = _google2['default'];
-	exports.bxslider = _bxslider2['default'];
-	exports.myscript = _myscript2['default'];
+	exports.google = _google2.default;
+	exports.bxslider = _bxslider2.default;
+	exports.myscript = _myscript2.default;
 	exports.template = template;
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	module.exports = __webpack_require__(2);
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports) {
-
-	"use strict";
-	
-	exports.__esModule = true;
-	
-	exports["default"] = function (obj) {
-	  return obj && obj.__esModule ? obj : {
-	    "default": obj
-	  };
-	};
-
-/***/ }),
-/* 3 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -105,6 +83,7 @@ var script =
 	module.exports = function google() {
 	  $(function () {
 	    'use strict';
+	
 	    (function () {
 	      var cx = '012577494148929298528:dq_ytgguf-c';
 	      var gcse = document.createElement('script');
@@ -118,7 +97,7 @@ var script =
 	};
 
 /***/ }),
-/* 4 */
+/* 2 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -314,7 +293,7 @@ var script =
 	        // determine which property to use for transitions
 	        slider.animProp = slider.settings.mode === 'vertical' ? 'top' : 'left';
 	        // determine if hardware acceleration can be used
-	        slider.usingCSS = slider.settings.useCSS && slider.settings.mode !== 'fade' && (function () {
+	        slider.usingCSS = slider.settings.useCSS && slider.settings.mode !== 'fade' && function () {
 	          // create our test div element
 	          var div = document.createElement('div'),
 	
@@ -329,7 +308,7 @@ var script =
 	            }
 	          }
 	          return false;
-	        })();
+	        }();
 	        // if vertical mode always make maxSlides and minSlides equal
 	        if (slider.settings.mode === 'vertical') {
 	          slider.settings.maxSlides = slider.settings.minSlides;
@@ -373,8 +352,8 @@ var script =
 	          el.css('-' + slider.cssPrefix + '-transition-timing-function', slider.settings.easing);
 	          // if not using CSS and no easing value was supplied, use the default JS animation easing (swing)
 	        } else if (!slider.settings.easing) {
-	            slider.settings.easing = 'swing';
-	          }
+	          slider.settings.easing = 'swing';
+	        }
 	        // make modifications to the viewport (.bx-viewport)
 	        slider.viewport.css({
 	          width: '100%',
@@ -444,8 +423,8 @@ var script =
 	          }
 	          // if ticker mode, do not allow a pager
 	        } else {
-	            slider.settings.pager = false;
-	          }
+	          slider.settings.pager = false;
+	        }
 	        loadElements(preloadSelector, start);
 	      };
 	
@@ -546,20 +525,20 @@ var script =
 	            children = slider.children.eq(slider.active.index);
 	            // if carousel, return a slice of children
 	          } else {
-	              // get the individual slide index
-	              var currentIndex = slider.settings.moveSlides === 1 ? slider.active.index : slider.active.index * getMoveBy();
-	              // add the current slide to the children
-	              children = slider.children.eq(currentIndex);
-	              // cycle through the remaining "showing" slides
-	              for (i = 1; i <= slider.settings.maxSlides - 1; i++) {
-	                // if looped back to the start
-	                if (currentIndex + i >= slider.children.length) {
-	                  children = children.add(slider.children.eq(i - 1));
-	                } else {
-	                  children = children.add(slider.children.eq(currentIndex + i));
-	                }
+	            // get the individual slide index
+	            var currentIndex = slider.settings.moveSlides === 1 ? slider.active.index : slider.active.index * getMoveBy();
+	            // add the current slide to the children
+	            children = slider.children.eq(currentIndex);
+	            // cycle through the remaining "showing" slides
+	            for (i = 1; i <= slider.settings.maxSlides - 1; i++) {
+	              // if looped back to the start
+	              if (currentIndex + i >= slider.children.length) {
+	                children = children.add(slider.children.eq(i - 1));
+	              } else {
+	                children = children.add(slider.children.eq(currentIndex + i));
 	              }
 	            }
+	          }
 	        }
 	        // if "vertical" mode, calculate the sum of the heights of the children
 	        if (slider.settings.mode === 'vertical') {
@@ -572,10 +551,10 @@ var script =
 	          }
 	          // if not "vertical" mode, calculate the max height of the children
 	        } else {
-	            height = Math.max.apply(Math, children.map(function () {
-	              return $(this).outerHeight(false);
-	            }).get());
-	          }
+	          height = Math.max.apply(Math, children.map(function () {
+	            return $(this).outerHeight(false);
+	          }).get());
+	        }
 	
 	        if (slider.viewport.css('box-sizing') === 'border-box') {
 	          height += parseFloat(slider.viewport.css('padding-top')) + parseFloat(slider.viewport.css('padding-bottom')) + parseFloat(slider.viewport.css('border-top-width')) + parseFloat(slider.viewport.css('border-bottom-width'));
@@ -613,14 +592,14 @@ var script =
 	          newElWidth = wrapWidth;
 	          // if carousel, use the thresholds to determine the width
 	        } else if (slider.settings.maxSlides > 1 && slider.settings.mode === 'horizontal') {
-	            if (wrapWidth > slider.maxThreshold) {
-	              return newElWidth;
-	            } else if (wrapWidth < slider.minThreshold) {
-	              newElWidth = (wrapWidth - slider.settings.slideMargin * (slider.settings.minSlides - 1)) / slider.settings.minSlides;
-	            } else if (slider.settings.shrinkItems) {
-	              newElWidth = Math.floor((wrapWidth + slider.settings.slideMargin) / Math.ceil((wrapWidth + slider.settings.slideMargin) / (newElWidth + slider.settings.slideMargin)) - slider.settings.slideMargin);
-	            }
+	          if (wrapWidth > slider.maxThreshold) {
+	            return newElWidth;
+	          } else if (wrapWidth < slider.minThreshold) {
+	            newElWidth = (wrapWidth - slider.settings.slideMargin * (slider.settings.minSlides - 1)) / slider.settings.minSlides;
+	          } else if (slider.settings.shrinkItems) {
+	            newElWidth = Math.floor((wrapWidth + slider.settings.slideMargin) / Math.ceil((wrapWidth + slider.settings.slideMargin) / (newElWidth + slider.settings.slideMargin)) - slider.settings.slideMargin);
 	          }
+	        }
 	        return newElWidth;
 	      };
 	
@@ -636,16 +615,16 @@ var script =
 	            slidesShowing = slider.settings.minSlides;
 	            // if viewport is larger than maxThreshold, return maxSlides
 	          } else if (slider.viewport.width() > slider.maxThreshold) {
-	              slidesShowing = slider.settings.maxSlides;
-	              // if viewport is between min / max thresholds, divide viewport width by first child width
-	            } else {
-	                childWidth = slider.children.first().width() + slider.settings.slideMargin;
-	                slidesShowing = Math.floor((slider.viewport.width() + slider.settings.slideMargin) / childWidth);
-	              }
+	            slidesShowing = slider.settings.maxSlides;
+	            // if viewport is between min / max thresholds, divide viewport width by first child width
+	          } else {
+	            childWidth = slider.children.first().width() + slider.settings.slideMargin;
+	            slidesShowing = Math.floor((slider.viewport.width() + slider.settings.slideMargin) / childWidth);
+	          }
 	          // if "vertical" mode, slides showing will always be minSlides
 	        } else if (slider.settings.mode === 'vertical') {
-	            slidesShowing = slider.settings.minSlides;
-	          }
+	          slidesShowing = slider.settings.minSlides;
+	        }
 	        return slidesShowing;
 	      };
 	
@@ -670,8 +649,8 @@ var script =
 	          }
 	          // if moveSlides is 0 (auto) divide children length by sides showing, then round up
 	        } else {
-	            pagerQty = Math.ceil(slider.children.length / getNumberSlidesShowing());
-	          }
+	          pagerQty = Math.ceil(slider.children.length / getNumberSlidesShowing());
+	        }
 	        return pagerQty;
 	      };
 	
@@ -709,21 +688,21 @@ var script =
 	          }
 	          // if not last slide
 	        } else {
-	            // get the position of the first showing slide
-	            position = slider.children.eq(slider.active.index * getMoveBy()).position();
-	            // check for last slide
-	            if (slider.active.index === getPagerQty() - 1) {
-	              slider.active.last = true;
-	            }
-	            // set the respective position
-	            if (position !== undefined) {
-	              if (slider.settings.mode === 'horizontal') {
-	                setPositionProperty(-position.left, 'reset', 0);
-	              } else if (slider.settings.mode === 'vertical') {
-	                setPositionProperty(-position.top, 'reset', 0);
-	              }
+	          // get the position of the first showing slide
+	          position = slider.children.eq(slider.active.index * getMoveBy()).position();
+	          // check for last slide
+	          if (slider.active.index === getPagerQty() - 1) {
+	            slider.active.last = true;
+	          }
+	          // set the respective position
+	          if (position !== undefined) {
+	            if (slider.settings.mode === 'horizontal') {
+	              setPositionProperty(-position.left, 'reset', 0);
+	            } else if (slider.settings.mode === 'vertical') {
+	              setPositionProperty(-position.top, 'reset', 0);
 	            }
 	          }
+	        }
 	      };
 	
 	      /**
@@ -795,22 +774,22 @@ var script =
 	          }
 	          // use JS animate
 	        } else {
-	            animateObj = {};
-	            animateObj[slider.animProp] = value;
-	            if (type === 'slide') {
-	              el.animate(animateObj, duration, slider.settings.easing, function () {
-	                updateAfterSlideTransition();
-	              });
-	            } else if (type === 'reset') {
-	              el.css(slider.animProp, value);
-	            } else if (type === 'ticker') {
-	              el.animate(animateObj, duration, 'linear', function () {
-	                setPositionProperty(params.resetValue, 'reset', 0);
-	                // run the recursive loop after animation
-	                tickerLoop();
-	              });
-	            }
+	          animateObj = {};
+	          animateObj[slider.animProp] = value;
+	          if (type === 'slide') {
+	            el.animate(animateObj, duration, slider.settings.easing, function () {
+	              updateAfterSlideTransition();
+	            });
+	          } else if (type === 'reset') {
+	            el.css(slider.animProp, value);
+	          } else if (type === 'ticker') {
+	            el.animate(animateObj, duration, 'linear', function () {
+	              setPositionProperty(params.resetValue, 'reset', 0);
+	              // run the recursive loop after animation
+	              tickerLoop();
+	            });
 	          }
+	        }
 	      };
 	
 	      /**
@@ -851,8 +830,8 @@ var script =
 	            $(slider.settings.pagerSelector).html(slider.pagerEl);
 	            // if no pager selector was supplied, add it after the wrapper
 	          } else {
-	              slider.controls.el.addClass('bx-has-pager').append(slider.pagerEl);
-	            }
+	            slider.controls.el.addClass('bx-has-pager').append(slider.pagerEl);
+	          }
 	          // populate the pager
 	          populatePager();
 	        } else {
@@ -906,15 +885,15 @@ var script =
 	          slider.controls.autoEl.append(slider.controls.start);
 	          // if autoControlsCombine is false, insert both controls
 	        } else {
-	            slider.controls.autoEl.append(slider.controls.start).append(slider.controls.stop);
-	          }
+	          slider.controls.autoEl.append(slider.controls.start).append(slider.controls.stop);
+	        }
 	        // if auto controls selector was supplied, populate it with the controls
 	        if (slider.settings.autoControlsSelector) {
 	          $(slider.settings.autoControlsSelector).html(slider.controls.autoEl);
 	          // if auto controls selector was not supplied, add it after the wrapper
 	        } else {
-	            slider.controls.el.addClass('bx-has-controls-auto').append(slider.controls.autoEl);
-	          }
+	          slider.controls.el.addClass('bx-has-controls-auto').append(slider.controls.autoEl);
+	        }
 	        // update the auto controls
 	        updateAutoControls(slider.settings.autoStart ? 'stop' : 'start');
 	      };
@@ -1055,11 +1034,11 @@ var script =
 	            position = slider.children.eq(0).position();
 	            // carousel, last slide
 	          } else if (slider.active.index === getPagerQty() - 1 && slider.carousel) {
-	              position = slider.children.eq((getPagerQty() - 1) * getMoveBy()).position();
-	              // last slide
-	            } else if (slider.active.index === slider.children.length - 1) {
-	                position = slider.children.eq(slider.children.length - 1).position();
-	              }
+	            position = slider.children.eq((getPagerQty() - 1) * getMoveBy()).position();
+	            // last slide
+	          } else if (slider.active.index === slider.children.length - 1) {
+	            position = slider.children.eq(slider.children.length - 1).position();
+	          }
 	          if (position) {
 	            if (slider.settings.mode === 'horizontal') {
 	              setPositionProperty(-position.left, 'reset', 0);
@@ -1086,9 +1065,9 @@ var script =
 	          slider.controls.autoEl.html(slider.controls[state]);
 	          // if autoControlsCombine is false, apply the "active" class to the appropriate control
 	        } else {
-	            slider.controls.autoEl.find('a').removeClass('active');
-	            slider.controls.autoEl.find('a:not(.bx-' + state + ')').addClass('active');
-	          }
+	          slider.controls.autoEl.find('a').removeClass('active');
+	          slider.controls.autoEl.find('a:not(.bx-' + state + ')').addClass('active');
+	        }
 	      };
 	
 	      /**
@@ -1105,13 +1084,13 @@ var script =
 	            slider.controls.next.removeClass('disabled');
 	            // if last slide
 	          } else if (slider.active.index === getPagerQty() - 1) {
-	              slider.controls.next.addClass('disabled');
-	              slider.controls.prev.removeClass('disabled');
-	              // if any slide in the middle
-	            } else {
-	                slider.controls.prev.removeClass('disabled');
-	                slider.controls.next.removeClass('disabled');
-	              }
+	            slider.controls.next.addClass('disabled');
+	            slider.controls.prev.removeClass('disabled');
+	            // if any slide in the middle
+	          } else {
+	            slider.controls.prev.removeClass('disabled');
+	            slider.controls.next.removeClass('disabled');
+	          }
 	        }
 	      };
 	
@@ -1124,15 +1103,15 @@ var script =
 	          var timeout = setTimeout(el.startAuto, slider.settings.autoDelay);
 	          // if autoDelay was not supplied, start the auto show normally
 	        } else {
-	            el.startAuto();
+	          el.startAuto();
 	
-	            //add focus and blur events to ensure its running if timeout gets paused
-	            $(window).focus(function () {
-	              el.startAuto();
-	            }).blur(function () {
-	              el.stopAuto();
-	            });
-	          }
+	          //add focus and blur events to ensure its running if timeout gets paused
+	          $(window).focus(function () {
+	            el.startAuto();
+	          }).blur(function () {
+	            el.stopAuto();
+	          });
+	        }
 	        // if autoHover is requested
 	        if (slider.settings.autoHover) {
 	          // on el hover
@@ -1174,10 +1153,10 @@ var script =
 	          el.append(slider.children.clone().addClass('bx-clone'));
 	          // if autoDirection is "prev", prepend a clone of the entire slider, and set the left position
 	        } else {
-	            el.prepend(slider.children.clone().addClass('bx-clone'));
-	            position = slider.children.first().position();
-	            startPosition = slider.settings.mode === 'horizontal' ? -position.left : -position.top;
-	          }
+	          el.prepend(slider.children.clone().addClass('bx-clone'));
+	          position = slider.children.first().position();
+	          startPosition = slider.settings.mode === 'horizontal' ? -position.left : -position.top;
+	        }
 	        setPositionProperty(startPosition, 'reset', 0);
 	        // do not allow controls in ticker mode
 	        slider.settings.pager = false;
@@ -1244,8 +1223,8 @@ var script =
 	          position = el.find('.bx-clone').first().position();
 	          // if "prev" animate left position to 0, then reset left to first non-clone child
 	        } else {
-	            reset = slider.children.first().position();
-	          }
+	          reset = slider.children.first().position();
+	        }
 	        animateProperty = slider.settings.mode === 'horizontal' ? -position.left : -position.top;
 	        resetValue = slider.settings.mode === 'horizontal' ? -reset.left : -reset.top;
 	        params = { resetValue: resetValue };
@@ -1388,8 +1367,8 @@ var script =
 	          e.preventDefault();
 	          // y axis swipe
 	        } else if (yMovement * 3 > xMovement && slider.settings.preventDefaultSwipeY) {
-	            e.preventDefault();
-	          }
+	          e.preventDefault();
+	        }
 	        if (slider.settings.mode !== 'fade' && slider.settings.oneToOneTouch) {
 	          // if horizontal, drag along x axis
 	          if (slider.settings.mode === 'horizontal') {
@@ -1397,9 +1376,9 @@ var script =
 	            value = slider.touch.originalPos.left + change;
 	            // if vertical, drag along y axis
 	          } else {
-	              change = touchPoints[0].pageY - slider.touch.start.y;
-	              value = slider.touch.originalPos.top + change;
-	            }
+	            change = touchPoints[0].pageY - slider.touch.start.y;
+	            value = slider.touch.originalPos.top + change;
+	          }
 	          setPositionProperty(value, 'reset', 0);
 	        }
 	      };
@@ -1434,32 +1413,32 @@ var script =
 	          }
 	          // not fade mode
 	        } else {
-	            // calculate distance and el's animate property
-	            if (slider.settings.mode === 'horizontal') {
-	              distance = slider.touch.end.x - slider.touch.start.x;
-	              value = slider.touch.originalPos.left;
-	            } else {
-	              distance = slider.touch.end.y - slider.touch.start.y;
-	              value = slider.touch.originalPos.top;
-	            }
-	            // if not infinite loop and first / last slide, do not attempt a slide transition
-	            if (!slider.settings.infiniteLoop && (slider.active.index === 0 && distance > 0 || slider.active.last && distance < 0)) {
-	              setPositionProperty(value, 'reset', 200);
-	            } else {
-	              // check if distance clears threshold
-	              if (Math.abs(distance) >= slider.settings.swipeThreshold) {
-	                if (distance < 0) {
-	                  el.goToNextSlide();
-	                } else {
-	                  el.goToPrevSlide();
-	                }
-	                el.stopAuto();
+	          // calculate distance and el's animate property
+	          if (slider.settings.mode === 'horizontal') {
+	            distance = slider.touch.end.x - slider.touch.start.x;
+	            value = slider.touch.originalPos.left;
+	          } else {
+	            distance = slider.touch.end.y - slider.touch.start.y;
+	            value = slider.touch.originalPos.top;
+	          }
+	          // if not infinite loop and first / last slide, do not attempt a slide transition
+	          if (!slider.settings.infiniteLoop && (slider.active.index === 0 && distance > 0 || slider.active.last && distance < 0)) {
+	            setPositionProperty(value, 'reset', 200);
+	          } else {
+	            // check if distance clears threshold
+	            if (Math.abs(distance) >= slider.settings.swipeThreshold) {
+	              if (distance < 0) {
+	                el.goToNextSlide();
 	              } else {
-	                // el.animate(property, 200);
-	                setPositionProperty(value, 'reset', 200);
+	                el.goToPrevSlide();
 	              }
+	              el.stopAuto();
+	            } else {
+	              // el.animate(property, 200);
+	              setPositionProperty(value, 'reset', 200);
 	            }
 	          }
+	        }
 	        slider.viewport.unbind('touchend MSPointerUp pointerup', onTouchEnd);
 	        if (slider.viewport.get(0).releasePointerCapture) {
 	          slider.viewport.get(0).releasePointerCapture(slider.pointerId);
@@ -1529,16 +1508,16 @@ var script =
 	          }
 	          // if slideIndex is greater than children length, set active index to 0 (this happens during infinite loop)
 	        } else if (slideIndex >= getPagerQty()) {
-	            if (slider.settings.infiniteLoop) {
-	              return 0;
-	            } else {
-	              //we don't move to undefined pages
-	              return slider.active.index;
-	            }
-	            // set active index to requested slide
+	          if (slider.settings.infiniteLoop) {
+	            return 0;
 	          } else {
-	              return slideIndex;
-	            }
+	            //we don't move to undefined pages
+	            return slider.active.index;
+	          }
+	          // set active index to requested slide
+	        } else {
+	          return slideIndex;
+	        }
 	      };
 	
 	      /**
@@ -1625,53 +1604,53 @@ var script =
 	          });
 	          // slider mode is not "fade"
 	        } else {
-	            // if adaptiveHeight is true and next height is different from current height, animate to the new height
-	            if (slider.settings.adaptiveHeight && slider.viewport.height() !== getViewportHeight()) {
-	              slider.viewport.animate({ height: getViewportHeight() }, slider.settings.adaptiveHeightSpeed);
-	            }
-	            // if carousel and not infinite loop
-	            if (!slider.settings.infiniteLoop && slider.carousel && slider.active.last) {
-	              if (slider.settings.mode === 'horizontal') {
-	                // get the last child position
-	                lastChild = slider.children.eq(slider.children.length - 1);
-	                position = lastChild.position();
-	                // calculate the position of the last slide
-	                moveBy = slider.viewport.width() - lastChild.outerWidth();
-	              } else {
-	                // get last showing index position
-	                lastShowingIndex = slider.children.length - slider.settings.minSlides;
-	                position = slider.children.eq(lastShowingIndex).position();
-	              }
-	              // horizontal carousel, going previous while on first slide (infiniteLoop mode)
-	            } else if (slider.carousel && slider.active.last && direction === 'prev') {
-	                // get the last child position
-	                eq = slider.settings.moveSlides === 1 ? slider.settings.maxSlides - getMoveBy() : (getPagerQty() - 1) * getMoveBy() - (slider.children.length - slider.settings.maxSlides);
-	                lastChild = el.children('.bx-clone').eq(eq);
-	                position = lastChild.position();
-	                // if infinite loop and "Next" is clicked on the last slide
-	              } else if (direction === 'next' && slider.active.index === 0) {
-	                  // get the last clone position
-	                  position = el.find('> .bx-clone').eq(slider.settings.maxSlides).position();
-	                  slider.active.last = false;
-	                  // normal non-zero requests
-	                } else if (slideIndex >= 0) {
-	                    //parseInt is applied to allow floats for slides/page
-	                    requestEl = slideIndex * parseInt(getMoveBy());
-	                    position = slider.children.eq(requestEl).position();
-	                  }
-	
-	            /* If the position doesn't exist
-	             * (e.g. if you destroy the slider on a next click),
-	             * it doesn't throw an error.
-	             */
-	            if (typeof position !== 'undefined') {
-	              value = slider.settings.mode === 'horizontal' ? -(position.left - moveBy) : -position.top;
-	              // plugin values to be animated
-	              setPositionProperty(value, 'slide', slider.settings.speed);
-	            } else {
-	              slider.working = false;
-	            }
+	          // if adaptiveHeight is true and next height is different from current height, animate to the new height
+	          if (slider.settings.adaptiveHeight && slider.viewport.height() !== getViewportHeight()) {
+	            slider.viewport.animate({ height: getViewportHeight() }, slider.settings.adaptiveHeightSpeed);
 	          }
+	          // if carousel and not infinite loop
+	          if (!slider.settings.infiniteLoop && slider.carousel && slider.active.last) {
+	            if (slider.settings.mode === 'horizontal') {
+	              // get the last child position
+	              lastChild = slider.children.eq(slider.children.length - 1);
+	              position = lastChild.position();
+	              // calculate the position of the last slide
+	              moveBy = slider.viewport.width() - lastChild.outerWidth();
+	            } else {
+	              // get last showing index position
+	              lastShowingIndex = slider.children.length - slider.settings.minSlides;
+	              position = slider.children.eq(lastShowingIndex).position();
+	            }
+	            // horizontal carousel, going previous while on first slide (infiniteLoop mode)
+	          } else if (slider.carousel && slider.active.last && direction === 'prev') {
+	            // get the last child position
+	            eq = slider.settings.moveSlides === 1 ? slider.settings.maxSlides - getMoveBy() : (getPagerQty() - 1) * getMoveBy() - (slider.children.length - slider.settings.maxSlides);
+	            lastChild = el.children('.bx-clone').eq(eq);
+	            position = lastChild.position();
+	            // if infinite loop and "Next" is clicked on the last slide
+	          } else if (direction === 'next' && slider.active.index === 0) {
+	            // get the last clone position
+	            position = el.find('> .bx-clone').eq(slider.settings.maxSlides).position();
+	            slider.active.last = false;
+	            // normal non-zero requests
+	          } else if (slideIndex >= 0) {
+	            //parseInt is applied to allow floats for slides/page
+	            requestEl = slideIndex * parseInt(getMoveBy());
+	            position = slider.children.eq(requestEl).position();
+	          }
+	
+	          /* If the position doesn't exist
+	           * (e.g. if you destroy the slider on a next click),
+	           * it doesn't throw an error.
+	           */
+	          if (typeof position !== 'undefined') {
+	            value = slider.settings.mode === 'horizontal' ? -(position.left - moveBy) : -position.top;
+	            // plugin values to be animated
+	            setPositionProperty(value, 'slide', slider.settings.speed);
+	          } else {
+	            slider.working = false;
+	          }
+	        }
 	        if (slider.settings.ariaHidden) {
 	          applyAriaHiddenAttributes(slider.active.index * getMoveBy());
 	        }
@@ -1888,16 +1867,15 @@ var script =
 	};
 
 /***/ }),
-/* 5 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 	
-	Object.defineProperty(exports, '__esModule', {
+	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports['default'] = myscript;
-	
+	exports.default = myscript;
 	function myscript() {
 	    $(function () {
 	        'use strict';
@@ -1974,19 +1952,16 @@ var script =
 	            }
 	        });
 	    });
-	}
-	
-	;
-	module.exports = exports['default'];
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
+	};
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ }),
-/* 6 */
+/* 4 */
 /***/ (function(module, exports) {
 
-	// shim for using process in browser
 	'use strict';
 	
+	// shim for using process in browser
 	var process = module.exports = {};
 	
 	// cached from whatever global is present so that test runners that stub it
@@ -2173,7 +2148,7 @@ var script =
 	};
 
 /***/ }),
-/* 7 */
+/* 5 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -2181,8 +2156,7 @@ var script =
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports["default"] = template;
-	
+	exports.default = template;
 	function template() {
 	    // see:
 	    // http://ejohn.org/blog/javascript-micro-templating/
@@ -2211,10 +2185,7 @@ var script =
 	        return data ? fn(data) : fn;
 	    };
 	    template.tmpl = tmpl;
-	}
-	
-	;
-	module.exports = exports["default"];
+	};
 
 /***/ })
 /******/ ]);
