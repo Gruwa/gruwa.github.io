@@ -1,9 +1,6 @@
-module.exports = function myscript() {
+export default function myscript() {
     $(function () {
         'use strict';
-
-        const template = require('./template');
-        template();
 
         $('.bxslider').bxSlider();
     //Server start
@@ -40,7 +37,12 @@ module.exports = function myscript() {
         let $dataTmpl = {
             $data: $jsData
         };
-        let $content = template.tmpl($html, $dataTmpl);
+
+        if (process.env.NODE_ENV == "development") {
+            console.log(script.template.tmpl);
+        }
+
+        let $content = script.template.tmpl($html, $dataTmpl);
         $('#latestNewsIn').html('');
         $('#latestNewsIn').append($content);
     //banner-box

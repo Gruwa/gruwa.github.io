@@ -2,41 +2,41 @@ var script =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
-/******/
+
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
-/******/
+
 /******/ 		// Check if module is in cache
 /******/ 		if(installedModules[moduleId])
 /******/ 			return installedModules[moduleId].exports;
-/******/
+
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			exports: {},
 /******/ 			id: moduleId,
 /******/ 			loaded: false
 /******/ 		};
-/******/
+
 /******/ 		// Execute the module function
 /******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
+
 /******/ 		// Flag the module as loaded
 /******/ 		module.loaded = true;
-/******/
+
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/
-/******/
+
+
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
-/******/
+
 /******/ 	// expose the module cache
 /******/ 	__webpack_require__.c = installedModules;
-/******/
+
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "";
-/******/
+
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
 /******/ })
@@ -46,29 +46,29 @@ var script =
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	var _interopRequireDefault = __webpack_require__(1)['default'];
-	
+
 	var _google = __webpack_require__(3);
-	
+
 	var _google2 = _interopRequireDefault(_google);
-	
+
 	var _bxslider = __webpack_require__(4);
-	
+
 	var _bxslider2 = _interopRequireDefault(_bxslider);
-	
+
 	var _myscript = __webpack_require__(5);
-	
+
 	var _myscript2 = _interopRequireDefault(_myscript);
-	
+
 	// запись на ES6
 	var template = __webpack_require__(7); // запись на ES5
-	
+
 	template('script');
 	(0, _google2['default'])('script');
 	(0, _bxslider2['default'])('script');
 	(0, _myscript2['default'])('script');
-	
+
 	exports.google = _google2['default'];
 	exports.bxslider = _bxslider2['default'];
 	exports.myscript = _myscript2['default'];
@@ -79,7 +79,7 @@ var script =
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
-	
+
 	module.exports = __webpack_require__(2);
 
 /***/ }),
@@ -87,9 +87,9 @@ var script =
 /***/ (function(module, exports) {
 
 	"use strict";
-	
+
 	exports.__esModule = true;
-	
+
 	exports["default"] = function (obj) {
 	  return obj && obj.__esModule ? obj : {
 	    "default": obj
@@ -101,7 +101,7 @@ var script =
 /***/ (function(module, exports) {
 
 	'use strict';
-	
+
 	module.exports = function google() {
 	  $(function () {
 	    'use strict';
@@ -122,7 +122,7 @@ var script =
 /***/ (function(module, exports) {
 
 	'use strict';
-	
+
 	module.exports = function bxslider() {
 	  /**
 	   * bxSlider v4.2.12
@@ -130,11 +130,11 @@ var script =
 	   * Written while drinking Belgian ales and listening to jazz
 	   * Licensed under MIT (http://opensource.org/licenses/MIT)
 	   */
-	
+
 	  ;(function ($) {
-	
+
 	    var defaults = {
-	
+
 	      // GENERAL
 	      mode: 'horizontal',
 	      slideSelector: '',
@@ -156,21 +156,21 @@ var script =
 	      responsive: true,
 	      slideZIndex: 50,
 	      wrapperClass: 'bx-wrapper',
-	
+
 	      // TOUCH
 	      touchEnabled: true,
 	      swipeThreshold: 50,
 	      oneToOneTouch: true,
 	      preventDefaultSwipeX: true,
 	      preventDefaultSwipeY: false,
-	
+
 	      // ACCESSIBILITY
 	      ariaLive: true,
 	      ariaHidden: true,
-	
+
 	      // KEYBOARD
 	      keyboardEnabled: false,
-	
+
 	      // PAGER
 	      pager: true,
 	      pagerType: 'full',
@@ -178,7 +178,7 @@ var script =
 	      pagerSelector: null,
 	      buildPager: null,
 	      pagerCustom: null,
-	
+
 	      // CONTROLS
 	      controls: true,
 	      nextText: 'Next',
@@ -190,7 +190,7 @@ var script =
 	      stopText: 'Stop',
 	      autoControlsCombine: false,
 	      autoControlsSelector: null,
-	
+
 	      // AUTO
 	      auto: false,
 	      pause: 4000,
@@ -200,14 +200,14 @@ var script =
 	      autoHover: false,
 	      autoDelay: 0,
 	      autoSlideForOnePage: false,
-	
+
 	      // CAROUSEL
 	      minSlides: 1,
 	      maxSlides: 1,
 	      moveSlides: 0,
 	      slideWidth: 0,
 	      shrinkItems: false,
-	
+
 	      // CALLBACKS
 	      onSliderLoad: function onSliderLoad() {
 	        return true;
@@ -228,13 +228,13 @@ var script =
 	        return true;
 	      }
 	    };
-	
+
 	    $.fn.bxSlider = function (options) {
-	
+
 	      if (this.length === 0) {
 	        return this;
 	      }
-	
+
 	      // support multiple elements
 	      if (this.length > 1) {
 	        this.each(function () {
@@ -242,36 +242,36 @@ var script =
 	        });
 	        return this;
 	      }
-	
+
 	      // create a namespace to be used throughout the plugin
 	      var slider = {},
-	
+
 	      // set a reference to our slider element
 	      el = this,
-	
+
 	      // get the original window dimens (thanks a lot IE)
 	      windowWidth = $(window).width(),
 	          windowHeight = $(window).height();
-	
+
 	      // Return if slider is already initialized
 	      if ($(el).data('bxSlider')) {
 	        return;
 	      }
-	
+
 	      /**
 	       * ===================================================================================
 	       * = PRIVATE FUNCTIONS
 	       * ===================================================================================
 	       */
-	
+
 	      /**
 	       * Initializes namespace settings to be used throughout plugin
 	       */
 	      var init = function init() {
 	        //
-	
+
 	        //
-	
+
 	        // Return if slider is already initialized
 	        if ($(el).data('bxSlider')) {
 	          return;
@@ -317,7 +317,7 @@ var script =
 	        slider.usingCSS = slider.settings.useCSS && slider.settings.mode !== 'fade' && (function () {
 	          // create our test div element
 	          var div = document.createElement('div'),
-	
+
 	          // css transition properties
 	          props = ['WebkitPerspective', 'MozPerspective', 'OPerspective', 'msPerspective'];
 	          // test for each property
@@ -339,22 +339,22 @@ var script =
 	        el.children(slider.settings.slideSelector).each(function () {
 	          $(this).data('origStyle', $(this).attr('style'));
 	        });
-	
+
 	        // perform all DOM / CSS modifications
 	        setup();
 	      };
-	
+
 	      /**
 	       * Performs all DOM and CSS modifications
 	       */
 	      var setup = function setup() {
 	        var preloadSelector = slider.children.eq(slider.settings.startSlide); // set the default preload selector (visible)
-	
+
 	        // wrap el in a wrapper
 	        el.wrap('<div class="' + slider.settings.wrapperClass + '"><div class="bx-viewport"></div></div>');
 	        // store a namespace reference to .bx-viewport
 	        slider.viewport = el.parent();
-	
+
 	        // add aria-live if the setting is enabled and ticker mode is disabled
 	        if (slider.settings.ariaLive && !slider.settings.ticker) {
 	          slider.viewport.attr('aria-live', 'polite');
@@ -448,7 +448,7 @@ var script =
 	          }
 	        loadElements(preloadSelector, start);
 	      };
-	
+
 	      var loadElements = function loadElements(selector, callback) {
 	        var total = selector.find('img:not([src=""]), iframe').length,
 	            count = 0;
@@ -468,7 +468,7 @@ var script =
 	          });
 	        });
 	      };
-	
+
 	      /**
 	       * Start the slider
 	       */
@@ -529,7 +529,7 @@ var script =
 	          $(document).keydown(keyPress);
 	        }
 	      };
-	
+
 	      /**
 	       * Returns the calculated height of the viewport, used to determine either adaptiveHeight or the maxHeight value
 	       */
@@ -576,16 +576,16 @@ var script =
 	              return $(this).outerHeight(false);
 	            }).get());
 	          }
-	
+
 	        if (slider.viewport.css('box-sizing') === 'border-box') {
 	          height += parseFloat(slider.viewport.css('padding-top')) + parseFloat(slider.viewport.css('padding-bottom')) + parseFloat(slider.viewport.css('border-top-width')) + parseFloat(slider.viewport.css('border-bottom-width'));
 	        } else if (slider.viewport.css('box-sizing') === 'padding-box') {
 	          height += parseFloat(slider.viewport.css('padding-top')) + parseFloat(slider.viewport.css('padding-bottom'));
 	        }
-	
+
 	        return height;
 	      };
-	
+
 	      /**
 	       * Returns the calculated width to be used for the outer wrapper / viewport
 	       */
@@ -600,7 +600,7 @@ var script =
 	        }
 	        return width;
 	      };
-	
+
 	      /**
 	       * Returns the calculated width to be applied to each slide
 	       */
@@ -623,7 +623,7 @@ var script =
 	          }
 	        return newElWidth;
 	      };
-	
+
 	      /**
 	       * Returns the number of slides currently visible in the viewport (includes partially visible slides)
 	       */
@@ -648,7 +648,7 @@ var script =
 	          }
 	        return slidesShowing;
 	      };
-	
+
 	      /**
 	       * Returns the number of pages (one full viewport of slides is one "page")
 	       */
@@ -674,7 +674,7 @@ var script =
 	          }
 	        return pagerQty;
 	      };
-	
+
 	      /**
 	       * Returns the number of individual slides by which to shift the slider
 	       */
@@ -686,7 +686,7 @@ var script =
 	        // if moveSlides is 0 (auto)
 	        return getNumberSlidesShowing();
 	      };
-	
+
 	      /**
 	       * Sets the slider's (el) left or top position
 	       */
@@ -725,7 +725,7 @@ var script =
 	            }
 	          }
 	      };
-	
+
 	      /**
 	       * Sets the el's animating property position (which in turn will sometimes animate el).
 	       * If using CSS, sets the transform property. If not using CSS, sets the top / left property.
@@ -812,7 +812,7 @@ var script =
 	            }
 	          }
 	      };
-	
+
 	      /**
 	       * Populates the pager with proper amount of pages
 	       */
@@ -838,7 +838,7 @@ var script =
 	        // populate the pager element with pager links
 	        slider.pagerEl.html(pagerHtml);
 	      };
-	
+
 	      /**
 	       * Appends the pager to the controls element
 	       */
@@ -861,7 +861,7 @@ var script =
 	        // assign the pager click binding
 	        slider.pagerEl.on('click touchend', 'a', clickPagerBind);
 	      };
-	
+
 	      /**
 	       * Appends prev / next controls to the controls element
 	       */
@@ -889,7 +889,7 @@ var script =
 	          slider.controls.el.addClass('bx-has-controls-direction').append(slider.controls.directionEl);
 	        }
 	      };
-	
+
 	      /**
 	       * Appends start / stop auto controls to the controls element
 	       */
@@ -918,7 +918,7 @@ var script =
 	        // update the auto controls
 	        updateAutoControls(slider.settings.autoStart ? 'stop' : 'start');
 	      };
-	
+
 	      /**
 	       * Appends image captions to the DOM
 	       */
@@ -933,7 +933,7 @@ var script =
 	          }
 	        });
 	      };
-	
+
 	      /**
 	       * Click next binding
 	       *
@@ -951,7 +951,7 @@ var script =
 	        }
 	        el.goToNextSlide();
 	      };
-	
+
 	      /**
 	       * Click prev binding
 	       *
@@ -969,7 +969,7 @@ var script =
 	        }
 	        el.goToPrevSlide();
 	      };
-	
+
 	      /**
 	       * Click start binding
 	       *
@@ -980,7 +980,7 @@ var script =
 	        el.startAuto();
 	        e.preventDefault();
 	      };
-	
+
 	      /**
 	       * Click stop binding
 	       *
@@ -991,7 +991,7 @@ var script =
 	        el.stopAuto();
 	        e.preventDefault();
 	      };
-	
+
 	      /**
 	       * Click pager binding
 	       *
@@ -1017,7 +1017,7 @@ var script =
 	          }
 	        }
 	      };
-	
+
 	      /**
 	       * Updates the pager links with an active class
 	       *
@@ -1041,7 +1041,7 @@ var script =
 	          $(el).find('a').eq(slideIndex).addClass('active');
 	        });
 	      };
-	
+
 	      /**
 	       * Performs needed actions after a slide transition
 	       */
@@ -1073,7 +1073,7 @@ var script =
 	        // onSlideAfter callback
 	        slider.settings.onSlideAfter.call(el, slider.children.eq(slider.active.index), slider.oldIndex, slider.active.index);
 	      };
-	
+
 	      /**
 	       * Updates the auto controls state (either active, or combined switch)
 	       *
@@ -1090,7 +1090,7 @@ var script =
 	            slider.controls.autoEl.find('a:not(.bx-' + state + ')').addClass('active');
 	          }
 	      };
-	
+
 	      /**
 	       * Updates the direction controls (checks if either should be hidden)
 	       */
@@ -1114,7 +1114,7 @@ var script =
 	              }
 	        }
 	      };
-	
+
 	      /**
 	       * Initializes the auto process
 	       */
@@ -1125,7 +1125,7 @@ var script =
 	          // if autoDelay was not supplied, start the auto show normally
 	        } else {
 	            el.startAuto();
-	
+
 	            //add focus and blur events to ensure its running if timeout gets paused
 	            $(window).focus(function () {
 	              el.startAuto();
@@ -1155,7 +1155,7 @@ var script =
 	          });
 	        }
 	      };
-	
+
 	      /**
 	       * Initializes the ticker process
 	       */
@@ -1227,7 +1227,7 @@ var script =
 	        // start the ticker loop
 	        tickerLoop();
 	      };
-	
+
 	      /**
 	       * Runs a continuous loop, news ticker-style
 	       */
@@ -1238,7 +1238,7 @@ var script =
 	            animateProperty,
 	            resetValue,
 	            params;
-	
+
 	        // if "next" animate left position to last child, then reset left to 0
 	        if (slider.settings.autoDirection === 'next') {
 	          position = el.find('.bx-clone').first().position();
@@ -1251,7 +1251,7 @@ var script =
 	        params = { resetValue: resetValue };
 	        setPositionProperty(animateProperty, 'ticker', speed, params);
 	      };
-	
+
 	      /**
 	       * Check if el is on screen
 	       */
@@ -1262,15 +1262,15 @@ var script =
 	          left: win.scrollLeft()
 	        },
 	            bounds = el.offset();
-	
+
 	        viewport.right = viewport.left + win.width();
 	        viewport.bottom = viewport.top + win.height();
 	        bounds.right = bounds.left + el.outerWidth();
 	        bounds.bottom = bounds.top + el.outerHeight();
-	
+
 	        return !(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom);
 	      };
-	
+
 	      /**
 	       * Initializes keyboard events
 	       */
@@ -1279,7 +1279,7 @@ var script =
 	            tagFilters = 'input|textarea',
 	            p = new RegExp(activeElementTag, ['i']),
 	            result = p.exec(tagFilters);
-	
+
 	        if (result == null && isOnScreen(el)) {
 	          if (e.keyCode === 39) {
 	            clickNextBind(e);
@@ -1290,7 +1290,7 @@ var script =
 	          }
 	        }
 	      };
-	
+
 	      /**
 	       * Initializes touch events
 	       */
@@ -1301,7 +1301,7 @@ var script =
 	          end: { x: 0, y: 0 }
 	        };
 	        slider.viewport.bind('touchstart MSPointerDown pointerdown', onTouchStart);
-	
+
 	        //for browsers that have implemented pointer events and fire a click after
 	        //every pointerup regardless of whether pointerup is on same screen location as pointerdown or not
 	        slider.viewport.on('click', '.bxslider a', function (e) {
@@ -1311,7 +1311,7 @@ var script =
 	          }
 	        });
 	      };
-	
+
 	      /**
 	       * Event handler for "touchstart"
 	       *
@@ -1321,7 +1321,7 @@ var script =
 	      var onTouchStart = function onTouchStart(e) {
 	        //disable slider controls while user is interacting with slides to avoid slider freeze that happens on touch devices when a slide swipe happens immediately after interacting with slider controls
 	        slider.controls.el.addClass('disabled');
-	
+
 	        if (slider.working) {
 	          e.preventDefault();
 	          slider.controls.el.removeClass('disabled');
@@ -1333,7 +1333,7 @@ var script =
 	          // record the starting touch x, y coordinates
 	          slider.touch.start.x = touchPoints[0].pageX;
 	          slider.touch.start.y = touchPoints[0].pageY;
-	
+
 	          if (slider.viewport.get(0).setPointerCapture) {
 	            slider.pointerId = orig.pointerId;
 	            slider.viewport.get(0).setPointerCapture(slider.pointerId);
@@ -1345,7 +1345,7 @@ var script =
 	          slider.viewport.bind('MSPointerCancel pointercancel', onPointerCancel);
 	        }
 	      };
-	
+
 	      /**
 	       * Cancel Pointer for Windows Phone
 	       *
@@ -1356,7 +1356,7 @@ var script =
 	        /* onPointerCancel handler is needed to deal with situations when a touchend
 	        doesn't fire after a touchstart (this happens on windows phones only) */
 	        setPositionProperty(slider.touch.originalPos.left, 'reset', 0);
-	
+
 	        //remove handlers
 	        slider.controls.el.removeClass('disabled');
 	        slider.viewport.unbind('MSPointerCancel pointercancel', onPointerCancel);
@@ -1366,7 +1366,7 @@ var script =
 	          slider.viewport.get(0).releasePointerCapture(slider.pointerId);
 	        }
 	      };
-	
+
 	      /**
 	       * Event handler for "touchmove"
 	       *
@@ -1376,13 +1376,13 @@ var script =
 	      var onTouchMove = function onTouchMove(e) {
 	        var orig = e.originalEvent,
 	            touchPoints = typeof orig.changedTouches !== 'undefined' ? orig.changedTouches : [orig],
-	
+
 	        // if scrolling on y axis, do not prevent default
 	        xMovement = Math.abs(touchPoints[0].pageX - slider.touch.start.x),
 	            yMovement = Math.abs(touchPoints[0].pageY - slider.touch.start.y),
 	            value = 0,
 	            change = 0;
-	
+
 	        // x axis swipe
 	        if (xMovement * 3 > yMovement && slider.settings.preventDefaultSwipeX) {
 	          e.preventDefault();
@@ -1403,7 +1403,7 @@ var script =
 	          setPositionProperty(value, 'reset', 0);
 	        }
 	      };
-	
+
 	      /**
 	       * Event handler for "touchend"
 	       *
@@ -1465,7 +1465,7 @@ var script =
 	          slider.viewport.get(0).releasePointerCapture(slider.pointerId);
 	        }
 	      };
-	
+
 	      /**
 	       * Window resize event callback
 	       */
@@ -1495,7 +1495,7 @@ var script =
 	          }
 	        }
 	      };
-	
+
 	      /**
 	       * Adds an aria-hidden=true attribute to each element
 	       *
@@ -1512,7 +1512,7 @@ var script =
 	          slider.children.slice(startVisibleIndex, startVisibleIndex + numberOfSlidesShowing).attr('aria-hidden', 'false');
 	        }
 	      };
-	
+
 	      /**
 	       * Returns index according to present page range
 	       *
@@ -1540,13 +1540,13 @@ var script =
 	              return slideIndex;
 	            }
 	      };
-	
+
 	      /**
 	       * ===================================================================================
 	       * = PUBLIC FUNCTIONS
 	       * ===================================================================================
 	       */
-	
+
 	      /**
 	       * Performs slide transition to the specified slide
 	       *
@@ -1571,23 +1571,23 @@ var script =
 	        slider.oldIndex = slider.active.index;
 	        //set new index
 	        slider.active.index = setSlideIndex(slideIndex);
-	
+
 	        // if plugin is currently in motion, ignore request
 	        if (slider.working || slider.active.index === slider.oldIndex) {
 	          return;
 	        }
 	        // declare that plugin is in motion
 	        slider.working = true;
-	
+
 	        performTransition = slider.settings.onSlideBefore.call(el, slider.children.eq(slider.active.index), slider.oldIndex, slider.active.index);
-	
+
 	        // If transitions canceled, reset and return
 	        if (typeof performTransition !== 'undefined' && !performTransition) {
 	          slider.active.index = slider.oldIndex; // restore old index
 	          slider.working = false; // is not in motion
 	          return;
 	        }
-	
+
 	        if (direction === 'next') {
 	          // Prevent canceling in future functions or lack there-of from negating previous commands to cancel
 	          if (!slider.settings.onSlideNext.call(el, slider.children.eq(slider.active.index), slider.oldIndex, slider.active.index)) {
@@ -1599,7 +1599,7 @@ var script =
 	            performTransition = false;
 	          }
 	        }
-	
+
 	        // check if last slide
 	        slider.active.last = slider.active.index >= getPagerQty() - 1;
 	        // update the pager with active class
@@ -1659,7 +1659,7 @@ var script =
 	                    requestEl = slideIndex * parseInt(getMoveBy());
 	                    position = slider.children.eq(requestEl).position();
 	                  }
-	
+
 	            /* If the position doesn't exist
 	             * (e.g. if you destroy the slider on a next click),
 	             * it doesn't throw an error.
@@ -1676,7 +1676,7 @@ var script =
 	          applyAriaHiddenAttributes(slider.active.index * getMoveBy());
 	        }
 	      };
-	
+
 	      /**
 	       * Transitions to the next slide in the show
 	       */
@@ -1688,7 +1688,7 @@ var script =
 	        var pagerIndex = parseInt(slider.active.index) + 1;
 	        el.goToSlide(pagerIndex, 'next');
 	      };
-	
+
 	      /**
 	       * Transitions to the prev slide in the show
 	       */
@@ -1700,7 +1700,7 @@ var script =
 	        var pagerIndex = parseInt(slider.active.index) - 1;
 	        el.goToSlide(pagerIndex, 'prev');
 	      };
-	
+
 	      /**
 	       * Starts the auto show
 	       *
@@ -1725,7 +1725,7 @@ var script =
 	          updateAutoControls('stop');
 	        }
 	      };
-	
+
 	      /**
 	       * Stops the auto show
 	       *
@@ -1745,21 +1745,21 @@ var script =
 	          updateAutoControls('start');
 	        }
 	      };
-	
+
 	      /**
 	       * Returns current slide index (zero-based)
 	       */
 	      el.getCurrentSlide = function () {
 	        return slider.active.index;
 	      };
-	
+
 	      /**
 	       * Returns current slide element
 	       */
 	      el.getCurrentSlideElement = function () {
 	        return slider.children.eq(slider.active.index);
 	      };
-	
+
 	      /**
 	       * Returns a slide element
 	       * @param index (int)
@@ -1768,21 +1768,21 @@ var script =
 	      el.getSlideElement = function (index) {
 	        return slider.children.eq(index);
 	      };
-	
+
 	      /**
 	       * Returns number of slides in show
 	       */
 	      el.getSlideCount = function () {
 	        return slider.children.length;
 	      };
-	
+
 	      /**
 	       * Return slider.working variable
 	       */
 	      el.isWorking = function () {
 	        return slider.working;
 	      };
-	
+
 	      /**
 	       * Update all dynamic slider elements
 	       */
@@ -1813,7 +1813,7 @@ var script =
 	          applyAriaHiddenAttributes(slider.active.index * getMoveBy());
 	        }
 	      };
-	
+
 	      /**
 	       * Destroy the current instance of the slider (revert everything back to original state)
 	       */
@@ -1863,7 +1863,7 @@ var script =
 	        //remove self reference in data
 	        $(this).removeData('bxSlider');
 	      };
-	
+
 	      /**
 	       * Reload the slider (revert all DOM changes, and re-initialize)
 	       */
@@ -1876,11 +1876,11 @@ var script =
 	        //store reference to self in order to access public functions later
 	        $(el).data('bxSlider', this);
 	      };
-	
+
 	      init();
-	
+
 	      $(el).data('bxSlider', this);
-	
+
 	      // returns the current jQuery object
 	      return this;
 	    };
@@ -1892,16 +1892,16 @@ var script =
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
-	
+
 	Object.defineProperty(exports, '__esModule', {
 	    value: true
 	});
 	exports['default'] = myscript;
-	
+
 	function myscript() {
 	    $(function () {
 	        'use strict';
-	
+
 	        $('.bxslider').bxSlider();
 	        //Server start
 	        var $ServerData = {
@@ -1933,11 +1933,11 @@ var script =
 	        var $dataTmpl = {
 	            $data: $jsData
 	        };
-	
+
 	        if (process.env.NODE_ENV == "development") {
 	            console.log(script.template.tmpl);
 	        }
-	
+
 	        var $content = script.template.tmpl($html, $dataTmpl);
 	        $('#latestNewsIn').html('');
 	        $('#latestNewsIn').append($content);
@@ -1975,7 +1975,7 @@ var script =
 	        });
 	    });
 	}
-	
+
 	;
 	module.exports = exports['default'];
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
@@ -1986,17 +1986,17 @@ var script =
 
 	// shim for using process in browser
 	'use strict';
-	
+
 	var process = module.exports = {};
-	
+
 	// cached from whatever global is present so that test runners that stub it
 	// don't break things.  But we need to wrap it in a try catch in case it is
 	// wrapped in strict mode code which doesn't define any globals.  It's inside a
 	// function because try/catches deoptimize in certain engines.
-	
+
 	var cachedSetTimeout;
 	var cachedClearTimeout;
-	
+
 	function defaultSetTimout() {
 	    throw new Error('setTimeout has not been defined');
 	}
@@ -2074,7 +2074,7 @@ var script =
 	var draining = false;
 	var currentQueue;
 	var queueIndex = -1;
-	
+
 	function cleanUpNextTick() {
 	    if (!draining || !currentQueue) {
 	        return;
@@ -2089,14 +2089,14 @@ var script =
 	        drainQueue();
 	    }
 	}
-	
+
 	function drainQueue() {
 	    if (draining) {
 	        return;
 	    }
 	    var timeout = runTimeout(cleanUpNextTick);
 	    draining = true;
-	
+
 	    var len = queue.length;
 	    while (len) {
 	        currentQueue = queue;
@@ -2113,7 +2113,7 @@ var script =
 	    draining = false;
 	    runClearTimeout(timeout);
 	}
-	
+
 	process.nextTick = function (fun) {
 	    var args = new Array(arguments.length - 1);
 	    if (arguments.length > 1) {
@@ -2126,7 +2126,7 @@ var script =
 	        runTimeout(drainQueue);
 	    }
 	};
-	
+
 	// v8 likes predictible objects
 	function Item(fun, array) {
 	    this.fun = fun;
@@ -2141,9 +2141,9 @@ var script =
 	process.argv = [];
 	process.version = ''; // empty string to avoid regexp issues
 	process.versions = {};
-	
+
 	function noop() {}
-	
+
 	process.on = noop;
 	process.addListener = noop;
 	process.once = noop;
@@ -2153,15 +2153,15 @@ var script =
 	process.emit = noop;
 	process.prependListener = noop;
 	process.prependOnceListener = noop;
-	
+
 	process.listeners = function (name) {
 	    return [];
 	};
-	
+
 	process.binding = function (name) {
 	    throw new Error('process.binding is not supported');
 	};
-	
+
 	process.cwd = function () {
 	    return '/';
 	};
@@ -2177,45 +2177,44 @@ var script =
 /***/ (function(module, exports) {
 
 	"use strict";
-	
+
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
 	exports["default"] = template;
-	
+
 	function template() {
 	    // see:
 	    // http://ejohn.org/blog/javascript-micro-templating/
-	
+
 	    // Simple JavaScript Templating
 	    // John Resig - http://ejohn.org/ - MIT Licensed
-	
+
 	    var cache = {};
-	
+
 	    function tmpl(str, data) {
 	        // Figure out if we're getting a template, or if we need to
 	        // load the template - and be sure to cache the result.
 	        var fn = !/\W/.test(str) ? cache[str] = cache[str] || tmpl(document.getElementById(str).innerHTML) :
-	
+
 	        // Generate a reusable function that will serve as a template
 	        // generator (and which will be cached).
 	        new Function("obj", "var p=[],print=function(){p.push.apply(p,arguments);};" +
-	
+
 	        // Introduce the data as local variables using with(){}
 	        "with(obj){p.push('" +
-	
+
 	        // Convert the template into pure JavaScript
 	        str.replace(/[\r\t\n]/g, " ").split("<%").join("\t").replace(/((^|%>)[^\t]*)'/g, "$1\r").replace(/\t=(.*?)%>/g, "',$1,'").split("\t").join("');").split("%>").join("p.push('").split("\r").join("\\'") + "');}return p.join('');");
-	
+
 	        // Provide some basic currying to the user
 	        return data ? fn(data) : fn;
 	    };
 	    template.tmpl = tmpl;
 	}
-	
+
 	;
 	module.exports = exports["default"];
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=build.js.map

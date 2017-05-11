@@ -8,7 +8,7 @@ module.exports = function google() {
         gcse.async = true;
         gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
         var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(gcse, s);
+        s.parentNode.insertBefore(gcse, s);        
       })();
     });
 };
