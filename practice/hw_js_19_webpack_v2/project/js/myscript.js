@@ -1,8 +1,6 @@
 export default function myscript() {
     $(function () {
         'use strict';
-
-        $('.bxslider').bxSlider();
     //Server start
         let $ServerData =
         {
@@ -32,14 +30,14 @@ export default function myscript() {
         };
         let $Server = JSON.stringify($ServerData);
     //Server end
+    debugger
         let $jsData = JSON.parse($Server);
         let $html = $('#latestNews').html();
         let $dataTmpl = {
             $data: $jsData
         };
-
-        if (process.env.NODE_ENV == "development") {
-            console.log(script.template.tmpl);
+        if (NODE_ENV === 'development') {
+            console.log('SAY HI');
         }
 
         let $content = script.template.tmpl($html, $dataTmpl);

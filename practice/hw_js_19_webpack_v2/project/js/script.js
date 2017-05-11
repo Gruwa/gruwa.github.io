@@ -1,16 +1,16 @@
 'use strict';
 
 import google from './google';
-import bxslider from './bxslider';
-import myscript from './myscript'; // запись на ES6
 const template = require('./template'); // запись на ES5
+import myscript from './myscript'; // запись на ES6
+import bxslider from './bxslider';
 
-template('script');
 google('script');
-bxslider('script');
+template('script');
 myscript('script');
+bxslider('script');
 
 exports.google = google;
-exports.bxslider = bxslider;
-exports.myscript = myscript;
 exports.template = template;
+exports.myscript = myscript;
+exports.bxslider = bxslider;

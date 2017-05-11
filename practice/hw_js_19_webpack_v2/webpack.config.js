@@ -1,7 +1,7 @@
 'use strict';
-
 const NODE_ENV = process.env.NODE_ENV || "development";
 const webpack = require('webpack');
+debugger
 
 module.exports = {
     entry: './project/js/script',
@@ -15,20 +15,28 @@ module.exports = {
         aggregateTimeout:100
     },
     devtool: NODE_ENV == 'development' ? 'source-map' : null,
-    plagins: [
-        new webpack.DefinePlugin({
-            NODE_ENV: JSON.stringify(NODE_ENV)
-        }),
-    ],
     module: {
         loaders: [{
-            test: /\.js$/,
-            loader: 'babel?presets[]=es2015'
+            test: /\.jsx?$/,
+            exclude: /(node_modules)/,
+            loader: 'babel?optional[]=runtime'
+        }],
+        loaders: [{
+            test: /\.jsx?$/,
+            exclude: /(node_modules)/,
+            loader: 'babel?optional[]=runtime'
         }]
-    }
+    },
+    plagins: [
+        new webpack.DefinePlugin({
+            NODE_ENV: NODE_ENV
+        })
+        // new webpack.EnvironmentPlugin('NODE_ENV', 'USER')
+    ]
 };
+
 if (NODE_ENV == 'production') {
-	module.exports.plugins.push(
+	plugins.push(
 		new webpack.optimize.UglifyJsPlugin({
 			compress : {
 				warnings : false,
