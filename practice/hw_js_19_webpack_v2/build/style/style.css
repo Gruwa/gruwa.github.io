@@ -1097,7 +1097,8 @@ ul.bxslider {
         background-color: #f4b60d;
         background-image: none;
         background-repeat: no-repeat;
-        background-position: 0 0; }
+        background-position: 0 0;
+        transition: background-color 1000ms linear;}
     .news-box .banners-place .panel:last-child {
       margin-top: 0;
       margin-right: 0;

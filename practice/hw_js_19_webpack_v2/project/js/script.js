@@ -1,4 +1,5 @@
 'use strict';
+const NODE_ENV = process.env.NODE_ENV || "development";
 
 import google from './google';
 import bxslider from './bxslider';
