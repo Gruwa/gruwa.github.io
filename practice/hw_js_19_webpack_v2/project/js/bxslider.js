@@ -1,4 +1,5 @@
-module.exports = function bxslider() {
+module.exports = function bxslider(){
+
 /**
  * bxSlider v4.2.12
  * Copyright 2013-2015 Steven Wanderski
@@ -127,10 +128,6 @@ module.exports = function bxslider() {
      * Initializes namespace settings to be used throughout plugin
      */
     var init = function() {
-        //
-
-        //
-
       // Return if slider is already initialized
       if ($(el).data('bxSlider')) { return; }
       // merge user-supplied options with the defaults

@@ -53,29 +53,38 @@ var script =
 	
 	var _google2 = _interopRequireDefault(_google);
 	
-	// запись на ES5
+	var _bxslider = __webpack_require__(4);
 	
-	var _myscript = __webpack_require__(4);
+	var _bxslider2 = _interopRequireDefault(_bxslider);
+	
+	var _myscript = __webpack_require__(5);
 	
 	var _myscript2 = _interopRequireDefault(_myscript);
 	
 	// запись на ES6
+	// const myscript = require('./myscript'); // запись на ES5
 	
-	var _bxslider = __webpack_require__(5);
+	var _accordion = __webpack_require__(7);
 	
-	var _bxslider2 = _interopRequireDefault(_bxslider);
+	var _accordion2 = _interopRequireDefault(_accordion);
 	
-	var template = __webpack_require__(6);
+	var _template = __webpack_require__(8);
 	
-	(0, _google2['default'])('script');
-	template('script');
-	(0, _myscript2['default'])('script');
-	(0, _bxslider2['default'])('script');
+	var _template2 = _interopRequireDefault(_template);
 	
+	// import defineplugin from './plugin/defineplugin';
+	
+	exports.template = _template2['default'];
 	exports.google = _google2['default'];
-	exports.template = template;
-	exports.myscript = _myscript2['default'];
 	exports.bxslider = _bxslider2['default'];
+	exports.myscript = _myscript2['default'];
+	exports.accordion = _accordion2['default'];
+	
+	// defineplugin();
+	(0, _google2['default'])();
+	(0, _bxslider2['default'])();
+	(0, _myscript2['default'])();
+	(0, _accordion2['default'])();
 
 /***/ }),
 /* 1 */
@@ -104,18 +113,16 @@ var script =
 	'use strict';
 	
 	module.exports = function google() {
-	  $(function () {
-	    'use strict';
-	    (function () {
-	      var cx = '012577494148929298528:dq_ytgguf-c';
-	      var gcse = document.createElement('script');
-	      gcse.type = 'text/javascript';
-	      gcse.async = true;
-	      gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-	      var s = document.getElementsByTagName('script')[0];
-	      s.parentNode.insertBefore(gcse, s);
-	    })();
-	  });
+	    $(function () {
+	        'use strict';
+	        var cx = '012577494148929298528:dq_ytgguf-c';
+	        var gcse = document.createElement('script');
+	        gcse.type = 'text/javascript';
+	        gcse.async = true;
+	        gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+	        var s = document.getElementsByTagName('script')[0];
+	        s.parentNode.insertBefore(gcse, s);
+	    });
 	};
 
 /***/ }),
@@ -124,97 +131,8 @@ var script =
 
 	'use strict';
 	
-	Object.defineProperty(exports, '__esModule', {
-	    value: true
-	});
-	exports['default'] = myscript;
-	
-	function myscript() {
-	    $(function () {
-	        'use strict';
-	        //Server start
-	        var $ServerData = {
-	            id: 100,
-	            data: [{
-	                id: 101,
-	                title: "Advanced Machinery Helps Improve Quality",
-	                month: 'Jan',
-	                day: 23,
-	                imageSrc: 'img/news1.jpg',
-	                author: 'cmsmasters',
-	                coments: 6,
-	                text: "Cum sociis natoque penatibus et magnis dis parturient ontesmus. Pro vel nibh et elit mollis commodo et nec augueique Nemo enim ipsam voluptatem quia ptas sit aspernatur samomo enim ipsam voluptatem."
-	            }, {
-	                id: 102,
-	                title: "Powerful Techniques for Advanced Service",
-	                month: 'Jan',
-	                day: 21,
-	                imageSrc: 'img/news2.jpg',
-	                author: 'cmsmasters',
-	                coments: 3,
-	                text: "Cum sociis natoque penatibus et magnis dis parturient ontesmus. Pro vel nibh et elit mollis commodo et nec augueique Nemo enim ipsam voluptatem quia ptas sit aspernatur samomo enim ipsam voluptatem."
-	            }]
-	        };
-	        var $Server = JSON.stringify($ServerData);
-	        //Server end
-	        debugger;
-	        var $jsData = JSON.parse($Server);
-	        var $html = $('#latestNews').html();
-	        var $dataTmpl = {
-	            $data: $jsData
-	        };
-	        if (NODE_ENV === 'development') {
-	            console.log('SAY HI');
-	        }
-	
-	        var $content = script.template.tmpl($html, $dataTmpl);
-	        $('#latestNewsIn').html('');
-	        $('#latestNewsIn').append($content);
-	        //banner-box
-	        $('.accordion').on('click', '.accordion-panel, .accordion-plus', function (e) {
-	            var elem = $(e.target);
-	            Element();
-	            function Element() {
-	                if ($('.panel').find('.accordion-panel-focus').length != 0 && (elem[0].className == 'accordion-panel' || elem[0].className == 'accordion-plus')) {
-	                    $('.panel').find('.accordion-panel').removeClass('accordion-panel-focus');
-	                    $('.panel').find('.accordion-plus').removeClass('accordion-plus-focus');
-	                    $('.panel').find('.panel-focus').removeClass('panel-focus');
-	                    $('.panel').find('.accordion-text').css('display', 'none');
-	                    $(e.target).parent().find('.accordion-panel').addClass('accordion-panel-focus');
-	                    $(e.target).parent().find('.accordion-plus').addClass('accordion-plus-focus');
-	                    $(e.target).parent().addClass('panel-focus');
-	                    $(e.target).parent().parent().find('.accordion-text').fadeIn(700);
-	                    return;
-	                };
-	                if ($('.panel').find('.accordion-panel-focus').length == 0) {
-	                    $(e.target).parent().find('.accordion-panel').addClass('accordion-panel-focus');
-	                    $(e.target).parent().find('.accordion-plus').addClass('accordion-plus-focus');
-	                    $(e.target).parent().addClass('panel-focus');
-	                    $(e.target).parent().parent().find('.accordion-text').fadeIn(700);
-	                    return;
-	                };
-	                if ($('.panel').find('.accordion-panel-focus').length != 0) {
-	                    $('.panel').find('.accordion-panel').removeClass('accordion-panel-focus');
-	                    $('.panel').find('.accordion-plus').removeClass('accordion-plus-focus');
-	                    $('.panel').find('.panel-focus').removeClass('panel-focus');
-	                    $('.panel').find('.accordion-text').css('display', 'none');
-	                    return;
-	                };
-	            }
-	        });
-	    });
-	}
-	
-	;
-	module.exports = exports['default'];
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports) {
-
-	'use strict';
-	
 	module.exports = function bxslider() {
+	
 	  /**
 	   * bxSlider v4.2.12
 	   * Copyright 2013-2015 Steven Wanderski
@@ -359,10 +277,6 @@ var script =
 	       * Initializes namespace settings to be used throughout plugin
 	       */
 	      var init = function init() {
-	        //
-	
-	        //
-	
 	        // Return if slider is already initialized
 	        if ($(el).data('bxSlider')) {
 	          return;
@@ -1979,48 +1893,145 @@ var script =
 	};
 
 /***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	module.exports = function myscript() {
+	        $(function () {
+	
+	                var serverData = __webpack_require__(6); // запись на ES5
+	
+	                exports.serverData = serverData;
+	
+	                var $jsData = JSON.parse(serverData);
+	                var $html = $('#latestNews').html();
+	                var $dataTmpl = {
+	                        $data: $jsData
+	                };
+	                var $content = script.template($html, $dataTmpl);
+	
+	                $('#latestNewsIn').html('');
+	                $('#latestNewsIn').append($content);
+	
+	                script.bxslider($('.bxslider').bxSlider());
+	
+	                if (NODE_ENV === 'development') {
+	                        debugger;
+	                }
+	        });
+	};
+
+/***/ }),
 /* 6 */
 /***/ (function(module, exports) {
 
-	"use strict";
+	'use strict';
+	//Server start
+	var $ServerData = {
+	    id: 100,
+	    data: [{
+	        id: 101,
+	        title: "Advanced Machinery Helps Improve Quality",
+	        month: 'Jan',
+	        day: 23,
+	        imageSrc: 'img/news1.jpg',
+	        author: 'cmsmasters',
+	        coments: 6,
+	        text: "Cum sociis natoque penatibus et magnis dis parturient ontesmus. Pro vel nibh et elit mollis commodo et nec augueique Nemo enim ipsam voluptatem quia ptas sit aspernatur samomo enim ipsam voluptatem."
+	    }, {
+	        id: 102,
+	        title: "Powerful Techniques for Advanced Service",
+	        month: 'Jan',
+	        day: 21,
+	        imageSrc: 'img/news2.jpg',
+	        author: 'cmsmasters',
+	        coments: 3,
+	        text: "Cum sociis natoque penatibus et magnis dis parturient ontesmus. Pro vel nibh et elit mollis commodo et nec augueique Nemo enim ipsam voluptatem quia ptas sit aspernatur samomo enim ipsam voluptatem."
+	    }]
+	};
+	var $Server = JSON.stringify($ServerData);
+	//Server end
 	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports["default"] = template;
+	module.exports = $Server;
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports) {
+
+	'use strict';
 	
-	function template() {
-	    // see:
-	    // http://ejohn.org/blog/javascript-micro-templating/
+	module.exports = function accordion() {
+	    'use strict';
+	    // start my accordion
+	    $('.accordion').on('click', '.accordion-panel, .accordion-plus', function (e) {
+	        var elem = $(e.target);
+	        var panel = $('.panel');
+	        var elemParent = elem.parent();
 	
-	    // Simple JavaScript Templating
-	    // John Resig - http://ejohn.org/ - MIT Licensed
+	        if (panel.find('.accordion-panel-focus').length != 0 && (elem[0].className == 'accordion-panel' || elem[0].className == 'accordion-plus')) {
+	            panel.find('.accordion-panel').removeClass('accordion-panel-focus');
+	            panel.find('.accordion-plus').removeClass('accordion-plus-focus');
+	            panel.find('.panel-focus').removeClass('panel-focus');
+	            panel.find('.accordion-text').css('display', 'none');
+	            elemParent.find('.accordion-panel').addClass('accordion-panel-focus');
+	            elemParent.find('.accordion-plus').addClass('accordion-plus-focus');
+	            elemParent.addClass('panel-focus');
+	            elemParent.parent().find('.accordion-text').fadeIn(700);
+	            return;
+	        };
+	        if (panel.find('.accordion-panel-focus').length == 0) {
+	            elemParent.find('.accordion-panel').addClass('accordion-panel-focus');
+	            elemParent.find('.accordion-plus').addClass('accordion-plus-focus');
+	            elemParent.addClass('panel-focus');
+	            elemParent.parent().find('.accordion-text').fadeIn(700);
+	            return;
+	        };
+	        if (panel.find('.accordion-panel-focus').length != 0) {
+	            panel.find('.accordion-panel').removeClass('accordion-panel-focus');
+	            panel.find('.accordion-plus').removeClass('accordion-plus-focus');
+	            panel.find('.panel-focus').removeClass('panel-focus');
+	            panel.find('.accordion-text').css('display', 'none');
+	            return;
+	        };
+	    });
+	    // end my accordion
+	};
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports) {
+
+	'use strict';
+	// see:
+	// http://ejohn.org/blog/javascript-micro-templating/
 	
-	    var cache = {};
+	// Simple JavaScript Templating
+	// John Resig - http://ejohn.org/ - MIT Licensed
 	
-	    function tmpl(str, data) {
-	        // Figure out if we're getting a template, or if we need to
-	        // load the template - and be sure to cache the result.
-	        var fn = !/\W/.test(str) ? cache[str] = cache[str] || tmpl(document.getElementById(str).innerHTML) :
+	var cache = {};
 	
-	        // Generate a reusable function that will serve as a template
-	        // generator (and which will be cached).
-	        new Function("obj", "var p=[],print=function(){p.push.apply(p,arguments);};" +
+	function tmpl(str, data) {
+	    // Figure out if we're getting a template, or if we need to
+	    // load the template - and be sure to cache the result.
+	    var fn = !/\W/.test(str) ? cache[str] = cache[str] || tmpl(document.getElementById(str).innerHTML) :
 	
-	        // Introduce the data as local variables using with(){}
-	        "with(obj){p.push('" +
+	    // Generate a reusable function that will serve as a template
+	    // generator (and which will be cached).
+	    new Function("obj", "var p=[],print=function(){p.push.apply(p,arguments);};" +
 	
-	        // Convert the template into pure JavaScript
-	        str.replace(/[\r\t\n]/g, " ").split("<%").join("\t").replace(/((^|%>)[^\t]*)'/g, "$1\r").replace(/\t=(.*?)%>/g, "',$1,'").split("\t").join("');").split("%>").join("p.push('").split("\r").join("\\'") + "');}return p.join('');");
+	    // Introduce the data as local variables using with(){}
+	    "with(obj){p.push('" +
 	
-	        // Provide some basic currying to the user
-	        return data ? fn(data) : fn;
-	    };
-	    template.tmpl = tmpl;
-	}
+	    // Convert the template into pure JavaScript
+	    str.replace(/[\r\t\n]/g, " ").split("<%").join("\t").replace(/((^|%>)[^\t]*)'/g, "$1\r").replace(/\t=(.*?)%>/g, "',$1,'").split("\t").join("');").split("%>").join("p.push('").split("\r").join("\\'") + "');}return p.join('');");
 	
-	;
-	module.exports = exports["default"];
+	    // Provide some basic currying to the user
+	    return data ? fn(data) : fn;
+	};
+	
+	module.exports = tmpl;
 
 /***/ })
 /******/ ]);

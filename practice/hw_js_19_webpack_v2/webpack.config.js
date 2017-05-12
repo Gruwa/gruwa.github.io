@@ -1,7 +1,7 @@
 'use strict';
 const NODE_ENV = process.env.NODE_ENV || "development";
 const webpack = require('webpack');
-debugger
+const DefinePlugin = require('./node_modules/webpack/lib/DefinePlugin');
 
 module.exports = {
     entry: './project/js/script',
@@ -20,12 +20,20 @@ module.exports = {
             test: /\.jsx?$/,
             exclude: /(node_modules)/,
             loader: 'babel?optional[]=runtime'
-        }]        
+        }]
     },
     plagins: [
-        new webpack.DefinePlugin({
+        new DefinePlugin({
             NODE_ENV: JSON.stringify(NODE_ENV)
         })
+        // new webpack.EnvironmentPlugin({
+        //     NODE_ENV: 'development'
+        // })
+        // new webpack.DefinePlugin({
+        //     'process.env': {
+        //         'NODE_ENV': JSON.stringify(NODE_ENV)
+        //     }
+        // })
         // new webpack.EnvironmentPlugin('NODE_ENV', 'USER')
     ]
 };

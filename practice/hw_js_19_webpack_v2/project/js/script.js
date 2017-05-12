@@ -1,16 +1,21 @@
 'use strict';
 
 import google from './google';
-const template = require('./template'); // запись на ES5
-import myscript from './myscript'; // запись на ES6
 import bxslider from './bxslider';
+import myscript from './myscript'; // запись на ES6
+// const myscript = require('./myscript'); // запись на ES5
+import accordion from './accordion';
+import template from './template';
+// import defineplugin from './plugin/defineplugin';
 
-google('script');
-template('script');
-myscript('script');
-bxslider('script');
-
-exports.google = google;
 exports.template = template;
-exports.myscript = myscript;
+exports.google = google;
 exports.bxslider = bxslider;
+exports.myscript = myscript;
+exports.accordion = accordion;
+
+// defineplugin();
+google();
+bxslider();
+myscript();
+accordion();

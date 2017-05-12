@@ -1,4 +1,4 @@
-export default function template() {
+'use strict';
     // see:
     // http://ejohn.org/blog/javascript-micro-templating/
 
@@ -36,6 +36,5 @@ export default function template() {
         // Provide some basic currying to the user
         return data ? fn( data ) : fn;
       };
-template.tmpl = tmpl;
 
-};
+module.exports = tmpl;
