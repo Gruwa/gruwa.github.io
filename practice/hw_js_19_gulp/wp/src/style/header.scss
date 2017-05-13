@@ -1,0 +1,104 @@
+.header {
+    @include wrapper(36px, 40px);
+}
+.head_box {
+    margin-bottom: 36px;
+    .logo {
+        float: left;
+    }
+    .social {
+        float: right;
+        .skype {
+            @include social(-62px, -18px, 18px);
+            &:hover {
+                @include social(-62px, -1px);
+            }
+        }
+        .in {
+            @include social(-45px, -17px);
+            width: 17px;
+            &:hover {
+                @include social(-45px, 0);
+                width: 17px;
+            }
+        }
+        .rss {
+            @include social(-28px, -17px, 17px);
+            &:hover {
+                @include social(-28px, 0, 17px);
+            }
+        }
+        .twitter {
+            @include social(-10px, -17px);
+            &:hover {
+                @include social(-10px, 0);
+            }
+        }
+        .facebook {
+            @include social(0, -17px, 11px);
+            &:hover {
+                @include social(0, 0, 11px);
+            }
+        }
+    }
+}
+.nav {
+    @include groundimg($background2);
+    .menu_header {
+        float: left;
+        .menu_list {
+            @include menulist;
+            a {
+                @include menulista;
+                &:hover {
+                    @include ahover;
+                }
+            }
+            &:first-child{
+                @include groundimg($color-focus);
+            }
+        }
+    }
+    .search {
+        position: relative;
+        float: right;
+        .gsc-search-button {
+            position: absolute;
+            right: 9px;
+            top: 10px;
+            border: 0;
+            padding: 0;
+            background-color: transparent;
+        }
+        .gsc-search-button:focus {
+            outline: none;
+        }
+        .gsc-input-box {
+            width: 243px;
+            height: 42px;
+            padding-right: 15px;
+            border-color: $color-border-input;
+            background-color: $color-background-input;
+        }
+        .gsc-input {
+            padding-right: 0 !important;
+            // background-image: none !important;
+            background-color: transparent !important;
+            // text-indent: 0 !important;
+            font-size: 12px !important;
+            line-height: 36px;
+            color: $color-input-color !important;
+        }
+        .gsc-control-cse {
+            padding: 8px;
+            border: 0;
+            background-color: transparent;
+        }
+        .gsc-search-box {
+            margin: 0;
+        }
+        .gsst_a {
+            display: none;
+        }
+    }
+}

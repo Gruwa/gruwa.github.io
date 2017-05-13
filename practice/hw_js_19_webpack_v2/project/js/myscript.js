@@ -1,7 +1,9 @@
 module.exports = function myscript() {
+
     $(function(){
-         
+
         const serverData = require('./server');// запись на ES5
+
 
         exports.serverData = serverData;
 
