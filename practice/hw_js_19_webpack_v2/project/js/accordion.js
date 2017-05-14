@@ -1,15 +1,14 @@
 module.exports = function accordion () {
     'use strict';
-    const NODE_ENV = require('./webpack-config');
 // start my accordion
+if (NODE_ENV === 'development') {
+    debugger
+}
     $('.accordion').on('click', '.accordion-panel, .accordion-plus', function(e) {
         let elem = $(e.target);
         let panel = $('.panel');
         let elemParent = elem.parent();
 
-        if (NODE_ENV === 'development') {
-            debugger
-        }
         if ( panel.find('.accordion-panel-focus').length != 0 && (elem[0].className == 'accordion-panel' || elem[0].className == 'accordion-plus')) {
             panel.find('.accordion-panel').removeClass('accordion-panel-focus');
             panel.find('.accordion-plus').removeClass('accordion-plus-focus');

@@ -14,7 +14,7 @@ module.exports = {
   watch: NODE_ENV == 'development',
 
   watchOptions: {
-    aggregateTimeout: 100
+      aggregateTimeout: 100
   },
 
   devtool: NODE_ENV == 'development' ? 'source-map' : null,
@@ -23,6 +23,20 @@ module.exports = {
     new webpack.DefinePlugin({
       NODE_ENV: JSON.stringify(NODE_ENV),
       LANG:     JSON.stringify('ru')
+    }),
+    new webpack.NoErrorsPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+        beautify: false,
+        comments: false,
+        compress: {
+            sequences:      true,
+            booleans:       true,
+            loops:          true,
+            unused:         true,
+            warnings:       false,
+            drop_console:   true,
+            unsafe:         true
+        }
     })
   ],
   module: {
@@ -38,13 +52,19 @@ module.exports = {
 
 // if (NODE_ENV == 'production') {
 //   module.exports.plugins.push(
+//       new webpack.NoErrorsPlugin(),
 //       new webpack.optimize.UglifyJsPlugin({
-//         compress: {
-//           // don't show unreachable variables etc
-//           warnings:     false,
-//           drop_console: true,
-//           unsafe:       true
-//         }
+//           beautify: false,
+//           comments: false,
+//           compress: {
+//               sequences:      true,
+//               booleans:       true,
+//               loops:          true,
+//               unused:         true,
+//               warnings:       false,
+//               drop_console:   true,
+//               unsafe:         true
+//           }
 //       })
 //   );
 // }
