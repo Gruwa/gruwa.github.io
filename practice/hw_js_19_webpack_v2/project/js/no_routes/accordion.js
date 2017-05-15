@@ -1,10 +1,6 @@
-module.exports = function accordion () {
+module.exports = function accordion (e) {
     'use strict';
 // start my accordion
-if (NODE_ENV === 'development') {
-    debugger
-}
-    $('.accordion').on('click', '.accordion-panel, .accordion-plus', function(e) {
         let elem = $(e.target);
         let panel = $('.panel');
         let elemParent = elem.parent();
@@ -34,7 +30,5 @@ if (NODE_ENV === 'development') {
             panel.find('.accordion-text').css('display', 'none');
             return;
         };
-
-    });
 // end my accordion
 };

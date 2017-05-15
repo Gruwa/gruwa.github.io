@@ -1,13 +1,7 @@
 module.exports = function myscript() {
 
     $(function(){
-
-        const serverData = require('./server');// запись на ES5
-
-
-        exports.serverData = serverData;
-
-        let $jsData = JSON.parse(serverData);
+        let $jsData = JSON.parse(script.serverData);
         let $html = $('#latestNews').html();
         let $dataTmpl = {
             $data: $jsData

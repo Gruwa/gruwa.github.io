@@ -10,6 +10,8 @@
   "dependencies": {
     "babel-loader": "^5.4.2",
     "babel-runtime": "^6.23.0",
+    "bundle-loader": "^0.5.5",
+    "lodash": "^4.17.4",
     "webpack": "^1.15.0"
   },
   "devDependencies": {
