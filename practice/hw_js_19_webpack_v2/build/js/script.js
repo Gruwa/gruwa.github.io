@@ -1,2 +1,0 @@
-var script=webpackJsonp_name_([2],{0:function(e,c,o){"use strict";o(7);c.serverData=serverData,c.template=template,c.google=google,c.bxslider=bxslider,c.myscript=myscript,$(".accordion").on("click",".accordion-panel, .accordion-plus",function(e){o.e(3,function(c){var r=o(8);r(e)})})},7:function(e,c){e.exports=_}});
-//# sourceMappingURL=script.js.map

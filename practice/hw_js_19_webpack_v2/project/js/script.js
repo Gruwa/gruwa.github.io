@@ -1,18 +1,18 @@
 'use strict';
 
-const _ = require('lodash');
+// const _ = require('lodash');
 // const jqueryui = require('jqueryui');
 
-// import google from './routes/google';
-// import bxslider from './routes/bxslider';
-// import myscript from './routes/myscript'; // запись на ES6
-// import template from './routes/template';
-// const serverData = require('./routes/server');// запись на ES5
+import google from './routes/google';
+import bxslider from './routes/bxslider';
+import myscript from './routes/myscript'; // запись на ES6
+import template from './routes/template';
+const serverData = require('./routes/server');// запись на ES5
 // // const myscript = require('./myscript'); // запись на ES5
 // // const UglifyJSPlugin = require('./UglifyJSPlugin');
-// google();
-// bxslider();
-// myscript();
+google();
+bxslider();
+myscript();
 
 //======
 // let moduleName = location.pathname.slice(1);
