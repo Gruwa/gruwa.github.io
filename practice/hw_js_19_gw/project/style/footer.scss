@@ -1,0 +1,39 @@
+.footer {
+    @include wrapper(21px, 21px, $footer-bg);
+    .footer-box1 {
+        float: left;
+        .footer-text,
+        .footer-text a {
+            @include fontubumed(12px, $footer-colt, 'arial');
+            vertical-align: super;
+        }
+        .footer-address {
+            @include groundimg(transparent, url('../../img/contact.png'));
+            display: inline-block;
+            width: 12px;
+            height: 16px;
+            @include margin(0, 11px);
+        }
+        .footer-phone {
+            @include groundimg(transparent, url('../../img/contact.png'), -12px);
+            display: inline-block;
+            width: 12px;
+            height: 16px;
+            @include margin(0, 9px, 0, 34px);
+        }
+        .footer-email {
+            @include groundimg(transparent, url('../../img/contact.png'), -24px);
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            @include margin(0, 14px, 0, 42px);
+        }
+    }
+    .footer-box2 {
+        float: right;
+        .footer-text {
+            @include fontubumed(12px, $footer-colt, 'arial');
+            line-height: 1.3;
+        }
+    }
+}
