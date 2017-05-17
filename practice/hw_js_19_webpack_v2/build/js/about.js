@@ -1,0 +1,2 @@
+var about=webpackJsonp_name_([0],[function(e,r,t){"use strict";t(1)("./"+moduleName);myscript(),accordion(),r.myscript=myscript,r.accordion=accordion,r.template=template},function(e,r,t){function o(e){return t(n(e))}function n(e){return s[e]||function(){throw Error("Cannot find module '"+e+"'.")}()}var s={"./bxslider":2,"./bxslider.js":2,"./google":3,"./google.js":3,"./myscript":4,"./myscript.js":4,"./server":5,"./server.js":5,"./template":6,"./template.js":6};o.keys=function(){return Object.keys(s)},o.resolve=n,e.exports=o,o.id=1}]);
+//# sourceMappingURL=about.js.map
