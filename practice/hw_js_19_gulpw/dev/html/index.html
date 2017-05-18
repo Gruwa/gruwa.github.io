@@ -1,9 +1,33 @@
-@@include('header.html')
-        <div class="container">
-            <h1><strong>Hi!</strong></h1>
-            <p>Now you have really powerful development environment.</p>
-            <p>Hope this tool will be helpful for you.</p>
-            <p class="small">Any questions? Check <a href="https://github.com/wwwebman/gulp-webpack-starter" target="_blank" rel="noopener noreferrer">documentation</a></p>
-            <a href="http://webman.pro/" target="_blank" rel="noopener noreferrer"><img src="/assets/static/favicons/favicon-32x32.png" alt="webman"></a>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style/style.css">
+        <title>Lesson 19 Gulp + Webpack</title>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="wrapper1">
+                @@include('.wrapper1.html')
+            </div>
+            <div class="wrapper2">
+                @@include('wrapper2.html')
+            </div>
+            <div class="wrapper3">
+                @@include('wrapper3.html')
+            </div>
+            <div class="wrapper4">
+                @@include('wrapper4.html')
+            </div>
+            <div class="wrapper5">
+                @@include('wrapper5.html')
+            </div>
+            <div class="wrapper6">
+                @@include('wrapper6.html')
+            </div>
         </div>
-@@include('footer.html')
+        @@include('./template.html')
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
+        <script src="js/script.min.js" charset="utf-8"></script>
+    </body>
+</html>
