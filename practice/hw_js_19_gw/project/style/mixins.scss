@@ -28,7 +28,7 @@
     padding-left: $pl;
 }
 @mixin social($bpx: -62px, $bpy: -17px, $wid: 18px) {
-    @include groundimg(none, url('../../img/social.png'), $bpx, $bpy);
+    @include groundimg(none, url('../img/social.png'), $bpx, $bpy);
     @include margin(0, 0, 0, 15px);
     display: block;
     height: 17px;

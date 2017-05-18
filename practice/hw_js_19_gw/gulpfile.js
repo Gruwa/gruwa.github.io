@@ -1,6 +1,20 @@
  'use strict';
-
-const plugins = require('gulp-load-plugins')();
+const gulp = require('gulp'); // сам Gulp
+const sourcemaps = require('gulp-sourcemaps'); //предназначен для генерации css sourscemaps, которые понадобятся при отладке кода
+const sass = require('gulp-sass'); //предназначен для компиляции SCSS и SASS кода.
+const uglifycss = require('gulp-uglifycss'); //будет минимизировать наш css, создаст один файл *.min.css
+const debug = require('gulp-debug'); // наш дебаггер
+const uglify = require('gulp-uglify'); //будет минимизировать наш JS, создаст один файл *.min.js
+const concat = require('gulp-concat'); //предназначен для объединения *.js файлов
+const babel = require('gulp-babel'); //предназначен для вывода js кода понятного для старых браузеров
+const include = require('gulp-file-include'); //плагин, позволяющий использовать конструкцию для подключения html файлов
+const rimRaf = require('rimraf'); //предназначен для очистки папок по завершению сборки (rm -rf для nodejs)
+const browserSync = require('browser-sync'); //понадобится  для запуска локального сервера для reload-а
+const reload = browserSync.reload; //предназначен для запуска самого реоада
+const preFixer = require('gulp-autoprefixer'); //авто-добавление добавляет вендорные префиксы (-webkit, -o, -moz) к CSS свойствам, нужно чтобы ваш код поддерживался во всех браузерах.
+const imagemin = require('gulp-imagemin'); //минимизация картинок
+const pngquant = require('imagemin-pngquant');//минимизация картинок
+const watch = require('gulp-watch');// наблюдение за изменениями файлов
 
 let path = {
     src: { // project files
@@ -26,10 +40,14 @@ let path = {
     },
     clean: 'build/'
 };
+gulp.task('plugins', function(callback) {
+    plugins();
+    callback();
+});
 gulp.task('webserver', function(callback){ // reload webserver
     browserSync({
         server: {
-            baseDir: './'
+            baseDir: 'build/'
         },
         host: 'localhost',
         port: 9000,
@@ -59,7 +77,7 @@ gulp.task('jsBuild', function(callback) {
     .pipe(concat('script.min.js'))
     .pipe(debug({title: 'concat'}))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('dist/js'))
+    .pipe(gulp.dest('build/js'))
     .pipe(reload({stream: true})); //перезапуск сервера собновлениями
     callback();
 });

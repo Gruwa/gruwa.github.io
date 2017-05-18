@@ -8,21 +8,21 @@
             vertical-align: super;
         }
         .footer-address {
-            @include groundimg(transparent, url('../../img/contact.png'));
+            @include groundimg(transparent, url('../img/contact.png'));
             display: inline-block;
             width: 12px;
             height: 16px;
             @include margin(0, 11px);
         }
         .footer-phone {
-            @include groundimg(transparent, url('../../img/contact.png'), -12px);
+            @include groundimg(transparent, url('../img/contact.png'), -12px);
             display: inline-block;
             width: 12px;
             height: 16px;
             @include margin(0, 9px, 0, 34px);
         }
         .footer-email {
-            @include groundimg(transparent, url('../../img/contact.png'), -24px);
+            @include groundimg(transparent, url('../img/contact.png'), -24px);
             display: inline-block;
             width: 16px;
             height: 16px;
