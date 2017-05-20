@@ -25,6 +25,11 @@ $('.accordion').on('click', '.accordion-panel, .accordion-plus', function(e) {
     }, 'accord'); // если несколько эншуров будет иметь однинаковый 3 параметр, в данном случае 'accord'  то они объеденятся в 1 сборку с именем 'accord'
 });
 
+let config = require('./../../config');
+
+// let scss = require('./../style/syle')
+
+// import '../style/syle';
 
 //======
 // let moduleName = location.pathname.slice(1);

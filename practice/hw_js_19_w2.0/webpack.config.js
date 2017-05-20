@@ -10,11 +10,11 @@ let config = require('./config');
 
 
 module.exports = {
-    context: path.resolve(__dirname, config.root.proj, config.js.proj), // директория в которой лежат js  указанные в entry
+    context: path.resolve(__dirname, config.root.proj), // директория в которой лежат js  указанные в entry
 
     entry: {
-        script: "script"
-        // scss: path.resolve(__dirname, "./style/style.scss")
+        script: "./js/script",
+        scss: "./style/style.scss"
     },
 
     output: {
@@ -34,13 +34,13 @@ module.exports = {
                     presets: [['es2015', {modules: false}]]
                 }
             },
-            // {
-            //     test: /\.css$/,
-            //     use: ExtractTextPlugin.extract({
-            //         fallback: 'style-loader',
-            //         use: [ 'css-loader', 'postcss-loader' ]
-            //     })
-            // },
+            {
+                test: /\.scss$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [ 'css-loader', 'resolve-url-loader', 'sass-loader' ]
+                })
+            },
             // {
             //     test: /\.s[ac]ss$/,
             //     use: ExtractTextPlugin.extract({
@@ -55,7 +55,7 @@ module.exports = {
             //                   options: {
             //                    sourceMap: true,
             //                     includePaths: [
-            //                       path.resolve(__dirname, './style/style.scss'),
+            //                       path.resolve(__dirname, '/../style/style.css'),
             //                     ]
             //                   }
             //                 }
@@ -63,9 +63,12 @@ module.exports = {
             //     })
             // },
             {
-                test: /\.(png|jpg|svg|ttf|eot|woff|woff2)$/,
-                include: __dirname + '/project/img',
-                loader: 'file?name=[path][name].[ext]'
+                test: /\.(png|jpg|svg|gif)$/,
+                loader: 'url-loader?limit=100000?',
+            },
+            {
+                test: /\.(ttf|eot|woff|woff2)$/,
+                loader: 'url-loader?limit=100000?',
             }
         ]
 
@@ -74,7 +77,8 @@ module.exports = {
     resolve: {
         modules: [
             'node_modules',
-            path.resolve(__dirname, config.root.proj, config.js.proj)
+            path.resolve(__dirname, config.root.proj, config.js.proj),
+            path.resolve(__dirname, config.root.proj, '/style'),
         ],
         extensions: [".js", ".json", ".jsx", ".css", '.scss', '.html'],
     },
@@ -109,12 +113,12 @@ module.exports = {
             new webpack.DefinePlugin({
               NODE_ENV: JSON.stringify(NODE_ENV)
             }),
-            new webpack.NoEmitOnErrorsPlugin()
+            new webpack.NoEmitOnErrorsPlugin(),
+            new ExtractTextPlugin('/../style/style.css')
         );
 
         if (NODE_ENV != 'development') {
             plugins.push(
-                new webpack.optimize.DedupePlugin(),
                 new webpack.optimize.UglifyJsPlugin({
                     compress: {
                         warnings: false
