@@ -1,11 +1,12 @@
 
 'use strict';
 
-const NODE_ENV          = process.env.NODE_ENV || 'development';
-const webpack           = require('webpack');
-const path              = require('path');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
+const NODE_ENV              = process.env.NODE_ENV || 'development';
+const webpack               = require('webpack');
+const path                  = require('path');
+const ExtractTextPlugin     = require("extract-text-webpack-plugin");
+const CopyWebpackPlugin     = require("copy-webpack-plugin");
+const CleanWebpackPlugin    = require('clean-webpack-plugin');
 
 let config = require('./config');
 
@@ -19,8 +20,8 @@ module.exports = {
     },
 
     output: {
-        path: NODE_ENV == 'development' ? __dirname + '/dev/js' : __dirname + '/production/js',
-        publicPath: 'js/', //интернет путь к нашей сборке
+        path: __dirname + '/dev/js',
+        publicPath: 'js/',
         filename: '[name].js',
         // library:  'script'
     },
