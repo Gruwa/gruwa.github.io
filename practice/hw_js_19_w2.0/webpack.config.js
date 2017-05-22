@@ -5,17 +5,17 @@ const NODE_ENV          = process.env.NODE_ENV || 'development';
 const webpack           = require('webpack');
 const path              = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 let config = require('./config');
 
-
 module.exports = {
-    context: path.resolve(__dirname, config.root.proj), // директория в которой лежат js  указанные в entry
+
+    context: path.resolve(__dirname, config.root.src),
 
     entry: {
         script: "./js/script",
-        scss: "./style/style.scss",
-        // html: './index.html'
+        scss: "./style/style.scss"
     },
 
     output: {
@@ -45,28 +45,22 @@ module.exports = {
             {
                 test: /\.(png|jpg|svg|gif)$/,
                 loader: 'file-loader?name=./../img/[name].[ext]'
-                // loader: 'file-loader?name=[name].[ext]&publicPath=project/img/&&outputPath=dev/img/'
             },
             {
                 test: /\.(ttf|eot|woff|woff2)$/,
                 loader: 'file-loader?name=./../font/[name].[ext]'
-            },
-            {
-                test: /\.html$/,
-                use: [ 'file-loader?name=/../../[name].[ext]?extract-loader?html-loader' ]
             }
         ]
-
     },
 
     resolve: {
         modules: [
             'node_modules',
-            path.resolve(__dirname, config.root.proj, config.js.proj),
-            path.resolve(__dirname, config.root.proj, '/style'),
-            path.resolve(__dirname, config.root.proj, '/js/routes'),
+            path.resolve(__dirname, config.root.src, config.js.src),
+            path.resolve(__dirname, config.root.src, '/style'),
+            path.resolve(__dirname, config.root.src, '/js/routes'),
         ],
-        extensions: [".js", ".json", ".jsx", ".css", '.scss', '.html'],
+        extensions: [".js", ".json", ".jsx", ".css", '.scss', '.html']
     },
 
     devtool: NODE_ENV == 'development' ? 'eval' : 'source-map',
@@ -99,7 +93,10 @@ module.exports = {
               NODE_ENV: JSON.stringify(NODE_ENV)
             }),
             new webpack.NoEmitOnErrorsPlugin(),
-            new ExtractTextPlugin('/../style/style.css')
+            new ExtractTextPlugin('../style.css'),
+            new CopyWebpackPlugin([{ from: './img', to: '../img' }]),
+            new CopyWebpackPlugin([{ from: './index.html', to: '../index.html' }]),
+            new CopyWebpackPlugin([{ from: './font', to: '../font' }])
         );
 
         if (NODE_ENV != 'development') {
@@ -113,11 +110,5 @@ module.exports = {
         }
 
         return plugins;
-    }()),
-
-    devServer: {
-        contentBase: path.join(__dirname, config.root.dev),
-      compress: true,
-      port: 9000
-    }
+    }())
 };
