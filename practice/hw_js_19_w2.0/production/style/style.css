@@ -147,16 +147,16 @@ button:focus {
 
 @font-face {
   font-family: 'ubuntu_condensedregular';
-  src: url(js//../font/ubuntu-c-webfont.eot?);
-  src: url(js//../font/ubuntu-c-webfont.eot??#iefix) format("embedded-opentype"), url(js//../font/ubuntu-c-webfont.woff2?) format("woff2"), url(js//../font/ubuntu-c-webfont.woff?) format("woff"), url(js//../font/ubuntu-c-webfont.ttf?) format("truetype");
+  src: url(js/./../font/ubuntu-c-webfont.eot);
+  src: url(js/./../font/ubuntu-c-webfont.eot?#iefix) format("embedded-opentype"), url(js/./../font/ubuntu-c-webfont.woff2) format("woff2"), url(js/./../font/ubuntu-c-webfont.woff) format("woff"), url(js/./../font/ubuntu-c-webfont.ttf) format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'ubuntumedium';
-  src: url(js//../font/ubuntu-m-webfont.eot?);
-  src: url(js//../font/ubuntu-m-webfont.eot??#iefix) format("embedded-opentype"), url(js//../font/ubuntu-m-webfont.woff2?) format("woff2"), url(js//../font/ubuntu-m-webfont.woff?) format("woff"), url(js//../font/ubuntu-m-webfont.ttf?) format("truetype");
+  src: url(js/./../font/ubuntu-m-webfont.eot);
+  src: url(js/./../font/ubuntu-m-webfont.eot?#iefix) format("embedded-opentype"), url(js/./../font/ubuntu-m-webfont.woff2) format("woff2"), url(js/./../font/ubuntu-m-webfont.woff) format("woff"), url(js/./../font/ubuntu-m-webfont.ttf) format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -246,7 +246,7 @@ body {
 
 .head_box .social .skype {
   background-color: none;
-  background-image: url(js//../img/social.png?);
+  background-image: url(js/./../img/social.png);
   background-repeat: no-repeat;
   background-position: -62px -18px;
   margin-top: 0;
@@ -262,7 +262,7 @@ body {
 
 .head_box .social .skype:hover {
   background-color: none;
-  background-image: url(js//../img/social.png?);
+  background-image: url(js/./../img/social.png);
   background-repeat: no-repeat;
   background-position: -62px -1px;
   margin-top: 0;
@@ -278,7 +278,7 @@ body {
 
 .head_box .social .in {
   background-color: none;
-  background-image: url(js//../img/social.png?);
+  background-image: url(js/./../img/social.png);
   background-repeat: no-repeat;
   background-position: -45px -17px;
   margin-top: 0;
@@ -295,7 +295,7 @@ body {
 
 .head_box .social .in:hover {
   background-color: none;
-  background-image: url(js//../img/social.png?);
+  background-image: url(js/./../img/social.png);
   background-repeat: no-repeat;
   background-position: -45px 0;
   margin-top: 0;
@@ -312,7 +312,7 @@ body {
 
 .head_box .social .rss {
   background-color: none;
-  background-image: url(js//../img/social.png?);
+  background-image: url(js/./../img/social.png);
   background-repeat: no-repeat;
   background-position: -28px -17px;
   margin-top: 0;
@@ -328,7 +328,7 @@ body {
 
 .head_box .social .rss:hover {
   background-color: none;
-  background-image: url(js//../img/social.png?);
+  background-image: url(js/./../img/social.png);
   background-repeat: no-repeat;
   background-position: -28px 0;
   margin-top: 0;
@@ -344,7 +344,7 @@ body {
 
 .head_box .social .twitter {
   background-color: none;
-  background-image: url(js//../img/social.png?);
+  background-image: url(js/./../img/social.png);
   background-repeat: no-repeat;
   background-position: -10px -17px;
   margin-top: 0;
@@ -360,7 +360,7 @@ body {
 
 .head_box .social .twitter:hover {
   background-color: none;
-  background-image: url(js//../img/social.png?);
+  background-image: url(js/./../img/social.png);
   background-repeat: no-repeat;
   background-position: -10px 0;
   margin-top: 0;
@@ -376,7 +376,7 @@ body {
 
 .head_box .social .facebook {
   background-color: none;
-  background-image: url(js//../img/social.png?);
+  background-image: url(js/./../img/social.png);
   background-repeat: no-repeat;
   background-position: 0 -17px;
   margin-top: 0;
@@ -392,7 +392,7 @@ body {
 
 .head_box .social .facebook:hover {
   background-color: none;
-  background-image: url(js//../img/social.png?);
+  background-image: url(js/./../img/social.png);
   background-repeat: no-repeat;
   background-position: 0 0;
   margin-top: 0;
@@ -548,7 +548,7 @@ ul.bxslider {
 
 .bx-wrapper .bx-loading {
   min-height: 50px;
-  background: url(js//../img/bx_loader.gif?) center center no-repeat #ffffff;
+  background: url(js/./../img/bx_loader.gif) center center no-repeat #ffffff;
   height: 100%;
   width: 100%;
   position: absolute;
@@ -604,7 +604,7 @@ ul.bxslider {
 
 .bx-wrapper .bx-prev {
   left: 10px;
-  background: url(js//../img/controls.png?) no-repeat 0 -32px;
+  background: url(js/./../img/controls.png) no-repeat 0 -32px;
 }
 
 .bx-wrapper .bx-prev:hover,
@@ -614,7 +614,7 @@ ul.bxslider {
 
 .bx-wrapper .bx-next {
   right: 10px;
-  background: url(js//../img/controls.png?) no-repeat -43px -32px;
+  background: url(js/./../img/controls.png) no-repeat -43px -32px;
 }
 
 .bx-wrapper .bx-next:hover,
@@ -649,7 +649,7 @@ ul.bxslider {
   width: 10px;
   height: 11px;
   outline: 0;
-  background: url(js//../img/controls.png?) -86px -11px no-repeat;
+  background: url(js/./../img/controls.png) -86px -11px no-repeat;
   margin: 0 3px;
 }
 
@@ -665,7 +665,7 @@ ul.bxslider {
   width: 9px;
   height: 11px;
   outline: 0;
-  background: url(js//../img/controls.png?) -86px -44px no-repeat;
+  background: url(js/./../img/controls.png) -86px -44px no-repeat;
   margin: 0 3px;
 }
 
@@ -859,7 +859,7 @@ ul.bxslider {
   display: inline-block;
   width: 10px;
   height: 9px;
-  background-image: url(js//../img/row.png?);
+  background-image: url(js/./../img/row.png);
   background-repeat: no-repeat;
 }
 
@@ -897,7 +897,7 @@ ul.bxslider {
 
 .servis-box .servis1 .img-servis1 {
   background-color: none;
-  background-image: url(js//../img/servis1.jpg?);
+  background-image: url(js/./../img/servis1.jpg);
   background-repeat: no-repeat;
   background-position: 0 0;
   margin-top: 0;
@@ -916,7 +916,7 @@ ul.bxslider {
 
 .servis-box .servis1 a:hover .img-servis1 {
   background-color: none;
-  background-image: url(js//../img/servis1.png?);
+  background-image: url(js/./../img/servis1.png);
   background-repeat: no-repeat;
   background-position: 0 0;
   margin-top: 0;
@@ -947,7 +947,7 @@ ul.bxslider {
 
 .servis-box .servis2 .img-servis2 {
   background-color: none;
-  background-image: url(js//../img/servis2.jpg?);
+  background-image: url(js/./../img/servis2.jpg);
   background-repeat: no-repeat;
   background-position: 0 0;
   margin-top: 0;
@@ -966,7 +966,7 @@ ul.bxslider {
 
 .servis-box .servis2 a:hover .img-servis2 {
   background-color: none;
-  background-image: url(js//../img/servis2.png?);
+  background-image: url(js/./../img/servis2.png);
   background-repeat: no-repeat;
   background-position: 0 0;
   margin-top: 0;
@@ -997,7 +997,7 @@ ul.bxslider {
 
 .servis-box .servis3 .img-servis3 {
   background-color: none;
-  background-image: url(js//../img/servis3.jpg?);
+  background-image: url(js/./../img/servis3.jpg);
   background-repeat: no-repeat;
   background-position: 0 0;
   margin-top: 0;
@@ -1016,7 +1016,7 @@ ul.bxslider {
 
 .servis-box .servis3 a:hover .img-servis3 {
   background-color: none;
-  background-image: url(js//../img/servis3.png?);
+  background-image: url(js/./../img/servis3.png);
   background-repeat: no-repeat;
   background-position: 0 0;
   margin-top: 0;
@@ -1047,7 +1047,7 @@ ul.bxslider {
 
 .servis-box .servis4 .img-servis4 {
   background-color: none;
-  background-image: url(js//../img/servis4.jpg?);
+  background-image: url(js/./../img/servis4.jpg);
   background-repeat: no-repeat;
   background-position: 0 0;
   margin-top: 0;
@@ -1066,7 +1066,7 @@ ul.bxslider {
 
 .servis-box .servis4 a:hover .img-servis4 {
   background-color: none;
-  background-image: url(js//../img/servis4.png?);
+  background-image: url(js/./../img/servis4.png);
   background-repeat: no-repeat;
   background-position: 0 0;
   margin-top: 0;
@@ -1269,7 +1269,7 @@ ul.bxslider {
   margin-bottom: 0;
   margin-left: 15px;
   background-color: none;
-  background-image: url(js//../img/plus.png?);
+  background-image: url(js/./../img/plus.png);
   background-repeat: no-repeat;
   background-position: -11px 0;
   box-sizing: border-box;
@@ -1317,7 +1317,7 @@ ul.bxslider {
 
 .news-box .banners-place .panel .accordion-plus-focus {
   background-color: none;
-  background-image: url(js//../img/plus.png?);
+  background-image: url(js/./../img/plus.png);
   background-repeat: no-repeat;
   background-position: 0 0;
 }
@@ -1485,7 +1485,7 @@ ul.bxslider {
 
 .footer .footer-box1 .footer-address {
   background-color: transparent;
-  background-image: url(js//../img/contact.png?);
+  background-image: url(js/./../img/contact.png);
   background-repeat: no-repeat;
   background-position: 0 0;
   display: inline-block;
@@ -1499,7 +1499,7 @@ ul.bxslider {
 
 .footer .footer-box1 .footer-phone {
   background-color: transparent;
-  background-image: url(js//../img/contact.png?);
+  background-image: url(js/./../img/contact.png);
   background-repeat: no-repeat;
   background-position: -12px 0;
   display: inline-block;
@@ -1513,7 +1513,7 @@ ul.bxslider {
 
 .footer .footer-box1 .footer-email {
   background-color: transparent;
-  background-image: url(js//../img/contact.png?);
+  background-image: url(js/./../img/contact.png);
   background-repeat: no-repeat;
   background-position: -24px 0;
   display: inline-block;

@@ -1,0 +1,15 @@
+<script type="text/tmpl" id="latestNews">
+        <%var $array = $data.data;
+        for (var i = 0; i < $array.length; i++) {%>
+            <div class="content-box clearfix">
+                <p class="content-month"><%=$array[i].month%></p>
+                <p class="content-day"><%=$array[i].day%></p>
+                <img src=<%=$array[i].imageSrc%> alt="" class="content-img">
+                <div class="content-info">
+                <p class="content-info-title"><a href="#"><%=$array[i].title%></a></p>
+                <p class="content-info-by">by <span><%=$array[i].author%></span>Comments (<span><%=$array[i].coments%></span>)</p>
+                <p class="content-info-text"><%=$array[i].text%></p>
+                </div>
+            </div>
+        <%}%>
+</script>
