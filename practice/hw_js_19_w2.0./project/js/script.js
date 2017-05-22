@@ -1,21 +1,10 @@
 'use strict';
 
-const serverData = require('./routes/server');// запись на ES5
-
-import google from './routes/google';
-import bxslider from './routes/bxslider';
-import myscript from './routes/myscript'; // запись на ES6
-import template from './routes/template';
+import google from './routes/google'
+import myscript from './routes/myscript'
 
 google();
-bxslider();
 myscript();
-
-exports.serverData  = serverData;
-exports.template    = template;
-exports.google      = google;
-exports.bxslider    = bxslider;
-exports.myscript    = myscript;
 
 $('.accordion').on('click', '.accordion-panel, .accordion-plus', function(e) {
     require.ensure([], function(require) {
@@ -25,7 +14,7 @@ $('.accordion').on('click', '.accordion-panel, .accordion-plus', function(e) {
     }, 'accord'); // если несколько эншуров будет иметь однинаковый 3 параметр, в данном случае 'accord'  то они объеденятся в 1 сборку с именем 'accord'
 });
 
-let config = require('./../../config');
+let config = require('./../../config')
 
 // let scss = require('./../style/syle')
 

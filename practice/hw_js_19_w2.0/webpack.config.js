@@ -3,7 +3,6 @@
 const NODE_ENV          = process.env.NODE_ENV || 'development';
 const webpack           = require('webpack');
 const path              = require('path');
-const UglifyJSPlugin    = require('uglifyjs-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 let config = require('./config');
@@ -14,14 +13,15 @@ module.exports = {
 
     entry: {
         script: "./js/script",
-        scss: "./style/style.scss"
+        // scss: "./style/style.scss",
+        // html: './index.html'
     },
 
     output: {
         path: NODE_ENV == 'development' ? __dirname + '/dev/js' : __dirname + '/production/js',
         publicPath: 'js/', //интернет путь к нашей сборке
         filename: '[name].js',
-        library:  '[name]'
+        // library:  'script'
     },
 
     module: {
@@ -41,34 +41,18 @@ module.exports = {
                     use: [ 'css-loader', 'resolve-url-loader', 'sass-loader' ]
                 })
             },
-            // {
-            //     test: /\.s[ac]ss$/,
-            //     use: ExtractTextPlugin.extract({
-            //             fallback: 'style-loader',
-            //             use: [
-            //                 { loader: 'css-loader', options: { importLoaders:  1, sourceMap: true } },
-            //                 {
-            //                     loader: "resolve-url-loader",
-            //                 },
-            //                 {
-            //                   loader: "sass-loader",
-            //                   options: {
-            //                    sourceMap: true,
-            //                     includePaths: [
-            //                       path.resolve(__dirname, '/../style/style.css'),
-            //                     ]
-            //                   }
-            //                 }
-            //             ]
-            //     })
-            // },
             {
                 test: /\.(png|jpg|svg|gif)$/,
-                loader: 'url-loader?limit=100000?',
+                loader: 'file-loader?name=./../img/[name].[ext]'
+                // loader: 'file-loader?name=[name].[ext]&publicPath=project/img/&&outputPath=dev/img/'
             },
             {
                 test: /\.(ttf|eot|woff|woff2)$/,
-                loader: 'url-loader?limit=100000?',
+                loader: 'file-loader?name=./../font/[name].[ext]'
+            },
+            {
+                test: /\.html$/,
+                use: [ 'file-loader?name=/../../[name].[ext]?extract-loader?html-loader' ]
             }
         ]
 
@@ -79,6 +63,7 @@ module.exports = {
             'node_modules',
             path.resolve(__dirname, config.root.proj, config.js.proj),
             path.resolve(__dirname, config.root.proj, '/style'),
+            path.resolve(__dirname, config.root.proj, '/js/routes'),
         ],
         extensions: [".js", ".json", ".jsx", ".css", '.scss', '.html'],
     },
@@ -91,7 +76,6 @@ module.exports = {
       aggregateTimeout: 100,
       poll: 1000
     },
-
 
     externals: {
         lodash : {

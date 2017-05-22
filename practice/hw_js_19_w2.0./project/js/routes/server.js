@@ -26,7 +26,7 @@ data: [
         }
     ]
 };
-let $Server = JSON.stringify($ServerData);
+let $server = JSON.stringify($ServerData);
     //Server end
-    
-module.exports = $Server;
+
+module.exports = $server;
