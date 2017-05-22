@@ -13,7 +13,7 @@ module.exports = {
 
     entry: {
         script: "./js/script",
-        // scss: "./style/style.scss",
+        scss: "./style/style.scss",
         // html: './index.html'
     },
 
