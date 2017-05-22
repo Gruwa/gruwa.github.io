@@ -44,7 +44,27 @@ module.exports = {
             },
             {
                 test: /\.(png|jpg|svg|gif)$/,
-                loader: 'file-loader?name=./../img/[name].[ext]'
+                loaders: [
+                    'file-loader?name=./../img/[name].[ext]', {
+                        loader: 'image-webpack-loader',
+                        query: {
+                            mozjpeg: {
+                              progressive: true,
+                            },
+                            gifsicle: {
+                              interlaced: false,
+                            },
+                            optipng: {
+                              optimizationLevel: 4,
+                            },
+                            pngquant: {
+                              quality: '75-90',
+                              speed: 3,
+                            },
+                         },
+                }],
+                exclude: /node_modules/,
+                include: __dirname,
             },
             {
                 test: /\.(ttf|eot|woff|woff2)$/,
@@ -96,7 +116,8 @@ module.exports = {
             new ExtractTextPlugin('../style.css'),
             new CopyWebpackPlugin([{ from: './img', to: '../img' }]),
             new CopyWebpackPlugin([{ from: './index.html', to: '../index.html' }]),
-            new CopyWebpackPlugin([{ from: './font', to: '../font' }])
+            new CopyWebpackPlugin([{ from: './font', to: '../font' }]),
+            new CleanWebpackPlugin(__dirname + '/dev' )
         );
 
         if (NODE_ENV != 'development') {
