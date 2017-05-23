@@ -32,6 +32,8 @@
 /******/ 		1: 0
 /******/ 	};
 /******/
+/******/ 	var resolvedPromise = new Promise(function(resolve) { resolve(); });
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/
@@ -60,7 +62,7 @@
 /******/ 	// The chunk loading function for additional chunks
 /******/ 	__webpack_require__.e = function requireEnsure(chunkId) {
 /******/ 		if(installedChunks[chunkId] === 0) {
-/******/ 			return Promise.resolve();
+/******/ 			return resolvedPromise;
 /******/ 		}
 /******/
 /******/ 		// a Promise means "currently loading".
@@ -151,7 +153,7 @@
 /* 0 */
 /***/ (function(module, exports) {
 
-eval("module.exports = {\n\t\"root\": {\n\t\t\"src\": \"./src\",\n\t\t\"dev\": \"./dev\",\n\t\t\"prod\": \"./production\"\n\t},\n\t\"html\": {\n\t\t\"src\": \"./\",\n\t\t\"dev\": \"./\",\n\t\t\"prod\": \"./\",\n\t\t\"parts\": \"templates\"\n\t},\n\t\"сss\": {\n\t\t\"src\": \"style\",\n\t\t\"dev\": \"style\",\n\t\t\"prod\": \"style\",\n\t\t\"parts\": \"parts\",\n\t\t\"extensions\": \"*.+(css|scss)\"\n\t},\n\t\"js\": {\n\t\t\"src\": \"js\",\n\t\t\"dev\": \"js\",\n\t\t\"prod\": \"js\",\n\t\t\"parts\": \"modules\",\n\t\t\"extensions\": [\n\t\t\t\".json\",\n\t\t\t\".js\"\n\t\t]\n\t},\n\t\"img\": {\n\t\t\"src\": \"img/**/*\",\n\t\t\"dev\": \"img\",\n\t\t\"prod\": \"img\",\n\t\t\"extensions\": \"*.+(jpg|jpeg|gif|png|svg)\"\n\t},\n\t\"fonts\": {\n\t\t\"src\": \"font\",\n\t\t\"dev\": \"font\",\n\t\t\"prod\": \"font\",\n\t\t\"extensions\": \"*.+(woff2|woff|eot|ttf|svg)\"\n\t}\n};\n\n//////////////////\n// WEBPACK FOOTER\n// ../config.json\n// module id = 0\n// module chunks = 1\n\n//# sourceURL=webpack:///../config.json?");
+eval("module.exports = {\n\t\"root\": {\n\t\t\"src\": \"./src\",\n\t\t\"dev\": \"./dev\"\n\t},\n\t\"html\": {\n\t\t\"src\": \"./\",\n\t\t\"dev\": \"./\",\n\t\t\"parts\": \"templates\"\n\t},\n\t\"сss\": {\n\t\t\"src\": \"style\",\n\t\t\"dev\": \"style\",\n\t\t\"parts\": \"parts\",\n\t\t\"extensions\": \"*.+(css|scss)\"\n\t},\n\t\"js\": {\n\t\t\"src\": \"js\",\n\t\t\"dev\": \"js\",\n\t\t\"parts\": \"modules\",\n\t\t\"extensions\": [\n\t\t\t\".json\",\n\t\t\t\".js\"\n\t\t]\n\t},\n\t\"img\": {\n\t\t\"src\": \"img/**/*\",\n\t\t\"dev\": \"img\",\n\t\t\"extensions\": \"*.+(jpg|jpeg|gif|png|svg)\"\n\t},\n\t\"fonts\": {\n\t\t\"src\": \"font\",\n\t\t\"dev\": \"font\",\n\t\t\"extensions\": \"*.+(woff2|woff|eot|ttf|svg)\"\n\t}\n};\n\n//////////////////\n// WEBPACK FOOTER\n// ../config.json\n// module id = 0\n// module chunks = 1\n\n//# sourceURL=webpack:///../config.json?");
 
 /***/ }),
 /* 1 */

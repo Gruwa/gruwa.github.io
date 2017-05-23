@@ -19,7 +19,7 @@
     "clean-webpack-plugin": "^0.1.16",
     "copy-webpack-plugin": "^4.0.1",
     "cross-env": "^5.0.0",
-    "css-loader": "^0.28.1",
+    "css-loader": "^0.28.2",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.11.1",
     "getpath": "^0.1.1",
@@ -28,11 +28,11 @@
     "postcss-loader": "^2.0.5",
     "resolve-url-loader": "^2.0.2",
     "sass-loader": "^6.0.5",
-    "style-loader": "^0.17.0",
-    "uglify-js": "^3.0.9",
+    "style-loader": "^0.18.0",
+    "uglify-js": "^3.0.10",
     "uglifyjs-webpack-plugin": "^0.4.3",
     "url-loader": "^0.5.8",
-    "webpack": "^2.5.1"
+    "webpack": "^2.6.0"
   },
   "dependencies": {}
 }

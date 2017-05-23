@@ -1,39 +1,33 @@
 {
     "root": {
         "src": "./src",
-        "dev": "./dev",
-        "prod": "./production"
+        "dev": "./dev"
     },
     "html": {
         "src": "./",
         "dev": "./",
-        "prod": "./",
         "parts": "templates"
     },
     "сss": {
         "src": "style",
         "dev": "style",
-        "prod": "style",
         "parts": "parts",
         "extensions": "*.+(css|scss)"
     },
     "js": {
         "src": "js",
         "dev": "js",
-        "prod": "js",
         "parts": "modules",
         "extensions": [".json", ".js"]
     },
     "img": {
         "src": "img/**/*",
         "dev": "img",
-        "prod": "img",
         "extensions": "*.+(jpg|jpeg|gif|png|svg)"
     },
     "fonts": {
         "src": "font",
         "dev": "font",
-        "prod": "font",
         "extensions": "*.+(woff2|woff|eot|ttf|svg)"
     }
 }
