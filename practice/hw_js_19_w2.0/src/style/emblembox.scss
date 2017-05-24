@@ -1,18 +1,10 @@
 .emblem-box {
     @include wrapper(87px, 90px);
-    .embl2 {
-        @include padding(0, 0, 0, 47px);
-    }
-    .embl3 {
-        @include padding(0, 0, 0, 47px);
-    }
-    .embl4 {
-        @include padding(0, 0, 0, 47px);
-    }
-    .embl5 {
-        @include padding(0, 0, 0, 47px);
-    }
+    .embl2,
+    .embl3,
+    .embl4,
+    .embl5,
     .embl6 {
-        @include padding(0, 0, 0, 47px);
+        padding-left: 47px;
     }
 }

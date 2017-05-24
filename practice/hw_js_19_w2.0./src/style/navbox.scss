@@ -1,28 +1,35 @@
 .nav-boxes {
     @include wrapper(63px, 81px, $navbox-bg);
     text-align: center;
+
     .nav-box {
-        @include margin(0, 0, 0, 39px);
         display: inline-block;
+        margin-left: 39px;
     }
-    .nav-header{
+
+    .nav-header {
         @include fontubumed(16px, $navbox-hc);
+
+        margin-bottom: 49px;
         text-transform: uppercase;
-        @include margin(0, 0, 49px);
     }
-    .nav-list{
+
+    .nav-list {
         border-bottom: 1px solid $navbox-borl;
-        width: 250px;
         text-align: left;
+        width: 250px;
     }
-    .nav-link{
+
+    .nav-link {
         @include fontubumed(13px, $navbox-colt, 'arial');
         line-height: 2.769;
+
         &:hover {
             color: $navbox-colt2;
         }
     }
+
     .nav-box:first-child {
-        @include margin;
+        margin: 0;
     }
 }

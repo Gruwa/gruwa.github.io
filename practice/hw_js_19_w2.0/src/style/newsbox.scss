@@ -3,13 +3,13 @@
     .latest-news {
         float: left;
         width: 560px;
-        @include margin(0, 40px);
+        margin-right: 40px;
         .latest-news-title {
             @include fontubumed(24px, $color-text);
-            @include margin(0, 0, 49px);
+            margin-bottom: 49px;
         }
         .content-box {
-            @include margin(0, 0, 30px);
+            margin-bottom: 30px;
             position: relative;
             .content-month {
                 @include contentdate;
@@ -18,7 +18,7 @@
                 @include contentdate($background6, 52px, 14px, $color-text3);
             }
             .content-img {
-                @include margin(0, 33px);
+                margin-right: 33px;
                 float: left;
             }
             .content-info {
@@ -37,17 +37,17 @@
                 line-height: 1.538;
                 span {
                     @include fontubumed(13px, $color-text6, 'arial');
-                    @include margin(0, 10px);
+                    margin-right: 10px;
                 }
                 span:last-child {
-                    @include margin;
+                    margin: 0;
                 }
             }
             .content-info-text {
                 @include fontubumed(13px, $color-text4, 'arial');
                 line-height: 1.538;
                 display: inline-block;
-                @include margin(28px);
+                margin-top: 28px;
             }
 
         }
@@ -56,19 +56,19 @@
         float: left;
         .banners-place-title {
             @include fontubumed(24px, $color-text);
-            @include margin(0, 0, 49px);
+            margin-bottom: 49px;
         }
         .panel {
             width: 560px;
             height: 100%;
-            @include margin(0, 0, 5px);
+            margin-bottom: 5px;
             .accordion {
                 @include groundimg($background);
                 box-sizing: border-box;
                 border: 1px solid $color-border;
             }
             .accordion-plus {
-                @include margin(15px, 15px, 0, 15px);
+                margin:15px 15px 0;
                 @include groundimg(none, url('./../img/plus.png'), -11px, 0);
                 box-sizing: border-box;
                 float: left;
@@ -77,7 +77,7 @@
                 cursor: pointer;
             }
             .accordion-panel {
-                @include padding(13px, 0, 0, 13px);
+                padding: 13px 0 0 13px;
                 @include fontubumed(13px, $color-text);
                 float: left;
                 box-sizing: border-box;
@@ -89,7 +89,7 @@
             .accordion-text {
                 display: none;
                 width: 521px;
-                @include padding(30px, 0, 55px, 39px);
+                padding: 30px 0 55px 39px;
                 @include groundimg(none);
                 p {
                     @include fontubumed(12px, $color-text4, 'arial');
@@ -109,7 +109,7 @@
             }
         }
         .panel:last-child {
-            @include margin;
+            margin: 0;
         }
     }
 }

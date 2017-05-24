@@ -1,9 +1,10 @@
 @mixin wrapper($pt: 0, $pb: 0, $bc: $background) {
     max-width: 1160px;
-    @include padding($pt, 0, $pb);
-    @include margin(0, auto, 0, auto);
+    margin: 0 auto;
+    padding: $pt 0 $pb;
     @include groundimg($bc);
 }
+
 @mixin groundimg($bc: $background, $bi: none, $bpx: 0, $bpy: 0) {
     background-color: $bc;
     background-image: $bi;
@@ -15,21 +16,9 @@
     font-size: $fs;
     color: $c;
 }
-@mixin margin($mt: 0, $mr: 0, $mb: 0, $ml: 0) {
-    margin-top: $mt;
-    margin-right: $mr;
-    margin-bottom: $mb;
-    margin-left: $ml;
-}
-@mixin padding($pt: 0, $pr: 0, $pb: 0, $pl: 0) {
-    padding-top: $pt;
-    padding-right: $pr;
-    padding-bottom: $pb;
-    padding-left: $pl;
-}
 @mixin social($bpx: -62px, $bpy: -17px, $wid: 18px) {
     @include groundimg(none, url('./../img/social.png'), $bpx, $bpy);
-    @include margin(0, 0, 0, 15px);
+    margin-left: 15px;
     display: block;
     height: 17px;
     width: $wid;
@@ -40,7 +29,7 @@
     box-sizing: border-box;
     float: left;
     border-right: solid 1px $border-nav;
-    @include padding(22px, 36px, 22px, 36px);
+    padding: 22px 36px;
 }
 @mixin menulista {
     @include fontubumed(14px, $color-menu-list, 'ubuntu_condensedregular');
@@ -50,13 +39,13 @@
     color: $color-hover;
 }
 @mixin servis($ml: 40px) {
-    @include margin(0, 0, 0, $ml);
+    margin-left: $ml;
     float: left;
     max-width: 260px;
 }
 @mixin imgservis($bi: none) {
     @include groundimg(none, $bi);
-    @include margin(0, 0, 34px);
+    margin-bottom: 34px;
     display: inline-block;
     width: 260px;
     height: 260px;
@@ -67,7 +56,7 @@
     text-align: center;
 }
 @mixin infbox($ml: 40px) {
-    @include margin(0, 0, 0, $ml);
+    margin-left: $ml;
     float: left;
     max-width: 360px;
     max-height: 191px;
@@ -80,7 +69,7 @@
     box-sizing: border-box;
     width: 40px;
     height: 40px;
-    @include padding($pt);
+    padding-top: $pt;
     text-align: center;
     @include groundimg($bc);
     color: $c;
