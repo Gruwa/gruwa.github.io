@@ -1,24 +1,42 @@
 .servis-box {
     @include wrapper(48px, 70px, $background2);
-    .title-servis {
+
+    &__title {
         margin-bottom: 44px;
         @include fontubumed;
     }
-    .servis1 {
+
+    &__servis {
         @include servis(0);
-        .img-servis1 {
-            @include imgservis(url('./../img/servis1.jpg'));
-        }
-        a:hover .text-servis1{
-            @include ahover;
-        }
-        a:hover .img-servis1{
-            @include imgservis(url('./../img/servis1.png'));
-        }
-        .text-servis1 {
-            @include textservis;
-        }
+        // position: relative;
+        text-align: center;
     }
+
+    &__img {
+        margin-bottom: 34px;
+    }
+
+    &__text {
+        @include textservis;
+    }
+
+    &__link1:hover &__text {
+        @include ahover;
+    }
+
+    &__img::before {
+        content: " ";
+        display: block;
+        background-color: rgba(36, 140, 236, .9);
+        position: absolute;
+        height: 260px;
+        width: 260px;
+    }
+
+    &__link1:hover &__img::before {
+        display: block;
+    }
+
     .servis2 {
         @include servis;
         .img-servis2 {

@@ -43,6 +43,7 @@
     float: left;
     max-width: 260px;
 }
+
 @mixin imgservis($bi: none) {
     @include groundimg(none, $bi);
     margin-bottom: 34px;
@@ -51,10 +52,12 @@
     height: 260px;
     border: 0;
 }
+
 @mixin textservis {
     @include fontubumed(16px, $color-servis-text);
     text-align: center;
 }
+
 @mixin infbox($ml: 40px) {
     margin-left: $ml;
     float: left;
