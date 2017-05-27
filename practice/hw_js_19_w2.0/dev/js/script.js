@@ -1,38 +1,6 @@
 /******/ (function(modules) { // webpackBootstrap
-/******/ 	// install a JSONP callback for chunk loading
-/******/ 	var parentJsonpFunction = window["webpackJsonp"];
-/******/ 	window["webpackJsonp"] = function webpackJsonpCallback(chunkIds, moreModules, executeModules) {
-/******/ 		// add "moreModules" to the modules object,
-/******/ 		// then flag all "chunkIds" as loaded and fire callback
-/******/ 		var moduleId, chunkId, i = 0, resolves = [], result;
-/******/ 		for(;i < chunkIds.length; i++) {
-/******/ 			chunkId = chunkIds[i];
-/******/ 			if(installedChunks[chunkId]) {
-/******/ 				resolves.push(installedChunks[chunkId][0]);
-/******/ 			}
-/******/ 			installedChunks[chunkId] = 0;
-/******/ 		}
-/******/ 		for(moduleId in moreModules) {
-/******/ 			if(Object.prototype.hasOwnProperty.call(moreModules, moduleId)) {
-/******/ 				modules[moduleId] = moreModules[moduleId];
-/******/ 			}
-/******/ 		}
-/******/ 		if(parentJsonpFunction) parentJsonpFunction(chunkIds, moreModules, executeModules);
-/******/ 		while(resolves.length) {
-/******/ 			resolves.shift()();
-/******/ 		}
-/******/
-/******/ 	};
-/******/
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
-/******/
-/******/ 	// objects to store loaded and loading chunks
-/******/ 	var installedChunks = {
-/******/ 		1: 0
-/******/ 	};
-/******/
-/******/ 	var resolvedPromise = new Promise(function(resolve) { resolve(); });
 /******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
@@ -58,54 +26,6 @@
 /******/ 		return module.exports;
 /******/ 	}
 /******/
-/******/ 	// This file contains only the entry chunk.
-/******/ 	// The chunk loading function for additional chunks
-/******/ 	__webpack_require__.e = function requireEnsure(chunkId) {
-/******/ 		if(installedChunks[chunkId] === 0) {
-/******/ 			return resolvedPromise;
-/******/ 		}
-/******/
-/******/ 		// a Promise means "currently loading".
-/******/ 		if(installedChunks[chunkId]) {
-/******/ 			return installedChunks[chunkId][2];
-/******/ 		}
-/******/
-/******/ 		// setup Promise in chunk cache
-/******/ 		var promise = new Promise(function(resolve, reject) {
-/******/ 			installedChunks[chunkId] = [resolve, reject];
-/******/ 		});
-/******/ 		installedChunks[chunkId][2] = promise;
-/******/
-/******/ 		// start chunk loading
-/******/ 		var head = document.getElementsByTagName('head')[0];
-/******/ 		var script = document.createElement('script');
-/******/ 		script.type = 'text/javascript';
-/******/ 		script.charset = 'utf-8';
-/******/ 		script.async = true;
-/******/ 		script.timeout = 120000;
-/******/
-/******/ 		if (__webpack_require__.nc) {
-/******/ 			script.setAttribute("nonce", __webpack_require__.nc);
-/******/ 		}
-/******/ 		script.src = __webpack_require__.p + "" + chunkId + ".js";
-/******/ 		var timeout = setTimeout(onScriptComplete, 120000);
-/******/ 		script.onerror = script.onload = onScriptComplete;
-/******/ 		function onScriptComplete() {
-/******/ 			// avoid mem leaks in IE.
-/******/ 			script.onerror = script.onload = null;
-/******/ 			clearTimeout(timeout);
-/******/ 			var chunk = installedChunks[chunkId];
-/******/ 			if(chunk !== 0) {
-/******/ 				if(chunk) {
-/******/ 					chunk[1](new Error('Loading chunk ' + chunkId + ' failed.'));
-/******/ 				}
-/******/ 				installedChunks[chunkId] = undefined;
-/******/ 			}
-/******/ 		};
-/******/ 		head.appendChild(script);
-/******/
-/******/ 		return promise;
-/******/ 	};
 /******/
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
@@ -142,9 +62,6 @@
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "js/";
 /******/
-/******/ 	// on error function for async loading
-/******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
-/******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
@@ -168,7 +85,12 @@ eval("module.exports = function google() {\n    $(function () {\n        'use st
 eval("module.exports = function myscript() {\n    var serverData = __webpack_require__(5);\n    var template = __webpack_require__(6);\n    var bxslider = __webpack_require__(4);\n\n    bxslider();\n\n    $(function () {\n        var $jsData = JSON.parse(serverData);\n        var $html = $('#latestNews').html();\n        var $dataTmpl = {\n            $data: $jsData\n        };\n        var $content = template($html, $dataTmpl);\n\n        $('#latestNewsIn').html('');\n        $('#latestNewsIn').append($content);\n\n        if (true) {\n            debugger;\n        }\n\n        bxslider($('.bxslider').bxSlider());\n    });\n};\n\n//////////////////\n// WEBPACK FOOTER\n// ./js/routes/myscript.js\n// module id = 2\n// module chunks = 1\n\n//# sourceURL=webpack:///./js/routes/myscript.js?");
 
 /***/ }),
-/* 3 */,
+/* 3 */
+/***/ (function(module, exports) {
+
+eval("module.exports = function accordion(e) {\n  'use strict';\n\n  $(function () {\n    $(\"#accordion\").accordion({\n      collapsible: true\n    });\n  });\n\n  // start my accordion\n  //\n  // let elem = $(e.target);\n  // let panel = $('.panel');\n  // let elemParent = elem.parent();\n  //\n  // if ( panel.find('.accordion-panel-focus').length != 0 && (elem[0].className == 'accordion-panel' || elem[0].className == 'accordion-plus')) {\n  //     panel.find('.accordion-panel').removeClass('accordion-panel-focus');\n  //     panel.find('.accordion-plus').removeClass('accordion-plus-focus');\n  //     panel.find('.panel-focus').removeClass('panel-focus');\n  //     panel.find('.accordion-text').css('display', 'none');\n  //     elemParent.find('.accordion-panel').addClass('accordion-panel-focus');\n  //     elemParent.find('.accordion-plus').addClass('accordion-plus-focus');\n  //     elemParent.addClass('panel-focus');\n  //     elemParent.parent().find('.accordion-text').fadeIn(700);\n  //     return;\n  // };\n  // if (panel.find('.accordion-panel-focus').length == 0) {\n  //     elemParent.find('.accordion-panel').addClass('accordion-panel-focus');\n  //     elemParent.find('.accordion-plus').addClass('accordion-plus-focus');\n  //     elemParent.addClass('panel-focus');\n  //     elemParent.parent().find('.accordion-text').fadeIn(700);\n  //     return;\n  // };\n  // if (panel.find('.accordion-panel-focus').length != 0) {\n  //     panel.find('.accordion-panel').removeClass('accordion-panel-focus');\n  //     panel.find('.accordion-plus').removeClass('accordion-plus-focus');\n  //     panel.find('.panel-focus').removeClass('panel-focus');\n  //     panel.find('.accordion-text').css('display', 'none');\n  //     return;\n  // };\n  //\n  // end my accordion\n};\n\n//////////////////\n// WEBPACK FOOTER\n// ./js/no_routes/accordion.js\n// module id = 3\n// module chunks = 1\n\n//# sourceURL=webpack:///./js/no_routes/accordion.js?");
+
+/***/ }),
 /* 4 */
 /***/ (function(module, exports) {
 
@@ -193,7 +115,7 @@ eval("\n// see:\n// http://ejohn.org/blog/javascript-micro-templating/\n\n// Sim
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("Object.defineProperty(__webpack_exports__, \"__esModule\", { value: true });\n/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__routes_google__ = __webpack_require__(1);\n/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__routes_google___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__routes_google__);\n/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__routes_myscript__ = __webpack_require__(2);\n/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__routes_myscript___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__routes_myscript__);\n\n\n\n\n\n__WEBPACK_IMPORTED_MODULE_0__routes_google___default()();\n__WEBPACK_IMPORTED_MODULE_1__routes_myscript___default()();\n\n$('.accordion').on('click', '.accordion-panel, .accordion-plus', function (e) {\n    __webpack_require__.e/* require.ensure */(0).then((function (require) {\n        var accordion = __webpack_require__(3);\n        // exports.accordion = accordion;\n        accordion(e);\n    }).bind(null, __webpack_require__)).catch(__webpack_require__.oe); // если несколько эншуров будет иметь однинаковый 3 параметр, в данном случае 'accord'  то они объеденятся в 1 сборку с именем 'accord'\n});\n\nvar config = __webpack_require__(0);\n\n// let scss = require('./../style/syle')\n\n// import '../style/syle';\n\n//======\n// let moduleName = location.pathname.slice(1);\n// let route = require(\"./routes/\" + moduleName); // автоматическая подгрузка модулей с указанной директорииб вместо забитых руками выше каждый в отдельности, будет искать во всех поддиректориях\n// если надо только 1 папка без поддерикторий\n// let context = require.context('./routes/', false, /\\.js$/); // 1 - имя нашей папки,2 - нам не нужны поддериктории потому false. 3 - параметром можно указать регулярное выражениеб что б по например по расширению отфильтровать нужные файлы\n// let route = context('./' + moduleName); // автоматически подгружаем модули\n// route();\n//========\n\n// let moduleName = location.pathname.slice(1);\n// require('bundle!./routes/' + moduleName)(function(route) {\n//\n//     route();\n//\n// }); // не забываем установить npm i bundle-loader\n\n// let moduleName = location.pathname.slice(1);\n// let handler;\n// try {\n//     let context = require.context('bundle!./routes/', true, /^\\.\\//);\n//     handler = context('./' + moduleName);\n// } catch (e) {\n//     alert('No such path');\n// }\n//\n// if (handler) {\n//     handler(function(route) {\n//         route();\n//     });\n// }\n\n// UglifyJSPlugin();\n\n//////////////////\n// WEBPACK FOOTER\n// ./js/script.js\n// module id = 7\n// module chunks = 1\n\n//# sourceURL=webpack:///./js/script.js?");
+eval("Object.defineProperty(__webpack_exports__, \"__esModule\", { value: true });\n/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__routes_google__ = __webpack_require__(1);\n/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__routes_google___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__routes_google__);\n/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__routes_myscript__ = __webpack_require__(2);\n/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__routes_myscript___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__routes_myscript__);\n/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__no_routes_accordion__ = __webpack_require__(3);\n/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__no_routes_accordion___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__no_routes_accordion__);\n\n\n\n\n\n\n__WEBPACK_IMPORTED_MODULE_0__routes_google___default()();\n__WEBPACK_IMPORTED_MODULE_1__routes_myscript___default()();\n__WEBPACK_IMPORTED_MODULE_2__no_routes_accordion___default()();\n\n// $('.accordion').on('click', '.accordion-panel, .accordion-plus', function(e) {\n//     require.ensure([], function(require) {\n//         let accordion = require('./no_routes/accordion');\n//         // exports.accordion = accordion;\n//         accordion(e);\n//     }, 'accord'); // если несколько эншуров будет иметь однинаковый 3 параметр, в данном случае 'accord'  то они объеденятся в 1 сборку с именем 'accord'\n// });\n\nvar config = __webpack_require__(0);\n\n// let scss = require('./../style/syle')\n\n// import '../style/syle';\n\n//======\n// let moduleName = location.pathname.slice(1);\n// let route = require(\"./routes/\" + moduleName); // автоматическая подгрузка модулей с указанной директорииб вместо забитых руками выше каждый в отдельности, будет искать во всех поддиректориях\n// если надо только 1 папка без поддерикторий\n// let context = require.context('./routes/', false, /\\.js$/); // 1 - имя нашей папки,2 - нам не нужны поддериктории потому false. 3 - параметром можно указать регулярное выражениеб что б по например по расширению отфильтровать нужные файлы\n// let route = context('./' + moduleName); // автоматически подгружаем модули\n// route();\n//========\n\n// let moduleName = location.pathname.slice(1);\n// require('bundle!./routes/' + moduleName)(function(route) {\n//\n//     route();\n//\n// }); // не забываем установить npm i bundle-loader\n\n// let moduleName = location.pathname.slice(1);\n// let handler;\n// try {\n//     let context = require.context('bundle!./routes/', true, /^\\.\\//);\n//     handler = context('./' + moduleName);\n// } catch (e) {\n//     alert('No such path');\n// }\n//\n// if (handler) {\n//     handler(function(route) {\n//         route();\n//     });\n// }\n\n// UglifyJSPlugin();\n\n//////////////////\n// WEBPACK FOOTER\n// ./js/script.js\n// module id = 7\n// module chunks = 1\n\n//# sourceURL=webpack:///./js/script.js?");
 
 /***/ })
 /******/ ]);

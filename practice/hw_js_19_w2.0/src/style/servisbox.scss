@@ -2,17 +2,17 @@
     @include wrapper(48px, 70px, $background2);
 
     &__title {
-        margin-bottom: 44px;
         @include fontubumed;
+        margin-bottom: 44px;
     }
 
     &__servis {
-        @include servis(0);
-        // position: relative;
+        @include servis;
+        position: relative;
         text-align: center;
     }
 
-    &__img {
+    &__beforeImg {
         margin-bottom: 34px;
     }
 
@@ -20,66 +20,27 @@
         @include textservis;
     }
 
-    &__link1:hover &__text {
-        @include ahover;
-    }
-
-    &__img::before {
-        content: " ";
-        display: block;
+    &__beforeImg::before {
+        content: '';
         background-color: rgba(36, 140, 236, .9);
+        background-image: url('./../img/servisPlus.png');
+        background-position: 111px 112px;
+        background-repeat: no-repeat;
+        display: none;
         position: absolute;
-        height: 260px;
-        width: 260px;
+        left: 0;
+        height: 259px;
+        width: 258px;
     }
 
-    &__link1:hover &__img::before {
+    &__link1:hover &__text,
+    &__link1:hover &__beforeImg::before {
+        @include ahover;
         display: block;
     }
 
-    .servis2 {
-        @include servis;
-        .img-servis2 {
-            @include imgservis(url('./../img/servis2.jpg'));
-        }
-        a:hover .text-servis2{
-            @include ahover;
-        }
-        a:hover .img-servis2{
-            @include imgservis(url('./../img/servis2.png'));
-        }
-        .text-servis2 {
-            @include textservis;
-        }
+    div:first-of-type {
+        @include servis(0);
     }
-    .servis3 {
-        @include servis;
-        .img-servis3 {
-            @include imgservis(url('./../img/servis3.jpg'));
-        }
-        a:hover .text-servis3{
-            @include ahover;
-        }
-        a:hover .img-servis3{
-            @include imgservis(url('./../img/servis3.png'));
-        }
-        .text-servis3 {
-            @include textservis;
-        }
-    }
-    .servis4 {
-        @include servis;
-        .img-servis4 {
-            @include imgservis(url('./../img/servis4.jpg'));
-        }
-        a:hover .text-servis4{
-            @include ahover;
-        }
-        a:hover .img-servis4{
-            @include imgservis(url('./../img/servis4.png'));
-        }
-        .text-servis4 {
-            @include textservis;
-        }
-    }
+
 }

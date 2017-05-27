@@ -2,17 +2,19 @@
 
 import google from './routes/google'
 import myscript from './routes/myscript'
+import accordion from './no_routes/accordion'
 
 google();
 myscript();
+accordion();
 
-$('.accordion').on('click', '.accordion-panel, .accordion-plus', function(e) {
-    require.ensure([], function(require) {
-        let accordion = require('./no_routes/accordion');
-        // exports.accordion = accordion;
-        accordion(e);
-    }, 'accord'); // если несколько эншуров будет иметь однинаковый 3 параметр, в данном случае 'accord'  то они объеденятся в 1 сборку с именем 'accord'
-});
+// $('.accordion').on('click', '.accordion-panel, .accordion-plus', function(e) {
+//     require.ensure([], function(require) {
+//         let accordion = require('./no_routes/accordion');
+//         // exports.accordion = accordion;
+//         accordion(e);
+//     }, 'accord'); // если несколько эншуров будет иметь однинаковый 3 параметр, в данном случае 'accord'  то они объеденятся в 1 сборку с именем 'accord'
+// });
 
 let config = require('./../../config')
 

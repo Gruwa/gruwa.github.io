@@ -2,11 +2,11 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
         <link rel="stylesheet" href="style.css">
         <title>Lesson 19</title>
     </head>
     <body>
-        <div class="wrapper">
             <div class="wrapper1">
                 <header class="header">
                     <div class="head_box clearfix">
@@ -75,20 +75,17 @@
                 <div class="servis-box  clearfix">
                     <p class="servis-box__title">Our Services</p>
                     <div class="servis-box__servis">
-                        <a href="#" class="servis-box__link1"><img src="img/servis1.jpg" alt="servis1" class="servis-box__img"></a>
-                        <a href="#" class="servis-box__link1"><span class="servis-box__text">Schedule Services</span></a>
+                        <a href="#" class="servis-box__link1"><div class="servis-box__beforeImg"><img src="img/servis1.jpg" alt="servis1" class="servis-box__img"></div><span class="servis-box__text">Schedule Services</span></a>
                     </div>
-                    <div class="servis2">
-                        <a href="#"><span class="img-servis2"></span>
-                        <p class="text-servis2">Preventive Maintence</p></a>
+                    <div class="servis-box__servis">
+                        <a href="#" class="servis-box__link1"><div class="servis-box__beforeImg"><img src="img/servis2.jpg" alt="servis1" class="servis-box__img"></div><span class="servis-box__text">Preventive Maintence
+</span></a>
                     </div>
-                    <div class="servis3">
-                        <a href="#"><span class="img-servis3"></span>
-                        <p class="text-servis3">Tire & Wheel Services</p></a>
+                    <div class="servis-box__servis">
+                        <a href="#" class="servis-box__link1"><div class="servis-box__beforeImg"><img src="img/servis3.jpg" alt="servis1" class="servis-box__img"></div><span class="servis-box__text">Tire & Wheel Services</span></a>
                     </div>
-                    <div class="servis4">
-                        <a href="#"><span class="img-servis4"></span>
-                        <p class="text-servis4">Repair Services</p></a>
+                    <div class="servis-box__servis">
+                        <a href="#" class="servis-box__link1"><div class="servis-box__beforeImg"><img src="img/servis4.jpg" alt="servis1" class="servis-box__img"></div><span class="servis-box__text">Repair Services</span></a>
                     </div>
                 </div>
             </div>
@@ -100,7 +97,14 @@
                     </div>
                     <div class="banners-place">
                         <p class="banners-place-title">Banners Place</p>
-                        <div class="panel">
+                        <div id="accordion">
+                          <h3><span  class="accordion--panel">Accordion Panel 1</span></h3>
+                          <div class="accordion--text">
+                            <p>Cum sociis natoque penatibus et magnis dis parturient mus. Pro vel nibh et elit mollis commodo et nec augueique Nemo enim ipsam voluptatem quia ptas sit aspernatur momo. Cum sociis natoque penatibus et magnis dis parturient ontesmus. Nemo enim ipsam voluptatem quia ptas sit aspernatur samomoPro vel nibh et elit mollis commodo et nec augueique Nemo enim ipsam voluptatem quia ptas sit aspernatur</p>
+                          </div>
+
+                        </div>
+                        <!-- <div class="panel">
                             <div class="accordion clearfix">
                                 <p class="accordion-plus"></p><p class="accordion-panel">Accordion Panel 1</p>
                             </div>
@@ -131,7 +135,7 @@
                             <div class="accordion-text">
                                 <p>Cum sociis natoque penatibus et magnis dis parturient mus. Pro vel nibh et elit mollis commodo et nec augueique Nemo enim ipsam voluptatem quia ptas sit aspernatur momo. Cum sociis natoque penatibus et magnis dis parturient ontesmus. Nemo enim ipsam voluptatem quia ptas sit aspernatur samomoPro vel nibh et elit mollis commodo et nec augueique Nemo enim ipsam voluptatem quia ptas sit aspernatur</p>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -195,7 +199,6 @@
                     </div>
                 </footer>
             </div>
-        </div>
         <script type="text/tmpl" id="latestNews">
                 <%var $array = $data.data;
                 for (var i = 0; i < $array.length; i++) {%>
@@ -211,7 +214,8 @@
                     </div>
                 <%}%>
         </script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
         <script src="js/script.js" charset="utf-8"></script>
     </body>
 </html>

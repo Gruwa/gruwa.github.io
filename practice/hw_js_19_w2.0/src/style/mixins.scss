@@ -41,15 +41,15 @@
 @mixin servis($ml: 40px) {
     margin-left: $ml;
     float: left;
-    max-width: 260px;
+    max-width: 258px;
 }
 
 @mixin imgservis($bi: none) {
     @include groundimg(none, $bi);
     margin-bottom: 34px;
     display: inline-block;
-    width: 260px;
-    height: 260px;
+    width: 258px;
+    height: 259px;
     border: 0;
 }
 

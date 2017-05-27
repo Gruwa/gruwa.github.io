@@ -54,6 +54,7 @@
     }
     .banners-place {
         float: left;
+        // start my accordion
         .banners-place-title {
             @include fontubumed(24px, $color-text);
             margin-bottom: 49px;
@@ -110,6 +111,61 @@
         }
         .panel:last-child {
             margin: 0;
+        }
+        // end my accordion
+
+        // jqueryUi
+        .ui-state-default {
+            width: 560px;
+            height: 100%;
+            margin-bottom: 5px;
+            @include groundimg($background);
+            box-sizing: border-box;
+            border: 1px solid $color-border;
+            text-transform: uppercase;
+
+        }
+
+         .ui-accordion-header {
+             padding-left: 0;
+             position: relative;
+
+         }
+
+        .ui-accordion-header-icon {
+            margin: 8px 15px 0;
+            @include groundimg(none, url('./../img/plus.png'), -11px, 0);
+            box-sizing: border-box;
+            float: left;
+            width: 9px;
+            height: 9px;
+            cursor: pointer;
+        }
+
+        // .ui-accordion-header-icon::after {
+        //     display: block;
+        //     position: absolute;
+        //     content: '';
+        //     height: 40px;
+        //     border-right: 1px solid $color-border;
+        // }
+
+        .ui-accordion-content {
+            width: 521px;
+            padding: 30px 0 55px 37px;
+            border: none;
+            @include groundimg(none);
+            p {
+                @include fontubumed(12px, $color-text4, 'arial');
+                line-height: 1.538;
+            }
+        }
+        .ui-widget-content {
+            background: none;
+        }
+
+        .ui-state-active {
+
         }
     }
 }
