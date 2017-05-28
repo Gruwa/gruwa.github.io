@@ -1062,7 +1062,7 @@ ul.bxslider {
 
 .news-box .banners-place .ui-state-default {
   width: 560px;
-  height: 100%;
+  height: 40px;
   margin-bottom: 5px;
   background-color: #fff;
   background-image: none;
@@ -1071,15 +1071,17 @@ ul.bxslider {
   box-sizing: border-box;
   border: 1px solid #e8e8e8;
   text-transform: uppercase;
-}
-
-.news-box .banners-place .ui-accordion-header {
+  padding-top: 11px;
   padding-left: 0;
   position: relative;
+  outline: none;
+  font-family: "ubuntumedium", sans-serif;
+  font-size: 13px;
+  color: #2a2d32;
 }
 
 .news-box .banners-place .ui-accordion-header-icon {
-  margin: 8px 15px 0;
+  margin: 4px 27px 0 15px;
   background-color: none;
   background-image: url(js/./../img/plus.png);
   background-repeat: no-repeat;
@@ -1089,6 +1091,34 @@ ul.bxslider {
   width: 9px;
   height: 9px;
   cursor: pointer;
+}
+
+.news-box .banners-place .accordion--panel::before {
+  display: block;
+  position: absolute;
+  content: '';
+  left: 39px;
+  top: 0;
+  height: 38px;
+  border-right: 1px solid #e8e8e8;
+}
+
+.news-box .banners-place .ui-icon-triangle-1-s {
+  background-color: none;
+  background-image: url(js/./../img/plus.png);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+.news-box .banners-place .ui-state-active {
+  background-color: #f4b60d;
+  background-image: none;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  transition: background-color 1000ms linear;
+  font-family: "ubuntumedium", sans-serif;
+  font-size: 13px;
+  color: #fff;
 }
 
 .news-box .banners-place .ui-accordion-content {

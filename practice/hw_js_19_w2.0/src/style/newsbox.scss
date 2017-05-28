@@ -115,25 +115,24 @@
         // end my accordion
 
         // jqueryUi
-        .ui-state-default {
+
+        .ui-state-default{
             width: 560px;
-            height: 100%;
+            height: 40px;
             margin-bottom: 5px;
             @include groundimg($background);
             box-sizing: border-box;
             border: 1px solid $color-border;
             text-transform: uppercase;
-
+            padding-top: 11px;
+            padding-left: 0;
+            position: relative;
+            outline: none;
+            @include fontubumed(13px, $color-text);
         }
 
-         .ui-accordion-header {
-             padding-left: 0;
-             position: relative;
-
-         }
-
         .ui-accordion-header-icon {
-            margin: 8px 12px 0;
+            margin: 4px 27px 0 15px;
             @include groundimg(none, url('./../img/plus.png'), -11px, 0);
             box-sizing: border-box;
             float: left;
@@ -142,13 +141,26 @@
             cursor: pointer;
         }
 
-        // .ui-accordion-header-icon::after {
-        //     display: block;
-        //     position: absolute;
-        //     content: '';
-        //     height: 40px;
-        //     border-right: 1px solid $color-border;
-        // }
+        .accordion--panel::before {
+            display: block;
+            position: absolute;
+            content: '';
+            left: 39px;
+            top: 0;
+            height: 38px;
+            border-right: 1px solid #e8e8e8;
+        }
+
+        .ui-icon-triangle-1-s {
+            @include groundimg(none, url('./../img/plus.png'));
+        }
+
+        .ui-state-active {
+            @include groundimg($background6);
+            transition: background-color 1000ms linear;
+            @include fontubumed(13px, $color-text2);
+
+        }
 
         .ui-accordion-content {
             width: 521px;
@@ -164,8 +176,6 @@
             background: none;
         }
 
-        .ui-state-active {
-
-        }
     }
+    // jqueryUi
 }
