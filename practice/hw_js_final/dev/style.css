@@ -1,0 +1,417 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+var,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+video,
+time,
+mark,
+audio {
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote {
+  quotes: none;
+}
+
+blockquote ::before,
+blockquote ::after {
+  content: '';
+  content: none;
+}
+
+q {
+  quotes: none;
+}
+
+q ::before,
+q ::after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+@font-face {
+  font-family: 'montserratbold';
+  src: url(js/./../font/montserrat-bold-webfont.eot);
+  src: url(js/./../font/montserrat-bold-webfont.eot?#iefix) format("embedded-opentype"), url(js/./../font/montserrat-bold-webfont.woff2) format("woff2"), url(js/./../font/montserrat-bold-webfont.woff) format("woff"), url(js/./../font/montserrat-bold-webfont.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'montserratregular';
+  src: url(js/./../font/montserrat-regular-webfont.eot);
+  src: url(js/./../font/montserrat-regular-webfont.eot?#iefix) format("embedded-opentype"), url(js/./../font/montserrat-regular-webfont.woff2) format("woff2"), url(js/./../font/montserrat-regular-webfont.woff) format("woff"), url(js/./../font/montserrat-regular-webfont.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'robotoblack';
+  src: url(js/./../font/roboto-black-webfont.eot);
+  src: url(js/./../font/roboto-black-webfont.eot?#iefix) format("embedded-opentype"), url(js/./../font/roboto-black-webfont.woff2) format("woff2"), url(js/./../font/roboto-black-webfont.woff) format("woff"), url(js/./../font/roboto-black-webfont.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'robotoblack_italic';
+  src: url(js/./../font/roboto-blackitalic-webfont.eot);
+  src: url(js/./../font/roboto-blackitalic-webfont.eot?#iefix) format("embedded-opentype"), url(js/./../font/roboto-blackitalic-webfont.woff2) format("woff2"), url(js/./../font/roboto-blackitalic-webfont.woff) format("woff"), url(js/./../font/roboto-blackitalic-webfont.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'robotobold';
+  src: url(js/./../font/roboto-bold-webfont.eot);
+  src: url(js/./../font/roboto-bold-webfont.eot?#iefix) format("embedded-opentype"), url(js/./../font/roboto-bold-webfont.woff2) format("woff2"), url(js/./../font/roboto-bold-webfont.woff) format("woff"), url(js/./../font/roboto-bold-webfont.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'robotobold_italic';
+  src: url(js/./../font/roboto-bolditalic-webfont.eot);
+  src: url(js/./../font/roboto-bolditalic-webfont.eot?#iefix) format("embedded-opentype"), url(js/./../font/roboto-bolditalic-webfont.woff2) format("woff2"), url(js/./../font/roboto-bolditalic-webfont.woff) format("woff"), url(js/./../font/roboto-bolditalic-webfont.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'robotoitalic';
+  src: url(js/./../font/roboto-italic-webfont.eot);
+  src: url(js/./../font/roboto-italic-webfont.eot?#iefix) format("embedded-opentype"), url(js/./../font/roboto-italic-webfont.woff2) format("woff2"), url(js/./../font/roboto-italic-webfont.woff) format("woff"), url(js/./../font/roboto-italic-webfont.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'robotolight';
+  src: url(js/./../font/roboto-light-webfont.eot);
+  src: url(js/./../font/roboto-light-webfont.eot?#iefix) format("embedded-opentype"), url(js/./../font/roboto-light-webfont.woff2) format("woff2"), url(js/./../font/roboto-light-webfont.woff) format("woff"), url(js/./../font/roboto-light-webfont.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'robotolight_italic';
+  src: url(js/./../font/roboto-lightitalic-webfont.eot);
+  src: url(js/./../font/roboto-lightitalic-webfont.eot?#iefix) format("embedded-opentype"), url(js/./../font/roboto-lightitalic-webfont.woff2) format("woff2"), url(js/./../font/roboto-lightitalic-webfont.woff) format("woff"), url(js/./../font/roboto-lightitalic-webfont.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'robotomedium';
+  src: url(js/./../font/roboto-medium-webfont.eot);
+  src: url(js/./../font/roboto-medium-webfont.eot?#iefix) format("embedded-opentype"), url(js/./../font/roboto-medium-webfont.woff2) format("woff2"), url(js/./../font/roboto-medium-webfont.woff) format("woff"), url(js/./../font/roboto-medium-webfont.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'robotomedium_italic';
+  src: url(js/./../font/roboto-mediumitalic-webfont.eot);
+  src: url(js/./../font/roboto-mediumitalic-webfont.eot?#iefix) format("embedded-opentype"), url(js/./../font/roboto-mediumitalic-webfont.woff2) format("woff2"), url(js/./../font/roboto-mediumitalic-webfont.woff) format("woff"), url(js/./../font/roboto-mediumitalic-webfont.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'robotoregular';
+  src: url(js/./../font/roboto-regular-webfont.eot);
+  src: url(js/./../font/roboto-regular-webfont.eot?#iefix) format("embedded-opentype"), url(js/./../font/roboto-regular-webfont.woff2) format("woff2"), url(js/./../font/roboto-regular-webfont.woff) format("woff"), url(js/./../font/roboto-regular-webfont.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'robotothin';
+  src: url(js/./../font/roboto-thin-webfont.eot);
+  src: url(js/./../font/roboto-thin-webfont.eot?#iefix) format("embedded-opentype"), url(js/./../font/roboto-thin-webfont.woff2) format("woff2"), url(js/./../font/roboto-thin-webfont.woff) format("woff"), url(js/./../font/roboto-thin-webfont.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'robotothin_italic';
+  src: url(js/./../font/roboto-thinitalic-webfont.eot);
+  src: url(js/./../font/roboto-thinitalic-webfont.eot?#iefix) format("embedded-opentype"), url(js/./../font/roboto-thinitalic-webfont.woff2) format("woff2"), url(js/./../font/roboto-thinitalic-webfont.woff) format("woff"), url(js/./../font/roboto-thinitalic-webfont.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  background-color: white;
+  font-family: montserratbold, sans-serif;
+  height: 100%;
+  width: 100%;
+}
+
+.clearfix::after {
+  clear: both;
+  content: '';
+  display: block;
+}
+
+.header {
+  background-image: url(js/./../img/header--img__mobile.jpg);
+  background-repeat: no-repeat;
+  color: white;
+  font-family: montserratbold, sans-serif;
+  margin: 0 auto;
+  max-width: 320px;
+  padding-top: 21px;
+  text-align: center;
+}
+
+.header--logIn,
+.header--singUp {
+  background-color: transparent;
+  border: 2px solid transparent;
+  color: white;
+  cursor: pointer;
+  font-family: montserratbold, sans-serif;
+  font-size: 14px;
+  margin-left: -12px;
+  margin-right: 9px;
+  padding: 7px 16px;
+}
+
+.header--logIn:hover,
+.header--singUp:hover {
+  border: 2px solid white;
+  border-radius: 20px;
+}
+
+.header--name {
+  font-size: 20px;
+  letter-spacing: 1px;
+  margin-top: 117px;
+  text-transform: uppercase;
+}
+
+.header--tagline {
+  font-size: 30px;
+  line-height: 36px;
+  margin-top: 30px;
+  text-transform: uppercase;
+}
+
+.header--text {
+  font-family: robotolight, sans-serif;
+  font-size: 18px;
+  line-height: 21.6px;
+  margin: 8px 42px 16px;
+}
+
+.header--search {
+  background-color: #ff4e50;
+  border: 0;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+  font-family: montserratbold, sans-serif;
+  font-size: 14px;
+  margin-bottom: 137px;
+  margin-left: -1px;
+  padding: 12px 50px;
+}
+
+.info {
+  box-sizing: border-box;
+  color: white;
+  font-family: montserratbold, sans-serif;
+  margin: 0 auto;
+  max-width: 320px;
+  padding-left: 9px;
+  padding-right: 10px;
+  padding-top: 37px;
+  text-align: center;
+}
+
+.info--title {
+  color: #333333;
+  font-size: 22px;
+}
+
+.info--step {
+  background-image: url(js/./../img/step--step1__mobile.png);
+  background-repeat: no-repeat;
+  margin: 16px auto 0;
+  max-width: 301px;
+  padding-left: 20px;
+  padding-top: 69px;
+  text-align: left;
+}
+
+.info--step__2 {
+  background-image: url(js/./../img/step--step2__mobile.png);
+  margin: 7px auto 0;
+  padding-bottom: 13px;
+  padding-top: 99px;
+}
+
+.info--step__3 {
+  background-image: url(js/./../img/step--step3__mobile.png);
+  margin: 10px auto 0;
+  padding-top: 69px;
+}
+
+.info--stepNum {
+  background-color: #ff4e50;
+  border-radius: 20px;
+  color: white;
+  font-family: montserratregular, sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  padding: 5px 15px;
+  padding-right: 12px;
+  text-transform: uppercase;
+}
+
+.info--tagline {
+  color: white;
+  font-size: 24px;
+  line-height: 28.8px;
+  margin-top: 20px;
+}
+
+.info--text {
+  color: #cccccc;
+  font-family: robotolight, sans-serif;
+  font-size: 14px;
+  line-height: 16.8px;
+  margin-top: 11px;
+  padding-bottom: 19px;
+  padding-right: 5px;
+}
+
+.partners {
+  box-sizing: border-box;
+  color: #333333;
+  font-family: montserratbold, sans-serif;
+  margin: 0 auto;
+  max-width: 320px;
+  padding-top: 37px;
+  text-align: center;
+}
+
+.partners--title {
+  font-size: 22px;
+  line-height: 1.2;
+}

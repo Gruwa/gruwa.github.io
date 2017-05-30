@@ -1,0 +1,33 @@
+{
+    "root": {
+        "src": "./src",
+        "dev": "./dev"
+    },
+    "html": {
+        "src": "./",
+        "dev": "./",
+        "parts": "templates"
+    },
+    "сss": {
+        "src": "style",
+        "dev": "style",
+        "parts": "parts",
+        "extensions": "*.+(css|scss)"
+    },
+    "js": {
+        "src": "js",
+        "dev": "js",
+        "parts": "modules",
+        "extensions": [".json", ".js"]
+    },
+    "img": {
+        "src": "img/**/*",
+        "dev": "img",
+        "extensions": "*.+(jpg|jpeg|gif|png|svg)"
+    },
+    "fonts": {
+        "src": "font",
+        "dev": "font",
+        "extensions": "*.+(woff2|woff|eot|ttf|svg)"
+    }
+}

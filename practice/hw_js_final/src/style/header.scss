@@ -1,0 +1,63 @@
+.header {
+    background-image: url('../img/header--img__mobile.jpg');
+    background-repeat: no-repeat;
+    color: $header--text-col;
+    font-family: montserratbold, sans-serif;
+    margin: 0 auto;
+    max-width: 320px;
+    padding-top: 21px;
+    text-align: center;
+
+    &--logIn,
+    &--singUp {
+        background-color: transparent;
+        border: 2px solid transparent;
+        color: $header--but-col;
+        cursor: pointer;
+        font-family: montserratbold, sans-serif;
+        font-size: 14px;
+        margin-left: -12px;
+        margin-right: 9px;
+        padding: 7px 16px;
+
+        &:hover {
+            border: 2px solid $header--but-border;
+            border-radius: 20px;
+        }
+    }
+
+    &--name {
+        font-size: 20px;
+        letter-spacing: 1px;
+        margin-top: 117px;
+        text-transform: uppercase;
+    }
+
+    &--tagline {
+        font-size: 30px;
+        line-height: 36px;
+        margin-top: 30px;
+        text-transform: uppercase;
+    }
+
+    &--text {
+        font-family: robotolight, sans-serif;
+        font-size: 18px;
+        line-height: 21.6px;
+        margin: 8px 42px 16px;
+
+    }
+
+    &--search {
+        background-color: $header--but-bc2;
+        border: 0;
+        border-radius: 20px;
+        color: $header--but-col;
+        cursor: pointer;
+        font-family: montserratbold, sans-serif;
+        font-size: 14px;
+        margin-bottom: 137px;
+        margin-left: -1px;
+        padding: 12px 50px;
+    }
+}
