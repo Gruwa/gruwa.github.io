@@ -1,6 +1,8 @@
 module.exports = function myscript() {
     let serverData = require('./server');
     let template = require('./template');
+    let templateScript = require('./templateScript')
+
     // let bxslider = require('./bxslider');
 
     // bxslider();
@@ -11,7 +13,7 @@ module.exports = function myscript() {
         }
 
         let $jsData = JSON.parse(serverData);
-        let $html = $('#latestNews').html();
+        let $html = templateScript;
         let $dataTmpl = {
             $data: $jsData
         };

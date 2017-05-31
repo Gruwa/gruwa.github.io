@@ -361,9 +361,16 @@ body {
 
 .info--step__2 {
   background-image: url(js/./../img/step--step2__mobile.png);
-  margin: 7px auto 0;
-  padding-bottom: 13px;
+  margin: 10px auto 0;
   padding-top: 99px;
+  padding-bottom: 2px;
+}
+
+.info--step__2 .info--text {
+  padding-right: 10px;
+  letter-spacing: 0.1px;
+  margin-top: 9px;
+  line-height: 16.7px;
 }
 
 .info--step__3 {
@@ -397,8 +404,8 @@ body {
   font-size: 14px;
   line-height: 16.8px;
   margin-top: 11px;
-  padding-bottom: 19px;
   padding-right: 5px;
+  padding-bottom: 16px;
 }
 
 .partners {
@@ -407,11 +414,66 @@ body {
   font-family: montserratbold, sans-serif;
   margin: 0 auto;
   max-width: 320px;
-  padding-top: 37px;
+  padding-top: 35px;
   text-align: center;
 }
 
 .partners--title {
   font-size: 22px;
-  line-height: 1.2;
+  letter-spacing: .4px;
+  line-height: 26.4px;
+}
+
+.partners--photo {
+  background-image: url(js/./../img/partners--hunter__mobile.png);
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  height: 121px;
+  margin: 13px auto 19px;
+  position: relative;
+  width: 121px;
+}
+
+.partners--embl {
+  background-position: 7px 6px;
+  background-repeat: no-repeat;
+  border: 4px solid white;
+  border-radius: 50%;
+  bottom: -4px;
+  height: 32px;
+  position: absolute;
+  right: -3px;
+  width: 32px;
+}
+
+.partners--name {
+  color: #333333;
+  font-size: 14px;
+  margin-left: -3px;
+}
+
+.partners--text {
+  color: #666666;
+  font-family: robotolight, sans-serif;
+  font-size: 14px;
+  letter-spacing: .1px;
+  line-height: 16.8px;
+  margin-left: 42px;
+  margin-right: 46px;
+  margin-top: 15px;
+}
+
+.partners--template {
+  margin-bottom: 27px;
+}
+
+.partners--see {
+  background-color: white;
+  border: 2px solid #ff4e50;
+  border-radius: 20px;
+  color: #ff4e50;
+  font-family: montserratbold, sans-serif;
+  font-size: 14px;
+  height: 40px;
+  width: 280px;
 }

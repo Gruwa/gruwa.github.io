@@ -2159,6 +2159,14 @@ imagemin-pngquant@^5.0.0:
     is-png "^1.0.0"
     pngquant-bin "^3.0.0"
 
+"imagemin-pngquant@github:imagemin/imagemin-pngquant", imagemin-pngquant@imagemin/imagemin-pngquant:
+  version "5.0.1"
+  resolved "https://codeload.github.com/imagemin/imagemin-pngquant/tar.gz/fe14c58ef59820a3c76c6a8ea76097c5792b54c4"
+  dependencies:
+    exec-buffer "^3.0.0"
+    is-png "^1.0.0"
+    pngquant-bin "^3.0.0"
+
 imagemin-svgo@^5.2.1:
   version "5.2.1"
   resolved "https://registry.yarnpkg.com/imagemin-svgo/-/imagemin-svgo-5.2.1.tgz#74d593ce4cbe1b87efdb3d06a4a56078f71a8147"

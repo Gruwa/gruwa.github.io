@@ -7,6 +7,7 @@ const path                  = require('path');
 const ExtractTextPlugin     = require("extract-text-webpack-plugin");
 const CopyWebpackPlugin     = require("copy-webpack-plugin");
 const CleanWebpackPlugin    = require('clean-webpack-plugin');
+const SpriteLoaderPlugin    = require('svg-sprite-loader/plugin');
 
 let config = require('./config');
 
@@ -15,7 +16,8 @@ module.exports = {
     context: path.resolve(__dirname, config.root.src),
 
     entry: {
-        // script: "./js/script",
+        script: "./js/script",
+        html: "./html/index.html",
         scss: "./style/style.scss"
     },
 
@@ -43,8 +45,17 @@ module.exports = {
                     use: [ 'css-loader', 'resolve-url-loader', 'sass-loader' ]
                 })
             },
+            // {
+            //     test: /\.(svg)$/i,
+            //     loader: 'svg-sprite-loader',
+            //     include: [path.resolve(__dirname, 'img/svg/')],
+            //     options: {
+            //         runtimeCompat: true,
+            //         spriteFilename: 'sprite--icons.svg'
+            //     }
+            //  },
             {
-                test: /\.(png|jpg|svg|gif)$/,
+                test: /\.(png|jpg|gif|svg)$/,
                 loaders: [
                     'file-loader?name=./../img/[name].[ext]', {
                         loader: 'image-webpack-loader',
@@ -59,13 +70,17 @@ module.exports = {
                               optimizationLevel: 4,
                             },
                             pngquant: {
-                              quality: '75-90',
+                              quality: '70-90',
                               speed: 3,
                             },
                          },
                 }],
                 exclude: /node_modules/,
                 include: __dirname,
+            },
+            {
+                test: /\.(html)$/,
+                loader: 'file-loader?name=./../[name].[ext]'
             },
             {
                 test: /\.(ttf|eot|woff|woff2)$/,
@@ -80,8 +95,9 @@ module.exports = {
             path.resolve(__dirname, config.root.src, config.js.src),
             path.resolve(__dirname, config.root.src, '/style'),
             path.resolve(__dirname, config.root.src, '/js/routes'),
+            path.resolve(__dirname, config.root.src, '/html')
         ],
-        extensions: [".js", ".json", ".jsx", ".css", '.scss', '.html']
+        extensions: [".js", ".json", ".jsx", ".css", '.scss', '.html', '.svg']
     },
 
     devtool: NODE_ENV == 'development' ? 'eval' : 'source-map',
@@ -115,9 +131,9 @@ module.exports = {
             }),
             new webpack.NoEmitOnErrorsPlugin(),
             new ExtractTextPlugin('../style.css'),
-            new CopyWebpackPlugin([{ from: './img', to: '../img' }]),
-            new CopyWebpackPlugin([{ from: './html/index.html', to: '../index.html' }]),
-            new CopyWebpackPlugin([{ from: './font', to: '../font' }]),
+            // new CopyWebpackPlugin([{ from: './img', to: '../img' }]),
+            // new CopyWebpackPlugin([{ from: './html/index.html', to: '../index.html' }]),
+            // new SpriteLoaderPlugin(),
             new CleanWebpackPlugin(__dirname + '/dev' )
         );
 
