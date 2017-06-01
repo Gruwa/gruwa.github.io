@@ -1,6 +1,6 @@
 module.exports = function myscript() {
-    let serverData = require('./server');
-    let template = require('./template');
+    let serverData = require('./server')
+    let template = require('./template')
     let templateScript = require('./templateScript')
 
     // let bxslider = require('./bxslider');

@@ -425,7 +425,7 @@ body {
 }
 
 .partners--photo {
-  background-image: url(js/./../img/partners--hunter__mobile.png);
+  background-color: #fbfbfb;
   background-repeat: no-repeat;
   border-radius: 50%;
   height: 121px;
@@ -476,4 +476,14 @@ body {
   font-size: 14px;
   height: 40px;
   width: 280px;
+}
+
+.activity {
+  box-sizing: border-box;
+  color: #333333;
+  font-family: montserratbold, sans-serif;
+  margin: 0 auto;
+  max-width: 320px;
+  padding-top: 38px;
+  text-align: center;
 }

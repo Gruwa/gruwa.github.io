@@ -2,10 +2,11 @@
 
 import myscript from './routes/myscript'
 import html from './../html/index.html'
+
 // import accordion from './no_routes/accordion'
 //
 
-myscript();
+myscript()
 // accordion();
 
 

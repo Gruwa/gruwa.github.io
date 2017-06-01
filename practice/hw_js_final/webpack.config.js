@@ -45,6 +45,10 @@ module.exports = {
                     use: [ 'css-loader', 'resolve-url-loader', 'sass-loader' ]
                 })
             },
+            {
+                test: /\.(html)$/,
+                loader: 'file-loader?name=./../[name].[ext]'
+            },
             // {
             //     test: /\.(svg)$/i,
             //     loader: 'svg-sprite-loader',
@@ -77,10 +81,6 @@ module.exports = {
                 }],
                 exclude: /node_modules/,
                 include: __dirname,
-            },
-            {
-                test: /\.(html)$/,
-                loader: 'file-loader?name=./../[name].[ext]'
             },
             {
                 test: /\.(ttf|eot|woff|woff2)$/,
@@ -131,7 +131,8 @@ module.exports = {
             }),
             new webpack.NoEmitOnErrorsPlugin(),
             new ExtractTextPlugin('../style.css'),
-            // new CopyWebpackPlugin([{ from: './img', to: '../img' }]),
+            new CopyWebpackPlugin([{ from: './img/server', to: '../img' }]),
+            new CopyWebpackPlugin([{ from: './img/svg', to: '../img' }]),
             // new CopyWebpackPlugin([{ from: './html/index.html', to: '../index.html' }]),
             // new SpriteLoaderPlugin(),
             new CleanWebpackPlugin(__dirname + '/dev' )
