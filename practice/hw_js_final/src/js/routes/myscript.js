@@ -7,7 +7,7 @@ module.exports = function myscript() {
 
     // bxslider();
 
-    $(function(){
+    $(function() {
         if (NODE_ENV === 'development') {
             debugger
         }
