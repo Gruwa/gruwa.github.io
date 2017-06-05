@@ -1,12 +1,14 @@
 'use strict';
 
 import myscript from './routes/myscript'
-import html from './../html/index.html'
+import bingImg from './routes/bingImg'
 
 // import accordion from './no_routes/accordion'
 //
 
+
 myscript()
+bingImg()
 // accordion();
 
 

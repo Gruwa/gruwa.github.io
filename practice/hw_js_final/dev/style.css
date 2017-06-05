@@ -268,6 +268,29 @@ body {
   display: block;
 }
 
+.grid .grid-item {
+  margin: 0 auto 10px;
+  position: relative;
+}
+
+.grid .grid-item--width2 {
+  width: 400px;
+}
+
+.grid--text {
+  position: absolute;
+  left: 95px;
+  width: 100px;
+  top: 20px;
+  color: #ededed;
+  font-size: 16px;
+  font-family: montserratbold, sans-serif;
+}
+
+.grid--img {
+  width: 200px;
+}
+
 .header {
   background-image: url(js/./../img/header--img__mobile.jpg);
   background-repeat: no-repeat;
@@ -472,6 +495,7 @@ body {
   border: 2px solid #ff4e50;
   border-radius: 20px;
   color: #ff4e50;
+  cursor: pointer;
   font-family: montserratbold, sans-serif;
   font-size: 14px;
   height: 40px;
@@ -484,6 +508,21 @@ body {
   font-family: montserratbold, sans-serif;
   margin: 0 auto;
   max-width: 320px;
-  padding-top: 38px;
+  padding: 38px 10px 0;
   text-align: center;
+}
+
+.activity--title {
+  font-size: 22px;
+  margin-bottom: 18px;
+}
+
+.activity--title__footer {
+  margin-top: 40px;
+}
+
+.activity--text {
+  font-family: robotolight, sans-serif;
+  font-size: 18px;
+  margin-bottom: 16px;
 }

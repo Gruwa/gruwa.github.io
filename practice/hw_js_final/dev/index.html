@@ -43,22 +43,27 @@
         <section class="activity">
             <h2 class="activity--title">Discover holiday activity
 ideas</h2>
-            <div class="grid">
-                <div class="grid-item">...</div>
-                <div class="grid-item grid-item--width2">...</div>
-                <div class="grid-item">...</div>
-            </div>
-            <h2 class="activity--title--footer">Discover holiday activity
+            <div id="activity--bar-in"></div>
+            <h2 class="activity--title activity--title__footer">Discover holiday activity
 ideas</h2>
             <p class="activity--text">Hi! What are your holiday interests?</p>
             <form class="" action="index.html" method="post" id="activity--form">
-                <input type="text" name="" value="Enter your interests" id="activity--search">
+                <input type="text" name="" id="activity--search">
                 <button type="submit" name="button" class="activity--button">Search partners</button>
             </form>
         </section>
         <footer>
 
         </footer>
+        <script type="text/tmpl" id="activity--bar-out">
+        <% let $array = $data.hits;
+        for (let i = 0; i < $array.length; i++) {%>
+            <div class="grid">
+                <div class="grid-item"><img class="grid--img" src="<%=$array[i].webformatURL%>" alt=""><span class="grid--text">Travelling</span></div>
+            </div>
+        <%}%>
+
+        </script>
         <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="js/script.js" charset="utf-8"></script>

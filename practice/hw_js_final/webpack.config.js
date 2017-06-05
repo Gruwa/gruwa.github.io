@@ -94,8 +94,8 @@ module.exports = {
             'node_modules',
             path.resolve(__dirname, config.root.src, config.js.src),
             path.resolve(__dirname, config.root.src, '/style'),
-            path.resolve(__dirname, config.root.src, '/js/routes'),
-            path.resolve(__dirname, config.root.src, '/html')
+            path.resolve(__dirname, config.root.src, '/html'),
+            path.resolve(__dirname, config.root.src, '/js/routes')
         ],
         extensions: [".js", ".json", ".jsx", ".css", '.scss', '.html', '.svg']
     },
@@ -133,7 +133,7 @@ module.exports = {
             new ExtractTextPlugin('../style.css'),
             new CopyWebpackPlugin([{ from: './img/server', to: '../img' }]),
             new CopyWebpackPlugin([{ from: './img/svg', to: '../img' }]),
-            // new CopyWebpackPlugin([{ from: './html/index.html', to: '../index.html' }]),
+            // new CopyWebpackPlugin([{ from: './html/html', to: '../' }]),
             // new SpriteLoaderPlugin(),
             new CleanWebpackPlugin(__dirname + '/dev' )
         );

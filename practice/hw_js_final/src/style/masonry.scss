@@ -1,0 +1,27 @@
+// Masonry
+
+.grid {
+
+    .grid-item {
+        margin: 0 auto 10px;
+        position: relative;
+
+        &--width2 {
+            width: 400px;
+        }
+    }
+
+    &--text {
+        position: absolute;
+        left: 95px;
+        width: 100px;
+        top: 20px;
+        color: #ededed;
+        font-size: 16px;
+        font-family: montserratbold, sans-serif;
+    }
+
+    &--img {
+        width: 200px;
+    }
+}
