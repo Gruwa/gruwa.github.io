@@ -2,6 +2,9 @@ module.exports = function myscript() {
     let serverData = require('./server')
     let template = require('./template')
     let templateScript = require('./templateScript')
+    let bxslider = require('./bxslider');
+
+    bxslider();
 
     $(function() {
         if (NODE_ENV === 'development') {
@@ -18,4 +21,6 @@ module.exports = function myscript() {
         $('#partners--template__in').html('');
         $('#partners--template__in').append($content);
     });
+    
+    bxslider($('.bxslider').bxSlider());
 };

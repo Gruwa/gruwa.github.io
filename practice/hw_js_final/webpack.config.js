@@ -18,7 +18,8 @@ module.exports = {
     entry: {
         script: "./js/script",
         html: "./html/index.html",
-        scss: "./style/style.scss"
+        scss: "./style/style.scss",
+        common: './js/common'
     },
 
     output: {
@@ -119,6 +120,10 @@ module.exports = {
             commonjs: "jquery",
             amd: "jquery",
             root: "$"
+        },
+        Masonry : {
+            commonjs: "masonry",
+            amd: "masonry",
         }
     },
 
@@ -135,7 +140,11 @@ module.exports = {
             new CopyWebpackPlugin([{ from: './img/svg', to: '../img' }]),
             // new CopyWebpackPlugin([{ from: './html/html', to: '../' }]),
             // new SpriteLoaderPlugin(),
-            new CleanWebpackPlugin(__dirname + '/dev' )
+            new CleanWebpackPlugin(__dirname + '/dev' ),
+            new webpack.optimize.CommonsChunkPlugin({
+                name: 'common',
+                minChanks: 2
+            })
         );
 
         if (NODE_ENV != 'development') {

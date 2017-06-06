@@ -3,12 +3,14 @@
 import myscript from './routes/myscript'
 import bingImg from './routes/bingImg'
 
+
 // import accordion from './no_routes/accordion'
 //
 
 
 myscript()
 bingImg()
+
 // accordion();
 
 

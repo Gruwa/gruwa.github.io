@@ -1,6 +1,12 @@
 module.exports = function bingImg() {
 
+    let masonry = require
     let template = require('./template');
+
+    // $('.grid').masonry({
+    //     itemSelector: '.grid-item',
+    //     columnWidth: 200
+    // });
 
     $(function() {
         'use strict';
@@ -42,7 +48,7 @@ module.exports = function bingImg() {
             }
 
             let $html = $('#activity--bar-out').html();
-            // let $html = templateScript
+            // let $html = templateBingImg
             let $dataTmpl = {
                 $data: $data
             };
