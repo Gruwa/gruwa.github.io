@@ -1,7 +1,12 @@
 'use strict';
 
 import myscript from './routes/myscript'
-import bingImg from './routes/bingImg'
+import pixabay from './routes/pixabay'
+
+
+
+require("jquery")
+require("lodash")
 
 
 // import accordion from './no_routes/accordion'
@@ -9,7 +14,13 @@ import bingImg from './routes/bingImg'
 
 
 myscript()
-bingImg()
+pixabay()
+
+
+
+
+
+
 
 // accordion();
 

@@ -1,70 +1,24 @@
 .partners {
-    box-sizing: border-box;
-    color: $partners--text-col;
-    font-family: montserratbold, sans-serif;
-    margin: 0 auto;
-    max-width: 320px;
-    padding-top: 35px;
-    text-align: center;
+    max-width: 768px;
+    padding-top: 95px;
 
-    &--title {
-        font-size: 22px;
-        letter-spacing: .4px;
-        line-height: 26.4px;
-    }
-
-    &--photo {
-        background-color: $partners--bc;
-        background-repeat: no-repeat;
-        border-radius: 50%;
-        height: 121px;
-        margin: 13px auto 19px;
-        position: relative;
-        width: 121px;
-    }
-
-    &--embl {
-        background-position: 7px 6px;
-        background-repeat: no-repeat;
-        border: 4px solid $partners--border;
-        border-radius: 50%;
-        bottom: -4px;
-        height: 32px;
-        position: absolute;
-        right: -3px;
-        width: 32px;
-    }
-
-    &--name {
-        color: $partners--text-col;
-        font-size: 14px;
-        margin-left: -3px;
-    }
-
-    &--text {
-        color: $partners--text-col2;
-        font-family: robotolight, sans-serif;
-        font-size: 14px;
-        letter-spacing: .1px;
-        line-height: 16.8px;
-        margin-left: 42px;
-        margin-right: 46px;
-        margin-top: 15px;
+    &--template__in {
+        margin: 30px auto 0;
+        max-width: 520px;
     }
 
     &--template {
-        margin-bottom: 27px;
+        float: left;
+        margin-bottom: 10px;
+        max-width: 260px;
+    }
+
+    &--photo {
+        margin: 0 auto 19px;
     }
 
     &--see {
-        background-color: $partners--but-bc;
-        border: 2px solid $partners--but-border;
-        border-radius: 20px;
-        color: $partners--text-col3;
-        cursor: pointer;
-        font-family: montserratbold, sans-serif;
-        font-size: 14px;
-        height: 40px;
-        width: 280px;
+        margin-top: 13px;
+        width: 191px;
     }
 }

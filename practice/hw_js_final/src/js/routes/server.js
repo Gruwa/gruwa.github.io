@@ -36,7 +36,7 @@ data: [
         name: "Gogas",
         surname: "Hunter",
         photo: 'img/partners--hunter2__mobile.png',
-        info: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        info: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore ",
         colorIcon: 'ff4e50',
         icon: 'img/partners--tv.svg'
         }

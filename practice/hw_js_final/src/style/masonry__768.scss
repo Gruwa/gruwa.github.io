@@ -4,7 +4,7 @@
     height: auto !important;
 
     .grid-item {
-        margin: 0 auto 10px;
+        margin: 0;
         position: relative;
         width: 200px;
 
@@ -14,16 +14,12 @@
     }
 
     &--text {
-        color: #ededed;
-        font-family: montserratbold, sans-serif;
-        font-size: 16px;
-        left: 50px;
-        position: absolute;
-        top: 20px;
-        width: 100px;
+        font-size: 22px;
+        left: 50%;
+        top: 50%;
     }
 
     &--img {
-        width: 200px;
+        width: initial;
     }
 }

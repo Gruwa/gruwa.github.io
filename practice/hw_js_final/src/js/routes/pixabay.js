@@ -1,12 +1,6 @@
-module.exports = function bingImg() {
+module.exports = function pixabay() {
 
-    let masonry = require
     let template = require('./template');
-
-    // $('.grid').masonry({
-    //     itemSelector: '.grid-item',
-    //     columnWidth: 200
-    // });
 
     $(function() {
         'use strict';

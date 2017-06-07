@@ -93,10 +93,10 @@ module.exports = {
     resolve: {
         modules: [
             'node_modules',
-            path.resolve(__dirname, config.root.src, config.js.src),
-            path.resolve(__dirname, config.root.src, '/style'),
-            path.resolve(__dirname, config.root.src, '/html'),
-            path.resolve(__dirname, config.root.src, '/js/routes')
+            path.join(__dirname, config.root.src, config.js.src),
+            path.join(__dirname, config.root.src, '/style'),
+            path.join(__dirname, config.root.src, '/html'),
+            path.join(__dirname, config.root.src, '/js/routes')
         ],
         extensions: [".js", ".json", ".jsx", ".css", '.scss', '.html', '.svg']
     },
@@ -116,15 +116,12 @@ module.exports = {
             amd: "lodash",
             root: "_"
         },
-        jQuery : {
-            commonjs: "jquery",
-            amd: "jquery",
+        jquery : {
+            commonjs: "jQuery",
+            amd: "jQuery",
             root: "$"
         },
-        Masonry : {
-            commonjs: "masonry",
-            amd: "masonry",
-        }
+        
     },
 
     plugins: (function() {
