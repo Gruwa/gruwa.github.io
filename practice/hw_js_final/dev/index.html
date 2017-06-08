@@ -130,16 +130,8 @@
         </footer>
         <script type="text/tmpl" id="activity--bar-out">
         <% let $array = $data.hits;
-        for (let i = 0; i < $array.length; i++) {
-
-            let $url = $array[i].webformatURL;
-
-            if (i == 2 && i == 5) {
-                $url.replace ("_640.jpg", "_490.jpg");
-            } else {
-                $url.replace ("_640.jpg", "_235.jpg");
-            };%>
-                <div class="grid-item"><img class="grid--img" src="<%=$url%>" alt=""><span class="grid--text">Travelling</span></div>
+        for (let i = 0; i < $array.length; i++) {%>
+                <div class="grid-item"><img class="grid--img" src="<%=$array[i].webformatURL%>" alt=""><span class="grid--text">Travelling</span></div>
         <%}%>
         </script>
         <script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js" charset="utf-8"></script>

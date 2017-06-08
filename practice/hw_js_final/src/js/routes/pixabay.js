@@ -46,6 +46,10 @@ module.exports = function pixabay() {
             let $dataTmpl = {
                 $data: $data
             };
+            //===
+            // let $url = $data.hits[0].webformatURL;
+            // console.log($url);
+            // $url = $url.replace ("_640.jpg", "_490.jpg");
             let $SearchContent = template($html, $dataTmpl);
 
             $('#activity--bar-in').html('');
