@@ -1,0 +1,20 @@
+.header {
+    background-image: url('../img/header--img__1440.jpg');
+    max-width: 1440px;
+
+    &--authorization {
+        margin-right: 243px;
+    }
+
+    &--name {
+        margin-left: 249px;
+    }
+
+    &--tagline {
+        padding: 0 424px;
+    }
+
+    &--text {
+        margin: 21px 0 34px;
+    }
+}

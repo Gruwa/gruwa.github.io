@@ -1,42 +1,45 @@
 .footer {
-    box-sizing: border-box;
-    border-top: 4px solid $footer--border;
-    font-family: montserratbold, sans-serif;
-    margin: 0 auto;
-    max-width: 320px;
-    text-align: center;
+    max-width: 768px;
+    text-align: left;
+    padding-top: 37px;
 
     &--title {
-        text-transform: uppercase;
-        font-size: 16px;
-        color: $footer--text-col3;
-        margin-top: 16px;
+        letter-spacing: 1px;
+        margin-top: 0;
+        margin-left: 40px;
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    &--menu {
+        display: inline-block;
+        margin-left: 78px;
     }
 
     &--company {
-        margin-top: 19px;
-        margin-bottom: 5px;
-        font-size: 14px;
+        margin-top: 0;
     }
 
     &--nav {
-        margin-bottom: 19px;
+        margin-bottom: 0;
+        margin-top: 17px;
     }
 
     &--list {
-        font-size: 14px;
-        font-family: robotolight, sans-serif;
-        display: inline-block;
-        margin-right: 5px;
-
-        & a {
-            color: $footer--text-col2;
-        }
+        margin-bottom: 11px;
+        display: block;
     }
 
     &--partners {
-        font-size: 14px;
-        color: $footer--text-col;
-        margin-bottom: 20px;
+        display: inline-block;
+        margin-left: 100px;
+        vertical-align: top;
+    }
+
+    &--logo {
+        display: inline-block;
+        margin-left: 115px;
+        margin-top: 2px;
+        vertical-align: top;
     }
 }

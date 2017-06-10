@@ -1,20 +1,18 @@
 'use strict';
 
-import myscript from './routes/myscript'
-import pixabay from './routes/pixabay'
-
-
+import infoScript from './routes/infoScript'
+import partnerScript from './routes/partnerScript'
+import activityScript from './routes/activityScript'
 
 require("jquery")
 require("lodash")
 
-
 // import accordion from './no_routes/accordion'
 //
 
-
-myscript()
-pixabay()
+infoScript()
+partnerScript()
+activityScript()
 
 
 

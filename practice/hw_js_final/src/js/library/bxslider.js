@@ -1,5 +1,3 @@
-module.exports = function bxslider(){
-
 /**
  * bxSlider v4.2.12
  * Copyright 2013-2015 Steven Wanderski
@@ -1607,5 +1605,3 @@ module.exports = function bxslider(){
   };
 
 })(jQuery);
-
-};

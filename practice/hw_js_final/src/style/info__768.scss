@@ -19,6 +19,9 @@
         position: relative;
     }
 
+    &--img__1440 {
+        display: none !important;
+    }
 
     &--stepNum {
         font-size: 10px;

@@ -1,6 +1,9 @@
-module.exports = function pixabay() {
+module.exports = function activityScript() {
 
-    let template = require('./template');
+    let template = require('./../library/template');
+    let imagesloaded = require('./../library/imagesloaded.pkgd')
+    let masonry = require('./../library/masonry.pkgd')
+    let imagefill = require('./../library/jquery-imagefill')
 
     $(function() {
         'use strict';
@@ -13,7 +16,7 @@ module.exports = function pixabay() {
 
         function randWDclassic(n) {
             let s ='';
-            let abd ='abcdefghijklmnopqrstuvwxyz';
+            let abd ='abcdefghijklmnopqrstuvwxyz1234567890йцукенгшщзхфывапролджэячсмитбю';
             let aL = abd.length;
             while(s.length < n)
             s += abd[Math.random() * aL|0];
@@ -46,14 +49,12 @@ module.exports = function pixabay() {
             let $dataTmpl = {
                 $data: $data
             };
-            //===
-            // let $url = $data.hits[0].webformatURL;
-            // console.log($url);
-            // $url = $url.replace ("_640.jpg", "_490.jpg");
             let $SearchContent = template($html, $dataTmpl);
 
             $('#activity--bar-in').html('');
             $('#activity--bar-in').append($SearchContent);
+
+            bar();
         }
 
         $('form').submit(function(event) {
@@ -78,8 +79,18 @@ module.exports = function pixabay() {
                     min_width: 200
                 }
             });
+            $('#activity--search').val('');
         });
 
-
-    });
-};
+        function bar() {
+            let $grid = $('#activity--bar-in').imagesLoaded( function() {
+                // init Masonry after all images have loaded
+                $grid.masonry({
+                    itemSelector: '.grid-item',
+                    columnWidth: '.grid-item'
+                })
+                // $('.grid-item').imagefill();
+            })
+        }
+    })
+}

@@ -6,3 +6,12 @@
     @import 'masonry__768';
     @import 'footer__768';
 }
+
+@media screen and (min-width:1440px) {
+    @import 'header__1440';
+    @import 'info__1440';
+    @import 'partners__1440';
+    @import 'activity__1440';
+    @import 'masonry__1440';
+    @import 'footer__1440';
+}

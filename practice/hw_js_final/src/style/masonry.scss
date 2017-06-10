@@ -1,15 +1,12 @@
 // Masonry
 .grid {
-    height: auto !important;
 
     .grid-item {
-        margin: 0 auto 10px;
+        box-sizing: border-box;
         position: relative;
-        width: 200px;
-
-        &--width2 {
-            width: 400px;
-        }
+        margin-bottom: 10px;
+        width: 300px;
+        // height: 50px;
     }
 
     &--text {
@@ -23,6 +20,6 @@
     }
 
     &--img {
-        width: 200px;
+        max-width: 100%;
     }
 }
