@@ -1,4 +1,3 @@
-
 'use strict';
 
 const NODE_ENV              = process.env.NODE_ENV || 'development';
@@ -17,7 +16,7 @@ module.exports = {
 
     entry: {
         script: "./js/script",
-        html: "./html/index.html",
+        html: "./index.html",
         scss: "./style/style.scss",
         common: './js/common'
     },
@@ -47,9 +46,22 @@ module.exports = {
                 })
             },
             {
-                test: /\.(html)$/,
-                loader: 'file-loader?name=./../[name].[ext]'
+                test: /\.html$/,
+                use: [ {
+                        loader: 'html-loader',
+                        options: {
+                        minimize: true
+                    }
+                }],
             },
+            // {
+            //     test: /\.html$/,
+            //     loader: 'html-loader'
+            // },
+            // {
+            //     test: /\.(html)$/,
+            //     loader: 'file-loader?name=./../[name].[ext]'
+            // },
             // {
             //     test: /\.(svg)$/i,
             //     loader: 'svg-sprite-loader',
@@ -95,7 +107,7 @@ module.exports = {
             'node_modules',
             path.join(__dirname, config.root.src, config.js.src),
             path.join(__dirname, config.root.src, '/style'),
-            path.join(__dirname, config.root.src, '/html'),
+            path.join(__dirname, config.root.src, '/'),
             path.join(__dirname, config.root.src, '/js/routes')
         ],
         extensions: [".js", ".json", ".jsx", ".css", '.scss', '.html', '.svg']
@@ -121,7 +133,7 @@ module.exports = {
             amd: "jQuery",
             root: "$"
         },
-        
+
     },
 
     plugins: (function() {
@@ -135,7 +147,7 @@ module.exports = {
             new ExtractTextPlugin('../style.css'),
             new CopyWebpackPlugin([{ from: './img/server', to: '../img' }]),
             new CopyWebpackPlugin([{ from: './img/svg', to: '../img' }]),
-            // new CopyWebpackPlugin([{ from: './html/html', to: '../' }]),
+            new CopyWebpackPlugin([{ from: './index.html', to: '../' }]),
             // new SpriteLoaderPlugin(),
             new CleanWebpackPlugin(__dirname + '/dev' ),
             new webpack.optimize.CommonsChunkPlugin({
