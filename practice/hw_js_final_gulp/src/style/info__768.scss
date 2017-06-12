@@ -1,0 +1,112 @@
+.info {
+    max-width: 768px;
+    padding: 96px 10px 0;
+
+    &--title {
+        margin-bottom: 36px;
+        margin-left: 6px;
+    }
+
+    &--step__320 {
+        display: none;
+    }
+
+    &--bxslider {
+        display: block;
+    }
+
+    &--list {
+        position: relative;
+    }
+
+    &--img__1440 {
+        display: none !important;
+    }
+
+    &--stepNum {
+        font-size: 10px;
+        letter-spacing: 2px;
+        padding: 5px 15px;
+        padding-right: 12px;
+        text-transform: uppercase;
+
+        &__768 {
+            left: 19px;
+            position: absolute;
+            top: 213px;
+        }
+    }
+
+    &--tagline {
+
+        &__768 {
+            color: $info--text-col2;
+            font-size: 24px;
+            line-height: 28.8px;
+            position: absolute;
+            right: 20px;
+            top: 250px;
+        }
+    }
+
+    &--text {
+
+        &__768 {
+            bottom: 19px;
+            color: $info--text-col3;
+            font-family: robotolight, sans-serif;
+            font-size: 14px;
+            left: 11px;
+            line-height: 16.8px;
+            padding: 0 6px;
+            position: absolute;
+            text-align: left;
+        }
+    }
+}
+
+// bxslider
+.bx-wrapper {
+    border: 0;
+    box-shadow: none;
+    display: inline-block;
+    margin-bottom: 0;
+    margin-right: 7px;
+    max-width: 236px !important;
+
+    &:last-child {
+        margin-right: 0;
+    }
+
+    .bx-prev {
+        background: url('./../img/info--control.png') no-repeat 0 0;
+        left: 18px;
+    }
+
+    .bx-next {
+        background: url('./../img/info--control.png') no-repeat -32px 0;
+        right: 18px;
+    }
+
+    .bx-controls-direction a {
+        height: 64px;
+        margin-top: -16px;
+        outline: 0;
+        top: 14%;
+        width: 32px;
+    }
+}
+
+.bx-pager {
+    display: none;
+}
+
+.bx-wrapper .bx-prev:hover,
+.bx-wrapper .bx-prev:focus {
+    background-position: 0 0;
+}
+
+.bx-wrapper .bx-next:hover,
+.bx-wrapper .bx-next:focus {
+    background-position: -32px 0;
+}
