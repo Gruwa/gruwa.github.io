@@ -17,7 +17,8 @@ const imagemin = require('gulp-imagemin'); //минимизация картин
 const pngquant = require('imagemin-pngquant');//минимизация картинокgulp
 const watch = require('gulp-watch');// наблюдение за изменениями файлов
 const imageminMozjpeg = require('imagemin-mozjpeg');
-var svgstore = require('gulp-svgstore');
+const svgstore = require('gulp-svgstore'); // спраqт svg
+
 let path = { // прописываем все нужные пути
    src: { //пути откуда будут взяты файлы
        html: 'src/html/index.html',
@@ -43,7 +44,7 @@ let path = { // прописываем все нужные пути
        svg: 'src/img/svg/*.svg',
        font: 'src/font/**/*.*'
    },
-   clean: 'dev/**/'
+   clean: 'dev/**/*.*'
 };
 gulp.task('webserver', function(callback){ //запуск вебсервера для релоада
    browserSync({
@@ -57,24 +58,14 @@ gulp.task('webserver', function(callback){ //запуск вебсервера �
    });
    callback();
 });
-gulp.task('htmlBuild', function(callback) {
-   gulp.src(path.src.html)
-   .pipe(include({
-       prefix: '@@',
-       basepath: '@file'
-   }))
-   .pipe(gulp.dest(path.dest.html))
-   .pipe(reload({stream: true}));
-   callback();
-});
 gulp.task('jsBuild', function(callback) {
    gulp.src(path.src.js)
    .pipe(sourcemaps.init())
    .pipe(debug({title: 'sourcemaps'}))
    .pipe(babel({presets: ['es2015']}))
    .pipe(debug({title: 'babel'}))
-   // .pipe(uglify(''))
-   // .pipe(debug({title: 'uglify'}))
+   .pipe(uglify(''))
+   .pipe(debug({title: 'uglify'}))
    .pipe(concat('script.min.js'))
    .pipe(debug({title: 'concat'}))
    .pipe(sourcemaps.write('.'))
@@ -111,21 +102,20 @@ gulp.task('imgBuild', function (callback) {
 });
 gulp.task('svgBuild', function (callback) {
    gulp.src(path.src.svg)
-   // .pipe(svgmin(function (file) {
-   //      var prefix = path.basename(file.relative, path.extname(file.relative));
-   //      return {
-   //          plugins: [{
-   //              cleanupIDs: {
-   //                  prefix: prefix + '-',
-   //                  minify: true
-   //              }
-   //          }]
-   //      }
-   //  }))
    .pipe(svgstore())
    .pipe(gulp.dest(path.dest.svg))
    .pipe(reload({stream: true}));
    callback();
+});
+gulp.task('htmlBuild', function(callback) {
+    gulp.src(path.src.html)
+    .pipe(include({
+        prefix: '@@',
+        basepath: '@file'
+    }))
+    .pipe(gulp.dest(path.dest.html))
+    .pipe(reload({stream: true}));
+    callback();
 });
 gulp.task('fontBuild', function (callback) {
    gulp.src(path.src.font)
@@ -137,9 +127,9 @@ gulp.task('build', [
    'htmlBuild',
    'jsBuild',
    'styleBuild',
-   'imgBuild',
+   // 'imgBuild',
    'svgBuild',
-   'fontBuild'
+   // 'fontBuild'
 ]);
 gulp.task('watch', function() {
    watch([path.watch.html], function(ev, callback) {
