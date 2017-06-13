@@ -127,9 +127,9 @@ gulp.task('build', [
    'htmlBuild',
    'jsBuild',
    'styleBuild',
-   // 'imgBuild',
+   'imgBuild',
    'svgBuild',
-   // 'fontBuild'
+   'fontBuild'
 ]);
 gulp.task('watch', function() {
    watch([path.watch.html], function(ev, callback) {
