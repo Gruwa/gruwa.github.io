@@ -14,36 +14,41 @@ const browserSync = require('browser-sync'); //понадобится  для з
 const reload = browserSync.reload; //предназначен для запуска самого реоада
 const preFixer = require('gulp-autoprefixer'); //авто-добавление добавляет вендорные префиксы (-webkit, -o, -moz) к CSS свойствам, нужно чтобы ваш код поддерживался во всех браузерах.
 const imagemin = require('gulp-imagemin'); //минимизация картинок
-const pngquant = require('imagemin-pngquant');//минимизация картинок
+const pngquant = require('imagemin-pngquant');//минимизация картинокgulp
 const watch = require('gulp-watch');// наблюдение за изменениями файлов
+const imageminMozjpeg = require('imagemin-mozjpeg');
+var svgstore = require('gulp-svgstore');
 let path = { // прописываем все нужные пути
    src: { //пути откуда будут взяты файлы
        html: 'src/html/index.html',
        js: 'src/js/**/*.js',
        css: 'src/style/style.scss',
-       img: 'src/img/**/*.*',
+       img: 'src/img/*.*',
+       svg: 'src/img/svg/*.svg',
        font: 'src/font/**/*.*'
    },
    dest: { //пути для готовых файлов после сборки
        html: 'dev/',
        js: 'dev/js/script.js',
-       css: 'dev/style',
+       css: 'dev/style/',
        img: 'dev/img/',
+       svg: 'dev/img/',
        font: 'dev/font/'
    },
    watch: { //пути по которым смотреть вотчеру
        html: 'src/html/**/*.html',
        js: 'src/js/**/*.js',
        css: 'src/style/**/*.scss',
-       img: 'src/img/**/*.*',
+       img: 'src/img/*.*',
+       svg: 'src/img/svg/*.svg',
        font: 'src/font/**/*.*'
    },
-   clean: 'dev/'
+   clean: 'dev/**/'
 };
 gulp.task('webserver', function(callback){ //запуск вебсервера для релоада
    browserSync({
        server: {
-           baseDir: './dev'
+           baseDir: 'dev/'
        },
        host: 'localhost',
        port: 9000,
@@ -68,12 +73,12 @@ gulp.task('jsBuild', function(callback) {
    .pipe(debug({title: 'sourcemaps'}))
    .pipe(babel({presets: ['es2015']}))
    .pipe(debug({title: 'babel'}))
-   .pipe(uglify(''))
-   .pipe(debug({title: 'uglify'}))
+   // .pipe(uglify(''))
+   // .pipe(debug({title: 'uglify'}))
    .pipe(concat('script.min.js'))
    .pipe(debug({title: 'concat'}))
    .pipe(sourcemaps.write('.'))
-   .pipe(gulp.dest('dist/js'))
+   .pipe(gulp.dest('dev/js'))
    .pipe(reload({stream: true})); //перезапуск сервера собновлениями
    callback();
 });
@@ -94,13 +99,31 @@ gulp.task('styleBuild', function (callback) {
 });
 gulp.task('imgBuild', function (callback) {
    gulp.src(path.src.img)
-   .pipe(imagemin({
-       progressive: true,
-       svgoPlugins: [{removeViewBox: false}],
-       use: [pngquant()],
-       interlaced: true
-   }))
+   .pipe(imagemin([
+       imagemin.gifsicle({interlaced: true}),
+       imagemin.jpegtran({progressive: true}),
+       imagemin.optipng({optimizationLevel: 5}),
+       imagemin.svgo({plugins: [{removeViewBox: true}]})
+    ]))
    .pipe(gulp.dest(path.dest.img))
+   .pipe(reload({stream: true}));
+   callback();
+});
+gulp.task('svgBuild', function (callback) {
+   gulp.src(path.src.svg)
+   // .pipe(svgmin(function (file) {
+   //      var prefix = path.basename(file.relative, path.extname(file.relative));
+   //      return {
+   //          plugins: [{
+   //              cleanupIDs: {
+   //                  prefix: prefix + '-',
+   //                  minify: true
+   //              }
+   //          }]
+   //      }
+   //  }))
+   .pipe(svgstore())
+   .pipe(gulp.dest(path.dest.svg))
    .pipe(reload({stream: true}));
    callback();
 });
@@ -115,6 +138,7 @@ gulp.task('build', [
    'jsBuild',
    'styleBuild',
    'imgBuild',
+   'svgBuild',
    'fontBuild'
 ]);
 gulp.task('watch', function() {
@@ -136,10 +160,11 @@ gulp.task('watch', function() {
 
 });
 gulp.task('clean', function (callback) {
-   rimraf(path.clean, callback);
+   rimRaf(path.clean, callback);
 });
 gulp.task('default', [
-   'build',
-   'webserver',
-   'watch'
+    // 'clean',
+    'build',
+    'webserver',
+    'watch'
 ]);

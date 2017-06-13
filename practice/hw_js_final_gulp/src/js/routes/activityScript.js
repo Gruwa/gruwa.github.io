@@ -1,16 +1,4 @@
-module.exports = function activityScript() {
-
-    let template = require('./../library/template');
-    let imagesloaded = require('./../library/imagesloaded.pkgd')
-    let masonry = require('./../library/masonry.pkgd')
-    let imagefill = require('./../library/jquery-imagefill')
-
-    $(function() {
         'use strict';
-
-        if (NODE_ENV === 'development') {
-            debugger
-        }
 
         let $value = randWDclassic(1);
 
@@ -40,16 +28,12 @@ module.exports = function activityScript() {
 
         window.ServerPhotoCallback = function ($data) {
 
-            if (NODE_ENV === 'development') {
-                debugger
-            }
-
             let $html = $('#activity--bar-out').html();
             // let $html = templateBingImg
             let $dataTmpl = {
                 $data: $data
             };
-            let $SearchContent = template($html, $dataTmpl);
+            let $SearchContent = tmpl($html, $dataTmpl);
 
             $('#activity--bar-in').html('');
             $('#activity--bar-in').append($SearchContent);
@@ -58,10 +42,6 @@ module.exports = function activityScript() {
         }
 
         $('form').submit(function(event) {
-
-            if (NODE_ENV === 'development') {
-                        debugger
-            }
 
             event.preventDefault();
             $value = $('#activity--search').val();
@@ -89,8 +69,5 @@ module.exports = function activityScript() {
                     itemSelector: '.grid-item',
                     columnWidth: '.grid-item'
                 })
-                // $('.grid-item').imagefill();
             })
-        }
-    })
-}
+        };
