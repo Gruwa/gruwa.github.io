@@ -26,7 +26,7 @@ $.ajax({
     }
 });
 
-window.ServerPhotoCallback = function ($data) {
+function ServerPhotoCallback ($data) {
 
     let $html = $('#activity--bar-out').html();
     // let $html = templateBingImg
@@ -63,11 +63,37 @@ $('form').submit(function(event) {
 });
 
 function bar() {
+    // $('.grid').isotope({
+    //   // options
+    //   itemSelector: '.grid-item',
+    //   layoutMode: 'fitRows'
+    // });
+    //===========
     let $grid = $('#activity--bar-in').imagesLoaded( function() {
         // init Masonry after all images have loaded
-        $grid.masonry({
-            itemSelector: '.grid-item',
-            columnWidth: '.grid-item'
-        })
+        setTimeout(
+            $grid.masonry({
+                itemSelector: '.grid-item',
+                columnWidth: '.grid-item'
+            }), 1000);
     })
+    //==========
+    // let $grid = $('#activity--bar-in');
+    //
+    // $grid.imagesLoaded( function() {
+    //     // init Masonry after all images have loaded
+    //     setTimeout(
+    //         $grid.masonry({
+    //             itemSelector: '.grid-item',
+    //             columnWidth: '.grid-item'
+    //         }), 1000);
+    // });
+    //==========
+    // let $grid = $('#activity--bar-in');
+    //
+    // setTimeout(
+    //     $grid.masonry({
+    //         itemSelector: '.grid-item',
+    //         columnWidth: '.grid-item'
+    //     }), 5000);
 };
