@@ -30,11 +30,11 @@
     "resolve-url-loader": "^2.0.2",
     "sass-loader": "^6.0.5",
     "style-loader": "^0.18.0",
-    "svg-sprite-loader": "^3.0.3",
     "uglify-js": "^3.0.10",
     "uglifyjs-webpack-plugin": "^0.4.3",
     "url-loader": "^0.5.8",
-    "webpack": "^2.6.0"
+    "webpack": "^2.6.0",
+    "webpack-dev-server": "^2.4.5"
   },
   "dependencies": {
     "imagemin-pngquant": "github:imagemin/imagemin-pngquant"

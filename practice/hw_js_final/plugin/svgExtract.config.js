@@ -1,47 +1,25 @@
 const path = require('path');
 const merge = require('deepmerge');
-const TextExtractPlugin = require('extract-text-webpack-plugin');
 const baseConfig = require('../webpack.config');
-const SpritePlugin = require('svg-sprite-loader/plugin');
 
-const CSSExtractor = new TextExtractPlugin('[name].css');
-const HTMLExtractor = new TextExtractPlugin('[name].html');
-
-const config = merge(baseConfig, {
-  context: __dirname,
+module.exports = merge(baseConfig, {
+  context: path.resolve(__dirname+ 'src/img/svg'),
 
   entry: './main',
 
   output: {
-    path: path.resolve(__dirname, 'build')
+    path: __dirname + 'dev/img'
   },
 
   module: {
     rules: [
       {
         test: /\.svg$/,
-        loader: 'svg-sprite-loader',
-        options: {
-          extract: true,
-          spriteFilename: 'sprite-[hash:6].svg'
-        }
-      },
-      {
-        test: /\.css$/,
-        loader: CSSExtractor.extract({ use: 'css-loader' })
-      },
-      {
-        test: /\.html$/,
-        loader: HTMLExtractor.extract({ use: 'html-loader' })
+        use: [
+          'svg-sprite-loader',
+          'svgo-loader'
+        ]
       }
     ]
-  },
-
-  plugins: [
-    CSSExtractor,
-    HTMLExtractor,
-    new SpritePlugin()
-  ]
+  }
 });
-
-module.exports = config;

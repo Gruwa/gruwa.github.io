@@ -6,7 +6,8 @@ const path                  = require('path');
 const ExtractTextPlugin     = require("extract-text-webpack-plugin");
 const CopyWebpackPlugin     = require("copy-webpack-plugin");
 const CleanWebpackPlugin    = require('clean-webpack-plugin');
-const SpriteLoaderPlugin    = require('svg-sprite-loader/plugin');
+
+// const svgExtract    = require('./plugin/svgExtract.config');
 
 let config = require('./config');
 
@@ -14,7 +15,7 @@ module.exports = {
 
     context: path.resolve(__dirname, config.root.src),
 
-    entry: {
+    entry: { // webpack-dev-server --inline --hot
         script: "./js/script",
         html: "./index.html",
         scss: "./style/style.scss",
@@ -54,27 +55,10 @@ module.exports = {
                     }
                 }],
             },
-            // {
-            //     test: /\.html$/,
-            //     loader: 'html-loader'
-            // },
-            // {
-            //     test: /\.(html)$/,
-            //     loader: 'file-loader?name=./../[name].[ext]'
-            // },
-            // {
-            //     test: /\.(svg)$/i,
-            //     loader: 'svg-sprite-loader',
-            //     include: [path.resolve(__dirname, 'img/svg/')],
-            //     options: {
-            //         runtimeCompat: true,
-            //         spriteFilename: 'sprite--icons.svg'
-            //     }
-            //  },
             {
                 test: /\.(png|jpg|gif|svg)$/,
                 loaders: [
-                    'file-loader?name=./../img/[name].[ext]', {
+                    'file-loader?name=./../img/[name].[ext]?[hash]', {
                         loader: 'image-webpack-loader',
                         query: {
                             mozjpeg: {
@@ -97,7 +81,7 @@ module.exports = {
             },
             {
                 test: /\.(ttf|eot|woff|woff2)$/,
-                loader: 'file-loader?name=./../font/[name].[ext]'
+                loader: 'file-loader?name=./../font/[name].[ext]?[hash]'
             }
         ]
     },
@@ -148,8 +132,8 @@ module.exports = {
             new CopyWebpackPlugin([{ from: './img/server', to: '../img' }]),
             new CopyWebpackPlugin([{ from: './img/svg', to: '../img' }]),
             new CopyWebpackPlugin([{ from: './index.html', to: '../' }]),
-            // new SpriteLoaderPlugin(),
             new CleanWebpackPlugin(__dirname + '/dev' ),
+            new webpack.HotModuleReplacementPlugin(),
             new webpack.optimize.CommonsChunkPlugin({
                 name: 'common',
                 minChanks: 2
@@ -167,5 +151,12 @@ module.exports = {
         }
 
         return plugins;
-    }())
+    }()),
+
+    devServer: {
+        host: 'localhost',
+        port: 8080,
+        contentBase: __dirname + '/src',
+        hot: true
+    }
 };

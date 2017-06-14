@@ -23,6 +23,7 @@
     "img": {
         "src": "img/**/*",
         "dev": "img",
+        "svg": "img/svg",
         "extensions": "*.+(jpg|jpeg|gif|png|svg)"
     },
     "fonts": {

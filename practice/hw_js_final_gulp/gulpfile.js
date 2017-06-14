@@ -54,7 +54,7 @@ gulp.task('webserver', function(callback){ //запуск вебсервера �
        host: 'localhost',
        port: 9000,
        tunnel: true,
-       logPrefix: "Frontend_Devil"
+       logPrefix: "Frontend"
    });
    callback();
 });
