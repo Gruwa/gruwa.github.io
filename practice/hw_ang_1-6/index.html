@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+    <div class="">
+        <input type="text" ng-model="tree">
+        <input type="text" ng-model="tree">
+    {{tree + "elka"}}
+    </div>
+    <!-- ///------------////-----------/// -->
+    <!-- <div class="" ng-controller="myCtrl">
+        {{hello}}
+        <input type="text" ng-model="home">
+        {{home}}
+    </div> -->
+    <!-- ///--------------///----------------/// -->
+    <div class="" ng-controller="firstCtrl">
+        <input type="text" ng-model="myFactory.hello">
+    </div>
+    <div class="" ng-controller="secondCtrl">
+        <input type="text" ng-model="myFactory.hello">
+    </div>
+    <!-- ///--------------///----------------/// -->
+    <div class="" ng-controller="thirdCtrl">
+        {{hi}}
+        {{getBookmark()}}
+        <button ng-click="setHello('EPRST')">EPRST</button>
+        <button ng-click="setHello('NEA')">NEA</button>
+        {{thirdFactory.hello()}}
+    </div>
+    ------------------//----------//--------
+
+    <div class="" ng-controller="myBooksCtrl">
+        <div class="" ng-controller="angularBookCtrl">
+            <button ng-click="showBook()">Show Angular book</button>
+        </div>
+        <div class="" ng-controller="emberBookCtrl">
+            <button ng-click="showBook()">Show Ember book</button>
+        </div>
+    </div>
+
+    ----------------//--------------//------------
+
+    <div class="" ng-controller="main01Ctrl as main01Ctrl">
+        <div class="" ng-controller="child01Ctrl as child01Ctrl">
+            <div class="" ng-controller="child01_01Ctrl as child01_01Ctrl">
+                {{main01Ctrl.myLesson}}
+                <button ng-click="main01Ctrl.addLesson()">Add Lesson</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js" charset="utf-8"></script>
+    <script src="js/script.js" charset="utf-8"></script>
+    </body>
+</html>
