@@ -15,8 +15,6 @@ module.exports = {
 
     entry: {
         script: "./js/script",
-        html: "./index.html",
-        scss: "./style/style.scss",
         common: './js/common'
     },
 
