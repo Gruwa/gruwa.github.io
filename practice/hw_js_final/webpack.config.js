@@ -7,15 +7,13 @@ const ExtractTextPlugin     = require("extract-text-webpack-plugin");
 const CopyWebpackPlugin     = require("copy-webpack-plugin");
 const CleanWebpackPlugin    = require('clean-webpack-plugin');
 
-// const svgExtract    = require('./plugin/svgExtract.config');
-
 let config = require('./config');
 
 module.exports = {
 
     context: path.resolve(__dirname, config.root.src),
 
-    entry: { // webpack-dev-server --inline --hot
+    entry: {
         script: "./js/script",
         html: "./index.html",
         scss: "./style/style.scss",
@@ -56,7 +54,14 @@ module.exports = {
                 }],
             },
             {
-                test: /\.(png|jpg|gif|svg)$/,
+              test: /\.svg$/,
+              use: [
+                'svg-sprite-loader',
+                'svgo-loader'
+              ]
+            },
+            {
+                test: /\.(png|jpg|gif)$/,
                 loaders: [
                     'file-loader?name=./../img/[name].[ext]?[hash]', {
                         loader: 'image-webpack-loader',
@@ -89,7 +94,7 @@ module.exports = {
     resolve: {
         modules: [
             'node_modules',
-            path.join(__dirname, config.root.src, config.js.src),
+            path.resolve(__dirname, config.root.src, config.js.src),
             path.join(__dirname, config.root.src, '/style'),
             path.join(__dirname, config.root.src, '/'),
             path.join(__dirname, config.root.src, '/js/routes')
@@ -130,9 +135,8 @@ module.exports = {
             new webpack.NoEmitOnErrorsPlugin(),
             new ExtractTextPlugin('../style.css'),
             new CopyWebpackPlugin([{ from: './img/server', to: '../img' }]),
-            new CopyWebpackPlugin([{ from: './img/svg', to: '../img' }]),
             new CopyWebpackPlugin([{ from: './index.html', to: '../' }]),
-            new CleanWebpackPlugin(__dirname + '/dev' ),
+            // new CleanWebpackPlugin(__dirname + '/dev' ),
             new webpack.HotModuleReplacementPlugin(),
             new webpack.optimize.CommonsChunkPlugin({
                 name: 'common',
@@ -153,10 +157,10 @@ module.exports = {
         return plugins;
     }()),
 
-    devServer: {
+    devServer: {// webpack-dev-server --inline --hot
         host: 'localhost',
         port: 8080,
-        contentBase: __dirname + '/src',
+        contentBase: __dirname + '/dev',
         hot: true
     }
 };

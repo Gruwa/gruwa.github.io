@@ -718,6 +718,19 @@ body {
   width: 280px;
 }
 
+.partners--airplane,
+.partners--flask,
+.partners--cup,
+.partners--tv {
+  fill: white;
+  fill-rule: evenodd;
+  height: 18px;
+  left: 7px;
+  position: absolute;
+  top: 7px;
+  width: 18px;
+}
+
 .activity {
   box-sizing: border-box;
   color: #333333;

@@ -3,6 +3,11 @@ module.exports = function partnerScript() {
     let template = require('./../library/template')
     let partnerHtml = require('./partnerHtml')
 
+    let airplane = require('./../../img/svg/partners--airplane.svg')
+    let cup = require('./../../img/svg/partners--cup.svg')
+    let flask = require('./../../img/svg/partners--flask.svg')
+    let tv = require('./../../img/svg/partners--tv.svg')
+
     $(function() {
         if (NODE_ENV === 'development') {
             debugger

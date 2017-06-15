@@ -67,4 +67,17 @@
         height: 40px;
         width: 280px;
     }
+
+    &--airplane,
+    &--flask,
+    &--cup,
+    &--tv {
+        fill: $partners--but-bc;
+        fill-rule: evenodd;
+        height: 18px;
+        left: 7px;
+        position: absolute;
+        top: 7px;
+        width: 18px;
+    }
 }
