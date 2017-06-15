@@ -19,7 +19,32 @@
         <!-- directive: foo-bar -->
 //-----------------------//-----------------------
     <foo-tree></foo-tree>
+
+    //----------------//--------------------
+    <div class="" ng-controller="woodCtrl as woodCtrl">
+        <foo-wood>This is {{woodCtrl.name}}</foo-wood>
+    </div>
+
+//------------///---------------------------
+    <foo-home></foo-home>
+
+
+
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js" charset="utf-8"></script>
         <script src="js/script.js" charset="utf-8"></script>
+        <script type="text/ng-template" id="bookmark.html">
+            <div ng-repeat="bookmark in bookmarks">
+                {{bookmark.name}}
+            </div>
+            <div ng-repeat="bookmark in bookmarks">
+                {{bookmark.name}}
+            </div>
+            <div ng-repeat="bookmark in bookmarks">
+                {{bookmark.name}}
+            </div>
+            <div ng-repeat="bookmark in bookmarks">
+                {{bookmark.name}}
+            </div>
+        </script>
     </body>
 </html>

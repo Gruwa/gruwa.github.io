@@ -87,3 +87,57 @@ app.directive('fooTree', function() {
         }
     }
 })
+
+//--------------------------//-------------------------
+
+app.directive('fooWood', function() {
+    return {
+        restrict: 'E',
+        link: function(scope, element, attrs, ctrl, transclude) {
+            console.log('Good directive')
+            transclude(scope, function(clone, scope) {
+                element.append(clone)
+                console.log('!', clone, scope);
+            })
+        },
+        transclude: true, //позволяет вставить в шаблон то что было написано до этого
+        template: 'Super puper directive'
+    }
+})
+
+app.controller('woodCtrl', function() {
+    this.name = 'Bob'
+})
+
+//-------------------------------------------------------------------------
+
+app.directive('fooHome', function($templateCache) {
+
+    $templateCache.put('bookmarks.html', '<div ng-repeat="bookmark in bookmarks"> {{bookmark.name}} </div>') //так можно в ручную добавлять в кеш шаблон
+
+    let bookmarks = [
+        {
+            id: 1,
+            name: 'Angular'
+        },
+        {
+            id: 2,
+            name: 'Torr'
+        },
+        {
+            id: 3,
+            name: 'Css'
+        }
+    ]
+    return {
+        restrict: 'E',
+        link: function(scope, element, attrs) {
+            console.log('directive')
+            scope.bookmarks = bookmarks,
+            console.log($templateCache.info());// смотрим сколько темплейтов(шаблонов) в кеше
+        },
+        templateUrl: 'bookmark.html'
+    }
+})
+
+// ================================================
