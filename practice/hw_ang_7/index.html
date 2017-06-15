@@ -1,13 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app">
     <head>
         <meta charset="utf-8">
         <title></title>
     </head>
     <body>
-        <div class="" foo>
-
+        <div foo>foo</div>
+/----------------//-------------//------------
+        <div class="" ng-controller="main1Ctrl as main1Ctrl">
+            {{main1Ctrl.money1 | moneyFilter}}
+            {{main1Ctrl.money2 | moneyFilter}}
+            {{main1Ctrl.money3 | moneyFilter}}
         </div>
+//-------------------///-------------------------
+        <div class="" foo-bar>fooBar</div>
+        <foo-bar>fooBar2</foo-bar>
+        <div class="foo-bar">fooBar3</div>
+        <!-- directive: foo-bar -->
+//-----------------------//-----------------------
+    <foo-tree></foo-tree>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js" charset="utf-8"></script>
         <script src="js/script.js" charset="utf-8"></script>
     </body>
