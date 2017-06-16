@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <div class="" ng-controller="mainCtrl as mainCtrl">
+            <foo-home></foo-home>
+        </div>
+        //-------///===========--
+        <div class="" ng-controller="main1Ctrl as main1Ctrl">
+            This is ctrl name: {{main1Ctrl.name}}
+            <foo-tree></foo-tree>
+        </div>
+//------------------//------------------------------------------
+    <div class="" ng-controller="main2Ctrl as main2Ctrl">
+        <div>My ctrl name is {{main2Ctrl.name}}</div>
+        <div>My ctrl color is {{main2Ctrl.color}}</div>
+        <div class="">
+            <button ng-click="main2Ctrl.reverse()">Reverse name</button>
+        </div>
+        ======================
+        <wood name="{{main2Ctrl.name}}" color="main2Ctrl.color" reverse="main2Ctrl.reverse()"></wood> <!-- все что описано в scope в return должно быть описано тут -->
+    </div>
+//------------------------------------------------------------
+<div class="">
+    My form here
+</div>
+    <form wrap-in="red">
+        <div class="">
+            <label>Email:</label>
+            <input type="text" placeholder="Place your email">
+        </div>
+        <div class="">
+            <label>Password:</label>
+            <input type="password" placeholder="Enter your password">
+        </div>
+        <button type="button" name="button">Submit</button>
+    </form>
+    <script type="text/ng-template" id="red">
+        <div class="red"></div>
+    </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js" charset="utf-8"></script>
+        <script src="js/script.js" charset="utf-8"></script>
+    </body>
+</html>
