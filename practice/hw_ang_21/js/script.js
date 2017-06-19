@@ -33,7 +33,7 @@ app.run(function($rootScope) {
 })
 
 app.controller('pathCtrl', function() {
-    
+    console.log('pathCtrl');
 })
 
 app.controller('workCtrl', function($scope, postsFactory) {
