@@ -28,7 +28,12 @@ app.run(function($rootScope) {
     })
     $rootScope.$on('$routeChangeSuccess', function(event, current, previous, reject) {
         console.log('changesuccess', arguments);
+        $rootScope.currentPath = current.$route.originalPath
     })
+})
+
+app.controller('pathCtrl', function() {
+    
 })
 
 app.controller('workCtrl', function($scope, postsFactory) {

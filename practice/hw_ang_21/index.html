@@ -12,6 +12,10 @@
         <a href="#!/">Home</a>
         <a href="#!/work">Work</a>
         <ng-view></ng-view>
+
+        <div class="" ng-controller="pathCtrl">
+            Current Path is {{currentPath}}
+        </div>
         <script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js" charset="utf-8"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js" charset="utf-8"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
