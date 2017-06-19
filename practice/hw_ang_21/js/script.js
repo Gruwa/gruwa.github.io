@@ -21,6 +21,16 @@ app.config(function ($routeProvider) {
     })
 })
 
+app.run(function($rootScope) {
+    console.log('run');
+    $rootScope.$on('$routeChangeStart', function(event, current, previous, reject) {
+        console.log('changestart', arguments);
+    })
+    $rootScope.$on('$routeChangeSuccess', function(event, current, previous, reject) {
+        console.log('changesuccess', arguments);
+    })
+})
+
 app.controller('workCtrl', function($scope, postsFactory) {
     console.log('workCtrl');
     $scope.model = {
