@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" type="text/css" href="style/ng-cloak.css">
+    </head>
+    <body ng-cloak> <!--  ng-cloak -позволяет не мигать контенту пока загрузится ангулярб не заабываем про файл CSS! -->
+        <div class="" ng-bind="{{1+1}}">
+<!--  ng-bind - выводит значение после того только как оно изменитьсяб тоже предотвращает мигание, но не очень удобно писать так, проще клоак-->
+        </div>
+        <a href="#!/">Home</a>
+        <a href="#!/work">Work</a>
+        <ng-view></ng-view>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js" charset="utf-8"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+        <script src="js/script.js" charset="utf-8"></script>
+    </body>
+</html>
