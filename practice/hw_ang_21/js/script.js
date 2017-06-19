@@ -22,10 +22,11 @@ app.config(function ($routeProvider) {
 })
 
 app.controller('workCtrl', function($scope, postsFactory) {
-    console.log('workCtrl', postsFactory);
+    console.log('workCtrl');
     $scope.model = {
         message: 'GO HOME!!!'
     }
+    $scope.posts = postsFactory
 })
 
 app.controller('homeCtrl', function($scope) {
