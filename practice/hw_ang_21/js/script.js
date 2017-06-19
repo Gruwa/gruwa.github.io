@@ -26,9 +26,9 @@ app.run(function($rootScope) {
     $rootScope.$on('$routeChangeStart', function(event, current, previous, reject) {
         console.log('changestart', arguments);
     })
-    $rootScope.$on('$routeChangeSuccess', function(event, current, previous, reject, $route) {
+    $rootScope.$on('$routeChangeSuccess', function(event, current, previous, reject) {
         console.log('changesuccess', arguments);
-        $rootScope.currentPath = current.$route.originalPath
+        $rootScope.currentPath = current.$$route.originalPath
     })
 })
 
