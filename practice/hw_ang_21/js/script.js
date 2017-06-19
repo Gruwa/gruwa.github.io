@@ -33,8 +33,10 @@ app.controller('homeCtrl', function($scope) {
     console.log('homeCtrl');
 })
 
-app.controller('workPostCtrl', function($scope, $routeParams) {
+app.controller('workPostCtrl', function($scope, $routeParams, postsFactory) {
     console.log($routeParams.postId);
+    let postId = Number($routeParams.postId) //приводим к числу айдишник полученный из строки, url-a
+    $scope.post = _.findWhere(postsFactory, {id:postId}) // ищем 1 элемент массива, для этого лодешем функцией _.findWhere в которую передается массив 1 параметром - где будем искать, вторым обект с ключем по которому будем искать
 })
 
 app.factory('postsFactory', function() {
