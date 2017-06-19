@@ -5,7 +5,7 @@ app.config(function ($routeProvider) {
     .when('/', {
     //   template: '<h1>This is my home page</h1>'
     templateUrl: 'html/home.html',
-    // controller: 'homeCtrl'
+    controller: 'homeCtrl'
     })
     .when('/work', {
       templateUrl: 'html/work.html',
@@ -17,7 +17,7 @@ app.config(function ($routeProvider) {
         controller: 'workPostCtrl'
     })
     .otherwise({
-        template: '404 no such page'
+        template: 'h1>404 no such page</h1>'
     })
 })
 
@@ -26,6 +26,10 @@ app.controller('workCtrl', function($scope) {
     $scope.model = {
         message: 'GO HOME!!!'
     }
+})
+
+app.controller('homeCtrl', function($scope) {
+    console.log('homeCtrl');
 })
 
 app.controller('workPostCtrl', function($scope, $routeParams) {
