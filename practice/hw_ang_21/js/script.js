@@ -17,7 +17,7 @@ app.config(function ($routeProvider) {
         controller: 'workPostCtrl'
     })
     .otherwise({
-        template: 'h1>404 no such page</h1>'
+        template: '<h1>404 no such page</h1>'
     })
 })
 
