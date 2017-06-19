@@ -21,8 +21,8 @@ app.config(function ($routeProvider) {
     })
 })
 
-app.controller('workCtrl', function($scope) {
-    console.log('workCtrl');
+app.controller('workCtrl', function($scope, postsFactory) {
+    console.log('workCtrl', postsFactory);
     $scope.model = {
         message: 'GO HOME!!!'
     }
@@ -34,4 +34,25 @@ app.controller('homeCtrl', function($scope) {
 
 app.controller('workPostCtrl', function($scope, $routeParams) {
     console.log($routeParams.postId);
+})
+
+app.factory('postsFactory', function() {
+    return [
+        {
+            id: 1,
+            name: 'post about cat'
+        },
+        {
+            id: 2,
+            name: 'post about dog'
+        },
+        {
+            id: 3,
+            name: 'post about mouse'
+        },
+        {
+            id: 4,
+            name: 'post about tree'
+        }
+    ]
 })
