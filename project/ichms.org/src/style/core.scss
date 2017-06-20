@@ -1,0 +1,16 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $body--bc;
+    height: 100%;
+    width: 100%;
+}
+
+
+.clearfix::after {
+    clear: both;
+    content: '';
+    display: block;
+}
