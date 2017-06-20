@@ -143,3 +143,14 @@ button:focus,
 input:focus {
     outline: none;
 }
+
+.clearfix::after {
+    clear: both;
+    content: '';
+    display: block;
+}
+
+// angular
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none;
+}

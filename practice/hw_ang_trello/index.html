@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" href="style/normalize.css">
+        <link rel="stylesheet" href="style/foundation.min.css">
+        <link rel="stylesheet" href="style/trello.css">
+    </head>
+    <body ng-cloak>
+        <header>
+            <div class="row">
+                <h1 class="app-name left">Trello</h1>
+            </div>
+        </header>
+
+        <section id="lists-container" class="lists-container" ng-controller="listsCtrl as listsCtrl">
+            <div class="row">
+                <section class="list list-inline" ng-repeat="list in listsCtrl.lists" ng-controller="listCtrl as listCtrl">
+                    <h1>{{list.listName}}</h1>
+
+                    <div class="card"
+                        ng-repeat="card in listCtrl.getCards(list)"
+                        ng-controller="cardCtrl as cardCtrl">
+                            <div class="" ng-if="!cardCtrl.isEditing">
+                                {{card.description}}
+                                <div class="edit-small edit-card hand" ng-click="cardCtrl.editCard(card)">
+                                </div>
+                                <div class="remove-small remove-card hand" ng-click="cardCtrl.deleteCard(card)">
+                                </div>
+                            </div>
+                            <div class="" ng-if="cardCtrl.isEditing">
+                                <form class="" ng-submit="cardCtrl.updateCard(card)">
+                                    <input type="text" ng-model="cardCtrl.editingCard.description" close-editing is-editing="cardCtrl.isEditing">
+                                    <select class="select-list" ng-model="cardCtrl.editingCard.list_id" ng-change="cardCtrl.updateCard()" ng-options="list.id as list.listName for list in listsCtrl.lists">
+                                        <option value="">-- choose list --</option>
+                                    </select>
+                                </form>
+                            </div>
+                    </div>
+
+                    <a ng-click="listCtrl.removeList(list)" class="hand">
+                        <div class="remove remove-list"></div>
+                    </a>
+                    <section class="new-card">
+                        <form ng-submit="listCtrl.createCard(list)">
+                            <input type="text" ng-model="listCtrl.cardDescription" class="card-input" placeholder="New card">
+                        </form>
+                    </section>
+                </section>
+
+                <section class="list new-list list-inline">
+                    <form class="" ng-submit="listsCtrl.addList()">
+                        <input type="text" ng-model="listsCtrl.listName">
+                    </form>
+                </section>
+            </div>
+        </section>
+        <script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js" charset="utf-8"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js" charset="utf-8"></script>
+
+        <script src="js/app.js" charset="utf-8"></script>
+        <script src="js/ctrl/listsCtrl.js" charset="utf-8"></script>
+        <script src="js/ctrl/listCtrl.js" charset="utf-8"></script>
+        <script src="js/ctrl/cardCtrl.js" charset="utf-8"></script>
+        <script src="js/directive/closeEditing.js" charset="utf-8"></script>
+        <script src="js/factory/listFactory.js" charset="utf-8"></script>
+        <script src="js/factory/cardFactory.js" charset="utf-8"></script>
+    </body>
+</html>
