@@ -1,11 +1,85 @@
 .header {
-    // background-image: url('../img/header--img__mobile.jpg');
     background-repeat: no-repeat;
     color: $header--text-col;
-    font-family: montserratbold, sans-serif;
+    font-family: 'Proxima Nova Rg', sans-serif;
     margin: 0 auto;
-    max-width: 320px;
-    padding-top: 21px;
+    max-width: 1450px;
     text-align: center;
+    position: relative;
+
+    &--background {
+        max-width: 1450px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+
+    &--menu {
+        margin: 0 auto;
+        max-width: 1290px;
+        padding: 40px 30px 0;
+    }
+
+    &--logo {
+        width: 150px;
+        height: 150px;
+        background-color: grey;
+        float: left;
+    }
+
+    &--nav {
+        float: right;
+        margin-top: 10px;
+
+    }
+
+    &--list {
+        display: inline-block;
+        margin-left: 30px;
+        & a {
+            font-weight: bold;
+            font-size: 13px;
+            color: white;
+
+            &:hover {
+                color: rgb(153, 204, 255);
+            }
+
+        }
+    }
+
+    &--title {
+        font-family: 'Brandon Grotesque', sans-serif;
+        font-weight: 900;
+        font-size: 90px;
+        margin-top: 160px;
+        letter-spacing: 10px;
+
+        & sup {
+            font-weight: 700;
+            font-size: 51px;
+            top: -25.5px;
+            position: relative;
+        }
+    }
+
+    &--button {
+        background-color: rgba(38, 147, 255, .5);
+        border: 0;
+        cursor: pointer;
+        padding: 15px 10px;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 1px;
+        color: white;
+        margin-top: 40px;
+        border-radius: 10px;
+        margin-bottom: 174px;
+
+        &:hover {
+        background-color: rgba(38, 147, 255, .7);
+        }
+    }
 
 }

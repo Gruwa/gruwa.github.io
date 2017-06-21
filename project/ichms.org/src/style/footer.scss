@@ -1,3 +1,70 @@
 .footer {
+    color: $header--text-col;
+    font-family: 'Proxima Nova Rg', sans-serif;
+    margin: 0 auto;
+    max-width: 1450px;
+    text-align: left;
+    border-top: 4px solid rgb(142,194,83);
+    margin-top: 30px;
 
+    &--menu {
+        margin: 40px auto 0;
+        max-width: 1300px;
+    }
+
+    &--title {
+        font-family: 'Brandon Grotesque', sans-serif;
+        font-weight: 900;
+        font-size: 40px;
+        color: red;
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    &--nav {
+        display: inline-block;
+        margin-left: 90px;
+        font-size: 14px;
+        margin-top: 17px;
+        vertical-align: top;
+
+        & p {
+            color: black;
+            font-weight: 600;
+            line-height: 17px;
+            margin-bottom: 5px;
+        }
+
+        & a {
+            color: rgba(0, 0, 0, .77);
+            font-weight: lighter;
+
+            &:hover {
+                color: rgba(0, 0, 0, 1);
+            }
+        }
+    }
+
+    &--lists {
+        line-height: 17px;
+    }
+
+    &--contacts {
+        vertical-align: top;
+    }
+
+    &--support {
+        text-align: center;
+        font-size: 15px;
+        color: black;
+        margin: 25px 0;
+
+        & a {
+            color: rgba(0, 0, 0, .77);
+
+            &:hover {
+                color: rgba(0, 0, 0, 1);
+            }
+        }
+    }
 }
