@@ -1,6 +1,6 @@
 .info {
     box-sizing: border-box;
-    color: $header--text-col;
+    color: $info--text-col2;
     font-family: montserratbold, sans-serif;
     margin: 0 auto;
     max-width: 320px;
@@ -9,13 +9,13 @@
     padding-top: 37px;
     text-align: center;
 
-    &--title {
+    &__title {
         color: $info--text-col;
         font-size: 22px;
     }
 
-    &--step {
-        background-image: url('../img/step--step1__mobile.png');
+    &__step {
+        background-image: url('../img/step__step1--mobile.png');
         background-repeat: no-repeat;
         margin: 16px auto 0;
         max-width: 301px;
@@ -24,13 +24,13 @@
         text-align: left;
     }
 
-    &--step__2 {
-        background-image: url('../img/step--step2__mobile.png');
+    &__step--2 {
+        background-image: url('../img/step__step2--mobile.png');
         margin: 10px auto 0;
         padding-bottom: 2px;
         padding-top: 99px;
 
-        .info--text {
+        .info__text {
             letter-spacing: .1px;
             line-height: 16.7px;
             margin-top: 9px;
@@ -38,14 +38,14 @@
         }
     }
 
-    &--step__3 {
-        background-image: url('../img/step--step3__mobile.png');
+    &__step--3 {
+        background-image: url('../img/step__step3--mobile.png');
         margin: 10px auto 0;
         padding-top: 69px;
     }
 
-    &--stepNum {
-        background-color: $header--bc;
+    &__stepNum {
+        background-color: $info--bc;
         border-radius: 20px;
         color: $info--text-col2;
         font-family: montserratregular, sans-serif;
@@ -56,7 +56,7 @@
         text-transform: uppercase;
     }
 
-    &--tagline {
+    &__tagline {
         color: $info--text-col2;
         font-size: 24px;
         line-height: 28.8px;
@@ -64,7 +64,7 @@
 
     }
 
-    &--text {
+    &__text {
         color: $info--text-col3;
         font-family: robotolight, sans-serif;
         font-size: 14px;
@@ -74,7 +74,7 @@
         padding-right: 5px;
     }
 
-    &--bxslider {
+    &__bxslider {
         display: none;
     }
 }

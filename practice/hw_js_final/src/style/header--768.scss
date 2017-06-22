@@ -1,28 +1,28 @@
 .header {
-    background-image: url('../img/header--img__768.jpg');
+    background-image: url('../img/header__img--768.jpg');
     max-width: 768px;
     padding-top: 38px;
     box-sizing: border-box;
 
-    &--authorization {
+    &__authorization {
         float: right;
         margin-right: 41px;
     }
 
-    &--name {
+    &__name {
         margin-left: 48px;
         margin-top: 10px;
         text-align: left;
     }
 
-    &--tagline {
+    &__tagline {
         font-size: 52px;
         line-height: 62.4px;
         margin-top: 148px;
         padding: 0 87px;
     }
 
-    &--text {
+    &__text {
         font-family: robotolight, sans-serif;
         font-size: 24px;
         line-height: 28.8px;
@@ -31,7 +31,7 @@
 
     }
 
-    &--search {
+    &__search {
         margin-bottom: 233px;
         margin-left: -3px;
         padding: 12px 23px;

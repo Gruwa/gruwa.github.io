@@ -1,17 +1,18 @@
-@media screen and (min-width:768px) {
-    @import 'header__768';
-    @import 'info__768';
-    @import 'partners__768';
-    @import 'activity__768';
-    @import 'masonry__768';
-    @import 'footer__768';
+
+@media screen and (min-width:321px) {
+    @import 'header--768';
+    @import 'info--768';
+    @import 'partners--768';
+    @import 'activity--768';
+    @import 'masonry--768';
+    @import 'footer--768';
 }
 
-@media screen and (min-width:1440px) {
-    @import 'header__1440';
-    @import 'info__1440';
-    @import 'partners__1440';
-    @import 'activity__1440';
-    @import 'masonry__1440';
-    @import 'footer__1440';
+@media screen and (min-width:768px) {
+    @import 'header--1440';
+    @import 'info--1440';
+    @import 'partners--1440';
+    @import 'activity--1440';
+    @import 'masonry--1440';
+    @import 'footer--1440';
 }

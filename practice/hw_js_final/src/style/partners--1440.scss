@@ -2,17 +2,17 @@
     max-width: 1440px;
     padding-top: 93px;
 
-    &--title {
+    &__title {
         letter-spacing: 0;
         margin-left: -5px;
     }
 
-    &--template__in {
+    &__template--in {
         margin: 32px auto 0;
         max-width: 930px;
     }
 
-    &--template {
+    &__template {
         margin-right: 35px;
         max-width: 206px;
 
@@ -21,15 +21,15 @@
         }
     }
 
-    &--photo {
+    &__photo {
         margin: 0 auto 22px;
     }
 
-    &--see {
+    &__see {
         margin-top: 26px;
     }
 
-    &--text {
+    &__text {
         margin-left: 0;
         margin-right: 0;
         margin-top: 13px;

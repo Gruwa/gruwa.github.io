@@ -2,44 +2,44 @@
     max-width: 768px;
     padding: 96px 10px 0;
 
-    &--title {
+    &__title {
         margin-bottom: 36px;
         margin-left: 6px;
     }
 
-    &--step__320 {
+    &__step--320 {
         display: none;
     }
 
-    &--bxslider {
+    &__bxslider {
         display: block;
     }
 
-    &--list {
+    &__list {
         position: relative;
     }
 
-    &--img__1440 {
+    &__img--1440 {
         display: none !important;
     }
 
-    &--stepNum {
+    &__stepNum {
         font-size: 10px;
         letter-spacing: 2px;
         padding: 5px 15px;
         padding-right: 12px;
         text-transform: uppercase;
 
-        &__768 {
+        &--768 {
             left: 19px;
             position: absolute;
             top: 213px;
         }
     }
 
-    &--tagline {
+    &__tagline {
 
-        &__768 {
+        &--768 {
             color: $info--text-col2;
             font-size: 24px;
             line-height: 28.8px;
@@ -49,9 +49,9 @@
         }
     }
 
-    &--text {
+    &__text {
 
-        &__768 {
+        &--768 {
             bottom: 19px;
             color: $info--text-col3;
             font-family: robotolight, sans-serif;
@@ -79,12 +79,12 @@
     }
 
     .bx-prev {
-        background: url('./../img/info--control.png') no-repeat 0 0;
+        background: url('./../img/info__control.png') no-repeat 0 0;
         left: 18px;
     }
 
     .bx-next {
-        background: url('./../img/info--control.png') no-repeat -32px 0;
+        background: url('./../img/info__control.png') no-repeat -32px 0;
         right: 18px;
     }
 

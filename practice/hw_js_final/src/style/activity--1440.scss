@@ -2,25 +2,25 @@
     max-width: 1440px;
     padding: 98px 10px 0;
 
-    &--title {
+    &__title {
         margin-left: -3px;
     }
 
-    &--text {
+    &__text {
         margin-left: 52px;
         margin-top: 37px;
     }
 
-    &--search {
+    &__search {
         margin-left: 53px;
         width: 224px;
     }
 
-    &--button {
+    &__button {
         margin-left: 6px;
     }
 
-    &--title__footer {
+    &__title--footer {
         margin-left: 51px;
     }
 }

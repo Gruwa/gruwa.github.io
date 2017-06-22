@@ -3,7 +3,7 @@
     text-align: left;
     padding-top: 37px;
 
-    &--title {
+    &__title {
         letter-spacing: 1px;
         margin-top: 0;
         margin-left: 40px;
@@ -11,32 +11,32 @@
         vertical-align: top;
     }
 
-    &--menu {
+    &__menu {
         display: inline-block;
         margin-left: 78px;
     }
 
-    &--company {
+    &__company {
         margin-top: 0;
     }
 
-    &--nav {
+    &__nav {
         margin-bottom: 0;
         margin-top: 17px;
     }
 
-    &--list {
+    &__list {
         margin-bottom: 11px;
         display: block;
     }
 
-    &--partners {
+    &__partners {
         display: inline-block;
         margin-left: 100px;
         vertical-align: top;
     }
 
-    &--logo {
+    &__logo {
         display: inline-block;
         margin-left: 115px;
         margin-top: 2px;

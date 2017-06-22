@@ -7,22 +7,22 @@
     padding: 38px 10px 0;
     text-align: center;
 
-    &--title {
+    &__title {
         font-size: 22px;
         margin-bottom: 18px;
 
-        &__footer {
+        &--footer {
             margin-top: 40px;
         }
     }
 
-    &--text {
+    &__text {
         font-family: robotolight, sans-serif;
         font-size: 18px;
         margin-bottom: 16px;
     }
 
-    &--search {
+    &__search {
         background-color: $activity--bc;
         border: 1px solid $activity--search-border;
         border-radius: 4px;
@@ -35,7 +35,7 @@
         padding-left: 13px;
     }
 
-    &--button {
+    &__button {
         background-color: $activity--but-bc;
         border: 0;
         border-radius: 20px;
@@ -44,7 +44,6 @@
         font-family: montserratbold, sans-serif;
         font-size: 14px;
         height: 40px;
-        margin-bottom: 40px;
         max-width: 280px;
         text-align: center;
     }

@@ -23,7 +23,7 @@ module.exports = function activityScript() {
         //     debugger
         // }
 
-        let $html = $('#activity--bar-out').html();
+        let $html = $('#activity__bar-out').html();
         let $dataTmpl = {
             $data: $data
         };
@@ -52,7 +52,7 @@ module.exports = function activityScript() {
     }
 
     function insertImages($SearchContent) {
-        let $grid = $('#activity--bar-in');
+        let $grid = $('#activity__bar-in');
 
         $grid.hide();
         $grid.html($SearchContent);
@@ -75,21 +75,16 @@ module.exports = function activityScript() {
     $(function() {
         'use strict';
 
-        // if (NODE_ENV === 'development') {
-        //     debugger
-        // }
-
-
         getPhotos($value);
 
         $('form').submit(function(event) {
-            // if (NODE_ENV === 'development') {
-            //             debugger
-            // }
+            if (NODE_ENV === 'development') {
+                        debugger
+            }
             event.preventDefault();
-            $value = $('#activity--search').val();
+            $value = $('#activity__search').val();
             getPhotos($value);
-            $('#activity--search').val('');
+            $('#activity__search').val('');
         });
     })
 }
