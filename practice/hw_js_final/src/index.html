@@ -141,9 +141,10 @@
         </footer>
         <script type="text/tmpl" id="activity--bar-out">
         <% let $array = $data.hits;
-        for (let i = 0; i < $array.length; i++) {%>
-                <div class="grid-item"><img class="grid--img" src="<%=$array[i].webformatURL%>" alt=""><span class="grid--text">Travelling</span></div>
-        <%}%>
+        for (let i = 0; i < $array.length; i++) {%><div class="grid-item">
+                    <img class="grid--img" src="<%=$array[i].webformatURL%>" alt="">
+                    <span class="grid--text">Travelling</span>
+                </div><%}%>
         </script>
         <script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js" charset="utf-8"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

@@ -144,6 +144,18 @@ input:focus {
   outline: none;
 }
 
+.clearfix::after {
+  clear: both;
+  content: '';
+  display: block;
+}
+
+[ng\:cloak],
+[ng-cloak],
+.ng-cloak {
+  display: none;
+}
+
 @font-face {
   font-family: 'montserratbold';
   src: url(js/./../font/montserrat-bold-webfont.eot?1a59e03c60e0807e3394434b01faaf61);
@@ -1249,3 +1261,4 @@ body {
     margin-top: 1px;
   }
 }
+/*# sourceMappingURL=style.css.map*/
