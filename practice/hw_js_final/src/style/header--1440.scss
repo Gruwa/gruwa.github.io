@@ -2,16 +2,9 @@
     background-image: url('../img/header__img--1440.jpg');
     max-width: 1440px;
 
-    &__authorization {
-        margin-right: 243px;
-    }
-
-    &__name {
-        margin-left: 249px;
-    }
-
-    &__tagline {
-        padding: 0 424px;
+    &__top {
+        margin-top: 10px;
+        max-width: 940px;
     }
 
     &__text {

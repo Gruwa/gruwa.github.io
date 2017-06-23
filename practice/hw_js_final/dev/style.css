@@ -1120,16 +1120,9 @@ body {
     max-width: 1440px;
   }
 
-  .header__authorization {
-    margin-right: 243px;
-  }
-
-  .header__name {
-    margin-left: 249px;
-  }
-
-  .header__tagline {
-    padding: 0 424px;
+  .header__top {
+    margin-top: 10px;
+    max-width: 940px;
   }
 
   .header__text {
@@ -1292,3 +1285,4 @@ body {
     margin-top: 1px;
   }
 }
+/*# sourceMappingURL=style.css.map*/
