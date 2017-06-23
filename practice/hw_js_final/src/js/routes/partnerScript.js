@@ -9,9 +9,9 @@ module.exports = function partnerScript() {
     let tv = require('./../../img/svg/partners__tv.svg')
 
     $(function() {
-        if (NODE_ENV === 'development') {
-            debugger
-        }
+        // if (NODE_ENV === 'development') {
+        //     debugger
+        // }
 
         let $jsData = JSON.parse(serverData);
         let $html = partnerHtml;

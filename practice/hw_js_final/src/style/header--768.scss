@@ -3,36 +3,58 @@
     max-width: 768px;
     padding-top: 38px;
     box-sizing: border-box;
+    height: 700px;
+
+    &__top {
+        margin-top: 10px;
+        max-width: 668px;
+    }
 
     &__authorization {
         float: right;
-        margin-right: 41px;
     }
 
-    &__name {
-        margin-left: 48px;
-        margin-top: 10px;
+    &__singUp {
+        margin: 0;
+    }
+
+    &__title {
         text-align: left;
+        margin-top: 0;
     }
 
     &__tagline {
         font-size: 52px;
         line-height: 62.4px;
-        margin-top: 148px;
-        padding: 0 87px;
+        padding: 0;
+
+        &--line1 {
+            margin: 148px auto 0;
+        }
+
+        &--line2 {
+            margin: 0 auto 23px;
+        }
+
     }
 
     &__text {
         font-family: robotolight, sans-serif;
         font-size: 24px;
         line-height: 28.8px;
-        margin: 23px 0 34px;
         margin-left: -3px;
 
+        &--320 {
+            display: none;
+        }
+
+        &--768 {
+            display: block;
+        }
     }
 
     &__search {
-        margin-bottom: 233px;
+        margin-top: 34px;
         margin-left: -3px;
         padding: 12px 23px;
     }

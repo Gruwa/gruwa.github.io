@@ -524,8 +524,12 @@ body {
   max-width: 320px;
   padding-top: 21px;
   text-align: center;
-  height: 539px;
+  height: 540px;
   box-sizing: border-box;
+}
+
+.header__top {
+  margin: 0 auto;
 }
 
 .header__logIn,
@@ -547,7 +551,7 @@ body {
   border-radius: 20px;
 }
 
-.header__name {
+.header__title {
   font-size: 20px;
   letter-spacing: 1px;
   margin-top: 117px;
@@ -566,6 +570,10 @@ body {
   font-family: robotolight, sans-serif;
   font-size: 18px;
   line-height: 21.6px;
+}
+
+.header__text--768 {
+  display: none;
 }
 
 .header__search {
@@ -845,36 +853,58 @@ body {
     max-width: 768px;
     padding-top: 38px;
     box-sizing: border-box;
+    height: 700px;
+  }
+
+  .header__top {
+    margin-top: 10px;
+    max-width: 668px;
   }
 
   .header__authorization {
     float: right;
-    margin-right: 41px;
   }
 
-  .header__name {
-    margin-left: 48px;
-    margin-top: 10px;
+  .header__singUp {
+    margin: 0;
+  }
+
+  .header__title {
     text-align: left;
+    margin-top: 0;
   }
 
   .header__tagline {
     font-size: 52px;
     line-height: 62.4px;
-    margin-top: 148px;
-    padding: 0 87px;
+    padding: 0;
+  }
+
+  .header__tagline--line1 {
+    margin: 148px auto 0;
+  }
+
+  .header__tagline--line2 {
+    margin: 0 auto 23px;
   }
 
   .header__text {
     font-family: robotolight, sans-serif;
     font-size: 24px;
     line-height: 28.8px;
-    margin: 23px 0 34px;
     margin-left: -3px;
   }
 
+  .header__text--320 {
+    display: none;
+  }
+
+  .header__text--768 {
+    display: block;
+  }
+
   .header__search {
-    margin-bottom: 233px;
+    margin-top: 34px;
     margin-left: -3px;
     padding: 12px 23px;
   }
@@ -1262,4 +1292,3 @@ body {
     margin-top: 1px;
   }
 }
-/*# sourceMappingURL=style.css.map*/

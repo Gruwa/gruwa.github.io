@@ -7,8 +7,12 @@
     max-width: 320px;
     padding-top: 21px;
     text-align: center;
-    height: 539px;
+    height: 540px;
     box-sizing: border-box;
+
+    &__top {
+        margin: 0 auto;
+    }
 
     &__logIn,
     &__singUp {
@@ -28,7 +32,7 @@
         }
     }
 
-    &__name {
+    &__title {
         font-size: 20px;
         letter-spacing: 1px;
         margin-top: 117px;
@@ -47,6 +51,10 @@
         font-family: robotolight, sans-serif;
         font-size: 18px;
         line-height: 21.6px;
+
+        &--768 {
+            display: none;
+        }
     }
 
     &__search {
