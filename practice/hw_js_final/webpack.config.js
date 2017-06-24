@@ -19,7 +19,7 @@ module.exports = {
     },
 
     output: {
-        path: __dirname + '/dev/js',
+        path: __dirname + '/build/js',
         publicPath: 'js/',
         filename: '[name].js',
         // library:  'script'
@@ -134,7 +134,7 @@ module.exports = {
             new ExtractTextPlugin('../style.css'),
             new CopyWebpackPlugin([{ from: './img/server', to: '../img' }]),
             new CopyWebpackPlugin([{ from: './index.html', to: '../' }]),
-            // new CleanWebpackPlugin(__dirname + '/dev' ),
+            // new CleanWebpackPlugin(__dirname + '/build' ),
             new webpack.HotModuleReplacementPlugin(),
             new webpack.optimize.CommonsChunkPlugin({
                 name: 'common',
@@ -158,7 +158,7 @@ module.exports = {
     devServer: {// webpack-dev-server --inline --hot
         host: 'localhost',
         port: 8080,
-        contentBase: __dirname + '/dev',
+        contentBase: __dirname + '/build',
         hot: true
     }
 };
