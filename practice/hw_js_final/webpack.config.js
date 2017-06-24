@@ -133,7 +133,7 @@ module.exports = {
               NODE_ENV: JSON.stringify(NODE_ENV)
             }),
             new webpack.NoEmitOnErrorsPlugin(),
-            new ExtractTextPlugin('./style.css'),
+            new ExtractTextPlugin('./style/style.css'),
             new CopyWebpackPlugin([{ from: './img/server', to: './img' }]),
             new CopyWebpackPlugin([{ from: './index.html', to: './' }]),
             // new CleanWebpackPlugin(__dirname + '/build' ),
