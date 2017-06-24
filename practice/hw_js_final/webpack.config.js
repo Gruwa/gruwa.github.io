@@ -14,14 +14,16 @@ module.exports = {
     context: path.resolve(__dirname, config.root.src),
 
     entry: {
-        script: "./js/script",
-        common: './js/common'
+        script: './js/script',
+        common: './js/common',
+        html: './index.html',
+        style: './style/style.scss'
     },
 
     output: {
-        path: __dirname + '/build/js',
-        publicPath: 'js/',
-        filename: '[name].js',
+        path: __dirname + '/build',
+        publicPath: '/',
+        filename: 'js/[name].js',
         // library:  'script'
     },
 
@@ -61,7 +63,7 @@ module.exports = {
             {
                 test: /\.(png|jpg|gif)$/,
                 loaders: [
-                    'file-loader?name=./../img/[name].[ext]?[hash]', {
+                    'file-loader?name=./img/[name].[ext]?[hash]', {
                         loader: 'image-webpack-loader',
                         query: {
                             mozjpeg: {
@@ -84,7 +86,7 @@ module.exports = {
             },
             {
                 test: /\.(ttf|eot|woff|woff2)$/,
-                loader: 'file-loader?name=./../font/[name].[ext]?[hash]'
+                loader: 'file-loader?name=./font/[name].[ext]?[hash]'
             }
         ]
     },
@@ -131,9 +133,9 @@ module.exports = {
               NODE_ENV: JSON.stringify(NODE_ENV)
             }),
             new webpack.NoEmitOnErrorsPlugin(),
-            new ExtractTextPlugin('../style.css'),
-            new CopyWebpackPlugin([{ from: './img/server', to: '../img' }]),
-            new CopyWebpackPlugin([{ from: './index.html', to: '../' }]),
+            new ExtractTextPlugin('./style/style.css'),
+            new CopyWebpackPlugin([{ from: './img/server', to: './img' }]),
+            new CopyWebpackPlugin([{ from: './index.html', to: './' }]),
             // new CleanWebpackPlugin(__dirname + '/build' ),
             new webpack.HotModuleReplacementPlugin(),
             new webpack.optimize.CommonsChunkPlugin({
