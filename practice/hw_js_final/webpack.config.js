@@ -14,9 +14,10 @@ module.exports = {
     context: path.resolve(__dirname, config.root.src),
 
     entry: {
-        script: "./js/script",
+        script: './js/script',
         common: './js/common',
-        html: './index.html'
+        html: './index.html',
+        style: './style/style.scss'
     },
 
     output: {
