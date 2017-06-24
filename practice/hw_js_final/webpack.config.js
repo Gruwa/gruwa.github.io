@@ -63,7 +63,7 @@ module.exports = {
             {
                 test: /\.(png|jpg|gif)$/,
                 loaders: [
-                    'file-loader?name=/img/[name].[ext]?[hash]', {
+                    'file-loader?name=./img/[name].[ext]?[hash]', {
                         loader: 'image-webpack-loader',
                         query: {
                             mozjpeg: {
@@ -86,7 +86,7 @@ module.exports = {
             },
             {
                 test: /\.(ttf|eot|woff|woff2)$/,
-                loader: 'file-loader?name=font/[name].[ext]?[hash]'
+                loader: 'file-loader?name=./font/[name].[ext]?[hash]'
             }
         ]
     },
