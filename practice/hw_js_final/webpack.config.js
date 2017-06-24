@@ -22,7 +22,7 @@ module.exports = {
 
     output: {
         path: __dirname + '/build',
-        publicPath: './../',
+        // publicPath: './../',
         filename: 'js/[name].js',
         // library:  'script'
     },
