@@ -22,7 +22,7 @@ module.exports = {
 
     output: {
         path: __dirname + '/build',
-        publicPath: '/',
+        publicPath: 'https://gruwa.github.io/practice/hw_js_final/build/',
         filename: 'js/[name].js',
         // library:  'script'
     },
