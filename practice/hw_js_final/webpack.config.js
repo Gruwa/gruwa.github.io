@@ -3,8 +3,8 @@
 const NODE_ENV              = process.env.NODE_ENV || 'development';
 const webpack               = require('webpack');
 const path                  = require('path');
-const ExtractTextPlugin     = require("extract-text-webpack-plugin");
-const CopyWebpackPlugin     = require("copy-webpack-plugin");
+const ExtractTextPlugin     = require('extract-text-webpack-plugin');
+const CopyWebpackPlugin     = require('copy-webpack-plugin');
 const CleanWebpackPlugin    = require('clean-webpack-plugin');
 
 let config = require('./config');
@@ -99,7 +99,7 @@ module.exports = {
             path.join(__dirname, config.root.src, '/'),
             path.join(__dirname, config.root.src, '/js/routes')
         ],
-        extensions: [".js", ".json", ".jsx", ".css", '.scss', '.html', '.svg']
+        extensions: ['.js', '.json', '.jsx', '.css', '.scss', '.html', '.svg']
     },
 
     devtool: NODE_ENV == 'development' ? 'eval' : 'source-map',
@@ -113,14 +113,14 @@ module.exports = {
 
     externals: {
         lodash : {
-            commonjs: "lodash",
-            amd: "lodash",
-            root: "_"
+            commonjs: 'lodash',
+            amd: 'lodash',
+            root: '_'
         },
         jquery : {
-            commonjs: "jQuery",
-            amd: "jQuery",
-            root: "$"
+            commonjs: 'jQuery',
+            amd: 'jQuery',
+            root: '$'
         },
 
     },
@@ -136,7 +136,6 @@ module.exports = {
             new ExtractTextPlugin('./style/style.css'),
             new CopyWebpackPlugin([{ from: './img/server', to: './img' }]),
             new CopyWebpackPlugin([{ from: './index.html', to: './' }]),
-            // new CleanWebpackPlugin(__dirname + '/build' ),
             new webpack.HotModuleReplacementPlugin(),
             new webpack.optimize.CommonsChunkPlugin({
                 name: 'common',
@@ -146,6 +145,7 @@ module.exports = {
 
         if (NODE_ENV != 'development') {
             plugins.push(
+                new CleanWebpackPlugin(__dirname + '/build' ),
                 new webpack.optimize.UglifyJsPlugin({
                     compress: {
                         warnings: false
