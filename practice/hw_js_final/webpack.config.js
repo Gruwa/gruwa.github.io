@@ -14,10 +14,10 @@ module.exports = {
     context: path.resolve(__dirname, config.root.src),
 
     entry: {
-        script: './js/script',
-        common: './js/common',
-        html: './index.html',
-        style: './style/style.scss'
+        script: ['./js/script', './index.html', './style/style.scss'],
+        common: './js/common'
+        // html: './index.html',
+        // style: './style/style.scss'
     },
 
     output: {
@@ -160,7 +160,7 @@ module.exports = {
     devServer: {// webpack-dev-server --inline --hot
         host: 'localhost',
         port: 8080,
-        contentBase: __dirname + '/build',
+        contentBase: __dirname + '/scr',
         hot: true
     }
 };
