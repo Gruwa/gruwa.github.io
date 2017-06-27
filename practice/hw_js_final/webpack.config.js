@@ -161,6 +161,7 @@ module.exports = {
         host: 'localhost',
         port: 8080,
         contentBase: __dirname + '/scr',
-        hot: true
+        hot: true,
+        inline: true
     }
 };
