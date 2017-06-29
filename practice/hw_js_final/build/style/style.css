@@ -1062,10 +1062,13 @@ body {
     padding-top: 37px;
   }
 
+  .footer__wrapper {
+    max-width: 720px;
+  }
+
   .footer__title {
     letter-spacing: 1px;
     margin-top: 0;
-    margin-left: 40px;
     display: inline-block;
     vertical-align: top;
   }
@@ -1096,8 +1099,8 @@ body {
   }
 
   .footer__logo {
-    display: inline-block;
-    margin-left: 115px;
+    display: block;
+    float: right;
     margin-top: 2px;
     vertical-align: top;
   }
@@ -1248,8 +1251,8 @@ body {
     padding-top: 38px;
   }
 
-  .footer__title {
-    margin-left: 275px;
+  .footer__wrapper {
+    max-width: 950px;
   }
 
   .footer__menu {
@@ -1266,7 +1269,6 @@ body {
   }
 
   .footer__logo {
-    margin-left: 364px;
     margin-top: 1px;
   }
 }

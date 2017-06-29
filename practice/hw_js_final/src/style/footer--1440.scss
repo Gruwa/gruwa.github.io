@@ -2,8 +2,12 @@
     max-width: 1440px;
     padding-top: 38px;
 
+    &__wrapper {
+        max-width: 950px;
+    }
+
     &__title {
-        margin-left: 275px;
+
     }
 
     &__menu {
@@ -20,7 +24,6 @@
     }
 
     &__logo {
-        margin-left: 364px;
         margin-top: 1px;
     }
 }
