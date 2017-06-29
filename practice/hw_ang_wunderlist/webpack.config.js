@@ -41,7 +41,7 @@ module.exports = {
 
     output: {
         path: __dirname + '/build',
-        publicPath: NODE_ENV == 'development' ? '/' : '/',
+        publicPath: '/',
         filename: 'js/[name].js',
         // library:  'script'
     },
