@@ -162,7 +162,7 @@ input:focus {
 
 body {
   background-color: white;
-  background-image: url(/img/06.jpg?8f2e40cc42ebbb0eb47af5650fafe02f);
+  background-image: url(https://gruwa.github.io/practice/hw_js_final/build/img/06.jpg?8f2e40cc42ebbb0eb47af5650fafe02f);
   background-repeat: no-repeat;
   background-size: cover;
   font-family: "Lato", "Geneva CY", "Lucida Grande", "Arial Unicode MS", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
@@ -186,8 +186,10 @@ body {
   background-color: #fff;
   display: inline-block;
   width: 280px;
-  position: absolute;
-  min-height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
 }
 
 .sidebar__head {
@@ -250,3 +252,4 @@ body {
 .content--header {
   width: 100%;
 }
+/*# sourceMappingURL=style.css.map*/

@@ -2,8 +2,10 @@
     background-color: #fff;
     display: inline-block;
     width: 280px;
-    position: absolute;
-    min-height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
 
     &__head {
         background-color: rgb(91, 122, 89);
