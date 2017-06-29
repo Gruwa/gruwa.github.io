@@ -8,6 +8,28 @@ const CopyWebpackPlugin     = require('copy-webpack-plugin');
 const CleanWebpackPlugin    = require('clean-webpack-plugin');
 
 let config = require('./config');
+let {config: cssConfig, plugin: cssPlugin} = require('./webpack.css.config.js');
+let {config: imgConfig, plugin: imgPlugin} = require('./webpack.img.config.js');
+let {config: htmlConfig, plugin: htmlPlugin} = require('./webpack.html.config.js');
+let {config: svgConfig} = require('./webpack.svg.config.js');
+let {config: fontConfig} = require('./webpack.font.config.js');
+
+let rulesConfig = [
+    {
+        test: /\.js$/,
+        exclude: path.resolve(__dirname, "node_modules/"),
+        loader: 'babel-loader',
+        options: {
+            presets: [['es2015', {modules: false}]]
+        }
+    }
+];
+
+rulesConfig.push(cssConfig);
+rulesConfig.push(imgConfig);
+rulesConfig.push(htmlConfig);
+rulesConfig.push(svgConfig);
+rulesConfig.push(fontConfig);
 
 module.exports = {
 
@@ -28,67 +50,7 @@ module.exports = {
     },
 
     module: {
-        rules: [
-            {
-                test: /\.js$/,
-                exclude: path.resolve(__dirname, "node_modules/"),
-                loader: 'babel-loader',
-                options: {
-                    presets: [['es2015', {modules: false}]]
-                }
-            },
-            {
-                test: /\.scss$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: [ 'css-loader', 'resolve-url-loader', 'sass-loader' ]
-                })
-            },
-            {
-                test: /\.html$/,
-                use: [ {
-                        loader: 'html-loader',
-                        options: {
-                        minimize: true
-                    }
-                }],
-            },
-            {
-              test: /\.svg$/,
-              use: [
-                'svg-sprite-loader',
-                'svgo-loader'
-              ]
-            },
-            {
-                test: /\.(png|jpg|gif)$/,
-                loaders: [
-                    'file-loader?name=img/[name].[ext]?[hash]', {
-                        loader: 'image-webpack-loader',
-                        query: {
-                            mozjpeg: {
-                              progressive: true,
-                            },
-                            gifsicle: {
-                              interlaced: false,
-                            },
-                            optipng: {
-                              optimizationLevel: 4,
-                            },
-                            pngquant: {
-                              quality: '70-90',
-                              speed: 3,
-                            },
-                         },
-                }],
-                exclude: /node_modules/,
-                include: __dirname,
-            },
-            {
-                test: /\.(ttf|eot|woff|woff2)$/,
-                loader: 'file-loader?name=font/[name].[ext]?[hash]'
-            }
-        ]
+        rules: rulesConfig
     },
 
     resolve: {
@@ -133,9 +95,9 @@ module.exports = {
               NODE_ENV: JSON.stringify(NODE_ENV)
             }),
             new webpack.NoEmitOnErrorsPlugin(),
-            new ExtractTextPlugin('./style/style.css'),
-            new CopyWebpackPlugin([{ from: './img/server', to: './img' }]),
-            new CopyWebpackPlugin([{ from: './index.html', to: './' }]),
+            cssPlugin,
+            imgPlugin,
+            htmlPlugin,
             new webpack.HotModuleReplacementPlugin(),
             new webpack.optimize.CommonsChunkPlugin({
                 name: 'common',
