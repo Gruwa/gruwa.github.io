@@ -26,31 +26,16 @@
     &__tagline {
         font-size: 52px;
         line-height: 62.4px;
+        max-width: 490px;
         padding: 0;
-
-        &--line1 {
-            margin: 148px auto 0;
-        }
-
-        &--line2 {
-            margin: 0 auto 23px;
-        }
-
+        margin: 148px auto 23px;
     }
 
     &__text {
         font-family: robotolight, sans-serif;
         font-size: 24px;
         line-height: 28.8px;
-        margin-left: -3px;
-
-        &--320 {
-            display: none;
-        }
-
-        &--768 {
-            display: block;
-        }
+        max-width: 400px;
     }
 
     &__search {

@@ -6,6 +6,10 @@
     max-width: 320px;
     text-align: center;
 
+    &__wrapper {
+        margin: 0 auto;
+    }
+
     &__title {
         text-transform: uppercase;
         font-size: 16px;
