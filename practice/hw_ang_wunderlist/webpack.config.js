@@ -26,7 +26,6 @@ let rulesConfig = [
 rulesConfig.push(cssConfig);
 rulesConfig.push(imgConfig);
 rulesConfig.push(htmlConfig);
-// rulesConfig.push(svgConfig);
 rulesConfig.push(fontConfig);
 
 module.exports = {
@@ -42,7 +41,7 @@ module.exports = {
 
     output: {
         path: __dirname + '/build',
-        publicPath: NODE_ENV == 'development' ? '/' : 'https://gruwa.github.io/practice/hw_ang_wunderlist/build/',
+        publicPath: NODE_ENV == 'development' ? '/' : '/',
         filename: 'js/[name].js',
         // library:  'script'
     },

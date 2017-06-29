@@ -162,7 +162,7 @@ input:focus {
 
 body {
   background-color: white;
-  background-image: url(https://gruwa.github.io/practice/hw_ang_wunderlist/build/img/06.jpg?8f2e40cc42ebbb0eb47af5650fafe02f);
+  background-image: url(/img/06.jpg?8f2e40cc42ebbb0eb47af5650fafe02f);
   background-repeat: no-repeat;
   background-size: cover;
   font-family: "Lato", "Geneva CY", "Lucida Grande", "Arial Unicode MS", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
