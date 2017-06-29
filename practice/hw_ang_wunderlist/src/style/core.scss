@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $body--bc;
+    background-image: url('../img/06.jpg');
+    background-repeat: no-repeat;
+    // background-position: center; // поставить для экрана меньше 940px
+    background-size: cover;
+    font-family: "Lato", "Geneva CY", "Lucida Grande", "Arial Unicode MS", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    height: 100%;
+    width: 100%;
+}
+
+.svg-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+}
+
+.clearfix::after {
+    clear: both;
+    content: '';
+    display: block;
+}

@@ -1,0 +1,47 @@
+{
+  "name": "hw_ang_wunderlist",
+  "version": "1.0.0",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node node_modules/cross-env/dist/bin/cross-env.js NODE_ENV=development node_modules/webpack/bin/webpack",
+    "prod": "node node_modules/cross-env/dist/bin/cross-env.js NODE_ENV=NODE_ENV=production node_modules/webpack/bin/webpack"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer-loader": "^3.2.0",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-runtime": "^6.23.0",
+    "clean-webpack-plugin": "^0.1.16",
+    "copy-webpack-plugin": "^4.0.1",
+    "cross-env": "^5.0.1",
+    "css-loader": "^0.28.2",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "file-loader": "^0.11.1",
+    "getpath": "^0.1.1",
+    "html-loader": "^0.4.5",
+    "image-webpack-loader": "^3.3.1",
+    "node-sass": "^4.5.3",
+    "postcss-loader": "^2.0.5",
+    "resolve-url-loader": "^2.0.2",
+    "sass-loader": "^6.0.5",
+    "style-loader": "^0.18.0",
+    "svg-sprite-loader": "^3.0.5",
+    "svgo-loader": "^1.2.1",
+    "uglify-js": "^3.0.10",
+    "uglifyjs-webpack-plugin": "^0.4.3",
+    "url-loader": "^0.5.8",
+    "webpack": "^2.6.0",
+    "webpack-dev-server": "^2.5.0",
+    "webpack-svg-icon-system": "^0.3.1",
+    "webpack-svgstore-plugin": "^4.0.1"
+  },
+  "dependencies": {
+    "imagemin-pngquant": "github:imagemin/imagemin-pngquant"
+  },
+  "description": ""
+}
