@@ -170,6 +170,12 @@ body {
   width: 100%;
 }
 
+.svg-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+
 .clearfix::after {
   clear: both;
   content: '';
@@ -180,22 +186,18 @@ body {
   background-color: #fff;
   display: inline-block;
   width: 280px;
+  position: absolute;
+  min-height: 100%;
 }
 
-.sidebar__search {
+.sidebar__head {
   background-color: #5b7a59;
   padding: 11px 11px;
   vertical-align: middle;
 }
 
-.sidebar__toggle-list a {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-}
-
-.sidebar__form {
-  display: inline-block;
+.sidebar__close svg {
+  display: none;
 }
 
 .sidebar__input {
@@ -208,10 +210,37 @@ body {
   line-height: 20px;
 }
 
-.sidebar__submit {
-  background: none;
-  border: 0;
-  background-color: #5b7a59;
+.sidebar__user-toolbar {
+  height: 51px;
+  padding-top: 2px;
+  padding-bottom: 4px;
+  align-items: center;
+}
+
+.sidebar__user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 32px;
+  display: inline-block;
+  background-color: #6192e5;
+  color: white;
+  position: relative;
+}
+
+.sidebar__user-avatar span {
+  position: absolute;
+  text-transform: uppercase;
+  top: 3px;
+  left: 7px;
+}
+
+.sidebar__user-name {
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.sidebar__stream-counts {
+  display: inline-block;
 }
 
 .content {

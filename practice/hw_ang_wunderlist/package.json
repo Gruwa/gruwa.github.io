@@ -1,5 +1,5 @@
 {
-  "name": "hw_ang_wunderlist",
+  "name": "hw_js_final",
   "version": "1.0.0",
   "main": "webpack.config.js",
   "scripts": {
@@ -36,12 +36,12 @@
     "uglifyjs-webpack-plugin": "^0.4.3",
     "url-loader": "^0.5.8",
     "webpack": "^2.6.0",
-    "webpack-dev-server": "^2.5.0",
-    "webpack-svg-icon-system": "^0.3.1",
-    "webpack-svgstore-plugin": "^4.0.1"
+    "webpack-dev-server": "^2.4.5",
+    "webpack-svg-icon-system": "^0.3.1"
   },
   "dependencies": {
-    "imagemin-pngquant": "github:imagemin/imagemin-pngquant"
+    "imagemin-pngquant": "github:imagemin/imagemin-pngquant",
+    "webpack-svgstore-plugin": "^4.0.1"
   },
   "description": ""
 }

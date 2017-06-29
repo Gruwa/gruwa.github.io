@@ -88,7 +88,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "13b521872030a1542bd1"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "d94c9837e88ed91bf98a"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -809,7 +809,7 @@ eval("/**\n * Load svg via ajax\n * @param  {string} url path to svg sprite\n * 
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var __svg__ = { filename: __webpack_require__.p +\"img/sprite.svg?1498681818151\" };\n\n__webpack_require__(3)(__svg__);\n\n// let star = requ('./../img/svg/star.svg');\n\n//////////////////\n// WEBPACK FOOTER\n// ./js/common.js\n// module id = 4\n// module chunks = 1\n\n//# sourceURL=webpack:///./js/common.js?");
+eval("var __svg__ = { filename: __webpack_require__.p +\"img/sprite__icon.svg?1498758708122\" };\n\n__webpack_require__(3)(__svg__);\n\n// let star = requ('./../img/svg/star.svg');\n\n//////////////////\n// WEBPACK FOOTER\n// ./js/common.js\n// module id = 4\n// module chunks = 1\n\n//# sourceURL=webpack:///./js/common.js?");
 
 /***/ })
 /******/ ]);
