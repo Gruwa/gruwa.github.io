@@ -9,7 +9,7 @@ let config = require('./config');
 let {config: cssConfig, plugin: cssPlugin} = require('./webpack.css.config.js');
 let {config: imgConfig, plugin: imgPlugin} = require('./webpack.img.config.js');
 let {config: htmlConfig, plugin: htmlPlugin} = require('./webpack.html.config.js');
-let {config: svgConfig, plugin: svgPlugin} = require('./webpack.svg.config.js');
+let {plugin: svgPlugin} = require('./webpack.svg.config.js');
 let {config: fontConfig} = require('./webpack.font.config.js');
 
 let rulesConfig = [
@@ -26,7 +26,7 @@ let rulesConfig = [
 rulesConfig.push(cssConfig);
 rulesConfig.push(imgConfig);
 rulesConfig.push(htmlConfig);
-rulesConfig.push(svgConfig);
+// rulesConfig.push(svgConfig);
 rulesConfig.push(fontConfig);
 
 module.exports = {
