@@ -42,7 +42,7 @@ module.exports = {
 
     output: {
         path: __dirname + '/build',
-        publicPath: NODE_ENV == 'development' ? '/' : 'practice/hw_ang_wunderlist/build/',
+        publicPath: NODE_ENV == 'development' ? '/' : 'https://gruwa.github.io/practice/hw_ang_wunderlist/build/',
         filename: 'js/[name].js',
         // library:  'script'
     },
