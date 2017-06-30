@@ -1,6 +1,5 @@
 .sidebar {
     background-color: #fff;
-    display: inline-block;
     width: 280px;
     position: fixed;
     top: 0;
@@ -9,61 +8,35 @@
 
     &__head {
         background-color: rgb(91, 122, 89);
-        padding: 11px 11px;
+        padding: 11px;
+    }
+
+    &__list-toggle {
+        height: 23px;
         vertical-align: middle;
-    }
-
-    &__close svg {
-        display: none;
-    }
-
-    &__input {
-        background-color: rgb(91, 122, 89);
-        border: 0;
-        width: 196px;
-        height: 45px;
-        font-size: 18px;
-        color: #fff;
-        line-height: 20px;
-
+        cursor: pointer;
 
     }
 
-    &__user-toolbar {
-        height: 51px;
-        padding-top: 2px;
-        padding-bottom: 4px;
-        align-items: center;
-    }
+    &__inbox {
+        padding: 11px;
 
-    &__user-avatar {
-        width: 32px;
-        height: 32px;
-        border-radius: 32px;
-        display: inline-block;
-        background-color: rgb(97, 146, 229);
-        color: white;
-        position: relative;
-
-        & span {
-            position: absolute;
-            text-transform: uppercase;
-            top: 3px;
-            left: 7px;
+        &__description {
+            color: rgb(38, 38, 38);
+            font-size: 15px;
         }
     }
 
-    &__user-name {
-        vertical-align: middle;
-        display: inline-block;
+    &__list-new {
+        padding: 11px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+
+        &__description {
+            color: rgb(67, 153, 237);
+            font-size: 15px;
+        }
     }
 
-    &__stream-counts {
-        display: inline-block;
-    }
-
-
-    &__box {
-
-    }
 }
