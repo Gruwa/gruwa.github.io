@@ -1,10 +1,73 @@
 .content {
-    display: inline-block;
+margin-left: 280px;
 
-    &--header {
-        width: 100%;
+    &__header {
+        background-color: rgb(102, 137, 100);
+        padding: 10px 14px;
+        height: 45px;
 
+        &__title {
+            float: left;
+            font-size: 20px;
+            color: #fff;
+        }
     }
 
+    &__menu {
+        float: right;
+
+        & svg {
+            margin-right: 15px;
+        }
+    }
+
+    &__task {
+        padding: 14px;
+
+
+        &__new-task {
+            background-color: rgba(102,137,100,0.75);
+            // height: 47px;
+            padding: 13px 0 14px 12px;
+
+            & svg {
+                vertical-align: middle;
+            }
+
+            & input {
+                font-size: 16px;
+                padding-right: 60px;
+                color: rgb(255, 255, 255);
+                background: 0;
+                border: 0;
+
+                &[type="text"]::-webkit-input-placeholder {
+                    color: rgb(183, 209, 197);
+                }
+
+                &[type="text"]::-moz-placeholder {
+                    color: rgb(183, 209, 197);
+                }
+            }
+        }
+
+        &__addtask {
+            letter-spacing: 1px;
+            font-weight: 400;
+            font-size: 11px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+
+            & span {
+                text-transform: uppercase;
+                color: #fff;
+                padding: 3px 10px;
+                background-color: rgba(102,137,100,0.75);
+                border-radius: 3px;
+                cursor: pointer;
+
+            }
+        }
+    }
 
 }
