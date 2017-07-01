@@ -33,7 +33,7 @@ module.exports = {
     context: path.resolve(__dirname, config.root.src),
 
     entry: {
-        script: ['./js/script', './index.html', './style/style.scss'],
+        script: ['./js/app', './index.html', './style/style.scss'],
         common: './js/common'
         // html: './index.html',
         // style: './style/style.scss'
@@ -81,6 +81,10 @@ module.exports = {
             amd: 'jQuery',
             root: '$'
         },
+        angular : {
+            commonjs: 'angular',
+            amd: 'angular',
+        }
 
     },
 
