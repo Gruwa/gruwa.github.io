@@ -5,21 +5,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var platform_browser_1 = require("@angular/platform-browser");
-var app_component_1 = require("./app.component");
-var AppModule = (function () {
-    function AppModule() {
+var ProductFilterPipe = (function () {
+    function ProductFilterPipe() {
     }
-    return AppModule;
+    ProductFilterPipe.prototype.transform = function (value, filterBy) {
+        filterBy = filterBy ? filterBy.toLocaleLowerCase() : null;
+        return filterBy ? value.filter(function (product) { return product.productName.toLocaleLowerCase().indexOf(filterBy) !== -1; }) : value;
+    };
+    return ProductFilterPipe;
 }());
-AppModule = __decorate([
-    core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule],
-        declarations: [app_component_1.AppComponent],
-        bootstrap: [app_component_1.AppComponent]
+ProductFilterPipe = __decorate([
+    core_1.Pipe({
+        name: 'productFilter'
     })
-], AppModule);
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+], ProductFilterPipe);
+exports.ProductFilterPipe = ProductFilterPipe;
+//# sourceMappingURL=product-filter.pipe.js.map

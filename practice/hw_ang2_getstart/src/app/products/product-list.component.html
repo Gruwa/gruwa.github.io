@@ -1,0 +1,60 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        {{pageTitle}} <!-- называется template expresion -->
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-2">
+                Filter by:
+            </div>
+            <div class="col-md-4">
+                <input type="text"
+                [(ngModel)]="listFilter" /> <!-- [(ngModel)] => читается как ngModel directive, происходит процесс двухстороннего бинденга, значение берется из свойства, но при его изменении в поле инпут меняется значение и в свойстве. Квадратные скобки показывают что приходит значение из свойства класса в инпут элемент, круглые скобки говорят о том что введенное значение пользователем изменит значение свойства (в общем это вид бана в коробке :), "listFilter" => само свойство класса с которым обменивается значениями директива )-->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Filtered by: {{listFilter}}</h3>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table" *ngIf="products && products.length">  <!-- *ngIf (произносится ngIf expretion и являтся структурной директивой - Structural Directives) => позволяет показать или скрыть эелемент (блок элементов) в зависимости от условия (true or false), в данном случае наличия внутри элементов products-->
+                <thead>
+                    <tr>
+                        <th>
+                            <button class="btn btn-primary"
+                            (click)="toggleImage()"><!-- (click) => имеет название Target Event, "toggleImage()" => имеет название Tamplate Statement -->
+                                {{showImage ? 'Hide' : 'Show'}} Image <!-- в темплейт экспрешн можно писать условие иф, в зависимости от которого будет менятся его содержание, в данном случае название кнопки -->
+                            </button>
+                        </th>
+                        <th>Product</th>
+                        <th>Code</th>
+                        <th>Available</th>
+                        <th>Price</th>
+                        <th>5 Star Rating</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of products | productFilter:listFilter"> <!-- *ngFor (произносится ngFor expretion и являтся структурной директивой - Structural Directives) => позволяет как в первом ангуляре разложить массив, в общем работает как цикл в js и проходится по всему массиву и вытаскивает от туда объекты -== НЕ ЗАБЫВАТЬ Let для локальной перменной==- -->
+                        <td>
+                            <img *ngIf="showImage"
+                            [src]="product.imageUrl"
+                            [title]="product.productName"
+                            [style.width.px]="imageWidth"
+                            [style.margin.px]="imageMargin">
+                            <!-- [src] => ссылка на свойство в котором хранится урл картинки
+                            [title] => просто тайтл для имиджа
+                            [style.width.px] => назначение свойства width
+                         -->
+                        </td>
+                        <td>{{ product.productName }}</td>
+                        <td>{{ product.productCode | lowercase }}</td>
+                        <td>{{ product.releaseDate}}</td>
+                        <td>{{ product.price | currency:"EUR":true:"3.4-5" }}</td> <!-- вывод цифр в нужном формате, true указывает что можно показывать спец символ валюты вместо букв, "3.4-5" => указывает на то , что перед точкой должно находится 3 цифры, если есть 1 то впереди добавятся 2 нуля, после нуля отображется минимум 4 цифры и максимум 5, недостающие тоже добиваются нулями в конце до минимального значения  -->
+                        <td>{{ product.starRating }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
