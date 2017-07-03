@@ -8,9 +8,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
+var http_1 = require("@angular/http");
+var router_1 = require("@angular/router");
 var app_component_1 = require("./app.component");
+var welcome_component_1 = require("./home/welcome.component");
 var product_list_component_1 = require("./products/product-list.component");
+var product_detail_component_1 = require("./products/product-detail.component");
 var product_filter_pipe_1 = require("./products/product-filter.pipe");
+var star_component_1 = require("./shared/star.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -20,12 +25,23 @@ AppModule = __decorate([
     core_1.NgModule({
         imports: [
             platform_browser_1.BrowserModule,
-            forms_1.FormsModule
+            forms_1.FormsModule,
+            http_1.HttpModule,
+            router_1.RouterModule.forRoot([
+                { path: 'products', component: product_list_component_1.ProductListComponent },
+                { path: 'product/:id', component: product_detail_component_1.ProductDetailComponent },
+                { path: 'welcome', component: welcome_component_1.WelcomeComponent },
+                { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+                { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
+            ])
         ],
         declarations: [
             app_component_1.AppComponent,
+            welcome_component_1.WelcomeComponent,
             product_list_component_1.ProductListComponent,
-            product_filter_pipe_1.ProductFilterPipe
+            product_detail_component_1.ProductDetailComponent,
+            product_filter_pipe_1.ProductFilterPipe,
+            star_component_1.StarComponent
         ],
         bootstrap: [app_component_1.AppComponent]
     })

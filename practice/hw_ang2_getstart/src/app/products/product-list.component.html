@@ -51,7 +51,11 @@
                         <td>{{ product.productCode | lowercase }}</td>
                         <td>{{ product.releaseDate}}</td>
                         <td>{{ product.price | currency:"EUR":true:"3.4-5" }}</td> <!-- вывод цифр в нужном формате, true указывает что можно показывать спец символ валюты вместо букв, "3.4-5" => указывает на то , что перед точкой должно находится 3 цифры, если есть 1 то впереди добавятся 2 нуля, после нуля отображется минимум 4 цифры и максимум 5, недостающие тоже добиваются нулями в конце до минимального значения  -->
-                        <td>{{ product.starRating }}</td>
+                        <td>
+                            <ai-star [rating]="product.starRating"
+                                (ratingClicked)='onRatingClicked($event)'>
+                            </ai-star>
+                        </td>
                     </tr>
                 </tbody>
             </table>
