@@ -20,8 +20,8 @@ export class ProductService {
         .catch(this.handleError);
     }
 
-    private handleError(error: Response) {
+    private handleError(error: Response) {// private говорит о том , что метод приватный
         console.error(error);
-        return Observable.throw(error.json().error || 'Server error');
+        return Observable.throw(error.json().error || 'Server error'); // Observable => наблюдаемый (наблюдать объект), этот объект находится в центре с набором оператаров для работы с ним, из библиотеки rxjs для работы с асинхронными потоками данных, все для функционального и реактивного программирования => будущее JS
     }
 }

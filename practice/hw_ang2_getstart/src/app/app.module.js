@@ -43,7 +43,8 @@ AppModule = __decorate([
             product_filter_pipe_1.ProductFilterPipe,
             star_component_1.StarComponent
         ],
-        bootstrap: [app_component_1.AppComponent]
+        providers: [],
+        bootstrap: [app_component_1.AppComponent] // указываем что для запуска приложения используется AppComponent
     })
 ], AppModule);
 exports.AppModule = AppModule;

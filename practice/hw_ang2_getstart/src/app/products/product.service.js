@@ -27,7 +27,7 @@ var ProductService = (function () {
     };
     ProductService.prototype.handleError = function (error) {
         console.error(error);
-        return Observable_1.Observable.throw(error.json().error || 'Server error');
+        return Observable_1.Observable.throw(error.json().error || 'Server error'); // Observable => наблюдаемый (наблюдать объект), этот объект находится в центре с набором оператаров для работы с ним, из библиотеки rxjs для работы с асинхронными потоками данных, все для функционального и реактивного программирования => будущее JS
     };
     return ProductService;
 }());

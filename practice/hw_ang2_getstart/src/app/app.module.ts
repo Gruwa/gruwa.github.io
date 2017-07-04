@@ -13,7 +13,7 @@ import { ProductFilterPipe } from './products/product-filter.pipe';
 import { StarComponent }  from './shared/star.component';
 
 @NgModule({
-  imports: [
+  imports: [ // регистрация модулей ангуляра
       BrowserModule,
       FormsModule,
       HttpModule,
@@ -25,7 +25,7 @@ import { StarComponent }  from './shared/star.component';
           { path: '**', redirectTo: 'welcome', pathMatch: 'full'}
       ])
   ],
-  declarations: [
+  declarations: [ // регистрация коспонентов пользователя
       AppComponent,
       WelcomeComponent,
       ProductListComponent,
@@ -33,6 +33,7 @@ import { StarComponent }  from './shared/star.component';
       ProductFilterPipe,
       StarComponent
    ],
-  bootstrap: [ AppComponent ]
+   providers: [], // регистрация сервисов
+   bootstrap: [ AppComponent ] // указываем что для запуска приложения используется AppComponent
 })
 export class AppModule { }
