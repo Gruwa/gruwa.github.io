@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+/*import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router } from '@angular/router';
 
 @Injectable()
@@ -17,3 +17,4 @@ export class ProductDetailGuard implements CanActivate {
         return true;
     }
 }
+*/

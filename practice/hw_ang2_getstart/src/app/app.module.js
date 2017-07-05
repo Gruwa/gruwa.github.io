@@ -13,7 +13,7 @@ var router_1 = require("@angular/router");
 var app_component_1 = require("./app.component");
 var welcome_component_1 = require("./home/welcome.component");
 var product_list_component_1 = require("./products/product-list.component");
-var product_guard_service_1 = require("./products/product-guard.service");
+/*import { ProductDetailGuard }  from './products/product-guard.service';*/
 var product_detail_component_1 = require("./products/product-detail.component");
 var product_filter_pipe_1 = require("./products/product-filter.pipe");
 var star_component_1 = require("./shared/star.component");
@@ -51,7 +51,7 @@ AppModule = __decorate([
             product_filter_pipe_1.ProductFilterPipe,
             star_component_1.StarComponent
         ],
-        providers: [product_guard_service_1.ProductDetailGuard],
+        //providers: [ ProductDetailGuard ], // регистрация сервисов. Сервисы никогда не экспортируются
         // Сервисы всегда регистрируются в рут модуле, т.е. в главном (app)
         //  Сервисы НЕ добавляются в провайдер шарящегося модуля(модуль который будет расшарен)
         // Routing guard должен быть добавлен в масив провайдера модуля ангуляра

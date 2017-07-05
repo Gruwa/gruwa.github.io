@@ -8,7 +8,7 @@ import { AppComponent }  from './app.component';
 import { WelcomeComponent } from './home/welcome.component';
 
 import { ProductListComponent }  from './products/product-list.component';
-import { ProductDetailGuard }  from './products/product-guard.service';
+/*import { ProductDetailGuard }  from './products/product-guard.service';*/
 import { ProductDetailComponent } from './products/product-detail.component';
 import { ProductFilterPipe } from './products/product-filter.pipe';
 import { StarComponent }  from './shared/star.component';
@@ -33,7 +33,13 @@ import { StarComponent }  from './shared/star.component';
           { path: '**', redirectTo: 'welcome', pathMatch: 'full'}
       ])
   ],
-  declarations: [ // регистрация коспонентов пользователя. Декларация компонента, диретивы или пайпа может быть осуществлена только в одном модуле ангуляра. Декларируются ТОЛЬКО компонеты, дериктивы и пайпыю Никогда не делать передекларацию компонетов, директив или пайпов принадлежащих другому модулю. Все задекларированные компонеты,директивы и пайпы по умолчанию приватны и доступны только другим компонентам, директивам и пайпам из ЭТОГО ЖЕ модуля. При этом можно экспортировать любой компонент, директиву или пайп если другой компонент в них нуждается 
+  declarations: [ /*регистрация коспонентов пользователя. 
+   - Декларация компонента, диретивы или пайпа может быть осуществлена только в одном модуле ангуляра. 
+   - Декларируются ТОЛЬКО компонеты, дериктивы и пайпыю 
+   -  Никогда не делать передекларацию компонетов, директив или пайпов принадлежащих другому модулю. 
+   - Все задекларированные компонеты,директивы и пайпы по умолчанию приватны 
+  и доступны только другим компонентам, директивам и пайпам из ЭТОГО ЖЕ модуля. 
+   - При этом можно экспортировать любой компонент, директиву или пайп если другой компонент в них нуждается */
       AppComponent,
       WelcomeComponent,
       ProductListComponent,
@@ -41,7 +47,7 @@ import { StarComponent }  from './shared/star.component';
       ProductFilterPipe,
       StarComponent
    ],
-   providers: [ ProductDetailGuard ], // регистрация сервисов. Сервисы никогда не экспортируются
+   //providers: [ ProductDetailGuard ], // регистрация сервисов. Сервисы никогда не экспортируются
    // Сервисы всегда регистрируются в рут модуле, т.е. в главном (app)
    //  Сервисы НЕ добавляются в провайдер шарящегося модуля(модуль который будет расшарен)
    // Routing guard должен быть добавлен в масив провайдера модуля ангуляра
