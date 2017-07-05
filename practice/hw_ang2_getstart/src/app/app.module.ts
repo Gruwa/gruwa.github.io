@@ -11,7 +11,7 @@ import { ProductListComponent }  from './products/product-list.component';
 /*import { ProductDetailGuard }  from './products/product-guard.service';*/
 import { ProductDetailComponent } from './products/product-detail.component';
 import { ProductFilterPipe } from './products/product-filter.pipe';
-import { StarComponent }  from './shared/star.component';
+import { StarComponent }  from './shared/star.component'; 
 
 @NgModule({
   imports: [ // регистрация модулей ангуляра.
