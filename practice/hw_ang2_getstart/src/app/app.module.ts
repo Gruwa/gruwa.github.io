@@ -1,17 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent }  from './app.component';
 import { WelcomeComponent } from './home/welcome.component';
-
-import { ProductListComponent }  from './products/product-list.component';
-/*import { ProductDetailGuard }  from './products/product-guard.service';*/
-import { ProductDetailComponent } from './products/product-detail.component';
-import { ProductFilterPipe } from './products/product-filter.pipe';
-import { StarComponent }  from './shared/star.component'; 
+import { ProductModule } from './products/product.module' ;
 
 @NgModule({
   imports: [ // регистрация модулей ангуляра.
@@ -21,17 +15,13 @@ import { StarComponent }  from './shared/star.component';
     // При импорте модуля импортировать дополнтельно его содержимое не нужно
     // Импортируемый модуль не дает доступ к модулям которые сам импортировал
       BrowserModule,
-      FormsModule,
       HttpModule,
       RouterModule.forRoot([
-          { path: 'products', component: ProductListComponent },
-          { path: 'product/:id',
-            // canActivate: [ ProductDetailGuard ],
-            component: ProductDetailComponent },
           { path: 'welcome', component: WelcomeComponent },
           { path: '', redirectTo: 'welcome', pathMatch: 'full'},
           { path: '**', redirectTo: 'welcome', pathMatch: 'full'}
-      ])
+      ]),
+      ProductModule
   ],
   declarations: [ /*регистрация коспонентов пользователя. 
    - Декларация компонента, диретивы или пайпа может быть осуществлена только в одном модуле ангуляра. 
@@ -41,16 +31,58 @@ import { StarComponent }  from './shared/star.component';
   и доступны только другим компонентам, директивам и пайпам из ЭТОГО ЖЕ модуля. 
    - При этом можно экспортировать любой компонент, директиву или пайп если другой компонент в них нуждается */
       AppComponent,
-      WelcomeComponent,
-      ProductListComponent,
-      ProductDetailComponent,
-      ProductFilterPipe,
-      StarComponent
+      WelcomeComponent
    ],
-   //providers: [ ProductDetailGuard ], // регистрация сервисов. Сервисы никогда не экспортируются
+   providers: [], // регистрация сервисов. Сервисы никогда не экспортируются
    // Сервисы всегда регистрируются в рут модуле, т.е. в главном (app)
    //  Сервисы НЕ добавляются в провайдер шарящегося модуля(модуль который будет расшарен)
-   // Routing guard должен быть добавлен в масив провайдера модуля ангуляра
-   bootstrap: [ AppComponent ] // указываем что для запуска приложения используется AppComponent, бутстрап загрузка масива может быть использована только в рут модуле => AppModule
+   // Routing guard должен быть добавлен в маcсив провайдера модуля ангуляра
+   bootstrap: [ AppComponent ] /*указываем что для запуска приложения используется AppComponent, 
+   бутстрап загрузка масива может быть использована только в рут модуле => AppModule*/
 })
 export class AppModule { }
+
+/*Основные составные части =>
+
+    Модули => это набор компонентов, директив, сервисов, пайпов объединенных в один большой конгломират, 
+    позволяет достич модульности приложения ,
+
+    Компоненты => говорит ангуляру,
+        selector - как и где вьюхе отобразить наш шаблон,
+        templateUrl - где находится наш шаблон,
+        styleUrls - где находятся стили для нашего шаблона,
+        а также можем указывать инпуты и оутпуты нашего компонента и др
+
+    директивы => тот же компонент только без шаблона, используется для изменения поведения 
+    одного или нескольких ДОМ элементов,
+
+    сервисы => тут хранится стейт (состояние) и логика по изменению стейта (состояния), модельки приложения,
+
+    пайпы => трансформер, котрый принимает некое знячение и выдает строку, 
+    которую ангуляр будет биндить в ДОМ элемент
+
+Синтаксис template (шаблонов) =>
+    {{}} - интерполяция (вывод значения переменной),
+
+    [] - биндинг свойства (прокидывание данных внутрь компонента),
+
+    () - биндинг евента (события, т.е. оутпут),
+
+    # - объявление переменной,
+
+    * - для структурных директив (директивы которые меняют шаблон),
+    
+    [()] - реализация двухстороннего биндинга, изменение как из дом элемента со стороны пользователя 
+    так и из серверной части приходят значения
+
+@Decorator  => декорировать можно классы, свойства и переменные
+
+NgModule metadata =>
+
+- Bootstrap массив => это стартап компоненты
+- Declaration => Декларационный массив, это элементы котрые принадлежат этому модулю
+- Exports => Экспортируемый массив, это импортируемые модули, которые можно использовать
+- Imports => Импортируемый массив, это поддерживаемые модули в которых нуждается модуль
+- Providers => Провайдер массив, это сервисные провадеры, эти сервисы могут быть 
+подключены к любому классу в приложении
+*/
