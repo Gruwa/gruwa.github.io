@@ -7,12 +7,12 @@ import { IProduct } from './product';
     templateUrl: 'app/products/product-detail.component.html'
 })
 
-export class ProductDetailComponent implements OnInit {
+export class ProductDetailComponent implements OnInit { // ProductDetailComponent реализует интерфес OnInit, т.е. должен реализовать все его свойства и методы 
     pageTitle: string = 'Product Detail';
     product: IProduct;
 
     constructor(private _route: ActivatedRoute, // конструктор предназначен для простой инициализации свойств, а не связи серва с сервисом
-                private _router: Router) { 
+                private _router: Router) {
     }
 
     ngOnInit(): void { // один из методов lifecycle hooks(крюки жизненного цикла), т.е. методы которые будут вызваны в определенный момент, ngOnInit() => вызовится в момент инициализации компонета product-detail.component
