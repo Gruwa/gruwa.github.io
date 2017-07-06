@@ -1,4 +1,5 @@
-import { Component, OnChanges, Input, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
+import { directiveDef } from '@angular/core/src/view/provider';
 
 @Component({
     selector: 'ai-star',

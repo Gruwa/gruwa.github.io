@@ -24,7 +24,7 @@ import { RouterModule } from '@angular/router';
     ],
     providers: [
         ProductService,
-        /*ProductDetailGuard*/
+        ///*ProductDetailGuard*/
     ]
 })
 export class ProductModule {}

@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component } from '@angular/core'; /*импорт исполльзуемого компонента из ангуляра, т.е. Component*/
 
-@Component ({
-    selector: 'pm-app',
+@Component ({ /* Описание компонента. Содержит логику контролера интерфейса к которому мы обратилисью 
+    Например на веб странице компонентами выступают Header, SideBar, Content, Footer*/
+    selector: 'pm-app', /*Элемент который стоит искать ангуляру в штмл*/
     template: `
         <div>
             <nav class='navbar navbar-default'>
@@ -20,6 +21,6 @@ import { Component } from '@angular/core';
         `
 })
 
-export class AppComponent {
+export class AppComponent { /*Класс экспортируемый для использования его в другом месте*/
     pageTitle: string = `Acme Product Managment`;
 }
