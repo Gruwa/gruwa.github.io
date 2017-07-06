@@ -1,6 +1,8 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { ClassField } from '@angular/compiler/src/output/output_ast';
+import { Class, Inject, Injectable, InjectableDecorator, NgModule } from '@angular/core';
+import { inject } from '@angular/core/testing';
 import { HttpModule } from '@angular/http';
+import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent }  from './app.component';
@@ -59,7 +61,8 @@ export class AppModule { }
     сервисы => тут хранится стейт (состояние) и логика по изменению стейта (состояния), модельки приложения,
 
     пайпы => трансформер, котрый принимает некое знячение и выдает строку, 
-    которую ангуляр будет биндить в ДОМ элемент
+    которую ангуляр будет биндить в ДОМ элемент, используется для изменение данных
+     для отображения темплейта(шаблона)
 
 Синтаксис template (шаблонов) =>
     {{}} - интерполяция (вывод значения переменной),
@@ -86,3 +89,4 @@ NgModule metadata =>
 - Providers => Провайдер массив, это сервисные провадеры, эти сервисы могут быть 
 подключены к любому классу в приложении
 */
+
