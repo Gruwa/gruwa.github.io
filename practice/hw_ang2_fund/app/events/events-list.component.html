@@ -1,7 +1,18 @@
 <div>
     <h1>Upcoming Angular 2 Events</h1>
     <hr />
-    <!--<event-thumbnail #thumbnail (eventClick)="handleEventClicked($event)" [event]="event1"></event-thumbnail>-->
+    <!--
+        <event-thumbnail #thumbnail (eventClick)="handleEventClicked($event)" [event]="event1"></event-thumbnail>
+    -->
     <event-thumbnail #thumbnail [event]="event1"></event-thumbnail>
+    <!-- [event]="event1" => передается массив event1 из родительского элемента list в thumbnail в переменную
+     event, после чего дочерний элемент получает дотуп ко всем свойствам массива event1 -->
+    <h3> {{thumbnail.someProperty}}</h3>
+    <!-- Вставляя айдишку #thumbnail в дочерний тег event-thumbnail, мы можем вытащить(передать) любое свойство
+     из дочернего элемента в родительский, в данном случае из thumbnail в list передается свойство 
+     thumbnail.somePropert -->
     <button class="btn btn-primary" (click)="thumbnail.logFoo()"> Log me some foo</button>
+    <!-- Вставляя айдишку #thumbnail в дочерний т ег event-thumbnail, мы можем вытащить(вызвать) любую функцию из
+     из дочернего элемента в родительский, в данном случае из thumbnail в list по клику на кнопку расоложенную в
+      list вызывается функция thumbnail.logFoo()  -->
 </div>
