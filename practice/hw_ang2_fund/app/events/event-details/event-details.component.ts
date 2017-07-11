@@ -16,6 +16,6 @@ export class EventDetailsComponent implements OnInit {
     constructor(private eventService:EventService) { }
 
     ngOnInit() {
-        this.event = this.eventService.getEvents(1);
+        this.event = this.eventService.getEvent(1);
      }
 }
