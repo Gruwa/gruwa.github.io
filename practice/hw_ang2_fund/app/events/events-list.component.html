@@ -3,7 +3,8 @@
     <hr />
     <div class="row">
         <div *ngFor="let event of events" class="col-md-5">
-            <event-thumbnail [event]="event"></event-thumbnail>
+            <event-thumbnail [event]="event" 
+            (click)="handleThumbnailClick(event.name)"></event-thumbnail>
             <!-- *ngFor => структурная директива и применяется для изменения ДОМ элементов,
             добавление и удаление html элементов-->
         </div>
