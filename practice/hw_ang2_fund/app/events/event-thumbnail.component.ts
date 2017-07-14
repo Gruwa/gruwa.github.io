@@ -1,3 +1,5 @@
+import { IEvent } from './shared/event.model';
+
 import { NgSwitch, NgSwitchDefault } from '@angular/common/src/directives/ng_switch';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
@@ -46,7 +48,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
     `]
 })
 export class EventThumbnailComponent {
-    @Input() event:any;
+    @Input() event:IEvent;
 
     getStartTimeClass() {
         const isEarlyStart = this.event && this.event.time === '9:00 am';
