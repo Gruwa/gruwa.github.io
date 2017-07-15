@@ -16,6 +16,7 @@ import { Error404Component } from './error/404.component';
 import { EventsAppComponent } from './events-app.component';
 import { NavBarComponent } from './nav/navbar.component';
 import { appRoutes } from './routes';
+import { AuthService } from './user/auth.service';
 
 @NgModule({
     imports: [
@@ -40,7 +41,8 @@ import { appRoutes } from './routes';
         { 
             provide: 'canDeactivateCreateEvent', 
             useValue: checkDirtyState 
-        }
+        },
+        AuthService
         ],
     bootstrap: [EventsAppComponent]
 })

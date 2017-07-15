@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { LoginComponent } from './login.component';
@@ -11,7 +11,8 @@ import { userRoutes } from './user.routes';
     imports: [
         CommonModule,
         RouterModule.forChild(userRoutes),
-        FormsModule
+        FormsModule,
+        ReactiveFormsModule
     ],
     exports: [],
     declarations: [
