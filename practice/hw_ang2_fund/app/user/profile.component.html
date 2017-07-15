@@ -8,13 +8,17 @@
             (ngSubmit) => в круглых скобках указываем, т.к. нам данные только получать надо, если б и отправлять
               в эту форму тогда был бы бана в коробке [()]
         -->
-      <div class="form-group">
+      <div class="form-group" [ngClass]="{'error' : !validateFirstName()}" >
         <label for="firstName">First Name:</label>
-        <input formControlName="firstName" id="firstName" type="text" class="form-control" placeholder="First Name..." />
+        <em *ngIf="!validateFirstName() && profileForm.controls.firstName.errors.required">Required</em>
+        <em *ngIf="!validateFirstName() && profileForm.controls.firstName.errors.pattern">Start ONLY with a letter</em>
+        <input formControlName="firstName" id="firstName" type="text" 
+            class="form-control" placeholder="First Name..." />
         <!-- formControlName => имя элемента формы, относящегося к данной форме  -->
       </div>
-      <div class="form-group">
+      <div class="form-group" [ngClass]="{'error' : !validateLastName()}">
         <label for="lastName">Last Name:</label>
+        <em *ngIf="!validateLastName()">Required</em>
         <input formControlName="lastName" id="lastName" type="text" class="form-control" placeholder="Last Name..." />
       </div>
       <button type="submit" class="btn btn-primary">Save</button>

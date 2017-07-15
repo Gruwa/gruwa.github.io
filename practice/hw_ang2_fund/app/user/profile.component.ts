@@ -1,27 +1,42 @@
 import { AuthService } from './auth.service';
 
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { first } from 'rxjs/operator/first';
 
 @Component({
-    templateUrl: 'app/user/profile.component.html'
+    templateUrl: 'app/user/profile.component.html',
+    styles: [`
+        em {float: right; color: #E05C65; padding-left: 10px;}
+        .error input {background-color: #E3C3C5;}
+        .error ::-webkit-input-placeholder {color: #999;}
+        .error ::-moz-placeholder {color: #999;}
+        .error :--moz-placeholder {color: #999;}
+        .error :ms-input-placeholder {color: #999;}
+    `]
 })
 
 export class ProfileComponent implements OnInit{
     profileForm:FormGroup;
+    private firstName:FormControl;
+    private lastName:FormControl;
 
     constructor(private authService:AuthService, private router:Router) {
         // конструктор добавляет сервисы в компонент
     }
 
     ngOnInit() {
-        let firstName = new FormControl(this.authService.currentUser.firstName);
-        let lastName = new FormControl(this.authService.currentUser.lastName);
+        this.firstName = new FormControl(this.authService.currentUser.firstName, [Validators.required,
+             Validators.pattern('[a-zA-Z].*')]);
+            //  Validators => проверка формы
+                    // required -  на заполненность формы, не пустое
+                    // pattern - на наличия определенных символов, в данном случае начинаться должен с буквы
+        this.lastName = new FormControl(this.authService.currentUser.lastName, Validators.required);
 
         this.profileForm = new FormGroup({
-            firstName: firstName,
-            lastName: lastName
+            firstName: this.firstName,
+            lastName: this.lastName
         })
     }
 
@@ -30,7 +45,17 @@ export class ProfileComponent implements OnInit{
         }
 
     saveProfile(formValues) {
-        this.authService.updateCurrentUser(formValues.firstName, formValues.lastName);
-        this.router.navigate(['events']);
+        if (this.profileForm.valid) {
+            this.authService.updateCurrentUser(formValues.firstName, formValues.lastName);
+            this.router.navigate(['events']);
+        }
+    }
+
+    validateLastName() {
+        return this.lastName.valid || this.lastName.untouched;
+    }
+
+    validateFirstName() {
+        return this.firstName.valid || this.firstName.untouched;
     }
 }
