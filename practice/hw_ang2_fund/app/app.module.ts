@@ -12,7 +12,8 @@ import {
     EventsListComponent,
     EventService,
     CreatSessionComponent,
-    SessionListComponent
+    SessionListComponent,
+    DurationPipe
 } from './events/index';
 import { 
     ToastrService, 
@@ -41,7 +42,8 @@ import { AuthService } from './user/auth.service';
         Error404Component,
         CreatSessionComponent,
         SessionListComponent,
-        CollapsibleWellComonent
+        CollapsibleWellComonent,
+        DurationPipe
         ],
     providers: [
         // { provide: EventService, useValue: EventService },
