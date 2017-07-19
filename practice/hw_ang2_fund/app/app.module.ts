@@ -16,9 +16,13 @@ import {
     DurationPipe
 } from './events/index';
 import { 
-    CollapsibleWellComonent 
+    CollapsibleWellComonent,
+    TOASTR_TOKEN,
+    Toastr,
+    JQ_TOKEN,
+    SimpleModalComponent,
+    ModalTriggerDirective
 } from './common/index';
-import { TOASTR_TOKEN, Toastr} from './common/toastr.service';
 import { Error404Component } from './error/404.component';
 import { EventsAppComponent } from './events-app.component';
 import { NavBarComponent } from './nav/navbar.component';
@@ -26,6 +30,7 @@ import { appRoutes } from './routes';
 import { AuthService } from './user/auth.service';
 
 declare let toastr: Toastr;
+declare let jQuery: Object;
 
 @NgModule({
     imports: [
@@ -45,7 +50,9 @@ declare let toastr: Toastr;
         CreatSessionComponent,
         SessionListComponent,
         CollapsibleWellComonent,
-        DurationPipe
+        DurationPipe,
+        SimpleModalComponent,
+        ModalTriggerDirective
         ],
     providers: [
         // EventService,
@@ -57,12 +64,16 @@ declare let toastr: Toastr;
             provide: TOASTR_TOKEN, 
             useValue: toastr 
         },
-        EventRouterActivator,
-        EventListResolver,
+        { 
+            provide: JQ_TOKEN, 
+            useValue: jQuery 
+        },
         { 
             provide: 'canDeactivateCreateEvent', 
             useValue: checkDirtyState 
         },
+        EventRouterActivator,
+        EventListResolver,
         AuthService
         ],
     bootstrap: [EventsAppComponent]
