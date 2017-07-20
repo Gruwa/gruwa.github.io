@@ -25,10 +25,12 @@
   <hr>
 
   <div class="row" style="margin-bottom:10px">
-    <div class="col-md-2">
-      <h3 style="margin:0">Sessions</h3>
+    <div *ngIf="auth.isAuthenticated()">
+      <div class="col-md-2">
+        <h3 style="margin:0">Sessions</h3>
+      </div>
     </div>
-    <div class="col-md-7">
+    <div class="col-md-7 sort-group">
       <div class="btn-group btn-group-sm" style="margin-right:20px; margin-left:20px">
         <button class="btn btn-default" [class.active]="sortBy==='name'" 
           (click)="sortBy='name'">By Name</button>

@@ -13,7 +13,9 @@ import {
     EventService,
     CreatSessionComponent,
     SessionListComponent,
-    DurationPipe
+    DurationPipe,
+    UpvoteComponent,
+    VoterService
 } from './events/index';
 import { 
     CollapsibleWellComonent,
@@ -52,7 +54,8 @@ declare let jQuery: Object;
         CollapsibleWellComonent,
         DurationPipe,
         SimpleModalComponent,
-        ModalTriggerDirective
+        ModalTriggerDirective,
+        UpvoteComponent
         ],
     providers: [
         // EventService,
@@ -74,7 +77,8 @@ declare let jQuery: Object;
         },
         EventRouterActivator,
         EventListResolver,
-        AuthService
+        AuthService,
+        VoterService
         ],
     bootstrap: [EventsAppComponent]
 })

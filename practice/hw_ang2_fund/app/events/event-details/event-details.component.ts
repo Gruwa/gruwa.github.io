@@ -1,8 +1,10 @@
+import { JQ_TOKEN } from '../../common/jQuery.service';
 import { IEvent, ISession } from '../shared/index';
 import { EventService } from '../shared/event.service';
 
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { AuthService } from '../../user/auth.service';
 
 @Component({
     templateUrl: '/app/events/event-details/event-details.component.html',
@@ -14,12 +16,13 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 
 export class EventDetailsComponent implements OnInit {
-    event:IEvent;
-    addMode:boolean;
+    event: IEvent;
+    addMode: boolean;
     filterBy: string = 'all';
     sortBy: string = 'votes';
 
-    constructor(private eventService:EventService, private route:ActivatedRoute) { }
+    constructor(private eventService:EventService, private route:ActivatedRoute,
+        private auth: AuthService, @Inject(JQ_TOKEN) private $: any) { }
 
     ngOnInit() {
         this.route.params.forEach((params: Params) => {
@@ -43,5 +46,9 @@ export class EventDetailsComponent implements OnInit {
     cancelAddSession() {
         this.addMode = false;
     }
+
+    // if(isAuthenticated) {
+    //     this.$('.sort-group').css({"margin-left":"160px"});
+    // } добавить маржин что бы сдвинуть строку влево и поставить ее на место где она была когда был Session
 
 }
