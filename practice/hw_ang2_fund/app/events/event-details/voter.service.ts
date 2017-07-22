@@ -12,7 +12,7 @@ export class VoterService {
         session.voters = session.voters.filter(voter =>
         voter !== voterName);
 
-        this.http.delete(`/api/events/${eventId}/sessions/${session.id}`).catch(this.handleError).subscribe();
+        this.http.delete(`/api/events/${eventId}/sessions/${session.id}/voters/${voterName}`).catch(this.handleError).subscribe();
     }
 
     addVoter(eventId: number, session: ISession, voterName: string) {
