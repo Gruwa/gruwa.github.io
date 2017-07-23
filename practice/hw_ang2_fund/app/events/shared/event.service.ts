@@ -1,22 +1,53 @@
-import { IEvent } from './event.model';
+import { Headers, Http, RequestOptions, Response } from '@angular/http';
+import { IEvent, ISession } from './event.model';
 
-import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs/Rx';
+import { Injectable, EventEmitter } from '@angular/core';
+// import { Observable, Subject } from 'rxjs/Rx';
+// для уменьшения запросов пишем вместо rxjs/Rx => Observable и Subject
+// зачем запрашивать все если нужен только Observable и Subject пишем
+import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 
 export class EventService {
-    getEvents():Observable<IEvent[]> {
-        let subject = new Subject<IEvent[]>();
 
-        setTimeout(() => {subject.next(EVENTS); subject.complete(); },
-        100);
+    constructor(private http: Http) {
 
-        return subject;
     }
 
-    getEvent(id:number) {
-        return EVENTS.find(event => event.id === id);
+    getEvents():Observable<IEvent[]> {
+        return this.http.get("/api/events").map((response: Response) => {
+            return <IEvent[]>response.json();
+        }).catch(this.handleError);
+    }
+
+    getEvent(id:number): Observable<IEvent> {
+        return this.http.get("/api/events/" + id).map((response: Response) => {
+            return <IEvent>response.json();
+        }).catch(this.handleError);
+    }
+
+    saveEvent(event): Observable<IEvent> {
+        let headers = new Headers({ 'Content-Type': 'application/json'});
+        let options = new RequestOptions({headers: headers});
+
+        return this.http.post('/api/events', JSON.stringify(event), options).map((response: Response) => {
+            return response.json();
+        }).catch(this.handleError);
+    }
+
+
+    searchSessions(searchTerm: string) {
+
+        return this.http.get("/api/sessions/search?search=" + searchTerm).map((response: Response) => {
+            return response.json();
+        }).catch(this.handleError);
+
+    }
+
+    private handleError(error: Response) {
+        return Observable.throw(error.statusText);
     }
 }
 
