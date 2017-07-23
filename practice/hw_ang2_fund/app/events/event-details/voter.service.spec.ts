@@ -1,6 +1,9 @@
 import { VoterService } from './voter.service';
 import { ISession } from '../shared/event.model';
-import { Observable } from 'rxjs/Rx';
+// import { Observable } from 'rxjs/Rx';
+// для уменьшения запросов пишем вместо rxjs/Rx => Observable
+// зачем запрашивать все если нужен только Observable 
+import { Observable } from 'rxjs/Observable';
 
 describe('VoterService', () => {
     let voterService: VoterService, mockHttp;

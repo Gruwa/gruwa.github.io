@@ -2,7 +2,11 @@ import { Headers, Http, RequestOptions, Response } from '@angular/http';
 import { IEvent, ISession } from './event.model';
 
 import { Injectable, EventEmitter } from '@angular/core';
-import { Observable, Subject } from 'rxjs/Rx';
+// import { Observable, Subject } from 'rxjs/Rx';
+// для уменьшения запросов пишем вместо rxjs/Rx => Observable и Subject
+// зачем запрашивать все если нужен только Observable и Subject пишем
+import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 

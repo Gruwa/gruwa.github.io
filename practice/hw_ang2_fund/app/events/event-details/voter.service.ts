@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
 import { ISession } from '../shared/event.model';
 import { Headers, Http, RequestOptions, Response } from '@angular/http';

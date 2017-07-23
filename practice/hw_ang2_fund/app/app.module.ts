@@ -1,7 +1,8 @@
+import './rxjs-extensions';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
+import { PreloadAllModules, RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 
 import { 
@@ -39,10 +40,13 @@ declare let jQuery: Object;
 @NgModule({
     imports: [
         BrowserModule,
-        RouterModule.forRoot(appRoutes),
         FormsModule,
+        HttpModule,
         ReactiveFormsModule,
-        HttpModule
+        RouterModule.forRoot(appRoutes, 
+            {preloadingStrategy: PreloadAllModules}) 
+            // вроде, модули будут подгружаться по обращению к ним при добавлении 
+            // {preloadingStrategy: PreloadAllModules}
         ],
     declarations: [
         EventsAppComponent,
