@@ -1,3 +1,5 @@
+import { IEvent } from './shared/event.model';
+
 import { NgSwitch, NgSwitchDefault } from '@angular/common/src/directives/ng_switch';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
@@ -7,8 +9,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 <div [routerLink]="['/events', event.id]" class="well hoverwell thumbnail">
 <!-- [routerLink]="['/events', event.id]" => привязывает роутер линк к каждому экземпляру генерируемого
 контента (страницы)-->
-    <h2>{{event.name}}</h2>
-    <div>Date: {{event?.date}}</div>
+    <h2>{{event.name | uppercase}}</h2>
+    <div>Date: {{event?.date | date: "y/m/d"}}</div>
     <div [ngClass]="getStartTimeClass()"
         [ngStyle]="getStartTimeStyle()" 
         [ngSwitch]="event?.time">
@@ -30,7 +32,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
         <span *ngSwitchCase="'10:00 am'">(Late Start)</span>
         <span *ngSwitchDefault>(Normal Start)</span>
     </div>
-    <div>Price: \$ {{event?.price}}</div>
+    <div>Price: {{event?.price | currency:'USD':true}}</div>
     <div *ngIf="event.location" >
         <span>Lcation: {{event?.location?.address}}</span>
         <span class="pad-left">{{event?.location?.city}}, {{event?.location?.country}}</span>
@@ -46,7 +48,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
     `]
 })
 export class EventThumbnailComponent {
-    @Input() event:any;
+    @Input() event:IEvent;
 
     getStartTimeClass() {
         const isEarlyStart = this.event && this.event.time === '9:00 am';

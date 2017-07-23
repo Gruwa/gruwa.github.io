@@ -1,5 +1,5 @@
 {
-  "name": "hw_js_final",
+  "name": "wunderlist",
   "version": "1.0.0",
   "main": "webpack.config.js",
   "scripts": {
