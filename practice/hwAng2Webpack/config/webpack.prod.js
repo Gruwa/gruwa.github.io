@@ -27,10 +27,6 @@ module.exports = webpackMerge(commonConfig, {
       'process.env': {
         'ENV': JSON.stringify(ENV)
       }
-    }),
-    new ExtractTextPlugin({
-      filename: 'assets/style/style.[hash:6].css',
-      allChunks: true
-    })    
+    })
   ]
 });

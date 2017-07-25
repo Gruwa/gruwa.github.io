@@ -1,6 +1,24 @@
 body {
   background: #0147A7;
-  color: #fff; }
+  color: #fff;
+  font-family: 'montserratbold';
+  font-size: 20px; }
+
+.div {
+  background-image: url(/assets/img/partners__airplane2.svg?1c86db);
+  background-repeat: no-repeat;
+  background-size: 23px 23px;
+  width: 23px;
+  height: 23px;
+  display: inline-block; }
+
+.div--img {
+  background-image: url(/assets/img/angular2.png?6e696d);
+  background-repeat: no-repeat;
+  background-size: 23px 23px;
+  width: 23px;
+  height: 23px;
+  display: inline-block; }
 
 html,
 body,
@@ -143,4 +161,11 @@ input:focus {
 [ng\:cloak], [ng-cloak], .ng-cloak {
   display: none; }
 
-/*# sourceMappingURL=style.a6b8e9.css.map*/
+@font-face {
+  font-family: 'montserratbold';
+  src: url(/assets/font/montserrat-bold-webfont.eot?1a59e0);
+  src: url(/assets/font/montserrat-bold-webfont.eot?1a59e0?#iefix) format("embedded-opentype"), url(/assets/font/montserrat-bold-webfont.woff2?9dbeaf) format("woff2"), url(/assets/font/montserrat-bold-webfont.woff?4e7d4a) format("woff"), url(/assets/font/montserrat-bold-webfont.ttf?7d722f) format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+/*# sourceMappingURL=style.css.map?7d89e0*/

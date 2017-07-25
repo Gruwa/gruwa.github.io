@@ -49,10 +49,14 @@
     "rimraf": "^2.5.2",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.13.1",
+    "svg-sprite-loader": "^3.0.7",
+    "svgo-loader": "^1.2.1",
     "typescript": "~2.3.4",
     "url-loader": "^0.5.9",
     "webpack": "^3.3.0",
     "webpack-dev-server": "2.4.1",
-    "webpack-merge": "^3.0.0"
+    "webpack-merge": "^3.0.0",
+    "webpack-svg-icon-system": "^0.3.4",
+    "zone.js": "^0.8.14"
   }
 }

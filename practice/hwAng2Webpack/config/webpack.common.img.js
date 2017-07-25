@@ -4,37 +4,53 @@ const webpack   = require('webpack');
 const path      = require('path');
 // const CopyWebpackPlugin     = require('copy-webpack-plugin');
 
-module.exports = {
-    config: {
-        test: /\.(png|jpe?g|gif|svg)$/,
-        loader: 'file-loader?name=assets/img/[name].[hash:6].[ext]'
-      }
-};
-
 // module.exports = {
 //     config: {
-//         test: /\.(png|jpg|gif)$/,
-//         loaders: [
-//             'file-loader?name=img/[name].[ext]?[hash]', {
-//                 loader: 'image-webpack-loader',
-//                 query: {
-//                     mozjpeg: {
-//                       progressive: true,
-//                     },
-//                     gifsicle: {
-//                       interlaced: false,
-//                     },
-//                     optipng: {
-//                       optimizationLevel: 4,
-//                     },
-//                     pngquant: {
-//                       quality: '70-90',
-//                       speed: 3,
-//                     },
-//                  },
-//         }],
-//         exclude: /node_modules/,
-//         include: __dirname,
-//     },
-//     plugin: new CopyWebpackPlugin([{ from: './img/server', to: './img' }])
+//         test: /\.(png|jpe?g|gif|ico|svg)$/,
+//         loader: 'file-loader?name=assets/img/[name].[hash:6].[ext]'
+//       }
 // };
+
+module.exports = {
+    config: {
+        test: /\.(png|jpe?g|gif|svg|ico)$/,
+        use: [
+        {
+            loader: 'file-loader',
+            options: {
+            name: 'assets/img/[name].[ext]?[hash:6]'
+            }
+        },
+        {
+            loader: 'image-webpack-loader',
+            options: {
+            mozjpeg: {
+                quality: 65
+            },
+            pngquant:{
+                quality: "50-70",
+                speed: 4
+            },
+            svgo:{
+                plugins: [
+                {
+                    removeViewBox: false
+                },
+                {
+                    removeEmptyAttrs: false
+                }
+                ]
+            },
+            gifsicle: {
+                optimizationLevel: 6,
+                interlaced: false
+            },
+            optipng: {
+                optimizationLevel: 6,
+                interlaced: false
+            }
+            }
+          }
+        ]
+    }
+};
