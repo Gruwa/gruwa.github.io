@@ -4,6 +4,7 @@ const webpack               = require('webpack');
 const HtmlWebpackPlugin     = require('html-webpack-plugin');
 const ExtractTextPlugin     = require('extract-text-webpack-plugin');
 const helpers               = require('./helpers');
+const CopyWebpackPlugin     = require('copy-webpack-plugin');
 
 let {config: cssConfig}     = require('./webpack.common.css');
 let {config: scssConfig}    = require('./webpack.common.scss');
@@ -17,6 +18,30 @@ let rulesConfig = [
         test: /\.html$/,
         loader: 'html-loader'
     }
+    // {
+    //     test: /\.(png|jpe?g|gif)$/,
+    //     loader: [
+    //         'file-loader?name=assets/img/[name].[hash:6].[ext]?limit=100000', {
+    //             loader: 'image-webpack-loader',
+    //             query: {
+    //                 mozjpeg: {
+    //                   progressive: true,
+    //                 },
+    //                 gifsicle: {
+    //                   interlaced: false,
+    //                 },
+    //                 optipng: {
+    //                   optimizationLevel: 4,
+    //                 },
+    //                 pngquant: {
+    //                   quality: '70-90',
+    //                   speed: 3,
+    //                 },
+    //              },
+    //     }],
+    //     exclude: /node_modules/,
+    //     include: __dirname,
+    // }
 ];
 
 rulesConfig.push(cssConfig);
@@ -58,7 +83,8 @@ module.exports = {
             }),
             new HtmlWebpackPlugin({
                 template: 'src/index.html'
-            })            
+            })
+            // new CopyWebpackPlugin([{ from: 'assets/img/server', to: 'assets/img' }])
         );
 
         return plugins;
