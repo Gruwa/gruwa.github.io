@@ -6,9 +6,11 @@ const ExtractTextPlugin     = require("extract-text-webpack-plugin");
 const helpers               = require('./helpers');
 
 module.exports = {
-    config:  {
-        test: /\.css$/,
-        include: helpers.root('src', 'app'),
-        loader: 'raw-loader'
+    config: {
+        test: /\.scss$/,
+        use: ExtractTextPlugin.extract({ 
+            fallback: 'style-loader', 
+            use: [ 'css-loader?sourceMap', 'postcss-loader', 'sass-loader' ] 
+        })
     }
 };

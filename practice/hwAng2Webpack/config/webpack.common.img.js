@@ -7,7 +7,7 @@ const path      = require('path');
 module.exports = {
     config: {
         test: /\.(png|jpe?g|gif|svg)$/,
-        loader: 'file-loader?name=assets/img/[name].[ext]?[hash]'
+        loader: 'file-loader?name=assets/img/[name].[ext]?[hash:6]'
       }
 };
 

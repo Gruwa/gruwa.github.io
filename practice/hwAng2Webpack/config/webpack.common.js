@@ -5,21 +5,22 @@ const HtmlWebpackPlugin     = require('html-webpack-plugin');
 const ExtractTextPlugin     = require('extract-text-webpack-plugin');
 const helpers               = require('./helpers');
 
-let {config: cssConfig, plugin: cssPlugin}      = require('./webpack.common.css');
-let {config: imgConfig}                         = require('./webpack.common.img');
-let {config: tsConfig}                          = require('./webpack.common.ts');
-let {config: svgConfig}                         = require('./webpack.common.svg');
-let {config: fontConfig}                        = require('./webpack.common.font');
+let {config: cssConfig}     = require('./webpack.common.css');
+let {config: scssConfig}    = require('./webpack.common.scss');
+let {config: imgConfig}     = require('./webpack.common.img');
+let {config: tsConfig}      = require('./webpack.common.ts');
+let {config: svgConfig}     = require('./webpack.common.svg');
+let {config: fontConfig}    = require('./webpack.common.font');
 
 let rulesConfig = [
-      {
+    {
         test: /\.html$/,
         loader: 'html-loader'
-      }
-    ];
+    }
+];
 
 rulesConfig.push(cssConfig);
-// rulesConfig.push(cssConfig2);
+rulesConfig.push(scssConfig);
 rulesConfig.push(imgConfig);
 rulesConfig.push(tsConfig);
 rulesConfig.push(svgConfig);
@@ -57,8 +58,7 @@ module.exports = {
             }),
             new HtmlWebpackPlugin({
                 template: 'src/index.html'
-            }),
-            cssPlugin
+            })            
         );
 
         return plugins;

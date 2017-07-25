@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import '../assets/css/styles.css';
+import '../assets/style/style.scss';
 
 
 declare let require: (filename: string) => any;
