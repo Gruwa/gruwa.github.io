@@ -1,0 +1,38 @@
+.partners {
+    max-width: 1440px;
+    padding-top: 93px;
+
+    &__title {
+        letter-spacing: 0;
+        margin-left: -5px;
+    }
+
+    &__template--in {
+        margin: 32px auto 0;
+        max-width: 930px;
+    }
+
+    &__template {
+        margin-right: 35px;
+        max-width: 206px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    &__photo {
+        margin: 0 auto 22px;
+    }
+
+    &__see {
+        margin-top: 26px;
+    }
+
+    &__text {
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 13px;
+    }
+
+}

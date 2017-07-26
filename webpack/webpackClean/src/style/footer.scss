@@ -1,0 +1,46 @@
+.footer {
+    box-sizing: border-box;
+    border-top: 4px solid $footer--border;
+    font-family: montserratbold, sans-serif;
+    margin: 40px auto 0;
+    max-width: 320px;
+    text-align: center;
+
+    &__wrapper {
+        margin: 0 auto;
+    }
+
+    &__title {
+        text-transform: uppercase;
+        font-size: 16px;
+        color: $footer--text-col3;
+        margin-top: 16px;
+    }
+
+    &__company {
+        margin-top: 19px;
+        margin-bottom: 5px;
+        font-size: 14px;
+    }
+
+    &__nav {
+        margin-bottom: 19px;
+    }
+
+    &__list {
+        font-size: 14px;
+        font-family: robotolight, sans-serif;
+        display: inline-block;
+        margin-right: 5px;
+
+        & a {
+            color: $footer--text-col2;
+        }
+    }
+
+    &__partners {
+        font-size: 14px;
+        color: $footer--text-col;
+        margin-bottom: 20px;
+    }
+}

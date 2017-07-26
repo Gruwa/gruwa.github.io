@@ -1,0 +1,48 @@
+.footer {
+    max-width: 768px;
+    text-align: left;
+    padding-top: 37px;
+
+    &__wrapper {
+        max-width: 720px;
+    }
+
+    &__title {
+        letter-spacing: 1px;
+        margin-top: 0;
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    &__menu {
+        display: inline-block;
+        margin-left: 78px;
+    }
+
+    &__company {
+        margin-top: 0;
+    }
+
+    &__nav {
+        margin-bottom: 0;
+        margin-top: 17px;
+    }
+
+    &__list {
+        margin-bottom: 11px;
+        display: block;
+    }
+
+    &__partners {
+        display: inline-block;
+        margin-left: 100px;
+        vertical-align: top;
+    }
+
+    &__logo {
+        display: block;
+        float: right;
+        margin-top: 2px;
+        vertical-align: top;
+    }
+}

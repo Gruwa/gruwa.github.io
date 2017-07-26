@@ -1,0 +1,9 @@
+.header {
+    background-image: url('../img/header__img--1440.jpg');
+    max-width: 1440px;
+
+    &__top {
+        margin-top: 10px;
+        max-width: 940px;
+    }
+}

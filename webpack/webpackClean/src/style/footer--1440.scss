@@ -1,0 +1,29 @@
+.footer {
+    max-width: 1440px;
+    padding-top: 38px;
+
+    &__wrapper {
+        max-width: 950px;
+    }
+
+    &__title {
+
+    }
+
+    &__menu {
+        margin-left: 92px;
+    }
+
+    &__nav {
+        margin-bottom: 0;
+        margin-top: 17px;
+    }
+
+    &__partners {
+        margin-left: 89px;
+    }
+
+    &__logo {
+        margin-top: 1px;
+    }
+}

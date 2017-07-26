@@ -1,0 +1,80 @@
+.info {
+    box-sizing: border-box;
+    color: $info--text-col2;
+    font-family: montserratbold, sans-serif;
+    margin: 0 auto;
+    max-width: 320px;
+    padding-left: 9px;
+    padding-right: 10px;
+    padding-top: 37px;
+    text-align: center;
+
+    &__title {
+        color: $info--text-col;
+        font-size: 22px;
+    }
+
+    &__step {
+        background-image: url('../img/step__step1--mobile.png');
+        background-repeat: no-repeat;
+        margin: 16px auto 0;
+        max-width: 301px;
+        padding-left: 20px;
+        padding-top: 69px;
+        text-align: left;
+    }
+
+    &__step--2 {
+        background-image: url('../img/step__step2--mobile.png');
+        margin: 10px auto 0;
+        padding-bottom: 2px;
+        padding-top: 99px;
+
+        .info__text {
+            letter-spacing: .1px;
+            line-height: 16.7px;
+            margin-top: 9px;
+            padding-right: 10px;
+        }
+    }
+
+    &__step--3 {
+        background-image: url('../img/step__step3--mobile.png');
+        margin: 10px auto 0;
+        padding-top: 69px;
+    }
+
+    &__stepNum {
+        background-color: $info--bc;
+        border-radius: 20px;
+        color: $info--text-col2;
+        font-family: montserratregular, sans-serif;
+        font-size: 10px;
+        letter-spacing: 2px;
+        padding: 5px 15px;
+        padding-right: 12px;
+        text-transform: uppercase;
+    }
+
+    &__tagline {
+        color: $info--text-col2;
+        font-size: 24px;
+        line-height: 28.8px;
+        margin-top: 20px;
+
+    }
+
+    &__text {
+        color: $info--text-col3;
+        font-family: robotolight, sans-serif;
+        font-size: 14px;
+        line-height: 16.8px;
+        margin-top: 11px;
+        padding-bottom: 16px;
+        padding-right: 5px;
+    }
+
+    &__bxslider {
+        display: none;
+    }
+}

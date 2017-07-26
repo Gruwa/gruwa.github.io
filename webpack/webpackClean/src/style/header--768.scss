@@ -1,0 +1,46 @@
+.header {
+    background-image: url('../img/header__img--768.jpg');
+    max-width: 768px;
+    padding-top: 38px;
+    box-sizing: border-box;
+    height: 700px;
+
+    &__top {
+        margin-top: 10px;
+        max-width: 668px;
+    }
+
+    &__authorization {
+        float: right;
+    }
+
+    &__singUp {
+        margin: 0;
+    }
+
+    &__title {
+        text-align: left;
+        margin-top: 0;
+    }
+
+    &__tagline {
+        font-size: 52px;
+        line-height: 62.4px;
+        max-width: 490px;
+        padding: 0;
+        margin: 148px auto 23px;
+    }
+
+    &__text {
+        font-family: robotolight, sans-serif;
+        font-size: 24px;
+        line-height: 28.8px;
+        max-width: 400px;
+    }
+
+    &__search {
+        margin-top: 34px;
+        margin-left: -3px;
+        padding: 12px 23px;
+    }
+}

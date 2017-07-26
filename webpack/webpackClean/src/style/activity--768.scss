@@ -1,0 +1,20 @@
+.activity {
+    max-width: 768px;
+    padding: 99px 10px 0;
+
+    &__text {
+        margin-bottom: 40px;
+        margin-top: 34px;
+    }
+
+    &__search {
+        height: 36px;
+        width: 224px;
+    }
+
+    &__button {
+        margin-bottom: 100px;
+        margin-left: 7px;
+        width: 158px;
+    }
+}

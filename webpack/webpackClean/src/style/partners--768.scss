@@ -1,0 +1,24 @@
+.partners {
+    max-width: 768px;
+    padding-top: 95px;
+
+    &__template--in {
+        margin: 30px auto 0;
+        max-width: 520px;
+    }
+
+    &__template {
+        float: left;
+        margin-bottom: 10px;
+        max-width: 260px;
+    }
+
+    &__photo {
+        margin: 0 auto 19px;
+    }
+
+    &__see {
+        margin-top: 13px;
+        width: 191px;
+    }
+}

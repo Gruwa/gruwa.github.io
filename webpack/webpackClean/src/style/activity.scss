@@ -1,0 +1,50 @@
+.activity {
+    box-sizing: border-box;
+    color: $activity--text-col;
+    font-family: montserratbold, sans-serif;
+    margin: 0 auto;
+    max-width: 320px;
+    padding: 38px 10px 0;
+    text-align: center;
+
+    &__title {
+        font-size: 22px;
+        margin-bottom: 18px;
+
+        &--footer {
+            margin-top: 40px;
+        }
+    }
+
+    &__text {
+        font-family: robotolight, sans-serif;
+        font-size: 18px;
+        margin-bottom: 16px;
+    }
+
+    &__search {
+        background-color: $activity--bc;
+        border: 1px solid $activity--search-border;
+        border-radius: 4px;
+        box-shadow: 0 1px 0 0 $activity--search-shadow;
+        font-family: robotolight, sans-serif;
+        font-size: 14px;
+        height: 38px;
+        margin-bottom: 10px;
+        width: 278px;
+        padding-left: 13px;
+    }
+
+    &__button {
+        background-color: $activity--but-bc;
+        border: 0;
+        border-radius: 20px;
+        color: $activity--but-col;
+        cursor: pointer;
+        font-family: montserratbold, sans-serif;
+        font-size: 14px;
+        height: 40px;
+        max-width: 280px;
+        text-align: center;
+    }
+}

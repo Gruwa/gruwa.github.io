@@ -1,0 +1,26 @@
+.activity {
+    max-width: 1440px;
+    padding: 98px 10px 0;
+
+    &__title {
+        margin-left: -3px;
+    }
+
+    &__text {
+        margin-left: 52px;
+        margin-top: 37px;
+    }
+
+    &__search {
+        margin-left: 53px;
+        width: 224px;
+    }
+
+    &__button {
+        margin-left: 6px;
+    }
+
+    &__title--footer {
+        margin-left: 51px;
+    }
+}
