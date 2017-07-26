@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "webpack.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "WPtest": "echo \"Error: no test specified\" && exit 1",
     "dev": "node node_modules/cross-env/dist/bin/cross-env.js NODE_ENV=development node_modules/webpack/bin/webpack",
     "prod": "node node_modules/cross-env/dist/bin/cross-env.js NODE_ENV=NODE_ENV=production node_modules/webpack/bin/webpack"
   },
