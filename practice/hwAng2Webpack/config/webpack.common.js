@@ -11,7 +11,7 @@ let {config: scssConfig,
     plugin: scssPlugin}     = require('./webpack.common.scss');
 let {config: imgConfig}     = require('./webpack.common.img');
 let {config: tsConfig}      = require('./webpack.common.ts');
-// let {config: svgConfig, plugin: svgPlugin}     = require('./webpack.common.svg');
+// let {config: svgConfig}     = require('./webpack.common.svg');
 let {config: fontConfig}    = require('./webpack.common.font');
 
 let rulesConfig = [

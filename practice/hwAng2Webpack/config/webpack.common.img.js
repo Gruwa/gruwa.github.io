@@ -2,18 +2,10 @@
 
 const webpack   = require('webpack');
 const path      = require('path');
-// const CopyWebpackPlugin     = require('copy-webpack-plugin');
-
-// module.exports = {
-//     config: {
-//         test: /\.(png|jpe?g|gif|ico|svg)$/,
-//         loader: 'file-loader?name=assets/img/[name].[hash:6].[ext]'
-//       }
-// };
 
 module.exports = {
     config: {
-        test: /\.(png|jpe?g|gif|svg|ico)$/,
+        test: /\.(png|jpe?g|gif|ico|svg)$/,
         use: [
         {
             loader: 'file-loader',

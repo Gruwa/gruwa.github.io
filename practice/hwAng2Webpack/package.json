@@ -57,6 +57,8 @@
     "webpack-dev-server": "2.4.1",
     "webpack-merge": "^3.0.0",
     "webpack-svg-icon-system": "^0.3.4",
+    "webpack-svg-sprite-plugin": "^1.2.0",
     "zone.js": "^0.8.14"
-  }
+  },
+  "main": "index.js"
 }

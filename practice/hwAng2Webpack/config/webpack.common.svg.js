@@ -2,20 +2,17 @@
 
 const webpack    = require('webpack');
 const path       = require('path');
-const ExtractTextPlugin     = require("extract-text-webpack-plugin");
-const SpritePlugin = require('svg-sprite-loader/plugin');
+// const ExtractTextPlugin     = require("extract-text-webpack-plugin");
+// const SpritePlugin = require('svg-sprite-loader/plugin');
+// const SvgSpritePlugin = require('webpack-svg-sprite-plugin');
 
 
 module.exports = {
     config: {
-        test: /\.svg$/,
-        loader: 'svg-sprite-loader',
-        options: {
-          extract: true,
-          spriteFilename: 'assets/img/sprite.[hash:6].svg'
-        }
-    },
-    plagin: new SpritePlugin()
+      test: /\.svg$/,
+      use: [
+        'svg-sprite-loader',
+        'svgo-loader'
+      ]
+    }
 };
-
-// let airplane = require('../src/assets/img/svg/partners__airplane.svg');
