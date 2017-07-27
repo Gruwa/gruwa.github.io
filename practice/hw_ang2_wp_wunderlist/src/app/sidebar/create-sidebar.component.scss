@@ -1,0 +1,42 @@
+.sidebar {
+    background-color: #fff;
+    width: 280px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+
+    &__head {
+        background-color: rgb(91, 122, 89);
+        padding: 10px 0 10px 11px;
+    }
+
+    &__list-toggle {
+        height: 20px;
+        vertical-align: middle;
+        cursor: pointer;
+
+    }
+
+    &__inbox {
+        padding: 11px;
+
+        &__description {
+            color: rgb(38, 38, 38);
+            font-size: 15px;
+        }
+    }
+
+    &__list-new {
+        padding: 11px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+
+        &__description {
+            color: rgb(67, 153, 237);
+            font-size: 15px;
+        }
+    }
+
+}
