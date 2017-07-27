@@ -1,5 +1,5 @@
 .sidebar {
-    background-color: #fff;
+    background-color: rgb(247, 247, 247);
     width: 280px;
     position: fixed;
     top: 0;
@@ -15,7 +15,41 @@
         height: 20px;
         vertical-align: middle;
         cursor: pointer;
+        
+        &--toolbar {
+            // float: right;
+            margin: 0 10px;
 
+        }
+
+    }
+
+    &__toolbar {
+        box-sizing: border-box;
+        height: 51px;
+        margin: 2px 0 4px;
+        padding: 7px; 
+        vertical-align: middle;
+            & :last-child {
+                margin-right: 0;
+            }
+    }
+
+    &__user-avatar {
+        display: inline-block;
+        width: 32px;
+        height: 32px;
+        background-color: rgb(97, 146, 229);
+        border-radius: 32px;
+        font-size: 18px;
+        text-align: center;
+        padding-top: 7px;
+        color: rgb(255, 255, 255);
+        font-family: 'montserratregular', sans-serif;
+    }
+
+    &__user-name {
+        font-size: 15px;
     }
 
     &__inbox {
@@ -28,10 +62,13 @@
     }
 
     &__list-new {
+        cursor: pointer;
+        width: 280px;
         padding: 11px;
         position: fixed;
         bottom: 0;
         left: 0;
+        border-top: 1px solid rgb(214, 214, 214);
 
         &__description {
             color: rgb(67, 153, 237);

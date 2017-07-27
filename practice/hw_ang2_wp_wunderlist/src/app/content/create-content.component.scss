@@ -1,6 +1,7 @@
 .content {
-margin-left: 280px;
-
+    margin-left: 280px;
+    display: block;
+  
     &__header {
         background-color: rgb(102, 137, 100);
         padding: 10px 14px;
@@ -16,30 +17,52 @@ margin-left: 280px;
     &__menu {
         float: right;
 
-        & svg {
-            margin-right: 15px;
+        &__list {
+            display: inline-block;
+            cursor: pointer;
+            margin: 0 6px;
+            
+        }
+
+        &__img {
+            display: block;
+            margin: 0 auto;
+        }
+
+        &__sign {
+            font-size: 10px;
+            display: block;
+            margin: 0 auto;
+            color: rgb(255, 255, 255);
         }
     }
 
     &__task {
-        padding: 14px;
+        padding: 0 7px;
+        margin: 0 7px;
 
+        &__img {
+            display: inline-block;
+            margin-bottom: -4px;
+        }
 
         &__new-task {
             background-color: rgba(102,137,100,0.75);
-            // height: 47px;
-            padding: 13px 0 14px 12px;
+            height: 47px;
+            padding:0 12px;
+            margin: 14px 0;
 
-            & svg {
-                vertical-align: middle;
-            }
 
             & input {
                 font-size: 16px;
-                padding-right: 60px;
+                display: inline-block;
                 color: rgb(255, 255, 255);
                 background: 0;
                 border: 0;
+                padding: 13px 0 14px;
+                width: 90%;
+                
+
 
                 &[type="text"]::-webkit-input-placeholder {
                     color: rgb(183, 209, 197);
