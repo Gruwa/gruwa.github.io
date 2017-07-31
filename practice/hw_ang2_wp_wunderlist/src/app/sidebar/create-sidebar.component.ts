@@ -1,3 +1,4 @@
+import { EventService } from './shared/event.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -5,4 +6,14 @@ import { Component } from '@angular/core';
     templateUrl: './create-sidebar.component.html'
 
 })
-export class CreateSidebarComponent {}
+export class CreateSidebarComponent {
+
+    events:any [];
+
+    constructor(private eventService: EventService) {
+    }
+
+    ngOnInit() {
+        this.events = this.eventService.getEvents();
+    }
+}

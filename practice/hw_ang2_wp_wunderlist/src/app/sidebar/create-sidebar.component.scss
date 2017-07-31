@@ -17,9 +17,7 @@
         cursor: pointer;
         
         &--toolbar {
-            // float: right;
             margin: 0 10px;
-
         }
 
     }
@@ -30,6 +28,7 @@
         margin: 2px 0 4px;
         padding: 7px; 
         vertical-align: middle;
+
             & :last-child {
                 margin-right: 0;
             }
@@ -53,7 +52,9 @@
     }
 
     &__inbox {
-        padding: 11px;
+        padding: 0 8px;
+        height: 38px;
+        cursor: pointer;
 
         &__description {
             color: rgb(38, 38, 38);
@@ -69,6 +70,7 @@
         bottom: 0;
         left: 0;
         border-top: 1px solid rgb(214, 214, 214);
+        background-color: rgb(255, 255, 255);
 
         &__description {
             color: rgb(67, 153, 237);
@@ -77,3 +79,5 @@
     }
 
 }
+
+@import './events/events-list.component';

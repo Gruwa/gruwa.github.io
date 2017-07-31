@@ -1,0 +1,8 @@
+<div class="sidebar__inbox  clearfix" (click)="eventListClick()" >
+    <img class="sidebar__list-toggle" src="../../../assets/img/svg/list.svg">
+    <span class="sidebar__inbox__description">{{goga?.name}}</span>
+    <div class="sidebar__inbox__lists">
+        <span class="sidebar__inbox__description">{{'goga+1'}}</span>
+        <img class="sidebar__list-toggle" *ngIf="options" src="../../../assets/img/svg/option.svg">
+    </div>
+</div>

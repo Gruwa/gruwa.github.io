@@ -46,6 +46,24 @@
             margin-bottom: -4px;
         }
 
+        &__text {
+            font-size: 16px;
+            display: inline-block;
+            color: rgb(255, 255, 255);
+            background: 0;
+            border: 0;
+            padding: 13px 0 14px;
+            width: 90%;
+
+            &[type="text"]::-webkit-input-placeholder {
+                color: rgb(183, 209, 197);
+            }
+
+            &[type="text"]::-moz-placeholder {
+                color: rgb(183, 209, 197);
+            }
+        }
+
         &__new-task {
             background-color: rgba(102,137,100,0.75);
             height: 47px;
@@ -53,25 +71,6 @@
             margin: 14px 0;
 
 
-            & input {
-                font-size: 16px;
-                display: inline-block;
-                color: rgb(255, 255, 255);
-                background: 0;
-                border: 0;
-                padding: 13px 0 14px;
-                width: 90%;
-                
-
-
-                &[type="text"]::-webkit-input-placeholder {
-                    color: rgb(183, 209, 197);
-                }
-
-                &[type="text"]::-moz-placeholder {
-                    color: rgb(183, 209, 197);
-                }
-            }
         }
 
         &__addtask {
@@ -94,3 +93,5 @@
     }
 
 }
+
+@import './lists/list-content.component';

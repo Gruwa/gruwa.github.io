@@ -11,9 +11,7 @@
     <img class="sidebar__list-toggle" src="../../assets/img/svg/inbox.svg">
     <span class="sidebar__inbox__description">Входящие</span>
 </div>
-<div class="sidebar__lists">
-
-</div>
+<events-list *ngFor="let event of events" [goga]="event"></events-list> 
 <div class="sidebar__list-new">
         <img class="sidebar__list-toggle" src="../../assets/img/svg/plus.svg">
         <span class="sidebar__list-new__description">Создать список</span>

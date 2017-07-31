@@ -1,6 +1,14 @@
 import { JQ_TOKEN } from './common/index';
-import { CreateContentComponent } from './content/create-content.component';
-import { CreateSidebarComponent } from './sidebar/create-sidebar.component';
+import { 
+    CreateContentComponent,
+    ListContentComponent
+} from './content/index';
+import { 
+    CreateSidebarComponent,
+    EventsListComponent,
+    EventService
+} from './sidebar/index';
+  
 import { NgModule } from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
  
@@ -15,9 +23,12 @@ declare let jQuery: object;
   declarations: [
     AppComponent,
     CreateSidebarComponent,
-    CreateContentComponent
+    CreateContentComponent,
+    EventsListComponent,
+    ListContentComponent
   ],
   providers: [
+      EventService,
     {
       provide: JQ_TOKEN,
       useValue: jQuery
