@@ -20,6 +20,10 @@
             margin: 0 10px;
         }
 
+        &--vertical {
+            margin-top: 15px;
+        }
+
     }
 
     &__toolbar {
@@ -45,6 +49,7 @@
         padding-top: 7px;
         color: rgb(255, 255, 255);
         font-family: 'montserratregular', sans-serif;
+        margin-left: -4px;
     }
 
     &__user-name {

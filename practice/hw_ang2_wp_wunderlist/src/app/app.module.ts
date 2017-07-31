@@ -2,7 +2,7 @@ import { JQ_TOKEN } from './common/index';
 import { 
     CreateContentComponent,
     ListContentComponent
-} from './content/index';
+} from './sidebar/content/index';
 import { 
     CreateSidebarComponent,
     EventsListComponent,
