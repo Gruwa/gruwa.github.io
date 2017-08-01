@@ -1,8 +1,8 @@
-<div class="sidebar__inbox  clearfix" (click)="eventListClick()" [routerLink]="['/events', goga.id]" >
+<div class="sidebar__inbox  clearfix" [routerLink]="['/events', goga.id]" routerLinkActive="active"  >
     <img class="sidebar__list-toggle" *ngIf="listToggle" src="../../../assets/img/svg/list.svg">
     <span class="sidebar__inbox__description" *ngIf="listToggle">{{goga?.name}}</span>
     <div class="sidebar__inbox__lists" *ngIf="listToggle">
         <span class="sidebar__inbox__description">{{eventLength()}}</span>
-        <img class="sidebar__list-toggle" *ngIf="options" src="../../../assets/img/svg/option.svg">
+        <img class="sidebar__list-toggle" src="../../../assets/img/svg/option.svg">
     </div>
 </div>

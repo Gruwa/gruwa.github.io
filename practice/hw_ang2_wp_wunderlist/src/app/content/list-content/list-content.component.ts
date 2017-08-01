@@ -13,7 +13,7 @@ export class ListContentComponent {
 
     event: any;
 
-    ngOnInit() {
+    ngAfterContentChecked() {
         this.event = this.eventService.getEvent(+this.route.snapshot.params['id']);
     }
 }
