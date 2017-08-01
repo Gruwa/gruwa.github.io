@@ -4,18 +4,19 @@ import { BrowserModule }  from '@angular/platform-browser';
 import { appRoutes } from './routes';
 import { AppComponent } from './app.component';
 
+import { EventService } from './shared/event.service';
+import { Error404Component } from './error/404.component';
 import { JQ_TOKEN } from './common/index';
 import { 
     CreateContentComponent,
-    ListContentComponent
+    ListContentComponent,
+    EventRouteActivatorService,
+    ItemContentComponent
 } from './content/index';
 import { 
     CreateSidebarComponent,
     EventsListComponent
 } from './sidebar/index';
-import { 
-    EventService
-} from './shared/event.service';
   
 declare let jQuery: object;
  
@@ -29,10 +30,13 @@ declare let jQuery: object;
     CreateSidebarComponent,
     CreateContentComponent,
     EventsListComponent,
-    ListContentComponent
+    ListContentComponent,
+    Error404Component,
+    ItemContentComponent
   ],
   providers: [
       EventService,
+      EventRouteActivatorService,
     {
       provide: JQ_TOKEN,
       useValue: jQuery

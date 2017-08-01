@@ -10,16 +10,23 @@ import '../assets/img/icon.png';
 export class AppComponent { 
 
     listToggle: any;
+    event: any;
 
     toggleClicked(data: any) {
         this.listToggle = data;
     }
 
-    getTogleContent() {
+    eventClicked(data: any) {
+        this.event = data;
+    }
 
+    getTogleContent() {
+        
         if(this.listToggle == false) {
             return {'margin-left': '42px'};
         }
     }
+
+    
 
 }

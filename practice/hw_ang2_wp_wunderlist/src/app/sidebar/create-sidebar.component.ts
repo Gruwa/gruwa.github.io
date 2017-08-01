@@ -9,6 +9,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class CreateSidebarComponent {
 
     @Output() toggleClick = new EventEmitter();
+    @Output() event = new EventEmitter();
 
     listToggle: boolean = true;
     events:any [];
@@ -30,6 +31,7 @@ export class CreateSidebarComponent {
         }
 
         this.toggleClick.emit(this.listToggle);
+        this.event.emit(this.event);
     }
 
     getTogle() {
