@@ -1,23 +1,25 @@
-import { EventService } from './shared/event.service';
-import { Component } from '@angular/core';
+import { EventService } from '../shared/event.service';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
-    selector: 'main',
+    selector: 'side-bar',
     templateUrl: './create-sidebar.component.html'
 
 })
 export class CreateSidebarComponent {
 
+    @Output() toggleClick = new EventEmitter();
+
+    listToggle: boolean = true;
     events:any [];
 
     constructor(private eventService: EventService) {
     }
 
     ngOnInit() {
-        this.events = this.eventService.getEvents();
+        this.events = this.eventService.getEvents();   
     }
 
-    listToggle: boolean = true;
 
     listToggleFunc() {
         if(this.listToggle) {
@@ -26,17 +28,13 @@ export class CreateSidebarComponent {
         else {
             this.listToggle = true;
         }
+
+        this.toggleClick.emit(this.listToggle);
     }
 
     getTogle() {
         if(this.listToggle == false) {
             return {'width': '42px'};
-        }
-    }
-
-    getTogleContent() {
-        if(this.listToggle == false) {
-            return {'margin-left': '42px'};
         }
     }
 }

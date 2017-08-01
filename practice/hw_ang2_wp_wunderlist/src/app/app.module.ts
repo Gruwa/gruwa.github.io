@@ -1,24 +1,28 @@
+import { RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { BrowserModule }  from '@angular/platform-browser';
+import { appRoutes } from './routes';
+import { AppComponent } from './app.component';
+
 import { JQ_TOKEN } from './common/index';
 import { 
     CreateContentComponent,
     ListContentComponent
-} from './sidebar/content/index';
+} from './content/index';
 import { 
     CreateSidebarComponent,
-    EventsListComponent,
-    EventService
+    EventsListComponent
 } from './sidebar/index';
+import { 
+    EventService
+} from './shared/event.service';
   
-import { NgModule } from '@angular/core';
-import { BrowserModule }  from '@angular/platform-browser';
- 
-import { AppComponent } from './app.component';
-
 declare let jQuery: object;
  
 @NgModule({
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(appRoutes)
   ],
   declarations: [
     AppComponent,

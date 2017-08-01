@@ -8,12 +8,14 @@
         <img class="sidebar__list-toggle sidebar__list-toggle--toolbar" *ngIf="listToggle" src="../../assets/img/svg/bell.svg">
         <img class="sidebar__list-toggle sidebar__list-toggle--toolbar" *ngIf="listToggle" src="../../assets/img/svg/conversations.svg">
     </div>
-    <div class="sidebar__inbox">
-        <img class="sidebar__list-toggle" src="../../assets/img/svg/inbox.svg">
-        <img class="sidebar__list-toggle sidebar__list-toggle--vertical" *ngIf="listToggle == false" (click)="listToggleFunc()" 
-            src="../../assets/img/svg/more-vertical.svg">
-        <span class="sidebar__inbox__description" *ngIf="listToggle">Входящие</span>
-    </div>
+        <a [routerLink]="['/events']">
+            <div class="sidebar__inbox" >
+                <img class="sidebar__list-toggle" src="../../assets/img/svg/inbox.svg">
+                <img class="sidebar__list-toggle sidebar__list-toggle--vertical" *ngIf="listToggle == false" (click)="listToggleFunc()" 
+                    src="../../assets/img/svg/more-vertical.svg">
+                <span class="sidebar__inbox__description" *ngIf="listToggle">Входящие</span>
+            </div>
+        </a>
     <events-list *ngFor="let event of events" [goga]="event" [listToggle]="listToggle">
         
     </events-list> 
@@ -22,4 +24,3 @@
         <span class="sidebar__list-new__description" *ngIf="listToggle" >Создать список</span>
     </div>
 </div>
-<main-content class="content" [ngStyle]="getTogleContent()"></main-content>

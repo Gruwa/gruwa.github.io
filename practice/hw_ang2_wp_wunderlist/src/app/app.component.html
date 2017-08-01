@@ -1,2 +1,5 @@
-<main></main>
-
+<side-bar (toggleClick)="toggleClicked($event)" ></side-bar>
+<div class="content" [ngStyle]="getTogleContent()">
+     <router-outlet></router-outlet> 
+</div>
+<!-- <main-content class="content" [ngStyle]="getTogleContent()"></main-content> -->

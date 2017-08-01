@@ -1,4 +1,6 @@
+import { log } from 'util';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { EventService } from '../../shared/event.service';
 
 @Component({
     selector: 'events-list',
@@ -12,6 +14,7 @@ export class EventsListComponent {
     @Input() listToggle: boolean;
 
     options: boolean = false;
+    length: any;
 
     eventListClick() {
 
@@ -22,4 +25,8 @@ export class EventsListComponent {
         }
     }
 
+    eventLength() {
+        this.length = this.goga.items.length;
+        return this.length;
+    }
 }

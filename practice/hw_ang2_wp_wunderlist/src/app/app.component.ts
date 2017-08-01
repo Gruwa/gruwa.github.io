@@ -7,4 +7,19 @@ import '../assets/img/icon.png';
   selector: 'main-app',
   templateUrl: './app.component.html'
 })
-export class AppComponent { }
+export class AppComponent { 
+
+    listToggle: any;
+
+    toggleClicked(data: any) {
+        this.listToggle = data;
+    }
+
+    getTogleContent() {
+
+        if(this.listToggle == false) {
+            return {'margin-left': '42px'};
+        }
+    }
+
+}

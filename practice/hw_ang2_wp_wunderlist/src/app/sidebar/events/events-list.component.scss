@@ -1,7 +1,13 @@
 .sidebar__inbox {
 
+    outline:none;
+
     &__lists {
         float: right;
+    }
+
+    &__description {
+        margin-right: 5px;
     }
 
 }
