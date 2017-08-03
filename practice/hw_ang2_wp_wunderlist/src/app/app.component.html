@@ -1,0 +1,7 @@
+<red-pencil  class="red-pencil" [ngStyle]="redPancilContent()" (redPancilClick)="redPancilClicked($event)" 
+    [redPancilName]="redPancilName"></red-pencil>
+<side-bar (toggleClick)="toggleClicked($event)" (redPancilClick)="redPancilClicked($event)"
+    (redPancilClickName)="redPancilClickedName($event)"></side-bar>
+<div class="content" [ngStyle]="getTogleContent()">
+     <router-outlet></router-outlet> 
+</div>

@@ -1,0 +1,19 @@
+@mixin wrapper($pt: 0, $pb: 0, $bc: $background) {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: $pt 0 $pb;
+    @include groundimg($bc);
+}
+
+@mixin groundimg($bc: $background, $bi: none, $bpx: 0, $bpy: 0) {
+    background-color: $bc;
+    background-image: $bi;
+    background-repeat: no-repeat;
+    background-position: $bpx $bpy;
+}
+
+@mixin font($fs: 24px, $c: $color-servis-text, $ff: 'ubuntumedium') {
+    font-family: $ff, sans-serif;
+    font-size: $fs;
+    color: $c;
+}

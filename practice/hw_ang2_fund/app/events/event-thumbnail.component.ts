@@ -34,6 +34,12 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
     </div>
     <div>Price: {{event?.price | currency:'USD':true}}</div>
     <div *ngIf="event.location" >
+    <!--
+  ngIf="" => работает как условие if, если  true тогда становится видимым, 
+      иначе вырезается из дома
+
+  ngFor="let event of events" => делает выборку обектов event из массива events
+-->
         <span>Lcation: {{event?.location?.address}}</span>
         <span class="pad-left">{{event?.location?.city}}, {{event?.location?.country}}</span>
     </div>

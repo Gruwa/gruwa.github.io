@@ -206,9 +206,9 @@ $(function () {
         // css transition properties
         props = ['WebkitPerspective', 'MozPerspective', 'OPerspective', 'msPerspective'];
         // test for each property
-        for (var i = 0; i < props.length; i++) {
-          if (div.style[props[i]] !== undefined) {
-            slider.cssPrefix = props[i].replace('Perspective', '').toLowerCase();
+        for (var _i = 0; _i < props.length; _i++) {
+          if (div.style[props[_i]] !== undefined) {
+            slider.cssPrefix = props[_i].replace('Perspective', '').toLowerCase();
             slider.animProp = '-' + slider.cssPrefix + '-transform';
             return true;
           }
@@ -576,7 +576,9 @@ $(function () {
      * Sets the slider's (el) left or top position
      */
     var setSlidePosition = function setSlidePosition() {
-      var position, lastChild, lastShowingIndex;
+      var position = void 0,
+          lastChild = void 0,
+          lastShowingIndex = void 0;
       // if last slide, not infinite loop, and number of children is larger than specified maxSlides
       if (slider.children.length > slider.settings.maxSlides && slider.active.last && !slider.settings.infiniteLoop) {
         if (slider.settings.mode === 'horizontal') {
@@ -628,7 +630,8 @@ $(function () {
      *  - an optional parameter containing any variables that need to be passed in
      */
     var setPositionProperty = function setPositionProperty(value, type, duration, params) {
-      var animateObj, propValue;
+      var animateObj = void 0,
+          propValue = void 0;
       // use CSS transform
       if (slider.usingCSS) {
         // determine the translate3d value
@@ -706,19 +709,19 @@ $(function () {
           linkContent = '',
           pagerQty = getPagerQty();
       // loop through each pager item
-      for (var i = 0; i < pagerQty; i++) {
+      for (var _i2 = 0; _i2 < pagerQty; _i2++) {
         linkContent = '';
         // if a buildPager function is supplied, use it to get pager link value, else use index + 1
         if (slider.settings.buildPager && $.isFunction(slider.settings.buildPager) || slider.settings.pagerCustom) {
-          linkContent = slider.settings.buildPager(i);
+          linkContent = slider.settings.buildPager(_i2);
           slider.pagerEl.addClass('bx-custom-pager');
         } else {
-          linkContent = i + 1;
+          linkContent = _i2 + 1;
           slider.pagerEl.addClass('bx-default-pager');
         }
         // var linkContent = slider.settings.buildPager && $.isFunction(slider.settings.buildPager) ? slider.settings.buildPager(i) : i + 1;
         // add the markup to the string
-        pagerHtml += '<div class="bx-pager-item"><a href="" data-slide-index="' + i + '" class="bx-pager-link">' + linkContent + '</a></div>';
+        pagerHtml += '<div class="bx-pager-item"><a href="" data-slide-index="' + _i2 + '" class="bx-pager-link">' + linkContent + '</a></div>';
       }
       // populate the pager element with pager links
       slider.pagerEl.html(pagerHtml);
@@ -884,7 +887,8 @@ $(function () {
      *  - DOM event object
      */
     var clickPagerBind = function clickPagerBind(e) {
-      var pagerLink, pagerIndex;
+      var pagerLink = void 0,
+          pagerIndex = void 0;
       e.preventDefault();
       if (slider.controls.el.hasClass('disabled')) {
         return;
@@ -1046,14 +1050,14 @@ $(function () {
      */
     var initTicker = function initTicker() {
       var startPosition = 0,
-          position,
-          transform,
-          value,
-          idx,
-          ratio,
-          property,
-          newSpeed,
-          totalDimens;
+          position = void 0,
+          transform = void 0,
+          value = void 0,
+          idx = void 0,
+          ratio = void 0,
+          property = void 0,
+          newSpeed = void 0,
+          totalDimens = void 0;
       // if autoDirection is "next", append a clone of the entire slider
       if (slider.settings.autoDirection === 'next') {
         el.append(slider.children.clone().addClass('bx-clone'));
@@ -1120,9 +1124,9 @@ $(function () {
       var speed = resumeSpeed ? resumeSpeed : slider.settings.speed,
           position = { left: 0, top: 0 },
           reset = { left: 0, top: 0 },
-          animateProperty,
-          resetValue,
-          params;
+          animateProperty = void 0,
+          resetValue = void 0,
+          params = void 0;
 
       // if "next" animate left position to last child, then reset left to 0
       if (slider.settings.autoDirection === 'next') {
@@ -1448,10 +1452,10 @@ $(function () {
           moveBy = 0,
           position = { left: 0, top: 0 },
           lastChild = null,
-          lastShowingIndex,
-          eq,
-          value,
-          requestEl;
+          lastShowingIndex = void 0,
+          eq = void 0,
+          value = void 0,
+          requestEl = void 0;
       // store the old index
       slider.oldIndex = slider.active.index;
       //set new index
@@ -1847,7 +1851,6 @@ $(function () {
 // John Resig - http://ejohn.org/ - MIT Licensed
 
 var cache = {};
-
 var tmpl = function tmpl(str, data) {
   // Figure out if we're getting a template, or if we need to
   // load the template - and be sure to cache the result.
