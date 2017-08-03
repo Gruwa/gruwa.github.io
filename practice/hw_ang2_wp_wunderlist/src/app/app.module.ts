@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { appRoutes } from './routes';
 import { AppComponent } from './app.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { EventService } from './shared/event.service';
 import { Error404Component } from './error/404.component';
@@ -15,7 +16,8 @@ import {
 } from './content/index';
 import { 
     CreateSidebarComponent,
-    EventsListComponent
+    EventsListComponent,
+    RedPencilComponent
 } from './sidebar/index';
   
 declare let jQuery: object;
@@ -23,7 +25,8 @@ declare let jQuery: object;
 @NgModule({
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    ReactiveFormsModule
   ],
   declarations: [
     AppComponent,
@@ -32,7 +35,8 @@ declare let jQuery: object;
     EventsListComponent,
     ListContentComponent,
     Error404Component,
-    ItemContentComponent
+    ItemContentComponent,
+    RedPencilComponent
   ],
   providers: [
       EventService,

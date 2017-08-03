@@ -2,6 +2,22 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class EventService {
+    // id:number;
+
+    updateCurrentList(listName:string, id:number) {
+
+        for (let i = 0; i < this.getEvents().length; i++) {
+            let element = this.getEvents()[i];
+            for (let key in element) {
+                if (element.hasOwnProperty(key) && element[key] == id) {
+                    console.log('element', element);
+                    console.log('Вы изменили название списка на', listName);
+                    return
+                }
+            }            
+        }
+    }
+
     getEvents() {
         return EVENTS;
     }

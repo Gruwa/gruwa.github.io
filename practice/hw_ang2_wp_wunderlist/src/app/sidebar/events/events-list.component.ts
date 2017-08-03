@@ -1,6 +1,5 @@
 import { JQ_TOKEN } from '../../common/index';
-import { log } from 'util';
-import { Component, EventEmitter, Inject, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
 import { EventService } from '../../shared/event.service';
 
 @Component({
@@ -15,11 +14,27 @@ export class EventsListComponent {
 
     @Input() goga: any;  // говрорит о том что это объект будет взят из другого копмонента
     @Input() listToggle: boolean;
+    @Output() redPencil = new EventEmitter();
+    @Output() redPencilName = new EventEmitter();
 
     length: any;
 
-     eventLength() {
+    OnInit() {
+    }
+
+    ngAfterContentChecked() {
+  
+    }
+
+    eventLength() {
         this.length = this.goga.items.length;
         return this.length;
+    }
+
+    clickRedPencil() {
+        let a = {'display': 'block'};
+        let b = this.goga;
+        this.redPencil.emit(a);
+        this.redPencilName.emit(b);
     }
 }

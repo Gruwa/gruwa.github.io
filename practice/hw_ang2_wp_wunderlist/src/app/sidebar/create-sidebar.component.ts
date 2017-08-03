@@ -9,15 +9,31 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class CreateSidebarComponent {
 
     @Output() toggleClick = new EventEmitter();
+    @Output() redPancilClick = new EventEmitter();
+    @Output() redPancilClickName = new EventEmitter();
 
-    listToggle: boolean = true;
+    listToggle:boolean = true;
     events:any [];
+    redPancil:any;
+
+    //  ngAfterContentChecked() {
+    //      this.redPancilClick.emit(this.redPancil);
+    // }
 
     constructor(private eventService: EventService) {
     }
 
     ngOnInit() {
-        this.events = this.eventService.getEvents();   
+        this.events = this.eventService.getEvents(); 
+          
+    }
+
+    clickRedPancil(data: any) {
+        this.redPancilClick.emit(data);
+     }
+
+    clickRedPancilName(data: any) {
+        this.redPancilClickName.emit(data);
     }
 
 

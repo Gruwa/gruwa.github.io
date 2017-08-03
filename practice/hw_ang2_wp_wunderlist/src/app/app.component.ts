@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
 
 import '../assets/style/style.scss';
 import '../assets/img/icon.png';
@@ -9,15 +9,31 @@ import '../assets/img/icon.png';
 })
 export class AppComponent { 
 
-    listToggle: any;
-    event: any;
+    @Output() redPancilName: any;
+
+    listToggle:any;
+    redPancil:any;
+    // redPancilName:any;
+
+    // ngAfterContentChecked() {
+    //     console.log(this.redPancil);
+    //     console.log(this.redPancilName);
+    // }
+
+    redPancilClickedName(data: any) {
+        this.redPancilName = data;
+    }
+
+    redPancilClicked(data: any) {
+        this.redPancil = data;
+    }
+
+    redPancilContent() {
+        return this.redPancil;
+    }
 
     toggleClicked(data: any) {
         this.listToggle = data;
-    }
-
-    eventClicked(data: any) {
-        this.event = data;
     }
 
     getTogleContent() {

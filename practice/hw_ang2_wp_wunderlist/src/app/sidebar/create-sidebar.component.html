@@ -1,12 +1,15 @@
 <div  class="sidebar" [ngStyle]="getTogle()" >
     <div class="sidebar__head">
-        <img class="sidebar__list-toggle" src="../../assets/img/svg/list-toggle.svg" (click)="listToggleFunc()">
+        <img class="sidebar__list-toggle" src="../../assets/img/svg/list-toggle.svg" 
+            (click)="listToggleFunc()">
     </div>
     <div class="sidebar__toolbar">
         <span class="sidebar__user-avatar">A</span>
         <span class="sidebar__user-name" *ngIf="listToggle" >Aleksey Zolotarenko</span>
-        <img class="sidebar__list-toggle sidebar__list-toggle--toolbar" *ngIf="listToggle" src="../../assets/img/svg/bell.svg">
-        <img class="sidebar__list-toggle sidebar__list-toggle--toolbar" *ngIf="listToggle" src="../../assets/img/svg/conversations.svg">
+        <img class="sidebar__list-toggle sidebar__list-toggle--toolbar" 
+            *ngIf="listToggle" src="../../assets/img/svg/bell.svg">
+        <img class="sidebar__list-toggle sidebar__list-toggle--toolbar" 
+            *ngIf="listToggle" src="../../assets/img/svg/conversations.svg">
     </div>
         <a [routerLink]="['/events']">
             <div class="sidebar__inbox" >
@@ -16,7 +19,8 @@
                 <span class="sidebar__inbox__description" *ngIf="listToggle">Входящие</span>
             </div>
         </a>
-    <events-list *ngFor="let event of events" [goga]="event" [listToggle]="listToggle">
+    <events-list *ngFor="let event of events" [goga]="event" [listToggle]="listToggle" 
+        (redPencil)="clickRedPancil($event)" (redPencilName)="clickRedPancilName($event)">
         
     </events-list> 
     <div class="sidebar__list-new" [ngStyle]="getTogle()">
