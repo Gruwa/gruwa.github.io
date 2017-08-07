@@ -1,21 +1,42 @@
-class Car {
-    engine: string;
+let x = 1;
 
-    constructor( engine: string) {
-        this.engine = engine;
-    }
+let y;
 
-    start() {
-        alert('Engine started' + this.engine);
-    }
+let fN = 'John';
 
-    stop() {
-        alert('Engine stopped' + this.engine);
-    }
+let lN: string = 'Papa';
+
+let num1 = 100;
+let num2: number = 20;
+
+function addNum(n1: number, n2: number, n3: number) {
+    let result = n1 + n2 + n3;
+    let msg = ' Sum is = ' + result;
+    alert(msg);
 }
 
-window.onload = function() {
-    let car = new Car('V12');
-    car.start();
-    car.stop();
-}
+addNum(num1, num2, 7);
+
+//--------------lesson 1 ------------------
+
+// class Car {
+//     engine: string;
+
+//     constructor( engine: string) {
+//         this.engine = engine;
+//     }
+
+//     start() {
+//         alert('Engine started ' + this.engine);
+//     }
+
+//     stop() {
+//         alert('Engine stopped ' + this.engine);
+//     }
+// }
+
+// window.onload = function() {
+//     let car = new Car('V12');
+//     car.start();
+//     car.stop();
+// }
