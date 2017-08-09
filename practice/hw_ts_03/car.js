@@ -1,3 +1,4 @@
+"use strict";
 /// <reference path="toastr.d.ts" />
 /// <reference path="jquery.d.ts" />
 var Shapes;
