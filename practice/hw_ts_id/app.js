@@ -1,10 +1,10 @@
 "use strict";
 function GetAllBooks() {
     var books = [
-        { title: 'Ulysses', author: 'James Joyce', available: true, category: Category.Poetry },
-        { title: 'A Farewell to Arms', author: 'Ernest Hemingway', available: false, category: Category.Fiction },
-        { title: 'I Know Why the Caged Bird Sings', author: 'Maya Angelou', available: true, category: Category.Poetry },
-        { title: 'Moby Dick', author: 'Herman Melville', available: true, category: Category.Fiction }
+        { id: 1, title: 'Ulysses', author: 'James Joyce', available: true, category: Category.Fiction },
+        { id: 2, title: 'A Farewell to Arms', author: 'Ernest Hemingway', available: false, category: Category.Fiction },
+        { id: 3, title: 'I Know Why the Caged Bird Sings', author: 'Maya Angelou', available: true, category: Category.Poetry },
+        { id: 4, title: 'Moby Dick', author: 'Herman Melville', available: true, category: Category.Fiction }
     ];
     return books;
 }
@@ -48,9 +48,27 @@ function LogBookTitles(titles) {
     }
 }
 var allBooks = GetAllBooks();
-allBooks.push({ title: 'Dick', author: 'Herman Melville 2', available: true, category: Category.Fiction });
+allBooks.push({ id: 5, title: 'Dick', author: 'Herman Melville 2', available: true, category: Category.Fiction });
 // const нельзя заменить глобально, но изменить его свойства можно
 LogFirstAvailable(allBooks);
 var poetryBooks = GetBookTitlesByCategory(Category.Poetry);
 LogBookTitles(poetryBooks);
+//********************************************************* 05 */
+function GetBookByID(id) {
+    var allBooks = GetAllBooks();
+    return allBooks.filter(function (book) { return book.id === id; })[0];
+}
+var fictionBooks = GetBookTitlesByCategory(Category.Fiction);
+fictionBooks.forEach(function (val, idx, arr) { return console.log(++idx + ' - ' + val); });
+//----------- 5_08 ------------------
+function CreateCustomerID(name, id) {
+    return name + id;
+}
+var myID = CreateCustomerID('daniel', 10);
+console.log(myID);
+// одно и тоже написанное только с помощью эро фанкшен (стрелочная функция)
+var IdGenerator;
+IdGenerator = function (name, id) { return id + name; };
+var myGeneratorID = IdGenerator('daniel', 13);
+console.log(myGeneratorID);
 //# sourceMappingURL=app.js.map

@@ -1,10 +1,10 @@
 function GetAllBooks() {
 
     let books: any[] = [
-        { title: 'Ulysses', author: 'James Joyce', available: true, category: Category.Poetry },
-		{ title: 'A Farewell to Arms', author: 'Ernest Hemingway', available: false, category: Category.Fiction },
-		{ title: 'I Know Why the Caged Bird Sings', author: 'Maya Angelou', available: true, category: Category.Poetry },
-		{ title: 'Moby Dick', author: 'Herman Melville', available: true, category: Category.Fiction }
+        { id: 1, title: 'Ulysses', author: 'James Joyce', available: true, category: Category.Fiction },
+		{ id: 2, title: 'A Farewell to Arms', author: 'Ernest Hemingway', available: false, category: Category.Fiction },
+		{ id: 3, title: 'I Know Why the Caged Bird Sings', author: 'Maya Angelou', available: true, category: Category.Poetry },
+		{ id: 4, title: 'Moby Dick', author: 'Herman Melville', available: true, category: Category.Fiction }
     ];
 
     return books;
@@ -62,9 +62,38 @@ function LogBookTitles(titles: string[]): void {
 
 const allBooks = GetAllBooks();
 
-allBooks.push({ title: 'Dick', author: 'Herman Melville 2', available: true, category: Category.Fiction});
+allBooks.push({ id: 5, title: 'Dick', author: 'Herman Melville 2', available: true, category: Category.Fiction});
 // const нельзя заменить глобально, но изменить его свойства можно
 LogFirstAvailable(allBooks);
 
 const poetryBooks = GetBookTitlesByCategory(Category.Poetry);
 LogBookTitles(poetryBooks);
+
+//********************************************************* 05 */
+
+function GetBookByID(id: number) {
+    const allBooks = GetAllBooks();
+    return allBooks.filter(book => book.id === id)[0];
+}
+
+const fictionBooks = GetBookTitlesByCategory(Category.Fiction);
+fictionBooks.forEach((val, idx, arr) => console.log(++idx + ' - ' + val));
+
+//----------- 5_08 ------------------
+
+function CreateCustomerID(name: string, id: number): string {
+    return name + id;
+}
+
+let myID: string = CreateCustomerID('daniel', 10);
+console.log(myID);
+
+// одно и тоже написанное только с помощью эро фанкшен (стрелочная функция)
+
+let IdGenerator: (chars: string, nums: number) => string;
+IdGenerator = (name: string, id: number) => {return id + name;}
+
+let myGeneratorID: string = IdGenerator('daniel', 13);
+console.log(myGeneratorID);
+
+
