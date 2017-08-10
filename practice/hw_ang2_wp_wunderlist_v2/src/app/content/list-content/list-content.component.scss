@@ -1,0 +1,31 @@
+.content {
+
+    &__task {
+
+        &__new-task {
+
+            &--list {
+                background-color: rgb(255, 255, 255);
+                margin-top: 1px;
+                margin-bottom: 1px;
+            }
+        }
+
+        &__text {
+
+            &--list {
+                color:rgb(38, 38, 38);
+            }
+        }
+
+        &__img {
+
+            &--star {
+                float: right;
+                margin-top: 12px; 
+            }
+        }
+    }
+
+}
+

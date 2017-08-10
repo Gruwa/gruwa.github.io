@@ -1,0 +1,97 @@
+.content {
+    margin-left: 280px;
+    display: block;
+  
+    &__header {
+        background-color: rgb(102, 137, 100);
+        padding: 10px 14px;
+        height: 45px;
+
+        &__title {
+            float: left;
+            font-size: 20px;
+            color: #fff;
+        }
+    }
+
+    &__menu {
+        float: right;
+
+        &__list {
+            display: inline-block;
+            cursor: pointer;
+            margin: 0 6px;
+            
+        }
+
+        &__img {
+            display: block;
+            margin: 0 auto;
+        }
+
+        &__sign {
+            font-size: 10px;
+            display: block;
+            margin: 0 auto;
+            color: rgb(255, 255, 255);
+        }
+    }
+
+    &__task {
+        padding: 0 7px;
+        margin: 0 7px;
+
+        &__img {
+            display: inline-block;
+            margin-bottom: -4px;
+        }
+
+        &__text {
+            font-size: 16px;
+            display: inline-block;
+            color: rgb(255, 255, 255);
+            background: 0;
+            border: 0;
+            padding: 13px 0 14px;
+            width: 90%;
+
+            &[type="text"]::-webkit-input-placeholder {
+                color: rgb(183, 209, 197);
+            }
+
+            &[type="text"]::-moz-placeholder {
+                color: rgb(183, 209, 197);
+            }
+        }
+
+        &__new-task {
+            background-color: rgba(102,137,100,0.75);
+            height: 47px;
+            padding:0 12px;
+            margin: 14px 0;
+
+
+        }
+
+        &__addtask {
+            letter-spacing: 1px;
+            font-weight: 400;
+            font-size: 11px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+
+            & span {
+                text-transform: uppercase;
+                color: #fff;
+                padding: 3px 10px;
+                background-color: rgba(102,137,100,0.75);
+                border-radius: 3px;
+                cursor: pointer;
+
+            }
+        }
+    }
+
+}
+
+@import './list-content/list-content.component';

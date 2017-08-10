@@ -1,0 +1,18 @@
+.sidebar__inbox {
+
+    outline:none;
+
+    &__lists {
+        float: right;
+    }
+
+    &__description {
+        margin-right: 5px;
+    }
+
+}
+
+.sidebar__list-toggle--inbox {
+        color: red !important;
+    
+}
