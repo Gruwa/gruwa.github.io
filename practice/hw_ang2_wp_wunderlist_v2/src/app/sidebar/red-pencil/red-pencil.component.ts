@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
-import { EventService } from './../../shared/event.service';
+import { EventService, ToggleService } from './../../shared/index';
 
 @Component({
     selector: 'red-pencil',
@@ -9,49 +9,43 @@ import { EventService } from './../../shared/event.service';
 })
 
 export class RedPencilComponent implements OnInit{
-
-    constructor( private eventService:EventService) {
-
-    }
-
+    
     profileForm:FormGroup;
-
-    @Input() redPancilName:any;
-    @Output() redPancilClick = new EventEmitter();
-
+    redPencil: boolean;
+        
     prop:any = {'display': 'none'};
     name:string;
     id:number;
+
+    constructor( private eventService: EventService, private toggleService: ToggleService) {
+        
+    }
 
     ngOnInit() {
 
     }
     
-    ngAfterContentChecked() {
-        
-    }
 
     ngOnChanges() {
-        for (let key in this.redPancilName) {
-            if( key == 'name') this.name = this.redPancilName[key];
-            if( key == 'id') this.id = this.redPancilName[key];
-                // console.log(this.id);
-        }
+        // for (let key in this.redPencilName) {
+        //     if( key == 'name') this.name = this.redPencilName[key];
+        //     if( key == 'id') this.id = this.redPencilName[key];
+        //         // console.log(this.id);
+        // }
 
-        let listName = new FormControl(this.name);
-        this.profileForm = new FormGroup({
-            listName: listName
-        })
+        // let listName = new FormControl(this.name);
+        // this.profileForm = new FormGroup({
+        //     listName: listName
+        // })
     }
 
     saveProfile(formValues: any) {
-        // this.eventService.updateCurrentList(formValues.listName, this.id);
-        this.redPancilClick.emit(this.prop);
-        // console.log(formValues.listName);
-        
+        this.cancel();
     }
 
     cancel() {
-        this.redPancilClick.emit(this.prop);
+        this.redPencil = false; 
+        this.toggleService.redPencilFunc(this.redPencil);
+        return this.redPencil;
     }
 }

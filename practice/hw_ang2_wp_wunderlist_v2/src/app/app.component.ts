@@ -10,7 +10,7 @@ import '../assets/img/icon.png';
 })
 export class AppComponent { 
 
-    redPancil: boolean;
+    redPencil: boolean;
     listToggle: boolean;
 
     constructor (private toggleService: ToggleService) {
@@ -19,7 +19,7 @@ export class AppComponent {
 
     ngOnInit() {
         this.listToggle = this.toggleService.listToggle;
-        this.redPancil = this.toggleService.redPencil;
+        this.redPencil = this.toggleService.redPencil;
     }
 
     get listToggleFunc() {
@@ -34,16 +34,16 @@ export class AppComponent {
         return this.listToggleFunc = this.toggleService.listToggle;
     }
 
-    get redPancilFunc() {
-        return this.redPancil;
+    get redPencilFunc() {
+        return this.redPencil;
     }
 
-    set redPancilFunc(value) {
-        this.redPancil = value;
+    set redPencilFunc(value) {
+        this.redPencil = value;
     }
 
-    pancil() {
-        return this.redPancilFunc = this.toggleService.redPencil;
+    pencil() {
+        return this.redPencilFunc = this.toggleService.redPencil;
     }
 
 }

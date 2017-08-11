@@ -1,5 +1,4 @@
-import { EventService, IEvents } from '../shared/event.service';
-import { ToggleService } from '../shared/toggle.service';
+import { EventService, IEvents, ToggleService } from '../shared/index';
 
 import { Component } from '@angular/core';
 

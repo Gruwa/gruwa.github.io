@@ -29,9 +29,11 @@ export class EventsListComponent {
         return this.length;
     }
 
-    clickRedPancil() {
+    clickRedPencil() {
         this.redPencil = !this.redPencil; 
         this.toggleService.redPencilFunc(this.redPencil);
+        // this.toggleService.
+
         return this.redPencil;
     }
 
