@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { EventService,
-        ToggleService
+         ToggleService,
+        RedPencilService
 } from './shared/index';
 import { Error404Component } from './error/404.component';
 import { JQ_TOKEN } from './common/index';
@@ -44,6 +45,7 @@ declare let jQuery: object;
   providers: [
       EventService,
       ToggleService,
+      RedPencilService,
       EventRouteActivatorService,
     {
       provide: JQ_TOKEN,

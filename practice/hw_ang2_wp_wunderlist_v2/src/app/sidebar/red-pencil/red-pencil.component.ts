@@ -1,14 +1,14 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
-import { EventService, ToggleService } from './../../shared/index';
+import { EventService, RedPencilService } from './../../shared/index';
 
 @Component({
     selector: 'red-pencil',
     templateUrl: './red-pencil.component.html'
 })
 
-export class RedPencilComponent implements OnInit{
+export class RedPencilComponent {
     
     profileForm:FormGroup;
     redPencil: boolean;
@@ -17,7 +17,7 @@ export class RedPencilComponent implements OnInit{
     name:string;
     id:number;
 
-    constructor( private eventService: EventService, private toggleService: ToggleService) {
+    constructor( private eventService: EventService, private redPencilService: RedPencilService) {
         
     }
 
@@ -45,7 +45,7 @@ export class RedPencilComponent implements OnInit{
 
     cancel() {
         this.redPencil = false; 
-        this.toggleService.redPencilFunc(this.redPencil);
+        this.redPencilService.redPencilFunc(this.redPencil);
         return this.redPencil;
     }
 }

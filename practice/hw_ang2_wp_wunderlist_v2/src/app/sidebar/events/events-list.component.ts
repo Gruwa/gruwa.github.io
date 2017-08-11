@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
-import { EventService, IEvents, IEventsItem } from '../../shared/event.service';
-import { ToggleService } from './../../shared/toggle.service';
+import { Component, Input} from '@angular/core';
+import { IEvents } from '../../shared/event.service';
+import { RedPencilService } from './../../shared/index';
 
 @Component({
     selector: 'event-list',
@@ -16,12 +16,12 @@ export class EventsListComponent {
     @Input() event: IEvents;  // говрорит о том что это объект будет взят из другого копмонента
     @Input() listToggle: boolean;
 
-    constructor(private toggleService: ToggleService) {
+    constructor(private redPencilService: RedPencilService) {
 
     }
 
-    ngonInit() {
-        this.redPencil = this.toggleService.redPencil;
+    ngOnInit() {
+        this.redPencil = this.redPencilService.redPencil;
     }
 
     eventLength() {
@@ -31,7 +31,7 @@ export class EventsListComponent {
 
     clickRedPencil() {
         this.redPencil = !this.redPencil; 
-        this.toggleService.redPencilFunc(this.redPencil);
+        this.redPencilService.redPencilFunc(this.redPencil);
         // this.toggleService.
 
         return this.redPencil;

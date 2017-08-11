@@ -1,5 +1,5 @@
 import { Component, OnChanges, Output, SimpleChange, Input } from '@angular/core';
-import { ToggleService } from './shared/toggle.service'
+import { ToggleService, RedPencilService } from './shared/index'
 
 import '../assets/style/style.scss';
 import '../assets/img/icon.png';
@@ -13,13 +13,13 @@ export class AppComponent {
     redPencil: boolean;
     listToggle: boolean;
 
-    constructor (private toggleService: ToggleService) {
+    constructor (private toggleService: ToggleService, private redPencilService: RedPencilService) {
 
     }
 
     ngOnInit() {
         this.listToggle = this.toggleService.listToggle;
-        this.redPencil = this.toggleService.redPencil;
+        this.redPencil = this.redPencilService.redPencil;
     }
 
     get listToggleFunc() {
@@ -43,7 +43,7 @@ export class AppComponent {
     }
 
     pencil() {
-        return this.redPencilFunc = this.toggleService.redPencil;
+        return this.redPencilFunc = this.redPencilService.redPencil;
     }
 
 }
