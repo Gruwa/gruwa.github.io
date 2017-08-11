@@ -6,22 +6,17 @@ import { CreateSidebarComponent } from './../sidebar/create-sidebar.component';
 export class ToggleService {
 
     listToggle: boolean = true;
+    redPencil: boolean = false;
 
     listToggleFunc(data: boolean) {
         this.listToggle = data; 
-        // console.log('ToggleService ', this.listToggle);
-          
+        // console.log('ToggleService ', this.listToggle);      
     }
 
-    // ngAfterContentChecked() {
-    //     this.toggle = this.createSidebarComponent.listToggle;
-    //     console.log(this.createSidebarComponent.listToggle);
-        
-    // }    
-     
+    redPencilFunc(data: boolean) {
+        this.redPencil = data;
+        console.log('RedPencil ', this.redPencil);
+    }
 }
 
-// interface OnChanges { 
-//     ngOnChanges(listToggle: SimpleChanges): void
-// }
 

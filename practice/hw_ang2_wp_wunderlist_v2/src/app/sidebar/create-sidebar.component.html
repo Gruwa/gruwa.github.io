@@ -1,7 +1,7 @@
-<div  class="sidebar" [ngClass]="{sidebar__toggle: listToggle === false}" >
+<div  class="sidebar" [class.sidebar__toggle]="!listToggle" >
     <div class="sidebar__head">
         <img class="sidebar__list-toggle" src="../../assets/img/svg/list-toggle.svg" 
-            (click)="listToggleFunc()">
+            (click)="clickListToggleFunc()">
     </div>
     <div class="sidebar__toolbar">
         <span class="sidebar__user-avatar">A</span>
@@ -23,8 +23,8 @@
                 [event]="event"
                 [listToggle]="listToggle">        
     </event-list> 
-    <div class="sidebar__list-new" [ngClass]="{sidebar__toggle: listToggle === false}">
+    <div class="sidebar__list-new" [class.sidebar__toggle]="!listToggle">
         <img class="sidebar__list-toggle" src="../../assets/img/svg/plus.svg">
-        <span class="sidebar__list-new__description" *ngIf="listToggle" >Создать список</span>
+        <span class="sidebar__list-new__description" *ngIf="listToggle">Создать список</span>
     </div>
 </div>

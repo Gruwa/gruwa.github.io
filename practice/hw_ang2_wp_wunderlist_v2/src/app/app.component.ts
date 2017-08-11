@@ -10,19 +10,16 @@ import '../assets/img/icon.png';
 })
 export class AppComponent { 
 
-    @Output() redPancilName: any;
-    // @Input() listToggle: boolean;
-
-    redPancil:any;
+    redPancil: boolean;
     listToggle: boolean;
-    // redPancilName:any;
 
     constructor (private toggleService: ToggleService) {
 
     }
 
     ngOnInit() {
-        this.listToggle = this.toggleService.listToggle
+        this.listToggle = this.toggleService.listToggle;
+        this.redPancil = this.toggleService.redPencil;
     }
 
     get listToggleFunc() {
@@ -34,20 +31,19 @@ export class AppComponent {
     }
     
     toggle() {
-        this.listToggleFunc = this.toggleService.listToggle
-        return this.listToggleFunc;
+        return this.listToggleFunc = this.toggleService.listToggle;
     }
 
-
-    redPancilClickedName(data: any) {
-        this.redPancilName = data;
-    }
-
-    redPancilClicked(data: any) {
-        this.redPancil = data;
-    }
-
-    redPancilContent() {
+    get redPancilFunc() {
         return this.redPancil;
     }
+
+    set redPancilFunc(value) {
+        this.redPancil = value;
+    }
+
+    pancil() {
+        return this.redPancilFunc = this.toggleService.redPencil;
+    }
+
 }

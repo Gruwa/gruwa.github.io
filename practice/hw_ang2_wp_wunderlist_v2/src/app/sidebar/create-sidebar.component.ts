@@ -21,23 +21,10 @@ export class CreateSidebarComponent {
         this.events = this.eventService.getEvents();
         this.listToggle = this.toggleService.listToggle;
     }
-   
-    ngAfterContentChecked() {
-        // this.toggleService.listToggleFunc(this.listToggle);
-    }
-
-    ngDoCheck() {
+    
+    clickListToggleFunc() {
+        this.listToggle = !this.listToggle;
         this.toggleService.listToggleFunc(this.listToggle);
-    }
-
-    ngOnChanges() {
-    }
-
-    listToggleFunc() {
-        if(this.listToggle === true) {
-            return this.listToggle = false;
-        } else {
-            return this.listToggle = true; 
-        }
+        return this.listToggle;
     }
 }
