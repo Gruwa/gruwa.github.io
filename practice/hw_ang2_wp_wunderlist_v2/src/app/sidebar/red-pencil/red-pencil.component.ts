@@ -45,7 +45,7 @@ export class RedPencilComponent implements OnInit{
     }
 
     saveProfile(formValues: any) {
-        this.eventService.updateCurrentList(formValues.listName, this.id);
+        // this.eventService.updateCurrentList(formValues.listName, this.id);
         this.redPancilClick.emit(this.prop);
         // console.log(formValues.listName);
         

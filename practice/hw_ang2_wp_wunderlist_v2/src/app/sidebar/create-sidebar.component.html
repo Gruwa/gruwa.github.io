@@ -1,4 +1,4 @@
-<div  class="sidebar" [ngStyle]="getTogle()" >
+<div  class="sidebar" [ngClass]="{sidebar__toggle: listToggle === false}" >
     <div class="sidebar__head">
         <img class="sidebar__list-toggle" src="../../assets/img/svg/list-toggle.svg" 
             (click)="listToggleFunc()">
@@ -19,11 +19,11 @@
                 <span class="sidebar__inbox__description" *ngIf="listToggle">Входящие</span>
             </div>
         </a>
-    <events-list *ngFor="let event of events" [goga]="event" [listToggle]="listToggle" 
-        (redPencil)="clickRedPancil($event)" (redPencilName)="clickRedPancilName($event)">
-        
-    </events-list> 
-    <div class="sidebar__list-new" [ngStyle]="getTogle()">
+    <event-list *ngFor="let event of events" 
+                [event]="event"
+                [listToggle]="listToggle">        
+    </event-list> 
+    <div class="sidebar__list-new" [ngClass]="{sidebar__toggle: listToggle === false}">
         <img class="sidebar__list-toggle" src="../../assets/img/svg/plus.svg">
         <span class="sidebar__list-new__description" *ngIf="listToggle" >Создать список</span>
     </div>

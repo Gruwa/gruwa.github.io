@@ -15,15 +15,15 @@ export class EventService {
 
 }
 
-export interface IEventItem {
+export interface IEventsItem {
     id: number;
     name: string;
 }
 
-export interface IEvent {
+export interface IEvents {
     id: number;
     name: string;
-    items: IEventItem[];
+    items: IEventsItem[];
 }
 
 const EVENTS = [

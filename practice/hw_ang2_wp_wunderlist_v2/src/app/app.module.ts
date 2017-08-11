@@ -5,7 +5,9 @@ import { appRoutes } from './routes';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { EventService } from './shared/event.service';
+import { EventService,
+        ToggleService
+} from './shared/index';
 import { Error404Component } from './error/404.component';
 import { JQ_TOKEN } from './common/index';
 import { 
@@ -25,6 +27,7 @@ declare let jQuery: object;
 @NgModule({
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot(appRoutes),
     ReactiveFormsModule
   ],
@@ -40,6 +43,7 @@ declare let jQuery: object;
   ],
   providers: [
       EventService,
+      ToggleService,
       EventRouteActivatorService,
     {
       provide: JQ_TOKEN,

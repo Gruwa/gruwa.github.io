@@ -1,56 +1,43 @@
-import { EventService } from '../shared/event.service';
-import { Component, EventEmitter, Output } from '@angular/core';
+import { EventService, IEvents } from '../shared/event.service';
+import { ToggleService } from '../shared/toggle.service';
+
+import { Component } from '@angular/core';
 
 @Component({
     selector: 'side-bar',
     templateUrl: './create-sidebar.component.html'
 
 })
+
 export class CreateSidebarComponent {
 
-    @Output() toggleClick = new EventEmitter();
-    @Output() redPancilClick = new EventEmitter();
-    @Output() redPancilClickName = new EventEmitter();
+    events: IEvents[];
+    listToggle: boolean;
 
-    listToggle:boolean = true;
-    events:any [];
-    redPancil:any;
-
-    //  ngAfterContentChecked() {
-    //      this.redPancilClick.emit(this.redPancil);
-    // }
-
-    constructor(private eventService: EventService) {
+    constructor(private eventService: EventService, private toggleService: ToggleService) {
     }
 
     ngOnInit() {
-        this.events = this.eventService.getEvents(); 
-          
+        this.events = this.eventService.getEvents();
+        this.listToggle = this.toggleService.listToggle;
+    }
+   
+    ngAfterContentChecked() {
+        // this.toggleService.listToggleFunc(this.listToggle);
     }
 
-    clickRedPancil(data: any) {
-        this.redPancilClick.emit(data);
-     }
-
-    clickRedPancilName(data: any) {
-        this.redPancilClickName.emit(data);
+    ngDoCheck() {
+        this.toggleService.listToggleFunc(this.listToggle);
     }
 
+    ngOnChanges() {
+    }
 
     listToggleFunc() {
-        if(this.listToggle) {
-            this.listToggle = false;
-        }
-        else {
-            this.listToggle = true;
-        }
-
-        this.toggleClick.emit(this.listToggle);
-    }
-
-    getTogle() {
-        if(this.listToggle == false) {
-            return {'width': '42px'};
+        if(this.listToggle === true) {
+            return this.listToggle = false;
+        } else {
+            return this.listToggle = true; 
         }
     }
 }

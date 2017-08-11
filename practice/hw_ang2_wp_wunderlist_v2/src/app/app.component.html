@@ -2,6 +2,6 @@
     [redPancilName]="redPancilName"></red-pencil>
 <side-bar (toggleClick)="toggleClicked($event)" (redPancilClick)="redPancilClicked($event)"
     (redPancilClickName)="redPancilClickedName($event)"></side-bar>
-<div class="content" [ngStyle]="getTogleContent()">
+<div class="content" [ngClass]="{content__toggle: toggle() === false}">
      <router-outlet></router-outlet> 
 </div>

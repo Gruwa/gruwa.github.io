@@ -1,4 +1,5 @@
-import { Component, Output } from '@angular/core';
+import { Component, OnChanges, Output, SimpleChange, Input } from '@angular/core';
+import { ToggleService } from './shared/toggle.service'
 
 import '../assets/style/style.scss';
 import '../assets/img/icon.png';
@@ -10,15 +11,33 @@ import '../assets/img/icon.png';
 export class AppComponent { 
 
     @Output() redPancilName: any;
+    // @Input() listToggle: boolean;
 
-    listToggle:any;
     redPancil:any;
+    listToggle: boolean;
     // redPancilName:any;
 
-    // ngAfterContentChecked() {
-    //     console.log(this.redPancil);
-    //     console.log(this.redPancilName);
-    // }
+    constructor (private toggleService: ToggleService) {
+
+    }
+
+    ngOnInit() {
+        this.listToggle = this.toggleService.listToggle
+    }
+
+    get listToggleFunc() {
+        return this.listToggle;
+    }
+
+    set listToggleFunc(value) {
+       this.listToggle = value; 
+    }
+    
+    toggle() {
+        this.listToggleFunc = this.toggleService.listToggle
+        return this.listToggleFunc;
+    }
+
 
     redPancilClickedName(data: any) {
         this.redPancilName = data;
@@ -31,18 +50,4 @@ export class AppComponent {
     redPancilContent() {
         return this.redPancil;
     }
-
-    toggleClicked(data: any) {
-        this.listToggle = data;
-    }
-
-    getTogleContent() {
-        
-        if(this.listToggle == false) {
-            return {'margin-left': '42px'};
-        }
-    }
-
-    
-
 }

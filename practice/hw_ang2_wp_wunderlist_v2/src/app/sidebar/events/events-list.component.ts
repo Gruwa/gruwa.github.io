@@ -1,40 +1,21 @@
-import { JQ_TOKEN } from '../../common/index';
 import { Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
-import { EventService } from '../../shared/event.service';
+import { EventService, IEvents, IEventsItem } from '../../shared/event.service';
 
 @Component({
-    selector: 'events-list',
+    selector: 'event-list',
     templateUrl: './events-list.component.html'
 
 })
 
 export class EventsListComponent {
+    
+    length: number;
 
-    constructor(@Inject(JQ_TOKEN) private $: any) {}
-
-    @Input() goga: any;  // говрорит о том что это объект будет взят из другого копмонента
+    @Input() event: IEvents;  // говрорит о том что это объект будет взят из другого копмонента
     @Input() listToggle: boolean;
-    @Output() redPencil = new EventEmitter();
-    @Output() redPencilName = new EventEmitter();
-
-    length: any;
-
-    OnInit() {
-    }
-
-    ngAfterContentChecked() {
-  
-    }
 
     eventLength() {
-        this.length = this.goga.items.length;
+        this.length = this.event.items.length;
         return this.length;
-    }
-
-    clickRedPencil() {
-        let a = {'display': 'block'};
-        let b = this.goga;
-        this.redPencil.emit(a);
-        this.redPencilName.emit(b);
     }
 }
