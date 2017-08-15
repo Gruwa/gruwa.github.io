@@ -1,7 +1,8 @@
-<div>
+<div class="red-pencil" [class.red-pencil__show]="pencil()">
     <div class="red-pencil__wrapper">
         <h2 class="red-pencil__title">Изменить список</h2>
-        <form autocomplete="off" novalidate>
+        <form (ngSubmit)="saveForm()"
+            autocomplete="off" novalidate>
         <div class="form-group red-pencil__form-group">
             <label class="red-pencil__label" for="listName">Список</label>
             <input id="listName" type="text" class="listName" 
@@ -15,8 +16,8 @@
             <img class="sidebar__list-toggle sidebar__list-toggle--toolbar" 
                 src="../../../assets/img/svg/conversations.svg">
         </div>
-        <button type="submit" class="btn btn-primary" (click)="saveProfile()" >Готово</button>
-        <button type="button" class="btn btn-default" (click)="cancel()" >Отмена</button>
+        <button type="submit" class="btn btn-primary">Готово</button>
+        <button type="button" class="btn btn-default" (click)="cancelForm()" >Отмена</button>
         </form>
     </div>    
 </div>

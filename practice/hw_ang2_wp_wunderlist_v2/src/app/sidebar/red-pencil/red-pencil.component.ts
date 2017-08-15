@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnChanges } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
-import { EventService, RedPencilService } from './../../shared/index';
+import { RedPencilService } from './../../shared/index';
 
 @Component({
     selector: 'red-pencil',
@@ -13,37 +13,57 @@ export class RedPencilComponent {
     profileForm:FormGroup;
     redPencil: boolean;
         
-    prop:any = {'display': 'none'};
     name:string;
     id:number;
 
-    constructor( private eventService: EventService, private redPencilService: RedPencilService) {
+    constructor(private redPencilService: RedPencilService) {
         
     }
 
     ngOnInit() {
-
-    }
-    
-
-    ngOnChanges() {
-        // for (let key in this.redPencilName) {
-        //     if( key == 'name') this.name = this.redPencilName[key];
-        //     if( key == 'id') this.id = this.redPencilName[key];
-        //         // console.log(this.id);
-        // }
-
-        // let listName = new FormControl(this.name);
-        // this.profileForm = new FormGroup({
-        //     listName: listName
-        // })
+        this.redPencil = this.redPencilService.redPencil;
+        // console.log(this.redPencilService.name);
     }
 
-    saveProfile(formValues: any) {
-        this.cancel();
+    get redPencilFunc() {
+        return this.redPencil;
     }
 
-    cancel() {
+    set redPencilFunc(value) {
+        this.redPencil = value;
+    }
+
+    pencil() {
+        return this.redPencilFunc = this.redPencilService.redPencil;
+    }
+
+
+
+    // --------------------------------------------
+
+    asd() {
+        
+    }
+
+
+    ngAfterContentChecked() {
+        this.name = this.redPencilService.name;
+        console.log('NAME  ', this.name);
+        console.log(this.pencil());
+
+        let listName = new FormControl(this.name);
+        
+        this.profileForm = new FormGroup({
+            listName: listName
+        })
+    }
+
+    saveForm(formValues: any) {
+
+        this.cancelForm();
+    }
+
+    cancelForm() {
         this.redPencil = false; 
         this.redPencilService.redPencilFunc(this.redPencil);
         return this.redPencil;

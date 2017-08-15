@@ -19,20 +19,16 @@ export class EventsListComponent {
     constructor(private redPencilService: RedPencilService) {
 
     }
-
-    ngOnInit() {
-        this.redPencil = this.redPencilService.redPencil;
-    }
-
+    
     eventLength() {
         this.length = this.event.items.length;
         return this.length;
     }
-
+    
     clickRedPencil() {
-        this.redPencil = !this.redPencil; 
+        this.redPencil = true;
         this.redPencilService.redPencilFunc(this.redPencil);
-        // this.toggleService.
+        this.redPencilService.eventRedPencil(this.event);
 
         return this.redPencil;
     }
