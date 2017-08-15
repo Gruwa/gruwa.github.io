@@ -11,7 +11,14 @@
             "program": "${file}",
             "outFiles": [
                 "${workspaceRoot}/out/**/*.js"
-            ]
+            ],
+            "sourceMaps": true
+        },
+        {
+            "name": "Attach",
+            "type": "node",
+            "request": "attach",
+            "port": 5858
         }
     ]
 }

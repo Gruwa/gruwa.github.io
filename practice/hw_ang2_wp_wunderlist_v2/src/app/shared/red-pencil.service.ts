@@ -16,13 +16,13 @@ export class RedPencilService {
 
     eventRedPencil(data: IEvents) {
         this.event = data;
-        console.log(this.event.name);
+        // console.log(this.event.name);
         this.name = this.event.name;
     }
 
     updateListName(name: string) {
         this.event.name = name;
-        console.log(this.event.name);
+        // console.log(this.event.name);
         
     }
 }

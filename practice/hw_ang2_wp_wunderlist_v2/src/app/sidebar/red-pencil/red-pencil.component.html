@@ -1,11 +1,12 @@
 <div class="red-pencil" [class.red-pencil__show]="pencil()">
     <div class="red-pencil__wrapper">
         <h2 class="red-pencil__title">Изменить список</h2>
-        <form (ngSubmit)="saveForm()"
+        <form (ngSubmit)="saveForm(redPencilForm.value)"
+            [formGroup]="redPencilForm"
             autocomplete="off" novalidate>
         <div class="form-group red-pencil__form-group">
             <label class="red-pencil__label" for="listName">Список</label>
-            <input id="listName" type="text" class="listName" 
+            <input formControlName='listName' id="listName" type="text" class="listName" 
                 placeholder="Название списка..." />
         </div>
         <div class="sidebar__toolbar red-pencil__toolbar">

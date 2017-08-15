@@ -20,16 +20,8 @@ export class AppComponent {
         this.listToggle = this.toggleService.listToggle;
     }
 
-    get listToggleFunc() {
-        return this.listToggle;
-    }
-
-    set listToggleFunc(value) {
-       this.listToggle = value; 
-    }
-    
     toggle() {
-        return this.listToggleFunc = this.toggleService.listToggle;
+        return this.toggleService.listToggle;
     }
 
 }

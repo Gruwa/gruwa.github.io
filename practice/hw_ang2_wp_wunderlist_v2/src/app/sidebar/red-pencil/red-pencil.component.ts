@@ -10,11 +10,11 @@ import { RedPencilService } from './../../shared/index';
 
 export class RedPencilComponent {
     
-    profileForm:FormGroup;
+    redPencilForm: FormGroup;
     redPencil: boolean;
-        
-    name:string;
-    id:number;
+ 
+    name: string;
+
 
     constructor(private redPencilService: RedPencilService) {
         
@@ -23,43 +23,39 @@ export class RedPencilComponent {
     ngOnInit() {
         this.redPencil = this.redPencilService.redPencil;
         // console.log(this.redPencilService.name);
-    }
 
-    get redPencilFunc() {
-        return this.redPencil;
-    }
-
-    set redPencilFunc(value) {
-        this.redPencil = value;
-    }
-
-    pencil() {
-        return this.redPencilFunc = this.redPencilService.redPencil;
-    }
-
-
-
-    // --------------------------------------------
-
-    asd() {
-        
-    }
-
-
-    ngAfterContentChecked() {
-        this.name = this.redPencilService.name;
-        console.log('NAME  ', this.name);
-        console.log(this.pencil());
-
-        let listName = new FormControl(this.name);
-        
-        this.profileForm = new FormGroup({
+        let listName = new FormControl(this.redPencilService.name);
+        console.log('FormGroup - ', listName);
+        this.redPencilForm = new FormGroup({
             listName: listName
         })
+        console.log('value - ', this.redPencilForm.value.listName);
+    }
+    
+    pencil() {
+        return this.redPencilService.redPencil;
+    }
+    
+    
+    
+    // --------------------------------------------
+    
+    ngDoCheck() {
+        
+        // let listName = new FormControl(this.redPencilService.name);
+        // console.log('FormGroup - ', listName);
+        // this.redPencilForm = new FormGroup({
+        //     listName: listName
+        // })
+        // console.log('value - ', this.redPencilForm.value.listName);
+    }
+
+    ngAfterContentInit() {
+
     }
 
     saveForm(formValues: any) {
-
+        this.redPencilService.updateListName(formValues.listName);
         this.cancelForm();
     }
 
