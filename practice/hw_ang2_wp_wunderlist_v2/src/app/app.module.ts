@@ -5,16 +5,17 @@ import { appRoutes } from './routes';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { EventService,
-         ToggleService,
-        RedPencilService
+import { 
+        EventService,
+        ToggleService,
+        RedPencilService,
+        EventRouteActivatorService
 } from './shared/index';
 import { Error404Component } from './error/404.component';
 import { JQ_TOKEN } from './common/index';
 import { 
     CreateContentComponent,
     ListContentComponent,
-    EventRouteActivatorService,
     ItemContentComponent
 } from './content/index';
 import { 

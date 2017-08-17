@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { EventService } from './../../shared/event.service';
+import { EventService, IEventsItem } from './../../shared';
 
 @Component({
     selector: 'item-content',
@@ -9,6 +9,6 @@ export class ItemContentComponent {
 
     constructor(private eventService:EventService) {}
 
-    @Input() items:any;
+    @Input() items: IEventsItem;
     
 }

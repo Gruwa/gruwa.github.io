@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ToggleService } from './shared/index'
+import { ToggleService } from './shared/index';
 
 import '../assets/style/style.scss';
 import '../assets/img/icon.png';
