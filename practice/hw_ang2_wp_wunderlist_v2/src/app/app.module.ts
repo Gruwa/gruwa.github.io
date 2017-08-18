@@ -22,7 +22,8 @@ import {
 import { 
     CreateSidebarComponent,
     EventsListComponent,
-    RedPencilComponent
+    RedPencilComponent,
+    NewEventsComponent
 } from './sidebar/index';
   
 declare let jQuery: object;
@@ -42,7 +43,8 @@ declare let jQuery: object;
     ListContentComponent,
     Error404Component,
     ItemContentComponent,
-    RedPencilComponent
+    RedPencilComponent,
+    NewEventsComponent
   ],
   providers: [
       EventService,

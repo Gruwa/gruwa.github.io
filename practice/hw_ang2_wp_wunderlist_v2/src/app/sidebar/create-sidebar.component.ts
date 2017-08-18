@@ -1,10 +1,12 @@
 import { Component, EventEmitter, Output  } from '@angular/core';
 
-import { EventService, IEvents, ToggleService } from '../shared/index';
+import { EventService, IEvents, ToggleService, RedPencilService } from '../shared/index';
+import { EventsListComponent } from './events/events-list.component';
 
 
 @Component({
     selector: 'side-bar',
+    providers: [EventsListComponent],
     templateUrl: './create-sidebar.component.html'
 
 })
@@ -13,6 +15,7 @@ export class CreateSidebarComponent {
 
     events: IEvents[];
     listToggle: boolean;
+    newLists: boolean;
 
     @Output() redPancilClickName = new EventEmitter();
 
@@ -20,17 +23,27 @@ export class CreateSidebarComponent {
         this.redPancilClickName.emit(data);
     }
 
-    constructor(private eventService: EventService, private toggleService: ToggleService) {
+    constructor(private eventService: EventService, 
+                private toggleService: ToggleService,
+                private redPencilService: RedPencilService
+            ) {
     }
 
     ngOnInit() {
         this.events = this.eventService.getEvents();
         this.listToggle = this.toggleService.listToggle;
+        this.newLists = this.redPencilService.newLists;
     }
     
     clickListToggleFunc() {
         this.listToggle = !this.listToggle;
         this.toggleService.listToggleFunc(this.listToggle);
         return this.listToggle;
+    }
+
+    creatNewLists() {
+        this.newLists = true;
+        this.redPencilService.creatNewLists(this.newLists);
+
     }
 }

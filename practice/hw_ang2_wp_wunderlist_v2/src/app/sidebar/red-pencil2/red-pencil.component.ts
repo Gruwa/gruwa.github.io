@@ -9,32 +9,32 @@ import { RedPencilService } from './../../shared';
 
 export class RedPencilComponent {
     
-    redPencil: boolean;
-    listName: string;
+    // redPencil: boolean;
+    // listName: string;
 
-    constructor(private redPencilService: RedPencilService) {
+    // constructor(private redPencilService: RedPencilService) {
 
-    }
+    // }
     
-    ngOnInit() {
-        this.redPencil = this.redPencilService.redPencil;
-        this.listName = this.redPencilService.name;
-    }
+    // ngOnInit() {
+    //     this.redPencil = this.redPencilService.redPencil;
+    //     this.listName = this.redPencilService.name;
+    // }
 
-    pencil() {
-        return this.redPencilService.redPencil;     
-    }
+    // pencil() {
+    //     return this.redPencilService.redPencil;     
+    // }
 
    
-    saveForm(formValues: any) {
-        this.redPencilService.updateListName(formValues.listName);
-        console.log(formValues);
-        this.cancelForm();
-    }
+    // saveForm(formValues: any) {
+    //     this.redPencilService.updateListName(formValues.listName);
+    //     console.log(formValues);
+    //     this.cancelForm();
+    // }
 
-    cancelForm() {
-        this.redPencil = false; 
-        this.redPencilService.redPencilFunc(this.redPencil);
-        return this.redPencil;
-    }
+    // cancelForm() {
+    //     this.redPencil = false; 
+    //     this.redPencilService.redPencilFunc(this.redPencil);
+    //     return this.redPencil;
+    // }
 }

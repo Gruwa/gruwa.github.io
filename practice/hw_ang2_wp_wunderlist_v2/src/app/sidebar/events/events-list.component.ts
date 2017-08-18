@@ -14,7 +14,6 @@ export class EventsListComponent {
     
     length: number;
     redPencil: boolean;
-    trg: any;
 
     @Input() event: IEvents;  // говрорит о том что это объект будет взят из другого копмонента
     @Input() listToggle: boolean;
@@ -27,11 +26,16 @@ export class EventsListComponent {
     }
     
     eventLength() {
-        this.length = this.event.items.length;
+        if(this.event === undefined) {
+            this.length = 0;
+        } else {
+            this.length = this.event.items.length;
+        }
+
         return this.length;
     }
     
-    clickRedPencil(event: any) {
+    clickRedPencil() {
         this.redPencil = true;
         this.redPencilService.redPencilFunc(this.redPencil);
         this.redPencilService.eventRedPencil(this.event);

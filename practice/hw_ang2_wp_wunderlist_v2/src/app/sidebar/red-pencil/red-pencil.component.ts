@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core'; //библеотека
 import { FormControl, FormGroup } from '@angular/forms';
 
-import { RedPencilService } from './../../shared';
+import { RedPencilService, IEvents } from './../../shared';
 
 @Component({ //декоратор, позволяет  идентифицировать класс как компонет
     selector: 'red-pencil',
@@ -13,6 +13,8 @@ export class RedPencilComponent {
     redPencilForm: FormGroup;
     redPencil: boolean;
     listName: FormControl;
+    event: IEvents;
+    name: string;
 
     @Input() redPancilName: any;
 
@@ -30,14 +32,10 @@ export class RedPencilComponent {
 
     ngOnChanges() {
         this.listName = new FormControl(this.redPencilService.name);
-        
-        console.log('FormGroup - ', this.listName);
-
+        this.event = this.redPencilService.event;
         this.redPencilForm = new FormGroup({
             listName: this.listName
         })
-
-        console.log('value - ', this.redPencilForm.value.listName);
     }
 
     saveForm(formValues: any) {
@@ -46,7 +44,7 @@ export class RedPencilComponent {
     }
 
     cancelForm() {
-        this.redPencil = false; 
+        this.redPencil = false;
         this.redPencilService.redPencilFunc(this.redPencil);
         return this.redPencil;
     }

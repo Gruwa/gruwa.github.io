@@ -13,6 +13,15 @@ export class EventService {
         return EVENTS.find(event => event.id === id);
     }
 
+    newEvents(event: any) {
+        event.id = EVENTS.length + 1;
+        event.items = [];
+        EVENTS.push(event);
+        
+        console.log(EVENTS);
+        
+    }
+
 }
 
 export interface IEventsItem {
@@ -25,6 +34,8 @@ export interface IEvents {
     name: string;
     items: IEventsItem[];
 }
+
+
 
 const EVENTS = [
     { 
