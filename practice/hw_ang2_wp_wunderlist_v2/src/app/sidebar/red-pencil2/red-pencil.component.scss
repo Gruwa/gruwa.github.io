@@ -1,0 +1,37 @@
+.red-pencil {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 100;
+    background-color: rgba(153, 153, 153, .4);
+
+    &__wrapper {
+        width: 392px;
+        height: 301px;
+        position: absolute;
+        left: 50%;
+        top: 100px;
+        margin-left: -196px;
+        background-color: rgb(255, 255, 255);
+        border-radius: 10px;
+        text-align: center;
+        padding: 20px;
+    }
+
+    &__title {
+        margin-bottom: 20px;
+    }
+    
+    &__form-group {
+        display: block;
+    }
+
+    &__label {
+        margin-bottom: 5px;
+    }
+
+    &__toolbar {
+        margin-bottom: 20px;
+    }
+
+}

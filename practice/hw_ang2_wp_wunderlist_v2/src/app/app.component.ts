@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
 import { ToggleService } from './shared/index';
 
 import '../assets/style/style.scss';
@@ -22,6 +22,12 @@ export class AppComponent {
 
     toggle() {
         return this.toggleService.listToggle;
+    }
+
+    @Output() redPancilName: any;
+
+    redPancilClickedName(data: any) {
+        this.redPancilName = data;
     }
 
 }

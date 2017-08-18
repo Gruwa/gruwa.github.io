@@ -21,7 +21,8 @@
         </a>
     <event-list *ngFor="let event of events" 
                 [event]="event"
-                [listToggle]="listToggle">        
+                [listToggle]="listToggle"
+                (redPencilName)="clickRedPancilName($event)">        
     </event-list> 
     <div class="sidebar__list-new" [class.sidebar__toggle]="!listToggle">
         <img class="sidebar__list-toggle" src="../../assets/img/svg/plus.svg">

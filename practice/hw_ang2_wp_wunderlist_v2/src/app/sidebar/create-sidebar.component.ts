@@ -1,6 +1,7 @@
+import { Component, EventEmitter, Output  } from '@angular/core';
+
 import { EventService, IEvents, ToggleService } from '../shared/index';
 
-import { Component } from '@angular/core';
 
 @Component({
     selector: 'side-bar',
@@ -12,6 +13,12 @@ export class CreateSidebarComponent {
 
     events: IEvents[];
     listToggle: boolean;
+
+    @Output() redPancilClickName = new EventEmitter();
+
+    clickRedPancilName(data: any) {
+        this.redPancilClickName.emit(data);
+    }
 
     constructor(private eventService: EventService, private toggleService: ToggleService) {
     }

@@ -1,6 +1,6 @@
-<red-pencil> </red-pencil>
+<red-pencil [redPancilName]="redPancilName"> </red-pencil>
 
-<side-bar></side-bar>
+<side-bar (redPancilClickName)="redPancilClickedName($event)"></side-bar>
 
 <div class="content" [class.content__toggle]="!toggle()">
 

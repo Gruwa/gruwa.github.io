@@ -1,5 +1,4 @@
-import { Component, Input } from '@angular/core'; //библеотека
-import { FormControl, FormGroup } from '@angular/forms';
+import { Component, Inject } from '@angular/core'; //библеотека
 
 import { RedPencilService } from './../../shared';
 
@@ -10,11 +9,8 @@ import { RedPencilService } from './../../shared';
 
 export class RedPencilComponent {
     
-    redPencilForm: FormGroup;
     redPencil: boolean;
-    listName: FormControl;
-
-    @Input() redPancilName: any;
+    listName: string;
 
     constructor(private redPencilService: RedPencilService) {
 
@@ -22,26 +18,17 @@ export class RedPencilComponent {
     
     ngOnInit() {
         this.redPencil = this.redPencilService.redPencil;
+        this.listName = this.redPencilService.name;
     }
 
     pencil() {
         return this.redPencilService.redPencil;     
     }
 
-    ngOnChanges() {
-        this.listName = new FormControl(this.redPencilService.name);
-        
-        console.log('FormGroup - ', this.listName);
-
-        this.redPencilForm = new FormGroup({
-            listName: this.listName
-        })
-
-        console.log('value - ', this.redPencilForm.value.listName);
-    }
-
+   
     saveForm(formValues: any) {
         this.redPencilService.updateListName(formValues.listName);
+        console.log(formValues);
         this.cancelForm();
     }
 

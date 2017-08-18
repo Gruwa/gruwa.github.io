@@ -1,4 +1,4 @@
-import { Component, Input} from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 
 import { IEvents } from '../../shared/event.service';
 import { RedPencilService } from './../../shared/index';
@@ -18,6 +18,7 @@ export class EventsListComponent {
 
     @Input() event: IEvents;  // говрорит о том что это объект будет взят из другого копмонента
     @Input() listToggle: boolean;
+    @Output() redPencilName = new EventEmitter();
 
     constructor(private redPencilService: RedPencilService, 
         // private redPencilComponent: RedPencilComponent
@@ -34,9 +35,7 @@ export class EventsListComponent {
         this.redPencil = true;
         this.redPencilService.redPencilFunc(this.redPencil);
         this.redPencilService.eventRedPencil(this.event);
-        console.log(event);
-
-        // this.redPencilComponent.showRedPencil();
+        this.redPencilName.emit(this.event);
         
         return this.redPencil;
     }
