@@ -13,13 +13,18 @@ export class EventService {
         return EVENTS.find(event => event.id === id);
     }
 
-    newEvents(event: any) {
+    newEvents(event: IEvents) {
         event.id = EVENTS.length + 1;
         event.items = [];
         EVENTS.push(event);
         
         console.log(EVENTS);
         
+    }
+
+    deleteEvent(event: IEvents) {
+        let lengthNumber = event.id - 1;
+        EVENTS.splice(lengthNumber, 1);
     }
 
 }

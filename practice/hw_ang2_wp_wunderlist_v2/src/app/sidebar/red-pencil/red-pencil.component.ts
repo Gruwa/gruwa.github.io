@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core'; //библеотека
 import { FormControl, FormGroup } from '@angular/forms';
 
-import { RedPencilService, IEvents } from './../../shared';
+import { RedPencilService, IEvents, EventService } from './../../shared';
 
 @Component({ //декоратор, позволяет  идентифицировать класс как компонет
     selector: 'red-pencil',
@@ -18,7 +18,8 @@ export class RedPencilComponent {
 
     @Input() redPancilName: any;
 
-    constructor(private redPencilService: RedPencilService) {
+    constructor(private redPencilService: RedPencilService,
+                private eventService: EventService) {
 
     }
     
@@ -47,5 +48,10 @@ export class RedPencilComponent {
         this.redPencil = false;
         this.redPencilService.redPencilFunc(this.redPencil);
         return this.redPencil;
+    }
+
+    deleteForm() {
+        this.eventService.deleteEvent(this.event);
+        this.cancelForm();
     }
 }
