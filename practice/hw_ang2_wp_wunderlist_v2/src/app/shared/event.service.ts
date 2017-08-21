@@ -14,17 +14,13 @@ export class EventService {
     }
 
     newEvents(event: IEvents) {
-        event.id = EVENTS.length + 1;
+        event.id = EVENTS[EVENTS.length - 1].id + 1;
         event.items = [];
         EVENTS.push(event);
-        
-        console.log(EVENTS);
-        
     }
 
     deleteEvent(event: IEvents) {
-        let lengthNumber = event.id - 1;
-        EVENTS.splice(lengthNumber, 1);
+        EVENTS.splice(EVENTS.indexOf(event), 1);
     }
 
 }
