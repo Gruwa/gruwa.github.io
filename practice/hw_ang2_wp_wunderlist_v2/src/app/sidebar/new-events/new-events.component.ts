@@ -1,7 +1,7 @@
 import { Component } from '@angular/core'; //библеотека
 import { FormControl, FormGroup } from '@angular/forms';
 
-import { RedPencilService, EventService } from './../../shared';
+import { RedPencilService, EventService, IEvents } from './../../shared';
 
 @Component({ //декоратор, позволяет  идентифицировать класс как компонет
     selector: 'new-events',
@@ -21,7 +21,7 @@ export class NewEventsComponent {
 
     ngOnInit() {
         this.eventsShow = this.redPencilService.newLists;
-        this.name = new FormControl('New List');        
+        this.name = new FormControl();        
         this.newEventsForm = new FormGroup({
             name: this.name
         })
@@ -31,18 +31,15 @@ export class NewEventsComponent {
         return this.redPencilService.newLists;
     }
     
-    saveForm(formValues: any) {
+    saveForm(formValues: IEvents) {
         this.eventService.newEvents(formValues);
-        // console.log(this.name.value);
-        // константа не удается изменить - надо избавить повторения в поле
-        // this.name.value = 'New List';
-        // formValues.name = 'New List'; // поставить ngAfterChecked;
         this.cancelForm();
     }
-
+    
     cancelForm() {
         this.eventsShow = false; 
         this.redPencilService.creatNewLists(this.eventsShow);
+        this.newEventsForm.reset();
         return this.eventsShow;
     }
 }

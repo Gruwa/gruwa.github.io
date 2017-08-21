@@ -23,6 +23,11 @@ export class EventService {
         EVENTS.splice(EVENTS.indexOf(event), 1);
     }
 
+    newItems(item: IEventsItem, event: IEvents) {
+        item.id = event.items[event.items.length - 1].id + 1;
+        event.items.push(item);        
+    }
+
 }
 
 export interface IEventsItem {

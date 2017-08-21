@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
-import { EventService, IEventsItem } from '../../shared/event.service';
 import { ActivatedRoute } from '@angular/router';
+import { FormControl, FormGroup } from '@angular/forms';
+
+import { EventService, IEventsItem, IEvents } from '../../shared/event.service';
 
 @Component({
     selector: 'list-comp',
@@ -11,9 +13,24 @@ export class ListContentComponent {
 
     constructor(private eventService:EventService, private route:ActivatedRoute) { }
 
-    event: IEventsItem;
+    event: IEvents;
+    name: FormControl;
+    newItemForm: FormGroup;
 
     ngAfterContentChecked() {
         this.event = this.eventService.getEvent(+this.route.snapshot.params['id']);
+    }
+
+    ngOnInit() {
+        this.name = new FormControl();
+        this.newItemForm = new FormGroup({
+            name: this.name
+        })
+        
+    }
+    
+    saveItem(formValues: IEventsItem) {
+        this.eventService.newItems(formValues, this.event);
+        this.newItemForm.reset();
     }
 }

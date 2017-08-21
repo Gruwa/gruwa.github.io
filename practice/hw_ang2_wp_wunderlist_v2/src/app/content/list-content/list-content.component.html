@@ -17,8 +17,12 @@
 </div>
 <div class="content__task">
     <div class="content__task__new-task">
-        <img class="content__task__img" src="../../../assets/img/svg/plus-task.svg" > 
-        <input class="content__task__text" type="text" name="" value="" placeholder="Добавить задачу...">
+        <form
+        (ngSubmit)="saveItem(newItemForm.value)"
+        [formGroup]="newItemForm" >
+            <img class="content__task__img" src="../../../assets/img/svg/plus-task.svg" > 
+            <input formControlName="name" class="content__task__text" type="text" placeholder="Добавить задачу...">
+        </form>
     </div>
     <item-content [items]="event?.items" ></item-content>   
     <div class="content__task__addtask">
