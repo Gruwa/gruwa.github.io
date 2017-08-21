@@ -1,7 +1,21 @@
-<div *ngFor="let item of items">    
-    <div class="content__task__new-task content__task__new-task--list">
-        <img class="content__task__img" src="../../../assets/img/svg/task-check.svg" > 
-        <span class="content__task__text content__task__text--list">{{item?.name}}</span>
-        <img class="content__task__img content__task__img--star" src="../../../assets/img/svg/star.svg" >
-    </div>
-</div> 
+<div class="content__task__new-task content__task__new-task--list" [contextMenu]="static">
+    <img class="content__task__img" src="../../../assets/img/svg/task-check.svg" > 
+    <span class="content__task__text content__task__text--list">{{item?.name}}</span>
+    <img class="content__task__img content__task__img--star" src="../../../assets/img/svg/star.svg" >
+</div>
+
+<context-menu #static>
+  <ng-template contextMenuItem [visible]="false" [enabled]="false">
+    SubMenu
+  </ng-template>
+  <ng-template contextMenuItem [visible]="false" >
+    This will never show...
+  </ng-template>
+  <ng-template contextMenuItem [visible]="true" [enabled]="true" (execute)="deleteItem()">
+    Удалить задачу
+  </ng-template>
+  <ng-template contextMenuItem [divider]="true"></ng-template>
+  <ng-template contextMenuItem [visible]="true" [enabled]="true" >
+      Создать новый список
+  </ng-template>
+</context-menu> 

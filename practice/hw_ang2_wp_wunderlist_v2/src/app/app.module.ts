@@ -1,4 +1,5 @@
 import './../../node_modules/rxjs';
+import { ContextMenuModule } from './../../node_modules/ngx-contextmenu';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
@@ -6,25 +7,26 @@ import { appRoutes } from './routes';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+
 import { 
         EventService,
         ToggleService,
         RedPencilService,
         EventRouteActivatorService
-} from './shared/index';
+} from './shared';
 import { Error404Component } from './error/404.component';
-import { JQ_TOKEN } from './common/index';
+import { JQ_TOKEN } from './common';
 import { 
     CreateContentComponent,
     ListContentComponent,
     ItemContentComponent
-} from './content/index';
+} from './content';
 import { 
     CreateSidebarComponent,
     EventsListComponent,
     RedPencilComponent,
     NewEventsComponent
-} from './sidebar/index';
+} from './sidebar';
   
 declare let jQuery: object;
  
@@ -33,7 +35,8 @@ declare let jQuery: object;
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ContextMenuModule
   ],
   declarations: [
     AppComponent,

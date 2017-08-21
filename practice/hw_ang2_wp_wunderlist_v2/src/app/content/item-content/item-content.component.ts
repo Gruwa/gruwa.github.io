@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { EventService, IEventsItem } from './../../shared';
+import { EventService, IEventsItem, IEvents } from './../../shared';
 
 @Component({
     selector: 'item-content',
@@ -7,8 +7,14 @@ import { EventService, IEventsItem } from './../../shared';
 })
 export class ItemContentComponent {
 
+    @Input() item: IEventsItem;
+    @Input() event: IEvents;
+
     constructor(private eventService:EventService) {}
 
-    @Input() items: IEventsItem;
+
+    deleteItem() {
+        this.eventService.deleteItem(this.item, this.event)
+    }
     
 }

@@ -17,10 +17,11 @@ export class ListContentComponent {
     name: FormControl;
     newItemForm: FormGroup;
 
+
     ngAfterContentChecked() {
         this.event = this.eventService.getEvent(+this.route.snapshot.params['id']);
     }
-
+    
     ngOnInit() {
         this.name = new FormControl();
         this.newItemForm = new FormGroup({
@@ -33,4 +34,5 @@ export class ListContentComponent {
         this.eventService.newItems(formValues, this.event);
         this.newItemForm.reset();
     }
+
 }

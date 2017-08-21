@@ -1,9 +1,11 @@
 import { NumberValueAccessor } from '@angular/forms/src/directives';
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 
 @Injectable()
 
 export class EventService {
+
+
 
     getEvents() {
         return EVENTS;
@@ -26,6 +28,11 @@ export class EventService {
     newItems(item: IEventsItem, event: IEvents) {
         item.id = event.items[event.items.length - 1].id + 1;
         event.items.push(item);        
+    }
+
+    deleteItem(item: IEventsItem, event: IEvents) {
+        let elementSerch = EVENTS[EVENTS.indexOf(event)].items;
+        elementSerch.splice(elementSerch.indexOf(item), 1);
     }
 
 }
