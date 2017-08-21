@@ -1,8 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
 
-import { EventService, IEventsItem, IEvents } from '../../shared/event.service';
+import { EventService, IEventsItem, IEvents, ItemService  } from '../../shared';
 
 @Component({
     selector: 'list-comp',
@@ -11,11 +11,14 @@ import { EventService, IEventsItem, IEvents } from '../../shared/event.service';
 
 export class ListContentComponent {
 
-    constructor(private eventService:EventService, private route:ActivatedRoute) { }
+    constructor(private eventService:EventService,
+                private route:ActivatedRoute,
+                private itemService: ItemService) { }
 
     event: IEvents;
     name: FormControl;
     newItemForm: FormGroup;
+    doneItemInc: IEventsItem;
 
 
     ngAfterContentChecked() {
@@ -33,6 +36,15 @@ export class ListContentComponent {
     saveItem(formValues: IEventsItem) {
         this.eventService.newItems(formValues, this.event);
         this.newItemForm.reset();
+    }
+
+    
+    hideDoneItems() {
+        // this.itemService;
+    }
+
+    clickDoneItemEvent(data: any) {
+        this.doneItemInc = data;
     }
 
 }

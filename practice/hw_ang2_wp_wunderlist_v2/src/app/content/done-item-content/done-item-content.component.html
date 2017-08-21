@@ -1,9 +1,9 @@
 <div class="content__task__new-task content__task__new-task--list" 
     [contextMenu]="static"  
-    *ngIf="!doneItem">
+    *ngIf="doneItem">
       <img class="content__task__img" src="../../../assets/img/svg/task-check.svg" > 
       <span class="content__task__text content__task__text--list" 
-            >{{item?.name}}</span>
+            [class.content__task__text--hide]="doneItem">{{item?.name}}</span>
       <img class="content__task__img content__task__img--star" src="../../../assets/img/svg/star.svg" >
 </div>
 
@@ -18,7 +18,7 @@
     Удалить задачу
   </ng-template>
   <ng-template contextMenuItem [visible]="true" [enabled]="true" (execute)="doneItemFunc()">
-    Задача выполнена
+    Задача требует доработки
     </ng-template>
   <ng-template contextMenuItem [divider]="true"></ng-template>
   <ng-template contextMenuItem [visible]="true" [enabled]="true" >

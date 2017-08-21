@@ -1,11 +1,11 @@
-import { Component, EventEmitter, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { EventService, IEventsItem, IEvents, ItemService } from './../../shared';
 
 @Component({
-    selector: 'item-content',
-    templateUrl: './item-content.component.html'
+    selector: 'done-item-content',
+    templateUrl: './done-item-content.component.html'
 })
-export class ItemContentComponent {
+export class DoneItemContentComponent {
 
     doneItem: boolean;
 
@@ -22,10 +22,11 @@ export class ItemContentComponent {
     
     deleteItem() {
         this.eventService.deleteItem(this.item, this.event);
-    }    
+    }
+    
     
     doneItemFunc() {
-        this.doneItem = true;
+        this.doneItem = false;
         this.eventService.doneItemFunc(this.item, this.doneItem);
     }
 }

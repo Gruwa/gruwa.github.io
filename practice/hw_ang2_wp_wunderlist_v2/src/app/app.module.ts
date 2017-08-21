@@ -12,14 +12,16 @@ import {
         EventService,
         ToggleService,
         RedPencilService,
-        EventRouteActivatorService
+        EventRouteActivatorService,
+        ItemService
 } from './shared';
 import { Error404Component } from './error/404.component';
 import { JQ_TOKEN } from './common';
 import { 
     CreateContentComponent,
     ListContentComponent,
-    ItemContentComponent
+    ItemContentComponent,
+    DoneItemContentComponent
 } from './content';
 import { 
     CreateSidebarComponent,
@@ -47,13 +49,15 @@ declare let jQuery: object;
     Error404Component,
     ItemContentComponent,
     RedPencilComponent,
-    NewEventsComponent
+    NewEventsComponent,
+    DoneItemContentComponent
   ],
   providers: [
       EventService,
       ToggleService,
       RedPencilService,
       EventRouteActivatorService,
+      ItemService,
     {
       provide: JQ_TOKEN,
       useValue: jQuery

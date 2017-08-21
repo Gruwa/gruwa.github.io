@@ -24,9 +24,15 @@
             <input formControlName="name" class="content__task__text" type="text" placeholder="Добавить задачу...">
         </form>
     </div>
-    <item-content *ngFor="let item of event.items" [item]="item" [event]="event"></item-content>   
+    <item-content *ngFor="let item of event.items" 
+                    [item]="item" 
+                    [event]="event"></item-content>   
     <div class="content__task__addtask">
-        <span>Показать завершенные задачи</span>
+        <span (click)="hideDoneItems()" >Показать завершенные задачи</span>
     </div>
+    <done-item-content *ngFor="let item of event.items"
+                        [item]="item" 
+                        [event]="event">
+    </done-item-content> 
 </div>
         

@@ -4,8 +4,9 @@ import { Inject, Injectable } from '@angular/core';
 @Injectable()
 
 export class EventService {
-
-
+    
+        doneItem: boolean = false; 
+        hideItem: boolean;
 
     getEvents() {
         return EVENTS;
@@ -34,12 +35,18 @@ export class EventService {
         let elementSerch = EVENTS[EVENTS.indexOf(event)].items;
         elementSerch.splice(elementSerch.indexOf(item), 1);
     }
+    
+    doneItemFunc(item: IEventsItem, done: boolean) {
+        item.done = done;
+        console.log(item);
+    }
 
 }
 
 export interface IEventsItem {
     id: number;
     name: string;
+    done?: boolean;
 }
 
 export interface IEvents {

@@ -10,11 +10,16 @@
                 margin-bottom: 1px;
             }
         }
-
+        
         &__text {
-
+            
             &--list {
                 color:rgb(38, 38, 38);
+            }
+
+            &--hide {
+                text-decoration: line-through;
+                color: rgba(102,137,100,0.75);
             }
         }
 
