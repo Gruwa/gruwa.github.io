@@ -45,6 +45,8 @@ export class RedPencilComponent {
     }
 
     cancelForm() {
+        console.log("2w");
+        
         this.redPencil = false;
         this.redPencilService.redPencilFunc(this.redPencil);
         return this.redPencil;

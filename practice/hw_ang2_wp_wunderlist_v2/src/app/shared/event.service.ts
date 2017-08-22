@@ -17,7 +17,11 @@ export class EventService {
     }
 
     newEvents(event: IEvents) {
-        event.id = EVENTS[EVENTS.length - 1].id + 1;
+        if(EVENTS[EVENTS.length - 1] === undefined) {
+            event.id = 1;
+        } else {
+            event.id = EVENTS[EVENTS.length - 1].id + 1;
+        }
         event.items = [];
         EVENTS.push(event);
     }
