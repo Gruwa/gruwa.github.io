@@ -1,0 +1,25 @@
+<div class="red-pencil" *ngIf="pencil()">
+    <div class="red-pencil__wrapper">
+        <h2 class="red-pencil__title">Изменить список</h2>
+        <form (ngSubmit)="saveForm(redPencilForm.value)"
+            [formGroup]="redPencilForm"
+            autocomplete="off" novalidate>
+        <div class="form-group red-pencil__form-group">
+            <label class="red-pencil__label" for="listName">Список</label>
+            <input formControlName='listName' id="listName" type="text" class="listName" 
+                placeholder="Название списка..." />
+        </div>
+        <div class="sidebar__toolbar red-pencil__toolbar">
+            <span class="sidebar__user-avatar">A</span>
+            <span class="sidebar__user-name">Aleksey Zolotarenko</span>
+            <img class="sidebar__list-toggle sidebar__list-toggle--toolbar" 
+                src="../../../assets/img/svg/bell.svg">
+            <img class="sidebar__list-toggle sidebar__list-toggle--toolbar" 
+                src="../../../assets/img/svg/conversations.svg">
+        </div>
+        <button type="submit" class="btn btn-primary">Готово</button>
+        <button type="button" class="btn btn-default" (click)="cancelForm()" >Отмена</button>
+        <button type="button" class="btn btn-worning" (click)="deleteForm()" >Удалить</button>
+        </form>
+    </div>    
+</div>

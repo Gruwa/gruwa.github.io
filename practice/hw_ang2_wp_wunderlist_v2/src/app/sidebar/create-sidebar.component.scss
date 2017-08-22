@@ -1,0 +1,113 @@
+.sidebar {
+    background-color: rgb(247, 247, 247);
+    width: 280px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+
+    & a {
+        text-decoration: none;
+    }
+    
+    &__head {
+        background-color: rgb(91, 122, 89);
+        padding: 13px 0 12px 11px;
+    }
+    
+    &__list-toggle {
+        height: 20px;
+        vertical-align: middle;
+        cursor: pointer;
+        
+        &--toolbar {
+            margin: 0 10px;
+        }
+        
+        &--vertical {
+            margin-top: 15px;
+        }
+        
+    }
+
+    &__list-form {
+        display: inline;
+        margin-left: 31px;
+
+        & input {
+            background-color: transparent;
+            border: none;
+            color: rgb(255, 255, 255);
+        }
+    }
+    
+    &__toolbar {
+        box-sizing: border-box;
+        height: 51px;
+        margin: 2px 0 4px;
+        padding: 7px; 
+        vertical-align: middle;
+        
+        & :last-child {
+            margin-right: 0;
+        }
+    }
+    
+    &__user-avatar {
+        display: inline-block;
+        width: 32px;
+        height: 32px;
+        background-color: rgb(97, 146, 229);
+        border-radius: 32px;
+        font-size: 18px;
+        text-align: center;
+        padding-top: 7px;
+        color: rgb(255, 255, 255);
+        font-family: 'montserratregular', sans-serif;
+        margin-left: -4px;
+    }
+    
+    &__user-name {
+        font-size: 15px;
+    }
+    
+    &__inbox {
+        padding: 0 8px;
+        height: 38px;
+        cursor: pointer;
+        
+        &__description {
+            color: rgb(38, 38, 38);
+            font-size: 15px;
+        }
+    }
+    
+    &__list-new {
+        cursor: pointer;
+        width: 280px;
+        padding: 11px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        border-top: 1px solid rgb(214, 214, 214);
+        background-color: rgb(255, 255, 255);
+        
+        &__description {
+            color: rgb(67, 153, 237);
+            font-size: 15px;
+        }
+    }
+
+    &__toggle {
+        width: 42px;
+    }
+    
+}
+
+.event-list {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+@import './events/events-list.component';
+@import './red-pencil/red-pencil.component';
