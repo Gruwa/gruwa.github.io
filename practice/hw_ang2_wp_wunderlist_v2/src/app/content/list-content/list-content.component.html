@@ -30,9 +30,11 @@
     <div class="content__task__addtask">
         <span (click)="hideDoneItems()" >Показать завершенные задачи</span>
     </div>
-    <done-item-content *ngFor="let item of event.items"
-                        [item]="item" 
-                        [event]="event">
-    </done-item-content> 
+    <div *ngIf="showDoneItems">
+        <done-item-content *ngFor="let item of event.items"
+                            [item]="item" 
+                            [event]="event">
+        </done-item-content> 
+    </div>
 </div>
         

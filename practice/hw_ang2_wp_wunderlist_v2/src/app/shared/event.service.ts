@@ -27,7 +27,11 @@ export class EventService {
     }
 
     newItems(item: IEventsItem, event: IEvents) {
-        item.id = event.items[event.items.length - 1].id + 1;
+        if(event.items[event.items.length - 1] === undefined) {
+            item.id = 1;
+        } else {
+            item.id = event.items[event.items.length - 1].id + 1;
+        }
         event.items.push(item);        
     }
 
@@ -38,7 +42,6 @@ export class EventService {
     
     doneItemFunc(item: IEventsItem, done: boolean) {
         item.done = done;
-        console.log(item);
     }
 
 }

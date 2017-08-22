@@ -9,6 +9,10 @@
                 margin-top: 1px;
                 margin-bottom: 1px;
             }
+
+            &--hide {
+                background-color: rgba(255, 255, 255, .55);
+            }
         }
         
         &__text {
@@ -19,7 +23,7 @@
 
             &--hide {
                 text-decoration: line-through;
-                color: rgba(102,137,100,0.75);
+                color: rgba(102, 137, 100, .75);
             }
         }
 

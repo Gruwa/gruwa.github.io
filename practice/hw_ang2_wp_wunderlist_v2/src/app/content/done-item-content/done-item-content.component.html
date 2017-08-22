@@ -1,7 +1,8 @@
 <div class="content__task__new-task content__task__new-task--list" 
     [contextMenu]="static"  
-    *ngIf="doneItem">
-      <img class="content__task__img" src="../../../assets/img/svg/task-check.svg" > 
+    *ngIf="doneItem"
+    [class.content__task__new-task--hide]="doneItem">
+      <img class="content__task__img" src="../../../assets/img/svg/task-checked.svg" > 
       <span class="content__task__text content__task__text--list" 
             [class.content__task__text--hide]="doneItem">{{item?.name}}</span>
       <img class="content__task__img content__task__img--star" src="../../../assets/img/svg/star.svg" >

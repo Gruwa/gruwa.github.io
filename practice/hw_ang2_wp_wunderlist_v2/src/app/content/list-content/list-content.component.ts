@@ -18,7 +18,7 @@ export class ListContentComponent {
     event: IEvents;
     name: FormControl;
     newItemForm: FormGroup;
-    doneItemInc: IEventsItem;
+    showDoneItems: boolean = false;
 
 
     ngAfterContentChecked() {
@@ -41,10 +41,12 @@ export class ListContentComponent {
     
     hideDoneItems() {
         // this.itemService;
+        console.log(this.showDoneItems);
+        
+        this.showDoneItems = !this.showDoneItems;
     }
 
-    clickDoneItemEvent(data: any) {
-        this.doneItemInc = data;
+    clickDoneItemEvent() {
     }
 
 }
