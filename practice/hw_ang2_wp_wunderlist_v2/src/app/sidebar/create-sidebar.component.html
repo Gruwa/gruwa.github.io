@@ -11,6 +11,7 @@
         <img class="sidebar__list-toggle sidebar__list-toggle--toolbar" 
             *ngIf="listToggle" src="../../assets/img/svg/conversations.svg">
     </div>
+    <div class="event-list">
         <a [routerLink]="['/events']">
             <div class="sidebar__inbox" >
                 <img class="sidebar__list-toggle" src="../../assets/img/svg/inbox.svg">
@@ -21,11 +22,13 @@
                 <span class="sidebar__inbox__description" *ngIf="listToggle">Входящие</span>
             </div>
         </a>
-    <event-list *ngFor="let event of events" 
-                [event]="event"
-                [listToggle]="listToggle"
-                (redPencilName)="clickRedPancilName($event)">        
-    </event-list> 
+        <event-list *ngFor="let event of events" 
+                    [event]="event"
+                    [listToggle]="listToggle"
+                    (redPencilName)="clickRedPancilName($event)">        
+        </event-list> 
+        
+    </div>
     <div class="sidebar__list-new" [class.sidebar__toggle]="!listToggle">
         <img class="sidebar__list-toggle" src="../../assets/img/svg/plus.svg" (click)="creatNewLists()">
         <span class="sidebar__list-new__description" *ngIf="listToggle" (click)="creatNewLists()" >Создать список</span>

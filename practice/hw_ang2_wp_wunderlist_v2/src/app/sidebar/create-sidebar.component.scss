@@ -93,5 +93,10 @@
     
 }
 
+.event-list {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
 @import './events/events-list.component';
 @import './red-pencil/red-pencil.component';
