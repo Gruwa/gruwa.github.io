@@ -1,5 +1,6 @@
+import { setTimeout } from 'timers';
 import { NumberValueAccessor } from '@angular/forms/src/directives';
-import { Inject, Injectable } from '@angular/core';
+import { EventEmitter, Inject, Injectable } from '@angular/core';
 
 @Injectable()
 
@@ -46,6 +47,28 @@ export class EventService {
     
     doneItemFunc(item: IEventsItem, done: boolean) {
         item.done = done;
+    }
+
+    searchItems(searchTerm: string) {
+        let term = searchTerm.toLocaleLowerCase();
+        let results: IEventsItem[] = [];
+
+        EVENTS.forEach(event => {
+            let matchingSessions = event.items.filter(
+                item => item.name.toLocaleLowerCase().indexOf(term) > -1);
+            matchingSessions = matchingSessions.map((item: any) => {
+                item.eventId = event.id;
+                return item;
+            })
+            results = results.concat(matchingSessions);
+        })
+
+        let emitter = new EventEmitter(true);
+        setTimeout(() => {
+            emitter.emit(results);
+        }, 100);
+        
+        return emitter;
     }
 
 }

@@ -29,6 +29,17 @@
         }
         
     }
+
+    &__list-form {
+        display: inline;
+        margin-left: 31px;
+
+        & input {
+            background-color: transparent;
+            border: none;
+            color: rgb(255, 255, 255);
+        }
+    }
     
     &__toolbar {
         box-sizing: border-box;
