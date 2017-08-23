@@ -1,7 +1,6 @@
 import { Component, Input, EventEmitter, Output } from '@angular/core';
 
-import { IEvents } from '../../shared/event.service';
-import { RedPencilService } from './../../shared/index';
+import { RedPencilService, IEvents } from './../../shared';
 // import { RedPencilComponent } from './../red-pencil/red-pencil.component';
 
 @Component({
@@ -14,6 +13,7 @@ export class EventsListComponent {
     
     length: number;
     redPencil: boolean;
+    showPencil: boolean = false;
 
     @Input() event: IEvents;  // говрорит о том что это объект будет взят из другого копмонента
     @Input() listToggle: boolean;
@@ -24,7 +24,7 @@ export class EventsListComponent {
     ) {
 
     }
-    
+
     eventLength() {
         if(this.event === undefined) {
             this.length = 0;
@@ -42,6 +42,10 @@ export class EventsListComponent {
         this.redPencilName.emit(this.event);
         
         return this.redPencil;
+    }
+
+    showPencilFunc(data: boolean) {
+        this.showPencil = data;
     }
 
 }

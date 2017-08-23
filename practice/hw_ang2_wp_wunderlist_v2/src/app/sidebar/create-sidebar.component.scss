@@ -17,8 +17,17 @@
     
     &__list-toggle {
         height: 20px;
+        width: 20px;
         vertical-align: middle;
         cursor: pointer;
+        display: inline-block;
+
+        // &::before{
+        //     content: '';
+        //     position: fixed;
+        //     height: 20px;
+        //     width: 20px;
+        // }
         
         &--toolbar {
             margin: 0 10px;
@@ -104,10 +113,10 @@
     
 }
 
-.event-list {
-    overflow-y: auto;
-    overflow-x: hidden;
-}
+// .event-list {
+//     overflow-y: auto;
+//     overflow-x: hidden;
+// }
 
 @import './events/events-list.component';
 @import './red-pencil/red-pencil.component';

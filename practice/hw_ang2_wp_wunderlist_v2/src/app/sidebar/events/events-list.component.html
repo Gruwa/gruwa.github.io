@@ -2,10 +2,18 @@
     <img class="sidebar__list-toggle" *ngIf="listToggle" src="../../../assets/img/svg/list.svg">
     <span class="sidebar__inbox__description" *ngIf="listToggle">{{event?.name}}</span>
     <div class="sidebar__inbox__lists" *ngIf="listToggle">
-        <span class="sidebar__inbox__description">{{eventLength()}}</span>
-        <img class="sidebar__list-toggle" 
-            src="../../../assets/img/svg/option.svg" 
-            (click)="clickRedPencil()" 
-            id="clickRedPencil">
+        <span class="sidebar__inbox__description" >{{eventLength()}}</span>
+        <div showPencilDirective
+            (showPencilBack)="showPencilFunc($event)"
+            class="sidebar__list-toggle">
+            
+            <img src="../../../assets/img/svg/option.svg" 
+                *ngIf="!showPencil"
+                id="clickRedPencil">
+            <img src="../../../assets/img/svg/option-bold.svg" 
+                (click)="clickRedPencil()"
+                *ngIf="showPencil"
+                id="clickRedPencil">
+        </div>
     </div>
 </div>

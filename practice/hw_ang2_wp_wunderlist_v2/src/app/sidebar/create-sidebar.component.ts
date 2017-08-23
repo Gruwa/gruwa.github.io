@@ -20,21 +20,21 @@ export class CreateSidebarComponent {
     foundItems: IEventsItem[];
 
     @Output() redPancilClickName = new EventEmitter();
-
-    clickRedPancilName(data: any) {
-        this.redPancilClickName.emit(data);
-    }
-
+    
     constructor(private eventService: EventService, 
                 private toggleService: ToggleService,
                 private redPencilService: RedPencilService
             ) {
     }
-
+    
     ngOnInit() {
         this.events = this.eventService.getEvents();
         this.listToggle = this.toggleService.listToggle;
         this.newLists = this.redPencilService.newLists;
+    }
+
+    clickRedPancilName(data: any) {
+        this.redPancilClickName.emit(data);        
     }
     
     clickListToggleFunc() {

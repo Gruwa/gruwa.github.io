@@ -12,6 +12,8 @@ export class AppComponent {
 
     listToggle: boolean;
 
+    @Output() redPancilName: any;
+
     constructor (private toggleService: ToggleService) {
 
     }
@@ -23,8 +25,6 @@ export class AppComponent {
     toggle() {
         return this.toggleService.listToggle;
     }
-
-    @Output() redPancilName: any;
 
     redPancilClickedName(data: any) {
         this.redPancilName = data;
