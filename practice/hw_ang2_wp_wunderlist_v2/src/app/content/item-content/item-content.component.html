@@ -22,7 +22,8 @@
     Задача выполнена
     </ng-template>
   <ng-template contextMenuItem [divider]="true"></ng-template>
-  <ng-template contextMenuItem [visible]="true" [enabled]="true" >
+  <ng-template contextMenuItem [visible]="true" [enabled]="true" (execute)="creatNewLists()">
       Создать новый список
   </ng-template>
+  
 </context-menu> 
