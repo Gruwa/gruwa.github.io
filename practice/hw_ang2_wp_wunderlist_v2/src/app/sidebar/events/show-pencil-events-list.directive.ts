@@ -6,7 +6,7 @@ import { Directive, EventEmitter, HostListener, Output } from '@angular/core';
 
 export class ShowPencilEventsListDirective {
 
-    @Output() showPencilBack = new EventEmitter;
+    @Output() showPencilBack: EventEmitter<any> = new EventEmitter;
 
     @HostListener('mouseenter') onMouseEnter() {
         this.showPencil(true);

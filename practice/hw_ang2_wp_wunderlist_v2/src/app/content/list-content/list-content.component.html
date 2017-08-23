@@ -26,7 +26,8 @@
     </div>
     <item-content *ngFor="let item of event?.items" 
                     [item]="item" 
-                    [event]="event"></item-content>   
+                    [event]="event">
+    </item-content>   
     <div class="content__task__addtask">
         <span (click)="hideDoneItems()" >Показать завершенные задачи</span>
     </div>
