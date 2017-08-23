@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core'; //библеотека
+import { Component, Input, OnChanges, OnInit } from '@angular/core'; //библеотека
 import { FormControl, FormGroup } from '@angular/forms';
 
 import { RedPencilService, IEvents, EventService } from './../../shared';
@@ -8,7 +8,7 @@ import { RedPencilService, IEvents, EventService } from './../../shared';
     templateUrl: './red-pencil.component.html'
 })
 
-export class RedPencilComponent {
+export class RedPencilComponent  implements OnInit, OnChanges {
     
     redPencilForm: FormGroup;
     redPencil: boolean;
@@ -26,17 +26,17 @@ export class RedPencilComponent {
     ngOnInit() {
         this.redPencil = this.redPencilService.redPencil;
     }
-
-    pencil() {
-        return this.redPencilService.redPencil;     
-    }
-
+    
     ngOnChanges() {
         this.listName = new FormControl(this.redPencilService.name);
         this.event = this.redPencilService.event;
         this.redPencilForm = new FormGroup({
             listName: this.listName
         })
+    }
+
+    pencil() {
+        return this.redPencilService.redPencil;     
     }
 
     saveForm(formValues: any) {

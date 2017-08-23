@@ -28,7 +28,8 @@ import {
     EventsListComponent,
     RedPencilComponent,
     NewEventsComponent,
-    EventsListDirective
+    ShowPencilEventsListDirective,
+    PencilEventsListDirective
 } from './sidebar';
   
 declare let jQuery: object;
@@ -52,7 +53,8 @@ declare let jQuery: object;
     RedPencilComponent,
     NewEventsComponent,
     DoneItemContentComponent,
-    EventsListDirective
+    ShowPencilEventsListDirective,
+    PencilEventsListDirective
   ],
   providers: [
       EventService,

@@ -1,4 +1,4 @@
-import { Component, Input, Output } from '@angular/core';
+import { AfterContentChecked, Component, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
 
@@ -9,20 +9,17 @@ import { EventService, IEventsItem, IEvents, ItemService  } from '../../shared';
     templateUrl: './list-content.component.html'
 })
 
-export class ListContentComponent {
-
-    constructor(private eventService:EventService,
-                private route:ActivatedRoute,
-                private itemService: ItemService) { }
+export class ListContentComponent implements OnInit, AfterContentChecked {
 
     event: IEvents;
     name: FormControl;
     newItemForm: FormGroup;
     showDoneItems: boolean = false;
 
+    constructor(private eventService:EventService,
+                private route:ActivatedRoute,
+                private itemService: ItemService) {
 
-    ngAfterContentChecked() {
-        this.event = this.eventService.getEvent(+this.route.snapshot.params['id']);
     }
     
     ngOnInit() {
@@ -32,21 +29,18 @@ export class ListContentComponent {
         })
         
     }
+
+    ngAfterContentChecked() {
+        this.event = this.eventService.getEvent(+this.route.snapshot.params['id']);
+    }
     
     saveItem(formValues: IEventsItem) {
         this.eventService.newItems(formValues, this.event);
         this.newItemForm.reset();
     }
-
     
     hideDoneItems() {
-        // this.itemService;
-        console.log(this.showDoneItems);
-        
-        this.showDoneItems = !this.showDoneItems;
-    }
-
-    clickDoneItemEvent() {
+         this.showDoneItems = !this.showDoneItems;
     }
 
 }

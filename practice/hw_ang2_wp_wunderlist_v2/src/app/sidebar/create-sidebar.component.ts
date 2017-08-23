@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output  } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 import { EventService, IEvents, IEventsItem, ToggleService, RedPencilService } from '../shared';
 import { EventsListComponent } from './events/events-list.component';
@@ -11,7 +11,7 @@ import { EventsListComponent } from './events/events-list.component';
 
 })
 
-export class CreateSidebarComponent {
+export class CreateSidebarComponent implements OnInit {
 
     events: IEvents[];
     listToggle: boolean;
@@ -23,8 +23,7 @@ export class CreateSidebarComponent {
     
     constructor(private eventService: EventService, 
                 private toggleService: ToggleService,
-                private redPencilService: RedPencilService
-            ) {
+                private redPencilService: RedPencilService) {
     }
     
     ngOnInit() {

@@ -1,11 +1,10 @@
 import { Directive, EventEmitter, HostListener, Output } from '@angular/core';
-import { EventsListComponent } from './events-list.component';
 
 @Directive({
     selector: '[showPencilDirective]'
 })
 
-export class EventsListDirective {
+export class ShowPencilEventsListDirective {
 
     @Output() showPencilBack = new EventEmitter;
 
@@ -15,7 +14,8 @@ export class EventsListDirective {
     }
 
     @HostListener('mouseleave') onMouseLeave() {
-        this.showPencil(false);
+        setTimeout(this.showPencil(false), 1000);
+        
         // this.showPencilBack.emit(this.showPencil);
     }
 

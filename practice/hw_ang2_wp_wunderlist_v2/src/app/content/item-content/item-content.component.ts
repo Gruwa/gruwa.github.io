@@ -1,11 +1,11 @@
-import { Component, EventEmitter, Input } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit } from '@angular/core';
 import { EventService, IEventsItem, IEvents, ItemService } from './../../shared';
 
 @Component({
     selector: 'item-content',
     templateUrl: './item-content.component.html'
 })
-export class ItemContentComponent {
+export class ItemContentComponent implements OnInit {
 
     doneItem: boolean;
     starItem: boolean;

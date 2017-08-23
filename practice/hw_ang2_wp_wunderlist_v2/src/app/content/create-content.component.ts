@@ -13,6 +13,7 @@ export class CreateContentComponent {
     constructor(private createSidebarComponent: CreateSidebarComponent) {
 
     }
+    
     creatNewLists() {
         this.createSidebarComponent.creatNewLists();
     }

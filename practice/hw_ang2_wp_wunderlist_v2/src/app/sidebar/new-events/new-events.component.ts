@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'; //библеотека
+import { Component, OnInit } from '@angular/core'; //библеотека
 import { FormControl, FormGroup } from '@angular/forms';
 
 import { RedPencilService, EventService, IEvents } from './../../shared';
@@ -8,7 +8,7 @@ import { RedPencilService, EventService, IEvents } from './../../shared';
     templateUrl: './new-events.component.html'
 })
 
-export class NewEventsComponent {
+export class NewEventsComponent implements OnInit{
     
     newEventsForm: FormGroup;
     eventsShow: boolean;

@@ -1,4 +1,4 @@
-import { Component, Output } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { ToggleService } from './shared/index';
 
 import '../assets/style/style.scss';
@@ -8,7 +8,7 @@ import '../assets/img/icon.png';
   selector: 'main-app',
   templateUrl: './app.component.html'
 })
-export class AppComponent { 
+export class AppComponent implements OnInit { 
 
     listToggle: boolean;
 
