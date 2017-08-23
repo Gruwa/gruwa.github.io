@@ -4,7 +4,8 @@
       <img class="content__task__img" src="../../../assets/img/svg/task-check.svg" > 
       <span class="content__task__text content__task__text--list" 
             >{{item?.name}}</span>
-      <img class="content__task__img content__task__img--star" src="../../../assets/img/svg/star.svg" >
+      <img class="content__task__img content__task__img--star" *ngIf="!starItem" (click)= "starItemFunc()" src="../../../assets/img/svg/star.svg" >
+      <img class="content__task__img content__task__img--star--flag" *ngIf="starItem" (click)= "starItemFunc()" src="../../../assets/img/svg/star-flag.svg" >
 </div>
 
 <context-menu #static>

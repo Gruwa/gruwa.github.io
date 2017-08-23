@@ -8,6 +8,7 @@ export class EventService {
     
         doneItem: boolean = false; 
         hideItem: boolean;
+        starItem: boolean = false;
 
     getEvents() {
         return EVENTS;
@@ -41,12 +42,21 @@ export class EventService {
     }
 
     deleteItem(item: IEventsItem, event: IEvents) {
-        let elementSerch = EVENTS[EVENTS.indexOf(event)].items;
-        elementSerch.splice(elementSerch.indexOf(item), 1);
+        let elementSearch = EVENTS[EVENTS.indexOf(event)].items;
+        elementSearch.splice(elementSearch.indexOf(item), 1);
     }
     
     doneItemFunc(item: IEventsItem, done: boolean) {
         item.done = done;
+    }
+
+    starItemFunc(starItem: boolean, item: IEventsItem, event: IEvents) {
+        if(starItem === true) {
+            this.deleteItem(item, event);
+            EVENTS[EVENTS.indexOf(event)].items.splice(0,0, item);
+            item.star = starItem;
+        }
+
     }
 
     searchItems(searchTerm: string) {
@@ -77,6 +87,7 @@ export interface IEventsItem {
     id: number;
     name: string;
     done?: boolean;
+    star?: boolean;
 }
 
 export interface IEvents {
