@@ -19,8 +19,8 @@
     <div class="content__task__new-task">
         <form (ngSubmit)="saveItem(newItemForm.value)"
               [formGroup]="newItemForm" >
-            <img class="content__task__img" src="../../../assets/img/svg/plus-task.svg" > 
-            <input formControlName="name" class="content__task__text" type="text" placeholder="Добавить задачу...">
+                <img class="content__task__img" src="../../../assets/img/svg/plus-task.svg" > 
+                <input formControlName="name" class="content__task__text" type="text" placeholder="Добавить задачу...">
         </form>
     </div>
     <item-content *ngFor="let item of event?.items" 
