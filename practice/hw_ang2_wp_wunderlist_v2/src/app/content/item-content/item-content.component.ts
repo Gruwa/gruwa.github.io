@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+
 import { EventService, IEventsItem, IEvents, ItemService, RedPencilService } from './../../shared';
 
 @Component({

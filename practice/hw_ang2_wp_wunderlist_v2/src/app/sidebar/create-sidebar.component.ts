@@ -36,7 +36,7 @@ export class CreateSidebarComponent implements OnInit {
     clickListToggleFunc() {
         this.listToggle = !this.listToggle;
         this.toggleService.listToggleFunc(this.listToggle);
-        return this.listToggle;
+        // return this.listToggle;
     }
 
     creatNewLists() {

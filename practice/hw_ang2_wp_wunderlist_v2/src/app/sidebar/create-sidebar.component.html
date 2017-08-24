@@ -1,11 +1,12 @@
 <div  class="sidebar" [class.sidebar__toggle]="!listToggle" >
     <div class="sidebar__head">
-        <img class="sidebar__list-toggle" src="../../assets/img/svg/list-toggle.svg" 
+        <img class="sidebar__list-toggle sidebar__list-toggle--toggle" src="../../assets/img/svg/list-toggle.svg" 
             (click)="clickListToggleFunc()">
             <form class="sidebar__list-form"
                 id="searchForm"
                 (ngSubmit)="searchItems(searchTerm)" 
-                autocomplete="off" novalidate>
+                autocomplete="off" novalidate 
+                *ngIf="listToggle" >
                 <input [(ngModel)]="searchTerm" name="searchTerm" id="search">
                 <label for="search"><img class="sidebar__list-toggle" src="../../assets/img/svg/search.svg"></label>
             </form>

@@ -12,7 +12,8 @@
     
     &__head {
         background-color: rgb(91, 122, 89);
-        padding: 13px 0 12px 11px;
+        padding-left: 13px;
+        height: 45px;
     }
     
     &__list-toggle {
@@ -21,6 +22,11 @@
         vertical-align: middle;
         cursor: pointer;
         display: inline-block;
+        
+        &--toggle {
+            margin: 16px 0px 10px -2px;
+        }
+
 
          &--toolbar {
             margin: 0 10px;
@@ -40,6 +46,7 @@
             background-color: transparent;
             border: none;
             color: rgb(255, 255, 255);
+            height: 43px;
         }
     }
     
