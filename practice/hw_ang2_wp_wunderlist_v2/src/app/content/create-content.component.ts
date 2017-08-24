@@ -1,20 +1,22 @@
 import { Component, Input } from '@angular/core';
-import { EventService } from '../shared/event.service';
 import { ActivatedRoute } from '@angular/router';
-import { CreateSidebarComponent } from '../sidebar/index';
+
+import { RedPencilService } from '../shared';
 
 @Component({
-    providers: [CreateSidebarComponent],
     templateUrl: './create-content.component.html'
 })
 
 export class CreateContentComponent {
 
-    constructor(private createSidebarComponent: CreateSidebarComponent) {
+    newLists: boolean;
+
+    constructor(private redPencilService: RedPencilService) {
 
     }
-    
+
     creatNewLists() {
-        this.createSidebarComponent.creatNewLists();
+        this.newLists = true;
+        this.redPencilService.creatNewLists(this.newLists);
     }
 }

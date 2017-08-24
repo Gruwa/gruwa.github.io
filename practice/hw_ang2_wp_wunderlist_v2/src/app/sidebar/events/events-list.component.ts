@@ -1,11 +1,9 @@
 import { Component, Input, EventEmitter, Output } from '@angular/core';
 
 import { RedPencilService, IEvents } from './../../shared';
-// import { RedPencilComponent } from './../red-pencil/red-pencil.component';
 
 @Component({
     selector: 'event-list',
-    // providers: [ RedPencilComponent ],
     templateUrl: './events-list.component.html'
 })
 
@@ -19,9 +17,7 @@ export class EventsListComponent {
     @Input() listToggle: boolean;
     @Output() redPencilName = new EventEmitter();
 
-    constructor(private redPencilService: RedPencilService, 
-        // private redPencilComponent: RedPencilComponent
-    ) {
+    constructor(private redPencilService: RedPencilService) {
 
     }
 

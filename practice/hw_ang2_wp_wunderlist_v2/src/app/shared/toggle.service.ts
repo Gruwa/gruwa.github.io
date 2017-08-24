@@ -8,7 +8,6 @@ export class ToggleService {
 
     listToggleFunc(data: boolean) {
         this.listToggle = data; 
-        // console.log('ToggleService ', this.listToggle);      
     }
 }
 

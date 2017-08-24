@@ -1,12 +1,9 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 import { EventService, IEvents, IEventsItem, ToggleService, RedPencilService } from '../shared';
-import { EventsListComponent } from './events/events-list.component';
-
 
 @Component({
     selector: 'side-bar',
-    providers: [EventsListComponent],
     templateUrl: './create-sidebar.component.html'
 
 })
@@ -45,7 +42,6 @@ export class CreateSidebarComponent implements OnInit {
     creatNewLists() {
         this.newLists = true;
         this.redPencilService.creatNewLists(this.newLists);
-
     }
 
     searchItems(searchTerm: string) {

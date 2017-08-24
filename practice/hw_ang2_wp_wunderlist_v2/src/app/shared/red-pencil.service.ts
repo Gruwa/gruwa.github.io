@@ -29,7 +29,6 @@ export class RedPencilService {
 
     creatNewLists(data: boolean) {
         this.newLists = data;
-        
     }
 
 }
