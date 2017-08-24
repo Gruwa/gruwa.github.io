@@ -1,0 +1,11 @@
+<form class="sidebar__list-form"
+      id="searchForm"
+      (ngSubmit)="searchItemsFunc(searchItems)" 
+      autocomplete="off" novalidate 
+      *ngIf="listToggle()" >
+    <input [(ngModel)]="searchItems"
+        name="searchItems"
+        id="search"
+        type="text">
+    <label for="search"><img class="sidebar__list-toggle" src="../../../assets/img/svg/search.svg"></label>
+</form>

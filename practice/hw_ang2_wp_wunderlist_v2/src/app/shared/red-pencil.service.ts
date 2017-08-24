@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
-import { IEvents } from './../shared/event.service';
+import { IEvents } from './../shared';
 
 @Injectable()
 

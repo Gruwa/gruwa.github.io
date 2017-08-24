@@ -29,7 +29,8 @@ import {
     RedPencilComponent,
     NewEventsComponent,
     ShowPencilEventsListDirective,
-    PencilEventsListDirective
+    PencilEventsListDirective,
+    SearchBarComponent
 } from './sidebar';
   
 declare let jQuery: object;
@@ -54,7 +55,8 @@ declare let jQuery: object;
     NewEventsComponent,
     DoneItemContentComponent,
     ShowPencilEventsListDirective,
-    PencilEventsListDirective
+    PencilEventsListDirective,
+    SearchBarComponent
   ],
   providers: [
       EventService,

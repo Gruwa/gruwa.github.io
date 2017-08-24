@@ -1,5 +1,5 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { ToggleService } from './shared/index';
+import { ToggleService, IEvents } from './shared';
 
 import '../assets/style/style.scss';
 import '../assets/img/icon.png';
@@ -11,8 +11,7 @@ import '../assets/img/icon.png';
 export class AppComponent implements OnInit { 
 
     listToggle: boolean;
-
-    @Output() redPancilName: any;
+    redPencilName: any;
 
     constructor (private toggleService: ToggleService) {
 
@@ -26,8 +25,8 @@ export class AppComponent implements OnInit {
         return this.toggleService.listToggle;
     }
 
-    redPancilClickedName(data: any) {
-        this.redPancilName = data;
+    redPencilClickedName(data: IEvents) {
+        this.redPencilName = data;
     }
 
 }

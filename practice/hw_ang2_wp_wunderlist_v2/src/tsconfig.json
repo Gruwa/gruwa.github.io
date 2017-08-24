@@ -9,6 +9,11 @@
     "module": "commonjs",
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true,
+    "paths": {
+      "src/*": ["./"],
+      "@app/*": ["./app/*"],
+      "@shared/*": ["./app/shared"]
+    },
     "types": [
             // add node as an option
       "node",

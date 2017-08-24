@@ -14,9 +14,9 @@ export class CreateSidebarComponent implements OnInit {
     listToggle: boolean;
     newLists: boolean;
     searchTerm: string = '';
-    foundItems: IEventsItem[];
+    // foundItems: IEventsItem[];
 
-    @Output() redPancilClickName = new EventEmitter();
+    @Output() redPencilClickName = new EventEmitter();
     
     constructor(private eventService: EventService, 
                 private toggleService: ToggleService,
@@ -29,8 +29,8 @@ export class CreateSidebarComponent implements OnInit {
         this.newLists = this.redPencilService.newLists;
     }
 
-    clickRedPancilName(data: any) {
-        this.redPancilClickName.emit(data);        
+    clickRedPencilName(data: IEvents) {
+        this.redPencilClickName.emit(data);        
     }
     
     clickListToggleFunc() {

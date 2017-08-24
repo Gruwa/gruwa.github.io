@@ -16,7 +16,7 @@ export class RedPencilComponent  implements OnInit, OnChanges {
     event: IEvents;
     name: string;
 
-    @Input() redPancilName: any;
+    @Input() redPencilName: IEvents;
 
     constructor(private redPencilService: RedPencilService,
                 private eventService: EventService) {
