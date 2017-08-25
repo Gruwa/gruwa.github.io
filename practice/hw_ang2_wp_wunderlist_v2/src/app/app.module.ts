@@ -6,6 +6,7 @@ import { BrowserModule }  from '@angular/platform-browser';
 import { appRoutes } from './routes';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 
 import { 
@@ -13,7 +14,8 @@ import {
         ToggleService,
         RedPencilService,
         EventRouteActivatorService,
-        ItemService
+        SearchService,
+        TvmazeService
 } from './shared';
 import { Error404Component } from './error/404.component';
 import { JQ_TOKEN } from './common';
@@ -30,7 +32,8 @@ import {
     NewEventsComponent,
     ShowPencilEventsListDirective,
     PencilEventsListDirective,
-    SearchBarComponent
+    SearchBarComponent,
+    ResultComponent
 } from './sidebar';
   
 declare let jQuery: object;
@@ -41,7 +44,8 @@ declare let jQuery: object;
     FormsModule,
     RouterModule.forRoot(appRoutes),
     ReactiveFormsModule,
-    ContextMenuModule
+    ContextMenuModule,
+    HttpModule
   ],
   declarations: [
     AppComponent,
@@ -56,14 +60,16 @@ declare let jQuery: object;
     DoneItemContentComponent,
     ShowPencilEventsListDirective,
     PencilEventsListDirective,
-    SearchBarComponent
+    SearchBarComponent,
+    ResultComponent
   ],
   providers: [
       EventService,
       ToggleService,
       RedPencilService,
       EventRouteActivatorService,
-      ItemService,
+      SearchService,
+      TvmazeService,
     {
       provide: JQ_TOKEN,
       useValue: jQuery

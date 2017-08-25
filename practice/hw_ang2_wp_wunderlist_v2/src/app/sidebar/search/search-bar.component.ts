@@ -1,5 +1,6 @@
+import { Router } from '@angular/router';
 import { Component } from '@angular/core';
-import { ToggleService } from './../../shared';
+import { ToggleService, SearchService } from './../../shared';
 
 @Component({
     selector: 'search-bar',
@@ -8,12 +9,24 @@ import { ToggleService } from './../../shared';
 
 export class SearchBarComponent {
 
-    constructor (private toggleService: ToggleService) {
+    searchItems: string;
+
+    constructor (private toggleService: ToggleService,
+                 private _searchSevice: SearchService,
+                 private _router: Router) {
 
     }
 
     listToggle() {
         return this.toggleService.listToggle;
+    }
+
+    searchItemsFunc() {
+        console.log(this.searchItems);
+        this._searchSevice.changeSearch(this.searchItems);
+        this.searchItems = '';
+        this._router.navigate(["/events/search"]);
+
     }
 
 }

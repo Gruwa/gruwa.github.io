@@ -2,7 +2,7 @@ import { AfterContentChecked, Component, Input, OnInit, Output } from '@angular/
 import { ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
 
-import { EventService, IEventsItem, IEvents, ItemService  } from '../../shared';
+import { EventService, IEventsItem, IEvents } from '../../shared';
 
 @Component({
     selector: 'list-comp',
@@ -17,8 +17,7 @@ export class ListContentComponent implements OnInit, AfterContentChecked {
     showDoneItems: boolean = false;
 
     constructor(private eventService:EventService,
-                private route:ActivatedRoute,
-                private itemService: ItemService) {
+                private route:ActivatedRoute) {
 
     }
     

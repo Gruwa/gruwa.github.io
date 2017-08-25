@@ -1,3 +1,4 @@
+import { Http } from '@angular/http';
 import { setTimeout } from 'timers';
 import { NumberValueAccessor } from '@angular/forms/src/directives';
 import { EventEmitter, Inject, Injectable } from '@angular/core';
@@ -5,10 +6,14 @@ import { EventEmitter, Inject, Injectable } from '@angular/core';
 @Injectable()
 
 export class EventService {
-    
-        doneItem: boolean = false; 
-        hideItem: boolean;
-        starItem: boolean = false;
+
+    doneItem: boolean = false; 
+    hideItem: boolean;
+    starItem: boolean = false;
+
+    constructor(private http: Http) {
+
+    }
 
     getEvents() {
         return EVENTS;

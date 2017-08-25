@@ -5,3 +5,4 @@ export * from './new-events/new-events.component';
 export * from './events/show-pencil-events-list.directive';
 export * from './events/pencil-events-list.directive';
 export * from './search/search-bar.component';
+export * from './search/result.component';

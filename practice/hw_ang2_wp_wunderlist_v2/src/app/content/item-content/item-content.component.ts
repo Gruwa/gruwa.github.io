@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { EventService, IEventsItem, IEvents, ItemService, RedPencilService } from './../../shared';
+import { EventService, IEventsItem, IEvents, RedPencilService } from './../../shared';
 
 @Component({
     selector: 'item-content',
@@ -17,7 +17,6 @@ export class ItemContentComponent implements OnInit {
     @Input() event: IEvents;
 
     constructor(private eventService:EventService,
-                private itemService: ItemService,
                 private redPencilService: RedPencilService) {
 
         }

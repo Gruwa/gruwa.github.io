@@ -13,7 +13,7 @@ export class CreateSidebarComponent implements OnInit {
     events: IEvents[];
     listToggle: boolean;
     newLists: boolean;
-    searchTerm: string = '';
+    // searchTerm: string = '';
     // foundItems: IEventsItem[];
 
     @Output() redPencilClickName = new EventEmitter();

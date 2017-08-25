@@ -1,0 +1,29 @@
+<!-- *ngIf="_router.url != '/event/search'" -->
+<div *ngFor="let searchItem of searchItems" >
+    <div class="content__task__new-task content__task__new-task--list" 
+    [contextMenu]="static">
+        <img class="content__task__img" src="../../../assets/img/svg/task-check.svg" (click)="doneItemFunc()" > 
+        <span class="content__task__text content__task__text--list">{{searchItem?.name}}</span>
+
+    </div>
+</div>
+
+<context-menu #static>
+<ng-template contextMenuItem [visible]="false" [enabled]="false">
+SubMenu
+</ng-template>
+<ng-template contextMenuItem [visible]="false" >
+This will never show...
+</ng-template>
+<ng-template contextMenuItem [visible]="true" [enabled]="true" (execute)="deleteItem()">
+Удалить задачу
+</ng-template>
+<ng-template contextMenuItem [visible]="true" [enabled]="true" (execute)="doneItemFunc()">
+Задача выполнена
+</ng-template>
+<ng-template contextMenuItem [divider]="true"></ng-template>
+<ng-template contextMenuItem [visible]="true" [enabled]="true" (execute)="creatNewLists()">
+  Создать новый список
+</ng-template>
+
+</context-menu> 
