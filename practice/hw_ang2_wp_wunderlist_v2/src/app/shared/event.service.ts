@@ -16,6 +16,7 @@ export class EventService {
     }
 
     getEvents() {
+        
         return EVENTS;
     }
 
