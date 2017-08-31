@@ -24,7 +24,8 @@ export class NewEventsComponent implements OnInit{
         this.name = new FormControl();        
         this.newEventsForm = new FormGroup({
             name: this.name
-        })
+        });
+        
     }
     
     newEvents() {

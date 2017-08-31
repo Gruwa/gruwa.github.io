@@ -66,6 +66,7 @@
             border: 0;
             padding: 16px 0 14px;
             width: 90%;
+            cursor: pointer;
 
             &[type="text"]::-webkit-input-placeholder {
                 color: rgb(183, 209, 197);
