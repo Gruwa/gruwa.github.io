@@ -1,0 +1,16 @@
+<div class="container">    
+    <div class="row product__title">
+        <div class="col-md-12">
+            <span class="product__title">{{product?.title}} </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5">
+            <img [src]="product.properties.image" [alt]="product.title" class="product__image">
+        </div>
+        <div class="col-md-7">
+            <span class="product__description">{{product?.properties.description}}</span>
+            <span>Price:</span> <span class="product__price">{{product?.properties.price | currency:"USD":true}}</span>
+        </div>
+    </div>
+</div>
