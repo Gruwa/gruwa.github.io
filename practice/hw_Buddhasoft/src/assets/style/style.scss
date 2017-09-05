@@ -1,10 +1,12 @@
-body {
-    background: rgb(34, 34, 34);
-    color: #fff;
-    font-family:'montserratbold';
-    font-size: 20px;
-}
 
 @import 'reset';
 @import 'font';
+@import 'color';
 @import './../../app/products/products.component.scss';
+
+body {
+    background: $bode__bacground;
+    color: $body__color;
+    font-family:'montserratbold';
+    font-size: 20px;
+}

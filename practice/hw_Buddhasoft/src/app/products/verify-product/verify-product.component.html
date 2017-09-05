@@ -3,8 +3,13 @@
         <h2 class="verify-product__title">!!!Alert!!!</h2>
         <p class="verify-product__text">Do you really want to delete product?</p>
         <div class="verify-product__navigate">
-            <button type="button" class="btn btn-danger btn-lg" (click)="deleteVerify()" [routerLink]="['/products']">Yes</button>
-            <button type="button" class="btn btn-success btn-lg" (click)="cancelVerify()" >No</button>
+            <button type="button" 
+                    class="btn btn-danger btn-lg" 
+                    (click)="deleteVerify()" 
+                    [routerLink]="['/products']">Yes</button>
+            <button type="button" 
+                    class="btn btn-success btn-lg" 
+                    (click)="cancelVerify()" >No</button>
         </div>
     </div>    
 </div>

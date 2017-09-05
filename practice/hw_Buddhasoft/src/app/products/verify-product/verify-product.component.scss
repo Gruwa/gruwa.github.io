@@ -1,9 +1,4 @@
 .verify-product {
-    // width: 100%;
-    // height: 100%;
-    // // position: absolute;
-    // // z-index: 100;
-    // background-color: rgba(153, 153, 153, .4);
 
     &__wrapper {
         width: 450px;
@@ -12,7 +7,7 @@
         left: 50%;
         top: 167px;
         margin-left: -235px;
-        background-color: rgb(62, 116, 163);
+        background-color: $verify-product__bacground;
         border-radius: 10px;
         text-align: center;
         padding: 20px;
@@ -20,7 +15,7 @@
 
     &__title {
         margin-bottom: 20px;
-        color: rgb(166, 44, 46);
+        color: $verify-product__color;
         text-transform: uppercase;
         letter-spacing: 10px;
     }
@@ -38,7 +33,4 @@
             width: 150px;
         }
     }
-    
-    
-
 }

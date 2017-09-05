@@ -6,12 +6,12 @@
     }
 
     &__error input {
-        background-color: #E3C3C5;
+        background-color: $new-product__background;
     }
     
     &__em {
         float: right; 
-        color: #E05C65; 
+        color: $new-product__color; 
         padding-left: 10px;
     }
     
