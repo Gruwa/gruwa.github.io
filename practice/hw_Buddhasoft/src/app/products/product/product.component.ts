@@ -18,6 +18,6 @@ export class ProductComponent {
     product: IEvents;
 
     ngOnInit() {
-        this.product = this.eventService.getEvent(1);
+        this.product = this.eventService.getEvent(+this.activatedRoute.snapshot.params['id']);
     }
 }

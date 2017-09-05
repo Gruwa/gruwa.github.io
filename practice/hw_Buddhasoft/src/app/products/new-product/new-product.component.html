@@ -1,0 +1,31 @@
+<div class="container" >
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+                <span class="new-product__title">New product</span>
+        <form #newProductForm="ngForm" 
+              utocomplete="off" 
+              novalidate>
+            <div class="new-product__group" 
+                 [ngClass]="{ 'new-product__error' : newProductForm.controls.title?.invalid && (newProductForm.controls.title?.touched) }">
+                <label for="eventName">Product Title:</label>
+                <input (ngModel)="title" name="title" required id="title" type="text" class="form-control" placeholder="Title of your product..." />
+            </div>
+            <div class="new-product__group" [ngClass]="{ 'new-product__error' : newProductForm.controls.description?.invalid && (newProductForm.controls.description?.touched) }">
+                <label for="description">Description:</label>
+                <input (ngModel)="description" name="description" required id="description" type="text" class="form-control" placeholder="description..." />
+            </div>
+            <div class="new-product__group" [ngClass]="{ 'new-product__error' : newProductForm.controls.price?.invalid && (newProductForm.controls.price?.touched) }">
+                <label for="price">Price:</label>
+                <input (ngModel)="price" name="price" required id="price" type="number" class="form-control" placeholder="price..." />
+            </div>
+            <div class="new-product__group" [ngClass]="{ 'new-product__error' : newProductForm.controls.imageUrl?.invalid && (newProductForm.controls.imageUrl?.touched) }">
+                <label for="imageUrl">Image:</label>
+                <input (ngModel)="imageUrl" name="imageUrl" required pattern=".*\/.*.(png|jpg)" id="imageUrl" type="text" class="form-control" placeholder="url of image..." />
+                <img [src]="newProductForm.controls.imageUrl.value" *ngIf="newProductForm.controls.imageUrl?.valid" class="new-product__image"/>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="newProductForm.invalid" [routerLink]="['/products']" (click)="saveForm(newProductForm.value)">Save</button>
+            <button type="button" class="btn btn-warning" [routerLink]="['/products']">Cancel</button>
+        </form>
+    </div>
+    <div class="col-md-3"></div>
+</div>
