@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "lib": ["es2015", "dom"],
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "types": [
+            // add node as an option
+      "node",
+      "jasmine",
+      "source-map",
+      "uglify-js",
+      "webpack"
+    ],
+    "typeRoots": [
+      "../node_modules/@types"
+    ]
+  }
+}

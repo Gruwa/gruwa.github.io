@@ -1,0 +1,36 @@
+.verify-product {
+
+    &__wrapper {
+        width: 450px;
+        height: 301px;
+        position: absolute;
+        left: 50%;
+        top: 167px;
+        margin-left: -235px;
+        background-color: $verify-product__bacground;
+        border-radius: 10px;
+        text-align: center;
+        padding: 20px;
+    }
+
+    &__title {
+        margin-bottom: 20px;
+        color: $verify-product__color;
+        text-transform: uppercase;
+        letter-spacing: 10px;
+    }
+
+    &__text {
+        font-size: 28px;
+        margin-top: 46px;
+    }
+
+    &__navigate {
+        margin-top: 40px;
+
+        & button {
+            margin: 20px;
+            width: 150px;
+        }
+    }
+}

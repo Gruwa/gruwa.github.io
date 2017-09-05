@@ -1,0 +1,34 @@
+<div class="container" *ngIf="!verifyProduct()" >    
+    <div class="row product__title">
+        <div class="col-md-12">
+            <span class="product__title">{{product?.title}} </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5">
+            <img [src]="product?.imageUrl" 
+                 [alt]="product?.title" 
+                 class="product__image">
+        </div>
+        <div class="col-md-7">
+            <span class="product__description">{{product?.description}}</span>
+            <span>Price:</span> 
+            <span class="product__price">{{product?.price | currency:"USD":true}}</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8"></div>
+        <div class="col-md-4">
+            <button type="button" 
+                    class="btn btn-info" 
+                    [routerLink]="['/products/edit']" 
+                    (click)="clickEditFunc()" >Edit product</button>
+            <button type="button" 
+                    class="btn btn-danger" 
+                    (click)="clickDeleteFunc()" >Delete product</button>
+        </div>
+    </div>
+</div>
+<verify-product *ngIf="verifyProduct()" 
+                [product]="product" > 
+</verify-product>
