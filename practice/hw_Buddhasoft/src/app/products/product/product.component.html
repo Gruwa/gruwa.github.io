@@ -14,9 +14,10 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-10"></div>
-        <div class="col-md-2">
+        <div class="col-md-8"></div>
+        <div class="col-md-4">
             <button type="button" class="btn btn-info" [routerLink]="['/products/edit']" (click)="clickEditFunc()" >Edit product</button>
+            <button type="button" class="btn btn-danger" [routerLink]="['/products']" (click)="clickDeleteFunc()" >Delete product</button>
         </div>
     </div>
 </div>

@@ -7,10 +7,8 @@ import { Injectable } from '@angular/core';
 
 export class EventService {
 
-    // doneItem: boolean = false; 
-    // hideItem: boolean;
-    // starItem: boolean = false;
     product: IEvents;
+    productOriginal: any = {};
 
     constructor() {
 
@@ -25,78 +23,33 @@ export class EventService {
         return EVENTS.find(event => event.id === id);
     }
 
-    newProduct(event: IEvents) {
-
-        if(EVENTS[EVENTS.length - 1] === undefined) {
-            event.id = 1;
-        } else {
-            event.id = EVENTS[EVENTS.length - 1].id + 1;
-        }
-        EVENTS.push(event);
-    }
-
-    productFunc(product: IEvents) {
-        this.product = product;
-    }
-
-    editProduct(product: IEvents) {
-        console.log(product);
-        
-        // EVENTS[EVENTS.indexOf(product)].splice(0,0, product);
-    }
-
-    // deleteEvent(event: IEvents) {
-    //     EVENTS.splice(EVENTS.indexOf(event), 1);
-    // }
-
-    // newItems(item: IEventsItem, event: IEvents) {
-    //     if(event.items[event.items.length - 1] === undefined) {
-    //         item.id = 1;
-    //     } else {
-    //         item.id = event.items[event.items.length - 1].id + 1;
-    //     }
-    //     event.items.push(item);        
-    // }
-
-    // deleteItem(item: IEventsItem, event: IEvents) {
-    //     let elementSearch = EVENTS[EVENTS.indexOf(event)].items;
-    //     elementSearch.splice(elementSearch.indexOf(item), 1);
-    // }
     
-    // doneItemFunc(item: IEventsItem, done: boolean) {
-    //     item.done = done;
-    // }
+    productDeleteFunc(product: IEvents) {
+        EVENTS.splice(EVENTS.indexOf(product), 1);
+    }
+    
+    productEditFunc(product: IEvents) {
+        this.product = product;          
+    }
+    
+    editProduct(event: IEvents) {
 
-    // starItemFunc(starItem: boolean, item: IEventsItem, event: IEvents) {
-    //     if(starItem === true) {
-    //         this.deleteItem(item, event);
-    //         EVENTS[EVENTS.indexOf(event)].items.splice(0,0, item);
-    //         item.star = starItem;
-    //     }
-
-    // }
-
-    // searchItems(searchTerm: string) {
-    //     let term = searchTerm.toLocaleLowerCase();
-    //     let results: IEventsItem[] = [];
-
-    //     EVENTS.forEach(event => {
-    //         let matchingSessions = event.items.filter(
-    //             item => item.name.toLocaleLowerCase().indexOf(term) > -1);
-    //         matchingSessions = matchingSessions.map((item: any) => {
-    //             item.eventId = event.id;
-    //             return item;
-    //         })
-    //         results = results.concat(matchingSessions);
-    //     })
-
-    //     let emitter = new EventEmitter(true);
-    //     setTimeout(() => {
-    //         emitter.emit(results);
-    //     }, 100);
+        event.id = this.product.id;
+        console.log(EVENTS.indexOf(this.product));
         
-    //     return emitter;
-    // }
+        EVENTS.splice(EVENTS.indexOf(this.product), 1, event);
+    }
+
+    cancelProduct(event: IEvents) {
+        EVENTS.splice(EVENTS.indexOf(this.product), 1);
+        EVENTS.splice(0,0, this.product);
+    }
+
+    createProduct(event: IEvents) {
+        event.id = EVENTS[EVENTS.length - 1].id + 1;
+        EVENTS.push(event);
+        console.log(EVENTS);       
+    }
 
 }
 
@@ -111,12 +64,11 @@ export interface IEvents {
 
 const EVENTS = [
     { 
-    id: 1,
-    title: 'Apple',
-    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxHZ7A5oyikmiipk8iKigeHdwVCxOv1GojecGZInCGuO2lT_hw",
-    description: "The apple tree is a deciduous tree in the rose family best known for its sweet, pomaceous fruit, the apple. ",
-    price: 0.97           
-
+        id: 1,
+        title: 'Apple',
+        imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxHZ7A5oyikmiipk8iKigeHdwVCxOv1GojecGZInCGuO2lT_hw",
+        description: "The apple tree is a deciduous tree in the rose family best known for its sweet, pomaceous fruit, the apple. ",
+        price: 0.97           
     },
     { 
     id: 2,

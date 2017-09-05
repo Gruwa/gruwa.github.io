@@ -1,56 +1,44 @@
-import { IEvents } from '../../shared';
-import { FormControl, FormGroup } from '@angular/forms';
-import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { ProductComponent } from '../product/product.component';
+import { Component, Inject } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
-import { EventService } from './../../shared';
+import { EventService, IEvents, JQ_TOKEN } from './../../shared';
 
 @Component({
     templateUrl: './edit-product.component.html'
 })
 
-export class EditProductComponent {
+export class NewProductComponent {
 
-    title: FormControl;
-    description: FormControl;
-    price: FormControl;
-    imageUrl: FormControl;
-    productForm: FormGroup;
+    product: IEvents;
 
-constructor(private eventService: EventService) {
+    constructor(private eventService: EventService,
+                private router: Router,
+                @Inject(JQ_TOKEN) private $: any) {
 
-}
+    }
 
     ngOnInit() {
-
-        if (this.eventService.product != undefined) {            
-            this.title = new FormControl(this.eventService.product.title);
-            this.description = new FormControl(this.eventService.product.description);
-            this.price = new FormControl(this.eventService.product.price);
-            this.imageUrl = new FormControl(this.eventService.product.imageUrl);
-        } else {
-            this.title = new FormControl('');
-            this.description = new FormControl('');
-            this.price = new FormControl('');
-            this.imageUrl = new FormControl('');
-        }
-
-        this.productForm = new FormGroup({
-            title: this.title,
-            description: this.description,
-            price: this.price,
-            imageUrl: this.imageUrl
-        })
+        this.product = this.eventService.product;
     }
-
-    saveForm(formValues: IEvents) {
-        console.log(formValues);
+    
+    saveForm(formValues: IEvents, newProductForm: NgForm) {
         this.eventService.editProduct(formValues);
+        console.log(this.eventService.getEvents());
+        newProductForm.resetForm();
+        console.log(formValues);
+        this.link();   
+    }
+
+    cancelForm(formValues: IEvents, newProductForm: NgForm) {
         
+        
+        newProductForm.resetForm();
     }
 
-    deleteProduct() {
-
+    link() {
+        this.router.navigate(['/products']);
     }
-
-
+    
 }

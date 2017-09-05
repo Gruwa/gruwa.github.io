@@ -18,6 +18,9 @@ import {
     NewProductComponent,
     EditProductComponent
 } from './products';
+import { JQ_TOKEN } from './shared';
+
+declare let jQuery: Object;
  
 @NgModule({
   imports: [
@@ -36,7 +39,11 @@ import {
   ],
   providers: [
     EventService,
-    EventRouteActivatorService
+    EventRouteActivatorService,
+    { 
+      provide: JQ_TOKEN, 
+      useValue: jQuery 
+    }
   ],
   bootstrap: [ AppComponent ]
 })

@@ -1,22 +1,54 @@
-import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { IEvents } from '../../shared';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Component } from '@angular/core';
 
-import { EventService, IEvents } from './../../shared';
+import { EventService } from './../../shared';
 
 @Component({
     templateUrl: './new-product.component.html'
 })
 
-export class NewProductComponent {
+export class EditProductComponent {
 
-    constructor(private eventService: EventService) {
+    title: FormControl;
+    description: FormControl;
+    price: FormControl;
+    imageUrl: FormControl;
+    productForm: FormGroup;
 
-    }
+constructor(private eventService: EventService,
+            private router: Router) {
 
-    saveForm(formValues: IEvents) {
-        console.log(formValues);
+}
+
+    ngOnInit() {
+
+        this.title = new FormControl('');
+        this.description = new FormControl('');
+        this.price = new FormControl('');
+        this.imageUrl = new FormControl('');
+
+
+        this.productForm = new FormGroup({
+            title: this.title,
+            description: this.description,
+            price: this.price,
+            imageUrl: this.imageUrl
+        })
         
-        this.eventService.newProduct(formValues);
     }
-    
+
+    saveForm(formValues: IEvents, productForm: any) {
+        console.log(formValues, productForm);
+        this.eventService.createProduct(formValues);
+        this.productForm.reset();
+        this.router.navigate(['/products']);
+    }
+
+    cancelClickForm() {
+        this.productForm.reset();
+    }
+
+
 }

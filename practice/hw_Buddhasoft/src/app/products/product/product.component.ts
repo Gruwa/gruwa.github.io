@@ -22,6 +22,10 @@ export class ProductComponent {
     }
 
     clickEditFunc() {
-        this.eventService.productFunc(this.product);
+        this.eventService.productEditFunc(this.product);
+    }
+
+    clickDeleteFunc() {
+        this.eventService.productDeleteFunc(this.product);
     }
 }
