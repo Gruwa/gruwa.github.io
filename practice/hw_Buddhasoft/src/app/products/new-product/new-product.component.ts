@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { IEvents } from '../../shared';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validator, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 import { EventService } from './../../shared';

@@ -49,6 +49,7 @@
                 <input [ngModel]="product.imageUrl" 
                        name="imageUrl" 
                        required 
+                       pattern="https?://.+" 
                        id="imageUrl" 
                        type="text" 
                        class="form-control" 

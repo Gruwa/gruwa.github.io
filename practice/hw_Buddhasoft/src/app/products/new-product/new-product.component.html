@@ -35,7 +35,8 @@
                 <label for="imageUrl">Image:</label>
                 <input formControlName="imageUrl" 
                        id="imageUrl" 
-                       type="text" 
+                       type="text"
+                       pattern="https?://.+" 
                        class="form-control"/>
             </div>
             <button type="submit" class="btn btn-primary" [disabled]="productForm.invalid">Save</button>
