@@ -23,9 +23,12 @@ export class EditProductComponent implements OnInit {
     }
 
     ngOnInit() {
-
-        this.title = new FormControl('', Validators.required);
-        this.description = new FormControl('', Validators.required);
+        
+        this.title = new FormControl('', [ Validators.required, 
+                                           Validators.minLength(2),
+                                           Validators.maxLength(15),]);
+        this.description = new FormControl('', [ Validators.required, 
+                                                 Validators.minLength(2)]);
         this.price = new FormControl('', Validators.required);
         this.imageUrl = new FormControl('', Validators.required);
 
