@@ -1,21 +1,20 @@
 import { Router } from '@angular/router';
 import { ProductComponent } from '../product/product.component';
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
-import { EventService, IEvents, JQ_TOKEN } from './../../shared';
+import { EventService, IEvents } from './../../shared';
 
 @Component({
     templateUrl: './edit-product.component.html'
 })
 
-export class NewProductComponent {
+export class NewProductComponent implements OnInit {
 
     product: IEvents;
 
     constructor(private eventService: EventService,
-                private router: Router,
-                @Inject(JQ_TOKEN) private $: any) {
+                private router: Router) {
 
     }
 
@@ -31,9 +30,7 @@ export class NewProductComponent {
         this.link();   
     }
 
-    cancelForm(formValues: IEvents, newProductForm: NgForm) {
-        
-        
+    cancelForm(newProductForm: NgForm) {
         newProductForm.resetForm();
     }
 

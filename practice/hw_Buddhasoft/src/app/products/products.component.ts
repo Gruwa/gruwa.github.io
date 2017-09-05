@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { EventService, IEvents } from './../shared'; 
 
@@ -6,7 +6,7 @@ import { EventService, IEvents } from './../shared';
     templateUrl: './products.component.html'
 })
 
-export class ProductsComponent {
+export class ProductsComponent implements OnInit {
 
     products: IEvents[];
     
