@@ -25,6 +25,11 @@ export class ProductComponent implements OnInit {
     }
 
     clickDeleteFunc() {
-        this.eventService.productDeleteFunc(this.product);
+        // this.eventService.productDeleteFunc(this.product);
+        return this.eventService.verifyProduct = true;
+    }
+
+    verifyProduct() {
+        return this.eventService.verifyProduct;
     }
 }

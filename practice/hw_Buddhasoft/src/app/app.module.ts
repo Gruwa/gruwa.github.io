@@ -16,7 +16,8 @@ import {
     ProductsComponent, 
     ProductComponent,
     NewProductComponent,
-    EditProductComponent
+    EditProductComponent,
+    VerifyProductComponent
 } from './products';
  
 @NgModule({
@@ -32,7 +33,8 @@ import {
     ProductsComponent,
     ProductComponent,
     NewProductComponent,
-    EditProductComponent
+    EditProductComponent,
+    VerifyProductComponent
   ],
   providers: [
     EventService,

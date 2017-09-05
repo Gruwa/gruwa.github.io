@@ -1,4 +1,4 @@
-<div class="container" >    
+<div class="container" *ngIf="!verifyProduct()" >    
     <div class="row product__title">
         <div class="col-md-12">
             <span class="product__title">{{product?.title}} </span>
@@ -25,8 +25,8 @@
                     (click)="clickEditFunc()" >Edit product</button>
             <button type="button" 
                     class="btn btn-danger" 
-                    [routerLink]="['/products']" 
                     (click)="clickDeleteFunc()" >Delete product</button>
         </div>
     </div>
 </div>
+<verify-product *ngIf="verifyProduct()" [product]="product" > </verify-product>

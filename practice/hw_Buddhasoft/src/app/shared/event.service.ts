@@ -8,7 +8,8 @@ import { Injectable } from '@angular/core';
 export class EventService {
 
     product: IEvents;
-    productOriginal: any = {};
+    verifyProduct: boolean = false;
+
 
     constructor() {
 
@@ -49,6 +50,10 @@ export class EventService {
         event.id = EVENTS[EVENTS.length - 1].id + 1;
         EVENTS.push(event);
         console.log(EVENTS);       
+    }
+
+    verifyProductFunc(verifyProduct: boolean) {
+        this.verifyProduct = verifyProduct;
     }
 
 }

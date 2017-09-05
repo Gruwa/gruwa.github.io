@@ -1,0 +1,28 @@
+.product {
+    
+    &__title {
+        margin-bottom: 20px;
+    }
+
+    &__text {
+    
+    }
+
+    &__description {
+        display: inline-block;
+        text-align: center;
+        font-size: 32px;
+        margin-top: 30px;
+        margin-bottom: 40px;
+    }
+    
+    &__price {
+        font-size: 32px;
+        margin-left: 5px;
+        color: rgb(51, 122, 183);
+    }
+
+    &__image {
+        width: 250px;
+    }
+}
