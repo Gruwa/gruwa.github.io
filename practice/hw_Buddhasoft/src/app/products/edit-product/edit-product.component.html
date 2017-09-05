@@ -13,6 +13,8 @@
                 <input [ngModel]="product.title" 
                         name="title" 
                         required 
+                        minlength="2"
+                        maxlength="15"
                         id="title" 
                         type="text" 
                         class="form-control" 
@@ -25,6 +27,7 @@
                 <input [ngModel]="product.description" 
                        name="description" 
                        required 
+                       minlength="2"
                        id="description" 
                        type="text" 
                        class="form-control" 

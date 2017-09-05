@@ -6,6 +6,7 @@ import {
     FormsModule,
     ReactiveFormsModule
 } from '@angular/forms';
+import { ContextMenuModule } from './../../node_modules/ngx-contextmenu';
 
 import { AppComponent } from './app.component';
 import { Error404Component } from './error/404.component';
@@ -25,7 +26,8 @@ import {
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule ,
+    ContextMenuModule
   ],
   declarations: [
     AppComponent,
