@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 import { EventService, IEvents } from './../shared'; 
 
 @Component({
-    // selector: 'products',
     templateUrl: './products.component.html'
 })
 

@@ -9,11 +9,7 @@ import { EventService, IEvents } from './../../shared';
 
 export class NewProductComponent {
 
-constructor(private eventService: EventService) {
-
-}
-
-    ngOnInit() {
+    constructor(private eventService: EventService) {
 
     }
 

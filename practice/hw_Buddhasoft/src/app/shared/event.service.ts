@@ -10,6 +10,7 @@ export class EventService {
     // doneItem: boolean = false; 
     // hideItem: boolean;
     // starItem: boolean = false;
+    product: IEvents;
 
     constructor() {
 
@@ -25,12 +26,23 @@ export class EventService {
     }
 
     newProduct(event: IEvents) {
+
         if(EVENTS[EVENTS.length - 1] === undefined) {
             event.id = 1;
         } else {
             event.id = EVENTS[EVENTS.length - 1].id + 1;
         }
         EVENTS.push(event);
+    }
+
+    productFunc(product: IEvents) {
+        this.product = product;
+    }
+
+    editProduct(product: IEvents) {
+        console.log(product);
+        
+        // EVENTS[EVENTS.indexOf(product)].splice(0,0, product);
     }
 
     // deleteEvent(event: IEvents) {

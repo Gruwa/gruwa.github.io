@@ -13,4 +13,10 @@
             <span>Price:</span> <span class="product__price">{{product?.price | currency:"USD":true}}</span>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-10"></div>
+        <div class="col-md-2">
+            <button type="button" class="btn btn-info" [routerLink]="['/products/edit']" (click)="clickEditFunc()" >Edit product</button>
+        </div>
+    </div>
 </div>

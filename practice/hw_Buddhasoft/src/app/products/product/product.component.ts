@@ -20,4 +20,8 @@ export class ProductComponent {
     ngOnInit() {
         this.product = this.eventService.getEvent(+this.activatedRoute.snapshot.params['id']);
     }
+
+    clickEditFunc() {
+        this.eventService.productFunc(this.product);
+    }
 }
