@@ -1,4 +1,4 @@
-<div class="container" >
+<div class="container">
     <div class="col-md-3"></div>
     <div class="col-md-6">
         <span class="new-product__title">New product</span>
@@ -6,19 +6,19 @@
                 (ngSubmit)="saveForm(productForm.value, productForm)"
                 utocomplete="off" 
                 novalidate>
-            <div class="new-product__group">
+            <div class="new-product__group" [ngClass]="{ 'new-product__error' : !validateTitle() }">
                 <label for="title">Product Title:</label>
                 <input formControlName="title" id="title" type="text" class="form-control"/>
             </div>
-            <div class="new-product__group">
+            <div class="new-product__group" [ngClass]="{ 'new-product__error' : !validateDescription() }">
                 <label for="description">Description:</label>
                 <input formControlName="description" id="description" type="text" class="form-control"/>
             </div>
-            <div class="new-product__group">
+            <div class="new-product__group" [ngClass]="{ 'new-product__error' : !validatePrice() }">
                 <label for="price">Price:</label>
                 <input formControlName="price" id="price" type="number" class="form-control"/>
             </div>
-            <div class="new-product__group">
+            <div class="new-product__group" [ngClass]="{ 'new-product__error' : !validateImageUrl() }">
                 <label for="imageUrl">Image:</label>
                 <input formControlName="imageUrl" id="imageUrl" type="text" class="form-control"/>
             </div>

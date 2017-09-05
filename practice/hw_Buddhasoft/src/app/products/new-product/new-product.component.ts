@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { IEvents } from '../../shared';
-import { FormControl, FormGroup } from '@angular/forms';
-import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 
 import { EventService } from './../../shared';
 
@@ -9,7 +9,7 @@ import { EventService } from './../../shared';
     templateUrl: './new-product.component.html'
 })
 
-export class EditProductComponent {
+export class EditProductComponent implements OnInit {
 
     title: FormControl;
     description: FormControl;
@@ -17,17 +17,17 @@ export class EditProductComponent {
     imageUrl: FormControl;
     productForm: FormGroup;
 
-constructor(private eventService: EventService,
-            private router: Router) {
+    constructor(private eventService: EventService,
+                private router: Router) {
 
-}
+    }
 
     ngOnInit() {
 
-        this.title = new FormControl('');
-        this.description = new FormControl('');
-        this.price = new FormControl('');
-        this.imageUrl = new FormControl('');
+        this.title = new FormControl('', Validators.required);
+        this.description = new FormControl('', Validators.required);
+        this.price = new FormControl('', Validators.required);
+        this.imageUrl = new FormControl('', Validators.required);
 
 
         this.productForm = new FormGroup({
@@ -40,15 +40,34 @@ constructor(private eventService: EventService,
     }
 
     saveForm(formValues: IEvents, productForm: any) {
-        console.log(formValues, productForm);
-        this.eventService.createProduct(formValues);
-        this.productForm.reset();
-        this.router.navigate(['/products']);
+
+        if(this.productForm.valid) {
+            
+            console.log(formValues, productForm);
+            this.eventService.createProduct(formValues);
+            this.productForm.reset();
+            this.router.navigate(['/products']);
+        }
     }
 
     cancelClickForm() {
         this.productForm.reset();
     }
 
+    validateTitle() {
+        return this.title.valid || this.title.untouched;
+    }
+
+    validateDescription() {
+        return this.description.valid || this.description.untouched;
+    }
+
+    validatePrice() {
+        return this.price.valid || this.price.untouched;
+    }
+
+    validateImageUrl() {
+        return this.imageUrl.valid || this.imageUrl.untouched;
+    }
 
 }
