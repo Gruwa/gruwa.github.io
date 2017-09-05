@@ -19,13 +19,5 @@ export class ProductsComponent implements OnInit {
     ngOnInit() {
         this.products = this.eventService.getEvents();
     }
-
-    clickDeleteFunc() {
-        return this.eventService.verifyProduct = true;
-    }
-
-    link() {
-        this.router.navigate(['/products/new']);
-    }
-    
+   
 }

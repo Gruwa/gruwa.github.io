@@ -16,5 +16,10 @@ export class AppComponent {
   constructor(private router: Router) {
 
   }
+
+  
+  link() {
+    this.router.navigate(['/products/new']);
+}
   
  }

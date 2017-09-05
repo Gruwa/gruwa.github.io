@@ -1,4 +1,4 @@
-<main>
+<main [contextMenu]="products__menu">
     <h1 class="products__title">Products</h1>
     <div *ngIf="router.url != '/products/new'">
         <div *ngIf="router.url != '/products/edit'">
@@ -9,3 +9,14 @@
     <hr>
     <router-outlet></router-outlet>
 </main>
+
+<context-menu #products__menu>
+    <ng-template contextMenuItem [visible]="true" [enabled]="true">
+        SubMenu
+    </ng-template>
+    <ng-template contextMenuItem [divider]="true"></ng-template>
+    <ng-template contextMenuItem [visible]="true" [enabled]="true" (execute)="link()">
+        Ceate new product
+    </ng-template>
+    
+</context-menu>

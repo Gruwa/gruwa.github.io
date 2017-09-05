@@ -1,18 +1,6 @@
 <div *ngFor="let product of products" 
      class="well hoverwell products__product" 
-     [routerLink]="['/products', product.id]"
-     [contextMenu]="products__menu">
+     [routerLink]="['/products', product.id]">
      
     <span class="products__product-title">{{product.title}}</span>
 </div>
-
-<context-menu #products__menu>
-    <ng-template contextMenuItem [visible]="true" [enabled]="true">
-        SubMenu
-    </ng-template>
-    <ng-template contextMenuItem [divider]="true"></ng-template>
-    <ng-template contextMenuItem [visible]="true" [enabled]="true" (execute)="link()">
-        Ceate new product
-    </ng-template>
-    
-</context-menu>
