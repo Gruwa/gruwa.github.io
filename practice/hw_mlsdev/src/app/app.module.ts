@@ -8,7 +8,8 @@ import { AppComponent } from './app.component';
 import { Error404Component } from './error/404.component';
 import {
     UsersComponent,
-    UserComponent
+    UserComponent,
+    UserInformationComponent
 } from './users';
 import {
     UsersService,
@@ -25,6 +26,7 @@ import {
         AppComponent,
         UsersComponent,
         UserComponent,
+        UserInformationComponent,
         Error404Component
     ],
     providers: [

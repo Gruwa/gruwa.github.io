@@ -28,26 +28,23 @@ export interface IUser {
 export class UsersService {
     
     dataUrl: string = 'https://api.github.com/users?since=135&per_page=1';
+    user: IUser;
 
     constructor(private http: Http) {
 
     }
-
 
     dataGit(dataUrl?: string): Observable<IUser[]> {
         return this.http.get(dataUrl)
                 .map((response: Response) => <IUser[]>response.json());
     }
 
-
-
-    // getEvents() {
-        
-    //     return EVENTS;
-    // }
+    userFunc(user: IUser) {
+        this.user = user
+    }
 
     getEvent(id:number) {
-        // return EVENTS.find(event => event.id === id);
+        return this.user.id === id;
     }
 
     // newEvents(event: IEvents) {

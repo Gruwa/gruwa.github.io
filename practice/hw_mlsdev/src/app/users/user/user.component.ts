@@ -1,6 +1,6 @@
 import { IUser, UsersService } from '../../shared';
 import { Component, Input } from '@angular/core';
-// import { Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'user',
@@ -19,6 +19,11 @@ export class UserComponent {
 
     ngOnInit() {
         this.usersService.dataGit(this.user.url).subscribe(users => this.dataUser = users);
+        this.usersService.userFunc(this.user);
+    }
+
+    dataUserFunc() {
+        this.usersService.userFunc(this.user);
     }
 
 }
