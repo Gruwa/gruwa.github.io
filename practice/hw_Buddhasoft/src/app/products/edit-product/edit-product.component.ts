@@ -9,7 +9,7 @@ import { EventService, IEvents } from './../../shared';
     templateUrl: './edit-product.component.html'
 })
 
-export class NewProductComponent implements OnInit {
+export class EditProductComponent implements OnInit {
 
     product: IEvents;
 

@@ -9,7 +9,7 @@ import { EventService } from './../../shared';
     templateUrl: './new-product.component.html'
 })
 
-export class EditProductComponent implements OnInit {
+export class NewProductComponent implements OnInit {
 
     title: FormControl;
     description: FormControl;

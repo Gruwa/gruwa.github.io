@@ -11,15 +11,15 @@ declare let require: (filename: string) => any;
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
 
-  constructor(private router: Router) {
+    constructor(private router: Router) {
 
-  }
+    }
 
-  
-  link() {
+    link() {
     this.router.navigate(['/products/new']);
-}
+    }
   
- }
+}
