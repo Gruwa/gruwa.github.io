@@ -3,7 +3,7 @@ import { ProductComponent } from '../product/product.component';
 import { Component, Inject, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
-import { EventService, IEvents } from './../../shared';
+import { ProductsService, IProduct } from './../../shared';
 
 @Component({
     templateUrl: './edit-product.component.html'
@@ -11,20 +11,20 @@ import { EventService, IEvents } from './../../shared';
 
 export class EditProductComponent implements OnInit {
 
-    product: IEvents;
+    product: IProduct;
 
-    constructor(private eventService: EventService,
+    constructor(private productsService: ProductsService,
                 private router: Router) {
 
     }
 
     ngOnInit() {
-        this.product = this.eventService.product;
+        this.product = this.productsService.product;
     }
     
-    saveForm(formValues: IEvents, newProductForm: NgForm) {
-        this.eventService.editProduct(formValues);
-        console.log(this.eventService.getEvents());
+    saveForm(formValues: IProduct, newProductForm: NgForm) {
+        this.productsService.editProduct(formValues);
+        console.log(this.productsService.getProducts());
         newProductForm.resetForm();
         console.log(formValues);
         this.link();   

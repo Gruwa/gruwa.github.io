@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { EventService, IEvents } from './../../shared';
+import { ProductsService, IProduct } from './../../shared';
 
 @Component({
     templateUrl: './product.component.html'
@@ -9,26 +9,26 @@ import { EventService, IEvents } from './../../shared';
 
 export class ProductComponent implements OnInit {
 
-    product: IEvents;
+    product: IProduct;
 
-    constructor( private eventService: EventService,
+    constructor( private productsService: ProductsService,
                  private activatedRoute: ActivatedRoute) {
 
     }
 
     ngOnInit() {
-        this.product = this.eventService.getEvent(+this.activatedRoute.snapshot.params['id']);
+        this.product = this.productsService.getProduct(+this.activatedRoute.snapshot.params['id']);
     }
 
     clickEditFunc() {
-        this.eventService.productEditFunc(this.product);
+        this.productsService.productEditFunc(this.product);
     }
 
     clickDeleteFunc() {
-        return this.eventService.verifyProduct = true;
+        return this.productsService.verifyProduct = true;
     }
 
     verifyProduct() {
-        return this.eventService.verifyProduct;
+        return this.productsService.verifyProduct;
     }
 }

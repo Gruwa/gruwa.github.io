@@ -1,9 +1,8 @@
 import { Router } from '@angular/router';
-import { IEvents } from '../../shared';
 import { FormControl, FormGroup, Validator, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
-import { EventService } from './../../shared';
+import { ProductsService, IProduct } from './../../shared';
 
 @Component({
     templateUrl: './new-product.component.html'
@@ -17,7 +16,7 @@ export class NewProductComponent implements OnInit {
     imageUrl: FormControl;
     productForm: FormGroup;
 
-    constructor(private eventService: EventService,
+    constructor(private productsService: ProductsService,
                 private router: Router) {
 
     }
@@ -42,12 +41,12 @@ export class NewProductComponent implements OnInit {
         
     }
 
-    saveForm(formValues: IEvents, productForm: any) {
+    saveForm(formValues: IProduct, productForm: any) {
 
         if(this.productForm.valid) {
             
             console.log(formValues, productForm);
-            this.eventService.createProduct(formValues);
+            this.productsService.createProduct(formValues);
             this.productForm.reset();
             this.router.navigate(['/products']);
         }

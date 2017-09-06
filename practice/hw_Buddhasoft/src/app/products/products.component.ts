@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
-import { EventService, IEvents } from './../shared'; 
+import { ProductsService, IProduct } from './../shared'; 
 
 @Component({
     templateUrl: './products.component.html'
@@ -9,15 +9,15 @@ import { EventService, IEvents } from './../shared';
 
 export class ProductsComponent implements OnInit {
 
-    products: IEvents[];
+    products: IProduct[];
     
-    constructor(private eventService: EventService,
+    constructor(private productsService: ProductsService,
                 private router: Router ) {
 
     }
 
     ngOnInit() {
-        this.products = this.eventService.getEvents();
+        this.products = this.productsService.getProducts();
     }
    
 }

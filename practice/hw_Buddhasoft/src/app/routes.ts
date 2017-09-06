@@ -13,8 +13,8 @@ import { EventRouteActivatorService } from './shared';
 
 export const appRoutes:Routes = [
     
-    { path: 'products/edit', component: NewProductComponent },
-    { path: 'products/new', component: EditProductComponent },
+    { path: 'products/new', component: NewProductComponent },
+    { path: 'products/edit', component: EditProductComponent },
     { path: 'products', component: ProductsComponent },
     { path: 'products/:id', component: ProductComponent, canActivate: [EventRouteActivatorService] },
     { path: '404', component: Error404Component},

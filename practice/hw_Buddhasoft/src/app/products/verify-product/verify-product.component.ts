@@ -1,7 +1,6 @@
-import { IEvents } from '../../shared';
 import { Component, Input } from '@angular/core';
 
-import { EventService } from '../../shared';
+import { ProductsService, IProduct } from '../../shared';
 
 @Component({
     selector: 'verify-product',
@@ -10,18 +9,18 @@ import { EventService } from '../../shared';
 
 export class VerifyProductComponent {
 
-    @Input() product: IEvents;
+    @Input() product: IProduct;
 
-    constructor(private eventService: EventService) {
+    constructor(private productsService: ProductsService) {
 
     }
 
     deleteVerify() {
-        this.eventService.productDeleteFunc(this.product);
+        this.productsService.productDeleteFunc(this.product);
         this.cancelVerify();
     }
 
     cancelVerify() {
-        this.eventService.verifyProduct = false;
+        this.productsService.verifyProduct = false;
     }
 }

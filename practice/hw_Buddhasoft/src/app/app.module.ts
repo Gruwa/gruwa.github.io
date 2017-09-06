@@ -10,7 +10,7 @@ import { ContextMenuModule } from './../../node_modules/ngx-contextmenu';
 
 import { AppComponent } from './app.component';
 import { Error404Component } from './error/404.component';
-import { EventService,
+import { ProductsService,
          EventRouteActivatorService
 } from './shared';
 import { 
@@ -39,7 +39,7 @@ import {
     VerifyProductComponent
   ],
   providers: [
-    EventService,
+    ProductsService,
     EventRouteActivatorService
   ],
   bootstrap: [ AppComponent ]

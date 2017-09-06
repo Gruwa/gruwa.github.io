@@ -1,2 +1,2 @@
-export * from './event.service';
+export * from './products.service';
 export * from './event-route-activator.service';
