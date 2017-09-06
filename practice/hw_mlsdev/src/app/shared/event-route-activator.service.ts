@@ -1,16 +1,16 @@
 import { ActivatedRouteSnapshot, CanActivate, Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 
-import { EventService } from './index';
+import { UsersService } from './';
 
 @Injectable()
 export class EventRouteActivatorService implements CanActivate{
 
-    constructor(private eventService:EventService, private router:Router) { }
+    constructor(private usersService: UsersService, private router:Router) { }
 
     canActivate(route:ActivatedRouteSnapshot) {
 
-        const eventExists = !!this.eventService.getEvent(+route.params['id']);
+        const eventExists = !!this.usersService.getEvent(+route.params['id']);
 
         if(!eventExists) {
             this.router.navigate(['/404'])

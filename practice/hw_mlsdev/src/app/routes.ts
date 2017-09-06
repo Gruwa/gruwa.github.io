@@ -3,22 +3,21 @@ import { resolve } from 'path';
 
 import { Error404Component } from './error/404.component';
 import { 
-    ListContentComponent,
-    CreateContentComponent
-} from './content';
+    UsersComponent,
+    UserComponent
+} from './users';
 import { 
+    UsersService,
     EventRouteActivatorService
 } from './shared';
-import {
-    ResultComponent
-} from './sidebar'
+
 
 export const appRoutes:Routes = [
     
-    { path: 'events', component: CreateContentComponent },
-    { path: 'events/search', component: ResultComponent },
-    { path: 'events/:id', component: ListContentComponent, canActivate: [EventRouteActivatorService] },
+    { path: 'users', component: UsersComponent },
+    // { path: 'events/search', component: ResultComponent },
+    { path: 'users/:id', component: UserComponent, canActivate: [EventRouteActivatorService] },
     { path: '404', component: Error404Component },
-    { path: '', redirectTo: '/events', pathMatch: 'full' }
+    { path: '', redirectTo: '/users', pathMatch: 'full' }
     
 ] 

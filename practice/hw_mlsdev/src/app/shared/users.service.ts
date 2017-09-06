@@ -5,7 +5,7 @@ import { EventEmitter, Inject, Injectable } from '@angular/core';
 
 @Injectable()
 
-export class EventService {
+export class UsersService {
 
     doneItem: boolean = false; 
     hideItem: boolean;
@@ -271,4 +271,3 @@ const EVENTS = [
 // }
 
 // someFunc('str', 'str', undefined, 'str');
-
