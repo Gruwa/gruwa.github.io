@@ -1,0 +1,46 @@
+.users {
+
+    &__bands {
+       box-shadow: 0 1px 4px 0 rgba(10, 16, 20, .37);
+       padding: 0;
+       margin-top: 30px;
+    }
+
+    &__band {
+        text-align: left;
+        padding: 16px 23px;
+        cursor: pointer;
+
+        &:hover {
+            color: rgb(26, 35, 38);
+            text-decoration: none;
+            border-color: rgb(43, 133, 231);
+            border-radius: 4px;
+            box-shadow: 0 8px 8px rgba(1,67,163,.24), 0 0 8px rgba(1,67,163,.12), 0 6px 18px rgba(43,133,231,.12);
+            transition: all .3s; 
+        }
+    }
+
+    &__text-block {
+        display: inline-block;
+    }
+
+    &__login {
+        display: block;
+        font-size: 20px;
+        font-weight: bold;
+        color: rgb(43, 133, 231);
+        margin-bottom: 4px;
+    }
+
+    &__email {
+        display: block;
+        font-size: 14px;
+    }
+
+    &__logo {
+        font-size: 18px;
+        width: 40px;
+        height: 40px;
+    }
+}

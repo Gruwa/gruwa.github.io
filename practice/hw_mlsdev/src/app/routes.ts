@@ -16,7 +16,7 @@ export const appRoutes:Routes = [
     
     { path: 'users', component: UsersComponent },
     // { path: 'events/search', component: ResultComponent },
-    { path: 'users/:id', component: UserComponent, canActivate: [EventRouteActivatorService] },
+    // { path: 'users/:id', component: UserInfoComponent, canActivate: [EventRouteActivatorService] },
     { path: '404', component: Error404Component },
     { path: '', redirectTo: '/users', pathMatch: 'full' }
     
