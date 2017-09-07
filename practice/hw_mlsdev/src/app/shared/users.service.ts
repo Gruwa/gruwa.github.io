@@ -27,7 +27,7 @@ export interface IUser {
 
 export class UsersService {
     
-    dataUrl: string = 'https://api.github.com/users?since=135&per_page=1';
+    dataUrl: string;
     user: IUser;
 
     constructor(private http: Http) {
