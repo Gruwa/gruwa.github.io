@@ -14,7 +14,7 @@
         text-align: left;
         padding: 16px 23px;
         cursor: pointer;
-
+        
         &:hover {
             color: rgb(26, 35, 38);
             text-decoration: none;
@@ -24,16 +24,16 @@
             transition: all .3s; 
         }
     }
-
+    
     &__text-block {
         display: inline-block;
-
+        
         &--information {
             padding-top: 30px;
             text-align: left;
         }
     }
-
+    
     &__login {
         display: block;
         font-size: 20px;
@@ -45,9 +45,9 @@
             font-size: 32px;
             margin: 20px;
             color: rgb(0, 0, 0);
-
+            
             &--text {
-                color: rgba(36, 135, 208, 0.75);
+                color: rgba(32, 133, 208, 0.75);
             }
         }
     }

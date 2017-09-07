@@ -7,10 +7,10 @@ import { appRoutes } from './routes';
 import { AppComponent } from './app.component';
 import { Error404Component } from './error/404.component';
 import {
-    UsersComponent,
+    MainPageComponent,
     UserComponent,
     UserInformationComponent
-} from './users';
+} from './main-page';
 import {
     UsersService,
     EventRouteActivatorService
@@ -24,7 +24,7 @@ import {
     ],
     declarations: [
         AppComponent,
-        UsersComponent,
+        MainPageComponent,
         UserComponent,
         UserInformationComponent,
         Error404Component

@@ -1,4 +1,4 @@
-import { IUser, UsersService } from '../../shared';
+import { IData, UsersService } from '../../shared';
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -9,9 +9,9 @@ import { Router } from '@angular/router';
 
 export class UserComponent {
 
-    dataUser: any;
+    dataUser: IData;
 
-    @Input() user: IUser;
+    @Input() user: IData;
 
     constructor(private usersService: UsersService) {
 

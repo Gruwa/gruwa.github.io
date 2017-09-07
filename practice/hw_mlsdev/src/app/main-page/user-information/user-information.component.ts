@@ -1,4 +1,4 @@
-import { IUser, UsersService } from '../../shared';
+import { IData, UsersService } from '../../shared';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,13 +7,19 @@ import { Component } from '@angular/core';
 
 export class  UserInformationComponent {
 
-    user: IUser;
+    user: IData;
 
     constructor(private usersService: UsersService) {
 
     }
     
     ngOnInit() {
-        this.user = this.usersService.user;      
+        this.user = this.usersService.user;  
     }
+
+    repoFunc() {
+        this.usersService.repo = this.user;
+    }
+
+
 }

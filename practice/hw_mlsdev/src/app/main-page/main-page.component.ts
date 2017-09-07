@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { UsersService, IUser } from './../shared';
+import { UsersService, IData } from './../shared';
 
 @Component({
-    templateUrl: './users.component.html'
+    templateUrl: './main-page.component.html'
 })
 
-export class UsersComponent {
+export class MainPageComponent {
 
-    users: IUser[];
+    users: IData[];
 
     constructor(private usersService: UsersService) {
 
