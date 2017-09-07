@@ -4,6 +4,10 @@
        box-shadow: 0 1px 4px 0 rgba(10, 16, 20, .37);
        padding: 0;
        margin-top: 30px;
+
+       &--information {
+           padding: 20px;
+       }
     }
 
     &__band {
@@ -23,6 +27,11 @@
 
     &__text-block {
         display: inline-block;
+
+        &--information {
+            padding-top: 30px;
+            text-align: left;
+        }
     }
 
     &__login {
@@ -31,16 +40,55 @@
         font-weight: bold;
         color: rgb(43, 133, 231);
         margin-bottom: 4px;
+
+        &--information {
+            font-size: 32px;
+            margin: 20px;
+            color: rgb(0, 0, 0);
+
+            &--text {
+                color: rgba(36, 135, 208, 0.75);
+            }
+        }
     }
 
-    &__email {
+    &__location {
         display: block;
         font-size: 14px;
+
+        &--information {
+            display: block;
+            font-size: 32px;
+            margin: 20px;
+
+            &--text {
+                color: rgba(36, 135, 208, 0.75);
+            }
+        }
     }
 
     &__logo {
         font-size: 18px;
         width: 40px;
         height: 40px;
+
+        &--big {
+            width: 460px;
+            height: 460px;
+        }
+    }
+
+    &__name {
+        display: block;
+        font-size: 32px;
+        margin: 20px;
+
+        &--text {
+            color: rgba(36, 135, 208, 0.75);
+        }
+    }
+
+    &__repo {
+        margin: 20px;
     }
 }

@@ -1,3 +1,4 @@
+import { IUser, UsersService } from '../../shared';
 import { Component } from '@angular/core';
 
 @Component({
@@ -5,5 +6,14 @@ import { Component } from '@angular/core';
 })
 
 export class  UserInformationComponent {
+
+    user: IUser;
+
+    constructor(private usersService: UsersService) {
+
+    }
     
+    ngOnInit() {
+        this.user = this.usersService.user;      
+    }
 }

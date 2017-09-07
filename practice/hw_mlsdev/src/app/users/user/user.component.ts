@@ -23,7 +23,7 @@ export class UserComponent {
     }
 
     dataUserFunc() {
-        this.usersService.userFunc(this.user);
+        this.usersService.userFunc(this.dataUser);
     }
 
 }
