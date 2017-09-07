@@ -19,6 +19,6 @@ export const appRoutes:Routes = [
     { path: 'users/:id', component: UserInformationComponent, canActivate: [EventRouteActivatorService] },
     { path: '404', component: Error404Component },
     { path: '', redirectTo: '/users', pathMatch: 'full' },
-    { path: 'repos', loadChildren: './repos/repos.modules#ReposModules' },
+    { path: 'repos', loadChildren: './repos/repos.module#ReposModule' },
     
 ] 

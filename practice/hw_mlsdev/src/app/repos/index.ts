@@ -1,3 +1,2 @@
-export { repoRoutes } from './repos.routes';
-export { ReposComponent } from './repos.component';
-export { RepoComponent } from './repo/repo.component';
+export * from './repos.component';
+export * from './repos.routes';

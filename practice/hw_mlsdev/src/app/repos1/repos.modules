@@ -3,15 +3,15 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import {
+    reposRoutes,
     ReposComponent,
-    repoRoutes,
     RepoComponent
 } from './'
 
 @NgModule({
     imports: [
         CommonModule,
-        RouterModule.forChild(repoRoutes)
+        RouterModule.forChild(reposRoutes)
     ],
     declarations: [
         ReposComponent,

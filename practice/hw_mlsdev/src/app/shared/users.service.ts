@@ -21,6 +21,8 @@ export interface IUser {
     subscriptions_url: string;
     type: string;
     url: string;
+    location?: string;
+    name?: string;
 }
 
 @Injectable()
