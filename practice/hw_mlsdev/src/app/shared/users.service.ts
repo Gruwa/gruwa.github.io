@@ -18,6 +18,7 @@ export class UsersService {
     dataUrl: string;
     user: IData;
     repo: IData;
+    usersList: IData[];
 
     constructor(private http: Http) {
 
@@ -35,4 +36,14 @@ export class UsersService {
     getEvent(id:number) {
         return this.user.id === id;
     }
+
+    public dataGitUser$ = new Subject<any>();
+
+    gitUsersList(eventData: any) {
+        this.usersList = eventData;
+        console.log('service', this.usersList);
+        
+    }
+
+
 }

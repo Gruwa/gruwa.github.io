@@ -15,23 +15,32 @@ export class ReposComponent {
     }
 
     ngOnInit() {
-        this.usersService.dataGit(this.usersService.repo.repos_url).subscribe(info => this.repos = info);
-        // this.user = this.usersService.repo;
-    }
-
-    click() {
-        console.log(this.repos);
+        this.usersService.dataGitUser$.subscribe(this.dataGitUserObserver.bind(this));
         
     }
-    click1() {
-        this.usersService.dataFlow$.next({
-            aaa: 'aaa'
-          });
+    
+    dataGitUserObserver(eventData: IData[]) {
+        console.log('repose', eventData);
+        
+        // this.usersService.gitUsersList(eventData);
     }
-    click2() {
-        this.usersService.dataFlow$.next({
-            bbb: 'bbb'
-          });
+    
+    
+    click() {
+        // console.log(this.repos);
+        console.log('repos', this.usersService.usersList);
+        
+        
     }
+
+    dataUserFunc() {
+
+    }
+
+    ngOnDestroy() {
+        if (!!this.usersService.dataGitUser$.unsubscribe()) this.usersService.dataGitUser$.unsubscribe();
+
+    }
+
 
 }
