@@ -11,7 +11,7 @@ export interface IProduct {
     price: number;
 }
 
-const PRODUCTS = [
+let offLineData = [
     { 
         id: 1,
         title: 'Apple',
@@ -76,43 +76,81 @@ const PRODUCTS = [
 export class ProductsService {
 
     product: IProduct;
-    verifyProduct: boolean = false;
+    verifyEditForm: boolean = false;
+    productsData: IProduct[];
+    activeProduct: IProduct;
 
-    getProducts() {        
-        return PRODUCTS;
+    getData(data?: IProduct[]) {
+        if(!data) {
+            // console.log('1', data);
+            data = offLineData;
+        }
+        // console.log('2', data);
+        
+        try {
+            let dataLoacalStorage = localStorage.getItem('productData');
+            localStorage.setItem('productData', JSON.stringify(data));
+            this.productsData = JSON.parse(dataLoacalStorage);
+        } catch (e) {          
+            this.productsData = offLineData;
+        }
     }
 
-    getProduct(id:number) {
-        return PRODUCTS.find(event => event.id === id);
+    getProductId(id:number) {
+        return this.productsData.find(product => product.id === id);
     }
     
-    productDeleteFunc(product: IProduct) {
-        PRODUCTS.splice(PRODUCTS.indexOf(product), 1);
+    deleteProduct(product: IProduct) {
+        this.productsData.splice(this.productsData.indexOf(product), 1);
+        this.getData(this.productsData);
     }
     
-    productEditFunc(product: IProduct) {
-        this.product = product;          
+    editButton(product: IProduct) {
+        this.activeProduct = product;          
     }
     
-    editProduct(event: IProduct) {
-        event.id = this.product.id;
-        PRODUCTS.splice(PRODUCTS.indexOf(this.product), 1, event);
+    verifyProduct(verify: boolean) {
+        this.verifyEditForm = verify;
     }
 
-    cancelProduct(event: IProduct) {
-        PRODUCTS.splice(PRODUCTS.indexOf(this.product), 1);
-        PRODUCTS.splice(0,0, this.product);
+    saveEditForm(product: IProduct) {
+        product.id = this.activeProduct.id;
+        this.productsData.splice(this.productsData.indexOf(this.activeProduct), 1, product);
+        this.getData(this.productsData);
     }
 
-    createProduct(event: IProduct) {
-        event.id = PRODUCTS[PRODUCTS.length - 1].id + 1;
-        PRODUCTS.push(event);    
+    saveCreateForm(event: IProduct) {
+        event.id = this.productsData[this.productsData.length - 1].id + 1;
+        this.productsData.push(event);
+        this.getData(this.productsData);    
     }
 
-    verifyProductFunc(verifyProduct: boolean) {
-        this.verifyProduct = verifyProduct;
-    }
 }
 
 
+// getDataProducts(data?: IProduct[]) {
+//     // if (localStorage.getItem('test')) {
+//         let dataLoacalStorage = localStorage.getItem( JSON.stringify(data) );
+//         this.productsData = JSON.parse(dataLoacalStorage);
+//         console.log('local');
+//     // } else {
+//     //     this.productsData = this.getProducts();
+//     //     console.log('error');
+//     // }
+//     // this.productsData = this.getProducts();
+// }
 
+// pro() {
+//    this.dataProducts('assets/server/data.json').subscribe(data => this.dataJson = data);
+//    return this.dataJson;
+
+// }
+
+// dataProducts(dataUrl?: string): Observable<IProduct[]> {
+//     return this.http.get(dataUrl)
+//             .map((response: Response) => <IProduct[]>response.json());
+// }
+
+// getProducts() { 
+//     return offLoacalStorageData;
+// }

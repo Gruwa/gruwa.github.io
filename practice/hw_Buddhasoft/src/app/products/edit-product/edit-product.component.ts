@@ -19,18 +19,16 @@ export class EditProductComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.product = this.productsService.product;
+        this.product = this.productsService.activeProduct;
     }
     
-    saveForm(formValues: IProduct, newProductForm: NgForm) {
-        this.productsService.editProduct(formValues);
-        console.log(this.productsService.getProducts());
+    saveEditForm(formValues: IProduct, newProductForm: NgForm) {
+        this.productsService.saveEditForm(formValues);
         newProductForm.resetForm();
-        console.log(formValues);
         this.link();   
     }
 
-    cancelForm(newProductForm: NgForm) {
+    cancelEditForm(newProductForm: NgForm) {
         newProductForm.resetForm();
     }
 

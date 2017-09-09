@@ -3,7 +3,7 @@
     <div class="col-md-6">
                 <span class="new-product__title">Edit product</span>
         <form #newProductForm="ngForm"
-              (ngSubmit)="saveForm(newProductForm.value, newProductForm)"
+              (ngSubmit)="saveEditForm(newProductForm.value, newProductForm)"
               utocomplete="off" 
               novalidate>
             <div class="new-product__group" 
@@ -68,7 +68,7 @@
             <button type="button" 
                     class="btn btn-warning" 
                     [routerLink]="['/products']"
-                    (click)="cancelForm(newProductForm)">Cancel</button>
+                    (click)="cancelEditForm(newProductForm)">Cancel</button>
         </form>
     </div>
     <div class="col-md-3"></div>

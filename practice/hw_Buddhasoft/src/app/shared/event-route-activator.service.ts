@@ -1,4 +1,8 @@
-import { ActivatedRouteSnapshot, CanActivate, Router } from '@angular/router';
+import { 
+    ActivatedRouteSnapshot, 
+    CanActivate, 
+    Router 
+} from '@angular/router';
 import { Injectable } from '@angular/core';
 
 import { ProductsService } from './index';
@@ -11,7 +15,7 @@ export class EventRouteActivatorService implements CanActivate{
 
     canActivate(route:ActivatedRouteSnapshot) {
 
-        const eventExists = !!this.productsService.getProduct(+route.params['id']);
+        const eventExists = !!this.productsService.getProductId(+route.params['id']);
 
         if(!eventExists) {
             this.router.navigate(['/404']);

@@ -15,12 +15,13 @@ export class VerifyProductComponent {
 
     }
 
-    deleteVerify() {
-        this.productsService.productDeleteFunc(this.product);
-        this.cancelVerify();
+    deleteVerifyForm() {
+        console.log('this.productsData', this.productsService.productsData);
+        this.productsService.deleteProduct(this.product);
+        this.cancelVerifyForm();
     }
 
-    cancelVerify() {
-        this.productsService.verifyProduct = false;
+    cancelVerifyForm() {
+        this.productsService.verifyEditForm = false;
     }
 }

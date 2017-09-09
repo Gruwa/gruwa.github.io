@@ -41,18 +41,16 @@ export class NewProductComponent implements OnInit {
         
     }
 
-    saveForm(formValues: IProduct, productForm: any) {
+    saveCreateForm(formValues: IProduct, productForm: any) {
 
         if(this.productForm.valid) {
-            
-            console.log(formValues, productForm);
-            this.productsService.createProduct(formValues);
+            this.productsService.saveCreateForm(formValues);
             this.productForm.reset();
             this.router.navigate(['/products']);
         }
     }
 
-    cancelClickForm() {
+    cancelCrerateForm() {
         this.productForm.reset();
     }
 

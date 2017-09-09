@@ -17,18 +17,19 @@ export class ProductComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.product = this.productsService.getProduct(+this.activatedRoute.snapshot.params['id']);
+        this.product = this.productsService.getProductId(+this.activatedRoute.snapshot.params['id']);
     }
 
-    clickEditFunc() {
-        this.productsService.productEditFunc(this.product);
+    editButton() {
+        this.productsService.editButton(this.product);
     }
 
-    clickDeleteFunc() {
-        return this.productsService.verifyProduct = true;
+    deleteButton() {
+        console.log('this.productsData', this.productsService.productsData);
+        return this.productsService.verifyEditForm = true;
     }
 
     verifyProduct() {
-        return this.productsService.verifyProduct;
+        return this.productsService.verifyEditForm;
     }
 }

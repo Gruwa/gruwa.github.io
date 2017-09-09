@@ -25,6 +25,7 @@
     "@types/jasmine": "2.5.36",
     "@types/node": "^6.0.45",
     "@types/webpack": "^2.2.2",
+    "angular-2-local-storage": "^1.0.1",
     "angular2-template-loader": "^0.6.0",
     "awesome-typescript-loader": "^3.0.4",
     "copy-webpack-plugin": "^4.0.1",
