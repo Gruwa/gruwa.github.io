@@ -12,16 +12,11 @@ declare let require: (filename: string) => any;
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-
 export class AppComponent {
 
     constructor(private router: Router,
                 private productsService: ProductsService) {
 
-    }
-
-    ngOnInit() {
-        this.productsService.dataServer('assets/server/data.json').subscribe(data => this.productsService.getData(data));
     }
 
     link() {

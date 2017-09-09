@@ -1,7 +1,7 @@
 <main [contextMenu]="products__menu">
     <h1 class="products__title">Products</h1>
-    <div *ngIf="router.url != '/products/new'">
-        <div *ngIf="router.url != '/products/edit'">
+    <div *ngIf="router.url != '/tools/new'">
+        <div *ngIf="router.url != '/tools/edit'">
             <button type="button" class="btn btn-primary" [routerLink]="['/products']" *ngIf="router.url != '/products'">Main page</button>
             <button type="button" class="btn btn-info" [routerLink]="['/tools/new']" >Create product</button>
         </div>
