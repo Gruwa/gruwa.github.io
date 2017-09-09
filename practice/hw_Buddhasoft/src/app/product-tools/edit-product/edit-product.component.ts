@@ -1,13 +1,19 @@
 import { Router } from '@angular/router';
-import { Component, Inject, OnInit } from '@angular/core';
+import { 
+    Component, 
+    Inject, 
+    OnInit 
+} from '@angular/core';
 import { NgForm } from '@angular/forms';
 
-import { ProductsService, IProduct } from './../../shared';
+import { 
+    ProductsService, 
+    IProduct 
+} from './../../shared';
 
 @Component({
     templateUrl: './edit-product.component.html'
 })
-
 export class EditProductComponent implements OnInit {
 
     product: IProduct;
@@ -24,7 +30,9 @@ export class EditProductComponent implements OnInit {
     saveEditForm(formValues: IProduct, newProductForm: NgForm) {
         this.productsService.saveEditForm(formValues);
         newProductForm.resetForm();
-        this.link();   
+        this.link();
+        
+        this.productsService.productEditData$.next(true);
     }
 
     cancelEditForm(newProductForm: NgForm) {

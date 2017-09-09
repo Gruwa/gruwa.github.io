@@ -2,20 +2,39 @@
     <h1 class="products__title">Products</h1>
     <div *ngIf="router.url != '/tools/new'">
         <div *ngIf="router.url != '/tools/edit'">
-            <button type="button" class="btn btn-primary" [routerLink]="['/products']" *ngIf="router.url != '/products'">Main page</button>
-            <button type="button" class="btn btn-info" [routerLink]="['/tools/new']" >Create product</button>
+            <button type="button" 
+                    class="btn btn-primary" 
+                    [routerLink]="['/products']" 
+                    *ngIf="router.url != '/products'">
+                    Main page
+            </button>
+            <button type="button" 
+                    class="btn btn-info" 
+                    [routerLink]="['/tools/new']" >
+                    Create product
+            </button>
         </div>
+    </div>
+    <div class="products__event" 
+         *ngIf="booleanEditData">
+        <span class="products__event__text">Perfectly, You edit a product!</span>
+    </div>
+    <div class="products__event" 
+         *ngIf="booleanNewData">
+        <span class="products__event__text">Perfectly, You created a new product!</span>
     </div>
     <hr>
     <router-outlet></router-outlet>
 </main>
 
 <context-menu #products__menu>
-    <ng-template contextMenuItem [visible]="true" [enabled]="true">
-        SubMenu
-    </ng-template>
-    <ng-template contextMenuItem [divider]="true"></ng-template>
-    <ng-template contextMenuItem [visible]="true" [enabled]="true" (execute)="link()">
-        Ceate new product
-    </ng-template>
+    <ng-template contextMenuItem 
+                 [visible]="true" 
+                 [enabled]="true">SubMenu</ng-template>
+    <ng-template contextMenuItem 
+                 [divider]="true"></ng-template>
+    <ng-template contextMenuItem 
+                 [visible]="true" 
+                 [enabled]="true" 
+                 (execute)="link()">Ceate new product</ng-template>
 </context-menu>

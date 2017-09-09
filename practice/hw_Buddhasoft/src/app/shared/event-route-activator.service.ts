@@ -8,7 +8,6 @@ import { Injectable } from '@angular/core';
 import { ProductsService } from './index';
 
 @Injectable()
-
 export class EventRouteActivatorService implements CanActivate{
 
     constructor(private productsService: ProductsService, private router:Router) { }

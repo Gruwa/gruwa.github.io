@@ -1,12 +1,18 @@
 import { Router } from '@angular/router';
-import { AfterContentChecked, Component, OnInit } from '@angular/core';
+import { 
+    AfterContentChecked, 
+    Component, 
+    OnInit 
+} from '@angular/core';
 
-import { ProductsService, IProduct } from './../shared'; 
+import { 
+    ProductsService, 
+    IProduct 
+} from './../shared'; 
 
 @Component({
     templateUrl: './products.component.html'
 })
-
 export class ProductsComponent implements OnInit, AfterContentChecked {
 
     products: IProduct[];

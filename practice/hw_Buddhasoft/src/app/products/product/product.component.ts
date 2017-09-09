@@ -1,12 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { 
+    Component, 
+    OnInit 
+} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { ProductsService, IProduct } from './../../shared';
+import { 
+    ProductsService, 
+    IProduct 
+} from './../../shared';
 
 @Component({
     templateUrl: './product.component.html'
 })
-
 export class ProductComponent implements OnInit {
 
     product: IProduct;

@@ -16,6 +16,17 @@
         margin-bottom: 30px;
     }
 
+    &__event {
+        position: absolute;
+        right: 150px;
+        top: 170px;
+
+        &__text {
+            font-size: 18px;
+            color: rgb(0, 128, 0);
+        }
+    }
+
 }
 
 @import './product/product.component.scss';

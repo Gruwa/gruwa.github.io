@@ -2,8 +2,10 @@
 @import 'reset';
 @import 'font';
 @import 'color';
+@import './../../app/error/404.component';
 @import './../../app/products/products.component';
 @import './../../app/product-tools/product-tools.module';
+
 body {
     background: $bode__bacground;
     color: $body__color;

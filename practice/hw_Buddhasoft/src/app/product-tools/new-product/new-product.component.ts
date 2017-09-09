@@ -1,13 +1,23 @@
 import { Router } from '@angular/router';
-import { FormControl, FormGroup, Validator, Validators } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { 
+    FormControl, 
+    FormGroup, 
+    Validator, 
+    Validators 
+} from '@angular/forms';
+import { 
+    Component, 
+    OnInit 
+} from '@angular/core';
 
-import { ProductsService, IProduct } from './../../shared';
+import { 
+    ProductsService, 
+    IProduct 
+} from './../../shared';
 
 @Component({
     templateUrl: './new-product.component.html'
 })
-
 export class NewProductComponent implements OnInit {
 
     title: FormControl;
@@ -48,6 +58,8 @@ export class NewProductComponent implements OnInit {
             this.productForm.reset();
             this.router.navigate(['/products']);
         }
+
+        this.productsService.productNewData$.next(true);
     }
 
     cancelCrerateForm() {
