@@ -2,8 +2,8 @@
 @import 'reset';
 @import 'font';
 @import 'color';
-@import './../../app/products/products.component.scss';
-
+@import './../../app/products/products.component';
+@import './../../app/product-tools/product-tools.module';
 body {
     background: $bode__bacground;
     color: $body__color;

@@ -3,7 +3,7 @@
     <div *ngIf="router.url != '/products/new'">
         <div *ngIf="router.url != '/products/edit'">
             <button type="button" class="btn btn-primary" [routerLink]="['/products']" *ngIf="router.url != '/products'">Main page</button>
-            <button type="button" class="btn btn-info" [routerLink]="['/products/new']" >Create product</button>
+            <button type="button" class="btn btn-info" [routerLink]="['/tools/new']" >Create product</button>
         </div>
     </div>
     <hr>

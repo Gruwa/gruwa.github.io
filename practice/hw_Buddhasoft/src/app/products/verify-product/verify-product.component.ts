@@ -16,7 +16,6 @@ export class VerifyProductComponent {
     }
 
     deleteVerifyForm() {
-        console.log('this.productsData', this.productsService.productsData);
         this.productsService.deleteProduct(this.product);
         this.cancelVerifyForm();
     }

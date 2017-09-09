@@ -25,7 +25,6 @@ export class ProductComponent implements OnInit {
     }
 
     deleteButton() {
-        console.log('this.productsData', this.productsService.productsData);
         return this.productsService.verifyEditForm = true;
     }
 

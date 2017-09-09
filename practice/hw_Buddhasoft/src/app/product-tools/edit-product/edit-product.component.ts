@@ -1,5 +1,4 @@
 import { Router } from '@angular/router';
-import { ProductComponent } from '../product/product.component';
 import { Component, Inject, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 

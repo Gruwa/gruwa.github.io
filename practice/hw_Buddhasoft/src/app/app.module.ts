@@ -3,10 +3,7 @@ import { BrowserModule }  from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
 import { HttpModule } from '@angular/http';
-import { 
-    FormsModule,
-    ReactiveFormsModule
-} from '@angular/forms';
+
 import { ContextMenuModule } from './../../node_modules/ngx-contextmenu';
 import { LocalStorageModule } from 'angular-2-local-storage';
 
@@ -19,8 +16,6 @@ import {
 import { 
     ProductsComponent, 
     ProductComponent,
-    NewProductComponent,
-    EditProductComponent,
     VerifyProductComponent
 } from './products';
  
@@ -28,8 +23,6 @@ import {
     imports: [
         BrowserModule,
         RouterModule.forRoot(appRoutes),
-        FormsModule,
-        ReactiveFormsModule ,
         HttpModule,
         ContextMenuModule,
         LocalStorageModule.withConfig({
@@ -42,8 +35,6 @@ import {
         Error404Component,
         ProductsComponent,
         ProductComponent,
-        NewProductComponent,
-        EditProductComponent,
         VerifyProductComponent
     ],
     providers: [

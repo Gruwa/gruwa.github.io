@@ -19,7 +19,7 @@ export class AppComponent {
     }
 
     link() {
-        this.router.navigate(['/products/new']);
+        this.router.navigate(['/tools/new']);
     }
   
 }
