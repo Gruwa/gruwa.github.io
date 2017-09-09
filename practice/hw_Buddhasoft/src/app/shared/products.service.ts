@@ -1,4 +1,6 @@
-import { Http } from '@angular/http';
+import { Subject } from 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
+import { Http, Response } from '@angular/http';
 import { setTimeout } from 'timers';
 import { NumberValueAccessor } from '@angular/forms/src/directives';
 import { Injectable } from '@angular/core';
@@ -80,19 +82,35 @@ export class ProductsService {
     productsData: IProduct[];
     activeProduct: IProduct;
 
+    constructor(private http: Http) {
+
+    }
+
+    public productsData$ = new Subject<any>();
+
+    dataServer(dataUrl?: string): Observable<IProduct[]> {
+        return this.http.get(dataUrl)
+                .map((response: Response) => <IProduct[]>response.json());
+    } 
+
     getData(data?: IProduct[]) {
-        if(!data) {
-            // console.log('1', data);
-            data = offLineData;
-        }
-        // console.log('2', data);
-        
+        // if(data === undefined) {
+            //     data = offLineData;
+            // }
+            
         try {
+            console.log('1', data);
             let dataLoacalStorage = localStorage.getItem('productData');
             localStorage.setItem('productData', JSON.stringify(data));
             this.productsData = JSON.parse(dataLoacalStorage);
+
         } catch (e) {          
+            // this.productsData = offLineData;
+            // console.log('2', data);
+        }
+        if (data === undefined) {
             this.productsData = offLineData;
+            console.log('2', data);
         }
     }
 
@@ -119,9 +137,12 @@ export class ProductsService {
         this.getData(this.productsData);
     }
 
-    saveCreateForm(event: IProduct) {
-        event.id = this.productsData[this.productsData.length - 1].id + 1;
-        this.productsData.push(event);
+    saveCreateForm(product: IProduct) {
+        console.log(product);
+        console.log(this.productsData);
+        
+        product.id = this.productsData[this.productsData.length - 1].id + 1;
+        this.productsData.push(product);
         this.getData(this.productsData);    
     }
 

@@ -1,3 +1,4 @@
+import { ProductsService } from './shared';
 import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 
@@ -14,8 +15,13 @@ declare let require: (filename: string) => any;
 
 export class AppComponent {
 
-    constructor(private router: Router) {
+    constructor(private router: Router,
+                private productsService: ProductsService) {
 
+    }
+
+    ngOnInit() {
+        this.productsService.dataServer('assets/server/data.json').subscribe(data => this.productsService.getData(data));
     }
 
     link() {
