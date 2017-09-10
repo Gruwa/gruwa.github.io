@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Subject } from 'rxjs/Subject';;
 import { 
     Http, 
@@ -21,16 +22,18 @@ export class ProductsService {
     productsData: IProduct[];
     activeProduct: IProduct;
 
-    constructor(private http: Http) {
+    constructor(private http: Http,
+                private router:Router) {
 
     }
 
     public productEditData$ = new Subject<any>();
     public productNewData$ = new Subject<any>();
+    public productData$ = new Subject<any>();
 
     getInitialData() {
         if(localStorage.productsData != undefined) {
-            this.productsData = JSON.parse(localStorage.productsData);
+          return  this.productsData = JSON.parse(localStorage.productsData);
         } else {
             this.dataServer('assets/server/data.json').subscribe(data => this.getData(data));
         }
@@ -48,8 +51,30 @@ export class ProductsService {
     }
 
     getProductId(id:number) {
-        return this.productsData.find(product => product.id === id);
+        if(this.productsData === undefined) {
+            this.router.navigate(['/404']) 
+            return;
+        } else {
+            return this.productsData.find(product => product.id === id);
+        }
     }
+
+    // getProductId(id:number) {
+    //     let object = this.getInitialData();
+    //     for (var key in object) {
+            
+    //         if (object[key].id === id) {
+    //             console.log(object[key]);
+    //             return object[key];
+    //         } else {
+    //             this.router.navigate(['/404']);
+    //         }
+    //     }
+
+        
+    //         // let e = this.productsService.getInitialData().this.productsService.getProductId(+this.activatedRoute.snapshot.params['id'])
+    // }
+
     
     deleteProduct(product: IProduct) {
         this.productsData.splice(this.productsData.indexOf(product), 1);
