@@ -52,7 +52,7 @@
                        type="file" 
                        class="form-control" 
                        imageUpload
-                       (imageSelected)="selected($event)"
+                       (imageSelected)="isSelected($event)"
                        [resizeOptions]="resizeOptions" />
                 <img [src]="imgUrl" 
                      [hidden]="!imgUrl"

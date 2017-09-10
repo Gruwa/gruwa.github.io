@@ -64,7 +64,7 @@ export class NewProductComponent implements OnInit {
         this.productsService.productNewData$.next(true);
     }
     
-    selected(imageResult?: ImageResult) {
+    isSelected(imageResult?: ImageResult) {
         this.imgUrl = imageResult.resized
                     && imageResult.resized.dataURL
                     || imageResult.dataURL;

@@ -40,7 +40,7 @@ export class EditProductComponent implements OnInit {
         }
     }
     
-    selected(imageResult?: ImageResult) {
+    isSelected(imageResult?: ImageResult) {
         this.imgUrl = imageResult.resized
                     && imageResult.resized.dataURL
                     || imageResult.dataURL;
@@ -54,7 +54,7 @@ export class EditProductComponent implements OnInit {
 
         this.productsService.saveEditProduct(formValues, this.imgUrl);
         newProductForm.resetForm();
-        this.link();
+        this.goToMainPage();
         this.productsService.productEditData$.next(true);
     }
 
@@ -62,7 +62,7 @@ export class EditProductComponent implements OnInit {
         newProductForm.resetForm();
     }
 
-    link() {
+    goToMainPage() {
         this.router.navigate(['/products']);
     }
     

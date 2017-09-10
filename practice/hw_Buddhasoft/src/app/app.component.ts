@@ -19,32 +19,32 @@ declare let require: (filename: string) => any;
 })
 export class AppComponent implements OnInit {
 
-    booleanEditData: boolean = false;
-    booleanNewData: boolean = false;
+    isProductEdited: boolean = false;
+    isProductCreated: boolean = false;
 
     constructor(private router: Router,
                 private productsService: ProductsService) { }
 
     ngOnInit() {
-        this.productsService.productEditData$.subscribe(this.productEditData$Observer.bind(this));
-        this.productsService.productNewData$.subscribe(this.productNewData$Observer.bind(this));
+        this.productsService.productEditData$.subscribe(this.isProductEdited$Observer.bind(this));
+        this.productsService.productNewData$.subscribe(this.isProductCreated$Observer.bind(this));
     }
 
-    productEditData$Observer(booleanData: boolean) {        
-        this.booleanEditData = booleanData;
+    isProductEdited$Observer(booleanData: boolean) {        
+        this.isProductEdited = booleanData;
         setTimeout(() => {
-            this.booleanEditData = false;
+            this.isProductEdited = false;
         }, 3000);
     }
 
-    productNewData$Observer(booleanData: boolean) {        
-        this.booleanNewData = booleanData;
+    isProductCreated$Observer(booleanData: boolean) {        
+        this.isProductCreated = booleanData;
         setTimeout(() => {
-            this.booleanNewData = false;
+            this.isProductCreated = false;
         }, 3000);
     }
 
-    contextMenuMain() {
+    goToMainPage() {
         this.router.navigate(['/products']);
     }
 

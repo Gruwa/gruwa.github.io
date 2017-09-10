@@ -16,11 +16,11 @@
         </div>
     </div>
     <div class="products__event" 
-         *ngIf="booleanEditData">
+         *ngIf="isProductEdited">
         <span class="products__event__text">Perfectly, You edit a product!</span>
     </div>
     <div class="products__event" 
-         *ngIf="booleanNewData">
+         *ngIf="isProductCreated">
         <span class="products__event__text">Perfectly, You created a new product!</span>
     </div>
     <hr>
@@ -36,7 +36,7 @@
     <ng-template contextMenuItem 
                  [visible]="router.url != '/products'" 
                  [enabled]="true" 
-                 (execute)="contextMenuMain()">Main page</ng-template>
+                 (execute)="goToMainPage()">Main page</ng-template>
     <ng-template contextMenuItem 
                  [visible]="true" 
                  [enabled]="true" 
