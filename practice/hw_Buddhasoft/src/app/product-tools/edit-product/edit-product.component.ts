@@ -49,12 +49,12 @@ export class EditProductComponent implements OnInit {
                     
     }
                 
-    saveEditForm(formValues: IProduct, newProductForm: NgForm) {
+    saveEditProduct(formValues: IProduct, newProductForm: NgForm) {
         if(this.imgUrl === '') {
             this.imgUrl = this.product.imageUrl;
         }
 
-        this.productsService.saveEditForm(formValues, this.imgUrl);
+        this.productsService.saveEditProduct(formValues, this.imgUrl);
         newProductForm.resetForm();
         this.link();
         this.productsService.productEditData$.next(true);

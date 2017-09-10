@@ -56,9 +56,9 @@ export class NewProductComponent implements OnInit {
                 
     }
             
-    saveCreateForm(formValues: IProduct, productForm: any) {
+    saveProduct(formValues: IProduct, productForm: any) {
         if(this.productForm.valid) {
-            this.productsService.saveCreateForm(formValues, this.imgUrl);
+            this.productsService.saveProduct(formValues, this.imgUrl);
             this.productForm.reset();
             this.router.navigate(['/products']);
         }

@@ -3,7 +3,7 @@
     <div class="col-md-6">
                 <span class="new-product__title">Edit product</span>
         <form #newProductForm="ngForm"
-              (ngSubmit)="saveEditForm(newProductForm.value, newProductForm)"
+              (ngSubmit)="saveEditProduct(newProductForm.value, newProductForm)"
               utocomplete="off" 
               novalidate>
             <div class="new-product__group" 

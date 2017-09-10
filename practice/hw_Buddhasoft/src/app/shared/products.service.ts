@@ -62,14 +62,14 @@ export class ProductsService {
         this.activeProduct = product;          
     }
 
-    saveEditForm(product: IProduct, imgUrl: string) {
+    saveEditProduct(product: IProduct, imgUrl: string) {
         product.id = this.activeProduct.id;
         product.imageUrl = imgUrl;
         this.productsData.splice(this.productsData.indexOf(this.activeProduct), 1, product);
         this.updateData(this.productsData);
     }
 
-    saveCreateForm(product: IProduct, imgUrl: string) {
+    saveProduct(product: IProduct, imgUrl: string) {
         this.productsData = this.initialData();
         product.id = this.productsData[this.productsData.length - 1].id + 1;
         product.imageUrl = imgUrl;
