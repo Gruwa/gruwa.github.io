@@ -1,13 +1,19 @@
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { 
+    AfterContentChecked, 
+    Component, 
+    OnInit 
+} from '@angular/core';
 
-import { ProductsService, IProduct } from './../shared'; 
+import { 
+    ProductsService, 
+    IProduct 
+} from './../shared'; 
 
 @Component({
     templateUrl: './products.component.html'
 })
-
-export class ProductsComponent implements OnInit {
+export class ProductsComponent implements OnInit, AfterContentChecked {
 
     products: IProduct[];
     
@@ -17,7 +23,11 @@ export class ProductsComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.products = this.productsService.getProducts();
+        this.productsService.getInitialData();
+    }
+    
+    ngAfterContentChecked() {
+        this.products = this.productsService.productsData;
     }
    
 }

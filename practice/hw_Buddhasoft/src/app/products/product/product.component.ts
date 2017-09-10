@@ -1,12 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { 
+    Component, 
+    OnInit 
+} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { ProductsService, IProduct } from './../../shared';
+import { 
+    ProductsService, 
+    IProduct 
+} from './../../shared';
 
 @Component({
     templateUrl: './product.component.html'
 })
-
 export class ProductComponent implements OnInit {
 
     product: IProduct;
@@ -17,18 +22,18 @@ export class ProductComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.product = this.productsService.getProduct(+this.activatedRoute.snapshot.params['id']);
+        this.product = this.productsService.getProductId(+this.activatedRoute.snapshot.params['id']);
     }
 
-    clickEditFunc() {
-        this.productsService.productEditFunc(this.product);
+    editButton() {
+        this.productsService.editButton(this.product);
     }
 
-    clickDeleteFunc() {
-        return this.productsService.verifyProduct = true;
+    deleteButton() {
+        return this.productsService.verifyEditForm = true;
     }
 
     verifyProduct() {
-        return this.productsService.verifyProduct;
+        return this.productsService.verifyEditForm;
     }
 }

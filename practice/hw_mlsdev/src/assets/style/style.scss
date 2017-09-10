@@ -1,0 +1,12 @@
+@import 'reset';
+@import 'font';
+@import 'color';
+@import './../../app/error/404.component.scss';
+@import './../../app/main-page/main-page.component.scss';
+
+body {
+    background: rgb(250, 250, 250);
+    color: rgba(0, 0, 0, 0.87);
+    font-family:'montserratbold';
+    font-size: 20px;
+}

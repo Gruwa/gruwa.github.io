@@ -1,0 +1,20 @@
+<div class="col-md-12 users__bands users__bands--information">
+
+    <img src="{{user?.avatar_url}}" alt="logo" class="users__logo users__logo--big col-md-6">
+    <div class="users__text-block users__text-block--information col-md-6">
+        <div  class="users__login users__login--information">
+            <span>Login:</span>
+            <span class="users__login--information--text">{{user?.login}}</span>
+        </div>
+        <div  class="users__name">
+            <span>Name:</span>
+            <span class="users__name--text">{{user?.name}}</span>
+        </div>
+        <div class="users__location users__location--information">
+            <span >Location:</span>
+            <span class="users__location--information--text">{{user?.location}}</span>            
+        </div>
+        <button type="button" class="btn-lg btn-info users__repo" [routerLink]="['/repos/repo']" (click)="repoFunc()">Repository</button>
+        <button type="button" class="btn-lg btn-default" [routerLink]="['/users']">Back</button>
+    </div>
+</div>

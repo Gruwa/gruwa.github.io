@@ -1,6 +1,5 @@
 <div *ngFor="let product of products" 
-     class="well hoverwell products__product" 
-     [routerLink]="['/products', product.id]">
-     
+    class="well hoverwell products__product" 
+    [routerLink]="['/products', product.id]">
     <span class="products__product-title">{{product.title}}</span>
 </div>

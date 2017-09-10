@@ -7,7 +7,8 @@ const helpers               = require('./helpers');
 const CopyWebpackPlugin     = require('copy-webpack-plugin');
 
 let {config: cssConfig}     = require('./webpack.common.css');
-let {config: scssConfig, 
+let {
+    config: scssConfig, 
     plugin: scssPlugin}     = require('./webpack.common.scss');
 let {config: imgConfig}     = require('./webpack.common.img');
 let {config: tsConfig}      = require('./webpack.common.ts');
@@ -61,6 +62,7 @@ module.exports = {
             new HtmlWebpackPlugin({
                 template: 'src/index.html'
             }),
+            new CopyWebpackPlugin([{ from: './src/assets/server', to: 'assets/server' }]),
             scssPlugin
             // svgPlugin
         );

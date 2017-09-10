@@ -3,18 +3,18 @@
     <div class="col-md-6">
                 <span class="new-product__title">Edit product</span>
         <form #newProductForm="ngForm"
-              (ngSubmit)="saveForm(newProductForm.value, newProductForm)"
+              (ngSubmit)="saveEditForm(newProductForm.value, newProductForm)"
               utocomplete="off" 
               novalidate>
             <div class="new-product__group" 
                  [ngClass]="{ 'new-product__error' : newProductForm.controls.title?.invalid 
                     && (newProductForm.controls.title?.touched) }">
                 <label for="title">Product Title:</label>
-                <input [ngModel]="product.title" 
+                <input [ngModel]="product?.title" 
                         name="title" 
                         required 
                         minlength="2"
-                        maxlength="15"
+                        maxlength="12"
                         id="title" 
                         type="text" 
                         class="form-control" 
@@ -24,7 +24,7 @@
                  [ngClass]="{ 'new-product__error' : newProductForm.controls.description?.invalid 
                     && (newProductForm.controls.description?.touched) }">
                 <label for="description">Description:</label>
-                <input [ngModel]="product.description" 
+                <input [ngModel]="product?.description" 
                        name="description" 
                        required 
                        minlength="2"
@@ -37,7 +37,7 @@
                  [ngClass]="{ 'new-product__error' : newProductForm.controls.price?.invalid 
                     && (newProductForm.controls.price?.touched) }">
                 <label for="price">Price:</label>
-                <input [ngModel]="product.price" 
+                <input [ngModel]="product?.price" 
                        name="price" 
                        required 
                        id="price" 
@@ -45,21 +45,22 @@
                        class="form-control" 
                        placeholder="price..." />
             </div>
-            <div class="new-product__group" 
-                 [ngClass]="{ 'new-product__error' : newProductForm.controls.imageUrl?.invalid 
-                    && (newProductForm.controls.imageUrl?.touched) }">
+            <div class="new-product__group">
                 <label for="imageUrl">Image:</label>
-                <input [ngModel]="product.imageUrl" 
-                       name="imageUrl" 
-                       required 
-                       pattern="https?://.+" 
+                <input name="imageUrl"  
                        id="imageUrl" 
-                       type="text" 
+                       type="file" 
                        class="form-control" 
-                       placeholder="url of image..." />
-                <img [src]="newProductForm.controls.imageUrl.value" 
-                     *ngIf="newProductForm.controls.imageUrl?.valid" 
-                     class="new-product__image"/>
+                       imageUpload
+                       (imageSelected)="selected($event)"
+                       [resizeOptions]="resizeOptions" />
+                <img [src]="imgUrl" 
+                     [hidden]="!imgUrl"
+                     class="new-product__image">
+                <img src="{{product?.imageUrl}}" 
+                     alt=""
+                     class="new-product__image"
+                     *ngIf="!imgUrl">
             </div>
             <button type="submit" 
                     class="btn btn-primary" 
@@ -68,7 +69,7 @@
             <button type="button" 
                     class="btn btn-warning" 
                     [routerLink]="['/products']"
-                    (click)="cancelForm(newProductForm)">Cancel</button>
+                    (click)="cancelEditForm(newProductForm)">Cancel</button>
         </form>
     </div>
     <div class="col-md-3"></div>
