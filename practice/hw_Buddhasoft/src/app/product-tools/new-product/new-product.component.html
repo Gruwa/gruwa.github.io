@@ -33,14 +33,15 @@
             <div class="new-product__group" 
                  >
                 <label for="imageUrl">Image:</label>
-                <input  
-                       id="imageUrl" 
+                <input id="imageUrl" 
                        type="file" 
                        class="form-control"
                        imageUpload
                        (imageSelected)="selected($event)"
                        [resizeOptions]="resizeOptions"/> 
-                <img [src]="src" [hidden]="!src">
+                <img [src]="imgUrl" 
+                     [hidden]="!imgUrl"
+                     class="new-product__image">
             </div>
             <button type="submit" class="btn btn-primary" [disabled]="productForm.invalid">Save</button>
             <button type="button" 

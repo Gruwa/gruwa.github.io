@@ -29,8 +29,7 @@ export class NewProductComponent implements OnInit {
     price: FormControl;
     imageUrl: FormControl;
     productForm: FormGroup;
-    src: string = "";
-    imgUrl: string;
+    imgUrl: string = "";
 
     resizeOptions: ResizeOptions = {
         resizeMaxHeight: 128,
@@ -68,10 +67,9 @@ export class NewProductComponent implements OnInit {
     }
     
     selected(imageResult?: ImageResult) {
-        this.src = imageResult.resized
+        this.imgUrl = imageResult.resized
                     && imageResult.resized.dataURL
                     || imageResult.dataURL;
-        this.imgUrl = imageResult.resized.dataURL;
     }
     
     cancelCrerateForm() {

@@ -89,8 +89,9 @@ export class ProductsService {
         this.verifyEditForm = verify;
     }
 
-    saveEditForm(product: IProduct) {
+    saveEditForm(product: IProduct, imgUrl: string) {
         product.id = this.activeProduct.id;
+        product.imageUrl = imgUrl;
         this.productsData.splice(this.productsData.indexOf(this.activeProduct), 1, product);
         this.getData(this.productsData);
     }

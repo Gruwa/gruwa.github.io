@@ -45,21 +45,22 @@
                        class="form-control" 
                        placeholder="price..." />
             </div>
-            <div class="new-product__group" 
-                 [ngClass]="{ 'new-product__error' : newProductForm.controls.imageUrl?.invalid 
-                    && (newProductForm.controls.imageUrl?.touched) }">
+            <div class="new-product__group">
                 <label for="imageUrl">Image:</label>
-                <input [ngModel]="product?.imageUrl" 
-                       name="imageUrl" 
-                       required 
-                       pattern="https?://.+" 
+                <input name="imageUrl"  
                        id="imageUrl" 
-                       type="text" 
+                       type="file" 
                        class="form-control" 
-                       placeholder="url of image..." />
-                <img [src]="newProductForm.controls.imageUrl.value" 
-                     *ngIf="newProductForm.controls.imageUrl?.valid" 
-                     class="new-product__image"/>
+                       imageUpload
+                       (imageSelected)="selected($event)"
+                       [resizeOptions]="resizeOptions" />
+                <img [src]="imgUrl" 
+                     [hidden]="!imgUrl"
+                     class="new-product__image">
+                <img src="{{product?.imageUrl}}" 
+                     alt=""
+                     class="new-product__image"
+                     *ngIf="!imgUrl">
             </div>
             <button type="submit" 
                     class="btn btn-primary" 
