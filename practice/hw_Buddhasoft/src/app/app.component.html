@@ -27,12 +27,16 @@
     <router-outlet></router-outlet>
 </main>
 
-<context-menu #products__menu>
+<context-menu *ngIf="router.url != '/tools/new' && router.url != '/tools/edit'">
     <ng-template contextMenuItem 
                  [visible]="true" 
                  [enabled]="true">SubMenu</ng-template>
     <ng-template contextMenuItem 
                  [divider]="true"></ng-template>
+    <ng-template contextMenuItem 
+                 [visible]="router.url != '/products'" 
+                 [enabled]="true" 
+                 (execute)="contextMenuMain()">Main page</ng-template>
     <ng-template contextMenuItem 
                  [visible]="true" 
                  [enabled]="true" 

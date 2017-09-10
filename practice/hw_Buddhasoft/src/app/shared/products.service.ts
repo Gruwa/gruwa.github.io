@@ -33,9 +33,9 @@ export class ProductsService {
 
     getInitialData() {
         if(localStorage.productsData != undefined) {
-          return  this.productsData = JSON.parse(localStorage.productsData);
+            return  this.productsData = JSON.parse(localStorage.productsData);
         } else {
-            this.dataServer('assets/server/data.json').subscribe(data => this.getData(data));
+            return this.dataServer('assets/server/data.json').subscribe(data => this.getData(data));
         }
     }
     
@@ -96,6 +96,7 @@ export class ProductsService {
     }
 
     saveCreateForm(product: IProduct) {
+        this.productsData = this.getInitialData();
         product.id = this.productsData[this.productsData.length - 1].id + 1;
         this.productsData.push(product);
         this.getData(this.productsData);    

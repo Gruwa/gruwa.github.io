@@ -25,6 +25,9 @@ export class EditProductComponent implements OnInit {
 
     ngOnInit() {
         this.product = this.productsService.activeProduct;
+        if(this.product === undefined) {
+            this.router.navigate(['/products']);
+        }
     }
     
     saveEditForm(formValues: IProduct, newProductForm: NgForm) {

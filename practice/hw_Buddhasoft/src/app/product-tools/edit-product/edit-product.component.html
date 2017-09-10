@@ -10,7 +10,7 @@
                  [ngClass]="{ 'new-product__error' : newProductForm.controls.title?.invalid 
                     && (newProductForm.controls.title?.touched) }">
                 <label for="title">Product Title:</label>
-                <input [ngModel]="product.title" 
+                <input [ngModel]="product?.title" 
                         name="title" 
                         required 
                         minlength="2"
@@ -24,7 +24,7 @@
                  [ngClass]="{ 'new-product__error' : newProductForm.controls.description?.invalid 
                     && (newProductForm.controls.description?.touched) }">
                 <label for="description">Description:</label>
-                <input [ngModel]="product.description" 
+                <input [ngModel]="product?.description" 
                        name="description" 
                        required 
                        minlength="2"
@@ -37,7 +37,7 @@
                  [ngClass]="{ 'new-product__error' : newProductForm.controls.price?.invalid 
                     && (newProductForm.controls.price?.touched) }">
                 <label for="price">Price:</label>
-                <input [ngModel]="product.price" 
+                <input [ngModel]="product?.price" 
                        name="price" 
                        required 
                        id="price" 
@@ -49,7 +49,7 @@
                  [ngClass]="{ 'new-product__error' : newProductForm.controls.imageUrl?.invalid 
                     && (newProductForm.controls.imageUrl?.touched) }">
                 <label for="imageUrl">Image:</label>
-                <input [ngModel]="product.imageUrl" 
+                <input [ngModel]="product?.imageUrl" 
                        name="imageUrl" 
                        required 
                        pattern="https?://.+" 

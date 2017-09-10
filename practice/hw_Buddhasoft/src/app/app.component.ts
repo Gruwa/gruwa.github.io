@@ -46,6 +46,10 @@ export class AppComponent implements OnInit {
         }, 3000);
     }
 
+    contextMenuMain() {
+        this.router.navigate(['/products']);
+    }
+
     link() {
         this.router.navigate(['/tools/new']);
     }
