@@ -31,10 +31,10 @@ export class ProductComponent implements OnInit {
     }
 
     deleteProduct() {
-        return this.productsService.verifyEditForm = true;
+        return this.productsService.deleteForm = true;
     }
 
     isDeleteFormOpened() {
-        return this.productsService.verifyEditForm;
+        return this.productsService.deleteForm;
     }
 }

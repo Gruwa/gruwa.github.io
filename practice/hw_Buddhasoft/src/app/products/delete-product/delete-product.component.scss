@@ -1,4 +1,4 @@
-.verify-product {
+.delete-product {
 
     &__wrapper {
         width: 450px;
@@ -7,7 +7,7 @@
         left: 50%;
         top: 167px;
         margin-left: -235px;
-        background-color: $verify-product__bacground;
+        background-color: $delete-product__bacground;
         border-radius: 10px;
         text-align: center;
         padding: 20px;
@@ -15,7 +15,7 @@
 
     &__title {
         margin-bottom: 20px;
-        color: $verify-product__color;
+        color: $delete-product__color;
         text-transform: uppercase;
         letter-spacing: 10px;
     }

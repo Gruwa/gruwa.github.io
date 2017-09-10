@@ -26,6 +26,6 @@ export class DeleteProductComponent {
     }
 
     closeForm() {
-        this.productsService.verifyEditForm = false;
+        this.productsService.deleteForm = false;
     }
 }

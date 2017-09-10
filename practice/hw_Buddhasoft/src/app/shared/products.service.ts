@@ -18,7 +18,7 @@ export interface IProduct {
 @Injectable()
 export class ProductsService {
 
-    verifyEditForm: boolean = false;
+    deleteForm: boolean = false;
     productsData: IProduct[];
     activeProduct: IProduct;
     public productEditData$ = new Subject<any>();
