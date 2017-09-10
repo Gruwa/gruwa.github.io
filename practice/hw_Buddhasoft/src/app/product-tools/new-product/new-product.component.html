@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container new-product">
     <div class="col-md-3"></div>
     <div class="col-md-6">
         <span class="new-product__title">New product</span>
@@ -9,6 +9,8 @@
             <div class="new-product__group" 
                  [ngClass]="{ 'new-product__error' : !validateTitle() }">
                 <label for="title">Product Title:</label>
+                <em *ngIf="productForm.controls.title?.invalid && productForm.controls.title?.touched"
+                    class="new-product__group__title">No more than 15 symbols</em>  
                 <input formControlName="title" 
                        id="title" 
                        type="text" 
@@ -17,6 +19,8 @@
             <div class="new-product__group" 
                  [ngClass]="{ 'new-product__error' : !validateDescription() }">
                 <label for="description">Description:</label>
+                <em *ngIf="productForm.controls.description?.invalid && productForm.controls.description?.touched"
+                class="new-product__group__description">Required</em>
                 <input formControlName="description" 
                        id="description" 
                        type="text" 
@@ -25,6 +29,8 @@
             <div class="new-product__group" 
                  [ngClass]="{ 'new-product__error' : !validatePrice() }">
                 <label for="price">Price:</label>
+                <em *ngIf="productForm.controls.price?.invalid && productForm.controls.price?.touched"
+                class="new-product__group__price">Required</em>
                 <input formControlName="price" 
                        id="price" 
                        type="number" 

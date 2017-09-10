@@ -1,5 +1,7 @@
 .new-product {
     
+    position: relative;
+
     &__title {
         margin-bottom: 30px;
         display: inline-block;
@@ -23,10 +25,35 @@
             text-align: left;
             display: block;
         }
+
+        &__title {
+            position: absolute;
+            font-size: 14px;
+            right: 15px;
+            top: 72px;
+            color: rgb(172, 112, 113);
+        }
+
+        &__description {
+            position: absolute;
+            font-size: 14px;
+            right: 15px;
+            top: 154px;
+            color: rgb(172, 112, 113);
+        }
+
+        &__price {
+            position: absolute;
+            font-size: 14px;
+            right: 15px;
+            top: 236px;
+            color: rgb(172, 112, 113);
+        }
     }
 
     &__image {
         margin-top: 30px;
     }
+
 }
     
