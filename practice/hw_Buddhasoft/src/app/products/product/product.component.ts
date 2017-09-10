@@ -26,15 +26,15 @@ export class ProductComponent implements OnInit {
         this.product = this.productsService.getProductById(+this.activatedRoute.snapshot.params['id']);
     }
 
-    editButton() {
-        this.productsService.editButton(this.product);
+    editProduct() {
+        this.productsService.editProduct(this.product);
     }
 
-    deleteButton() {
+    deleteProduct() {
         return this.productsService.verifyEditForm = true;
     }
 
-    verifyProduct() {
+    isDeleteFormOpened() {
         return this.productsService.verifyEditForm;
     }
 }

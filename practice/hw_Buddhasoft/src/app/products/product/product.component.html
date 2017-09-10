@@ -1,5 +1,5 @@
 <div class="container" 
-     *ngIf="!verifyProduct()" >    
+     *ngIf="!isDeleteFormOpened()" >    
     <div class="row product__title">
         <div class="col-md-12">
             <span class="product__title">{{product?.title}} </span>
@@ -25,13 +25,13 @@
             <button type="button" 
                     class="btn btn-info" 
                     [routerLink]="['/tools/edit']" 
-                    (click)="editButton()" >Edit product</button>
+                    (click)="editProduct()" >Edit product</button>
             <button type="button" 
                     class="btn btn-danger" 
-                    (click)="deleteButton()" >Delete product</button>
+                    (click)="deleteProduct()" >Delete product</button>
         </div>
     </div>
 </div>
-<verify-product *ngIf="verifyProduct()" 
+<verify-product *ngIf="isDeleteFormOpened()" 
                 [product]="product" > 
 </verify-product>

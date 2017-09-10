@@ -58,12 +58,8 @@ export class ProductsService {
         this.getData(this.productsData);
     }
     
-    editButton(product: IProduct) {
+    editProduct(product: IProduct) {
         this.activeProduct = product;          
-    }
-    
-    verifyProduct(verify: boolean) {
-        this.verifyEditForm = verify;
     }
 
     saveEditForm(product: IProduct, imgUrl: string) {
