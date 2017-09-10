@@ -72,7 +72,7 @@ export class NewProductComponent implements OnInit {
                     || imageResult.dataURL;
     }
     
-    cancelCrerateForm() {
+    cancelCreateForm() {
         this.productForm.reset();
     }
 

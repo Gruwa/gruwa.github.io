@@ -24,7 +24,7 @@ export class ProductsComponent implements OnInit, AfterContentChecked {
     }
 
     ngOnInit() {
-        this.productsService.getInitialData();
+        this.productsService.initialData();
     }
     
     ngAfterContentChecked() {

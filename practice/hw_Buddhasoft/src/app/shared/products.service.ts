@@ -29,11 +29,11 @@ export class ProductsService {
 
     }
 
-    getInitialData() {
+    initialData() {
         if(localStorage.productsData != undefined) {
             return  this.productsData = JSON.parse(localStorage.productsData);
         } else {
-            return this.dataServer('assets/server/data.json').subscribe(data => this.getData(data));
+            return this.dataServer('assets/server/data.json').subscribe(data => this.updateData(data));
         }
     }
     
@@ -42,20 +42,20 @@ export class ProductsService {
             .map(res => res.json());
     }
 
-    getData(data?: IProduct[]) {
+    updateData(data?: IProduct[]) {
         localStorage.setItem('productsData', JSON.stringify(data));
         let dataLoacalStorage = localStorage.getItem('productsData');
         this.productsData = JSON.parse(dataLoacalStorage);
     }
 
     getProductById(id:number) {
-        this.productsData = this.getInitialData()
+        this.productsData = this.initialData()
         return this.productsData.find(product => product.id === id);
     }
     
     deleteProduct(product: IProduct) {
         this.productsData.splice(this.productsData.indexOf(product), 1);
-        this.getData(this.productsData);
+        this.updateData(this.productsData);
     }
     
     editProduct(product: IProduct) {
@@ -66,15 +66,15 @@ export class ProductsService {
         product.id = this.activeProduct.id;
         product.imageUrl = imgUrl;
         this.productsData.splice(this.productsData.indexOf(this.activeProduct), 1, product);
-        this.getData(this.productsData);
+        this.updateData(this.productsData);
     }
 
     saveCreateForm(product: IProduct, imgUrl: string) {
-        this.productsData = this.getInitialData();
+        this.productsData = this.initialData();
         product.id = this.productsData[this.productsData.length - 1].id + 1;
         product.imageUrl = imgUrl;
         this.productsData.push(product);
-        this.getData(this.productsData);    
+        this.updateData(this.productsData);    
     }
 
 }
