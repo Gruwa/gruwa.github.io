@@ -50,12 +50,8 @@ export class ProductsService {
     }
 
     getProductId(id:number) {
-        if(this.productsData === undefined) {
-            this.router.navigate(['/404']) 
-            return;
-        } else {
-            return this.productsData.find(product => product.id === id);
-        }
+        this.productsData = this.getInitialData()
+        return this.productsData.find(product => product.id === id);
     }
     
     deleteProduct(product: IProduct) {
