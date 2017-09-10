@@ -10,14 +10,13 @@ import { ProductsService } from './index';
 @Injectable()
 export class EventRouteActivatorService implements CanActivate{
 
-    constructor(private productsService: ProductsService, 
-                private router:Router) { }
+    constructor(
+        private productsService: ProductsService, 
+        private router:Router) { }
 
     canActivate(route:ActivatedRouteSnapshot) {
 
         const eventExists = !!this.productsService.getProductId(+route.params['id']);
-        console.log(route.params['id']);
-        
 
         if(!eventExists) {
             this.router.navigate(['/404']);

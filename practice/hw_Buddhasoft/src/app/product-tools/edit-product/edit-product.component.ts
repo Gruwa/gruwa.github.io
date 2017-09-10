@@ -28,8 +28,9 @@ export class EditProductComponent implements OnInit {
         resizeMaxWidth: 128
     };
 
-    constructor(private productsService: ProductsService,
-                private router: Router) {
+    constructor(
+        private productsService: ProductsService,
+        private router: Router) {
 
     }
 

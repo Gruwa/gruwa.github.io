@@ -21,14 +21,13 @@ export class ProductsService {
     verifyEditForm: boolean = false;
     productsData: IProduct[];
     activeProduct: IProduct;
+    public productEditData$ = new Subject<any>();
+    public productNewData$ = new Subject<any>();
 
     constructor(private http: Http,
                 private router:Router) {
 
     }
-
-    public productEditData$ = new Subject<any>();
-    public productNewData$ = new Subject<any>();
 
     getInitialData() {
         if(localStorage.productsData != undefined) {

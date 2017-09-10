@@ -17,8 +17,9 @@ export class ProductsComponent implements OnInit, AfterContentChecked {
 
     products: IProduct[];
     
-    constructor(private productsService: ProductsService,
-                private router: Router ) {
+    constructor(
+        private productsService: ProductsService,
+        private router: Router ) {
 
     }
 

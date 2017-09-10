@@ -16,8 +16,9 @@ export class ProductComponent implements OnInit {
 
     product: IProduct;
 
-    constructor( private productsService: ProductsService,
-                 private activatedRoute: ActivatedRoute) {
+    constructor( 
+        private productsService: ProductsService,
+        private activatedRoute: ActivatedRoute) {
 
     }
 
