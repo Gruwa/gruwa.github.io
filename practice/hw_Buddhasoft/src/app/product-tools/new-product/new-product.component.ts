@@ -37,9 +37,7 @@ export class NewProductComponent implements OnInit {
 
     constructor(
         private productsService: ProductsService,
-        private router: Router) {
-
-    }
+        private router: Router) { }
     
     ngOnInit() {
         this.title = new FormControl('', [ Validators.required, 

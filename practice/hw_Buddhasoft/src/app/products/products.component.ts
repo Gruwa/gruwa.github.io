@@ -19,9 +19,7 @@ export class ProductsComponent implements OnInit, AfterContentChecked {
     
     constructor(
         private productsService: ProductsService,
-        private router: Router ) {
-
-    }
+        private router: Router ) { }
 
     ngOnInit() {
         this.productsService.initialData();

@@ -29,6 +29,4 @@ import {
 
     ]
 })
-export class ProductToolsModule {
-
-}
+export class ProductToolsModule { }

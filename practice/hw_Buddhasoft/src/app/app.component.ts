@@ -23,9 +23,7 @@ export class AppComponent implements OnInit {
     booleanNewData: boolean = false;
 
     constructor(private router: Router,
-                private productsService: ProductsService) {
-
-    }
+                private productsService: ProductsService) { }
 
     ngOnInit() {
         this.productsService.productEditData$.subscribe(this.productEditData$Observer.bind(this));

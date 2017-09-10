@@ -30,9 +30,7 @@ export class EditProductComponent implements OnInit {
 
     constructor(
         private productsService: ProductsService,
-        private router: Router) {
-
-    }
+        private router: Router) { }
 
     ngOnInit() {
         this.product = this.productsService.activeProduct;

@@ -16,9 +16,7 @@ export class DeleteProductComponent {
 
     @Input() product: IProduct;
 
-    constructor(private productsService: ProductsService) {
-
-    }
+    constructor(private productsService: ProductsService) { }
 
     deleteProduct() {
         this.productsService.deleteProduct(this.product);

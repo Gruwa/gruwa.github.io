@@ -24,10 +24,9 @@ export class ProductsService {
     public productEditData$ = new Subject<any>();
     public productNewData$ = new Subject<any>();
 
-    constructor(private http: Http,
-                private router:Router) {
-
-    }
+    constructor(
+        private http: Http,
+        private router:Router) { }
 
     initialData() {
         if(localStorage.productsData != undefined) {
