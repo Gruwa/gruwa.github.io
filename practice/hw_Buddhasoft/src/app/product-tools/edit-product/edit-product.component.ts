@@ -35,6 +35,7 @@ export class EditProductComponent implements OnInit {
 
     ngOnInit() {
         this.product = this.productsService.activeProduct;
+        
         if(this.product === undefined) {
             this.router.navigate(['/products']);
         }
@@ -44,13 +45,17 @@ export class EditProductComponent implements OnInit {
         this.imgUrl = imageResult.resized
                     && imageResult.resized.dataURL
                     || imageResult.dataURL;
+                    
     }
-
+                
     saveEditForm(formValues: IProduct, newProductForm: NgForm) {
+        if(this.imgUrl === '') {
+            this.imgUrl = this.product.imageUrl;
+        }
+
         this.productsService.saveEditForm(formValues, this.imgUrl);
         newProductForm.resetForm();
         this.link();
-        
         this.productsService.productEditData$.next(true);
     }
 

@@ -29,7 +29,6 @@ export class ProductsService {
 
     public productEditData$ = new Subject<any>();
     public productNewData$ = new Subject<any>();
-    public productData$ = new Subject<any>();
 
     getInitialData() {
         if(localStorage.productsData != undefined) {
@@ -58,23 +57,6 @@ export class ProductsService {
             return this.productsData.find(product => product.id === id);
         }
     }
-
-    // getProductId(id:number) {
-    //     let object = this.getInitialData();
-    //     for (var key in object) {
-            
-    //         if (object[key].id === id) {
-    //             console.log(object[key]);
-    //             return object[key];
-    //         } else {
-    //             this.router.navigate(['/404']);
-    //         }
-    //     }
-
-        
-    //         // let e = this.productsService.getInitialData().this.productsService.getProductId(+this.activatedRoute.snapshot.params['id'])
-    // }
-
     
     deleteProduct(product: IProduct) {
         this.productsData.splice(this.productsData.indexOf(product), 1);
