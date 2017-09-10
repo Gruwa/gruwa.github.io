@@ -9,7 +9,7 @@ import {
 } from '../../shared';
 
 @Component({
-    selector: 'delete-product',
+    selector: 'delete-product-popup',
     templateUrl: './delete-product.component.html'
 })
 export class DeleteProductComponent {
@@ -24,6 +24,6 @@ export class DeleteProductComponent {
     }
 
     closeForm() {
-        this.productsService.deleteForm = false;
+        this.productsService.showDeleteForm = false;
     }
 }

@@ -29,10 +29,10 @@ export class ProductComponent implements OnInit {
     }
 
     deleteProduct() {
-        return this.productsService.deleteForm = true;
+        return this.productsService.showDeleteForm = true;
     }
 
     isDeleteFormOpened() {
-        return this.productsService.deleteForm;
+        return this.productsService.showDeleteForm;
     }
 }

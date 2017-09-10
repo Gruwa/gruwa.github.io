@@ -18,7 +18,7 @@ export interface IProduct {
 @Injectable()
 export class ProductsService {
 
-    deleteForm: boolean = false;
+    showDeleteForm: boolean = false;
     productsData: IProduct[];
     activeProduct: IProduct;
     public productEditData$ = new Subject<any>();
@@ -68,7 +68,7 @@ export class ProductsService {
         this.updateData(this.productsData);
     }
 
-    saveProduct(product: IProduct, imgUrl: string) {
+    saveNewProduct(product: IProduct, imgUrl: string) {
         this.productsData = this.initialData();
         product.id = this.productsData[this.productsData.length - 1].id + 1;
         product.imageUrl = imgUrl;
