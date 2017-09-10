@@ -9,6 +9,10 @@ import {
     Component, 
     OnInit 
 } from '@angular/core';
+import { 
+    ImageResult, 
+    ResizeOptions 
+} from 'ng2-imageupload';
 
 import { 
     ProductsService, 
@@ -25,43 +29,51 @@ export class NewProductComponent implements OnInit {
     price: FormControl;
     imageUrl: FormControl;
     productForm: FormGroup;
+    src: string = "";
+    imgUrl: string;
+
+    resizeOptions: ResizeOptions = {
+        resizeMaxHeight: 128,
+        resizeMaxWidth: 128
+    };
 
     constructor(private productsService: ProductsService,
                 private router: Router) {
 
     }
-
+    
     ngOnInit() {
-        
         this.title = new FormControl('', [ Validators.required, 
-                                           Validators.minLength(2),
-                                           Validators.maxLength(15),]);
+            Validators.minLength(2),
+            Validators.maxLength(15),]);
         this.description = new FormControl('', [ Validators.required, 
-                                                 Validators.minLength(2)]);
+            Validators.minLength(2)]);
         this.price = new FormControl('', Validators.required);
-        this.imageUrl = new FormControl('', Validators.required);
-
-
         this.productForm = new FormGroup({
             title: this.title,
             description: this.description,
-            price: this.price,
-            imageUrl: this.imageUrl
+            price: this.price
         })
-        
+                
     }
-
+            
     saveCreateForm(formValues: IProduct, productForm: any) {
-
         if(this.productForm.valid) {
-            this.productsService.saveCreateForm(formValues);
+            this.productsService.saveCreateForm(formValues, this.imgUrl);
             this.productForm.reset();
             this.router.navigate(['/products']);
         }
 
         this.productsService.productNewData$.next(true);
     }
-
+    
+    selected(imageResult?: ImageResult) {
+        this.src = imageResult.resized
+                    && imageResult.resized.dataURL
+                    || imageResult.dataURL;
+        this.imgUrl = imageResult.resized.dataURL;
+    }
+    
     cancelCrerateForm() {
         this.productForm.reset();
     }
@@ -77,9 +89,4 @@ export class NewProductComponent implements OnInit {
     validatePrice() {
         return this.price.valid || this.price.untouched;
     }
-
-    validateImageUrl() {
-        return this.imageUrl.valid || this.imageUrl.untouched;
-    }
-
 }

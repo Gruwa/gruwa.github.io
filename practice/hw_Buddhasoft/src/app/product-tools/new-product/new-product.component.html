@@ -31,13 +31,16 @@
                        class="form-control"/>
             </div>
             <div class="new-product__group" 
-                 [ngClass]="{ 'new-product__error' : !validateImageUrl() }">
+                 >
                 <label for="imageUrl">Image:</label>
-                <input formControlName="imageUrl" 
+                <input  
                        id="imageUrl" 
-                       type="text"
-                       pattern="https?://.+" 
-                       class="form-control"/>
+                       type="file" 
+                       class="form-control"
+                       imageUpload
+                       (imageSelected)="selected($event)"
+                       [resizeOptions]="resizeOptions"/> 
+                <img [src]="src" [hidden]="!src">
             </div>
             <button type="submit" class="btn btn-primary" [disabled]="productForm.invalid">Save</button>
             <button type="button" 

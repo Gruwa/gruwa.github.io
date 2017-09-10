@@ -44,6 +44,7 @@
     "karma-jasmine": "^1.0.2",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.1",
+    "ng2-imageupload": "^1.4.2",
     "node-sass": "^4.5.3",
     "null-loader": "^0.1.1",
     "postcss-loader": "^2.0.6",

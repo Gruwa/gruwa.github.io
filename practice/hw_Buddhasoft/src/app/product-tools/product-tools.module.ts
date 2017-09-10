@@ -5,7 +5,7 @@ import {
     FormsModule,
     ReactiveFormsModule
 } from '@angular/forms';
-import { ImageUploadModule } from 'angular2-image-upload';
+import { ImageUploadModule } from 'ng2-imageupload';
 
 import {
     productToolsRoutes,
@@ -19,7 +19,7 @@ import {
         RouterModule.forChild(productToolsRoutes),
         FormsModule,
         ReactiveFormsModule,
-        ImageUploadModule.forRoot()
+        ImageUploadModule
     ],
     declarations: [
         NewProductComponent,

@@ -95,9 +95,10 @@ export class ProductsService {
         this.getData(this.productsData);
     }
 
-    saveCreateForm(product: IProduct) {
+    saveCreateForm(product: IProduct, imgUrl: string) {
         this.productsData = this.getInitialData();
         product.id = this.productsData[this.productsData.length - 1].id + 1;
+        product.imageUrl = imgUrl;
         this.productsData.push(product);
         this.getData(this.productsData);    
     }
