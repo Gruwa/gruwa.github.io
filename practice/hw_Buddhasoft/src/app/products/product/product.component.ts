@@ -23,7 +23,7 @@ export class ProductComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.product = this.productsService.getProductId(+this.activatedRoute.snapshot.params['id']);
+        this.product = this.productsService.getProductById(+this.activatedRoute.snapshot.params['id']);
     }
 
     editButton() {

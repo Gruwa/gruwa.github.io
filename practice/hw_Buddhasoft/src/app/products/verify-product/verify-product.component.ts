@@ -20,12 +20,12 @@ export class VerifyProductComponent {
 
     }
 
-    deleteVerifyForm() {
+    deleteProduct() {
         this.productsService.deleteProduct(this.product);
-        this.cancelVerifyForm();
+        this.closeForm();
     }
 
-    cancelVerifyForm() {
+    closeForm() {
         this.productsService.verifyEditForm = false;
     }
 }

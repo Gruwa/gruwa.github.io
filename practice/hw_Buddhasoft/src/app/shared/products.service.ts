@@ -48,7 +48,7 @@ export class ProductsService {
         this.productsData = JSON.parse(dataLoacalStorage);
     }
 
-    getProductId(id:number) {
+    getProductById(id:number) {
         this.productsData = this.getInitialData()
         return this.productsData.find(product => product.id === id);
     }
