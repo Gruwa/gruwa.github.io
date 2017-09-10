@@ -9,10 +9,10 @@ import {
 } from '../../shared';
 
 @Component({
-    selector: 'verify-product',
-    templateUrl: './verify-product.component.html'
+    selector: 'delete-product',
+    templateUrl: './delete-product.component.html'
 })
-export class VerifyProductComponent {
+export class DeleteProductComponent {
 
     @Input() product: IProduct;
 

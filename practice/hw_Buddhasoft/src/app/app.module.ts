@@ -16,7 +16,7 @@ import {
 import { 
     ProductsComponent, 
     ProductComponent,
-    VerifyProductComponent
+    DeleteProductComponent
 } from './products';
  
 @NgModule({
@@ -35,7 +35,7 @@ import {
         Error404Component,
         ProductsComponent,
         ProductComponent,
-        VerifyProductComponent
+        DeleteProductComponent
     ],
     providers: [
         ProductsService,
