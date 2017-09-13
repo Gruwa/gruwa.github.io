@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { Subject } from 'rxjs/Subject';;
+import { Subject } from 'rxjs/Subject';
 import { 
     Http, 
     Response 
