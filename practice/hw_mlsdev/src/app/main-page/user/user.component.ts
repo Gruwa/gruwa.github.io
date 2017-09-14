@@ -6,24 +6,27 @@ import { Router } from '@angular/router';
     selector: 'user',
     templateUrl: './user.component.html'
 })
-
 export class UserComponent {
 
-    dataUser: IData;
+    dataActiveUser: IData;
 
     @Input() user: IData;
 
-    constructor(private usersService: UsersService) {
-
-    }
+    constructor(private usersService: UsersService) { }
 
     ngOnInit() {
-        this.usersService.dataGit(this.user.url).subscribe(users => this.dataUser = users);
+        this.usersService.dataActiveUserFromGitApi(this.user.url).subscribe(user => this.dataActiveUser = user);
+    }
+    
+    activateUser() {
         this.usersService.userFunc(this.user);
+        this.usersService.activeUser$.next(this.dataActiveUser);
+        console.log('this.dataActiveUser', this.dataActiveUser);
+        
     }
 
-    dataUserFunc() {
-        this.usersService.userFunc(this.dataUser);
+    dataActiveUserFunc() {
+        // this.usersService.userFunc(this.dataActiveUser);
     }
 
 }

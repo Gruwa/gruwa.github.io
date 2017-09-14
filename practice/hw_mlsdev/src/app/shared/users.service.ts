@@ -10,34 +10,45 @@ export interface IData {
     location?: string;
     name?: string;
     repos_url?: string;
+    avatar_url?: string;
+    login?: string;
 }
 
 @Injectable()
 export class UsersService {
     
-    dataUrl: string;
-    user: IData;
-    repo: IData;
+    public activeUser$ = new Subject<any>();
+      
+    public dataGitUser$ = new Subject<any>();
     usersList: IData[];
+    dataUrl: string;
+    repo: IData;
 
     constructor(private http: Http) {
 
     }
 
-    dataGit(dataUrl?: string): Observable<IData[]> {
+    usersDataFromGitApi(dataUrl?: string): Observable<IData[]> {
         return this.http.get(dataUrl)
                 .map((response: Response) => <IData[]>response.json());
     }
 
+    dataActiveUserFromGitApi(dataUrl?: string): Observable<IData> {
+        return this.http.get(dataUrl)
+                .map((response: Response) => <IData>response.json());
+    }
+
+
+
     userFunc(user: IData) {
-        this.user = user
+        localStorage.setItem('activeUser', JSON.stringify(user));
     }
 
     getEvent(id:number) {
-        return this.user.id === id;
+        let activeUser = JSON.parse(localStorage.getItem('activeUser'))
+        return activeUser.id === id;
     }
 
-    public dataGitUser$ = new Subject<any>();
 
     gitUsersList(eventData: any) {
         this.usersList = eventData;
