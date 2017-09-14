@@ -61,6 +61,7 @@ module.exports = {
             new HtmlWebpackPlugin({
                 template: 'src/index.html'
             }),
+            new CopyWebpackPlugin([{ from: './src/assets/server', to: 'assets/server' }]),
             scssPlugin
             // svgPlugin
         );
