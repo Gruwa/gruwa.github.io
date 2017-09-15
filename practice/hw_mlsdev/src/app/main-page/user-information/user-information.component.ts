@@ -18,12 +18,8 @@ export class  UserInformationComponent {
         private activatedRoute: ActivatedRoute) { }
 
     ngOnInit() {
-        this.activeUser = this.usersService.getUserById(+this.activatedRoute.snapshot.params['id'])        
-    }
-
-    repoFunc() {
-        // this.usersService.repo = this.user;
-        // this.usersService.dataGitUser$.next(this.user);
+        this.activeUser = this.usersService.getUserById(+this.activatedRoute.snapshot.params['id'])
+        console.log(this.activeUser);
     }
 
 

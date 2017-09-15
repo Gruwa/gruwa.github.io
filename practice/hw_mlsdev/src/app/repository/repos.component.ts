@@ -1,45 +1,37 @@
-import { UsersService, IData } from '../shared';
+import { Router } from '@angular/router';
+import { 
+    UsersService, 
+    IData 
+} from '../shared';
 import { Component } from '@angular/core';
 
 @Component({
     templateUrl: './repos.component.html'
 })
-
 export class ReposComponent {
 
+    activeUser: IData;
     repos: IData[];
-    user: IData;
     
-    constructor(private usersService: UsersService) {
-
-    }
+    constructor(
+        private usersService: UsersService,
+        private router: Router) { }
 
     ngOnInit() {
-        this.usersService.dataGitUser$.subscribe(this.dataGitUserObserver.bind(this));
-        
-    }
-    
-    dataGitUserObserver(eventData: IData[]) {
-        console.log('repose', eventData);
-        
-        // this.usersService.gitUsersList(eventData);
-    }
-    
-    
-    click() {
-        // console.log(this.repos);
-        console.log('repos', this.usersService.usersList);
-        
-        
+      this.activeUser = this.usersService.getActiveUser();
+      this.usersService.usersDataFromGitApi(this.activeUser.repos_url)
+                       .subscribe(users => this.repos = users);
+      
     }
 
-    dataUserFunc() {
-
+    activeUserPage() {
+        this.router.navigate(['/users/' + this.activeUser.id]);
     }
 
-    ngOnDestroy() {
-        if (!!this.usersService.dataGitUser$.unsubscribe()) this.usersService.dataGitUser$.unsubscribe();
+    activationRepo(repo: IData) {
+        this.usersService.setActiveRepo(repo);
 
+        
     }
 
 

@@ -13,7 +13,8 @@ import {
 } from './main-page';
 import {
     UsersService,
-    EventRouteActivatorService
+    EventRouteActivatorService,
+    RepoRouteActivatorService
 } from './shared';
  
 @NgModule({
@@ -31,7 +32,8 @@ import {
     ],
     providers: [
         UsersService,
-        EventRouteActivatorService
+        EventRouteActivatorService,
+        RepoRouteActivatorService
     ],
     bootstrap: [ AppComponent ]
 })

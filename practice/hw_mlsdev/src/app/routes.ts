@@ -4,13 +4,9 @@ import { resolve } from 'path';
 import { Error404Component } from './error/404.component';
 import { 
     MainPageComponent,
-    UserComponent,
     UserInformationComponent
 } from './main-page';
-import { 
-    UsersService,
-    EventRouteActivatorService
-} from './shared';
+import { EventRouteActivatorService } from './shared';
 
 export const appRoutes:Routes = [
     

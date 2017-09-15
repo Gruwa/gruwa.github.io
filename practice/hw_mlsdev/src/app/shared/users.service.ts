@@ -12,6 +12,8 @@ export interface IData {
     repos_url?: string;
     avatar_url?: string;
     login?: string;
+    language?: string;
+    owner?: {};
 }
 
 @Injectable()
@@ -38,7 +40,7 @@ export class UsersService {
                 .map((response: Response) => <IData>response.json());
     }
 
-    activeUser(user: IData) {
+    setActiveUser(user: IData) {
         localStorage.setItem('activeUser', JSON.stringify(user));
     }
 
@@ -51,11 +53,26 @@ export class UsersService {
         }
     }
 
-    gitUsersList(eventData: any) {
-        this.usersList = eventData;
-        console.log('service', this.usersList);
+    getActiveUser() {
+       return JSON.parse(localStorage.getItem('activeUser'));
+    }
+
+    setActiveRepo(repo: IData) {
+        localStorage.setItem('activeRepo', JSON.stringify(repo));
+        console.log('df');
         
     }
+
+    getRepoById(id:number) {
+        let activeRepo = JSON.parse(localStorage.getItem('activeRepo'));
+        if(activeRepo.id === id) {
+            return activeRepo;
+        } else {
+            return false;
+        }
+    }
+
+
 
 
 }
