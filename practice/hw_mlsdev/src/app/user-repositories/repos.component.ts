@@ -18,12 +18,12 @@ export class ReposComponent {
         private router: Router) { }
 
     ngOnInit() {
-      this.activeUser = this.usersService.getActiveUser();
-      this.usersService.usersDataFromGitApi(this.activeUser.repos_url)
+        this.activeUser = this.usersService.getActiveUser();
+        this.usersService.usersDataFromGitApi(this.activeUser.repos_url)
                        .subscribe(users => this.repos = users);
-      
+        this.usersService.activeUser$.next(this.activeUser);
     }
-
+                    
     activeUserPage() {
         this.router.navigate(['/users/' + this.activeUser.id]);
     }

@@ -1,8 +1,17 @@
 <main>
-    <div class="container">
+    <div class="container main-page">
         <div class="row">
             <h1>Github Users</h1>
             <router-outlet></router-outlet>
+        </div>
+        <div class="main-page__user-info" *ngIf="showUserMiniIcon()">
+            <div class="users__band">
+                <img src="{{activeUser?.avatar_url}}" alt="logo" class="users__logo users__logo--main-page">
+                <div class="users__text-block users__text-block--main-page">
+                    <span class="users__login">{{activeUser?.login}}</span>
+
+                </div>
+            </div>
         </div>
     </div>
 </main>

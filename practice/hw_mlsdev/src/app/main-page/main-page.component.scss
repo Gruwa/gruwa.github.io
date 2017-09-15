@@ -1,3 +1,16 @@
+.main-page {
+
+    position: relative;
+
+    &__user-info {
+        position: absolute;
+        left: 0px;
+        top: -30px;
+        width: 150px;
+
+    }
+}
+
 .users {
 
     &__bands {
@@ -35,6 +48,11 @@
         &--information {
             padding-top: 30px;
             text-align: left;
+        }
+
+        &--main-page {
+            display: block;
+            margin-top: 10px;
         }
     }
     
@@ -79,6 +97,12 @@
         &--big {
             width: initial;
             height: initial;
+        }
+
+        &--main-page {
+            display: block;
+            float: left;
+            margin-right: 15px;
         }
     }
 
