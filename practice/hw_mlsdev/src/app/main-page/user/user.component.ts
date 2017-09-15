@@ -1,5 +1,11 @@
-import { IData, UsersService } from '../../shared';
-import { Component, Input } from '@angular/core';
+import { 
+    IData, 
+    UsersService 
+} from '../../shared';
+import { 
+    Component, 
+    Input 
+} from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -19,14 +25,6 @@ export class UserComponent {
     }
     
     activateUser() {
-        this.usersService.userFunc(this.user);
-        this.usersService.activeUser$.next(this.dataActiveUser);
-        console.log('this.dataActiveUser', this.dataActiveUser);
-        
+        this.usersService.activeUser(this.dataActiveUser);
     }
-
-    dataActiveUserFunc() {
-        // this.usersService.userFunc(this.dataActiveUser);
-    }
-
 }

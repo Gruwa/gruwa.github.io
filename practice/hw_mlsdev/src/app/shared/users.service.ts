@@ -38,17 +38,18 @@ export class UsersService {
                 .map((response: Response) => <IData>response.json());
     }
 
-
-
-    userFunc(user: IData) {
+    activeUser(user: IData) {
         localStorage.setItem('activeUser', JSON.stringify(user));
     }
 
-    getEvent(id:number) {
-        let activeUser = JSON.parse(localStorage.getItem('activeUser'))
-        return activeUser.id === id;
+    getUserById(id:number) {
+        let activeUser = JSON.parse(localStorage.getItem('activeUser'));
+        if(activeUser.id === id) {
+            return activeUser;
+        } else {
+            return false;
+        }
     }
-
 
     gitUsersList(eventData: any) {
         this.usersList = eventData;
