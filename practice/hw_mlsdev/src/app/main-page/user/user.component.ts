@@ -2,11 +2,11 @@ import {
     IData, 
     UsersService 
 } from '../../shared';
+
 import { 
     Component, 
     Input 
 } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
     selector: 'user',

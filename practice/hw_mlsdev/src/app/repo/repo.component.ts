@@ -4,12 +4,12 @@ import { ActivatedRoute } from '@angular/router';
 import { 
     UsersService, 
     IData 
-} from '../../shared';
+} from '../shared';
 
 @Component({
-    templateUrl: './repo-user.component.html'
+    templateUrl: './repo.component.html'
 })
-export class RepoUserComponent {
+export class RepoComponent {
 
     activeRepo: IData;
 
@@ -19,7 +19,7 @@ export class RepoUserComponent {
 
     ngOnInit() {
         this.activeRepo = this.usersService.getRepoById(+this.activatedRoute.snapshot.params['id']);
-        console.log(this.activeRepo);
+        console.log('this.activeRepo.owner', this.activeRepo.owner);
         
     }
 

@@ -1,7 +1,7 @@
 <div class="col-md-12 users__bands" >
     <h3 class="users__bands__title">Repositories</h3>
     <div *ngFor="let repo of repos">
-        <div class="users__band col-sm-6 col-md-12"  (click)="activationRepo(repo)"  [routerLink]="['/repos/repo', repo.id]" >
+        <div class="users__band col-sm-6 col-md-12"  (click)="activationRepo(repo)"  [routerLink]="['/repos', repo.id]" >
             <div class="users__text-block">
                 <span class="users__login users__login--repo">{{repo.name}}</span>
                 <span class="users__location">{{repo.language}}</span>

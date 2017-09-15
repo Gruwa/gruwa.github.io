@@ -16,6 +16,7 @@ import {
     EventRouteActivatorService,
     RepoRouteActivatorService
 } from './shared';
+import { RepoComponent } from './repo/repo.component';
  
 @NgModule({
     imports: [
@@ -28,7 +29,8 @@ import {
         MainPageComponent,
         UserComponent,
         UserInformationComponent,
-        Error404Component
+        Error404Component,
+        RepoComponent
     ],
     providers: [
         UsersService,

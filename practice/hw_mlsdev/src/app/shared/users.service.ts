@@ -59,7 +59,7 @@ export class UsersService {
 
     setActiveRepo(repo: IData) {
         localStorage.setItem('activeRepo', JSON.stringify(repo));
-        console.log('df');
+        console.log('df', localStorage);
         
     }
 
