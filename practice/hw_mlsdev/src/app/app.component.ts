@@ -30,8 +30,4 @@ export class AppComponent {
     activeUserObserver(eventData: IData) {
         this.activeUser = eventData;       
     }
-
-    showUserMiniIcon() {
-
-    }
 }

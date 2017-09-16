@@ -20,7 +20,7 @@ export class  UserInformationComponent {
 
     ngOnInit() {
         this.activeUser = this.usersService.getUserById(+this.activatedRoute.snapshot.params['id'])
-        console.log(this.activeUser);
+        this.usersService.activeUser$.next(this.activeUser);
     }
 
 

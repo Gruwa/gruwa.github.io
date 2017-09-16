@@ -21,7 +21,6 @@ export class ReposComponent {
         this.activeUser = this.usersService.getActiveUser();
         this.usersService.usersDataFromGitApi(this.activeUser.repos_url)
                        .subscribe(users => this.repos = users);
-        this.usersService.activeUser$.next(this.activeUser);
     }
                     
     activeUserPage() {
