@@ -22,9 +22,11 @@ export class UserComponent {
 
     ngOnInit() {
         this.usersService.dataActiveUserFromGitApi(this.user.url).subscribe(user => this.dataActiveUser = user);
+        
     }
     
     activateUser() {
         this.usersService.setActiveUser(this.dataActiveUser);
+        console.log('this.dataActiveUser', this.dataActiveUser);
     }
 }

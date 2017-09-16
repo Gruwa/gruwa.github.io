@@ -30,4 +30,8 @@ export class AppComponent {
     activeUserObserver(eventData: IData) {
         this.activeUser = eventData;       
     }
+
+    activeUserPage() {
+        this.router.navigate(['/users/' + this.activeUser.id]);
+    }
 }
