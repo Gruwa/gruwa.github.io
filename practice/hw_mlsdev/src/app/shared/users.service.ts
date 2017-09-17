@@ -59,8 +59,6 @@ export class UsersService {
 
     setActiveRepo(repo: IData) {
         localStorage.setItem('activeRepo', JSON.stringify(repo));
-        console.log('df', localStorage);
-        
     }
 
     getRepoById(id:number) {

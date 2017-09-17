@@ -27,6 +27,5 @@ export class UserComponent {
     
     activateUser() {
         this.usersService.setActiveUser(this.dataActiveUser);
-        console.log('this.dataActiveUser', this.dataActiveUser);
     }
 }

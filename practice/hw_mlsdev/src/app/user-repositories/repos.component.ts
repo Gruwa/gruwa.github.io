@@ -29,8 +29,6 @@ export class ReposComponent {
 
     activationRepo(repo: IData) {
         this.usersService.setActiveRepo(repo);
-        console.log('repo', repo);
-        
     }
 
 

@@ -19,8 +19,6 @@ export class RepoComponent {
 
     ngOnInit() {
         this.activeRepo = this.usersService.getRepoById(+this.activatedRoute.snapshot.params['id']);
-        console.log('this.activeRepo.owner', this.activeRepo.owner);
-        
     }
 
     
