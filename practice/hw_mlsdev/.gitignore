@@ -3,5 +3,6 @@ npm-debug.log*
 tmp
 .sass-cache
 .idea
+dist
+.awcache
 dop
-build

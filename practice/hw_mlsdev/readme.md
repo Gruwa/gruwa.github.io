@@ -1,0 +1,1 @@
+Clean build on Webpack 3+ for starting work with Angular 2+

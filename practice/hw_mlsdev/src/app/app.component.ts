@@ -21,7 +21,7 @@ export class AppComponent {
 
     constructor(
         private usersService: UsersService,
-        private router: Router) { }
+        public router: Router) { }
 
     ngOnInit() {
         this.usersService.activeUser$.subscribe(this.activeUserObserver.bind(this));

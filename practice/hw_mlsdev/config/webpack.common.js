@@ -7,10 +7,11 @@ const helpers               = require('./helpers');
 const CopyWebpackPlugin     = require('copy-webpack-plugin');
 
 let {config: cssConfig}     = require('./webpack.common.css');
-let {config: scssConfig, 
-    plugin: scssPlugin}     = require('./webpack.common.scss');
+let {
+    config: scssConfig, 
+    plugin: scssPlugin
+}                           = require('./webpack.common.scss');
 let {config: imgConfig}     = require('./webpack.common.img');
-let {config: tsConfig}      = require('./webpack.common.ts');
 // let {config: svgConfig}     = require('./webpack.common.svg');
 let {config: fontConfig}    = require('./webpack.common.font');
 
@@ -24,26 +25,25 @@ let rulesConfig = [
 rulesConfig.push(cssConfig);
 rulesConfig.push(scssConfig);
 rulesConfig.push(imgConfig);
-rulesConfig.push(tsConfig);
 // rulesConfig.push(svgConfig);
 rulesConfig.push(fontConfig);
 
 module.exports = {
-  entry: {
-    'polyfills': './src/polyfills.ts',
-    'vendor': './src/vendor.ts',
-    'app': './src/main.ts'
-  },
+    entry: {
+        'polyfills': './src/polyfills.ts',
+        'vendor': './src/vendor.ts',
+        'app': './src/main.ts'
+    },
 
-  resolve: {
-    extensions: ['.ts', '.js', '.json', '.jsx', '.css', '.scss', '.html', '.svg']
-  },
+    resolve: {
+        extensions: ['.ts', '.js', '.json', '.jsx', '.css', '.scss', '.html', '.svg']
+    },
 
-  module: {
+    module: {
         rules: rulesConfig
     },
 
-    plugins: (function() {
+    plugins: (function () {
 
         let plugins = [];
 
@@ -61,11 +61,12 @@ module.exports = {
             new HtmlWebpackPlugin({
                 template: 'src/index.html'
             }),
+            new CopyWebpackPlugin([{ from: './src/assets/server', to: 'assets/server' }]),
             scssPlugin
             // svgPlugin
         );
 
         return plugins;
-        
-    }()),
+
+    }())
 };
