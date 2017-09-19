@@ -5,7 +5,8 @@
             <router-outlet></router-outlet>
         </div>
         <div class="main-page__user-info row" *ngIf="router.url != '/users'" (click)="activeUserPage()">
-            <img src="{{activeUser?.avatar_url}}" alt="logo" class="users__logo users__logo--main-page">
+            <img src="{{activeUser?.avatar_url}}" alt="logo" class="users__logo users__logo--main-page" *ngIf="activeUser?.avatar_url != undefined">
+            <div [innerHTML]="svg" class="users__logo users__logo--main-page" *ngIf="activeUser?.avatar_url === undefined"></div>
             <div class="users__text-block users__text-block--main-page  col-md-6">
                 <span class="users__login">{{activeUser?.login}}</span>
             </div>

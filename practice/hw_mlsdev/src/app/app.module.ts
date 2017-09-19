@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
+import { InlineSVGModule } from 'ng-inline-svg';
+
 import { appRoutes } from './routes'; 
 import { AppComponent } from './app.component';
 import { Error404Component } from './error/404.component';
@@ -22,7 +24,8 @@ import { RepoComponent } from './repo/repo.component';
     imports: [
         BrowserModule,
         RouterModule.forRoot(appRoutes),
-        HttpModule
+        HttpModule,
+        InlineSVGModule.forRoot({ baseUrl: './assets/img/svg' })
     ],
     declarations: [
         AppComponent,

@@ -1,18 +1,20 @@
 'use strict';
 
-const webpack    = require('webpack');
-const path       = require('path');
-// const ExtractTextPlugin     = require("extract-text-webpack-plugin");
-// const SpritePlugin = require('svg-sprite-loader/plugin');
-// const SvgSpritePlugin = require('webpack-svg-sprite-plugin');
+const webpack               = require('webpack');
+const path                  = require('path');
+
+
 
 
 module.exports = {
-    config: {
-      test: /\.svg$/,
-      use: [
-        'svg-sprite-loader',
-        'svgo-loader'
-      ]
-    }
+    config:{
+        test: /\.svg$/,
+        loader: 'svg-sprite-loader',
+        options: {
+          runtimeCompat: true
+        }
+      }
+    // plugin: [
+    //     new SpriteLoaderPlugin()
+    //   ]
 };
