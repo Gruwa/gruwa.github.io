@@ -22,8 +22,9 @@ export class AppComponent implements OnInit {
     isProductEdited: boolean = false;
     isProductCreated: boolean = false;
 
-    constructor(private router: Router,
-                private productsService: ProductsService) { }
+    constructor(
+        private router: Router,
+        private productsService: ProductsService) { }
 
     ngOnInit() {
         this.productsService.productEditData$.subscribe(this.isProductEdited$Observer.bind(this));

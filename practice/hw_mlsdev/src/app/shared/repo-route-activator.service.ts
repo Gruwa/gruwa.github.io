@@ -8,7 +8,7 @@ import { Injectable } from '@angular/core';
 import { UsersService } from './';
 
 @Injectable()
-export class EventRouteActivatorService implements CanActivate{
+export class RepoRouteActivatorService implements CanActivate{
 
     constructor(
         private usersService: UsersService, 
@@ -16,12 +16,12 @@ export class EventRouteActivatorService implements CanActivate{
 
     canActivate(route:ActivatedRouteSnapshot) {
 
-        const eventExists = !!this.usersService.getUserById(+route.params['id']);
+        const repoExists = !!this.usersService.getRepoById(+route.params['id']);
 
-        if(!eventExists) {
+        if(!repoExists) {
             this.router.navigate(['/404']);
         }
 
-        return eventExists;
+        return repoExists;
     }
 }

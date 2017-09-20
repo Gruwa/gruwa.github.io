@@ -4,8 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { 
     reposRoutes,
-    ReposComponent,
-    RepoUserComponent
+    ReposComponent
 } from './';
 
 @NgModule({
@@ -14,8 +13,7 @@ import {
         RouterModule.forChild(reposRoutes)
     ],
     declarations: [
-        ReposComponent,
-        RepoUserComponent
+        ReposComponent
     ],
     providers: [
 

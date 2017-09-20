@@ -1,29 +1,31 @@
-import { IData, UsersService } from '../../shared';
-import { Component, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { 
+    IData, 
+    UsersService 
+} from '../../shared';
+
+import { 
+    Component, 
+    Input 
+} from '@angular/core';
 
 @Component({
     selector: 'user',
     templateUrl: './user.component.html'
 })
-
 export class UserComponent {
 
-    dataUser: IData;
+    dataActiveUser: IData;
 
     @Input() user: IData;
 
-    constructor(private usersService: UsersService) {
-
-    }
+    constructor(private usersService: UsersService) { }
 
     ngOnInit() {
-        this.usersService.dataGit(this.user.url).subscribe(users => this.dataUser = users);
-        this.usersService.userFunc(this.user);
+        this.usersService.dataActiveUserFromGitApi(this.user.url).subscribe(user => this.dataActiveUser = user);
+        
     }
-
-    dataUserFunc() {
-        this.usersService.userFunc(this.dataUser);
+    
+    activateUser() {
+        this.usersService.setActiveUser(this.dataActiveUser);
     }
-
 }

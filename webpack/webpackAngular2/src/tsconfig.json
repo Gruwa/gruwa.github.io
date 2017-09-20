@@ -5,9 +5,7 @@
     "sourceMap": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "lib": ["es2015", "dom"],
-    "module": "commonjs",
-    "noImplicitAny": true,
+    "module": "es2015",
     "suppressImplicitAnyIndexErrors": true,
     "types": [
             // add node as an option
@@ -20,8 +18,34 @@
     "typeRoots": [
       "../node_modules/@types"
     ],
-    "exclude": [
-    "../node_modules"
-    ]
+    "declaration": false,
+    "removeComments": false,
+    "noImplicitAny": false,
+    "skipLibCheck": true,
+    "lib": ["es6", "dom"]    
+  },
+  "compileOnSave": false,
+  "buildOnSave": false,
+  "exclude": [
+      "node_modules/*",
+      "dist/*",
+      "dist-serve/*",
+      "node/*",
+      "**/*.spec.ts"
+  ],
+//root ./src
+  "include": [
+      "./src/**/*"
+  ],
+//loader для webpack
+  "awesomeTypescriptLoaderOptions": {
+      "forkChecker": true,
+      "useWebpackText": true,
+      "useCache": true
+  },
+//AoT
+  "angularCompilerOptions": {
+      "genDir": ".",
+      "skipMetadataEmit" : true
   }
 }

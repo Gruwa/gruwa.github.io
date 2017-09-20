@@ -5,20 +5,48 @@
     "sourceMap": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "lib": ["es2015", "dom"],
-    "module": "commonjs",
-    "noImplicitAny": true,
+    "module": "es2015",
     "suppressImplicitAnyIndexErrors": true,
     "types": [
             // add node as an option
-      "node",
-      "jasmine",
-      "source-map",
-      "uglify-js",
-      "webpack"
+        "node",
+        "jasmine",
+        "source-map",
+        "uglify-js",
+        "webpack"
     ],
     "typeRoots": [
-      "../node_modules/@types"
-    ]
-  }
+        "../node_modules/@types"
+    ],
+    "declaration": false,
+    "removeComments": false,
+    "noImplicitAny": false,
+    "skipLibCheck": true,
+    "lib": ["es6", "dom"]    
+    },
+    "compileOnSave": false,
+    "buildOnSave": false,
+    // исключения
+    "exclude": [
+        "node_modules/*",
+        "dist/*",
+        "dist-serve/*",
+        "node/*",
+        "**/*.spec.ts"
+    ],
+    //root ./src
+    "include": [
+        "./**/*"
+    ],
+    //loader для webpack
+    "awesomeTypescriptLoaderOptions": {
+        "forkChecker": true,
+        "useWebpackText": true,
+        "useCache": true
+    },
+    //AoT
+    "angularCompilerOptions": {
+        "genDir": ".",
+        "skipMetadataEmit" : true
+    }
 }

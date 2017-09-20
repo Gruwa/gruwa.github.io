@@ -2,16 +2,21 @@
 
 const webpack               = require('webpack');
 const HtmlWebpackPlugin     = require('html-webpack-plugin');
-const ExtractTextPlugin     = require('extract-text-webpack-plugin');
+// const ExtractTextPlugin     = require('extract-text-webpack-plugin');
 const helpers               = require('./helpers');
 const CopyWebpackPlugin     = require('copy-webpack-plugin');
+// const SpriteLoaderPlugin    = require('svg-sprite-loader/plugin');
 
 let {config: cssConfig}     = require('./webpack.common.css');
-let {config: scssConfig, 
-    plugin: scssPlugin}     = require('./webpack.common.scss');
+let {
+    config: scssConfig, 
+    plugin: scssPlugin
+}                           = require('./webpack.common.scss');
 let {config: imgConfig}     = require('./webpack.common.img');
-let {config: tsConfig}      = require('./webpack.common.ts');
-// let {config: svgConfig}     = require('./webpack.common.svg');
+// let {
+//     config: svgConfig,
+//     plugin: svgPlugin
+// }                           = require('./webpack.common.svg');
 let {config: fontConfig}    = require('./webpack.common.font');
 
 let rulesConfig = [
@@ -24,26 +29,25 @@ let rulesConfig = [
 rulesConfig.push(cssConfig);
 rulesConfig.push(scssConfig);
 rulesConfig.push(imgConfig);
-rulesConfig.push(tsConfig);
 // rulesConfig.push(svgConfig);
 rulesConfig.push(fontConfig);
 
 module.exports = {
-  entry: {
-    'polyfills': './src/polyfills.ts',
-    'vendor': './src/vendor.ts',
-    'app': './src/main.ts'
-  },
+    entry: {
+        'polyfills': './src/polyfills.ts',
+        'vendor': './src/vendor.ts',
+        'app': './src/main.ts'
+    },
 
-  resolve: {
-    extensions: ['.ts', '.js', '.json', '.jsx', '.css', '.scss', '.html', '.svg']
-  },
+    resolve: {
+        extensions: ['.ts', '.js', '.json', '.jsx', '.css', '.scss', '.html', '.svg']
+    },
 
-  module: {
+    module: {
         rules: rulesConfig
     },
 
-    plugins: (function() {
+    plugins: (function () {
 
         let plugins = [];
 
@@ -61,11 +65,14 @@ module.exports = {
             new HtmlWebpackPlugin({
                 template: 'src/index.html'
             }),
+            new CopyWebpackPlugin([{ 
+                from: './src/assets/server', to: 'assets/server' 
+            }]),
+            // new SpriteLoaderPlugin(),
             scssPlugin
-            // svgPlugin
         );
 
         return plugins;
-        
-    }()),
+
+    }())
 };

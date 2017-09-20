@@ -1,29 +1,26 @@
-import { IData, UsersService } from '../../shared';
+import { ActivatedRoute } from '@angular/router';
 import { Component } from '@angular/core';
+
+import { 
+    IData, 
+    UsersService 
+} from '../../shared';
 
 @Component({
     templateUrl: './user-information.component.html'
 })
-
 export class  UserInformationComponent {
 
-    user: IData;
+    activeUser: IData;
     repos: IData[];
 
-    constructor(private usersService: UsersService) {
+    constructor(
+        private usersService: UsersService,
+        private activatedRoute: ActivatedRoute) { }
 
-    }
-    
     ngOnInit() {
-        this.user = this.usersService.user; 
-        // console.log('user-info',this.usersService.user);
-        // this.usersService.dataGit(this.usersService.user.repos_url).subscribe(info => this.repos = info)
-        // this.usersService.dataGitUser$.next(this.usersService.user); 
-    }
-
-    repoFunc() {
-        this.usersService.repo = this.user;
-        this.usersService.dataGitUser$.next(this.user);
+        this.activeUser = this.usersService.getUserById(+this.activatedRoute.snapshot.params['id'])
+        this.usersService.activeUser$.next(this.activeUser);
     }
 
 

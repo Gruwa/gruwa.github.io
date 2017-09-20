@@ -10,40 +10,67 @@ export interface IData {
     location?: string;
     name?: string;
     repos_url?: string;
+    avatar_url?: string;
+    login?: string;
+    language?: string;
+    owner?: {};
 }
 
 @Injectable()
 export class UsersService {
     
-    dataUrl: string;
-    user: IData;
-    repo: IData;
+    public activeUser$ = new Subject<any>();
+      
+    public dataGitUser$ = new Subject<any>();
     usersList: IData[];
+    dataUrl: string;
+    repo: IData;
 
     constructor(private http: Http) {
 
     }
 
-    dataGit(dataUrl?: string): Observable<IData[]> {
+    usersDataFromGitApi(dataUrl?: string): Observable<IData[]> {
         return this.http.get(dataUrl)
                 .map((response: Response) => <IData[]>response.json());
     }
 
-    userFunc(user: IData) {
-        this.user = user
+    dataActiveUserFromGitApi(dataUrl?: string): Observable<IData> {
+        return this.http.get(dataUrl)
+                .map((response: Response) => <IData>response.json());
     }
 
-    getEvent(id:number) {
-        return this.user.id === id;
+    setActiveUser(user: IData) {
+        localStorage.setItem('activeUser', JSON.stringify(user));
     }
 
-    public dataGitUser$ = new Subject<any>();
-
-    gitUsersList(eventData: any) {
-        this.usersList = eventData;
-        console.log('service', this.usersList);
-        
+    getUserById(id:number) {
+        let activeUser = JSON.parse(localStorage.getItem('activeUser'));
+        if(activeUser.id === id) {
+            return activeUser;
+        } else {
+            return false;
+        }
     }
+
+    getActiveUser() {
+       return JSON.parse(localStorage.getItem('activeUser'));
+    }
+
+    setActiveRepo(repo: IData) {
+        localStorage.setItem('activeRepo', JSON.stringify(repo));
+    }
+
+    getRepoById(id:number) {
+        let activeRepo = JSON.parse(localStorage.getItem('activeRepo'));
+        if(activeRepo.id === id) {
+            return activeRepo;
+        } else {
+            return false;
+        }
+    }
+
+
 
 
 }
