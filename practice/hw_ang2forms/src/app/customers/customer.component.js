@@ -11,6 +11,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
 var customer_1 = require("./customer");
+function ratingRange(c) {
+    if (c.value !== undefined && (isNaN(c.value) || c.value < 1 || c.value > 5)) {
+        return { 'range': true };
+    }
+    ;
+    return null;
+}
 var CustomerComponent = (function () {
     function CustomerComponent(fb) {
         this.fb = fb;
@@ -18,16 +25,29 @@ var CustomerComponent = (function () {
     }
     CustomerComponent.prototype.ngOnInit = function () {
         this.customerForm = this.fb.group({
-            firstName: '',
-            secondName: { value: 'n/a', disabled: true },
-            lastName: '',
-            email: '',
-            sendCatalog: true
+            firstName: ['', [forms_1.Validators.required, forms_1.Validators.minLength(3)]],
+            secondName: [{ value: 'n/a', disabled: true }, forms_1.Validators.required],
+            lastName: ['', [forms_1.Validators.required, forms_1.Validators.maxLength(50)]],
+            email: ['', [forms_1.Validators.required, forms_1.Validators.pattern('[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+')]],
+            phone: [''],
+            notification: 'email',
+            rating: '',
+            sendCatalog: [true]
         });
     };
+    CustomerComponent.prototype.setNotification = function (notif) {
+        var phoneControl = this.customerForm.get('phone');
+        if (notif === 'text') {
+            phoneControl.setValidators(forms_1.Validators.required);
+        }
+        else {
+            phoneControl.clearValidators();
+        }
+        phoneControl.updateValueAndValidity();
+    };
     CustomerComponent.prototype.save = function () {
-        console.log(this.cusomerForm);
-        console.log('Saved: ' + JSON.stringify(this.cusomerForm.value));
+        // console.log(this.cusomerForm);
+        // console.log('Saved: ' + JSON.stringify(this.cusomerForm.value));
     };
     return CustomerComponent;
 }());
