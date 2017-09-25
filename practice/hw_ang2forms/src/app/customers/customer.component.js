@@ -31,7 +31,7 @@ var CustomerComponent = (function () {
             email: ['', [forms_1.Validators.required, forms_1.Validators.pattern('[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+')]],
             phone: [''],
             notification: 'email',
-            rating: '',
+            rating: ['', ratingRange],
             sendCatalog: [true]
         });
     };
