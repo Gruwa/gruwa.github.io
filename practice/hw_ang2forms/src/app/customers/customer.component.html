@@ -82,7 +82,8 @@
                     </div>
                 </div>
 
-                <div formGroupName="emailGroup">
+                <div formGroupName="emailGroup"
+                     [ngClass]="{'has-error': customerForm.get('emailGroup').errors}">
                     <div class="form-group"
                          [ngClass]="{'has-error': (customerForm.controls.emailGroup.controls.email.touched 
                                                    || customerForm.get('emailGroup.email').dirty) 
