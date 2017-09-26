@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import {
+    Component,
+    OnInit
+} from '@angular/core';
+import { AbstractControl, FormArray, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import 'rxjs/add/operator/debounceTime';
 
 import { Customer } from './customer';
 
@@ -38,10 +42,20 @@ function ratingRange(min: number, max: number): ValidatorFn {
 export class CustomerComponent implements OnInit {
     customerForm: FormGroup;
     customer: Customer= new Customer();
+    emailMessage: string;
+
+    get address(): FormArray{
+        return <FormArray>this.customerForm.get('addresses');
+    }
+
+    private validationMessages = {
+        required: 'Please enter your email address.',
+        pattern: 'Please enter a valid email address.'
+    };
 
     constructor(private fb: FormBuilder) { }
 
-    ngOnInit() {
+    ngOnInit(): void {
         this.customerForm = this.fb.group({
             firstName: [ '', [Validators.required, Validators.minLength(3)] ],
             secondName: [ { value: 'n/a', disabled: true }, Validators.required ],
@@ -53,8 +67,27 @@ export class CustomerComponent implements OnInit {
             phone: [ '' ],
             notification: 'email',
             rating: [ '', ratingRange(1, 7) ],
-            sendCatalog: [ true ]
+            sendCatalog: [ true ],
+            addresses: this.fb.array([ this.buildAddress() ])
         });
+
+        this.customerForm.get('notification')
+                         .valueChanges
+                         .subscribe(value => this.setNotification(value));
+
+        const emailControl = this.customerForm.get('emailGroup.email');
+        emailControl.valueChanges.debounceTime(2000).subscribe(value => this.setMessage(emailControl));
+    }
+
+    buildAddress(): FormGroup {
+        return this.fb.group({
+            addressType: 'home',
+            street1: '',
+            street2: '',
+            city: '',
+            state: '',
+            zip: ''
+        })
     }
 
     setNotification(notif: string): void {
@@ -67,8 +100,17 @@ export class CustomerComponent implements OnInit {
         phoneControl.updateValueAndValidity();
     }
 
+    setMessage(c: AbstractControl): void {
+        this.emailMessage = '';
+        if ((c.touched || c.dirty) && c.errors) {
+            this.emailMessage = Object.keys(c.errors)
+                                      .map(key => this.validationMessages[key])
+                                      .join('');
+        }
+    }
+
     save() {
-        // console.log(this.cusomerForm);
-        // console.log('Saved: ' + JSON.stringify(this.cusomerForm.value));
+        console.log(this.customerForm);
+        console.log('Saved: ' + JSON.stringify(this.customerForm.value));
     }
  }

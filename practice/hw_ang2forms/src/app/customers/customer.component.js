@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
+require("rxjs/add/operator/debounceTime");
 var customer_1 = require("./customer");
 function emailMatcher(c) {
     var emailControl = c.get('email');
@@ -35,8 +36,20 @@ var CustomerComponent = (function () {
     function CustomerComponent(fb) {
         this.fb = fb;
         this.customer = new customer_1.Customer();
+        this.validationMessages = {
+            required: 'Please enter your email address.',
+            pattern: 'Please enter a valid email address.'
+        };
     }
+    Object.defineProperty(CustomerComponent.prototype, "address", {
+        get: function () {
+            return this.customerForm.get('addresses');
+        },
+        enumerable: true,
+        configurable: true
+    });
     CustomerComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this.customerForm = this.fb.group({
             firstName: ['', [forms_1.Validators.required, forms_1.Validators.minLength(3)]],
             secondName: [{ value: 'n/a', disabled: true }, forms_1.Validators.required],
@@ -48,7 +61,23 @@ var CustomerComponent = (function () {
             phone: [''],
             notification: 'email',
             rating: ['', ratingRange(1, 7)],
-            sendCatalog: [true]
+            sendCatalog: [true],
+            addresses: this.fb.array([this.buildAddress()])
+        });
+        this.customerForm.get('notification')
+            .valueChanges
+            .subscribe(function (value) { return _this.setNotification(value); });
+        var emailControl = this.customerForm.get('emailGroup.email');
+        emailControl.valueChanges.debounceTime(2000).subscribe(function (value) { return _this.setMessage(emailControl); });
+    };
+    CustomerComponent.prototype.buildAddress = function () {
+        return this.fb.group({
+            addressType: 'home',
+            street1: '',
+            street2: '',
+            city: '',
+            state: '',
+            zip: ''
         });
     };
     CustomerComponent.prototype.setNotification = function (notif) {
@@ -61,9 +90,18 @@ var CustomerComponent = (function () {
         }
         phoneControl.updateValueAndValidity();
     };
+    CustomerComponent.prototype.setMessage = function (c) {
+        var _this = this;
+        this.emailMessage = '';
+        if ((c.touched || c.dirty) && c.errors) {
+            this.emailMessage = Object.keys(c.errors)
+                .map(function (key) { return _this.validationMessages[key]; })
+                .join('');
+        }
+    };
     CustomerComponent.prototype.save = function () {
-        // console.log(this.cusomerForm);
-        // console.log('Saved: ' + JSON.stringify(this.cusomerForm.value));
+        console.log(this.customerForm);
+        console.log('Saved: ' + JSON.stringify(this.customerForm.value));
     };
     return CustomerComponent;
 }());
