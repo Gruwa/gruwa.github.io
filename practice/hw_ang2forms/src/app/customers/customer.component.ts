@@ -44,7 +44,7 @@ export class CustomerComponent implements OnInit {
     customer: Customer= new Customer();
     emailMessage: string;
 
-    get address(): FormArray{
+    get addresses(): FormArray{
         return <FormArray>this.customerForm.get('addresses');
     }
 
@@ -77,6 +77,14 @@ export class CustomerComponent implements OnInit {
 
         const emailControl = this.customerForm.get('emailGroup.email');
         emailControl.valueChanges.debounceTime(2000).subscribe(value => this.setMessage(emailControl));
+
+        console.log(this.addresses.controls);
+        console.log(this.customerForm);
+        console.log('Saved: ' + JSON.stringify(this.customerForm.value));
+    }
+
+    addAddress(): void {
+        this.addresses.push(this.buildAddress());
     }
 
     buildAddress(): FormGroup {
@@ -87,7 +95,7 @@ export class CustomerComponent implements OnInit {
             city: '',
             state: '',
             zip: ''
-        })
+        });
     }
 
     setNotification(notif: string): void {

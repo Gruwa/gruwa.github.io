@@ -41,7 +41,7 @@ var CustomerComponent = (function () {
             pattern: 'Please enter a valid email address.'
         };
     }
-    Object.defineProperty(CustomerComponent.prototype, "address", {
+    Object.defineProperty(CustomerComponent.prototype, "addresses", {
         get: function () {
             return this.customerForm.get('addresses');
         },
@@ -69,6 +69,12 @@ var CustomerComponent = (function () {
             .subscribe(function (value) { return _this.setNotification(value); });
         var emailControl = this.customerForm.get('emailGroup.email');
         emailControl.valueChanges.debounceTime(2000).subscribe(function (value) { return _this.setMessage(emailControl); });
+        console.log(this.addresses.controls);
+        console.log(this.customerForm);
+        console.log('Saved: ' + JSON.stringify(this.customerForm.value));
+    };
+    CustomerComponent.prototype.addAddress = function () {
+        this.addresses.push(this.buildAddress());
     };
     CustomerComponent.prototype.buildAddress = function () {
         return this.fb.group({
