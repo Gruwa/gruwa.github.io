@@ -6,3 +6,13 @@ main {
   display: block;
   font-size: 40px;
 }
+
+#circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: red;
+    position: absolute;
+    top: 110px;
+    left: 10px;
+}
