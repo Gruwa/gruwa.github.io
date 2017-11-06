@@ -5,6 +5,7 @@ var fN = 'John';
 var lN = 'Papa';
 var num1 = 100;
 var num2 = 20;
+var wer = 8;
 function addNum(n1, n2, n3) {
     var result = n1 + n2 + n3;
     var msg = ' Sum is = ' + result;
@@ -12,20 +13,20 @@ function addNum(n1, n2, n3) {
 }
 addNum(num1, num2, 7);
 //--------------lesson 1 ------------------
-// class Car {
-//     engine: string;
-//     constructor( engine: string) {
-//         this.engine = engine;
-//     }
-//     start() {
-//         alert('Engine started ' + this.engine);
-//     }
-//     stop() {
-//         alert('Engine stopped ' + this.engine);
-//     }
-// }
-// window.onload = function() {
-//     let car = new Car('V12');
-//     car.start();
-//     car.stop();
-// } 
+var Car = /** @class */ (function () {
+    function Car(engine) {
+        this.engine = engine;
+    }
+    Car.prototype.start = function () {
+        alert('Engine started ' + this.engine);
+    };
+    Car.prototype.stop = function () {
+        alert('Engine stopped ' + this.engine);
+    };
+    return Car;
+}());
+window.onload = function () {
+    var car = new Car('V12');
+    car.start();
+    car.stop();
+};
