@@ -5,7 +5,7 @@ export interface IEvent {
     time: string,
     price: number,
     imageUrl: string,
-    location?: { // ? означает нет..........  непонятно
+    location?: { // ? означает необязательный параметр или свофство, может отсутствовать
         address: string,
         city: string,
         country: string
