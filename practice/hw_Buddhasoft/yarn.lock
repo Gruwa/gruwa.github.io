@@ -203,6 +203,20 @@ amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
 
+angular-2-local-storage@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/angular-2-local-storage/-/angular-2-local-storage-1.0.1.tgz#3b846c90b2fffc9124f7bacc347f22d043a1e3a4"
+
+angular-router-loader@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/angular-router-loader/-/angular-router-loader-0.6.0.tgz#6c7caf7f1ea6acc6e2bc682cef91a343e9a7f3b5"
+  dependencies:
+    loader-utils "^1.0.2"
+
+angular2-image-upload@^0.6.6:
+  version "0.6.6"
+  resolved "https://registry.yarnpkg.com/angular2-image-upload/-/angular2-image-upload-0.6.6.tgz#1a9ed2612adf5ad8dd0f2b1a7df31fe9988893d8"
+
 angular2-template-loader@^0.6.0:
   version "0.6.2"
   resolved "https://registry.yarnpkg.com/angular2-template-loader/-/angular2-template-loader-0.6.2.tgz#c0d44e90fff0fac95e8b23f043acda7fd1c51d7c"
@@ -1155,6 +1169,12 @@ content-disposition@0.5.2:
 content-type@~1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/content-type/-/content-type-1.0.2.tgz#b7d113aee7a8dd27bd21133c4dc2529df1721eed"
+
+contextmenu@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/contextmenu/-/contextmenu-0.1.2.tgz#a7860e0d926b3adb0e174dc6fd5efb2f11b5dae8"
+  dependencies:
+    lodash "^4.17.4"
 
 conventional-changelog@0.0.17:
   version "0.0.17"
@@ -4192,6 +4212,14 @@ negotiator@0.6.1:
 nerf-dart@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/nerf-dart/-/nerf-dart-1.0.0.tgz#e6dab7febf5ad816ea81cf5c629c5a0ebde72c1a"
+
+ng2-imageupload@^1.4.2:
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/ng2-imageupload/-/ng2-imageupload-1.4.2.tgz#eece669cb94317181d6676f65eeee6c01a33b50d"
+
+ngx-contextmenu@^2.0.0-beta.4:
+  version "2.0.0-beta.7"
+  resolved "https://registry.yarnpkg.com/ngx-contextmenu/-/ngx-contextmenu-2.0.0-beta.7.tgz#123e626787f2b127b3d74db1c15786e7371abbee"
 
 no-case@^2.2.0:
   version "2.3.1"

@@ -9,8 +9,17 @@ import { RecipeListComponent } from "./recipies/recipe-list/recipe-list.componen
 import { RecipeDetailComponent } from "./recipies/recipe-detail/recipe-detail.component";
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShopingEditComponent } from './shopping-list/shoping-edit/shoping-edit.component';
+import { BodyComponent } from './body/body.component';
+import {RouterModule} from "@angular/router";
+import { appRoutes } from "./app.router";
+import {AppService} from "./app.service";
 
 @NgModule({
+  imports: [
+    BrowserModule,
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
+  ],
   declarations: [
     AppComponent,
     HeaderComponent,
@@ -18,13 +27,12 @@ import { ShopingEditComponent } from './shopping-list/shoping-edit/shoping-edit.
     RecipeListComponent,
     RecipeDetailComponent,
     ShoppingListComponent,
-    ShopingEditComponent
+    ShopingEditComponent,
+    BodyComponent
   ],
-  imports: [
-    BrowserModule,
-    FormsModule
+  providers: [
+    AppService
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

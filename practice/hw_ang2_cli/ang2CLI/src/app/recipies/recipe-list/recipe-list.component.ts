@@ -1,4 +1,6 @@
 import {Component} from "@angular/core";
+import {ActivatedRoute} from "@angular/router";
+import {AppService} from "../../app.service";
 
 @Component({
   selector: 'app-recipe-list',
@@ -7,4 +9,12 @@ import {Component} from "@angular/core";
 })
 export class RecipeListComponent {
 
+  recipe: any;
+
+    constructor(private route:ActivatedRoute,
+                private appService: AppService) {}
+
+    ngOnInit() {
+      this.recipe = this.appService.getId(+this.route.snapshot.params['id']);
+    }
 }
