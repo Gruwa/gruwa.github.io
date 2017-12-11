@@ -1,0 +1,7 @@
+print(2+3)
+
+mess1 = 'Goga'
+mess2 = 99
+
+print(mess1[-4])
+print(type(mess2))
