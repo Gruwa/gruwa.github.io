@@ -1,0 +1,37 @@
+
+.portal__btn {
+  padding: 15px 30px 15px 30px;
+  border: none;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+  outline: 100px;
+  background-color: blue;
+  color: white;
+  //@include transition(box-shadow, 0.3s, linear);
+
+  //&:hover {
+  //  @include box_shadow(1);
+  //}
+
+  &[disabled] {
+    opacity: 0.6;
+
+    &:hover {
+      cursor: auto;
+      //@include box_shadow(0);
+    }
+  }
+
+  &__cancel {
+    padding: 14px 29px 14px 29px;
+    background-color: white;
+    border: 1px solid blue;
+    color: blue;
+  }
+
+  &__fullwidth {
+    width: 100%;
+  }
+}
+
