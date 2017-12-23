@@ -69,9 +69,6 @@ var CustomerComponent = (function () {
             .subscribe(function (value) { return _this.setNotification(value); });
         var emailControl = this.customerForm.get('emailGroup.email');
         emailControl.valueChanges.debounceTime(2000).subscribe(function (value) { return _this.setMessage(emailControl); });
-        console.log(this.addresses.controls);
-        console.log(this.customerForm);
-        console.log('Saved: ' + JSON.stringify(this.customerForm.value));
     };
     CustomerComponent.prototype.addAddress = function () {
         this.addresses.push(this.buildAddress());
