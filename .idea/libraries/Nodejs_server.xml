@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Nodejs_server" type="javaScript">
+    <properties>
+      <option name="frameworkName" value="Node.js Core Modules" />
+      <option name="frameworkVersion" value="v" />
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/practice/hw_nodejs_server" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/practice/hw_nodejs_server" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>
