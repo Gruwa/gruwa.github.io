@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="890a2d31-a6db-4d59-9fb9-3e90cfa4ce6c" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_nodejs_server/server_echo.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_nodejs_server/server_headers.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_nodejs_server/server_main.js" />
-      <change beforePath="$PROJECT_DIR$/.idea/gruwa.github.io.iml" afterPath="$PROJECT_DIR$/.idea/gruwa.github.io.iml" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Nodejs_server.xml" afterPath="" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -25,7 +19,7 @@
       <file leaf-file-name="server_echo.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/practice/hw_nodejs_server/server_echo.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
+            <state relative-caret-position="225">
               <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
@@ -59,8 +53,8 @@
       <file leaf-file-name="products.service.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/practice/hw_Buddhasoft/src/app/shared/products.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="165">
+              <caret line="15" column="1" lean-forward="false" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -186,9 +180,9 @@
     <handled-path value="$PROJECT_DIR$/practice/webpackAngular5/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1442" />
-    <option name="y" value="39" />
-    <option name="width" value="1366" />
+    <option name="x" value="1490" />
+    <option name="y" value="125" />
+    <option name="width" value="1305" />
     <option name="height" value="687" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -235,6 +229,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -242,58 +238,10 @@
               <item name="gruwa.github.io" type="b2602c69:ProjectViewProjectNode" />
               <item name="gruwa.github.io" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="gruwa.github.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gruwa.github.io" type="462c0819:PsiDirectoryNode" />
-              <item name="practice" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gruwa.github.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gruwa.github.io" type="462c0819:PsiDirectoryNode" />
-              <item name="practice" type="462c0819:PsiDirectoryNode" />
-              <item name="hw_Buddhasoft" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gruwa.github.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gruwa.github.io" type="462c0819:PsiDirectoryNode" />
-              <item name="practice" type="462c0819:PsiDirectoryNode" />
-              <item name="hw_Buddhasoft" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gruwa.github.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gruwa.github.io" type="462c0819:PsiDirectoryNode" />
-              <item name="practice" type="462c0819:PsiDirectoryNode" />
-              <item name="hw_Buddhasoft" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gruwa.github.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gruwa.github.io" type="462c0819:PsiDirectoryNode" />
-              <item name="practice" type="462c0819:PsiDirectoryNode" />
-              <item name="hw_Buddhasoft" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gruwa.github.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gruwa.github.io" type="462c0819:PsiDirectoryNode" />
-              <item name="practice" type="462c0819:PsiDirectoryNode" />
-              <item name="hw_nodejs_server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gruwa.github.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gruwa.github.io" type="462c0819:PsiDirectoryNode" />
-              <item name="webpack" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -478,7 +426,10 @@
       <workItem from="1515074811146" duration="142000" />
       <workItem from="1515074966777" duration="63000" />
       <workItem from="1515103511137" duration="1294000" />
-      <workItem from="1515143014320" duration="489000" />
+      <workItem from="1515143014320" duration="2110000" />
+      <workItem from="1515241704405" duration="82000" />
+      <workItem from="1515336247109" duration="945000" />
+      <workItem from="1515414292589" duration="598000" />
     </task>
     <servers />
   </component>
@@ -503,7 +454,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="229263000" />
+    <option name="totallyTimeSpent" value="232509000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -515,17 +466,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1442" y="39" width="1366" height="687" extended-state="0" />
+    <frame x="1490" y="125" width="1305" height="687" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34532374" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16133828" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16043614" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25506756" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47972974" sideWeight="0.5390335" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36824325" sideWeight="0.49739778" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6824324" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24907063" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20945945" sideWeight="0.46096656" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4560811" sideWeight="0.46096656" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39864865" sideWeight="0.4795539" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -620,13 +572,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/practice/hw_ang2_tests/src/test.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/practice/hw_ang2_tests/src/app/pipes/firstUpper.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -946,9 +891,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/.ssh/id_rsa.pub">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/practice/hw_nodejs_server/server_echo.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
+        <state relative-caret-position="225">
           <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
@@ -976,8 +928,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/practice/hw_Buddhasoft/src/app/shared/products.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="165">
+          <caret line="15" column="1" lean-forward="false" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
