@@ -1,0 +1,36 @@
+@import '../../../../../core/assets/scss/variables';
+
+:host(.ng-invalid.ng-touched) {
+  .cad-dropdown.dropdown--boxed {
+    .dropdown__head {
+      .dropdown__head__content {
+        border-color: $red;
+      }
+    }
+  }
+}
+
+.cad-dropdown.dropdown--boxed {
+  .dropdown__head {
+    .dropdown__head__content {
+      height: 40px;
+      padding: 0 14px 0 12px;
+      background: rgba($bg, .8);
+      border: 1px solid rgba($gray-d, .8);
+      border-radius: 4px;
+      line-height: 40px;
+
+      .dropdown__head__content__title {
+        color: $cl;
+        font-weight: bold;
+      }
+
+      &:hover {
+        background-color: rgba($gray-f7, 0.8);
+        .dropdown__head__content__title {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

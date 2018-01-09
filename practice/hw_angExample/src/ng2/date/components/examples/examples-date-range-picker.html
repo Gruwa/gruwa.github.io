@@ -1,0 +1,115 @@
+<cad-panel headTitle="Date Range Picker">
+  <div cad-panel-content>
+
+    <div class="examples__params">
+      <ul>
+        <li><strong>[small]: boolean</strong> - render control in small or default size (default is <strong>false</strong>)</li>
+        <li><strong>[placement]: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right'</strong> - where to show calendar dropdown (default is <strong>'bottom-left'</strong>)</li>
+        <li><strong>[format]: string</strong> - format how to display selected date in input (default is <strong>LL</strong>)</li>
+        <li><strong>[modelFormat]: string</strong> - if defined - ngModel value will be string in provided format, if not set - value will be moment.Moment object</li>
+        <li><strong>[placeholder]: string</strong> - text for empty input</li>
+        <li><strong>[startOnMonday]: boolean</strong> - if to render calendar starting week from Monday (true) or Sunday (false) (default is <strong>true</strong>)</li>
+        <li><strong>[minDate]: moment.Moment</strong> - optional, if set - defines <strong>min</strong> date allowed for selection</li>
+        <li><strong>[maxDate]: moment.Moment</strong> - optional, if set - defines <strong>max</strong> date allowed for selection</li>
+        <li><strong>[ranges]: IDateRangeItem[]</strong> - set of predefined ranges to display in dropdown</li>
+      </ul>
+      <br>
+      <div class="examples__params__note">
+        Component implements <strong>ControlValueAccessor</strong> - i.e. supports <strong>[(ngModel)]</strong>
+      </div>
+      <div class="title title_6 title_thin mt-10">
+        <i>ngModel</i> dates are either <strong>moment.Moment</strong> date objects or <strong>strings</strong> in format defined by <i>modelFormat</i> param
+      </div>
+    </div>
+
+    <div class="cad-row">
+      <div class="column column-30">
+        <div class="mb-10">
+          <cad-checkbox [(ngModel)]="isSmall">Small mode</cad-checkbox>
+        </div>
+        <div class="mb-10">
+          <cad-checkbox [(ngModel)]="isDisabled">Disabled</cad-checkbox>
+        </div>
+        <div class="mb-10">
+          <cad-checkbox [(ngModel)]="isStartOnMonday">Week starts from Monday</cad-checkbox>
+        </div>
+        <div class="mb-10">
+          <span class="title title_6 title_thin">Dropdown placement:</span>
+          <select [(ngModel)]="placement">
+            <option value="top-left">Top Left</option>
+            <option value="top-right">Top Right</option>
+            <option value="bottom-left">Bottom Left</option>
+            <option value="bottom-right">Bottom Right</option>
+          </select>
+        </div>
+        <div class="mb-10">
+          <span class="title title_6 title_thin mr-5">Min date:</span>
+          <input class="input width-160" type="date" [(ngModel)]="minDate" />
+        </div>
+        <div class="mb-10">
+          <span class="title title_6 title_thin mr-5">Max date:</span>
+          <input class="input width-160" type="date" [(ngModel)]="maxDate" />
+        </div>
+        <div class="mb-10">
+          <span class="title title_6 title_thin mr-5">Start date:</span>
+          <input class="input width-160" type="date" [(ngModel)]="startDateStr" (ngModelChange)="updateRage()" />
+        </div>
+        <div class="mb-10">
+          <span class="title title_6 title_thin mr-5">End date:</span>
+          <input class="input width-160" type="date" [(ngModel)]="endDateStr" (ngModelChange)="updateRage()" />
+        </div>
+        <div class="mb-10">
+          <div class="title title_6 title_thin mb-5">Display Format (<a href="https://momentjs.com/docs/#/displaying/format/" target="_blank">momentjs tokens</a>):</div>
+          <input class="input" type="text" [(ngModel)]="format" />
+        </div>
+        <div class="mb-10">
+          <div class="title title_6 title_thin mb-5">ngModel Dates Format (<a href="https://momentjs.com/docs/#/displaying/format/" target="_blank">momentjs tokens</a>):</div>
+          <input class="input" type="text" [(ngModel)]="modelFormat" />
+        </div>
+      </div>
+
+      <div class="column column-70">
+        <div class="mb-20" style="padding: 10px; background-color: #fafad2">
+          <div class="title title_5 mb-5">ngModel value:</div>
+          <pre style="background-color: #fafad2">{{ range ? (range | json) : 'n/a' }}</pre>
+        </div>
+
+        <div class="cad-row">
+          <div class="column column-100">
+            <cad-date-range-picker class="width-330"
+                                   [small]="isSmall"
+                                   placeholder="select range pls"
+                                   [format]="format"
+                                   [modelFormat]="modelFormat"
+                                   [placement]="placement"
+                                   [startOnMonday]="isStartOnMonday"
+                                   [minDate]="minDate"
+                                   [maxDate]="maxDate"
+                                   [disabled]="isDisabled"
+                                   [(ngModel)]="range"
+                                   (ngModelChange)="updateDateInputs()">
+            </cad-date-range-picker>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <textarea class="examples__copy" rows="11" ngNonBindable spellcheck="false">
+<cad-date-range-picker [small]="false"
+                       placeholder="select range pls"
+                       format="LL"
+                       modelFormat="YYYY-MM-DD"
+                       [placement]="bottom-left"
+                       [startOnMonday]="true"
+                       [minDate]="minDate"
+                       [maxDate]="maxDate"
+                       [disabled]="false"
+                       [(ngModel)]="range">
+</cad-date-range-picker>
+    </textarea>
+
+  </div>
+</cad-panel>

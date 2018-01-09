@@ -1,0 +1,34 @@
+<cad-panel headTitle="cadSticky">
+  <div cad-panel-content>
+
+    <div class="examples__params">
+      <ul>
+        <li>Directive adds/removes class 'is-fixed' when depending on scroll position</li>
+        <li><strong>@Input() stickyFrom: number</strong> - min scroll position to trigger sticky state (default is <strong>0</strong>)</li>
+        <li><strong>@Input() stickyClass: string</strong> - class to add (default is <strong>is-fixed</strong>)</li>
+        <li><strong>@Output() sticked: EventEmitter&lt;boolean></strong> - event emitted when sticked state changes</li>
+      </ul>
+    </div>
+
+    <div>
+      <div cadSticky [stickyFrom]="1000" (sticked)="changed($event)">Sticky Header</div>
+
+      <textarea class="examples__copy" rows="12">
+<div cadSticky [stickyFrom]="1000" (sticked)="changed($event)"></div>
+
+.is-fixed {
+  position: fixed;
+  z-index: 999;
+  top: 90px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  background-color: #1c89a3;
+  color: #fff;
+}
+      </textarea>
+    </div>
+
+  </div>
+</cad-panel>

@@ -1,0 +1,4 @@
+<svg [attr.class]="'icon icon-' + name + ' ' + (customClass || '')"
+     [ngStyle]="{'width': width, 'height': height, 'fill': fill}">
+  <use [attr.xlink:href]="'#icon-' + name"></use>
+</svg>

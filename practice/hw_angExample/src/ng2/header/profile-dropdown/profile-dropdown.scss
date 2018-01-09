@@ -1,0 +1,60 @@
+@import '../../../core/assets/scss/variables';
+
+.top-menu {
+  &__item {
+    padding: 0 20px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: 600;
+    color: $cl;
+    user-select: none;
+    cursor: pointer;
+    text-decoration: none;
+    border-bottom: 1px solid $brd-l;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:hover {
+      background-color: rgba($status-blue, 0.1);
+    }
+
+    &__market {
+      display: flex;
+      align-items: center;
+
+      div {
+        padding: 3px 9px;
+        border: 1px solid $brd;
+        font-size: 12px;
+        color: $gray-dark;
+        text-transform: uppercase;
+      }
+
+      cad-icon {
+        margin-left: 10px;
+        fill: $gray-d;
+      }
+    }
+  }
+}
+
+.sub-menu {
+  &__back {
+    height: 50px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    background-color: $bg;
+  }
+
+  &__markets-list {
+    max-height: 450px;
+    min-width: 280px;
+    overflow-y: auto;
+  }
+}

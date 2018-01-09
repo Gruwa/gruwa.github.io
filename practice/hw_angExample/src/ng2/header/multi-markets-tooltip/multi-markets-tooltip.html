@@ -1,0 +1,24 @@
+<cad-dropdown [placement]="position"
+              [isOpened]="isShown"
+              [autoClose]="false"
+              class="multi-markets-tooltip">
+  <div cad-dropdown-head>
+    <!-- hiding header -->
+  </div>
+  <div cad-dropdown-body>
+    <div class="multi-markets-tooltip__body">
+      <div *ngIf="!isLoading" class="multi-markets-tooltip__title">
+        {{ 'advertiser.multi_markets_tooltip' | translate }}
+      </div>
+      <div *ngIf="isLoading" class="multi-markets-tooltip__spinner">
+        <cad-spinner class="spinner-absolute-center" size="medium"></cad-spinner>
+      </div>
+      <cad-button (click)="close()"
+                  [disabled]="isLoading"
+                  view="primary"
+                  small="true"
+                  text="global.close">
+      </cad-button>
+    </div>
+  </div>
+</cad-dropdown>

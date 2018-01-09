@@ -1,0 +1,19 @@
+@import '../../../../core/assets/scss/variables';
+
+.cad-background-process-failed {
+  &__indicator {
+    fill: $red;
+  }
+
+  &__controls {
+    padding: 10px 25px 5px;
+  }
+
+  &__divider {
+    display: inline-block;
+    height: 15px;
+    margin: 0 15px;
+    border-left: 1px solid $brd;
+    vertical-align: middle;
+  }
+}

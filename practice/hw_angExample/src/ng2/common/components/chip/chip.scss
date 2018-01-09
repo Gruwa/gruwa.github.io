@@ -1,0 +1,155 @@
+@import '../../../../core/assets/scss/mixin';
+@import '../../../../core/assets/scss/variables';
+
+:host {
+  display: block;
+}
+
+.cad-chip {
+  display: inline-block;
+  position: relative;
+  padding: 0 35px 0 15px;
+  background: $wl-tertiary-background;
+  border: 1px solid rgba($wl-tertiary, .5);
+  border-radius: 17px;
+  color: $wl-tertiary;
+  @include clr;
+  vertical-align: top;
+  cursor: pointer;
+  &:hover {
+    .cad-chip__close {
+      /deep/ .icon {
+        fill: $wl-tertiary-l;
+      }
+    }
+  }
+  &:active {
+    .cad-chip__close {
+      /deep/ .icon {
+        fill: $wl-tertiary-d;
+      }
+    }
+  }
+  cad-button.cad-chip__close {
+    display: inline !important; // TODO: get rid of using <cad-button> here
+  }
+  .cad-chip__close /deep/ button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 35px;
+    height: 32px;
+    padding: 0;
+    @include vertical;
+    /deep/ .icon {
+      width: 9px;
+      height: 8px;
+      margin: 0;
+      fill: $wl-tertiary;
+      vertical-align: middle;
+    }
+  }
+  .cad-chip__title {
+    overflow: hidden;
+    padding: 5px 0;
+    font-size: 16px;
+    @include fs;
+    word-break: break-all;
+  }
+  .cad-chip__error {
+    color: $red;
+    padding: 0 15px 7px 0;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  // Modifications -------------------------
+  &--single-line {
+    width: 100%;
+    .cad-chip__title {
+      @include text-overflow;
+    }
+  }
+
+  // "light-grey"
+  &--light-grey {
+    border: 1px solid $gray-d;
+    color: $gray-d;
+    background: $cta-back-btn-disabled;
+    cursor: default;
+    .cad-chip__title {
+      p {
+        color: $gray-d;
+      }
+      strong {
+        color: $black;
+      }
+    }
+  }
+
+  // "grey"
+  &--grey {
+    padding: 1px 16px 1px 36px;
+    border: none;
+    color: $cl;
+    background-color: $bg;
+    .cad-chip__close /deep/ button {
+      left: 0;
+      top: 0;
+      /deep/ .icon {
+        width: 20px;
+        height: 20px;
+        fill: $gray-d;
+      }
+    }
+    .cad-chip__title {
+      opacity: 0.8;
+    }
+    &:hover {
+      background-color: $gray-f7;
+
+      /deep/ .icon {
+        fill: $gray;
+      }
+    }
+    &:active {
+      background-color: $bg;
+
+      /deep/ .icon {
+        fill: $gray-d;
+      }
+    }
+    &.no-icon {
+      padding: 0 15px;
+    }
+  }
+
+  &--blue {
+    background-color: $status-blue;
+    color: white;
+  }
+
+  &--small {
+    padding: 0 26px 0 12px;
+
+    .cad-chip__close /deep/ button {
+      width: 26px;
+      height: 26px;
+    }
+
+    .cad-chip__title {
+      font-size: 14px;
+      padding: 3px 0;
+    }
+  }
+
+  &--has-error {
+    border-color: $red;
+  }
+
+  &--no-icon {
+    padding: 0 15px;
+  }
+
+}
+

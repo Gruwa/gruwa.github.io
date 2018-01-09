@@ -1,0 +1,19 @@
+$highcharts-dimension-size: 11px;
+$highcharts-dimension-weight: bold;
+$highcharts-metric-size: 19px;
+$highcharts-metric-weight: bold;
+
+.highcharts-tooltip-dimension {
+  font-size: $highcharts-dimension-size;
+  font-weight: $highcharts-dimension-weight;
+  text-align: center;
+  color: $cl;
+  line-height: 18px;
+}
+
+.highcharts-tooltip-metric {
+  font-size: $highcharts-metric-size;
+  font-weight: $highcharts-metric-weight;
+  text-align: center;
+  line-height: 18px;
+}

@@ -1,0 +1,31 @@
+@import '../../../../../../core/assets/scss/variables';
+
+:host-context(.button-toggle-group--simple-white) {
+  .button-toggle a {
+    height: 26px;
+    line-height: 26px;
+    margin-right: 5px;
+    padding: 0 12px;
+    background: transparent;
+    border-radius: 13px;
+    font-size: 16px;
+    font-weight: 600;
+    color: $white;
+
+    &:hover {
+      background: rgba($white, 0.2);
+      color: $white;
+    }
+
+    &:active {
+      background: rgba($white, 0.4);
+      color: $white;
+    }
+
+    &.is-active {
+      background: $white;
+      color: $orange;
+    }
+
+  }
+}

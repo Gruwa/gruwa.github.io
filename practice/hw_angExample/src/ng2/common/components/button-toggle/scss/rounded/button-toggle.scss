@@ -1,0 +1,21 @@
+@import '../../../../../../core/assets/scss/variables';
+
+:host-context(.button-toggle-group--rounded) {
+  .button-toggle a {
+    height: 30px;
+    line-height: 30px;
+    padding: 0 17px;
+    background: transparent;
+    border-radius: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    color: $white;
+    &:hover {
+      color: $cl;
+    }
+    &.is-active {
+      background: $white;
+      color: $cl;
+    }
+  }
+}

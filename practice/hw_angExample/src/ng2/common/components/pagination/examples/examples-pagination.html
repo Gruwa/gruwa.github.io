@@ -1,0 +1,53 @@
+<cad-panel headTitle="Pagination">
+  <div cad-panel-content>
+    <div class="examples__params">
+      <ul>
+        <li><strong>@Input() disabled: boolean</strong> - if component disabled (default is <b>false</b>)</li>
+        <li><strong>@Input() autohide: boolean</strong> - if to automatically hide component when there's no or just 1 page in total (default is <b>false</b>)</li>
+        <li><strong>@Input() currentPage: number</strong> - current page number, starts from 1</li>
+        <li><strong>@Input() small: boolean</strong> - if component should be shown in smaller size</li>
+        <li><strong>@Input() totalPages: number</strong> - total numer of pages </li>
+        <li><strong>@Output() onChange($event: number)</strong> - event emitted on current page changes</li>
+      </ul>
+    </div>
+
+    <div class="cad-row">
+      <div class="column column-30">
+        <div class="mb-10">
+          <div class="mb-5">Total Pages:</div>
+          <input class="mb-15" type="range" min="1" max="42" [(ngModel)]="totalPages" />
+        </div>
+
+        <div class="mb-10">
+          <cad-checkbox [(ngModel)]="isDisabled">Disabled</cad-checkbox>
+        </div>
+
+        <div class="mb-10">
+          <cad-checkbox [(ngModel)]="isAutohide">Autohide when no or just 1 page</cad-checkbox>
+        </div>
+
+        <div class="mb-10">
+          <cad-checkbox [(ngModel)]="small">Show component in smaller size</cad-checkbox>
+        </div>
+      </div>
+
+      <div class="column column-70">
+        <cad-pagination [autohide]="isAutohide"
+                        [totalPages]="totalPages"
+                        [disabled]="isDisabled"
+                        [small]="small"
+                        (onChange)="pageChanged($event)">
+        </cad-pagination>
+      </div>
+    </div>
+
+    <textarea class="examples__copy" rows="5" ngNonBindable>
+<cad-pagination [autohide]="isAutohide"
+                [totalPages]="totalPages"
+                [disabled]="isDisabled"
+                (onChange)="pageChanged($event)">
+</cad-pagination>
+    </textarea>
+
+  </div>
+</cad-panel>

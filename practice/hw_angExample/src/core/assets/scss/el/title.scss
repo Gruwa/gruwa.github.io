@@ -1,0 +1,175 @@
+/* TODO fix duplicated, rename classes */
+
+.title {
+  position: relative;
+  font-size: 34px;
+  @include fs;
+  color: $black;
+  line-height: 1.2;
+  &.is-disable {
+    opacity: .4;
+  }
+  &.title_30 {
+    font-size: 30px;
+  }
+  &.title_1 {
+    font-size: 26px;
+  }
+  &.title_2 {
+    font-size: 24px;
+    &:empty {
+      height: 28px;
+    }
+  }
+  &.title_3 {
+    font-size: 22px;
+  }
+  &.title_4 {
+    font-size: 18px;
+  }
+  &.title_5 {
+    font-size: 16px;
+  }
+  &.title_6 {
+    font-size: 14px;
+  }
+  &.title_7 {
+    font-size: 12px;
+  }
+  &.title_11 {
+    font-size: 11px;
+  }
+  &.title_19 {
+    font-size: 19px;
+  }
+  &.title_28 {
+    font-size: 28px;
+  }
+  &.title_thin {
+    @include f;
+  }
+  &.title_default_color {
+    color: $cl;
+  }
+  .title_gray,
+  &.title_gray {
+    color: $gray-d;
+  }
+  &.title_white {
+    color: $white;
+  }
+  &.title_gray_b {
+    color: $cl;
+  }
+  &.title_default {
+    color: $cl;
+  }
+  &.title_underline {
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+
+  /* TODO fix this, remove color: $black; */
+  .title__link,
+  &.title__link {
+    color: $black;
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    &:active {
+      color: rgba($black,.8);
+    }
+  }
+  .title__counter {
+    color: $gray-d;
+  }
+  .title__number {
+    position: absolute;
+    top: 0;
+    left: -20px;
+    color: $gray-d;
+  }
+  &.title__gray-dark {
+    color: $gray-dark;
+  }
+  &.title__bg-blue {
+    background-color: $wl-tertiary-d;
+    padding: 5px;
+    border-radius: 2px;
+    margin-bottom: 2px;
+  }
+  &.title__thin {
+    font-weight: 400;
+  }
+  &.title__thin-300 {
+    font-weight: 300;
+  }
+  .title__number-circle {
+    position: absolute;
+    top: -5px;
+    left: -50px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: $bg;
+    font-size: 18px;
+    color: $black;
+    text-align: center;
+    line-height: 32px;
+  }
+
+  @each $s in 20, 24, 30 {
+    &.lh-#{$s} {
+      line-height: #{$s}px;
+    }
+  }
+}
+
+.country {
+  display: inline-block;
+  padding: 3px 9px;
+  border: 1px solid $brd;
+  font-size: 12px;
+  color: $gray-dark;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.weight_600 {
+  @include fs;
+}
+
+@each $s in 450, 550 {
+  .ellipsis-#{$s} {
+    @include ellipsis(#{$s}px)
+  }
+}
+
+.title_with-bg {
+  display: inline-block;
+  height: 28px;
+  padding: 4px 10px;
+  opacity: 0.8;
+  border-radius: 4px;
+  box-sizing: border-box;
+  @include fs;
+  font-size: 14px;
+  line-height: 1.3;
+  vertical-align: middle;
+
+  &:hover, &.hover {
+    background: $gray-f7;
+  }
+}
+.title__bg-gray {
+  @extend .title_with-bg;
+  background: $bg;
+}
+.title__bg-white {
+  @extend .title_with-bg;
+  background: $white;
+}
+

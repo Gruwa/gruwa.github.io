@@ -1,0 +1,21 @@
+<div ng-show="vm.customElement && vm.customElement.dropdown" class="header__chapter">
+  <cad-dropdown custom-class="header-menu-dropdown"
+                color="white"
+                content-color="statuses"
+                position="left"
+                icon="arrow-down"
+                size="menu"
+                head="{{ vm.customElement.title }}"
+                width-limit="300"
+                disable="vm.customElement.dropdown.length === 0">
+    <a ng-repeat="item in vm.customElement.dropdown track by $index"
+       ng-class="{ 'active': vm.customElement.title === item.title }"
+       class="header-menu-dropdown__item"
+       ng-click="vm.itemOnClick(item)">
+      {{ ::item.title | translate }}
+      <span class="selection-tick">
+          <cad-icon name="tick"></cad-icon>
+        </span>
+    </a>
+  </cad-dropdown>
+</div>

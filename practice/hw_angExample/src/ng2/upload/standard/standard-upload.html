@@ -1,0 +1,96 @@
+<div [ngSwitch]="state" class="cad-standard-upload">
+  <div *ngSwitchCase="'initial'"
+       cadDropFile
+       [disabled]="options.disabled"
+       [accept]="options.accept"
+       [dragOverClass]="{ accept: 'cad-standard-upload__initial_drop-ok', reject: 'cad-standard-upload__initial_drop-reject' }"
+       (fileChanged)="upload($event)"
+       class="cad-standard-upload__initial">
+    <div class="title title_2 mt-100">
+      {{ textPath('drop_file') | translate }}
+    </div>
+    <div class="cad-standard-upload__delimiter mt-12">
+      <span>{{ 'global.or' | translate }}</span>
+    </div>
+    <div class="mt-20">
+      <cad-button cadSelectFile
+                  [disabled]="options.disabled"
+                  [accept]="options.accept"
+                  (fileChanged)="upload($event)"
+                  text="buttons.browse"
+                  view="tertiary"
+                  data-automation="upload_browse">
+      </cad-button>
+    </div>
+    <div class="title title_6 title_thin title_default_color mt-25"
+         [innerHTML]="textPath('file_details') | translate | safeHtml"
+         data-automation="upload_text">
+    </div>
+  </div>
+
+  <div *ngSwitchCase="'progress'" class="cad-standard-upload__progress">
+    <div class="title title_2 mt-100">
+      {{ textPath('uploading') | translate }}
+    </div>
+    <div class="title title_5 mt-12">{{ progress }}%</div>
+    <div class="cad-standard-upload__progress-bar" data-automation="upload_progress-bar">
+      <div [ngStyle]="{ width: progress + '%' }"></div>
+    </div>
+    <div class="title title_6 title_thin title_default_color three-dots mt-25">
+      {{ fileName }}
+    </div>
+    <div class="mt-15">
+      <cad-button text="buttons.cancel" view="tertiary" (click)="cancelUpload()" data-automation="upload_cancel"></cad-button>
+    </div>
+  </div>
+
+  <div *ngSwitchCase="'success'" class="cad-standard-upload__success">
+    <div *ngIf="!customSuccessTemplate">
+      <div class="cad-standard-upload__success-inactive">
+        <div class="title title_2 mt-80">
+          {{ textPath('drop_file') | translate }}
+        </div>
+        <div class="cad-standard-upload__delimiter mt-15">
+          <span>{{ 'global.or' | translate }}</span>
+        </div>
+      </div>
+      <div class="mt-20">
+        <cad-button text="buttons.browse" view="tertiary" disabled="true" data-automation="upload_browse"></cad-button>
+      </div>
+      <div class="mt-25">
+        <span>{{ fileName }}</span>
+        <a class="link-icon primary" (click)="resetState()">
+          <cad-icon name="close" data-automation="upload_close"></cad-icon>
+        </a>
+      </div>
+      <div class="inform inform_gray inform_big mt-15">
+        <cad-icon name="attention" data-automation="upload_attention"></cad-icon>
+        <div class="inform__content">
+          {{ textPath('limitation') | translate }}
+        </div>
+      </div>
+    </div>
+    <div *ngIf="customSuccessTemplate">
+      <ng-template [ngTemplateOutlet]="customSuccessTemplate" [ngTemplateOutletContext]="{resetState: resetState}"></ng-template>
+    </div>
+  </div>
+
+  <div *ngSwitchCase="'error'" class="cad-standard-upload__error" data-automation="upload_error">
+    <div class="title title_2 mt-115">
+      {{ textPath('error_header') | translate }}
+    </div>
+    <div class="title title_6 title_thin title_default_color mt-25" [ngSwitch]="error">
+      <span *ngSwitchCase="'size'">
+        {{ textPath('size_error') | translate }} {{ options.maxSize | bytes }}
+      </span>
+      <span *ngSwitchCase="'invalid_template'" [innerHTML]="textPath('invalid_template') | translate">
+      </span>
+      <span *ngSwitchDefault>
+        {{ getDefaultError(error) | translate }}
+      </span>
+    </div>
+    <div class="mt-35">
+      <cad-button text="buttons.another" view="tertiary" (click)="resetState()" data-automation="upload_another"></cad-button>
+    </div>
+  </div>
+</div>

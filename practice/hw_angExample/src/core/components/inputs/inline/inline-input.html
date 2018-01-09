@@ -1,0 +1,54 @@
+<div class="cad-input-data {{ customClass }}"
+     ng-class="::{
+        'cad-input-data_hidden': isOnFocusMode,
+        'cad-input-data_white': theme === 'white'
+     }">
+  <div class="cad-input-data__label">{{label}}</div>
+  <!-- edit -->
+  <div class="cad-edit cad-edit_data cad-edit_{{size}}" ng-class="{'cad-edit--not-editable': !editable}">
+    <ng-form ng-fab-form ng-fab-form-options="fabFormOptions" name="editForm">
+      <div class="cad-edit__field">
+        <div class="cad-edit__content"
+             ng-class="{ 'no-value': !viewValue.length }"
+             uib-tooltip="{{ viewValue }}"
+             translate
+             ng-bind-html="viewValue | cadLimitTo: tooltipAfterSymbols"
+             tooltip-placement="{{ ::tooltipPlacement }}"
+             tooltip-enable="{{ tooltipAfterSymbols < viewValue.length }}">
+          {{ placeholderValue }}
+        </div>
+        <ng-transclude class="cad-edit__input"></ng-transclude>
+      </div>
+    </ng-form>
+
+    <button
+      class="cad-edit__action cad-edit__action__edit"
+      type="button"
+      ng-click="switchToEditState()">
+      <cad-icon name="edit"></cad-icon>
+    </button>
+
+    <button
+      class="cad-edit__action cad-edit__action__save"
+      type="button"
+      ng-click="save()">
+      <cad-icon name="tick"></cad-icon>
+    </button>
+
+    <button
+      class="cad-edit__action cad-edit__action__close"
+      type="button"
+      ng-click="close()">
+      <cad-icon name="close"></cad-icon>
+    </button>
+
+    <cad-icon
+      ng-if="onSaveErrorMessage && onSaveError"
+      class="cad-edit__error-icon"
+      uib-tooltip="{{onSaveErrorMessage}}"
+      tooltip-placement="top"
+      name="attention">
+    </cad-icon>
+
+  </div>
+</div>

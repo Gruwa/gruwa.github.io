@@ -1,0 +1,144 @@
+@import '../../../../core/assets/scss/mixin';
+@import '../../../../core/assets/scss/variables';
+
+.cad-dropdown { // need to use cad-dropdown to prevent collision with legacy dropdown styles
+  width: 100%; // to make threedots to work
+  position: relative;
+  display: inline-block;
+
+  &.dropdown--disabled {
+    .dropdown__head {
+      .dropdown__head__content {
+        opacity: .4;
+        cursor: default;
+        .dropdown__head__content__title {
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+
+  &.dropdown--opened {
+    .dropdown__body {
+      display: flex;
+    }
+  }
+
+  .rotate-arrow-down-icon {
+    .icon-arrow-down {
+      @include rotate(180);
+    }
+  }
+
+  .dropdown__head {
+    font-size: 16px;
+    color: $cl;
+
+    .dropdown__head__content {
+      width: 100%; // to make threedots to work
+      user-select: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .dropdown__head__content__title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        margin-right: 11px;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      .dropdown__head__content__icon {
+        vertical-align: middle;
+        display: inline-flex;
+      }
+
+      .icon {
+        fill: $gray-d;
+        width: 11px;
+        height: 7px;
+        transition: transform .2s;
+      }
+    }
+  }
+
+  .dropdown__body {
+    align-content: stretch; // making inner container 100% height
+    position: absolute;
+    left: 0;
+    right: 0;
+    min-width: 192px;
+    min-height: 20px;
+    border-radius: 0;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    z-index: 89; // magic number
+
+    .dropdown__body__content {
+      width: 100%;
+      background: $white;
+    }
+
+    // Arrow
+    &:before{
+      content: "";
+      position: absolute;
+      z-index: -1; // hide arrow under dropdown content
+      left: 22px;
+      width: 10px;
+      height: 10px;
+      transform: rotate(45deg);
+      box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+      background: $white;
+    }
+
+    /* position top, bottom, left, right  */
+    &.dropdown__body--left {
+      left: auto;
+      right: 0;
+
+      &:before {
+        left: auto;
+        right: 22px;
+      }
+    }
+
+    &.dropdown__body--right {
+      right: auto;
+      left: 0;
+
+      &:before {
+        left: 22px;
+        right: auto;
+      }
+    }
+
+    &.dropdown__body--bottom {
+      margin-top: 10px;
+      top: 100%;
+
+      &:before {
+        top: -5px;
+      }
+    }
+
+    &.dropdown__body--top {
+      margin-bottom: 10px;
+      bottom: 100%;
+
+      &:before {
+        bottom: -5px;
+      }
+    }
+
+  }
+
+}
+

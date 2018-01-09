@@ -1,0 +1,39 @@
+<ng-container *ngFor="let item of items | slice:0:limit">
+  <div class="mr-20 three-dots infoline-item"
+       [attr.data-automation]="'smart-'+item.filter.name+'-filter-infoline'">
+    <div class="title title_6 title_thin title_default mr-7 three-dots"
+         [cadSmartTooltip]="isObservable(item.tooltip) ? (item.tooltip | async) : item.tooltip"
+         [cadSmartTooltipOptions]="{isClipboard: false, isSmart: item.smartTooltip, placement: 'bottom'}"
+         [style.maxWidth.px]="150">
+      {{ isObservable(item.label) ? (item.label | async) : item.label | translate }}
+    </div>
+    <cad-icon (click)="discard(item.filter)" name="close" fill="#ccc" width="12" height="12" class="pointer"></cad-icon>
+  </div>
+</ng-container>
+
+<cad-button class="show-more"
+            [class.active]="!!showMoreTooltip?.tooltip"
+            data-automation="smart-filter-show-more-button"
+            *ngIf="items?.length > limit"
+            view="flat"
+            [text]="'smart_filter.n_more' | translate:({count: items.length - limit})"
+            #showMoreTooltip=cadSmartTooltip
+            cadSmartTooltip
+            [cadSmartTooltipOptions]="{isSmart: false, isClipboard: false, triggerOn:'click', placement:'bottom-left'}">
+  <ng-template #customTooltipTemplate>
+    <div class="infoline-tooltip">
+      <ng-container *ngFor="let item of items | slice:limit">
+        <div class="infoline-tooltip__title"
+             (click)="tooltipDiscard($event, item.filter)"
+             [attr.data-automation]="'smart-'+item.filter.name+'-filter-tooltip-title'">
+          <span>{{ item.title | translate }}</span>
+          <cad-icon class="pointer ml-10" name="close" width="8" height="8"></cad-icon>
+        </div>
+        <div class="infoline-tooltip__values"
+             [attr.data-automation]="'smart-'+item.filter.name+'-filter-tooltip-values'">
+          {{ isObservable(item.tooltip) ? (item.tooltip | async) : item.tooltip | translate }}
+        </div>
+      </ng-container>
+    </div>
+  </ng-template>
+</cad-button>

@@ -1,0 +1,47 @@
+<cad-dropdown [placement]="placement"
+              ngModel
+              [disabled]="disabled">
+
+  <div cad-dropdown-head>
+    <div class="cad-datepicker"
+         [class.cad-datepicker--small]="small"
+         [class.cad-datepicker--focused]="focused"
+         [class.cad-datepicker--disabled]="disabled">
+      <input class="cad-datepicker__input"
+             #input
+             [disabled]="disabled"
+             (keydown)="onKeydown($event)"
+             (blur)="onBlur()"
+             (focus)="onFocus()"
+             (focusout)="onFocusOut()"
+             [placeholder]="placeholder"
+             [ngModel]="innerValue | cadMomentFormat:format"
+             type="text" />
+      <cad-icon class="cad-datepicker__icon" name="calendar"></cad-icon>
+    </div>
+  </div>
+
+  <div cad-dropdown-body>
+    <div class="cad-datepicker__dropdown">
+      <cad-month-calendar [startOnMonday]="startOnMonday"
+                          [minDate]="minDate"
+                          [maxDate]="maxDate"
+                          [(activeMonth)]="activeMonth"
+                          [ngModel]="innerValue"
+                          (ngModelChange)="onValueChanged($event)">
+      </cad-month-calendar>
+
+      <div *ngIf="editTime"
+           class="cad-datepicker__time">
+        <span class="title title_6 title_thin title_gray mr-10">
+          {{ 'global.time' | translate }}
+        </span>
+        <cad-time-input [small]="true"
+                        [ngModel]="innerValue"
+                        (ngModelChange)="onValueChanged($event)">
+        </cad-time-input>
+      </div>
+    </div>
+  </div>
+
+</cad-dropdown>

@@ -1,0 +1,146 @@
+[{
+  "id": "en-us",
+  "title": "United States",
+  "grouping": ",",
+  "decimal": "."
+}, {
+  "id": "es-ar",
+  "title": "Argentina (Spain)",
+  "grouping": ".",
+  "decimal": ","
+}, {
+  "id": "en-au",
+  "title": "Australia (English)",
+  "grouping": ",",
+  "decimal": "."
+}, {
+  "id": "en-be",
+  "title": "Belgian (English)",
+  "grouping": ".",
+  "decimal": ","
+}, {
+  "id": "br-fr",
+  "title": "Brazil",
+  "grouping": "\u00a0",
+  "decimal": ","
+}, {
+  "id": "en-ca",
+  "title": "Canada (English)",
+  "grouping": ",",
+  "decimal": "."
+}, {
+  "id": "es-cl",
+  "title": "Chile",
+  "grouping": ".",
+  "decimal": ","
+}, {
+  "id": "zh-cn",
+  "title": "Chinese (Simplified)",
+  "grouping": ",",
+  "decimal": "."
+}, {
+  "id": "es-co",
+  "title": "Colombia (Spain)",
+  "grouping": ".",
+  "decimal": ","
+}, {
+  "id": "en-dk",
+  "title": "Denmark (English)",
+  "grouping": ".",
+  "decimal": ","
+}, {
+  "id": "en-fi",
+  "title": "Finland (English)",
+  "grouping": "\u00a0",
+  "decimal": ","
+}, {
+  "id": "fr-fr",
+  "title": "France",
+  "grouping": "\u00a0",
+  "decimal": ","
+}, {
+  "id": "en-de",
+  "title": "Germany (English)",
+  "grouping": ".",
+  "decimal": ","
+}, {
+  "id": "hu-hu",
+  "title": "Hungary",
+  "grouping": "\u00a0",
+  "decimal": ","
+}, {
+  "id": "en-in",
+  "title": "India (English)",
+  "grouping": ",",
+  "decimal": "."
+}, {
+  "id": "it-it",
+  "title": "Italy",
+  "grouping": ".",
+  "decimal": ","
+}, {
+  "id": "ja-jp",
+  "title": "Japan",
+  "grouping": ",",
+  "decimal": "."
+}, {
+  "id": "en-my",
+  "title": "Malaysia (English)",
+  "grouping": ",",
+  "decimal": "."
+}, {
+  "id": "es-mx",
+  "title": "Mexico (Spain)",
+  "grouping": ",",
+  "decimal": "."
+}, {
+  "id": "en-nl",
+  "title": "Netherlands (English)",
+  "grouping": ".",
+  "decimal": ","
+}, {
+  "id": "no-no",
+  "title": "Norway",
+  "grouping": "\u00a0",
+  "decimal": ","
+}, {
+  "id": "en-nz",
+  "title": "New Zealand (English)",
+  "grouping": ",",
+  "decimal": "."
+}, {
+  "id": "es-pe",
+  "title": "Peru (Spain)",
+  "grouping": ",",
+  "decimal": "."
+}, {
+  "id": "en-za",
+  "title": "South Africa (English)",
+  "grouping": "\u00a0",
+  "decimal": ","
+}, {
+  "id": "es-es",
+  "title": "Spain",
+  "grouping": ".",
+  "decimal": ","
+}, {
+  "id": "en-se",
+  "title": "Sweden (English)",
+  "grouping": "\u00a0",
+  "decimal": ","
+}, {
+  "id": "zh-tw",
+  "title": "Taiwan (China)",
+  "grouping": ",",
+  "decimal": "."
+}, {
+  "id": "en-gb",
+  "title": "United Kingdom",
+  "grouping": ",",
+  "decimal": "."
+}, {
+  "id": "es-uy",
+  "title": "Uruguay (Spain)",
+  "grouping": ".",
+  "decimal": ","
+}]

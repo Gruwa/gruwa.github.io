@@ -1,0 +1,32 @@
+<button class="popup__close" ng-click="vm.close()">
+  <cad-icon name="close"></cad-icon>
+</button>
+<div class="popup__title">
+  <div class="title title_3 title_white">
+    <span translate="default_locale.locale_settings"></span>
+  </div>
+</div>
+<div class="popup__in popup__in--default-locale">
+  <div class="cad-panel cad-panel_p-30 bb">
+    <div class="inform inform_big">
+      <cad-icon name="error"></cad-icon>
+      <div class="inform__content">
+        <div translate="default_locale.description"
+             translate-values='{ browserLocale: vm.browserLocale.title}'></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="cad-panel cad-panel_p-20-30 ta-right">
+  <cad-button view="tertiary"
+              size="middle"
+              ng-click="vm.applyDefaultLocale()"
+              text="default_locale.no_keep_us_locale">
+  </cad-button>
+  <cad-button view="primary"
+              size="middle"
+              ng-click="vm.applyBrowserLocale()"
+              text="global.yes">
+  </cad-button>
+</div>
+

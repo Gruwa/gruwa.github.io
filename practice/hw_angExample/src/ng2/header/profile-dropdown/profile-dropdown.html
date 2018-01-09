@@ -1,0 +1,65 @@
+<cad-dropdown [title]="userTitle"
+              [isOpened]="isDropdownOpened"
+              (onToggle)="toggleDropdown($event)"
+              color="white"
+              size="small"
+              placement="bottom-left">
+
+  <div cad-dropdown-body (click)="closeDropdown()">
+
+    <div *ngIf="isMarketsSubmenuVisible; then marketsSubmenu else topLevelMenu"></div>
+
+    <ng-template #topLevelMenu>
+      <div class="top-menu">
+        <div class="top-menu__item"
+           *ngIf="isMultiMarketsEnabled"
+           (click)="toggleMarketsSubmenu($event)">
+          <div>{{ 'navbar.user_menu.market' | translate }}</div>
+          <div class="top-menu__item__market">
+            <div>{{ currentUserService.market }}</div>
+            <cad-icon name="arrow-right" *ngIf="availableMarkets.length > 1"></cad-icon>
+          </div>
+        </div>
+        <a class="top-menu__item" [href]="ddLinks.profile">
+          {{ 'navbar.user_menu.profile_settings' | translate }}
+        </a>
+        <a class="top-menu__item"
+           *ngIf="'cad_access_user_guide' | cadHasPermissions"
+           (click)="openDocumentation()">
+          {{ 'navbar.user_menu.documentation' | translate }}
+        </a>
+        <a class="top-menu__item" [href]="ddLinks.support">
+          {{ 'navbar.user_menu.support' | translate }}
+        </a>
+        <a class="top-menu__item" (click)="logout()">
+          {{ 'navbar.user_menu.logout' | translate}}
+        </a>
+      </div>
+    </ng-template>
+
+    <ng-template #marketsSubmenu>
+      <div class="sub-menu">
+        <div class="sub-menu__back">
+          <cad-link class="back-item"
+                    type="primary"
+                    icon="arrow-left"
+                    value="global.back"
+                    (click)="toggleMarketsSubmenu($event)">
+          </cad-link>
+        </div>
+
+        <div class="sub-menu__markets-list">
+          <cad-smart-search-list-item *ngFor="let item of availableMarkets"
+                                      [text]="item.name"
+                                      [market]="item.isoCode"
+                                      [selected]="currentUserService.market === item.isoCode"
+                                      (click)="updateMarketSelection(item)">
+          </cad-smart-search-list-item>
+        </div>
+
+      </div>
+    </ng-template>
+
+  </div>
+
+</cad-dropdown>

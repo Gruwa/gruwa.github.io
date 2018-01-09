@@ -1,0 +1,46 @@
+<cad-modal-content width="544" view="wide-content">
+  <div modal-header>
+    <div class="cad-background-process-dismiss-popup__title">
+      {{ 'background_processes.dismiss_changes_title' | translate }}
+    </div>
+  </div>
+
+  <div modal-body>
+    <div class="cad-background-process-dismiss-popup__body">
+      <cad-icon name="error"
+                width="54"
+                height="54"
+                class="cad-background-process-dismiss-popup__icon">
+      </cad-icon>
+      <div class="cad-background-process-dismiss-popup__text">
+        <p class="mb-20"
+           [innerHTML]="'background_processes.dismiss_warning' | translate: {name: processName}">
+        </p>
+        <span>{{ 'background_processes.if_keeps_appearing' | translate }},</span>
+        <cad-link (click)="requestSupport()"
+                  type="primary"
+                  iconRight="true"
+                  value="support.submit_request"
+                  class="cad-background-process-dismiss-popup__link">
+        </cad-link>
+      </div>
+    </div>
+    <div class="cad-background-process-dismiss-popup__confirmation">
+      <cad-checkbox [(ngModel)]="isConfirmed">
+        {{ 'background_processes.dismiss_confirmation' | translate }}
+      </cad-checkbox>
+    </div>
+  </div>
+
+  <div modal-footer>
+    <cad-button (onClick)="cancel()"
+                view="secondary"
+                text="buttons.cancel">
+    </cad-button>
+    <cad-button [disabled]="!isConfirmed"
+                (onClick)="dismiss()"
+                view="primary"
+                text="global.dismiss">
+    </cad-button>
+  </div>
+</cad-modal-content>

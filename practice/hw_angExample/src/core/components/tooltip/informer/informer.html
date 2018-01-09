@@ -1,0 +1,13 @@
+<div class="cad-informer-tooltip informer" ng-if="vm.isVisible">
+
+  <div class="informer__wrapper informer__wrapper--{{ vm.position }}">
+    <div class="informer__text">
+      <div class="title title_6 title_thin" translate="{{ ::vm.informerText }}"></div>
+    </div>
+    <div class="informer__buttons">
+      <cad-button text="global.close" view="primary" size="small" ng-click="vm.close()"></cad-button>
+    </div>
+  </div>
+  <div class="informer__arrow informer__arrow--{{ vm.position }}"></div>
+
+</div>

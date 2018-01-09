@@ -1,0 +1,59 @@
+<div class="audit-trail-table">
+
+  <div class="cad-panel cad-panel_p-20"
+       ng-if="vm.logs.length">
+
+    <div class="table_row__wide bg_grey">
+      <div cad-column="20" class="table_item default_padding main_title" translate="words.date"></div>
+      <div cad-column="20" class="table_item main_title" translate="words.user"></div>
+      <div cad-column="58" class="table_item main_title" translate="words.details"></div>
+    </div>
+
+    <div class="table_row__wide"
+         ng-repeat="log in vm.logs track by $index"
+         ng-class="{'table_row__border_top_d8':$index > 0}">
+
+      <div cad-column="20" class="table_item default_padding align_top"
+           ng-bind-html="(log.ts | cadDateTZ:'mediumDateShortTime' | highlight:vm.searchQuery)">
+      </div>
+
+      <div cad-column="20" class="table_item align_top break-word"
+           ng-bind-html="log.actor | cadUsername | highlight:vm.searchQuery "></div>
+
+      <div cad-column="58" class="table_item align_top default_padding details_padding">
+        <div class="table_row__wide">
+          <div cad-column="30" class="table_item detail_title" translate="words.field"></div>
+          <div cad-column="34" class="table_item detail_title" translate="audit_trail.old_value"></div>
+          <div cad-column="34" class="table_item detail_title" translate="audit_trail.new_value"></div>
+        </div>
+        <div class="table_row__wide"
+             ng-class="{'table_row__border_top_light':$index > 0}"
+             ng-repeat="detail in log.changedFields | limitTo:log.pageSize:0 track by $index">
+          <div cad-column="30" class="table_item detail_value text__bold"
+               ng-bind-html="detail.label | highlight:vm.searchQuery">
+          </div>
+          <div cad-column="34" class="table_item detail_value"
+               ng-bind-html="detail.oldValue | highlight:vm.searchQuery">
+          </div>
+          <div cad-column="34" class="table_item detail_value text__bold break-word"
+               ng-bind-html="detail.newValue | highlight:vm.searchQuery">
+          </div>
+        </div>
+        <div class="table_row__wide table_row__border_top_light"
+             ng-if="log.changedFields.length > vm.detailsPageSize">
+          <div cad-column="100" class="table_item detail_value toggle_link">
+            <strong
+              ng-click="log.pageSize = log.pageSize === vm.detailsPageSize
+                                ? log.changedFields.length
+                                : vm.detailsPageSize">
+              {{ log.pageSize === vm.detailsPageSize ? 'words.expand' : 'words.collapse' | translate }}
+                    <span ng-if="log.pageSize === vm.detailsPageSize">
+                      ({{ log.changedFields.length - vm.detailsPageSize }} {{ 'words.more' | translate }})
+                    </span>
+            </strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

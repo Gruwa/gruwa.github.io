@@ -1,0 +1,49 @@
+<cad-panel headTitle="Toggle">
+  <div cad-panel-content>
+
+    <div class="examples__params">
+      No input/output params.<br/><br/>
+
+      <div class="examples__params__note">
+        Toggle component implements <strong>ControlValueAccessor</strong>
+      </div>
+    </div>
+
+    <textarea class="examples__copy" rows="8" ngNonBindable>
+      <cad-toggle [(ngModel)]="isOn"
+                  name="toggle"
+                  [disabled]="isDisabled"
+                  (ngModelChange)="toggle($event)">
+      </cad-toggle>
+    </textarea>
+
+    <div class="cad-row">
+      <div class="column column-30">
+
+        <div class="mb-15">
+          <label><input type="checkbox" [(ngModel)]="isDisabled" /> Disabled</label>
+        </div>
+
+        <div class="mb-15">
+          <label><input type="checkbox" [(ngModel)]="isOn"> Switch On/Off</label>
+        </div>
+
+      </div>
+
+      <div class="column column-70"
+           [style.backgroundColor]="color === 'white' ? 'orange' : 'white'">
+
+        <div [style.width.px]="dropdownWidth">
+
+          <cad-toggle [(ngModel)]="isOn"
+                      name="toggle"
+                      [disabled]="isDisabled"
+                      (ngModelChange)="toggle($event)">
+          </cad-toggle>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</cad-panel>

@@ -1,0 +1,28 @@
+<div class="smart-filter">
+  <div class="smart-filter__face">
+    <cad-button text="Filter" view="tertiary" size="small"
+                ng-click="vm.showPanel = !vm.showPanel"></cad-button>
+    <div class="smart-filter__face__summary">
+    </div>
+  </div>
+
+  <div class="smart-filter__panel"
+       ng-class="{'is-open': vm.showPanel}"
+       ng-show="vm.showPanel"
+       visibility-action="false"
+       cad-click-out="vm.showPanel = false">
+    <div class="smart-filter__panel__list" ng-transclude="filterList"></div>
+
+    <div class="smart-filter__panel__footer">
+      <cad-button text="Apply" view="primary" size="small" ng-click="vm.apply()"></cad-button>
+      <cad-button text="Cancel" view="secondary" size="small"></cad-button>
+
+      <cad-button class="float-right"
+                  text="Clear All Filters"
+                  view="secondary"
+                  size="small"
+                  ng-click="vm.clear()"></cad-button>
+    </div>
+  </div>
+
+</div>

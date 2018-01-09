@@ -1,0 +1,22 @@
+<div class="field" ng-class="{ 'search-disabled': vm.searchDisabled }">
+  <label class="field__in">
+    <input class="input"
+           type="text"
+           ng-minlength="{{vm.minLength > 0 ? vm.minLength : 1}}"
+           ng-model="vm.query"
+           ng-change="vm.onChange({query: vm.query})"
+           ng-focus="vm.onFocus({query: vm.query})"
+           ng-blur="vm.onBlur()"
+           ng-model-options="{ debounce: { 'blur': 0, 'default': +vm.debounceInterval || 500 } }"
+           placeholder="{{ vm.placeholder || 'global.search' | translate }}"
+           ng-click="$event.stopPropagation()"
+           ng-disabled="vm.searchDisabled"/>
+    <cad-icon name="search"/>
+  </label>
+  <button class="field__reset"
+          type="button"
+          ng-show="vm.query"
+          ng-click="vm.query = ''; vm.onChange({query: vm.query}); $event.stopPropagation(); ">
+    <cad-icon name="close"/>
+  </button>
+</div>

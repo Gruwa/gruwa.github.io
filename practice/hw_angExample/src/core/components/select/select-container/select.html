@@ -1,0 +1,18 @@
+<div cad-click-out="close()"
+     visible-class="is-active"
+     close-on-esc="true"
+     ng-class="{'is-active': visible, 'disabled': disable, 'select select__{{ size }}': true }">
+  <div class="select__head"
+       role="button"
+       aria-expanded="false"
+       ng-click="click()">
+    <div class="select__value"
+         ng-class="{'select__{{color}}': color}">
+      {{ head | translate | limitTo: limit }}{{ head.length > limit ? '...' : '' }}
+    </div>
+    <div class="select__head-label">{{headLabel}}</div>
+    <cad-icon name="{{ icon }}"></cad-icon>
+  </div>
+
+  <ul class="select__list" ng-transclude></ul>
+</div>

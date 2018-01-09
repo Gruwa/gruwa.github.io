@@ -1,0 +1,270 @@
+[{
+    "app": "other",
+    "name": "cad access administration",
+    "permission": "cad_access_administration"
+  },
+  {
+    "app": "advanced_tv",
+    "name": "cad access advanced tv",
+    "permission": "cad_access_advanced_tv"
+  },
+  {
+    "app": "other",
+    "name": "cad access advertisers",
+    "permission": "cad_access_advertisers"
+  },
+  {
+    "app": "amp",
+    "name": "cad access amp",
+    "permission": "cad_access_amp"
+  },
+  {
+    "app": "other",
+    "name": "cad access api integrations",
+    "permission": "cad_access_api_integrations"
+  },
+  {
+    "app": "amp",
+    "name": "cad access campaign manager",
+    "permission": "cad_access_campaign_manager"
+  },
+  {
+    "app": "cm",
+    "name": "cad access cm campaign completed",
+    "permission": "cad_access_cm_campaign_completed"
+  },
+  {
+    "app": "cm",
+    "name": "cad access cm campaign draft",
+    "permission": "cad_access_cm_campaign_draft"
+  },
+  {
+    "app": "cm",
+    "name": "cad access cm campaign live",
+    "permission": "cad_access_cm_campaign_live"
+  },
+  {
+    "app": "cm",
+    "name": "cad access cm creatives",
+    "permission": "cad_access_cm_creatives"
+  },
+  {
+    "app": "cm",
+    "name": "cad access cm demo",
+    "permission": "cad_access_cm_demo"
+  },
+  {
+    "app": "cm",
+    "name": "cad access cm details setup",
+    "permission": "cad_access_cm_details_setup"
+  },
+  {
+    "app": "cm",
+    "name": "cad access cm net cost",
+    "permission": "cad_access_cm_net_cost"
+  },
+  {
+    "app": "cm",
+    "name": "cad access cm task run",
+    "permission": "cad_access_cm_task_run"
+  },
+  {
+    "app": "csf",
+    "name": "cad access csf",
+    "permission": "cad_access_csf"
+  },
+  {
+    "app": "csf",
+    "name": "cad access csf approve io finance",
+    "permission": "cad_access_csf_approve_io_finance"
+  },
+  {
+    "app": "csf",
+    "name": "cad access csf approve io ops",
+    "permission": "cad_access_csf_approve_io_ops"
+  },
+  {
+    "app": "csf",
+    "name": "cad access csf budget planner",
+    "permission": "cad_access_csf_budget_planner"
+  },
+  {
+    "app": "csf",
+    "name": "cad access csf echosign",
+    "permission": "cad_access_csf_echosign"
+  },
+  {
+    "app": "csf",
+    "name": "cad access csf edit io finance",
+    "permission": "cad_access_csf_edit_io_finance"
+  },
+  {
+    "app": "csf",
+    "name": "cad access csf send io for approval",
+    "permission": "cad_access_csf_send_io_for_approval"
+  },
+  {
+    "app": "other",
+    "name": "cad access financedb",
+    "permission": "cad_access_financedb"
+  },
+  {
+    "app": "mkt",
+    "name": "cad access marketplace",
+    "permission": "cad_access_marketplace"
+  },
+  {
+    "app": "mkt",
+    "name": "cad access marketplace ap",
+    "permission": "cad_access_marketplace_ap"
+  },
+  {
+    "app": "mkt",
+    "name": "cad access marketplace cm",
+    "permission": "cad_access_marketplace_cm"
+  },
+  {
+    "app": "mkt",
+    "name": "cad access marketplace dm",
+    "permission": "cad_access_marketplace_dm"
+  },
+  {
+    "app": "mkt",
+    "name": "cad access marketplace ps",
+    "permission": "cad_access_marketplace_ps"
+  },
+  {
+    "app": "other",
+    "name": "cad access notification settings",
+    "permission": "cad_access_notification_settings"
+  },
+  {
+    "app": "other",
+    "name": "cad access opportunities",
+    "permission": "cad_access_opportunities"
+  },
+  {
+    "app": "reporting",
+    "name": "cad access reporting",
+    "permission": "cad_access_reporting"
+  },
+  {
+    "app": "reporting",
+    "name": "cad access reporting ad server discrepancy",
+    "permission": "cad_access_reporting_ad_server_discrepancy"
+  },
+  {
+    "app": "reporting",
+    "name": "cad access reporting ad server placement",
+    "permission": "cad_access_reporting_ad_server_placement"
+  },
+  {
+    "app": "reporting",
+    "name": "cad access reporting atv",
+    "permission": "cad_access_reporting_atv"
+  },
+  {
+    "app": "reporting",
+    "name": "cad access reporting campaign analytics ad server",
+    "permission": "cad_access_reporting_campaign_analytics_ad_server"
+  },
+  {
+    "app": "reporting",
+    "name": "cad access reporting campaign analytics dsp",
+    "permission": "cad_access_reporting_campaign_analytics_dsp"
+  },
+  {
+    "app": "reporting",
+    "name": "cad access reporting daily io performance",
+    "permission": "cad_access_reporting_daily_io_performance"
+  },
+  {
+    "app": "reporting",
+    "name": "cad access reporting embedding",
+    "permission": "cad_access_reporting_embedding"
+  },
+  {
+    "app": "reporting",
+    "name": "cad access reporting embedding all dashboards",
+    "permission": "cad_access_reporting_embedding_all_dashboards"
+  },
+  {
+    "app": "reporting",
+    "name": "cad access reporting finished campaign",
+    "permission": "cad_access_reporting_finished_campaign"
+  },
+  {
+    "app": "reporting",
+    "name": "cad access reporting insights",
+    "permission": "cad_access_reporting_insights"
+  },
+  {
+    "app": "reporting",
+    "name": "cad access reporting live campaign",
+    "permission": "cad_access_reporting_live_campaign"
+  },
+  {
+    "app": "reporting",
+    "name": "cad access reporting net cost",
+    "permission": "cad_access_reporting_net_cost"
+  },
+  {
+    "app": "other",
+    "name": "cad access system alerts",
+    "permission": "cad_access_system_alerts"
+  },
+  {
+    "app": "other",
+    "name": "cad access total tag",
+    "permission": "cad_access_total_tag"
+  },
+  {
+    "app": "user_management",
+    "name": "cad access user management",
+    "permission": "cad_access_user_management"
+  },
+  {
+    "app": "user_management",
+    "name": "cad access user management set",
+    "permission": "cad_access_user_management_set"
+  },
+  {
+    "app": "user_management",
+    "name": "cad access user management set password",
+    "permission": "cad_access_user_management_set_password"
+  },
+  {
+    "app": "other",
+    "name": "cad access utag mappings edit",
+    "permission": "cad_access_utag_mappings_edit"
+  },
+  {
+    "app": "other",
+    "name": "cad access utag mappings view",
+    "permission": "cad_access_utag_mappings_view"
+  },
+  {
+    "app": "other",
+    "name": "cad access utag pprovider edit",
+    "permission": "cad_access_utag_pprovider_edit"
+  },
+  {
+    "app": "other",
+    "name": "cad access utag pprovider view",
+    "permission": "cad_access_utag_pprovider_view"
+  },
+  {
+    "app": "other",
+    "name": "cad access utag tag create",
+    "permission": "cad_access_utag_tag_create"
+  },
+  {
+    "app": "other",
+    "name": "cad access utag tag merge",
+    "permission": "cad_access_utag_tag_merge"
+  },
+  {
+    "app": "other",
+    "name": "cad access utag tag view",
+    "permission": "cad_access_utag_tag_view"
+}]

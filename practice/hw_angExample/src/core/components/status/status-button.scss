@@ -1,0 +1,16 @@
+.status-button {
+
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 14px;
+  @include fs;
+  display: inline-block;
+  padding: 8px 10px;
+
+  background: rgba($bg, 0.8);
+  color: rgba($black, 0.8);
+
+  &.status-button-disabled {
+    color: $gray-d;
+  }
+}

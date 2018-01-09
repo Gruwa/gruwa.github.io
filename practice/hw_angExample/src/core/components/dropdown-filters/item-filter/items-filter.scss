@@ -1,0 +1,18 @@
+.items-filter {
+
+  .dropdown-content {
+    min-width: 230px;
+  }
+
+  .icon {
+    margin-top: -2px;
+    width: 11px;
+    height: 8px;
+    fill: $status-blue;
+  }
+
+  .status-default {
+    color: $gray-d;
+  }
+}
+

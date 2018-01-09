@@ -1,0 +1,77 @@
+@import '../../../../tmp/whitelabel/current/variables';
+
+$cl: #404040;
+$bg: #f0f0f0;
+
+$primary: $wl-primary;
+$primary-hover: $wl-primary-hover;
+$primary-active: $wl-primary-active;
+$primary-disabled: $wl-primary-disabled;
+$primary-disabled-text: $wl-primary-disabled-text;
+
+$primary-btn: $wl-primary-btn;
+$primary-btn-text: $wl-primary-btn-text;
+$primary-btn-hover: $wl-primary-btn-hover;
+$primary-btn-active: $wl-primary-btn-active;
+$primary-btn-disabled: $wl-primary-btn-disabled;
+$primary-btn-disabled-text: $wl-primary-btn-disabled-text;
+
+$primary-back-btn: $wl-primary-back-btn;
+$primary-back-btn-text: $wl-primary-back-btn-text;
+$primary-back-btn-active: $wl-primary-back-btn-active;
+
+$primary-warn-text: #ffae00;
+$primary-highlight: #ffce6a;
+
+// TODO: Maybe rename to $wl-tertiary-* and move to variables-default.scss
+$blue-d1: #096482;
+
+$gray-dark: #707070;
+$gray-d: #a4a4a4;
+$gray: #ccc;
+$gray-e2: #e2e2e2;
+$gray-f7: #f7f7f7;
+
+$brd: #dadada;
+$brd-l: #ececec;
+
+$red: #ff4040;
+$orange: #ff6633;
+
+$green-l: #dce775;
+
+$black: #000;
+$white: #fff;
+
+$dark: #2d2d2d;
+
+$status-red: #eb430f;
+$status-blue: $wl-tertiary;
+$status-green-l: #d7f4bd;
+$status-green: #63d300;
+$status-grey: #a7a7a7;
+$status-yellow: #ffce6a;
+
+$border-grey: #cecece;
+
+$tooltip-color: #fffefe;
+
+$back-btn-bg: #C1C1C1;
+$back-btn-hv: #DAD9D9;
+
+$cta-back-btn: #f3f3f3;
+$cta-back-btn-border: #b6b6b6;
+$cta-back-btn-hover: #fbfbfb;
+$cta-back-btn-active: #e5e5e5;
+$cta-back-btn-disabled: #fafafa;
+$cta-back-btn-font: #717171;
+$cta-back-btn-font-disabled: #cecece;
+$cta-back-btn-border-disabled: #e4e4e4;
+
+$new_notification_bg: #fdf8ee;
+
+$primary-spinner-inner: $wl-primary-spinner-inner;
+$primary-spinner-outer: $wl-primary-spinner-outer;
+
+$blue-spinner-inner: #1e89a3;
+$blue-spinner-outer: #9cdae5;

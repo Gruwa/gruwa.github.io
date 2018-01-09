@@ -1,0 +1,33 @@
+@import '../../../core/assets/scss/variables';
+
+.cad-background-processes {
+  margin-right: 30px;
+
+  &__icon {
+    fill: $wl-header-icon;
+    margin-bottom: 3px;
+  }
+
+  &__spinner {
+    display: inline-block;
+    margin-top: 3px;
+  }
+
+  &__process {
+    display: block;
+    padding: 12px 10px;
+    width: 400px;
+  }
+
+  &__body {
+    max-height: 475px;
+    overflow-y: auto;
+  }
+
+  /deep/.dropdown__body.dropdown__body--left {
+    right: -160px;
+    &:before {
+      right: 194px;
+    }
+  }
+}

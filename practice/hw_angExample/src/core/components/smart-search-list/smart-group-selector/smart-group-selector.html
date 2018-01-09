@@ -1,0 +1,19 @@
+<div class="cad-search-list__row_head" ng-if="vm.isShown" ng-click="$event.stopPropagation()">
+  <div class="cad-search-list__right">
+    <button ng-if="!vm.isGroupSelected()"
+            class="link-icon primary"
+            ng-click="vm.selectGroup()">
+      <span translate="global.select_group"></span>
+    </button>
+    <button ng-if="vm.isGroupSelected()"
+            class="link-icon primary"
+            ng-click="vm.deselectGroup()">
+      <span translate="global.deselect_group"></span>
+    </button>
+  </div>
+  <div class="cad-search-list__left three-dots"
+       uib-tooltip="{{vm.groupName}}"
+       cad-smart-tooltip-enable
+       ng-bind-html="vm.groupName | highlight:vm.highlightString">
+  </div>
+</div>

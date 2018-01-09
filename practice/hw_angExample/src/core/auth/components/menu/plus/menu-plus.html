@@ -1,0 +1,22 @@
+<div class="header__chapter"
+     ng-show="vm.createBtn.length">
+  <div class="header__chapter-add"
+       ng-class="{ 'is-disabled': vm.disable }">
+    <cad-icon name="plus"></cad-icon>
+    <cad-dropdown position="left"
+                  ng-if="vm.createBtn.length > 1"
+                  disable="vm.disable">
+      <a ng-repeat="item in vm.createBtn track by item.title"
+         ng-click="vm.changeState(item)"
+         translate="{{ item.title }}">
+      </a>
+    </cad-dropdown>
+
+    <a class="header__add-btn"
+       ng-if="vm.createBtn.length === 1"
+       ng-style="vm.disable ? { 'pointer-events': 'none' } : { 'pointer-events': 'auto' }"
+       ui-sref="{{ vm.getPlusBtnState(vm.getPlusBtnParams()) }}"
+       ui-sref-opts="{{ vm.getPlusBtnOpts() }}">
+    </a>
+  </div>
+</div>

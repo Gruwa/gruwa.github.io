@@ -1,0 +1,20 @@
+<div class="list-item"
+     [class.list-item--selected]="selected">
+  <div class="list-item__texts">
+    <div class="list-item__texts__main"
+         [innerHTML]="text | highlight:searchText"
+         [cadSmartTooltip]="text"></div>
+    <div class="list-item__texts__sub"
+         [innerHTML]="subtext | highlight:searchText"
+         [cadSmartTooltip]="subtext"></div>
+  </div>
+  <div class="list-item__icons">
+    <div class="market list-item__market" [hidden]="!market">
+      {{ market }}
+    </div>
+    <cad-icon *ngIf="showTicks"
+              name="tick"
+              [style.visibility]="selected ? 'visible' : 'hidden'" >
+    </cad-icon>
+  </div>
+</div>

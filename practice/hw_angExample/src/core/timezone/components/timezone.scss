@@ -1,0 +1,12 @@
+.timezone {
+
+  .dropdown {
+    width: 368px;
+    .dropdown__title {
+      @include text-overflow;
+    }
+    .cad-search-list.cad-search-list_dropdown {
+      width: 368px;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+<div class="toast-notification" *ngIf="isToastVisible">
+  <div class="toast-notification-main">
+    <div class="title title_6 title_thin mb-10">{{ topItem.description }}</div>
+    <div class="title title_4 mb-15">{{ topItem.object.name }}</div>
+
+    <div class="button-actions">
+      <button class="button secondary button-toast" (click)="closeAll()">{{ 'global.close' | translate }}</button>
+      <button class="button secondary button-toast" (click)="viewItem()">{{ 'global.view' | translate }}</button>
+    </div>
+  </div>
+
+  <div class="view-more" *ngIf="notifications.length">
+    <a [innerHTML]="'notifications.view_more_notifications' | translate: {numNew: notifications.length}"
+       (click)="viewAll()">
+    </a>
+  </div>
+</div>

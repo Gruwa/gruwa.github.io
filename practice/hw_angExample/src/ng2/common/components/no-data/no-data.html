@@ -1,0 +1,10 @@
+<div class="cad-no-data"
+      [class.cad-no-data--small]="textSize === 'small'">
+  <div class="cad-no-data__icon"
+       [class.cad-no-data__icon--big]="circleSize === 'big'"
+       [class.cad-no-data__icon--white]="type === 'white'">
+    <cad-icon [name]="icon"></cad-icon>
+  </div>
+  <div class="cad-no-data__title"
+       [class.cad-no-data__title--small]="textSize === 'small'">{{ message }}</div>
+</div>

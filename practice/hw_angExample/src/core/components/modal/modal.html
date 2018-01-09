@@ -1,0 +1,26 @@
+<script type ="text/ng-template" id="modal-dialog-template">
+  <div tabindex="-1" role="dialog" class="modal" ng-style="{'z-index': 1050 + index*10, display: 'block'}" ng-click="close($event)"
+       modal-render="{{$isRendered}}"
+       uib-modal-animation-class="fade"
+       modal-in-class="in">
+    <div class="modal-dialog" ng-class="{'modal-sm': size == 'sm',
+                                         'modal-sm-390': size == 'sm-390',
+                                         'modal-sm-440': size == 'sm-440',
+                                         'modal-sm-460': size == 'sm-460',
+                                         'modal-sm-500': size == 'sm-500',
+                                         'modal-sm-520': size == 'sm-520',
+                                         'modal-sm-540': size == 'sm-540',
+                                         'modal-md-600': size == 'md-600',
+                                         'modal-md': size == 'md',
+                                         'modal-md-680': size == 'md-680',
+                                         'modal-md-740': size == 'md-740',
+                                         'modal-lg': size == 'lg',
+                                         'modal-lg-894': size == 'lg-894',
+                                         'modal-lg-950': size == 'lg-950'}">
+      <div class="modal-content">
+        <div class="popup" uib-modal-transclude>
+        </div>
+      </div>
+    </div>
+  </div>
+</script>

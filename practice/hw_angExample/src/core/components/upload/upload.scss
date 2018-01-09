@@ -1,0 +1,103 @@
+.cad-upload {
+  width: 100%;
+  min-width: 600px;
+  height: 371px;
+  position: relative;
+}
+
+%common {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; // establish new block formatting context inside element to prevent collapsing top margins
+  border-radius: 20px;
+  text-align: center;
+  position: absolute; // makes all <div> act as layers to prevent UI flicking on steps change
+}
+
+.cad-upload-initial {
+  @extend %common;
+  background-color: $gray-f7;
+  border: 3px dashed $gray;
+
+  &.cad-upload-initial--drop-ok {
+    border-color: $status-green;
+    background-color: $status-green-l;
+  }
+
+  &.cad-upload-initial--drop-reject {
+    border-color: $red;
+    background-color: rgba($primary, 0.2);
+  }
+}
+
+.cad-upload-progress {
+  @extend %common;
+  background-color: $bg;
+
+  .cad-upload-progress__bar {
+    $radius: 6px;
+    margin: 9px auto;
+    width: 373px;
+    height: 13px;
+    background-color: $white;
+    border-radius: $radius;
+
+    div {
+      background-color: $primary;
+      width: 0;
+      height: 100%;
+      border-radius: $radius;
+      transition: width 0.4s ease-in-out;
+    }
+  }
+}
+
+.cad-upload-error {
+  @extend %common;
+  background-color: $bg;
+}
+
+.cad-upload-success {
+  $opacity: 0.3;
+  @extend %common;
+  background-color: $gray-f7;
+  border: 3px dashed rgba($gray, $opacity);
+
+  .cad-upload-success__inactive {
+    opacity: $opacity;
+  }
+}
+
+.cad-upload-or-delim {
+  font-size: 0; // kill space between inner inline-block elements
+
+  // lines
+  &:after,
+  &:before {
+    content: "";
+    display: inline-block;
+    width: 115px;
+    height: 1px;
+    background: $brd;
+    vertical-align: middle;
+  }
+
+  // "OR" in circle
+  span {
+    display: inline-block;
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
+    border: 1px solid $brd;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 35px;
+    vertical-align: middle;
+    color: $black;
+    background-color: $white;
+  }
+}
+
+

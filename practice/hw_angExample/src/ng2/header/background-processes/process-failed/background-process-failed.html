@@ -1,0 +1,21 @@
+<div class="cad-background-process-failed">
+  <cad-background-process [process]="process">
+    <cad-icon name="attention" class="cad-background-process-failed__indicator"></cad-icon>
+  </cad-background-process>
+
+  <div class="cad-background-process-failed__controls">
+    <cad-link (click)="open()"
+              type="primary"
+              icon="view"
+              value="global.view">
+    </cad-link>
+
+    <div class="cad-background-process-failed__divider"></div>
+
+    <cad-link (click)="dismiss()"
+              type="primary"
+              icon="close"
+              value="global.dismiss">
+    </cad-link>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<cad-panel headTitle="| Date Pipes">
+  <div cad-panel-content>
+
+    <div class="title title_2">cadDate Pipe</div>
+
+    <div class="mt-20 mb-20" style="font-family: monospace" ngNonBindable>
+      {{ date2format | cadDate : 'medium' }}
+    </div>
+
+    <div class="border-bottom overflow-hidden">
+      <div class="column-50 float-left">
+        <input class="input mb-20"
+               title="highlightSearch value"
+               type="text"
+               [(ngModel)]="date2format"/>
+        <select [(ngModel)]="format">
+          <option value="fullDate">fullDate</option>
+          <option value="longDate">longDate</option>
+          <option value="medium">medium</option>
+          <option value="mediumDate">mediumDate</option>
+          <option value="mediumTime">mediumTime</option>
+          <option value="shortDateShortTime">shortDateShortTime</option>
+          <option value="mediumDateShortTime">mediumDateShortTime</option>
+          <option value="short">short</option>
+          <option value="shortDate">shortDate</option>
+          <option value="shortTime">shortTime</option>
+        </select>
+      </div>
+      <div class="column-50 float-right pl-20">
+        {{ date2format | cadDate : format }}
+      </div>
+    </div>
+
+  </div>
+</cad-panel>

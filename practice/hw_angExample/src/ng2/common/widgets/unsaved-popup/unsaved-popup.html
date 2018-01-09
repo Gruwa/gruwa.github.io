@@ -1,0 +1,34 @@
+<cad-modal-content view="compact" width="440">
+  <div modal-header>
+    <div class="unsaved-popup__title" data-automation="unsaved-popup-title">
+      {{ 'form.unsaved_changes.title' | translate }}
+    </div>
+  </div>
+
+  <div modal-body>
+    <div class="unsaved-popup__body">
+      <cad-icon class="unsaved-popup__icon"
+                width="54"
+                height="54"
+                name="error">
+      </cad-icon>
+      <div class="unsaved-popup__text">
+        <div>{{ 'form.unsaved_changes.statement' | translate }}</div>
+        <div>{{ 'form.unsaved_changes.question' | translate }}</div>
+      </div>
+    </div>
+  </div>
+
+  <div modal-footer>
+    <cad-button view="secondary"
+                text="form.unsaved_changes.leave"
+                (click)="leave()"
+                data-automation="unsaved-popup-leave-btn">
+    </cad-button>
+    <cad-button view="primary"
+                text="form.unsaved_changes.stay"
+                (click)="stay()"
+                data-automation="unsaved-popup-stay-btn">
+    </cad-button>
+  </div>
+</cad-modal-content>

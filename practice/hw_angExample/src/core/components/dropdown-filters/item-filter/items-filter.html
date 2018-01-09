@@ -1,0 +1,52 @@
+<cad-dropdown head="{{( (vm.temporarySelectedItems | map: 'name').join(', ') | cadLimitTo: 15) || vm.inputEmptyListTitle}}"
+              color="black"
+              content-color="statuses"
+              custom-class="items-filter"
+              position="left"
+              icon="arrow-down"
+              show-tooltip="false"
+              uib-tooltip="{{ (vm.temporarySelectedItems | map: 'name').join(', ') }}"
+              tooltip-enable="(vm.temporarySelectedItems | map: 'name').join(', ').length > 15 && vm.isDropDownClosed"
+              show-close-button="{{vm.temporarySelectedItems.length > 0}}"
+              close-button-action="vm.resetItems()"
+              visibility-action="false">
+
+  <a ng-click="vm.resetItems()" ng-if="!vm.isMultiselect">
+    {{ vm.inputEmptyListTitle }}
+    <span class="status-default">({{ ::'global.default' | translate }})</span>
+    <span class="float-right" ng-if="vm.temporarySelectedItems.length === 0">
+      <cad-icon name="tick"></cad-icon>
+    </span>
+  </a>
+  <a ng-repeat="item in vm.allItems track by item.id"
+                     ng-click="vm.select(item)">
+    {{ ::item.name | translate }}
+    <span class="float-right" ng-if="vm.isSelected(item)">
+      <cad-icon name="tick"></cad-icon>
+    </span>
+  </a>
+
+  <div class="dropdown-content-data__footer" ng-if="vm.isMultiselect">
+    <cad-button view="secondary"
+                size="small"
+                ng-click="vm.resetItems()"
+                text="global.clear_all"
+                ng-if="vm.temporarySelectedItems.length > 0">
+    </cad-button>
+
+    <cad-button view="secondary"
+                size="small"
+                ng-click="vm.selectAllItems()"
+                text="global.select_all"
+                ng-if="vm.temporarySelectedItems.length === 0">
+    </cad-button>
+
+    <cad-button view="primary"
+                size="small"
+                ng-disabled="vm.selectedMediaTypes.length === 0"
+                ng-click="vm.applyFilter()"
+                text="global.apply">
+    </cad-button>
+  </div>
+
+</cad-dropdown>

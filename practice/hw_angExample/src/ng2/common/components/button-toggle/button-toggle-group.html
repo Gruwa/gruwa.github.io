@@ -1,0 +1,11 @@
+<ul class="button-toggle-group"
+    [class.button-toggle-group--simple]="type === 'simple'"
+    [class.button-toggle-group--simple-white]="type === 'simple-white'"
+    [class.button-toggle-group--blue]="type === 'blue'"
+    [class.button-toggle-group--orange]="type === 'orange'"
+    [class.button-toggle-group--white]="type === 'white'"
+    [class.button-toggle-group--rounded]="type === 'rounded'"
+    [class.button-toggle-group--small]="size === 'small'"
+    [class.button-toggle-group--big]="size === 'big'">
+  <ng-content></ng-content>
+</ul>

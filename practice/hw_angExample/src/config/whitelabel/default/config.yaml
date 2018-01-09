@@ -1,0 +1,46 @@
+title: Cadreon Unity
+favicon: "__whitelabel_dir__/assets/favicon.png"
+
+variables: |
+  // located in variables-default.scss
+
+styles: |
+  @import "./variables";
+
+  $wl-assets-path: '__whitelabel_dir__/assets/';
+
+  .icon-logo-login {
+    width: 200px;
+    height: 47.1px;
+    background-image: url($wl-assets-path + 'logo-login.svg');
+  }
+
+  .icon-logo-head {
+    width: 18px;
+    height: 18px;
+    background-image: url($wl-assets-path + 'logo-head.svg');
+  }
+
+  .icon-logo-welcome {
+    @extend .icon-logo-login;
+    background-image: url($wl-assets-path + 'logo-login-orange.svg');
+  }
+
+  .icon-logo-head-full {
+    width: 210px;
+    height: 18px;
+    background-image: url($wl-assets-path + 'logo-head-full.svg');
+  }
+
+  .wrapper_init-page {
+    background-image: url($wl-assets-path + 'bg-login.jpg');
+  }
+
+
+i18n:
+  en-us:
+    global:
+      default_title: Cadreon Unity
+  zh-cn:
+    global:
+      default_title: Cadreon Unity

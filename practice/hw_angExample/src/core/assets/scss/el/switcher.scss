@@ -1,0 +1,201 @@
+.switcher {
+  font-size: 0;
+  &.switcher_group {
+    .switcher__item {
+      display: block;
+      margin-bottom: 10px;
+    }
+    &.switcher_checkbox {
+      .switcher__content {
+        font-weight: 400;
+      }
+    }
+  }
+
+  &.switcher_btns,
+  &.switcher_buttons {
+    margin-bottom: -12px;
+    .switcher__item {
+      margin: 0 12px 12px 0;
+    }
+
+    .switcher__el {
+      height: 30px;
+      padding: 3px 13px 5px;
+      border: 1px solid rgba($gray-d,.8);
+      border-radius: 15px;
+      font-size: 16px;
+      color: rgba($cl,.8);
+      &:hover {
+        background: $bg;
+      }
+      /* TODO if switcher not include label/input */
+      &.active {
+        background: $wl-tertiary;
+        border-color: $wl-tertiary;
+        color: $white;
+        font-weight: 600;
+      }
+
+      &.disabled {
+        background: $white;
+        border-color: rgba($gray-d, .2);
+        color: rgba($cl, .26);
+        cursor: default;
+      }
+      /* end */
+    }
+    .switcher__item.is-selected {
+      .switcher__el {
+        background: $wl-tertiary;
+        border-color: $wl-tertiary;
+        color: $white;
+        font-weight: 600;
+      }
+    }
+    .switcher__input {
+      &:checked, &.checked {
+        & + .switcher__el {
+          background: $wl-tertiary;
+          border-color: $wl-tertiary;
+          color: $white;
+        }
+      }
+    }
+  }
+  &.switcher_radio {
+    .switcher__item {
+      margin: 0 30px 0 0;
+    }
+    .switcher__el {
+      position: relative;
+      padding-left: 32px;
+      font-size: 18px;
+      &:hover {
+        &:before {
+          background: $white;
+        }
+      }
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 23px;
+        height: 23px;
+        background: $bg;
+        border: 1px solid $brd;
+        border-radius: 50%;
+      }
+    }
+    .switcher__input {
+      &:checked, &.checked {
+        & + .switcher__el {
+          &:before {
+            background: $white;
+            border: 8px solid $wl-tertiary;
+          }
+        }
+      }
+    }
+  }
+  &.switcher_checkbox {
+    &.switcher_big {
+      .switcher__content {
+        padding: 0;
+        font-size: 16px;
+        font-weight: 400;
+      }
+    }
+    &.switcher_white {
+      .switcher__content {
+        color: $white
+      }
+    }
+    .switcher__el {
+      position: relative;
+      padding-left: 30px;
+      &:hover {
+        &:before {
+          background: $white;
+        }
+      }
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        background: $bg;
+        border: 1px solid $brd;
+        border-radius: 2px;
+      }
+      >.icon-tick {
+        display: none;
+        position: absolute;
+        top: 5px;
+        left: 4px;
+        width: 12px;
+        height: 10px;
+        fill: $white;
+      }
+    }
+    .switcher__input {
+      &:checked, &.checked {
+        & + .switcher__el {
+          &:before {
+            background: $wl-tertiary;
+            border-color: $wl-tertiary;
+          }
+          >.icon-tick {
+            display: block;
+          }
+        }
+      }
+      &:disabled:not(:checked) + .switcher__el {
+        cursor: default;
+        &:before {
+          background: $white;
+          border: 1px solid $gray;
+        }
+        .switcher__content {
+          color: $gray;
+        }
+      }
+    }
+    .switcher__content {
+      display: block;
+      padding: 1px 0;
+      font-weight: 600;
+      font-size: 14px;
+      .link-icon {
+        display: block;
+      }
+    }
+  }
+  .switcher__item {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    @include nosel;
+    cursor: pointer;
+  }
+  .switcher__el {
+    display: block;
+  }
+  .switcher__input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+  }
+}
+
+.switcher.switcher_buttons .switcher_disabled.switcher__el {
+  background: $bg;
+  border-color: transparent;
+  font-weight: 400;
+  color: $gray-d;
+  cursor: default;
+}

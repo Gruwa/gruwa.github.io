@@ -1,0 +1,90 @@
+<cad-panel headTitle="Buttons">
+  <div cad-panel-content>
+
+    <div class="examples__params">
+      <ul>
+        <li><strong>[view]: string</strong> - name of button theme</li>
+        <li><strong>[wide]: boolean</strong> - if true button will stretch to container's width (default is <b>false</b>)</li>
+        <li><strong>[small]: boolean</strong> - if true button will has smaller height size (default is <b>false</b>)</li>
+        <li><strong>[icon]: string</strong> - name of the icon to render near text</li>
+        <li><strong>[text]: string</strong> - button text, auto-translated</li>
+        <li><strong>[type]: string </strong> - html button type (default is <b>button</b>)</li>
+        <li><strong>[disabled]: boolean</strong> - if button is disabled</li>
+        <li><strong>[showSpinner]: boolean</strong> - disable button and show spinner inside button</li>
+        <li><strong>@Output() onClick($event: MouseEvent)</strong> - event emitted on button click.
+          <i>
+            <br>Why do we need it:
+            1. to bind click on <code>&lt;button&gt;</code>, not on <code>&lt;cad-button&gt;</code>
+    .       2. to prevent the "click" event on disabled buttons
+          </i>
+        </li>
+      </ul>
+    </div>
+
+    <div class="cad-row">
+      <div class="column column-30">
+        <div class="mb-10">
+          <cad-checkbox [(ngModel)]="isSmall">Small</cad-checkbox>
+        </div>
+        <div class="mb-10">
+          <cad-checkbox [(ngModel)]="isWide">Wide</cad-checkbox>
+        </div>
+        <div class="mb-10">
+          <cad-checkbox [(ngModel)]="isDisabled">Disabled</cad-checkbox>
+        </div>
+        <div class="mb-10">
+          <cad-checkbox [(ngModel)]="isSpinner">Show spinner</cad-checkbox>
+        </div>
+        <div class="mb-10">
+          <input class="input" type="text" [(ngModel)]="btnText" />
+        </div>
+        <div class="mb-10">
+          <span class="title title_6 title_thin">View:</span>
+          <select [(ngModel)]="btnView">
+            <option value="primary">primary</option>
+            <option value="cta">cta</option>
+            <option value="cta-back">cta-back</option>
+            <option value="secondary">secondary</option>
+            <option value="tertiary">tertiary</option>
+            <option value="flat">flat</option>
+            <option value="back-orange">back-orange</option>
+            <option value="back">back</option>
+          </select>
+        </div>
+        <div class="mb-10">
+          <span class="title title_6 title_thin">Icon (for some views only):</span>
+          <select [(ngModel)]="btnIcon">
+            <option value="">None</option>
+            <option value="arrow-left">Arrow left</option>
+            <option value="plus">Plus</option>
+            <option value="configure">Configure</option>
+            <option value="progress">Progress</option>
+          </select>
+        </div>
+      </div>
+      <div class="column column-70">
+        <cad-button [small]="isSmall"
+                    [wide]="isWide"
+                    [disabled]="isDisabled"
+                    [showSpinner]="isSpinner"
+                    [view]="btnView"
+                    [icon]="btnIcon"
+                    [text]="btnText">
+        </cad-button>
+
+        <pre class="mt-20" style="padding: 20px;">
+&lt;cad-button [small]="{{ isSmall }}"
+            [wide]="{{ isWide }}"
+            [disabled]="{{ isDisabled }}"
+            [showSpinner]="{{ isSpinner }}"
+            view="{{ btnView }}"
+            icon="{{ btnIcon }}"
+            text="{{ btnText }}">
+&lt;/cad-button&gt;
+</pre>
+
+      </div>
+    </div>
+
+  </div>
+</cad-panel>

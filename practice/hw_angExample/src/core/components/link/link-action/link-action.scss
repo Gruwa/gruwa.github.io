@@ -1,0 +1,161 @@
+/* TODO refactoring */
+.link-action {
+  position: relative;
+  display: inline-block;
+
+  &.disabled-true {
+    .link-action__head {
+      opacity: .4;
+      cursor: default;
+    }
+  }
+
+  &.is-open {
+    .icon-arrow-down {
+      @include rotate(180);
+    }
+  }
+
+
+  &.link-action_btn {
+    .link-action__head {
+      padding: 5px 10px;
+      background: $bg;
+      border-radius: 4px;
+      @include fs;
+    }
+  }
+
+  &.link-action_big {
+    .link-action__head {
+      .link-action__title {
+        font-size: 18px;
+      }
+      .icon {
+        position: relative;
+        top: 1px;
+      }
+    }
+  }
+
+  &.link-action_big_ellipsis {
+    @extend .link-action_big;
+  }
+
+  &.link-action_white {
+
+    &.is-open {
+      .link-action__head {
+        .link-action__title {
+          color: rgba($white, 0.75);
+        }
+
+        .icon {
+          fill: rgba($white, 0.75);
+        }
+
+        .icon-plus {
+          fill: $wl-tertiary-d;
+        }
+      }
+    }
+
+    .link-action__head {
+
+      .link-action__title {
+        color: $white;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+
+      .icon {
+        fill: $white;
+      }
+    }
+  }
+
+  &.link-action_primary {
+    .link-action__head {
+      padding: 7px;
+      margin-left: -7px;
+      border-radius: 4px;
+
+      &:hover {
+        background-color: rgba($bg, 0.8);
+
+        .link-action__title {
+          text-decoration: none;
+        }
+      }
+    }
+
+    &.is-open {
+      .link-action__head {
+        background-color: $bg;
+      }
+    }
+  }
+
+  & + .link-action {
+    margin-left: 33px;
+  }
+
+  .link-action__head {
+    @include nosel;
+    cursor: pointer;
+    .link-action__title,
+    .icon {
+      display: inline-block;
+      vertical-align: middle;
+      fill: $gray-d;
+    }
+
+    .icon {
+      width: 11px;
+      height: 7px;
+      transition: transform .2s;
+    }
+
+    .link-action__title {
+      font-size: 16px;
+      color: $cl;
+      margin-right: 6px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .link-action__title:empty {
+      margin-right: 0;
+    }
+  }
+}
+
+.more {
+  position: relative;
+  top: -2px;
+  width: auto;
+  height: auto;
+  padding: 3px;
+  border-radius: 4px;
+  font-size: 0;
+  vertical-align: middle;
+  &:hover {
+    background: rgba($wl-tertiary, .3);
+  }
+  &:active {
+    background: rgba($wl-tertiary, .2);
+  }
+  .icon-dots {
+    fill: $wl-tertiary;
+  }
+  &.disabled{
+    opacity: 0.2;
+    &:hover {
+      background: none;
+    }
+  }
+}

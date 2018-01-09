@@ -1,0 +1,16 @@
+.cad-dropdown.dropdown--huge {
+  .dropdown__head {
+    padding-right: 21px;
+    .dropdown__head__content__title {
+      font-size: 24px;
+      font-weight: 600;
+    }
+  }
+
+  .dropdown__body {
+    &.dropdown__body--left {
+      top: 45px;
+    }
+  }
+}
+

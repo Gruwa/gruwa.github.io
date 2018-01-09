@@ -1,0 +1,28 @@
+<div #blurOverlay>
+  <!-- header -->
+  <div #fixedHeader
+       class="main-view__fixed-header hidden-print">
+    <cad-main-header [navMenu]="navMenu"
+                     [showSubheader]="isPageAllowed">
+    </cad-main-header>
+  </div>
+
+  <!-- spacer that dynamically fills space that should be occupied by header with "position: fixed" -->
+  <div [style.height.px]="fixedHeader.offsetHeight"></div>
+
+  <!-- body -->
+  <div class="main-view__body">
+    <div class="cad-container" *ngIf="isPageAllowed">
+      <cad-ng1-router-outlet></cad-ng1-router-outlet>
+    </div>
+    <cad-forbidden-page *ngIf="!isPageAllowed"></cad-forbidden-page>
+  </div>
+
+</div>
+
+<cad-navigation-menu #navMenu
+                     [overlay]="blurOverlay"
+                     [items]="menuItems">
+</cad-navigation-menu>
+<cad-notifications-toast></cad-notifications-toast>
+<cad-support-button></cad-support-button>

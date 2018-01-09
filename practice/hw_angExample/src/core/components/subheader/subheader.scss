@@ -1,0 +1,81 @@
+.subheader {
+  background: $white;
+  /*EZ: temporary solution while header part from Yuriy's markup is not integrated*/
+  box-shadow: 0 0 10px rgba($black,.2);
+  margin-top: -20px;
+  &.subheader_p-12 {
+    padding: 12px 0;
+  }
+  &.subheader_p-8 {
+    padding: 8px 0;
+  }
+  .subheader__in {
+    padding: 20px 0;
+  }
+  .subheader__in_gray {
+    padding: 15px 0;
+    background: $gray-f7;
+  }
+  .subheader__in_brd {
+    border-bottom: 1px solid $brd;
+  }
+  &.is-fixed{
+    position: fixed;
+    top: 60px;
+    width: 100%;
+    z-index: 10;
+  }
+  &.subheader_p-10 {
+    padding: 10px 0;
+  }
+  .subheader__in_p-0 {
+    padding: 0;
+  }
+  .subheader__in_p-15 {
+    padding: 15px 0;
+  }
+  .subheader__in_bg {
+    padding: 15px 0;
+    background: $bg;
+  }
+  .subheader__table {
+    display: table;
+  }
+  .subheader__col {
+    display: table-cell;
+    padding: 0 20px;
+    border-left: 1px solid $brd;
+    vertical-align: middle;
+    &:first-child {
+      padding-left: 0;
+      border: none;
+    }
+  }
+
+  &.subheader__gray {
+    box-shadow: none;
+    background: none;
+  }
+
+}
+
+.total-counter {
+  font-size: 16px;
+  color: $gray-d;
+}
+
+.link-icon {
+  /* TODO use as directive attrs */
+  .icon-code {
+    width: 19px;
+    height: 9px;
+  }
+  .icon-view {
+    width: 22px;
+    height: 15px;
+  }
+  .icon-configure {
+    width: 19px;
+    height: 18px;
+  }
+}

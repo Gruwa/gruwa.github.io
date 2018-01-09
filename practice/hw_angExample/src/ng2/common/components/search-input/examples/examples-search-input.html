@@ -1,0 +1,57 @@
+<cad-panel headTitle="Search Input">
+  <div cad-panel-content>
+
+    <div class="examples__params">
+      <ul>
+        <li><strong>@Input() placeholder: string</strong> - text for internal input placeholder</li>
+      </ul>
+      <br>
+      <div class="examples__params__note">
+        Component implements <strong>ControlValueAccessor</strong> - i.e. supports <strong>[(ngModel)]</strong>
+      </div>
+    </div>
+
+    <div class="cad-row">
+      <div class="column column-30">
+        <div class="mb-10">
+          Width:
+          <input class="mb-15" type="range" min="20" max="1000" [(ngModel)]="elemWidth" />
+        </div>
+        <input type="text" class="input mb-10" placeholder="placeholder" [(ngModel)]="placeholder" />
+
+        <div class="mb-10">
+          <cad-checkbox [(ngModel)]="isSubitems">Show items on top</cad-checkbox>
+        </div>
+
+        <div class="mb-10">
+          <cad-checkbox [(ngModel)]="isDisabled">Disabled</cad-checkbox>
+        </div>
+      </div>
+
+      <div class="column column-70">
+
+        <div class="mb-20"><b>Value:</b> {{ searchQuery }}</div>
+
+        <div [style.width.px]="elemWidth">
+          <cad-search-input [placeholder]="placeholder" [disabled]="isDisabled" [(ngModel)]="searchQuery">
+            <div *ngIf="isSubitems" style="padding: 10px 10px 0 10px">
+              <cad-button text="lorem" view="flat" size="small" icon="close"></cad-button>
+              <cad-button text="ipsum" view="flat" size="small" icon="close"></cad-button>
+            </div>
+          </cad-search-input>
+        </div>
+      </div>
+
+    </div>
+
+    <textarea class="examples__copy" rows="6" ngNonBindable spellcheck="false">
+<cad-search-input [placeholder]="placeholder" [(ngModel)]="searchQuery">
+  <div *ngIf="isSubitems">
+    <cad-button text="lorem" view="flat" size="small" icon="close"></cad-button>
+    <cad-button text="ipsum" view="flat" size="small" icon="close"></cad-button>
+  </div>
+</cad-search-input>
+    </textarea>
+
+  </div>
+</cad-panel>

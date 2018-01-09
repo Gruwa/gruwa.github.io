@@ -1,0 +1,50 @@
+<cad-dropdown *ngIf="isDisplayed"
+              [autoClose]="autoClose"
+              [isOpened]="isOpened"
+              (onToggle)="onToggle($event)"
+              placement="bottom-left"
+              class="cad-background-processes">
+  <div cad-dropdown-head>
+    <ng-container [ngSwitch]="state">
+      <cad-icon *ngSwitchCase="'success'"
+                name="enable"
+                class="cad-background-processes__icon">
+      </cad-icon>
+      <cad-icon *ngSwitchCase="'failed'"
+                name="attention"
+                class="cad-background-processes__icon">
+      </cad-icon>
+      <cad-spinner *ngSwitchCase="'progress'"
+                   type="cadreon"
+                   color="white"
+                   width="18"
+                   borderWidth="2"
+                   class="cad-background-processes__spinner">
+      </cad-spinner>
+    </ng-container>
+  </div>
+
+  <div cad-dropdown-body>
+    <div class="cad-background-processes__body">
+      <div *ngFor="let process of processes; let isLast = last; trackBy: trackByFn"
+           [ngSwitch]="process.status"
+           [class.bb]="!isLast"
+           class="cad-background-processes__process">
+
+        <cad-background-process-progress *ngSwitchCase="'PROGRESS'"
+                                         [process]="process">
+        </cad-background-process-progress>
+
+        <cad-background-process-success *ngSwitchCase="'SUCCESS'"
+                                        [process]="process">
+        </cad-background-process-success>
+
+        <cad-background-process-failed *ngSwitchCase="'FAILED'"
+                                       [process]="process"
+                                       (onOpen)="openProcess($event)"
+                                       (onDismiss)="dismissProcess($event)">
+        </cad-background-process-failed>
+      </div>
+    </div>
+  </div>
+</cad-dropdown>

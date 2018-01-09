@@ -1,0 +1,55 @@
+<header class="header"
+        cadSticky
+        stickyFrom="0"
+        stickyClass="is-fixed"
+        (sticked)="onStickedChange($event)">
+
+  <div class="container">
+    <div class="row align-items-center">
+
+      <div class="col-auto">
+        <button class="header__btn-menu"
+                (click)="openNavMenu()">
+          <cad-icon name="menu"></cad-icon>
+        </button>
+
+        <span class="icon-logo-head"></span>
+
+        <div class="header__chapter"
+             [class.composite]="headerSubtitle">
+          <span class="header__chapter-title header__chapter-link"
+                (click)="gotoHeaderUrl()">
+            {{ headerTitle | translate }}
+          </span>
+          <span class="header__chapter-subtitle"
+                *ngIf="headerSubtitle">
+            {{ headerSubtitle | translate }}
+          </span>
+        </div>
+      </div>
+
+      <div class="col">
+        <cad-ng1-router-outlet view="custom-header"></cad-ng1-router-outlet>
+      </div>
+
+      <div class="col-auto">
+        <div class="header_notifications">
+          <cad-search-global></cad-search-global>
+          <cad-notification-inbox></cad-notification-inbox>
+          <cad-profile-dropdown class="ml-20"></cad-profile-dropdown>
+          <cad-multi-markets-tooltip *ngIf="isMultiMarketsTooltipEnabled"
+                                     position="bottom-left">
+          </cad-multi-markets-tooltip>
+        </div>
+      </div>
+
+    </div> <!-- row -->
+  </div> <!-- container -->
+
+</header>
+
+<div class="head" *ngIf="showSubheader">
+  <cad-ng1-router-outlet view="sub-header"></cad-ng1-router-outlet>
+</div>
+
+<ng-template [ngTemplateOutlet]="stickyHeaderTemplate"></ng-template>

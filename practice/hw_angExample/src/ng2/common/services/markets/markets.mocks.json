@@ -1,0 +1,159 @@
+{
+  "content": [
+    {
+      "isoCode": "AR",
+      "name": "Argentina",
+      "permission": "cad_access_market_ar"
+    },
+    {
+      "isoCode": "AU",
+      "name": "Australia",
+      "permission": "cad_access_market_au"
+    },
+    {
+      "isoCode": "BE",
+      "name": "Belgium",
+      "permission": "cad_access_market_be"
+    },
+    {
+      "isoCode": "BR",
+      "name": "Brazil",
+      "permission": "cad_access_market_br"
+    },
+    {
+      "isoCode": "CA",
+      "name": "Canada",
+      "permission": "cad_access_market_ca"
+    },
+    {
+      "isoCode": "CL",
+      "name": "Chile",
+      "permission": "cad_access_market_cl"
+    },
+    {
+      "isoCode": "CN",
+      "name": "China",
+      "permission": "cad_access_market_cn"
+    },
+    {
+      "isoCode": "CO",
+      "name": "Colombia",
+      "permission": "cad_access_market_co"
+    },
+    {
+      "isoCode": "DK",
+      "name": "Denmark",
+      "permission": "cad_access_market_dk"
+    },
+    {
+      "isoCode": "FI",
+      "name": "Finland",
+      "permission": "cad_access_market_fi"
+    },
+    {
+      "isoCode": "FR",
+      "name": "France",
+      "permission": "cad_access_market_fr"
+    },
+    {
+      "isoCode": "DE",
+      "name": "Germany",
+      "permission": "cad_access_market_de"
+    },
+    {
+      "isoCode": "HU",
+      "name": "Hungary",
+      "permission": "cad_access_market_hu"
+    },
+    {
+      "isoCode": "IN",
+      "name": "India",
+      "permission": "cad_access_market_in"
+    },
+    {
+      "isoCode": "IT",
+      "name": "Italy",
+      "permission": "cad_access_market_it"
+    },
+    {
+      "isoCode": "JP",
+      "name": "Japan",
+      "permission": "cad_access_market_jp"
+    },
+    {
+      "isoCode": "MY",
+      "name": "Malaysia",
+      "permission": "cad_access_market_my"
+    },
+    {
+      "isoCode": "MX",
+      "name": "Mexico",
+      "permission": "cad_access_market_mx"
+    },
+    {
+      "isoCode": "NL",
+      "name": "Netherlands",
+      "permission": "cad_access_market_nl"
+    },
+    {
+      "isoCode": "NZ",
+      "name": "New Zealand",
+      "permission": "cad_access_market_nz"
+    },
+    {
+      "isoCode": "NO",
+      "name": "Norway",
+      "permission": "cad_access_market_no"
+    },
+    {
+      "isoCode": "PE",
+      "name": "Peru",
+      "permission": "cad_access_market_pe"
+    },
+    {
+      "isoCode": "RU",
+      "name": "Russia",
+      "permission": "cad_access_market_ru"
+    },
+    {
+      "isoCode": "ZA",
+      "name": "South Africa",
+      "permission": "cad_access_market_za"
+    },
+    {
+      "isoCode": "ES",
+      "name": "Spain",
+      "permission": "cad_access_market_es"
+    },
+    {
+      "isoCode": "SE",
+      "name": "Sweden",
+      "permission": "cad_access_market_se"
+    },
+    {
+      "isoCode": "TW",
+      "name": "Taiwan",
+      "permission": "cad_access_market_tw"
+    },
+    {
+      "isoCode": "AE",
+      "name": "United Arab Emirates",
+      "permission": "cad_access_market_ae"
+    },
+    {
+      "isoCode": "UK",
+      "name": "United Kingdom",
+      "permission": "cad_access_market_uk"
+    },
+    {
+      "isoCode": "US",
+      "name": "United States",
+      "permission": "cad_access_market_us"
+    },
+    {
+      "isoCode": "UY",
+      "name": "Uruguay",
+      "permission": "cad_access_market_uy"
+    }
+  ]
+}

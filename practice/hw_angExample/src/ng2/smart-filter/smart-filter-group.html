@@ -1,0 +1,51 @@
+<div class="smart-filter-group" [cadSmartFilterOverlay]="showOverlay && isOpened">
+  <!-- filter content -->
+  <cad-dropdown *ngIf="view === 'dropdown'" [isOpened]="isOpened" [autoClose]="autoClose" (onToggle)="onToggle($event)" contentColor="grey" class="display-inline mr-20">
+    <div cad-dropdown-head>
+      <cad-button [text]="label || 'global.filter'" view="tertiary" size="small" data-automation="smart-filter-open-button"></cad-button>
+    </div>
+
+    <div cad-dropdown-body>
+      <!-- body -->
+      <div
+        class="display-block cad-panel cad-panel_p-0-20 cad-panel_gray"
+        [style.overflow-y]="bodyHeight ? 'auto' : 'visible'"
+        [style.height]="bodyHeight ? (bodyHeight + 'px') : 'auto'">
+        <ng-content></ng-content>
+      </div>
+      <!-- footer -->
+      <div class="cad-panel cad-panel_p-20 bt" [style.marginTop.px]="-1">
+        <div class="cad-row cad-row_clear">
+          <div class="column column-50">
+            <cad-button [disabled]="isCleared()" (click)="clear()" text="global.clear_all" view="secondary" size="small" data-automation="filter_group_clear_all"></cad-button>
+          </div>
+          <div class="column column-50 ta-right">
+            <cad-button (click)="cancel()" text="buttons.cancel" view="secondary" size="small" data-automation="filter_group_cancel"></cad-button>
+            <cad-button (click)="apply()" text="buttons.apply" view="primary" size="small" class="ml-7" data-automation="filter_group_apply"></cad-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </cad-dropdown>
+
+  <ng-container *ngIf="view === 'modal'">
+    <ng-template #modalBody>
+      <ng-content select="[smart-filter-modal-content]"></ng-content>
+    </ng-template>
+
+    <cad-button
+      (onClick)="onOpenModal()"
+      [text]="label || 'global.filter'"
+      view="tertiary"
+      class="mr-20"
+      size="small"
+      data-automation="smart-filter-open-button"></cad-button>
+  </ng-container>
+
+
+  <cad-smart-filter-infoline [items]="infoLine"
+                             [limit]="infoLineLimit"
+                             (discard)="discard($event.filter)">
+  </cad-smart-filter-infoline>
+
+</div>

@@ -1,0 +1,23 @@
+.audit-trail__header {
+  .back {
+    position: static !important;
+    margin-right: 16px !important;
+  }
+
+  .audit-trail-header__date-picker {
+    width: 220px;
+    height: 40px;
+  }
+
+  &.sticky-animate {
+    .audit-trail-header__date-picker, .audit-trail-header__date-picker input, .audit-trail-header__date-picker .field__icon {
+        height: 32px;
+    }
+  }
+}
+
+.audit-trail {
+  .audit-trail__empty-results {
+    min-height: 400px;
+  }
+}

@@ -1,0 +1,4 @@
+<div [ngSwitch]="type">
+  <cad-standard-upload *ngSwitchCase="'standard'" [options]="options" (onChange)="onChange($event)"></cad-standard-upload>
+  <cad-compact-upload *ngSwitchCase="'compact'" [options]="options" (onChange)="onChange($event)"></cad-compact-upload>
+</div>

@@ -1,0 +1,59 @@
+@import '../../../../core/assets/scss/variables';
+
+.cad-search {
+  width: 100%;
+  background-color: $white;
+  border-radius: 4px;
+  border: 1px solid $brd;
+}
+.cad-search:hover {
+  border-color: rgba($gray-d, 0.8);
+}
+
+// border color will be changed if component is invalid or its parent control is invalid
+:host-context(.cad-search-container.ng-invalid.ng-touched, .cad-search-container.ng-invalid.ng-dirty) .cad-search,
+.cad-search.ng-invalid.ng-touched,
+.cad-search.ng-invalid.ng-dirty {
+  border-color: $red;
+}
+
+.cad-search__input {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+
+  input {
+    order: 2;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 400;
+    color: $cl;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  input::placeholder {
+    color: $gray-d;
+  }
+  input[disabled] {
+    color: $gray;
+  }
+  input:focus + .icon-search {
+    fill: $primary;
+  }
+
+  .icon-search {
+    order: 1;
+    fill: rgba($cl, 0.6);
+  }
+
+  .icon-clear {
+    order: 3;
+    fill: $gray;
+    cursor: pointer;
+  }
+  .icon-clear:hover {
+    fill: $gray-d;
+  }
+}

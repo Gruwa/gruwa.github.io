@@ -1,0 +1,149 @@
+.modal-backdrop.in {
+  opacity: .8;
+}
+.modal {
+  min-width: 1024px;
+  padding: 30px;
+  @include vertical;
+  overflow: auto;
+}
+.modal-dialog {
+  display: inline-block;
+  width: 700px;
+  margin: 0;
+  vertical-align: middle;
+}
+.modal-lg-950 {
+  width: 950px;
+}
+.modal-lg-894 {
+  width: 894px;
+}
+.modal-lg {
+  width: 850px;
+}
+.modal-sm-390 {
+  width: 390px;
+}
+.modal-sm-440 {
+  width: 440px;
+}
+.modal-sm-460 {
+  width: 460px;
+}
+.modal-sm-500 {
+  width: 500px;
+}
+.modal-sm-520 {
+  width: 520px;
+}
+.modal-sm-540 {
+  width: 540px;
+}
+.modal-md-600 {
+  width: 600px;
+}
+.modal-md {
+  width: 640px;
+}
+.modal-md-680 {
+  width: 680px;
+}
+.modal-md-740 {
+  width: 740px;
+}
+
+.modal-content {
+  box-shadow: none;
+  border: none;
+  border-radius: 4px;
+}
+.modal-body,
+.popup__in {
+  &::-webkit-scrollbar,
+  &::-webkit-scrollbar:hover {
+    width: 4px;
+  }
+  &::-webkit-scrollbar-track,
+  &::-webkit-scrollbar-track:hover {
+    width: 4px;
+    background: 0 none;
+  }
+  &::-webkit-scrollbar-thumb
+  &::-webkit-scrollbar-thumb:hover {
+    width: 4px;
+    height: 76px;
+    border-radius: 2px;
+    background-color: rgba(64, 64, 64, 0.3);
+  }
+}
+
+.popup {
+  position: relative;
+  @extend .box-shadow;
+  font-size: 14px;
+  text-align: left;
+  vertical-align: middle;
+  .popup__title {
+    position: relative;
+    padding: 20px 30px;
+    background: $primary;
+    border-radius: 4px 4px 0 0;
+    .field_search_round {
+      .input {
+        border: none;
+        background: rgba(255,255,255,.9);
+        transition: width .2s,background .2s;
+      }
+    }
+    .back {
+      margin-left: -20px;
+    }
+  }
+  .popup__close {
+    position: absolute;
+    top: -15px;
+    right: -45px;
+    padding: 15px;
+    font-size: 0;
+    &:hover {
+      .icon {
+        fill: $brd;
+      }
+    }
+    &:active {
+      .icon {
+        fill: $gray-d;
+      }
+    }
+    .icon {
+      width: 15px;
+      height: 15px;
+      fill: $gray;
+    }
+  }
+  .popup__in {
+    position: relative;
+    overflow: hidden;
+    background: $white;
+    border-radius: 0 0 4px 4px;
+    .list {
+      .list__item {
+        &:last-child {
+          border: none;
+          border-radius: 0 0 4px 4px;
+        }
+      }
+    }
+  }
+  .cad-panel {
+    &:last-child {
+      border-radius: 0 0 4px 4px;
+    }
+  }
+  .popup__spinner {
+    z-index: 9999;
+    background-color: $white;
+    @include coverdiv;
+  }
+}

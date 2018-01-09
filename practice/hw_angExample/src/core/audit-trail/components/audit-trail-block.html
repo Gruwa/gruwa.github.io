@@ -1,0 +1,101 @@
+<div class="audit-trail-block" ng-if="vm.logs.length">
+
+  <div class="audit-trail-block__list">
+
+    <div class="audit-trail-block__item clearfix" ng-repeat="log in vm.logs track by $index">
+
+      <div class="audit-trail-block__info">
+        <div ng-if="!log.revisionType"
+             class="title title_6">
+          {{ log.changedFields.length === 1 ? 'audit_trail.attribute_updated' :
+                                      'audit_trail.attributes_updated' | translate }}
+        </div>
+        <div ng-if="log.revisionType"
+             class="title title_6">
+          {{ ::'audit_trail.' + log.revisionType | translate }}
+        </div>
+        <div class="audit-trail-block__date"
+             ng-bind-html="(log.ts | cadDateTZ:'mediumDateShortTime' | highlight:vm.searchQuery)">
+        </div>
+
+        <div class="audit-trail-block__author">
+          <span>{{ 'global.by' | translate }} </span>
+          <span ng-bind-html="log.actor | cadUsername | highlight:vm.searchQuery"></span>
+        </div>
+      </div>
+
+      <div ng-if="!log.summary" class="audit-trail-block__details">
+        <div ng-repeat="detail in log.changedFields | limitTo:log.pageSize:0 track by $index">
+          <div class="audit-trail-block__details__title">
+              <span class="title title_6 title_default_color"
+                    ng-bind-html="detail.label | highlight:vm.searchQuery">
+              </span>
+              <span>{{ ::'audit_trail.was_changed' | translate }}</span>
+          </div>
+          <div class="audit-trail-block__details__info">
+            <div class="cad-row">
+              <div class="col-50">
+                <div class="audit-trail-block__details__info__title mb-10">{{ ::'audit_trail.old_value' | translate }}</div>
+                <div class="audit-trail-block__details__info__value"
+                     ng-bind-html="detail.oldValue | highlight:vm.searchQuery">
+                </div>
+              </div>
+              <div class="col-50">
+                <div class="audit-trail-block__details__info__title mb-10">{{ ::'audit_trail.new_value' | translate }}</div>
+                <div class="audit-trail-block__details__info__value"
+                     ng-bind-html="detail.newValue | highlight:vm.searchQuery">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="audit-trail-block__details__more"
+             ng-if="log.changedFields.length > vm.detailsPageSize">
+          <a ng-click="log.pageSize = log.pageSize === vm.detailsPageSize
+                       ? log.changedFields.length
+                       : vm.detailsPageSize">
+            {{ log.pageSize === vm.detailsPageSize ? 'global.show' : 'global.hide' | translate }}
+            <span ng-if="log.pageSize === vm.detailsPageSize">
+                ({{ log.changedFields.length - vm.detailsPageSize }} {{ 'words.more' | translate }})
+            </span>
+            <cad-icon name="arrow-down" ng-if="log.pageSize === vm.detailsPageSize"></cad-icon>
+            <cad-icon name="arrow-down" class="icon-up" ng-if="log.pageSize !== vm.detailsPageSize"></cad-icon>
+          </a>
+        </div>
+      </div>
+      <div ng-if="log.summary" class="audit-trail-block__details">
+        <div class="audit-trail-block__details__title">
+            <span class="title title_6 title_gray"
+                  ng-bind-html="log.summary | highlight:vm.searchQuery">
+            </span>
+        </div>
+        <div class="audit-trail-block__details__info">
+            <div class="cad-row">
+              <div class="col-50">
+                <div class="title title_6 mb-10">{{ 'audit_trail.old_value' | translate }}</div>
+              </div>
+              <div class="col-50">
+                <div class="title title_6 mb-10">{{ 'audit_trail.new_value' | translate }}</div>
+              </div>
+            </div>
+            <div class="cad-row mb-20" ng-repeat="detail in log.changedFields track by $index">
+              <div class="col-50">
+                <cad-audit-trail-dspadvertiser-tile
+                  title="detail.label"
+                  value="detail.oldValue"
+                  search-query="vm.searchQuery"
+                />
+              </div>
+              <div class="col-50">
+                <cad-audit-trail-dspadvertiser-tile
+                  title="detail.label"
+                  value="detail.newValue"
+                  search-query="vm.searchQuery"
+                />
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

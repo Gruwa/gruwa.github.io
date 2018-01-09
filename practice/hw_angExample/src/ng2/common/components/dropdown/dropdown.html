@@ -1,0 +1,53 @@
+<div class="cad-dropdown"
+     [class.dropdown--big]="size === 'big'"
+     [class.dropdown--small]="size === 'small'"
+     [class.dropdown--huge]="size === 'huge'"
+     [class.dropdown--primary]="type === 'primary'"
+     [class.dropdown--boxed]="type === 'boxed'"
+     [class.dropdown--blue]="color === 'blue'"
+     [class.dropdown--white]="color === 'white'"
+     [class.dropdown--grey]="color === 'grey'"
+     [class.dropdown--disabled]="isDisabled"
+     [class.dropdown--opened]="isOpened && !isDisabled">
+
+  <div class="dropdown__head" (click)="toggle()">
+
+    <!-- custom title // need to be in one line -->
+    <div #ref><ng-content select="[cad-dropdown-head]"></ng-content></div>
+
+    <!-- predefined title // ugly hack to check if custom header is omitted -->
+    <div class="dropdown__head__content" *ngIf="ref.childNodes.length === 0">
+
+      <div class="dropdown__head__content__title"
+           [cadSmartTooltip]="isCustomTooltipText ? customTooltipText : title"
+           [cadSmartTooltipOptions]="{
+               isHTML: true,
+               triggerOn: (!isOpened && (!isCustomTooltipText || isCustomTooltipText && customTooltipText)) ? 'hover' : 'none'
+           }"
+           [attr.data-automation]="title">
+        {{ title }}
+      </div>
+
+      <span class="dropdown__head__content__icon"
+            [class.rotate-arrow-down-icon]="isOpened && !isDisabled">
+        <cad-icon [name]="iconName"></cad-icon>
+      </span>
+
+    </div>
+
+  </div>
+
+  <div class="dropdown__body"
+       [class.dropdown__body--grey]="contentColor === 'grey'"
+       [class.dropdown__body--top]="placement === 'top-left' || placement === 'top-right'"
+       [class.dropdown__body--bottom]="placement === 'bottom-left' || placement === 'bottom-right'"
+       [class.dropdown__body--left]="placement === 'top-left' || placement === 'bottom-left'"
+       [class.dropdown__body--right]="placement === 'top-right' || placement === 'bottom-right'"
+       *ngIf="isOpened"
+       [@enterAnimation]="isOpened">
+    <div class="dropdown__body__content">
+      <ng-content select="[cad-dropdown-body]"></ng-content>
+    </div>
+  </div>
+
+</div>

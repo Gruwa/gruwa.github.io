@@ -1,0 +1,25 @@
+<cad-dropdown [isOpened]="isOpened"
+              (onToggle)="onToggle()"
+              [title]="value.length > 0 ? getLabel() : labelWhenEmpty | translate"
+              type="boxed"
+              size="small"
+              contentColor="grey"
+              class="display-inline mr-20"
+              [style.width.px]="dropdownWidth">
+  <div cad-dropdown-body [style.width.px]="dropdownWidth">
+    <cad-smart-search-list [items]="items"
+                           [(ngModel)]="selectedItems"
+                           [(searchQuery)]="searchQuery"
+                           [multiselect]="true"
+                           [trackByField]="trackByField"
+                           [labelField]="labelField"
+                           [listHeight]="listHeight"
+                           [adaptiveHeight]="true">
+    </cad-smart-search-list>
+    <div class="cad-panel cad-panel_p-20 ta-right">
+      <cad-button [hidden]="isSelected()" (onClick)="selectAll()" text="global.select_all" view="secondary" size="small" class="mr-7"></cad-button>
+      <cad-button [hidden]="!isSelected()" (onClick)="clear()" text="global.clear_all" view="secondary" size="small" class="mr-7"></cad-button>
+      <cad-button [disabled]="!isSelected()" (onClick)="apply()" text="buttons.apply" view="primary" size="small"></cad-button>
+    </div>
+  </div>
+</cad-dropdown>

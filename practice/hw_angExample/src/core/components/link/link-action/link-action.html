@@ -1,0 +1,14 @@
+<div class="link-action link-action_{{ color }} link-action_{{ size }} disabled-{{ disable }}"
+     ng-class="{'is-open': visible}">
+
+  <div class="link-action__head js-dropdown-head" role="button" aria-expanded="false" ng-click="click()">
+    <div class="link-action__title"
+         uib-tooltip-html="titleText | translate" 
+         tooltip-enable="{{ (titleText.length > limit) || titleEnable }}"
+         tooltip-placement="bottom">
+      {{ head | translate | cadLimitTo: limit }}
+    </div>
+    <cad-icon name="{{ icon }}"></cad-icon>
+  </div>
+
+</div>

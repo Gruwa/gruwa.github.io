@@ -1,0 +1,120 @@
+<cad-panel headTitle="Chip">
+  <div cad-panel-content>
+
+    <div class="examples__params">
+      <ul>
+        <li><strong>@Input() text: string</strong></li>
+        <li><strong>@Input() color: string</strong> (visual modification: "grey", "blue", "light-grey")</li>
+        <li><strong>@Input() size: string</strong> (visual modification: "small")</li>
+        <li><strong>@Input() type: string</strong> (visual modification: "single-line")</li>
+        <li><strong>@Input() isHtml: boolean = false</strong></li>
+        <li><strong>@Input() showIcon: boolean = true</strong></li>
+        <li><strong>@Input() errorMessage: string</strong></li>
+        <li class="bb mt10 mb10"></li>
+        <li><strong>@Output() onDelete:</strong></li>
+      </ul>
+    </div>
+
+    <textarea class="examples__copy" rows="6">
+      <cad-chip text="Html <u>underlined</u> text"
+                size="small"
+                [isHtml]="true"
+                [showIcon]="false"
+                errorMessage="Error text goes here"
+                (onDelete)="delete($event)">
+      </cad-chip>
+    </textarea>
+
+    <div class="cad-row">
+      <div class="column column-30">
+
+        <div class="mb-15">
+          Chip text:
+          <input class="input" type="text" [(ngModel)]="text">
+        </div>
+
+        <div class="mb-15">
+          Type
+          <select [(ngModel)]="type">
+            <option value="default">Default</option>
+            <option value="single-line">Single Line</option>
+          </select>
+        </div>
+
+        <div class="mb-15">
+          Size
+          <select [(ngModel)]="size">
+            <option value="default">Default</option>
+            <option value="small">Small</option>
+          </select>
+        </div>
+
+        <div class="mb-15">
+          Color
+          <select [(ngModel)]="color">
+            <option value="default">Default</option>
+            <option value="blue">blue</option>
+            <option value="grey">grey</option>
+            <option value="light-grey">light-grey</option>
+          </select>
+        </div>
+
+        <div class="mb-15">
+          Chip ErrorMessage
+          <input class="input" type="text" [(ngModel)]="errorMessage">
+        </div>
+
+        <div class="mb-15">
+          <label><input type="checkbox" [(ngModel)]="showIcon" /> Show icon?</label>
+        </div>
+      </div>
+
+      <div class="column column-70">
+
+        <cad-chip [color]="color"
+                  [size]="size"
+                  [type]="type"
+                  [text]="text"
+                  [showIcon]="showIcon"
+                  [errorMessage]="errorMessage"
+                  (onDelete)="delete($event)">
+        </cad-chip>
+
+      </div>
+    </div>
+
+    <div class="title title_5 title_thin mb-20">
+      Also there is an opportunity to create custom chip element using content projection (with ng-content).
+    </div>
+
+    <textarea class="examples__copy" rows="6">
+      <cad-chip size="small">
+        <div class="example__color" [style.background]="backgroundColor"></div>
+        <div class="example__text ml-10">{{ text | cadLimitTo: 15}}</div>
+      </cad-chip>
+    </textarea>
+
+    <div class="cad-row">
+
+      <div class="column column-30">
+
+        <div class="mb-15">
+          Background color:
+          <input class="input" type="text" [(ngModel)]="backgroundColor">
+        </div>
+
+      </div>
+
+      <div class="column column-70">
+
+        <cad-chip size="small">
+          <div class="example__color" [style.background]="backgroundColor"></div>
+          <div class="example__text ml-10">{{ text | cadLimitTo: 15}}</div>
+        </cad-chip>
+
+      </div>
+
+    </div>
+
+  </div>
+</cad-panel>

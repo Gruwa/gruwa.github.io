@@ -1,0 +1,10 @@
+<div class="selected" ng-class="{ 'has-error': errorMessage }">
+  <cad-button class="selected__close" ng-show="iconName !== null" ng-click="onDelete()">
+    <cad-icon-dynamic name="{{ iconName || 'close' }}"></cad-icon-dynamic>
+  </cad-button>
+  <div class="selected__title" ng-if="bindHtml" ng-bind-html="text"></div>
+  <div class="selected__title" ng-if="!bindHtml">{{ text }}</div>
+  <p ng-if="errorMessage" class="selected__error">
+    {{ errorMessage }}
+  </p>
+</div>

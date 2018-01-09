@@ -1,0 +1,3 @@
+<div class="status status_{{ value | lowercase }} status_{{ size }}">
+  {{ 'global.campaigns.status' + (prefix ? '-' + prefix + '.' : '.') + value | lowercase | translate }}
+</div>

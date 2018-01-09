@@ -1,0 +1,86 @@
+.accord {
+  background: $white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+
+  &.is-active {
+    & > .accord__head {
+      .accord__head__icon {
+        @include rotate(0);
+
+        @include transition(all 0.3s);
+      }
+    }
+
+    & > .accord__in {
+     max-height: 99999px;
+     opacity: 1;
+
+      @include transition(all 0.3s);
+    }
+  }
+  &.accord_toggle {
+    margin-bottom: 4px;
+    .accord__head {
+      padding: 25px 30px 25px 60px;
+      .accord__head__icon {
+        left: 30px;
+      }
+    }
+  }
+  .accord__head {
+    position: relative;
+    padding: 20px 40px 20px 70px;
+    cursor: pointer;
+
+    .accord__head__icon {
+      position: absolute;
+      top: 50%;
+      left: 40px;
+      width: 12px;
+      height: 8px;
+      margin-top: -6px;
+      @include rotate(-90);
+
+      @include transition(all 0.3s);
+      fill: $gray-d;
+      fill-opacity: 0.8;
+    }
+
+    &:hover {
+      .accord__head__icon {
+        fill-opacity: 1;
+      }
+    }
+  }
+  .accord__in {
+    max-height: 0;
+    opacity: 0;
+    font-size: 0px;
+    @include transition(all 0.3s);
+
+    .accord_content {
+      padding: 30px 40px;
+    }
+
+    .accord_content_link {
+      cursor: pointer;
+      font-size: 18px;
+      color: $cl;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  .accord__title {
+    @include fs;
+    font-size: 24px;
+    color: $black;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .accord__options {
+    margin: -6px 0;
+  }
+}

@@ -1,0 +1,86 @@
+<div class="cad-search-list">
+  <div class="cad-search-list__head">
+    <cad-search class="field_search_round"
+                query="vm.searchQuery"
+                placeholder="{{ vm.searchPlaceholder }}"
+                min-length="{{ vm.minLength || 1 }}"
+                debounce-interval="{{ vm.searchDebounceInterval ? vm.searchDebounceInterval : 50 }}">
+    </cad-search>
+  </div>
+
+  <div class="cad-search-list__body">
+    <!-- no result block -->
+    <div class="cad-search-list__row" ng-if="vm.viewItems.length === 0 && !vm.showSpinner">
+      <div class="cad-search-list__left">
+        <div class="title title_6 title_gray title__thin">
+          {{ (vm.noResultsMessage || "global.no_matches_found" ) | translate }}
+        </div>
+      </div>
+    </div>
+
+    <!-- result block -->
+    <div ng-if="vm.viewItems.length !== 0 && !vm.showSpinner">
+      <div ng-repeat="item in vm.viewItems"
+           ng-click="vm.saveItemToSelection(item)"
+           class="cad-search-list__row-wrapper">
+
+        <cad-smart-group-selector ng-if="::vm.groupSelectorEnabled"
+                                  item="item"
+                                  highlight-string="vm.highlightString"
+                                  view-items="vm.viewItems">
+        </cad-smart-group-selector>
+
+        <repeated-item>
+          <div class="cad-search-list__row"
+               ng-class="{'is-active': vm.isItemActive(item)}">
+
+            <div class="cad-search-list__right">
+              <div class="cad-search-list__right-in">
+                <cad-icon name="tick"></cad-icon>
+              </div>
+            </div>
+
+            <div class="cad-search-list__left" id="search-list-{{ $index }}">
+              <div class="title title_6 title__link three-dots"
+                   uib-tooltip="{{ ::item | itemLabel:vm.labelField }}"
+                   tooltip-placement="{{ ::tooltipPlacement || 'bottom' }}"
+                   tooltip-append-to-body="true"
+                   cad-smart-tooltip-enable
+                   ignore-copy2clipboard
+                   ng-bind-html="item | itemLabel:vm.labelField | highlight:vm.highlightString">
+              </div>
+            </div>
+          </div>
+        </repeated-item>
+      </div>
+    </div>
+
+    <cad-icon ng-if="vm.showSpinner" name="preloader" custom-class="centered big"></cad-icon>
+    <div ng-if="vm.bottomSpinner"
+         class="cad-search-list__bottom-spinner ta-center">
+      <cad-icon name="preloader"></cad-icon>
+    </div>
+  </div>
+
+  <!-- selection popover for advertiser search/selector -->
+  <div class="cad-search-list__popup" ng-show="!vm.multiSelect && vm.selected && vm.selectionPopover">
+    <div class="cad-search-list__head">
+      <div class="selected">
+        <div class="selected__close" ng-click="vm.resetSelection()">
+          <cad-icon name="close"></cad-icon>
+        </div>
+        <!--<div class="selected__country">-->
+        <!--{{ vm.popoverMarketFunc({'item': vm.selected}) }}-->
+        <!--</div>-->
+        <div ng-repeat="detail in vm.details"
+             ng-if="vm.selected | getNested:detail.name"
+             ng-class="[ detail.className, detail.contentClassPrefix ? detail.name + '_' + item[detail.name].toLowerCase() : '' ]">
+          {{ vm.selected | getNested:detail.name }}
+        </div>
+        <div class="selected__title">
+          {{ vm.selected | itemLabel:vm.labelField }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

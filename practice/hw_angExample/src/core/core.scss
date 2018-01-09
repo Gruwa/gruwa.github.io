@@ -1,0 +1,102 @@
+// in "url()" all paths must be relative to the entry file, i.e. to "core.scss"
+// thus provide global prefix to locate "assets" dir relative to it
+$assetsPath: './assets/';
+
+@import '../../tmp/whitelabel/current/styles'; // importing whitelabel dependent scss
+
+@import 'assets/scss/variables';
+@import 'assets/scss/mixin';
+@import 'assets/scss/reset';
+@import 'assets/scss/common';
+@import 'assets/scss/custom-bootstrap-grid';
+@import 'assets/svg-icons/dest/sprite.scss';
+@import 'assets/scss/el/tiles';
+@import 'assets/scss/el/tags';
+@import 'assets/scss/el/table';
+@import 'assets/scss/el/title';
+@import 'assets/scss/el/switcher';
+@import 'assets/scss/el/form';
+@import 'assets/scss/el/field';
+@import 'assets/scss/el/grid';
+@import 'assets/scss/el/clipboard';
+@import 'assets/scss/el/panel';
+@import 'assets/scss/el/popover';
+@import 'assets/scss/el/highcharts';
+@import './components/components';
+@import './audit-trail/audit-trail';
+@import './currency/currency';
+@import './date-range/date-range';
+@import './validation/validation';
+@import './auth/auth';
+@import './timezone/timezone';
+
+@import 'assets/scss/print';
+
+// ng4 global styles
+// TODO: load bootstrap@4 as in "custom-bootstrap-grid.scss"
+@import '../ng2/modal-window/scss/modal-window';
+@import '../ng2/modal-window/scss/modal-window-override';
+
+// five columns fix
+.col-xs-15,
+.col-sm-15,
+.col-md-15,
+.col-lg-15 {
+  position: relative;
+  min-height: 1px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.col-xs-15 {
+  width: 20%;
+  float: left;
+}
+
+@media (min-width: 768px) {
+  .col-sm-15 {
+    width: 20%;
+    float: left;
+  }
+}
+
+@media (min-width: 992px) {
+  .col-md-15 {
+    width: 20%;
+    float: left;
+  }
+}
+
+@media (min-width: 1200px) {
+  .col-lg-15 {
+    width: 20%;
+    float: left;
+  }
+}
+
+// highlighted text
+.highlighted-search-text {
+  background-color: $primary-highlight;
+}
+
+.bg__message {
+  font-size: 5rem;
+  color: $gray;
+  text-align: center;
+  margin-top: 5rem;
+  font-weight: bold;
+}
+
+.no_result__message {
+  font-size: 2.5rem;
+  color: rgba($cl, 0.8);
+  text-align: center;
+  margin-top: 1rem;
+}
+
+// workaround to avoid ugly yellow background for auto-filled inputs in Chrome
+// this one actually postpones applying colors as they can't be turned off via css
+input:-webkit-autofill {
+  transition-delay: 9999s !important;
+  transition-property: background-color, color !important;
+}

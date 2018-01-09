@@ -1,0 +1,11 @@
+.smart-modal-header {
+  // fix <cad-modal-content> paddings
+  margin-left: -10px;
+}
+
+.smart-modal-body {
+  // ignore <cad-modal-content> paddings
+  width: calc(100% + 80px);
+  margin: -30px -40px;
+}
+

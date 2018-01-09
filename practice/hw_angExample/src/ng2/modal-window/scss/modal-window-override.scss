@@ -1,0 +1,8 @@
+ngb-modal-window.modal {
+  padding: 0;
+
+  .modal-dialog[class^="modal-"] {
+    max-width: 9999px;
+    padding: 0;
+  }
+}

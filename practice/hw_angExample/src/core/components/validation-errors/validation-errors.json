@@ -1,0 +1,106 @@
+[
+  {
+    "name": "required",
+    "message": "validation.required",
+    "priority": 1
+  },
+  {
+    "name": "pattern",
+    "message": "validation.does_not_meet_requirements",
+    "priority": 50
+  },
+  {
+    "name": "date",
+    "message": "validation.invalid_date",
+    "priority": 50
+  },
+  {
+    "name": "time",
+    "message": "validation.invalid_time",
+    "priority": 50
+  },
+  {
+    "name": "datetime",
+    "message": "validation.invalid_date_time",
+    "priority": 50
+  },
+  {
+    "name": "number",
+    "message": "validation.invalid_number",
+    "priority": 50
+  },
+  {
+    "name": "color",
+    "message": "validation.invalid_color",
+    "priority": 50
+  },
+  {
+    "name": "range",
+    "message": "validation.invalid_range",
+    "priority": 50
+  },
+  {
+    "name": "url",
+    "message": "validation.invalid_url",
+    "priority": 50
+  },
+  {
+    "name": "file",
+    "message": "validation.invalid_file",
+    "priority": 50
+  },
+
+
+
+
+  {
+    "name": "cadNumberInvalid",
+    "message": "validation.invalid_number",
+    "priority": 50
+  },
+  {
+    "name": "cadNumberMax",
+    "message": "validation.more_then_max",
+    "priority": 50
+  },
+  {
+    "name": "cadNumberMin",
+    "message": "validation.less_then_min",
+    "priority": 50
+  },
+  {
+    "name": "cadNumberMaxDecimals",
+    "message": "validation.number_decimals_exceed",
+    "priority": 50
+  },
+  {
+    "name": "cadNumberMaxDigits",
+    "message": "validation.number_digits_exceed",
+    "priority": 50
+  },
+  {
+    "name": "cadNumberMaxIntegerPart",
+    "message": "validation.number_integer_exceed",
+    "priority": 50
+  },
+
+
+
+  {
+    "name": "cadValidateAfter",
+    "message": "validation.date_should_be_after",
+    "priority": 50
+  },
+  {
+    "name": "minlength",
+    "message": "validation.does_not_meet_min_length",
+    "priority": 50
+  },
+  {
+    "name": "maxlength",
+    "message": "validation.does_not_meet_max_length",
+    "priority": 50
+  }
+]
+
+

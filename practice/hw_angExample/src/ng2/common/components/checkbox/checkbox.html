@@ -1,0 +1,14 @@
+<label class="cad-checkbox"
+       [class.checkbox--checked]="checked"
+       [class.checkbox--disabled]="disabled">
+  <input type="checkbox"
+         class="checkbox__input"
+         [checked]="checked"
+         [disabled]="disabled"
+         (blur)="onBlur()"
+         (click)="onClick($event)"/>
+  <span class="checkbox__content">
+    <ng-content></ng-content>
+     <cad-icon name="tick"></cad-icon>
+   </span>
+</label>

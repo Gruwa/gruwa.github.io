@@ -1,0 +1,14 @@
+ <label class="radio-button"
+        [class.radio-button--disabled]="disabled"
+        [class.radio-button--checked]="checked">
+  <input type="radio"
+         class="radio-button__input"
+         [name]="name"
+         (change)="change()"
+         [checked]=checked
+         [disabled]="disabled"/>
+
+  <span class="radio-button__el">
+    <ng-content></ng-content>
+  </span>
+</label>

@@ -1,0 +1,74 @@
+@import '../../../core/assets/scss/variables';
+@import '../../../core/assets/scss/mixin';
+
+cad-ngx-simple-message-container {
+  #toast-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
+
+    &.toast-top-center {
+      top: 80px;
+    }
+
+    .toast {
+      box-shadow: none;
+      position: relative;
+      overflow: hidden;
+      margin: 0 0 6px;
+      padding: 20px 20px 20px 45px;
+      width: auto;
+      border-radius: 3px 3px 3px 3px;
+      background-position: 15px center;
+      background-repeat: no-repeat;
+      color: $white;
+      opacity: 0.8;
+
+      &.toast-info, &.toast-success, &.toast-error {
+        background-color: rgba($cl, 0.86);
+        opacity: 1;
+      }
+
+      &.toast-white {
+        background-color: rgba($white, 0.75);
+        opacity: 1;
+
+        .toast-title {
+          color: $cl;
+        }
+
+        .toast-message {
+          color: $cl;
+        }
+      }
+
+      &.toast-success {
+        background-image: url('../../../core/assets/images/ic_tick.svg');
+        background-position: 25px 25px;
+      }
+
+      &.toast-info {
+        background-image: url('../../../core/assets/images/loading.svg');
+        background-position: 15px center;
+      }
+
+      &.toast-error {
+        background-image: url('../../../core/assets/images/attention.svg');
+      }
+
+      .toast-title {
+        font-weight: bold;
+      }
+
+      .toast-message {
+        word-wrap: break-word;
+      }
+
+    }
+  }
+}
+
+

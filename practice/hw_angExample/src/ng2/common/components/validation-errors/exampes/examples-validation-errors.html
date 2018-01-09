@@ -1,0 +1,87 @@
+<cad-panel headTitle="Validation Errors">
+  <div cad-panel-content>
+
+    <div class="examples__params">
+      <ul>
+        <li><strong>[fieldName]: string</strong> - field name to get corresponding FormControl from its parent form group</li>
+        <li><strong>[fieldControl]: FormControl | NgModel</strong> - ref to control to query errors from</li>
+        <li><strong>[showFirstOnly]: boolean</strong> - if to show only 1st error from errors list (default is <strong>true</strong>)</li>
+        <li><strong>[validationMessages]: Map&lt;string, string></strong> - map of custom validation messages</li>
+        <li><strong>[useDefaultMessages]: boolean</strong> - if to merge custom validation messages into hardcoded list of default messages (default is <strong>true</strong>)</li>
+        <li><strong>[displayStrategy]: 'touched' | 'dirty' | 'touchedOrDirty' | 'touchedAndDirty'</strong> - when display validation messages (default is <strong>touchedOrDirty</strong>)</li>
+      </ul>
+    </div>
+
+    <div class="cad-row">
+      <div class="column column-30">
+        <div class="mb-10">
+          <cad-checkbox [(ngModel)]="isFirstOnly">Show first error only</cad-checkbox>
+        </div>
+        <div class="mb-10">
+          <cad-checkbox [(ngModel)]="isDefaultMessages">Show default messages as well</cad-checkbox>
+        </div>
+
+        <div class="title title_5 mb-10">Validators:</div>
+        <div class="title title_6 title_thin mb-5">required</div>
+        <div class="title title_6 title_thin mb-5">minlength = {{ minLength }} (custom message)</div>
+        <div class="title title_6 title_thin mb-5">maxlength = {{ maxLength }} (custom message)</div>
+        <div class="title title_6 title_thin mb-5">pattern = {{ patternRegExp }}</div>
+        <div class="title title_6 title_thin mb-5">email</div>
+      </div>
+
+      <div class="column column-70">
+        <div class="title title_5 mb-10">Template Form</div>
+        <div class="width-340 mb-20">
+          <input class="input"
+                 type="text"
+                 required
+                 [minlength]="minLength"
+                 [maxlength]="maxLength"
+                 [pattern]="patternRegExp"
+                 email
+                 #ngModelRef="ngModel"
+                 [(ngModel)]="value" />
+          <cad-validation-errors [fieldControl]="ngModelRef"
+                                 [showFirstOnly]="isFirstOnly"
+                                 [useDefaultMessages]="isDefaultMessages"
+                                 [validationMessages]="customMessages">
+          </cad-validation-errors>
+        </div>
+
+        <div class="title title_5 mb-10">Reactive Form</div>
+        <form [formGroup]="form" novalidate>
+          <div class="width-340">
+            <input class="input"
+                   type="text"
+                   formControlName="inputCtrl" />
+            <cad-validation-errors fieldName="inputCtrl"
+                                   [showFirstOnly]="isFirstOnly"
+                                   [useDefaultMessages]="isDefaultMessages"
+                                   [validationMessages]="customMessages">
+            </cad-validation-errors>
+          </div>
+        </form>
+      </div>
+
+    </div>
+
+    <textarea class="examples__copy" rows="16" ngNonBindable spellcheck="false">
+<input #ngModelRef="ngModel" [(ngModel)]="value" />
+<cad-validation-errors [fieldControl]="ngModelRef"
+                       [showFirstOnly]="isFirstOnly"
+                       displayStrategy="touched"
+                       [useDefaultMessages]="isDefaultMessages"
+                       [validationMessages]="customMessages">
+</cad-validation-errors>
+
+<input formControlName="inputCtrl" />
+<cad-validation-errors fieldName="inputCtrl"
+                       [showFirstOnly]="isFirstOnly"
+                       displayStrategy="touched"
+                       [useDefaultMessages]="isDefaultMessages"
+                       [validationMessages]="customMessages">
+</cad-validation-errors>
+    </textarea>
+
+  </div>
+</cad-panel>

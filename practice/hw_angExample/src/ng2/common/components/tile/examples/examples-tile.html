@@ -1,0 +1,71 @@
+<cad-panel headTitle="Tile">
+  <div cad-panel-content>
+
+    <div class="examples__params">
+      <ul>
+        <li><strong>[width]: number</strong> - Tile width</li>
+        <li><strong>[height]: number</strong> - Tile height</li>
+        <li><strong>[sideSpace]: number</strong> - Left and right margin for tile</li>
+        <li><strong>[bottomSpace]: number</strong> - Bottom margin for tile</li>
+        <li><strong>[customClass]: number</strong> - Custom tile class</li>
+      </ul>
+    </div>
+
+    <textarea class="examples__copy" rows="8" ngNonBindable>
+      <cad-tile
+          [width]="width"
+          [height]="height"
+          [sideSpace]="sideSpace"
+          [bottomSpace]="bottomSpace"
+          [customClass]="customClass">
+              Tile content
+      </cad-tile>
+    </textarea>
+
+    <div class="cad-row">
+      <div class="column column-30">
+        <div class="mb-15">
+          <div class="title title_6 title_thin mb-10">Number of tiles ({{numTiles}}):</div>
+          <input class="mb-15" type="range" min="1" max="40" [(ngModel)]="numTiles" />
+        </div>
+
+        <div class="mb-15">
+          <div class="title title_6 title_thin mb-10">Tile width ({{width}}):</div>
+          <input class="mb-15" type="range" min="1" max="700" [(ngModel)]="width" />
+        </div>
+
+        <div class="mb-15">
+          <div class="title title_6 title_thin mb-10">Tile height ({{height}}):</div>
+          <input class="mb-15" type="range" min="1" max="700" [(ngModel)]="height" />
+        </div>
+
+        <div class="mb-15">
+          <div class="title title_6 title_thin mb-10">Tile (left/right) margin ({{sideSpace}}):</div>
+          <input class="mb-15" type="range" min="1" max="100" [(ngModel)]="sideSpace" />
+        </div>
+
+        <div class="mb-15">
+          <div class="title title_6 title_thin mb-10">Tile bottom margin ({{bottomSpace}}):</div>
+          <input class="mb-15" type="range" min="1" max="100" [(ngModel)]="bottomSpace" />
+        </div>
+      </div>
+
+      <div class="column column-70">
+          <div [style.display]="'flex'"
+               [style.justify-content]="'space-between'"
+               [style.flex-wrap]="'wrap'"
+              >
+            <cad-tile *ngFor="let i of tilesIds"
+                      [width]="width"
+                      [height]="height"
+                      [sideSpace]="sideSpace"
+                      [bottomSpace]="bottomSpace"
+                      [customClass]="customClass">
+              {{i}}
+            </cad-tile>
+          </div>
+      </div>
+    </div>
+
+  </div>
+</cad-panel>

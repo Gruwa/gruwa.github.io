@@ -1,0 +1,62 @@
+@import '../../../../core/assets/scss/variables';
+
+:host {
+  display: inline-flex;
+}
+
+.cad-time-input {
+  display: flex;
+  height: 70px;
+
+  &--small {
+    height: 60px;
+  }
+
+  &__arrow-icon {
+    cursor: pointer;
+    fill: rgba($gray-d, 0.8);
+
+    &:hover {
+      fill: $gray-d;
+    }
+
+    &:active {
+      fill: $gray;
+    }
+  }
+
+  &__input {
+    height: 40px;
+    text-align: center;
+
+    &--small {
+      height: 32px;
+    }
+  }
+
+  &__time-column {
+    width: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__delimiter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+  }
+
+  &__ampm {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+
+    &--small {
+      margin-left: 10px;
+    }
+  }
+
+}

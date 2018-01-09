@@ -1,0 +1,23 @@
+<div class="pager clearfix" ng-hide="vm.pagination.isDisabled()" ng-click="$event.stopPropagation()">
+  <cad-button
+    view="secondary"
+    size="middle"
+    class="pager__prev"
+    ng-click="vm.goToPrevPage()"
+    ng-disabled="vm.pagination.isFirstPage()"
+    icon="arrow-left"/>
+
+  <div class="pager__list">
+    <div class="pager__active">{{ vm.pagination.page + 1}}</div>
+    <div class="pager__separator">|</div>
+    <div class="pager__total">{{ vm.pagination.totalPages }}</div>
+  </div>
+
+  <cad-button
+    view="secondary"
+    size="middle"
+    class="pager__next"
+    ng-click="vm.goToNextPage()"
+    ng-disabled="vm.pagination.isLastPage()"
+    icon="arrow-right"/>
+</div>

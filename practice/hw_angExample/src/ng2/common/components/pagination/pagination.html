@@ -1,0 +1,29 @@
+<div class="cad-pagination"
+     data-automation="cad-pagination"
+     [class.cad-pagination--small]="small"
+     *ngIf="isVisible()">
+
+  <div class="cad-pagination__btn"
+       [class.cad-pagination__btn--disabled]="globalDisabled || isFirstPage()"
+       data-automation="cad-pagination__btn_prev"
+       (click)="goToPrevPage()">
+    <cad-icon name="arrow-left"></cad-icon>
+  </div>
+
+  <div class="cad-pagination__info"
+       [class.cad-pagination__info--disabled]="globalDisabled">
+    <span class="cad-pagination__info__active"
+          data-automation="cad-pagination_current_page">{{ currentPage }}</span>
+    <span class="cad-pagination__info__delimiter">|</span>
+    <span class="cad-pagination__info__total"
+          data-automation="cad-pagination_total_pages">{{ totalPages }}</span>
+  </div>
+
+  <div class="cad-pagination__btn"
+       [class.cad-pagination__btn--disabled]="globalDisabled || isLastPage()"
+       data-automation="cad-pagination__btn_next"
+       (click)="goToNextPage()">
+    <cad-icon name="arrow-right"></cad-icon>
+  </div>
+
+</div>

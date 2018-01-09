@@ -1,0 +1,60 @@
+@import '../../../../core/assets/scss/variables';
+
+:host {
+  background-color: rgba($gray-dark, 0.9);
+  padding: 15px;
+  word-wrap: break-word;
+  max-width: 400px;
+  border-radius: 4px;
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+  z-index: 9999;
+  transform: translateZ(0);
+}
+
+.cad-tooltip {
+  &__triangle {
+    background-color: transparent;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+
+    &--top {
+      top: -5px;
+      border-width: 0 5px 5px 5px;
+      border-color: transparent transparent rgba($gray-dark, 0.9) transparent;
+    }
+    &--bottom {
+      bottom: -5px;
+      border-width: 5px 5px 0 5px;
+      border-color: rgba($gray-dark, 0.9) transparent transparent transparent;
+    }
+    &--center {
+      left: 50%;
+      margin-left: -5px;
+    }
+    &--left {
+      left: 5px;
+    }
+    &--right {
+      right: 5px;
+    }
+  }
+
+  &__text {
+    text-align: center;
+    color: $tooltip-color;
+    font-size: 12px;
+    font-weight: normal;
+  }
+
+  &__clipboard {
+    text-align: center;
+    color: $gray;
+    font-size: 12px;
+    font-weight: normal;
+    margin-top: 5px;
+  }
+}

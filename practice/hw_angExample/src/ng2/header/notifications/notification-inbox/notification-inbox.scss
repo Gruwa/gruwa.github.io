@@ -1,0 +1,141 @@
+@import '../../../../core/assets/scss/mixin';
+@import '../../../../core/assets/scss/variables';
+
+.notification-inbox {
+  min-width: 50px;
+
+  .dropdown {
+    display: block;
+  }
+
+  .notification-inbox-title {
+    display: flex;
+    align-items: center;
+    height: 22px;
+
+    cad-icon {
+      width: 14px;
+      height: 18px;
+      fill: $wl-header-icon;
+    }
+
+    &:hover cad-icon {
+       fill: $wl-header-icon-hover;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    .notification-inbox-counter {
+      margin-left: 7px;
+      height: 22px;
+      padding: 6px 8px;
+      color: $wl-notifications-number;
+      background: $wl-notifications-number-background;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 14px;
+      line-height: 10px;
+      transition: top .2s;
+    }
+  }
+
+  .dropdown-content {
+    left: -292px;
+    right: auto;
+
+    &:before {
+      left: auto;
+      right: 95px;
+    }
+  }
+
+}
+
+.inbox-dropdown {
+  position: relative;
+  width: 400px;
+
+  $padding: 12px;
+
+  .inbox-dropdown__loading {
+    margin-top: 20px;
+    min-height: 50px;
+    background-color: $white;
+    position: relative;
+  }
+
+  .inbox-dropdown__no-items {
+    padding: $padding;
+    text-align: center;
+  }
+
+  .inbox-dropdown__no-result-wrapper {
+    height: 238px;
+    position: relative;
+    background-color: white;
+    border-bottom: 1px solid $brd-l;
+    .absolute-center {
+      top: -40px;
+    }
+  }
+
+  .inbox-dropdown__item {
+    padding: 12px 20px 12px 35px;
+    background-color: $white;
+    transition: background-color 3s ease-out;
+    cursor: pointer;
+  }
+  .inbox-dropdown__item--new {
+    background-color: $new_notification_bg;
+  }
+
+  .inbox-dropdown__show-all {
+    padding: $padding;
+    background-color: $white;
+    text-align: center;
+
+    // override default styles for link in dropdown
+    .link-icon {
+      padding: 0;
+
+      &:hover {
+        background-color: $white;
+      }
+    }
+  }
+}
+
+// item styles are common for both inbox and feed
+.inbox-dropdown, .notifications-feed {
+  .item-status-line {
+    display: flex;
+    white-space: nowrap;
+    padding-left: 20px;
+    margin-left: -20px;
+
+    &:before {
+      background-color: $primary;
+    }
+
+    .item-status-line__app {
+      font-weight: 600;
+      color: $cl;
+    }
+
+    .item-status-line__delimiter {
+      padding: 0 8px;
+      font-weight: 400;
+      color: $cl;
+      opacity: 0.3;
+    }
+
+    .item-status-line__title {
+      font-weight: 400;
+      color: $cl;
+      opacity: 0.8;
+      @include text-overflow;
+    }
+  }
+}

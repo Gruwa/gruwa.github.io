@@ -1,0 +1,46 @@
+.cad-informer-tooltip.informer {
+  position: relative;
+
+  .informer__wrapper {
+    position: absolute;
+    background-color: $white;
+    padding: 25px;
+    border-radius: 4px;
+    width: 320px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  }
+  .informer__wrapper--bottom-right {
+    right: 0;
+    top: 10px;
+  }
+  .informer__wrapper--bottom-left {
+    left: 0;
+    top: 10px;
+  }
+
+  .informer__arrow {
+    width: 8px;
+    height: 8px;
+    transform: rotate(45deg);
+    position: absolute;
+    background-color: $white;
+  }
+  .informer__arrow--bottom-right {
+    box-shadow: -1px -1px 2px -1px rgba(0, 0, 0, 0.3);
+    top: 6px;
+    right: 20px;
+  }
+  .informer__arrow--bottom-left {
+    box-shadow: -1px -1px 2px -1px rgba(0, 0, 0, 0.3);
+    top: 6px;
+    left: 20px;
+  }
+
+  .informer__text {
+    margin-bottom: 10px;
+  }
+
+  .informer__buttons {
+    text-align: right;
+  }
+}

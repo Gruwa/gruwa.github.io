@@ -1,0 +1,21 @@
+<div class="menu-plus"
+     [class.hidden]="!createBtn.length">
+  <div class="header__chapter-add"
+       [class.is-disabled]="isDisabled">
+    <cad-icon name="plus"></cad-icon>
+    <cad-dropdown *ngIf="createBtn.length > 1"
+                  placement="bottom-left">
+      <a *ngFor="let item of createBtn; trackBy: trackByItem"
+         (click)="changeState(item)">{{ item.title | translate }}
+      </a>
+    </cad-dropdown>
+
+    <a class="header__add-btn"
+       *ngIf="createBtn.length === 1"
+       [class.disable-pointer-events]="isDisabled"
+       [cadSref]="getPlusBtnState()"
+       [cadSrefParams]="getPlusBtnParams()"
+       [cadSrefOpts]="getPlusBtnOpts">
+    </a>
+  </div>
+</div>

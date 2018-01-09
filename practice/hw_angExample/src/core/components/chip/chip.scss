@@ -1,0 +1,129 @@
+.selected {
+  display: inline-block;
+  position: relative;
+  padding: 0 35px 0 15px;
+  background: $wl-tertiary-background;
+  border: 1px solid rgba($wl-tertiary, 0.5);
+  border-radius: 17px;
+  color: $wl-tertiary;
+  @include clr;
+  position: relative;
+  vertical-align: top;
+  cursor: pointer;
+  &.selected_big {
+    .selected__title {
+      padding: 5px 0;
+      font-weight: 600;
+      font-size: 16px;
+    }
+  }
+  &:hover {
+    .selected__close {
+      .icon {
+        fill: $wl-tertiary-l;
+      }
+    }
+  }
+  &:active {
+    .selected__close {
+      .icon {
+        fill: $wl-tertiary-d;
+      }
+    }
+  }
+  .selected__close {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 35px;
+    height: 32px;
+    padding: 0;
+    @include vertical;
+    .icon {
+      width: 9px;
+      height: 8px;
+      margin: 0;
+      fill: $wl-tertiary;
+      vertical-align: middle;
+    }
+  }
+  &.selected_no-close {
+    padding: 0 15px;
+  }
+  .selected__country {
+    float: right;
+    height: 12px;
+    margin: 10px 0 0 10px;
+    padding: 0 9px;
+    border-left: 1px solid;
+    line-height: 12px;
+    font-size: 12px;
+  }
+  .selected__title {
+    overflow: hidden;
+    padding: 5px 0;
+    font-size: 16px;
+    @include fs;
+    word-break: break-all;
+  }
+  .selected__error {
+    color: $red;
+    padding: 0 15px 7px 0;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  &.selected-grey {
+    padding: 1px 16px 1px 36px;
+    border: none;
+    color: $cl;
+    background-color: $bg;
+    .selected__close {
+      left: 0px;
+      top: 0px;
+      .icon {
+         width: 20px;
+         height: 20px;
+         fill: $gray-d;
+       }
+    }
+    .selected__title {
+      opacity: 0.8;
+    }
+    &:hover{
+      background-color: $gray-f7;
+
+      .selected__close .icon{
+         fill: $gray;
+      }
+    }
+    &:active{
+      background-color: $bg;
+
+      .selected__close .icon{
+         fill: $gray-d;
+      }
+    }
+  }
+  &.selected-grey-no-icon {
+    padding: 0 15px;
+  }
+  &.selected_light-gray {
+    border-color: $cta-back-btn-border-disabled;
+    background: $gray-f7;
+    .selected__title {
+      padding: 10px 0;
+      p {
+        color: $gray-d;
+      }
+      strong {
+        color: $black;
+      }
+    }
+    &.is-static {
+      padding: 0 15px;
+    }
+  }
+  &.has-error {
+    border-color: $red;
+  }
+}

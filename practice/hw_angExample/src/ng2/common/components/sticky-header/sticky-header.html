@@ -1,0 +1,10 @@
+<ng-template>
+  <div class="cad-sticky-header"
+       [class.cad-sticky-header--sticked]="isSticked"
+       [style.height.px]="isSticked ? endHeight : startHeight">
+
+    <div class="cad-sticky-header__content center">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</ng-template>

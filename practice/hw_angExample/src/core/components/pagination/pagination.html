@@ -1,0 +1,25 @@
+
+
+<div class="pager clearfix" ng-hide="vm.getNumberOfPages() <= 1" ng-click="$event.stopPropagation()">
+  <cad-button view="secondary"
+              size="middle"
+              class="pager__prev"
+              ng-click="vm.prevPage($event)"
+              ng-disabled="vm.getPageNumber() === 1 || vm.fetching"
+              icon="arrow-left">
+  </cad-button>
+
+  <div class="pager__list">
+    <div class="pager__active">{{vm.getPageNumber()}}</div>
+    <div class="pager__separator">|</div>
+    <div class="pager__total">{{vm.getNumberOfPages()}}</div>
+  </div>
+
+  <cad-button view="secondary"
+              size="middle"
+              class="pager__next"
+              ng-click="vm.nextPage($event)"
+              ng-disabled="vm.getPageNumber() === vm.getNumberOfPages() || vm.fetching"
+              icon="arrow-right">
+  </cad-button>
+</div>

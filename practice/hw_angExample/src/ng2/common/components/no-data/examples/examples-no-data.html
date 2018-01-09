@@ -1,0 +1,71 @@
+<cad-panel headTitle="No Data">
+  <div cad-panel-content>
+
+    <div class="examples__params">
+      <ul>
+        <li><strong>@Input() message: string</strong> Message to output</li>
+        <li><strong>@Input() icon: string = 'no-line'</strong> Icon to display (default is <b>no-line</b>)</li>
+        <li><strong>@Input() circleSize: NoDataCircleSizes = 'default'</strong> - size of circle around icon ('default' | 'big')</li>
+        <li><strong>@Input() textSize: NoDataTextSizes = 'default'</strong> - different no data title text sizes ('default' | 'small')</li>
+        <li><strong>@Input() type: NoDataTypes = 'default'</strong> - different no data types ('default' | 'white')</li>
+      </ul>
+    </div>
+
+    <textarea class="examples__copy" rows="8" ngNonBindable>
+
+    </textarea>
+
+    <div class="cad-row">
+      <div class="column column-30">
+
+        <div class="mb-15">
+          Message <input type="text" class="input" [(ngModel)]="message">
+        </div>
+
+        <div class="mb-15">
+          <span class="title title_6 title_thin">Icon</span>
+          <select [(ngModel)]="icon">
+            <option value="no-line">no-line</option>
+            <option value="no-data">no-data</option>
+          </select>
+        </div>
+
+        <div class="mb-15">
+          <span class="title title_6 title_thin">Icon Size</span>
+          <select [(ngModel)]="circleSize">
+            <option value="default">Default</option>
+            <option value="big">Big</option>
+          </select>
+        </div>
+
+        <div class="mb-15">
+          <span class="title title_6 title_thin">Size</span>
+          <select [(ngModel)]="textSize">
+            <option value="default">Default</option>
+            <option value="small">Small</option>
+          </select>
+        </div>
+
+        <div class="mb-15">
+          <span class="title title_6 title_thin">Type</span>
+          <select [(ngModel)]="type">
+            <option value="default">Default</option>
+            <option value="white">White</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="column column-70">
+
+        <cad-no-data [message]="message"
+                     [type]="type"
+                     [icon]="icon"
+                     [circleSize]="circleSize"
+                     [textSize]="textSize"></cad-no-data>
+
+      </div>
+    </div>
+
+  </div>
+</cad-panel>

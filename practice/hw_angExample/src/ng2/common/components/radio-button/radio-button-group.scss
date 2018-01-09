@@ -1,0 +1,10 @@
+:host(.in-row) {
+  display: flex;
+  flex-direction: row;
+}
+
+:host(.in-column) {
+  display: flex;
+  flex-direction: column;
+}
+

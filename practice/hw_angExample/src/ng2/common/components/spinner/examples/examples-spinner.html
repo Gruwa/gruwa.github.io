@@ -1,0 +1,74 @@
+<cad-panel headTitle="Spinner">
+  <div cad-panel-content>
+
+    <div class="examples__params">
+      <ul>
+        <li><strong>[color]: SpinnerColor = 'orange'</strong> - Spinner color</li>
+        <li><strong>[size]: SpinnerSize = 'big'</strong> - Spinner size</li>
+        <li><strong>[type]: SpinnerType ='cadreon'</strong> - Spinner type (2 ring or 1)</li>
+        <li><strong>[width]: number (optional)</strong> - Spinner width (override spinner size)</li>
+        <li><strong>[borderWidth]: number (optional)</strong> - Spinner border width (override default spinner border-width)</li>
+      </ul>
+    </div>
+
+    <textarea class="examples__copy" rows="8" ngNonBindable>
+<cad-spinner [size]="size"
+             [color]="color"
+             [type]="type"
+             [width]="width"
+             [borderWidth]="borderWidth"></cad-spinner>
+    </textarea>
+
+    <div class="cad-row">
+      <div class="column column-30">
+        <div class="mb-15">
+          <div class="title title_6 title_thin mb-10">Color:</div>
+          <select [(ngModel)]="color">
+            <option value="primary">Primary</option>
+            <option value="blue">Blue</option>
+            <option value="white">White</option>
+          </select>
+        </div>
+
+        <div class="mb-15">
+          <div class="title title_6 title_thin mb-10">Size:</div>
+          <select [(ngModel)]="size">
+            <option value="big">Big</option>
+            <option value="medium">Medium</option>
+            <option value="small">Small</option>
+          </select>
+        </div>
+
+        <div class="mb-15">
+          <div class="title title_6 title_thin mb-10">Type:</div>
+          <select [(ngModel)]="type">
+            <option value="cadreon">Cadreon</option>
+            <option value="ring">Ring</option>
+          </select>
+        </div>
+
+        <div class="mb-15">
+          <div class="title title_6 title_thin mb-10">Width ({{width}}):</div>
+          <input class="mb-15" type="range" min="1" max="200" [(ngModel)]="width" />
+          <cad-button size="small" view="tertiary" text="reset width" (click)="width=null"></cad-button>
+        </div>
+
+        <div class="mb-15">
+          <div class="title title_6 title_thin mb-10">Border Width ({{borderWidth}}):</div>
+          <input class="mb-15" type="range" min="1" max="20" [(ngModel)]="borderWidth" />
+          <cad-button size="small" view="tertiary" text="reset border-width" (click)="borderWidth=null"></cad-button>
+        </div>
+
+      </div>
+
+      <div class="column column-70">
+        <cad-spinner [size]="size"
+                     [color]="color"
+                     [type]="type"
+                     [width]="width"
+                     [borderWidth]="borderWidth"></cad-spinner>
+      </div>
+    </div>
+
+  </div>
+</cad-panel>

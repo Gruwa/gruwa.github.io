@@ -1,0 +1,36 @@
+.tile-holder {
+
+  padding: 7px;
+
+  .tile {
+
+    position: relative;
+
+    border: 1px solid $brd;
+    height: 270px;
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 0px 0px 2px 1px rgba(204, 204, 204, 0.3);
+    background-color: $white;
+
+    padding: 15px 20px;
+
+    h2.title {
+      font-size: 20px;
+      margin: 0 0 5px;
+      padding: 0;
+      font-weight: normal;
+    }
+
+    .footer {
+
+      position: absolute;
+      bottom: 10px;
+      left: 20px;
+      right: 20px;
+
+    }
+
+  }
+
+}

@@ -1,0 +1,60 @@
+@import '../../../../../../core/assets/scss/mixin';
+@import '../../../../../../core/assets/scss/variables';
+
+.list-item {
+  padding: 0 20px;
+  height: 50px;
+  border-bottom: 1px solid rgba($brd, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+
+  &:hover .list-item__texts__main  {
+    text-decoration: underline;
+  }
+
+  &__texts {
+    min-width: 0; // to make ellipsis to work
+
+    &__main {
+      @include text-overflow;
+      color: $black;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    &__sub {
+      font-size: 12px;
+      @include text-overflow;
+      color: $gray-d;
+      line-height: 1.2;
+    }
+  }
+
+  &__icons {
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+
+    cad-icon {
+      fill: $status-blue;
+      margin-left: 15px;
+    }
+  }
+
+  &__market {
+    padding: 3px 9px;
+    border: 1px solid $brd;
+    font-size: 12px;
+    font-weight: normal;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $gray-dark;
+  }
+
+
+  &--selected {
+    background-color: rgba($status-blue, 0.1);
+  }
+}

@@ -1,0 +1,16 @@
+ul.tags {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  @include clf;
+
+  .tag {
+    float: left;
+    background-color: $gray-e2;
+    border-radius: 13px;
+    padding: 2px 13px;
+    margin: 0 5px 5px 0;
+    font-size: 13px;
+    color: $gray-dark;
+  }
+}

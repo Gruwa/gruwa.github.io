@@ -1,0 +1,123 @@
+.edit {
+  position: relative;
+  display: inline-block;
+  padding-right: 25px;
+  vertical-align: top;
+  &.is-active {
+    display: block;
+    .edit__input {
+      display: block;
+    }
+    /*.edit__content {
+      display: none;
+    }*/
+    .edit__action {
+      .icon-edit {
+        display: none;
+      }
+      .icon-tick,
+      .icon-checkbox-tick {
+        display: inline-block;
+      }
+    }
+  }
+  &.is-error {
+    .edit__input {
+      border-color: $red;
+    }
+  }
+  &.edit_data {
+    min-height: 25px;
+    .edit__content {
+      font-size: 18px;
+    }
+    .edit__input {
+      height: 23px;
+      font-size: 18px;
+    }
+  }
+  &.edit_title {
+    padding-right: 30px;
+    height: 40px;
+    .edit__content {
+      font-size: 34px;
+      font-weight: 600;
+      color: $black;
+      line-height: 1.2;
+    }
+    .edit__action {
+      position: absolute;
+      top: 13px;
+      .icon-edit {
+        width: 18px;
+        height: 18px;
+      }
+    }
+    .edit__input {
+      top: -1px;
+      height: 40px;
+      font-size: 34px;
+      font-weight: 600;
+      color: $black;
+    }
+  }
+  &.edit_title_6 {
+    height: 16px;
+    .edit__content {
+      font-size: 14px;
+      font-weight: 600;
+      color: $black;
+      line-height: 1.2;
+    }
+    .edit__action {
+      position: absolute;
+      top: -2px;
+      .icon-edit {
+        width: 13px;
+        height: 13px;
+      }
+    }
+    .edit__input {
+      top: -1px;
+      font-size: 14px;
+      font-weight: 600;
+      color: $black;
+    }
+  }
+  .edit__action {
+    position: absolute;
+    top: 2px;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    font-size: 0;
+    .icon {
+      fill: $gray-d;
+    }
+    .icon-edit {
+      width: 15px;
+      height: 15px;
+    }
+    .icon-tick,
+    .icon-checkbox-tick {
+      display: none;
+    }
+    .icon-checkbox-tick {
+      width: 20px;
+      height: 18px;
+    }
+  }
+  .edit__input {
+    display: none;
+    position: relative;
+    width: 100%;
+    border-bottom: 1px solid $gray;
+
+    &.edit__input_withoutborder {
+      border-bottom: 0;
+    }
+  }
+  .edit__error {
+    color: $red;
+  }
+}

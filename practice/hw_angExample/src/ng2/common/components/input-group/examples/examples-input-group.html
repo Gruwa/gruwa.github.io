@@ -1,0 +1,48 @@
+<cad-panel headTitle="Input group">
+  <div cad-panel-content>
+
+    <div class="examples__params">
+      <ul>
+        <li><strong>@Input() addon: string</strong></li>
+        <li><strong>@Input() size: 'large' | 'small' = 'large'</strong></li>
+      </ul>
+    </div>
+
+    <textarea class="examples__copy" rows="6" ngNonBindable>
+<cad-input-group addon="{{'USD' | cadCurrencySign }}" size="small">
+  <input class="input"/>
+</cad-input-group>
+    </textarea>
+
+    <div class="cad-row">
+      <div class="column column-30">
+        <div class="mb-15">
+          <cad-checkbox [(ngModel)]="isSmall">
+            Small
+          </cad-checkbox>
+        </div>
+      </div>
+    </div>
+
+    <div class="cad-row">
+      <div class="column column-30">
+
+        <div class="mb-15">
+          <input class="input"
+                 placeholder="addon"
+                 type="text"
+                 [(ngModel)]="addon" />
+        </div>
+
+      </div>
+
+      <div class="column column-70">
+
+          <cad-input-group [addon]="addon" [size]="isSmall ? 'small' : 'large'">
+            <input class="input"/>
+          </cad-input-group>
+      </div>
+    </div>
+
+  </div>
+</cad-panel>

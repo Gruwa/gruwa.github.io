@@ -1,0 +1,27 @@
+.input {
+  &.ng-invalid.ng-touched {
+    border-color: $red;
+  }
+}
+
+form.ng-submitted {
+  input.ng-invalid {
+    border-color: $red;
+  }
+}
+
+.error {
+  color: $red;
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 5px;
+  margin-bottom: 10px;
+
+  &.error-icon {
+    .icon {
+      fill: $red;
+    }
+  }
+
+}
+

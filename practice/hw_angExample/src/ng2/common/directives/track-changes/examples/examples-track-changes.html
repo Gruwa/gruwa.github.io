@@ -1,0 +1,152 @@
+<cad-panel headTitle="Track Changes">
+  <div cad-panel-content>
+
+    <div class="title title_2 mb-10">cad-track-changes</div>
+
+    <div class="examples__params">
+      <ul>
+        <li><strong>[cadTrackChanges]: FormGroup</strong> - reference to root form for tracking its model value changes</li>
+        <li><strong>[trackChangesEnabled]: boolean = true</strong> - if tracking enabled or not</li>
+        <li><strong>[ignoreEmptyProperties]: boolean = true</strong> - if to skip empty properties when comparing objects</li>
+        <li><strong>[showUnsavedPopup]: boolean = true</strong> - if to show popup about unsaved changes on attempt to navigate elsewhere</li>
+        <li><strong>cadTrackChanges.isModified: boolean</strong> - read only property indicating if form value modified</li>
+        <li><strong>cadTrackChanges.restart()</strong> - starts tracking changes taking current form value as original to compate with</li>
+      </ul>
+    </div>
+
+    <textarea class="examples__copy" rows="20" ngNonBindable spellcheck="false">
+<form #templateForm="ngForm"
+      (ngSubmit)="onTemplateFormSubmit(templateForm)"
+      [cadTrackChanges]="templateForm.control"
+      [trackChangesEnabled]="templateDriven.trackChangesEnabled"
+      [ignoreEmptyProperties]="templateDriven.ignoreEmptyProperties"
+      [showUnsavedPopup]="templateDriven.showUnsavedPopup"
+      #tracker1="cadTrackChanges">
+  ...
+  <cad-button type="submit" text="Submit" view="primary" size="small" [disabled]="!tracker1.isModified"></cad-button>
+</form>
+
+<form [formGroup]="reactiveDriven.form"
+      (ngSubmit)="onSubmitReactiveForm(reactiveDriven.form)"
+      [cadTrackChanges]="reactiveDriven.form"
+      [trackChangesEnabled]="reactiveDriven.trackChangesEnabled"
+      [ignoreEmptyProperties]="reactiveDriven.ignoreEmptyProperties"
+      [showUnsavedPopup]="reactiveDriven.showUnsavedPopup"
+      #tracker2="cadTrackChanges">
+  ...
+  <cad-button type="submit" text="Submit" view="primary" size="small" [disabled]="!tracker2.isModified"></cad-button>
+</form>
+    </textarea>
+
+    <div class="cad-row mb-20">
+
+      <div class="column column-30">
+        <div class="mb-10">
+          <label><input type="checkbox" [(ngModel)]="templateDriven.trackChangesEnabled" /> Track changes</label>
+        </div>
+        <div class="mb-10">
+          <label><input type="checkbox" [(ngModel)]="templateDriven.ignoreEmptyProperties" /> Ignore empty props</label>
+        </div>
+        <div class="mb-10">
+          <label><input type="checkbox" [(ngModel)]="templateDriven.showUnsavedPopup" /> Show unsaved popup</label>
+        </div>
+        <pre>Original model:<br>{{ user1 | json }}</pre>
+      </div>
+
+      <div class="column column-70">
+        <div class="title title_5 mb-10">Template Form</div>
+        <div class="cad-row">
+
+          <div class="column column-40">
+            <div class="width-230 mb-10">
+              <form #templateForm="ngForm"
+                    (ngSubmit)="onTemplateFormSubmit(templateForm)"
+                    [cadTrackChanges]="templateForm.control"
+                    [trackChangesEnabled]="templateDriven.trackChangesEnabled"
+                    [ignoreEmptyProperties]="templateDriven.ignoreEmptyProperties"
+                    [showUnsavedPopup]="templateDriven.showUnsavedPopup"
+                    #tracker1="cadTrackChanges">
+                <div ngModelGroup="user">
+                  <input class="input mb-10" type="text" placeholder="name" name="name" [ngModel]="user1.name" />
+                  <input class="input mb-10" type="text" placeholder="email" name="email" [ngModel]="user1.email" />
+                  <cad-select class="mb-10"
+                              [items]="rolesList"
+                              name="role"
+                              #userRole="ngModel"
+                              [head]="userRole.value"
+                              [ngModel]="user1.role">
+                  </cad-select>
+                  <div class="mb-10">
+                    <label><input type="checkbox" name="active" [ngModel]="user1.active" /> User is active</label>
+                  </div>
+                  <cad-button type="submit" text="Submit" view="primary" size="small" [disabled]="!tracker1.isModified"></cad-button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="column column-60">
+            <pre>form model:<br>{{ templateForm.value | json }}</pre>
+            <div>modified: <b>{{ tracker1.isModified }}</b></div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="cad-row">
+
+      <div class="column column-30">
+        <div class="mb-10">
+          <label><input type="checkbox" [(ngModel)]="reactiveDriven.trackChangesEnabled" /> Track changes</label>
+        </div>
+        <div class="mb-10">
+          <label><input type="checkbox" [(ngModel)]="reactiveDriven.ignoreEmptyProperties" /> Ignore empty props</label>
+        </div>
+        <div class="mb-10">
+          <label><input type="checkbox" [(ngModel)]="reactiveDriven.showUnsavedPopup" /> Show unsaved popup</label>
+        </div>
+        <pre>Original model:<br>{{ user2 | json }}</pre>
+      </div>
+
+      <div class="column column-70">
+        <div class="title title_5 mb-10">Reactive Form</div>
+        <div class="cad-row">
+
+          <div class="column column-40">
+            <div class="width-230 mb-10">
+              <form [formGroup]="reactiveDriven.form"
+                    (ngSubmit)="onSubmitReactiveForm(reactiveDriven.form)"
+                    [cadTrackChanges]="reactiveDriven.form"
+                    [trackChangesEnabled]="reactiveDriven.trackChangesEnabled"
+                    [ignoreEmptyProperties]="reactiveDriven.ignoreEmptyProperties"
+                    [showUnsavedPopup]="reactiveDriven.showUnsavedPopup"
+                    #tracker2="cadTrackChanges">
+                <input class="input mb-10" type="text" placeholder="name" [formControl]="reactiveDriven.form.get('user.name')" />
+                <input class="input mb-10" type="text" placeholder="email" [formControl]="reactiveDriven.form.get('user.email')" />
+                <cad-select class="mb-10"
+                            [items]="rolesList"
+                            [head]="reactiveDriven.form.get('user.role').value"
+                            [formControl]="reactiveDriven.form.get('user.role')">
+                </cad-select>
+                <div class="mb-10">
+                  <label><input type="checkbox" [formControl]="reactiveDriven.form.get('user.active')" /> User is active</label>
+                </div>
+                <cad-button type="submit" text="Submit" view="primary" size="small" [disabled]="!tracker2.isModified"></cad-button>
+              </form>
+            </div>
+          </div>
+
+          <div class="column column-60">
+            <pre>form model:<br>{{ reactiveDriven.form.value | json }}</pre>
+            <div>modified: <b>{{ tracker2.isModified }}</b></div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</cad-panel>

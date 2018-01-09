@@ -1,0 +1,136 @@
+// this is copy of https://github.com/twbs/bootstrap/blob/v4-dev/scss/_modal.scss WITH several changes
+// feel free to drop/rewrite it when `ng.ui.bootstrap.IModalService` will be removed from the core
+
+// TODO: load bootstrap@4 as in "custom-bootstrap-grid.scss"
+
+// .modal-open      - body class for killing the scroll
+// .modal           - container to scroll within
+// .modal-dialog    - positioning shell for the actual modal
+// .modal-content   - actual modal w/ bg and corners and stuff
+// Modal background
+ngb-modal-backdrop.modal-backdrop {
+  @import './bootstrap/variables';
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $zindex-modal-backdrop;
+  background-color: $modal-backdrop-bg;
+
+  // Fade for backdrop
+  &.fade {
+    opacity: 0;
+  }
+  &.show {
+    opacity: $modal-backdrop-opacity;
+  }
+}
+
+ngb-modal-window {
+  @import './bootstrap/breakpoints';
+  @import './bootstrap/variables';
+
+  // resolve conflict - unity-core/src/core/components/modal/modal.scss:7
+  &.modal {
+    font-size: 14px;
+  }
+  .modal-content {
+    text-align: left;
+  }
+
+  $modal-content-bg: transparent;
+  $modal-content-box-shadow-xs: 0 12px 15px 0 rgba(0, 0, 0, 0.22), 0 17px 20px 0 rgba(0, 0, 0, 0.12);
+  $modal-content-box-shadow-sm-up: $modal-content-box-shadow-xs;
+  $modal-content-border-width: 0; //no border on container - it's already defined in ModalContentComponent
+
+  // Container that the modal scrolls within
+  &.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: $zindex-modal;
+    display: none;
+    overflow: hidden;
+    // Prevent Chrome on Windows from adding a focus outline. For details, see
+    // https://github.com/twbs/bootstrap/pull/10951.
+    outline: 0;
+    // We deliberately don't use `-webkit-overflow-scrolling: touch;` due to a
+    // gnarly iOS Safari bug: https://bugs.webkit.org/show_bug.cgi?id=158342
+    // See also https://github.com/twbs/bootstrap/issues/17695
+
+    .modal-open & {
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    &.fade {
+      opacity: 0;
+      transition: $transition-fade;
+
+      &.show {
+        opacity: 1;
+      }
+    }
+  }
+
+  // Shell div to position the modal with bottom padding
+  .modal-dialog {
+    position: relative;
+    width: auto;
+    margin: $modal-dialog-margin;
+    // allow clicks to pass through for custom click handling to close modal
+    pointer-events: none;
+  }
+
+  // When fading in the modal, animate it to slide down
+  &.modal.fade .modal-dialog {
+    transition: $modal-transition;
+    transform: translate(0, -25%);
+  }
+  &.modal.show .modal-dialog {
+    transform: translate(0, 0);
+  }
+
+  // Actual modal
+  .modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    // counteract the pointer-events: none; in the .modal-dialog
+    pointer-events: auto;
+    background-color: $modal-content-bg;
+    background-clip: padding-box;
+    border: $modal-content-border-width solid $modal-content-border-color;
+    border-radius: $border-radius-lg;
+    box-shadow: $modal-content-box-shadow-xs;
+    // Remove focus outline from opened modal
+    outline: 0;
+  }
+
+  // Scale up the modal
+  @include media-breakpoint-up(sm) {
+    // Automatically set modal's width for larger viewports
+    .modal-dialog {
+      max-width: $modal-md;
+      margin: $modal-dialog-margin-y-sm-up auto;
+    }
+
+    .modal-content {
+      box-shadow: $modal-content-box-shadow-sm-up;
+    }
+
+    .modal-sm {
+      max-width: $modal-sm;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    .modal-lg {
+      max-width: $modal-lg;
+    }
+  }
+}

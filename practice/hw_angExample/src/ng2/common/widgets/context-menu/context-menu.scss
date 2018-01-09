@@ -1,0 +1,45 @@
+@import '../../../../core/assets/scss/variables';
+
+:host {
+  display: inline-flex;
+}
+
+.cad-context-menu {
+
+  &.cad-context-menu--dots {
+    /deep/ .dropdown__body--right {
+      left: -15px;
+    }
+    /deep/ .dropdown__body--left {
+      right: -15px;
+    }
+  }
+
+  &.cad-context-menu--button {
+    /deep/ .cad-button--secondary cad-icon {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  /deep/ .dropdown__body {
+    min-width: 140px;
+  }
+
+  &__dots {
+    display: flex;
+    align-items: center;
+    padding: 3px;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover,
+    &--active {
+      background-color: rgba($wl-tertiary, .3);
+    }
+
+    cad-icon {
+      fill: $wl-tertiary;
+    }
+  }
+}

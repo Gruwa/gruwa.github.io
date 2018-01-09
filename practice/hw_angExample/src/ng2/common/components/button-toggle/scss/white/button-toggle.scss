@@ -1,0 +1,57 @@
+@import '../../../../../../core/assets/scss/variables';
+
+$cl: #FFC977;
+
+:host-context(.button-toggle-group--white):first-child {
+  .button-toggle {
+    a {
+      margin-left: 0;
+    }
+  }
+}
+
+:host-context(.button-toggle-group--white):last-child {
+  .button-toggle {
+    a {
+      margin-right: 0;
+    }
+  }
+}
+
+:host-context(.button-toggle-group--white) {
+  .button-toggle {
+    background: transparent;
+    a {
+      margin: 0 20px;
+      padding: 20px 0 17px;
+      font-size: 16px;
+      font-weight: 600;
+      color: $cl;
+      border-bottom: 3px solid transparent;
+      &.is-active {
+        border-bottom: 3px solid $primary;
+        color: $white;
+      }
+      &:hover {
+        color: $white;
+      }
+      &.is-disabled {
+        opacity: 0.2;
+        cursor: not-allowed;
+        color: inherit;
+      }
+    }
+  }
+}
+
+:host-context(.button-toggle-group--white.button-toggle-group--small) {
+  .button-toggle {
+    a {
+      margin: 0 15px;
+      padding: 0;
+      height: 40px;
+      line-height: 40px;
+      font-size: 14px;
+    }
+  }
+}

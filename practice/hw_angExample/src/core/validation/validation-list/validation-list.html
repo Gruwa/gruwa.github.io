@@ -1,0 +1,64 @@
+<div ng-messages="field.$error"
+     class="validation has-error">
+  <div class="list-unstyled validation-errors"
+       ng-if="field.$invalid && (field.$touched || field.$dirty || form.$triedSubmit)">
+    <ng-transclude></ng-transclude>
+    <div ng-message="required">{{'validation.required' | translate}}</div>
+    <div ng-message="password">{{'validation.invalid_password' | translate}}</div>
+    <div ng-message="email">{{'validation.invalid_email' | translate}}</div>
+    <div ng-message="pattern">{{'validation.does_not_meet_requirements' | translate}}</div>
+    <div ng-message="date">{{'validation.invalid_date' | translate}}</div>
+    <div ng-message="time">{{'validation.invalid_time' | translate}}</div>
+    <div ng-message="datetime">{{'validation.invalid_date_time' | translate}}</div>
+    <div ng-message="datetime-local">{{'validation.invalid_local_date_time' | translate}}</div>
+    <div ng-message="number">{{'validation.invalid_number' | translate}}</div>
+    <div ng-message="color">{{'validation.invalid_color' | translate}}</div>
+    <div ng-message="range">{{'validation.invalid_range' | translate}}</div>
+    <div ng-message="month">{{'validation.invalid_month' | translate}}</div>
+    <div ng-message="url">{{'validation.invalid_url' | translate}}</div>
+    <div ng-message="file">{{'validation.invalid_file' | translate}}</div>
+
+    <div ng-message="notUnique">{{'validation.error_user_exists' | translate}}</div>
+
+    <div ng-message="cadNumberInvalid">{{'validation.invalid_number' | translate}}</div>
+    <div ng-message="cadNumberMax">{{'validation.more_then_max' | translate:{ max: attrs.max } }}</div>
+    <div ng-message="cadNumberMin">{{'validation.less_then_min' | translate:{ min: attrs.min } }}</div>
+    <div ng-message="cadNumberMaxDecimals">
+      {{'validation.number_decimals_exceed' | translate:{maxDecimals: attrs.maxDecimals } }}
+    </div>
+    <div ng-message="cadNumberMaxDigits">{{'validation.number_digits_exceed' | translate}}</div>
+    <div ng-message="cadNumberMaxIntegerPart">
+      {{'validation.number_integer_exceed' | translate:{ maxIntegerPart: attrs.maxIntegerPart } }}
+    </div>
+
+    <div ng-message="cadDateTimeValidateAfter">
+      {{'validation.date_should_be_after' | translate:{ value: attrs.cadDateTimeValidateAfter || attrs.startDateTime } }}
+    </div>
+    <div ng-message="cadValidatePeriod">
+      {{'validation.exceed_period' | translate:{ cadValidatePeriodDays: attrs.cadValidatePeriodDays } }}
+    </div>
+
+    <div ng-message="minlength">
+      {{'validation.does_not_meet_min_length' | translate:{ minlength: attrs.minlength } }}
+    </div>
+    <div ng-message="maxlength">
+      {{'validation.does_not_meet_max_length' | translate:{ maxlength: attrs.maxlength } }}
+    </div>
+
+    <div ng-if="attrs.type == 'time' "
+          ng-message="min">{{'validation.does_not_meet_min_time' | translate}}
+    </div>
+    <div ng-message="max"
+          ng-if="attrs.type == 'time' ">{{'validation.does_not_meet_max_time' | translate}}
+    </div>
+    <div ng-message="min"
+          ng-if="attrs.type == 'date' ">{{'validation.does_not_meet_min_date' | translate}}
+    </div>
+    <div ng-message="max"
+          ng-if="attrs.type == 'date' ">{{'validation.does_not_meet_max_date' | translate}}
+    </div>
+  </div>
+  <div class="validation-success"
+       ng-if="!(field.$valid && !field.$invalid)">
+  </div>
+</div>

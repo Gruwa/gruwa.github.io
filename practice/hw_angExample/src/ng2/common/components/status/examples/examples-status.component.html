@@ -1,0 +1,34 @@
+<cad-panel headTitle="Status">
+  <div cad-panel-content>
+
+    <div class="examples__params">
+      <ul>
+        <li><strong>[value]: string</strong></li>
+        <li><strong>[prefix]: string</strong></li>
+        <li><strong>[size]: string</strong></li>
+      </ul>
+    </div>
+
+    <cad-status [value]="'DRAFT'" [size]="size"></cad-status>
+    <cad-status [value]="'PUSH_IN_PROGRESS'" prefix="short" [size]="size"></cad-status>
+
+    <textarea class="examples__copy">
+      <cad-status [value]="'DRAFT'" [size]="size"></cad-status>
+      <cad-status [value]="'PUSH_IN_PROGRESS'" prefix="short" [size]="size"></cad-status>
+    </textarea>
+
+    <div class="cad-row">
+      <div class="column column-30">
+        <div class="mb-15">
+          <span class="title title_6 title_thin">Size</span>
+          <select [(ngModel)]="size">
+            <option value="small">Small</option>
+            <option value="default">Default</option>
+            <option value="big">Big</option>
+            <option value="huge">Huge</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</cad-panel>

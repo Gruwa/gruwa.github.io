@@ -1,0 +1,90 @@
+@import '../../../../core/assets/scss/variables';
+@import '../../../../core/assets/scss/mixin';
+
+.toast-notification {
+  $assetsPath: '../../../../core/assets';
+
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 100px;
+  opacity: .8;
+  z-index: 997;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  .toast-notification-main {
+    padding: 15px 15px 15px 45px;
+    background-image: url($assetsPath + '/images/attention.svg') !important;
+    background-position: 20px 15px;
+    background-repeat: no-repeat;
+    opacity: 1;
+    background-color: rgba(64, 64, 64, 0.86);
+    box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.16);
+    text-align: left;
+    color: $white;
+    min-width: 400px;
+
+    .title {
+      color: $white;
+    }
+
+    .button-actions {
+      text-align: right;
+    }
+
+    .button-toast {
+      color: $white;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 5px 10px;
+      text-transform: uppercase;
+      vertical-align: middle;
+      cursor: pointer;
+      position: static;
+      opacity: 1;
+      border-radius: 2px;
+      height: 30px;
+      @include align-self(center);
+
+      &:hover {
+        opacity: 1;
+        border-color: transparent;
+        background-color: rgba($white, 0.4);
+      }
+
+      &:active {
+        opacity: 1;
+        border-color: transparent;
+        background-color: rgba($white, 0.6);
+      }
+    }
+
+    .button-toast + .button-toast {
+      margin-left: 10px;
+    }
+
+  }
+
+  .view-more {
+    background-color: black;
+    margin: 0 15px;
+    padding: 7px;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    background-color:  rgba($cl, 0.96);
+    text-align: center;
+
+    a, a:hover, a:active {
+      cursor: pointer;
+      color: $white;
+      text-decoration: none;
+      span {
+        font-weight: 600;
+      }
+    }
+
+  }
+}

@@ -1,0 +1,46 @@
+<cad-dropdown head="{{(vm.selectedItems.join(', ') | cadLimitTo: 15) || vm.inputEmptyListTitle}}"
+              color="black"
+              content-color="grey"
+              position="left"
+              icon="arrow-down"
+              disable="vm.disable"
+              show-tooltip="false"
+              uib-tooltip="{{ vm.selectedItems.join(', ') }}"
+              tooltip-enable="vm.selectedItems.join(', ').length > 15 && vm.isDropDownClosed"
+
+              show-close-button="{{vm.selectedItems.length > 0}}"
+              close-button-action="vm.resetItems()"
+
+              visibility-action="false">
+
+  <cad-smart-search-list class="cad-search-list_dropdown"
+                         items="vm.allItems"
+                         cad-autofocus
+                         selected="vm.temporarySelectedItems"
+                         virtual-scroll
+                         show-spinner="vm.isLoading"
+                         multi-select="true">
+  </cad-smart-search-list>
+  <div class="dropdown-content-data__footer">
+    <cad-button view="secondary"
+                size="small"
+                ng-click="vm.resetTemporaryItems()"
+                text="global.clear_all"
+                ng-if="vm.temporarySelectedItems.length">
+    </cad-button>
+
+    <cad-button view="secondary"
+                size="small"
+                ng-click="vm.selectAll()"
+                text="global.select_all"
+                ng-if="!vm.temporarySelectedItems.length">
+    </cad-button>
+
+    <cad-button view="primary"
+                size="small"
+                ng-disabled="!vm.temporarySelectedItems.length"
+                ng-click="vm.applyFilter()"
+                text="buttons.apply">
+    </cad-button>
+  </div>
+</cad-dropdown>

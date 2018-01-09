@@ -1,0 +1,61 @@
+<cad-panel headTitle="Checkbox">
+  <div cad-panel-content>
+
+    <div class="examples__params">
+      <ul>
+        <li><strong>[disabled]: boolean</strong> - Is checkbox disabled</li>
+        <li><strong>[required]: boolean</strong> - Is checkbox required</li>
+        <li><strong>(onChange): EventEmitter&lt;boolean&gt;</strong> Trigger whenever checkbox is changed own status</li>
+      </ul>
+      <br/>
+      <div class="examples__params__note">
+        Checkbox component implements <strong>ControlValueAccessor</strong>
+      </div>
+    </div>
+
+    <textarea class="examples__copy" rows="8" ngNonBindable>
+        <cad-checkbox [(ngModel)]="isChecked"
+                      [disabled]="isDisabled"
+                      (onChange)="change($event)">
+          Some checkbox text
+        </cad-checkbox>
+    </textarea>
+
+    <div class="cad-row">
+      <div class="column column-30">
+
+        <div class="mb-15">
+          <label><input type="checkbox" [(ngModel)]="isDisabled" /> Disabled?</label>
+        </div>
+
+        <div class="mb-15">
+          <label><input type="checkbox" [(ngModel)]="isChecked" /> Checked?</label>
+        </div>
+
+        <div class="mb-15">
+          <label><input type="checkbox" [(ngModel)]="isRequired" /> Required?</label>
+        </div>
+
+      </div>
+
+      <div class="column column-70">
+
+        <cad-checkbox [(ngModel)]="isChecked"
+                      [disabled]="isDisabled"
+                      [required]="isRequired"
+                      (onChange)="change($event)"
+                      class="mr-20">
+          Some checkbox text
+        </cad-checkbox>
+
+        <cad-checkbox [(ngModel)]="isChecked"
+                      [disabled]="isDisabled"
+                      (onChange)="change($event)">
+          Some checkbox text
+        </cad-checkbox>
+
+      </div>
+    </div>
+
+  </div>
+</cad-panel>

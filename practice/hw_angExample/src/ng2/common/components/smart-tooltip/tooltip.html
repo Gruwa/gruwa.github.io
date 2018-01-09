@@ -1,0 +1,21 @@
+<div class="cad-tooltip {{ customClass }}">
+  <div class="cad-tooltip__triangle"
+       [class.cad-tooltip__triangle--top]="placement === 'bottom' || placement === 'bottom-left' || placement === 'bottom-right'"
+       [class.cad-tooltip__triangle--bottom]="placement === 'top' || placement === 'top-left' || placement === 'top-right'"
+       [class.cad-tooltip__triangle--center]="placement === 'bottom' || placement === 'top'"
+       [class.cad-tooltip__triangle--left]="placement === 'bottom-left' || placement === 'top-left'"
+       [class.cad-tooltip__triangle--right]="placement === 'bottom-right' || placement === 'top-right'">
+  </div>
+  <div class="cad-tooltip__text">
+    <div *ngIf="!customTemplate">
+      <span *ngIf="!isHTML">{{ text }}</span>
+      <span *ngIf="isHTML" [innerHTML]="text" #tooltipTextSpan></span>
+    </div>
+    <div *ngIf="customTemplate">
+      <ng-template [ngTemplateOutlet]="customTemplate"></ng-template>
+    </div>
+  </div>
+  <div class="cad-tooltip__clipboard" *ngIf="isClipboard">
+    {{ 'clipboard.press_to_copy' | translate:{command: isMac ? 'Cmd+C' : 'Ctrl+C'} }}
+  </div>
+</div>

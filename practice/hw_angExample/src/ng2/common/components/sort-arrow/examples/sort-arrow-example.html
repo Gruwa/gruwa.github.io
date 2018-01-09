@@ -1,0 +1,56 @@
+<cad-panel headTitle="Sort Arrow">
+  <div cad-panel-content>
+    <div class="examples__params">
+      <div class="title title_5">cad-sort-arrow</div><br/>
+      <ul>
+        <li><strong>[order]: 'asc' | 'desc'</strong> - Name of sort order/direction</li>
+      </ul>
+    </div>
+
+    <textarea class="examples__copy" rows="8" ngNonBindable>
+      <cad-sort-arrow [order]="myPropWithOrderValue">
+      </cad-sort-arrow>
+    </textarea>
+
+    <div class="cad-row">
+      <div class="column column-30">
+
+        <div class="mb-15">
+          <span class="title title_6 title_thin">Sort Order</span>
+          <select [(ngModel)]="userDrivedOrderValue">
+            <option value="asc" selected="selected">Ascending</option>
+            <option value="desc">Descending</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="column column-70">
+        <table>
+          <thead>
+            <tr>
+              <td></td>
+              <td>
+                Header1
+                <cad-sort-arrow [order]="userDrivedOrderValue">
+                </cad-sort-arrow>
+              </td>
+              <td>Header2</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Row1</td>
+              <td>Cell 1.1</td>
+              <td>Cell 1.2</td>
+            </tr>
+            <tr>
+              <td>Row2</td>
+              <td>Cell 2.1</td>
+              <td>Cell 2.2</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</cad-panel>

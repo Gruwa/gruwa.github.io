@@ -1,0 +1,71 @@
+.field-icon {
+  display: block;
+  position: relative;
+  cursor: text;
+
+  .field-icon__input {
+    width: 100%;
+    height: 46px;
+    padding-left: 30px;
+    background: transparent;
+    border-bottom: 2px solid rgba($white,.4);
+    font-size: 15px;
+    color: $white;
+    transition: border-color .2s;
+    font-weight: 400;
+
+    @include placeholder {
+      color: rgba($white,.8);
+      font-weight: 400;
+    }
+
+    &:focus {
+      border-color: $white;
+    }
+
+    &:disabled {
+      border-color: rgba($white,.2);
+      color: rgba($white,.2);
+
+      @include placeholder {
+        color: rgba($white,.2);
+      }
+    }
+  }
+
+  .field-icon__icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 44px;
+    @include vert;
+  }
+
+  .field-icon__error {
+    display: block;
+    padding: 3px 0 0 30px;
+    font-size: 13px;
+    color: $red;
+
+    a {
+      color: $red;
+    }
+  }
+
+  .icon {
+    display: inline-block;
+    fill: rgba($white,.8);
+    vertical-align: middle;
+  }
+
+  .icon-username {
+    width: 19px;
+    height: 18px;
+  }
+
+  .icon-lock {
+    width: 16px;
+    height: 18px;
+  }
+}

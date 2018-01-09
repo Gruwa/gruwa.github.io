@@ -1,0 +1,17 @@
+<div class="spinner-container"
+     [class.spinner-container--primary]="color === 'primary'"
+     [class.spinner-container--blue]="color === 'blue'"
+     [class.spinner-container--white]="color === 'white'"
+     [class.spinner-container--small]="size === 'small'"
+     [class.spinner-container--medium]="size === 'medium'"
+     [class.spinner-container--big]="size === 'big'"
+     [class.spinner-container--cadreon]="type === 'cadreon'"
+     [class.spinner-container--ring]="type === 'ring'"
+     [style.width.px]="width"
+     [style.height.px]="width"
+>
+  <div class="spinner spinner-inner"
+       [style.borderWidth.px]="borderWidth"></div>
+  <div class="spinner spinner-outer"
+       [style.borderWidth.px]="borderWidth"></div>
+</div>

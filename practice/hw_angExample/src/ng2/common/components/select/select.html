@@ -1,0 +1,36 @@
+<div class="cad-select"
+     [class.cad-select--transparent]="type === 'transparent'"
+     [class.cad-select--unboxed]="type === 'unboxed'">
+  <div class="cad-select__head"
+       [class.cad-select__head--grey]="headColor === 'grey'"
+       [class.cad-select__head--small]="small"
+       [class.cad-select__head--error]="invalid"
+       [class.cad-select__head--disabled]="disabled"
+       [class.cad-select__head--expanded]="expanded">
+    <div class="cad-select__head__value">{{ head }}</div>
+    <div class="cad-select__head__label">{{ headLabel }}</div>
+    <cad-icon name="arrow-down"
+              class="cad-select__head__icon"
+              [class.cad-select__head__icon--rotated]="expanded">
+    </cad-icon>
+  </div>
+    <span class="cad-select--unboxed__expanded-icon"
+          *ngIf="expanded"></span>
+    <div class="cad-select__items-list"
+         [class.cad-select__items-list--error]="invalid"
+         [class.cad-select__items-list--visible]="expanded">
+      <div *ngFor="let item of items"
+           (click)="select(item)"
+           class="cad-select__item"
+           [class.cad-select__item--small]="small"
+           [class.cad-select__item--hidden]="isSelected(item)">
+
+        <span *ngIf="!customItemTemplate">{{ item | itemLabel:labelField | translate }}</span>
+
+        <ng-template [ngTemplateOutlet]="customItemTemplate"
+                     [ngTemplateOutletContext]="{$implicit: item}">
+        </ng-template>
+
+      </div>
+    </div>
+</div>

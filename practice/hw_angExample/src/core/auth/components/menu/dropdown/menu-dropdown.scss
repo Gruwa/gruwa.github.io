@@ -1,0 +1,12 @@
+.header-menu-dropdown {
+  a.header-menu-dropdown__item {
+    position: relative;
+    padding-right: 40px;
+  }
+
+  .selection-tick {
+    position: absolute;
+    right: 20px;
+    top: 16px;
+  }
+}

@@ -1,0 +1,16 @@
+<cad-modal-content>
+  <div modal-header class="cad-flex el-w100 smart-modal-header">
+    <span class="title title_3 title_white">{{ 'smart_filter.filters' | translate }}</span>
+  </div>
+
+  <div modal-body class="smart-modal-body">
+    <ng-template [ngTemplateOutlet]="body"></ng-template>
+  </div>
+
+  <div modal-footer class="cad-flex el-w100">
+    <cad-button (click)="onClear()" text="global.clear_all" view="secondary" [style.marginRight]="'auto'"></cad-button>
+
+    <cad-button (click)="onCancel()" text="buttons.cancel" view="secondary"></cad-button>
+    <cad-button (click)="onApply()" text="buttons.apply" view="primary"></cad-button>
+  </div>
+</cad-modal-content>

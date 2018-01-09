@@ -1,0 +1,35 @@
+<div class="timezone">
+  <div class="cad-row">
+    <div class="column column__timezone">
+      <div class="title title_4 title_thin mb-20 required">{{ 'date.time_zone' | translate }}</div>
+      <div class="group mb-30">
+        <div class="group__item group__item__timezone">
+          <div class="field field_icon">
+            <label class="field__in">
+              <cad-dropdown
+                [(ngModel)]="value"
+                [title]="value && value.title || 'date.select_timezone' | translate"
+                [color]="value && 'default' || 'grey'"
+                [contentColor]="contentColor"
+                [closeOnChange]="true"
+                type="boxed"
+                icon="arrow-down"
+                size="small"
+                [placement]="dropdownPosition">
+                <div cad-dropdown-body>
+                  <cad-smart-search-list class="cad-search-list_dropdown"
+                                         [items]="timezoneService.timezonesInfo"
+                                         trackByField="id"
+                                         [toggleDisabled]="toggleDisabled"
+                                         [(ngModel)]="value"
+                                         (ngModelChange)="changeTimezone(value)">
+                  </cad-smart-search-list>
+                </div>
+              </cad-dropdown>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

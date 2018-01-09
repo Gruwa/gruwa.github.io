@@ -1,0 +1,31 @@
+<div class="cad-row" ng-class="{ 'cad-row_vertical_middle': !vm.selectedItems.length && vm.preSelectedInfo }">
+
+  <div class="col-50 content-search-box">
+    <div class="search">
+      <cad-smart-search-list items="vm.items"
+                             selected="vm.selectedItems"
+                             multi-select="true"
+                             selection-popover="false"
+                             details="vm.details"
+                             min-length="{{ vm.minLength }}"
+                             label-field="{{vm.labelField}}">
+      </cad-smart-search-list>
+    </div>
+    <div class="error" ng-show="vm.searchQuery.length && !(vm.notSelectedItems | filter:vm.searchQuery).length">
+      <span translate="global.no_matches_found"></span>
+    </div>
+  </div>
+  <div cad-column="50">
+    <div class="title title_4 ml-15">{{ vm.selectedHeader | translate }}</div>
+
+    <div class="wrap-selected wrap-selected_no_border" cad-column="100" ng-if="!vm.selectedItems.length && vm.preSelectedInfo">
+      <div class="title title_5 title_gray title_thin ta-center lh-24" translate="{{ vm.preSelectedInfo }}"></div>
+    </div>
+
+    <div class="wrap-selected wrap-selected_no_border">
+      <cad-chip ng-repeat="item in vm.selectedItems | orderBy:'name'"
+                text="{{ item.name }}"
+                on-delete="vm.toggleItemSelection(item, false)"></cad-chip>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+.popover {
+  z-index: 1000;
+  @include f;
+  max-width: 100%;
+  .popover-content {
+    font-size: 14px;
+    width: 100%;
+    padding: 23px;
+  }
+  .popover__close-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 11px;
+    height: 11px;
+    .icon {
+      &.icon-close {
+        fill: $gray-d;
+        vertical-align: top;
+        width: 11px;
+        height: 11px;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  &.in {
+    display: block;
+  }
+
+  &.top {
+    .arrow {
+      margin-left: 0;
+    }
+  }
+
+}

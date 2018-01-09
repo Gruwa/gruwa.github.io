@@ -1,0 +1,30 @@
+@import '../../../core/assets/scss/variables';
+
+.cad-support-button {
+  // position
+  position: fixed;
+  right: 0;
+  bottom: 60px;
+  z-index: 88; // below dropdown
+
+  // size
+  width: 46px;
+  height: 46px;
+
+  // style
+  border-radius: 4px 0 0 4px;
+  background-color: $wl-inverted-btn-background;
+  box-shadow: 0 4px 8px rgba($black, 0.1);
+
+  .cad-support-button__icon {
+    fill: $wl-inverted-btn;
+
+    &:hover {
+      fill: $wl-inverted-btn-hover;
+    }
+
+    &:active {
+      fill: $wl-inverted-btn-active;
+    }
+  }
+}

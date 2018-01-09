@@ -1,0 +1,19 @@
+<div class="cad-search">
+
+  <ng-content></ng-content>
+
+  <div class="cad-search__input">
+    <input #input
+           type="text"
+           (blur)="onBlur()"
+           (focus)="onFocus()"
+           (focusout)="onFocusOut()"
+           [disabled]="disabled"
+           [placeholder]="(placeholder || 'global.search') | translate"
+           [ngModel]="innerValue"
+           (ngModelChange)="updateInnerValue($event)"/>
+    <cad-icon class="icon-search" name="search"></cad-icon>
+    <cad-icon class="icon-clear" name="close" *ngIf="innerValue && !disabled" (click)="clear($event)"></cad-icon>
+  </div>
+
+</div>

@@ -1,0 +1,28 @@
+<div class="cad-chip"
+     [class.cad-chip--has-error]="errorMessage"
+     [class.cad-chip--no-icon]="!showIcon"
+     [class.cad-chip--single-line]="type === 'single-line'"
+     [class.cad-chip--small]="size === 'small'"
+     [class.cad-chip--grey]="color === 'grey'"
+     [class.cad-chip--blue]="color === 'blue'"
+     [class.cad-chip--light-grey]="color === 'light-grey'"
+>
+
+  <div #transcludeRef><ng-content></ng-content></div>
+
+  <ng-template [ngIf]="!isCustom">
+    <cad-button class="cad-chip__close"
+                *ngIf="showIcon"
+                (click)="onDelete.emit($event)">
+      <cad-icon name="close"></cad-icon>
+    </cad-button>
+
+    <div class="cad-chip__title" *ngIf="isHtml" [innerHTML]="text"></div>
+    <div class="cad-chip__title" *ngIf="!isHtml">{{ text }}</div>
+
+    <p *ngIf="errorMessage" class="cad-chip__error">
+      {{ errorMessage }}
+    </p>
+  </ng-template>
+
+</div>

@@ -1,0 +1,95 @@
+<div class="audit-trail audit-trail-table">
+  <!-- normal header -->
+  <div class="cad-panel cad-panel_p-30-40 bb" ng-if="!vm.showStickyHeader">
+    <div class="cad-row cad-row_clear cad-row_vertical_middle">
+
+      <div cad-column="50" class="ta-left">
+        <div class="title title_2">{{ vm.text | translate }}</div>
+      </div>
+
+      <div cad-column="50" class="ta-right">
+        <div cad-column="54"
+             ng-if="vm.showSearchQuery"
+             class="log_search ta-right">
+          <cad-search class="field_search"
+                      query="vm.searchQuery"
+                      placeholder="{{ 'audit_trail.search_query' | translate }}"></cad-search>
+        </div>
+        <div ng-if="vm.showDateRangeQuery"
+             class="field field_icon display-inline" cad-column="54">
+          <label class="field__in">
+            <input date-range-picker class="input pull-right date-picker" type="text"
+                   ng-model="vm.logDates" options="vm.dateRangeOptions"/>
+            <span class="field__icon"><cad-icon name="calendar"></cad-icon></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- sticky header -->
+  <div class="cad-panel cad-panel_p-30-40 bb audit-trail__header"
+       cad-sticky-header
+       sticky-from="200"
+       ng-if="vm.showStickyHeader">
+    <div class="cad-row cad-row_clear cad-row_vertical_middle">
+
+      <div cad-column="50" class="ta-left">
+        <div class="title title_2 only-normal-header">{{ vm.text | translate }}</div>
+
+        <div class="only-sticky-header" cad-column="100">
+          <cad-button view="back"
+                      ng-click="vm.backClick()"
+                      icon="arrow-left"
+                      text="global.back">
+          </cad-button>
+
+          <div cad-column="78" ng-transclude="cadAuditTrailStickyHeader">
+            <div class="title title_2">{{ vm.text | translate }}</div>
+          </div>
+        </div>
+      </div>
+
+      <div cad-column="50" class="ta-right">
+        <div ng-if="vm.showDateRangeQuery"
+             class="field field_icon display-inline audit-trail-header__date-picker">
+          <label class="field__in">
+            <input date-range-picker class="input pull-right date-picker" type="text"
+                   ng-model="vm.logDates" options="vm.dateRangeOptions"/>
+            <span class="field__icon"><cad-icon name="calendar"></cad-icon></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <cad-audit-trail-table ng-if="vm.outputType === 'table'"
+                         logs="vm.logs"
+                         search-query="vm.searchQuery"
+                         details-page-size="vm.detailsPageSize"></cad-audit-trail-table>
+  <cad-audit-trail-block ng-if="vm.outputType === 'block'"
+                         logs="vm.logs"
+                         search-query="vm.searchQuery"
+                         details-page-size="vm.detailsPageSize"></cad-audit-trail-block>
+
+  <div class="table_row__wide table_row__border_top audit-trail__empty-results"
+       ng-if="vm.status === 'empty' || vm.status === 'error'">
+    <div class="no-data">
+      <div class="no-data__icon mt-50">
+        <cad-icon name="no-line"></cad-icon>
+      </div>
+      <!-- title -->
+      <div class="title title_2 title_gray title_thin"
+           translate="audit_trail.no_data"
+           translate-values="::{name: (vm.entityTitle || vm.entityName | ucfirst)}"></div>
+    </div>
+  </div>
+
+  <div class="table_row__wide table_row__border_top audit-trail__empty-results mt-50"
+       ng-if="vm.status === 'loading'">
+    <cad-icon name="preloader" custom-class="centered big"></cad-icon>
+  </div>
+
+</div>

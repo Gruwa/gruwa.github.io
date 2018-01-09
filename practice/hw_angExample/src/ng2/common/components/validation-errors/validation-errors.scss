@@ -1,0 +1,12 @@
+@import '../../../../core/assets/scss/variables';
+
+.cad-validation-errors {
+  margin: 5px 0;
+
+  &__item {
+    font-size: 12px;
+    font-weight: 600;
+    color: $red;
+    margin-top: 3px;
+  }
+}

@@ -1,0 +1,139 @@
+<cad-panel headTitle="Upload">
+    <div cad-panel-content>
+
+      <div class="examples__params">
+        <ul>
+          <li><strong>[view]: 'standard' | 'compact'</strong> - view type</li>
+          <li><strong>[options]: IUploadOptions</strong> - upload options object</li>
+          <li><strong>&nbsp;&nbsp;&nbsp;&nbsp;titlesRoot: string</strong> - path to text titles in translations JSON ('support.upload_screenshot')</li>
+          <li><strong>&nbsp;&nbsp;&nbsp;&nbsp;fulfillFn: Function</strong> - reference to function that actually performs upload (Note: uploadFn is deprecated, use fulfillFn instead)</li>
+          <li><strong>&nbsp;&nbsp;&nbsp;&nbsp;accept: string</strong> - the types of files separated with a comma (e.g. '.jpg,image/*') </li>
+          <li><strong>&nbsp;&nbsp;&nbsp;&nbsp;maxSize: number</strong> - max bytes to upload</li>
+        </ul>
+      </div>
+      <div class="cad-row">
+        <div class="column column-30">
+          <span class="title title_5 title_thin">Type</span>
+          <select [(ngModel)]="type">
+            <option value="standard">standard</option>
+            <option value="compact">compact</option>
+          </select>
+        </div>
+        <div class="column column-70">
+          <cad-upload [type]="type" [options]="options" [(ngModel)]="value"></cad-upload>
+        </div>
+      </div>
+    <span class="title title_5 title_thin">Value</span>
+    <pre>{{ value | json }}</pre>
+    <h2 class="mt-20"><strong>Select File Directive</strong></h2><br/>
+    <div class="examples__params">
+      <ul>
+        <li><strong>accept: string</strong> - the types of files separated with a comma (e.g. '.jpg,image/*')</li>
+        <li><strong>multiple: boolean</strong> - should be multiple selection?</li>
+        <li><strong>name: string</strong> - name for the input field</li>
+        <li><strong>resetOnChange: boolean</strong> - <strong>true</strong> when the component must be reset after any change (Added to upload twice the same file)</li>
+        <li><strong>disabled: boolean</strong> - is the input disabled </li>
+        <li><strong>fileChanged: EventEmitter  File|FileList </strong> - triggered when the file is changed </li>
+        <li><strong>fileRejected: EventEmitter File|FileList </strong> - triggered when the file is rejected</li>
+      </ul>
+    </div>
+    <div class="cad-row">
+      <div class="column column-30">
+        <div>
+            <span class="title title_5 title_thin">Reset after any change</span>
+            <select [(ngModel)]="isResetOnChange">
+              <option value="false">No</option>
+              <option value="true">Yes</option>
+            </select>
+        </div>
+      </div>
+      <div class="column column-70">
+        <div class="cad-row">
+          <div class="column column-30">
+              <h3 class="mb-20">Multiple selection</h3>
+              <cad-button view="secondary"
+                text="Upload several files"
+                cadSelectFile
+                [accept]="options?.accept"
+                (fileChanged)="uploadDirective($event)"
+                (fileRejected)="showError($event)"
+                name="multiple"
+                [multiple]="true"
+                [resetOnChange]="isResetOnChange">
+              </cad-button>
+          </div>
+          <div class="column column-30">
+            <h3 class="mb-20">Single selection</h3>
+            <cad-button view="secondary"
+              text="Upload a file"
+              cadSelectFile
+              [accept]="options?.accept"
+              name="single"
+              (fileChanged)="uploadDirective($event)"
+              (fileRejected)="showError($event)"
+              [resetOnChange]="isResetOnChange">
+            </cad-button>
+          </div>
+
+          <div class="column column-30">
+              <h3 class="mb-20">Disabled</h3>
+              <cad-button view="secondary"
+                text="Upload file"
+                cadSelectFile
+                [disabled]="true"
+                [accept]="options?.accept"
+                (fileChanged)="uploadDirective($event)"
+                (fileRejected)="showError($event)"
+                [resetOnChange]="isResetOnChange">
+              </cad-button>
+            </div>
+        </div>
+      </div>
+    </div>
+    <h4 class="title title_thin" *ngIf="selectFile || invalidFile">Values</h4>
+    <a (click)="reset()" *ngIf="selectFile || invalidFile">Clear values</a>
+    <div class="cad-row">
+      <div class="column column-50" *ngIf="selectFile">
+          <span><strong>Valid Files: </strong></span>
+          <pre>
+              <ul>
+                <li *ngFor="let obj of selectFile">{{obj | json}}</li>
+              </ul>
+          </pre>
+      </div>
+      <div class="column column-50" *ngIf="invalidFile">
+              <span><strong>Invalid Files: </strong></span>
+              <pre>
+                <ul>
+                  <li *ngFor="let obj of invalidFile">{{obj.name | json}}</li>
+                </ul>
+              </pre>
+      </div>
+    </div>
+    <br>
+    <h4>Standard Upload with custom template</h4>
+    <br>
+    <cad-standard-upload [options]="options">
+      <ng-template #customSuccessTemplate let-resetState="resetState">
+        <div class="cad-upload-success__body">
+            <h1>This is my custom template</h1>
+            <div class="mt-30 mb-40 buttons">
+              <cad-button class="change" text="change file" view="tertiary" (onClick)="resetState()"></cad-button>
+            </div>
+          </div>
+      </ng-template>
+    </cad-standard-upload>
+    <textarea class="examples__copy" rows="12" ngNonBindable readonly>
+      <cad-standard-upload [options]="options" #standarUpload>
+        <ng-template #customSuccessTemplate let-resetState="resetState">
+          <div class="cad-upload-success__body">
+              <h1>This is my custom template</h1>
+              <div class="mt-30 mb-40 buttons">
+                <cad-button class="change" text="change file" view="tertiary" (onClick)="resetState()"></cad-button>
+              </div>
+            </div>
+        </ng-template>
+      </cad-standard-upload>
+    </textarea>
+  </div>
+</cad-panel>

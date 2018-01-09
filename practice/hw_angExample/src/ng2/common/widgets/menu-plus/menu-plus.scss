@@ -1,0 +1,75 @@
+@import '../../../../core/assets/scss/variables';
+@import '../../../../core/assets/scss/mixin';
+
+.menu-plus {
+  display: inline-block;
+  vertical-align: middle;
+
+  .btn-round {
+    position: relative;
+    top: 2px;
+    vertical-align: middle;
+  }
+  .cad-dropdown-menu {
+    left: -12px;
+  }
+  & + .dropdown {
+    margin-left: -35px;
+  }
+
+  &.composite {
+    margin-top: -5px;
+  }
+
+  .header__chapter-add {
+    display: inline-block;
+    max-width: 100%;
+    background: $white;
+    border-radius: 50%;
+    font-size: 0;
+    vertical-align: middle;
+    transition: all .2s;
+
+    &:hover {
+      .icon-plus {
+        fill: $wl-header-plus-hover;
+      }
+    }
+    &:active {
+      background-color: $wl-header-plus-active-background;
+    }
+    &.is-disabled {
+      background-color: $wl-header-plus-disabled-background;
+      cursor: default;
+
+      .icon-plus {
+        cursor: default;
+        fill: $wl-header-plus-disabled;
+      }
+    }
+    .icon-plus {
+      position: absolute;
+      cursor: pointer;
+      fill: $wl-tertiary;
+      padding: 8px 7px;
+      box-sizing: content-box;
+    }
+
+    .dropdown__head, .menu-plus__add-btn {
+      width: 28px;
+      height: 28px;
+      cursor: pointer;
+    }
+    .header__chapter__add-btn {
+      position: absolute;
+    }
+    .dropdown-content {
+      left: -13px;
+    }
+
+  }
+
+  .disable-pointer-events {
+    pointer-events: none;
+  }
+}

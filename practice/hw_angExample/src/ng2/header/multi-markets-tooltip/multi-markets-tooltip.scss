@@ -1,0 +1,24 @@
+@import '../../../core/assets/scss/variables';
+
+.multi-markets-tooltip {
+  &__body {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    width: 320px;
+    padding: 25px;
+  }
+
+  &__spinner {
+    width: 100%;
+    height: 55px;
+    position: relative;
+  }
+
+  &__title {
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 400;
+    color: $black;
+  }
+}

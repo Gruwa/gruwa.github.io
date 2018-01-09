@@ -1,0 +1,99 @@
+<cad-panel headTitle="Radio Button">
+  <div cad-panel-content>
+
+    <div class="examples__params">
+      <div class="title title_5">cad-radio-button-group</div><br/>
+      <ul>
+        <li><strong>[disabled]: boolean</strong> - Is radio button group disabled</li>
+        <li><strong>[buttonDirection]: RadioButtonDirection</strong> - 'in-row' | 'in-column'</li>
+        <li><strong>[name]: string</strong> - Unique name for radio group</li>
+        <li><strong>[(ngModel)]: any</strong> - Value for radio group</li>
+        <li><strong>(onChange): EventEmitter&lt;any&gt;</strong> - Trigger when value is changed</li>
+      </ul>
+      <br/>
+      <div class="examples__params__note">
+        Radio Button Group component implements <strong>ControlValueAccessor</strong>
+      </div>
+      <br/>
+    </div>
+
+    <div class="examples__params">
+      <div class="title title_5">cad-radio-button</div><br/>
+      <ul>
+        <li><strong>[disabled]: boolean</strong> - Is radio button disabled</li>
+        <li><strong>[value]: any</strong> - Radio button value (this value is set to radio button group value if radio button is active)</li>
+        <li><strong>(onChange): EventEmitter&lt;void&gt;</strong> - trigger when radio button is selected</li>
+      </ul>
+      <br/>
+    </div>
+
+    <textarea class="examples__copy" rows="8" ngNonBindable>
+        <cad-radio-button-group [disabled]="isDisabledAll"
+                                [buttonDirection]="buttonDirection"
+                                [(ngModel)]="radioValue"
+                                name="radio"
+                                (onChange)="changeRadioButtonGroup($event)">
+          <cad-radio-button value="test1" (onChange)="changeRadioButton('test1')" [disabled]="isDisabledFirst">Test1</cad-radio-button>
+          <cad-radio-button value="test2" (onChange)="changeRadioButton('test2')">Test2</cad-radio-button>
+          <cad-radio-button value="test3" (onChange)="changeRadioButton('test3')">Test3</cad-radio-button>
+        </cad-radio-button-group>
+    </textarea>
+
+    <div class="cad-row">
+      <div class="column column-30">
+
+        <div class="mb-15">
+          <span class="title title_6 title_thin">Button direction output</span>
+          <select [(ngModel)]="buttonDirection">
+            <option value="in-row">In row</option>
+            <option value="in-column">In column</option>
+          </select>
+        </div>
+
+        <div class="mb-15">
+          <div class="title title_6 title_thin mb-10">Set value manually:</div>
+          <input class="input" [(ngModel)]="radioValue" />
+        </div>
+
+
+        <div class="mb-15">
+          <label><input type="checkbox" [(ngModel)]="isDisabledAll" /> Disabled all </label>
+        </div>
+
+        <div class="mb-15">
+          <label><input type="checkbox" [(ngModel)]="isDisabledFirst" /> Disabled only first radio button</label>
+        </div>
+
+
+      </div>
+
+      <div class="column column-70">
+
+        <cad-radio-button-group [disabled]="isDisabledAll"
+                                [buttonDirection]="buttonDirection"
+                                [(ngModel)]="radioValue"
+                                name="radio"
+                                (onChange)="changeRadioButtonGroup($event)">
+          <cad-radio-button value="test1" (onChange)="changeRadioButton('test1')" [disabled]="isDisabledFirst">Test1</cad-radio-button>
+          <cad-radio-button value="test2" (onChange)="changeRadioButton('test2')">
+            Test2<br/>
+            <strong>Test2</strong><br/>
+          </cad-radio-button>
+          <cad-radio-button value="test3" (onChange)="changeRadioButton('test3')">Test3</cad-radio-button>
+        </cad-radio-button-group>
+
+        <cad-radio-button-group [disabled]="isDisabledAll"
+                                [buttonDirection]="buttonDirection"
+                                [(ngModel)]="radioValue"
+                                name="radio2"
+                                (onChange)="changeRadioButtonGroup($event)">
+          <cad-radio-button value="test1" (onChange)="changeRadioButton('test1')" [disabled]="isDisabledFirst">Test1</cad-radio-button>
+          <cad-radio-button value="test2" (onChange)="changeRadioButton('test2')">Test2</cad-radio-button>
+          <cad-radio-button value="test3" (onChange)="changeRadioButton('test3')">Test3</cad-radio-button>
+        </cad-radio-button-group>
+
+      </div>
+    </div>
+
+  </div>
+</cad-panel>

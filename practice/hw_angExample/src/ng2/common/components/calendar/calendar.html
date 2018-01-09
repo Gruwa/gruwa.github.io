@@ -1,0 +1,56 @@
+<div class="cad-month-calendar">
+
+  <div class="cad-month-calendar__header">
+    <div (click)="prevMonth()"
+         class="cad-month-calendar__header__icon">
+      <cad-icon name="arrow-left"></cad-icon>
+    </div>
+    <div (click)="showToday()"
+         class="cad-month-calendar__header__title">
+      {{ activeMonth | cadMomentFormat:'MMMM YYYY' }}
+    </div>
+    <div (click)="nextMonth()"
+         class="cad-month-calendar__header__icon">
+      <cad-icon name="arrow-right"></cad-icon>
+    </div>
+  </div>
+
+  <div class="cad-month-calendar__week-days">
+    <div *ngFor="let day of monthMatrix[0]; trackBy: trackByIndex"
+         class="cad-month-calendar__week-days__day">
+      {{ day | cadMomentFormat:'ddd' }}
+    </div>
+  </div>
+
+  <div class="cad-month-calendar__matrix">
+
+    <div *ngFor="let weekRow of monthMatrix; trackBy: trackByIndex"
+         class="cad-month-calendar__matrix__row">
+
+      <div *ngFor="let day of weekRow; trackBy: trackByIndex"
+           class="cad-month-calendar__matrix__row__cell">
+
+        <div class="cad-month-calendar__range-highlight"
+             [class.cad-month-calendar__range-highlight--visible]="isInRange(day)"
+             [class.cad-month-calendar__range-highlight--range-start]="isRangeStart(day)"
+             [class.cad-month-calendar__range-highlight--range-end]="isRangeEnd(day)">
+        </div>
+
+        <div class="cad-month-calendar__day-item"
+             [class.cad-month-calendar__day-item--active-month]="isInActiveMonth(day)"
+             [class.cad-month-calendar__day-item--today]="isToday(day)"
+             [class.cad-month-calendar__day-item--selected]="isSelected(day)"
+             [class.cad-month-calendar__day-item--disabled]="!isAllowedDate(day)"
+             [class.cad-month-calendar__day-item--hidden]="rangeMode && !isInActiveMonth(day)"
+             (mouseenter)="preSelectDate(day)"
+             (click)="selectDate(day)">
+          {{ day | cadMomentFormat:'D' }}
+        </div> <!-- day -->
+
+      </div> <!-- cell -->
+
+    </div> <!-- row -->
+
+  </div> <!-- matrix -->
+
+</div>

@@ -1,0 +1,176 @@
+.select {
+  position: relative;
+  cursor: pointer;
+  min-width: 190px;
+  font-size: 14px;
+
+  &.small-width {
+    min-width: 60px;
+  }
+
+  .select__head {
+    position: relative;
+    overflow: hidden;
+
+    & .icon-arrow-down {
+      position: absolute;
+      top: 50%;
+      right: 14px;
+      height: 8px;
+      margin-top: -4px;
+      fill: $cta-back-btn-border;
+    }
+
+    .select__head-label {
+      position: absolute;
+      right: 34px;
+      top: 0;
+      height: 40px;
+      line-height: 40px;
+      @include fs;
+      color: $gray-d;
+    }
+  }
+
+  &:hover .select__value {
+    opacity: .7;
+    background: $cta-back-btn-disabled;
+  }
+
+  &.is-active {
+    .select__value {
+      opacity: 1;
+    }
+    .select__head .icon-arrow-down {
+      @include rotate(180);
+    }
+    .select__icon {
+      border-radius: 4px 0 0 0;
+
+      & + .select__value {
+        border-radius: 0 4px 0 0;
+      }
+    }
+    .select__value {
+      border-radius: 4px 4px 0 0;
+    }
+    .select__list {
+      display: block;
+    }
+  }
+
+  &.is-disable {
+    opacity: .3;
+    cursor: not-allowed;
+
+    &:hover .select__head,
+    &:active .select__head {
+      background: $bg;
+    }
+  }
+
+  &.select_big .select__head {
+    height: 46px;
+    @include fs;
+    line-height: 44px;
+  }
+
+  .select__icon {
+    float: left;
+    width: 41px;
+    height: 40px;
+    background: $wl-tertiary;
+    border-radius: 4px 0 0 4px;
+    @include fs;
+    font-size: 18px;
+    text-align: center;
+    color: $white;
+    line-height: 40px;
+
+    & + .select__value {
+      border-radius: 0 4px 4px 0;
+      border-width: 1px 1px 1px 0;
+    }
+  }
+
+  .select__value {
+    height: 40px;
+    padding: 0 30px 0 12px;
+    background: rgba($bg, 0.8);
+    border: 1px solid rgba($gray-d, 0.8);
+    border-radius: 4px;
+    @include unselectable;
+    @include fs;
+    color: $cl;
+    @include text-overflow;
+    line-height: 38px;
+    opacity: 0.8;
+
+    &.select__white {
+      background: $white;
+    }
+
+    &.select__transparent {
+      background: transparent;
+      color: $white;
+      font-size: 14px;
+      font-weight: 400;
+      border: 1px solid rgba($white, 0.5);
+      opacity: 1;
+
+      &:hover {
+        background-color: rgba($white, 0.05);
+      }
+    }
+
+    &.select__transparent + .icon {
+      fill: rgba($white, 0.5);
+    }
+  }
+
+  .select__list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 250px;
+    overflow-y: auto;
+    margin-top: -1px;
+    background: $white;
+    border: 1px solid $gray-d;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    z-index: 2;
+    @include fs;
+
+    & li {
+      padding: 11px 12px;
+      &:last-child {
+        border-radius: 0 0 4px 4px;
+      }
+      &:hover,
+      &.is-active {
+        background: $bg;
+      }
+    }
+  }
+
+  &.select__small {
+    .select__value {
+      height: 28px;
+      line-height: 28px;
+    }
+
+    .select__list {
+      li {
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+    }
+  }
+
+  &.disabled {
+    opacity: 0.3;
+  }
+}

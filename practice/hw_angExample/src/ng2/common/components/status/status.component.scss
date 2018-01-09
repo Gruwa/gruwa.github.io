@@ -1,0 +1,123 @@
+@import '../../../../core/assets/scss/mixin';
+@import '../../../../core/assets/scss/variables';
+
+.status {
+  display: inline-block;
+  position: relative;
+  padding-left: 16px;
+  &.status_default {
+    font-size: 12px;
+  }
+  &.status_small {
+    font-size: 9px;
+  }
+  &.status_big {
+    font-size: 14px;
+  }
+
+  &.status_huge {
+    font-size: 16px;
+  }
+  &.status_only-icon {
+    font-size: 0px;
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    margin-top: -4px;
+    border-radius: 50%;
+    background: $status-red;
+  }
+
+  &.status_big-circle {
+    &:before {
+      width: 12px;
+      height: 12px;
+      margin-top: -6px;
+      left: -5px;
+    }
+  }
+
+  &.status_draft,
+  &.status_paused,
+  &.status_planned,
+  &.status_pending,
+  &.status_new {
+    &:before {
+      background: $status-yellow;
+    }
+  }
+  &.status_pushed_to_dsp {
+    &:before {
+      background: $status-blue;
+    }
+  }
+  &.status_live,
+  &.status_ready,
+  &.status_running,
+  &.status_finance_approved {
+    &:before {
+      background: $status-green;
+    }
+  }
+  &.status_canceled,
+  &.status_failed,
+  &.status_not_approved {
+    &:before {
+      background: $status-red;
+    }
+  }
+  &.status_expired,
+  &.status_no_data,
+  &.status_rankering {
+    &:before {
+      background: $gray;
+    }
+  }
+  &.status_completed,
+  &.status_finished,
+  &.status_empty {
+    &:before {
+      border: 1px solid $status-grey;
+      background-color: transparent;
+    }
+  }
+  &.status_pending_approval,
+  &.status_ops_approved,
+  &.status_ranker_ready {
+    &:before {
+      border: 1px solid $status-green;
+      background-color: transparent;
+    }
+  }
+  &.status_final {
+    &:before {
+      border: 1px solid $status-blue;
+      background-color: transparent;
+    }
+  }
+  &.status_confirmed {
+    &:before {
+      background-color: $status-blue;
+    }
+  }
+  &.status_submitted {
+    &:before {
+      border: 1px solid $status-blue;
+      background-color: transparent;
+    }
+  }
+  &.status_rejected {
+    &:before {
+      border: 1px solid $status-red;
+      background-color: transparent;
+    }
+  }
+  &.status_bold {
+    @include fs;
+  }
+}

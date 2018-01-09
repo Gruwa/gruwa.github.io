@@ -1,0 +1,302 @@
+.switches {
+  /* type btns */
+  &.switches_btns {
+    margin-bottom: -12px;
+    .switch__item {
+      margin: 0 10px 12px 0;
+      color: $white;
+      font-weight: 600;
+      height: 30px;
+      padding: 2px 13px 5px;
+      border: 1px solid rgba($gray-d, .8);
+      border-radius: 15px;
+      font-size: 16px;
+      color: rgba($cl, .8);
+
+      &:hover {
+        background: $bg;
+      }
+
+      &.active {
+        background: $wl-tertiary;
+        border-color: $wl-tertiary;
+        color: $white;
+        font-weight: 600;
+      }
+
+      &.disabled {
+        background: $white;
+        border-color: rgba($gray-d, .2);
+        color: rgba($cl, .26);
+        cursor: default;
+      }
+    }
+  }
+
+  /* type radio */
+  &.switches_radio {
+    .switch__item {
+      margin: 0 30px 0 0;
+      &:last-child {
+        margin-right: 0px;
+      }
+
+      &.disabled {
+        opacity: 0.3
+      }
+    }
+    .switch__el {
+      position: relative;
+      padding-left: 32px;
+      font-size: 18px;
+      font-weight: 400;
+      &:hover {
+        &:before {
+          background: $white;
+        }
+      }
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 23px;
+        height: 23px;
+        background: $bg;
+        border: 1px solid $brd;
+        border-radius: 50%;
+      }
+    }
+    .switch__hint {
+      color: $gray-d;
+      font-size: 12px;
+      font-weight: 400;
+      display: block;
+      margin-left: 32px;
+    }
+    strong {
+      .switch__hint {
+        font-weight: 600;
+        font-size: 16px;
+        color: $black;
+      }
+    }
+    .switch__input {
+      &:checked {
+        & + .switch__el {
+          &:before {
+            background: $white;
+            border: 8px solid $wl-tertiary;
+          }
+        }
+      }
+    }
+  }
+
+  /* type checkoxes */
+  &.switches_checkbox {
+    .switch__el {
+      margin-right: 30px;
+      position: relative;
+      padding-left: 30px;
+      &:hover {
+        &:before {
+          background: $white;
+        }
+      }
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        background: $bg;
+        border: 1px solid $brd;
+        border-radius: 2px;
+      }
+      > .icon-tick {
+        display: none;
+        position: absolute;
+        top: 5px;
+        left: 4px;
+        width: 12px;
+        height: 10px;
+        fill: $white;
+      }
+    }
+    .is-error {
+      .switch__el:before{
+        border: 1px solid #db0000;
+      }
+    }
+    .switch__input {
+      &:checked {
+        border: 1px solid red;
+        & + .switch__el {
+          &:before {
+            background: $wl-tertiary;
+            border-color: $wl-tertiary;
+          }
+          > .icon-tick {
+            display: block;
+          }
+        }
+      }
+      &:disabled {
+        & + .switch__el {
+          opacity: 0.4;
+        }
+      }
+    }
+    .switch__content {
+      display: block;
+      padding: 1px 0;
+      font-weight: 400;
+      font-size: 14px;
+      .link-icon {
+        display: block;
+      }
+    }
+
+    &.switcher_group {
+      .switch__item {
+        display: block;
+        margin-bottom: 10px;
+      }
+      .switch__content {
+        font-weight: 400;
+      }
+      &.switcher_gray {
+        &.switcher_cols {
+          padding: 15px 0 5px;
+        }
+        .switch__content {
+          padding: 0;
+          color: #747474;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  /* type toggle  */
+  &.switches_toggle {
+    position: relative;
+    display: inline-block;
+    @include nosel;
+    cursor: pointer;
+    z-index: 4;
+    @include unselectable;
+    cursor: pointer;
+    vertical-align: middle;
+
+    .switch_el {
+      small {
+        display: block;
+        position: relative;
+        width: 36px;
+        height: 14px;
+        background: #9f9f9f;
+        border-radius: 7px;
+        transition: background .2s;
+        &:before {
+          content: "";
+          position: absolute;
+          top: -3px;
+          right: 17px;
+          width: 20px;
+          height: 20px;
+          background: $white;
+          border-radius: 50%;
+          box-shadow: 0 0 3px rgba(0, 0, 0, 0.1), 0 2px 3px rgba(0, 0, 0, 0.16);
+          transition: right .2s;
+        }
+      }
+      &.checked small {
+        background: $wl-tertiary;
+        &:before {
+          right: -1px;
+        }
+      }
+      &.disabled {
+        small {
+          opacity: 0.2;
+          background: #9f9f9f;
+          cursor: default;
+
+          &:before {
+            box-shadow: 0 0 3px rgba(0, 0, 0, 0.5), 0 2px 3px rgba(0, 0, 0, 0.5);
+          }
+        }
+      }
+    }
+
+    .switch_el__in {
+      display: block;
+      position: relative;
+      width: 36px;
+      height: 14px;
+      background: #9f9f9f;
+      border-radius: 7px;
+      transition: background .2s;
+    }
+  }
+
+  /* general */
+  .switch__item {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    @include nosel;
+    cursor: pointer;
+  }
+
+  .switch__el {
+    display: block;
+  }
+  .switch__input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+  }
+
+  &.switches_block {
+    .switch__item {
+      display: block;
+      margin-bottom: 25px;
+    }
+  }
+
+  &.switches_thin {
+    .switch__item {
+      margin-right: 10px;
+    }
+  }
+
+  &.switches_16 {
+    .switch__el, .switch__content {
+      font-size: 16px;
+    }
+    .switch__content {
+      padding: 0;
+    }
+  }
+
+  &.switches_18 {
+    .switch__el {
+      &:before {
+        top: 2px;
+      }
+      > .icon-tick {
+        top: 7px;
+      }
+    }
+    .switch__content {
+      font-size: 18px;
+      padding: 0;
+    }
+  }
+
+}

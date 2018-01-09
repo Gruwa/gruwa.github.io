@@ -1,0 +1,30 @@
+@import '../../../../../core/assets/scss/variables';
+
+.cad-dropdown.dropdown--blue {
+  &.dropdown--opened {
+    .dropdown__head {
+      .dropdown__head__content {
+        .dropdown__head__content__title {
+          color: $wl-tertiary-d;
+        }
+        .icon {
+          fill: $wl-tertiary-d;
+        }
+      }
+    }
+  }
+
+  .dropdown__head {
+    .dropdown__head__content {
+      .dropdown__head__content__title {
+        color: $wl-tertiary;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+      .icon {
+        fill: $wl-tertiary;
+      }
+    }
+  }
+}

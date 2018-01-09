@@ -1,0 +1,19 @@
+<cad-panel headTitle="Scroll to top">
+  <div cad-panel-content>
+    <cad-button
+      (click)="activated = !activated"
+      view="primary"
+      [small]="true"
+      [text]="activated ? 'Deactivate' : 'Activate'">
+    </cad-button>
+    <div class="examples__params">
+      <ul>
+        <li><strong>@Input() stickyFrom: number</strong> - set sticked state when scroll position is higher than this value (default is <b>1000</b>)</li>
+      </ul>
+    </div>
+    <textarea class="examples__copy" rows="1" ngNonBindable>
+      <cad-scroll-to-top></cad-scroll-to-top>
+    </textarea>
+  </div>
+</cad-panel>
+<cad-scroll-to-top *ngIf="activated"></cad-scroll-to-top>

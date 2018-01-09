@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="<%= htmlWebpackPlugin.options.title %>">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title cad-page-title="global.default_title"><%= htmlWebpackPlugin.options.title %></title>
+    <script src="cadreon.js?<%= webpack.hash %>"></script>
+  </head>
+  <body>
+    <!-- TODO: replace with app component once index.html will be handled by ng2 -->
+    <div ui-view></div>
+
+    <!-- placeholder for ng2 toasts (messages) -->
+    <cad-ngx-simple-message-container></cad-ngx-simple-message-container>
+    <cad-ngx-system-message-container></cad-ngx-system-message-container>
+
+    <!-- placeholder for ng2 smart tooltips -->
+    <cad-ngx-tooltip-container></cad-ngx-tooltip-container>
+
+  </body>
+</html>
+

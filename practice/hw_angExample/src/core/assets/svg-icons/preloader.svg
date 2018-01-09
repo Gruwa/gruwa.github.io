@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 104 104" enable-background="new 0 0 104 104" xml:space="preserve">
+<g id="XMLID_4_">
+	<path id="XMLID_11_" d="M104,52c0,28.7-23.3,52-52,52C23.3,104,0,80.7,0,52h7.4c0,24.6,20,44.6,44.6,44.6
+		c24.6,0,44.6-20,44.6-44.6c0-24.6-20-44.6-44.6-44.6V0C80.7,0,104,23.3,104,52z">
+		        <animateTransform attributeName="transform"
+                              attributeType="XML"
+                              type="rotate"
+                              from="360 52 52"
+                              to="0 52 52"
+                              dur="2s"
+                              repeatCount="indefinite"/>
+		</path>
+</g>
+<g id="XMLID_2_">
+	<path id="XMLID_10_" fill="#CCCCCC" d="M80.5,52h-7.4c0-11.6-9.5-21.1-21.1-21.1S30.9,40.4,30.9,52c0,11.6,9.5,21.1,21.1,21.1v7.4
+		c-15.7,0-28.5-12.8-28.5-28.5c0-15.7,12.8-28.5,28.5-28.5C67.7,23.5,80.5,36.3,80.5,52z">
+		        <animateTransform attributeName="transform"
+                              attributeType="XML"
+                              type="rotate"
+                              from="0 52 52"
+                              to="360 52 52"
+                              dur="2s"
+                              repeatCount="indefinite"/>
+		</path>
+</g>
+</svg>

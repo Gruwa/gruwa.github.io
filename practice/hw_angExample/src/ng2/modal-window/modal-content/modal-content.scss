@@ -1,0 +1,64 @@
+@import '../../../core/assets/scss/variables';
+
+:host > cad-icon {
+  position: absolute;
+  top: 0;
+  right: -25px;
+  fill: $gray;
+  cursor: pointer;
+}
+
+.modal-window-content {
+  $modalBorderRadius: 4px;
+  .modal-window-title {
+    display: flex;
+    align-items: center;
+    background-color: $primary;
+    color: $white;
+    padding: 0 40px;
+    min-height: 60px;
+    border-radius: $modalBorderRadius $modalBorderRadius 0 0;
+  }
+
+  .modal-window-body,
+  .modal-window-footer {
+    background-color: $white;
+    padding: 30px 40px;
+  }
+
+  .modal-window-body {
+    display: flex;
+    align-items: center;
+  }
+
+  .modal-window-footer {
+    display: flex;
+    justify-content: flex-end;
+    border-radius: 0 0 $modalBorderRadius $modalBorderRadius;
+
+    /deep/ cad-button:not(:last-of-type) {
+      margin-right: 20px;
+    }
+  }
+
+  &--compact {
+    .modal-window-title {
+      padding: 0 30px;
+    }
+
+    .modal-window-body {
+      padding: 30px;
+    }
+
+    .modal-window-footer {
+      padding: 24px 30px;
+    }
+  }
+
+  &--wide-content {
+    .modal-window-body {
+      padding: 0;
+    }
+  }
+
+}

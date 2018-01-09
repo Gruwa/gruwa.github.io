@@ -1,0 +1,23 @@
+<div class="cad-collapsible-panel">
+
+  <div class="cad-collapsible-panel__head"
+       [class.cad-collapsible-panel__head--disabled]="disabled"
+       (click)="toggle()">
+    <div class="cad-collapsible-panel__head__arrow-icon"
+         [class.cad-collapsible-panel__head__arrow-icon--down]="isOpen"
+         [class.cad-collapsible-panel__head__arrow-icon--disabled]="disabled">
+      <cad-icon name="arrow-right"></cad-icon>
+    </div>
+    <div class="cad-collapsible-panel__head__title" *ngIf="headTitle">
+      {{ headTitle | translate }}
+    </div>
+    <div class="cad-collapsible-panel__head__custom-title" (click)="stopEventPropagation($event)">
+      <ng-content select="[cad-panel-head]"></ng-content>
+    </div>
+  </div>
+
+  <div class="cad-collapsible-panel__content" *ngIf="isOpen" [@enterAnimation]="isOpen">
+    <ng-content select="[cad-panel-content]"></ng-content>
+  </div>
+
+</div>

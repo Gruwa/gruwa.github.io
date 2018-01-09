@@ -1,0 +1,18 @@
+.audit-trail-table {
+
+  .table_item {
+    vertical-align: top;
+    &.detail_value {
+      word-wrap: break-word;
+
+      &.text__bold {
+        color: $black;
+      }
+    }
+
+    &.main_title {
+      margin-top: 0px;
+    }
+  }
+
+}

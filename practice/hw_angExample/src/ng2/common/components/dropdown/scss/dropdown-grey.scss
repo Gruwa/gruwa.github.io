@@ -1,0 +1,30 @@
+@import '../../../../../core/assets/scss/variables';
+
+.cad-dropdown.dropdown--grey {
+  &.dropdown--opened {
+    .dropdown__head {
+      .dropdown__head__content {
+        .dropdown__head__content__title {
+          color: $gray-dark;
+        }
+        .icon {
+          fill: $gray-dark;
+        }
+      }
+    }
+  }
+
+  .dropdown__head {
+    .dropdown__head__content {
+      .dropdown__head__content__title {
+        color: $gray-d;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+      .icon {
+        fill: $gray-d;
+      }
+    }
+  }
+}

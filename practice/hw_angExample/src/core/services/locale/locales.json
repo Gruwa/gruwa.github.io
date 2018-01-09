@@ -1,0 +1,9 @@
+[{
+  "id": "en-us",
+  "select2": "en",
+  "title": "English (US)"
+}, {
+  "id": "zh-cn",
+  "select2": "zh-CN",
+  "title": "Chinese (Simplified)"
+}]

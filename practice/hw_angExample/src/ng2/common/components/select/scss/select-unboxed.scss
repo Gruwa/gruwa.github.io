@@ -1,0 +1,65 @@
+@import '../../../../../core/assets/scss/variables';
+
+.cad-select.cad-select--unboxed {
+  .cad-select__head {
+    background: transparent;
+    opacity: 1;
+    border: none;
+    padding: 0;
+    width: 100%;
+    min-width: 100px;
+    &.cad-select__head--disabled {
+      opacity: 0.4;
+      cursor: default;
+      .cad-select__head__value {
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+    &__value {
+      color: $cl;
+      font-size: 16px;
+      font-weight: 400;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  .cad-select--unboxed__expanded-icon {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    left: 22px;
+    width: 10px;
+    height: 10px;
+    transform: rotate(45deg);
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+    background: $white;
+  }
+  .cad-select__items-list--visible {
+    border: none;
+    margin-top: 5px;
+    align-content: stretch; // making inner container 100% height
+    position: absolute;
+    left: 0;
+    right: 0;
+    min-width: 192px;
+    min-height: 20px;
+    border-radius: 0px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    z-index: 89; // magic number
+    .cad-select__item {
+      padding: 0 20px;
+      height: 50px;
+      border-bottom: 1px solid rgba($brd, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+}

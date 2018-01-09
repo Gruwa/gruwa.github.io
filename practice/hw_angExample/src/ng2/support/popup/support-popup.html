@@ -1,0 +1,108 @@
+<!-- header -->
+<button class="popup__close" type="button" (click)="close()">
+  <cad-icon name="close"></cad-icon>
+</button>
+<div class="popup__title">
+  <h4 class="title title_3 title_white">
+    {{ 'support.support_request' | translate }}
+  </h4>
+</div>
+
+<!-- content -->
+<div class="popup__in cad-support-popup">
+  <form *ngIf="!isSent" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+    <div class="cad-panel cad-panel_p-25-40">
+      <!-- hint -->
+      <div class="title title_6 title_thin title_gray mb-20">
+        {{ 'support.support_request_desc' | translate }}
+      </div>
+
+      <!-- subject -->
+      <div class="title title_4 title_thin mb-15 required">
+        {{ 'support.subject' | translate }}
+      </div>
+      <div class="group mb-30">
+        <div class="group__item group__item_w100p">
+          <div class="field">
+            <label class="field__in">
+              <input class="input" formControlName="subject"/>
+            </label>
+            <div class="error mt-5" *ngIf="shouldDisplayError(form.get('subject'))">
+              <span *ngIf="form.hasError('required', 'subject')">
+                {{ 'validation.required' | translate }}
+              </span>
+              <span *ngIf="form.hasError('minlength', 'subject')">
+                {{ 'validation.does_not_meet_min_length' | translate: {minlength: form.getError('minlength', 'subject').requiredLength} }}
+              </span>
+              <span *ngIf="form.hasError('maxlength', 'subject')">
+                {{ 'validation.does_not_meet_max_length' | translate: {maxlength: form.getError('maxlength', 'subject').requiredLength} }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- description -->
+      <div class="title title_4 title_thin mb-15 required">
+        {{ 'support.describe_your_problem' | translate }}
+      </div>
+      <div class="group mb-30">
+        <div class="group__item group__item_w100p">
+          <div class="field">
+            <label class="field__in">
+              <textarea class="input cad-support-popup__description-input" formControlName="description"></textarea>
+            </label>
+            <div class="error mt-5" *ngIf="shouldDisplayError(form.get('description'))">
+              <span *ngIf="form.hasError('required', 'description')">
+                {{ 'validation.required' | translate }}
+              </span>
+              <span *ngIf="form.hasError('minlength', 'description')">
+                {{ 'validation.does_not_meet_min_length' | translate: {minlength: form.getError('minlength', 'description').requiredLength} }}
+              </span>
+              <span *ngIf="form.hasError('maxlength', 'description')">
+                {{ 'validation.does_not_meet_max_length' | translate: {maxlength: form.getError('maxlength', 'description').requiredLength} }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <cad-upload [options]="uploadOptions"
+                  [(ngModel)]="value"
+                  type="compact"
+                  formControlName="screenshotUrl">
+      </cad-upload>
+    </div>
+    <div class="cad-panel cad-panel_p-20-30 ta-right bt">
+      <cad-button (click)="close()"
+                  type="button"
+                  size="middle"
+                  view="tertiary"
+                  text="buttons.cancel">
+      </cad-button>
+      <cad-button [disabled]="form.invalid || isSubmitted"
+                  type="submit"
+                  size="middle"
+                  view="primary"
+                  text="buttons.submit"
+                  class="display-inline ml-15">
+      </cad-button>
+    </div>
+  </form>
+
+  <div *ngIf="isSent">
+    <div class="cad-panel cad-panel_p-20 ta-center">
+      <div class="height-164 pt-40">
+        <div class="title title_2 mb-20">
+          {{ 'support.thank_you' | translate }}
+        </div>
+        <div class="title title_5 title_thin title_default">
+          {{ 'support.request_sent_desc' | translate }}
+        </div>
+      </div>
+    </div>
+    <div class="cad-panel cad-panel_p-30-40 ta-right bt">
+      <cad-button (click)="close()" type="button" view="primary" text="buttons.ok"></cad-button>
+    </div>
+  </div>
+</div>

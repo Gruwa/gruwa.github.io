@@ -1,0 +1,21 @@
+@import '../../../../../core/assets/scss/variables';
+
+.cad-select.cad-select--transparent {
+
+  .cad-select__head {
+    background: transparent;
+    font-size: 14px;
+    font-weight: 400;
+    border: 1px solid rgba($white, 0.5);
+    opacity: 1;
+
+    &:hover {
+      background-color: rgba($white, 0.05);
+    }
+
+    &__value {
+      color: $white;
+    }
+  }
+
+}

@@ -1,0 +1,65 @@
+<cad-panel headTitle="Sticky Subheader">
+  <div cad-panel-content>
+
+    <div class="title title_5 title_thin mb-20">
+      Container for content that should stick to main header when page is scrolled and show as subheaders. <br>
+      Internally all inner content of the component is transferred into main header component, right below the header markup. <br>
+      No need to add "display: flex" or manually listen scrollbar position to achieve "sticky" behaviour.
+    </div>
+
+    <div class="examples__params">
+      <ul>
+        <li><strong>@Output() sticked = new EventEmitter&lt;boolean></strong> - event emitted when sticked state changes</li>
+      </ul>
+    </div>
+
+    <div>
+      <textarea class="examples__copy" rows="6">
+<cad-sticky-subheader (sticked)="isSticked = $event">
+
+  <div class="my-sticky-subheader"
+       [class.my-sticky-subheader--stiked]="isSticked">
+    <cad-button [size]="isSticked ? 'small' : 'middle'" ...></cad-button>
+  </div>
+
+</cad-sticky-subheader>
+      </textarea>
+    </div>
+
+  </div>
+</cad-panel>
+
+
+<cad-panel headTitle="Sticky Header (Deprecated, use Sticky Subheader component)">
+  <div cad-panel-content>
+
+    <div class="title title_5 title_thin mb-20">
+      Component is a container for content that should stick to main header when page scrolled. <br>
+      All animations and visual changes between sticked/not-sticked states should be specified at inner markup and styles.
+    </div>
+
+    <div class="examples__params">
+      <ul>
+        <li><strong>@Input() startHeight: number</strong> - initial (not sticked state) header height in pixels</li>
+        <li><strong>@Input() endHeight: number</strong> - sticked state header height in pixels</li>
+        <li><strong>@Input() stickyFrom: number</strong> - set sticked state when scroll position is higher than this value (default is <b>0</b>)</li>
+        <li><strong>@Output() sticked = new EventEmitter&lt;boolean></strong> - event emitted when sticked state changes</li>
+      </ul>
+    </div>
+
+    <div>
+
+      <textarea class="examples__copy" rows="8">
+<cad-sticky-header stickyFrom="0"
+                   startHeight="100"
+                   endHeight="60"
+                   (sticked)="isSticked = $event">
+  <div class="my-sticky-header-class">
+    <cad-button [size]="isSticked ? 'small' : 'middle'" ...></cad-button>
+  </div>
+</cad-sticky-header>
+      </textarea>
+    </div>
+
+  </div>
+</cad-panel>

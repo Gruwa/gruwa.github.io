@@ -1,0 +1,80 @@
+.field {
+
+  &.field_search,
+  &.field_search_round {
+    .field__in {
+      position: relative;
+      display: block;
+      cursor: text;
+    }
+    .input {
+      font-size: 16px;
+      font-weight: 400;
+      color: $cl;
+
+      &.ng-invalid {
+        &.ng-dirty {
+          border-color: $cta-back-btn-border;
+        }
+      }
+
+      &:focus + .icon {
+        fill: $primary;
+        opacity: 1;
+      }
+
+      &:focus {
+        background-color: $white;
+      }
+    }
+    .icon-search {
+      position: absolute;
+      top: 50%;
+      width: 14px;
+      height: 14px;
+      margin-top: -6px;
+      fill: $cl;
+      opacity: .6;
+    }
+  }
+  &.field_search_round {
+    .input {
+      height: 34px;
+      padding: 0 35px;
+      border-radius: 17px;
+      border-color: $brd-l;
+      &:hover {
+        border-color: $brd;
+      }
+    }
+    .icon {
+      left: 12px;
+    }
+  }
+  &.field_search {
+    .input {
+      padding: 0 38px;
+      @include placeholder {
+        font-weight: 400;
+        font-size: 14px;
+      }
+    }
+    .icon {
+      left: 14px;
+    }
+    .field__reset {
+      width: 40px;
+      height: 40px;
+    }
+  }
+  &.search-disabled {
+    .icon-search {
+      fill: $gray-d;
+      opacity: 0.3;
+    }
+    .input {
+      background-color: rgba($white, 0.5);
+      border-top-color: $brd-l;
+    }
+  }
+}

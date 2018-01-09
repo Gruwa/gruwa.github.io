@@ -1,0 +1,13 @@
+<div *ngIf="enabled"
+     class="cad-search-global"
+     [class.cad-search-global--collapsed]="collapsed"
+     (cadClickOutside)="onClickOutside()">
+  <div class="cad-search-global__input">
+    <input type="text"
+           [placeholder]="'form.quick_search' | translate"
+           [formControl]="searchQueryControl"
+           #searchInput />
+    <cad-icon class="icon-search" name="search" (click)="onClick($event)"></cad-icon>
+    <cad-icon class="icon-clear" name="close" *ngIf="searchQueryControl.value" (click)="clear($event)"></cad-icon>
+  </div>
+</div>

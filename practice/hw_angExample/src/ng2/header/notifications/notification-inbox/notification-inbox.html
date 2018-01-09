@@ -1,0 +1,68 @@
+<div class="notification-inbox">
+  <cad-dropdown placement="bottom-left"
+                [isOpened]="isOpened"
+                (onToggle)="onToggle($event)">
+
+    <div cad-dropdown-head>
+      <div class="notification-inbox-title">
+        <cad-icon name="notification-header"></cad-icon>
+        <div class="notification-inbox-counter" *ngIf="unreadNumber()">
+          {{ unreadNumber() > 99 ? '99+' : unreadNumber() }}
+        </div>
+      </div>
+    </div>
+
+    <div cad-dropdown-body class="inbox-dropdown" [ngSwitch]="status">
+      <!-- content -->
+      <div *ngSwitchCase="'loading'" class="inbox-dropdown__loading">
+        <cad-icon name="preloader" customClass="centered medium"></cad-icon>
+      </div>
+
+      <div *ngSwitchCase="'done'">
+        <!-- notifications list -->
+        <div *ngIf="items.length">
+          <div *ngFor="let item of items; trackBy: trackByFn"
+               class="inbox-dropdown__item bb"
+               [class.inbox-dropdown__item--new]="!item.acknowledged"
+               (click)="openNotification(item)">
+
+            <div class="item-status-line mb-5 title title_7" [class.status]="!item.acknowledged">
+              <span class="item-status-line__app">{{ item.generator.name }}</span>
+              <span class="item-status-line__delimiter" *ngIf="item.description">|</span>
+              <span class="item-status-line__title"
+                    [cadSmartTooltip]="item.description">
+                {{ item.description }}
+              </span>
+            </div>
+            <div class="title title_6 title_thin mb-5 break-word">{{ item.object.name }}</div>
+            <div class="title title_7 title_thin title_gray">
+              {{ item.actionDate | cadDate:'fuzzy' }} {{ 'notifications.by' | translate }} {{ item.actor.id }}
+            </div>
+
+          </div>
+        </div>
+
+        <!-- no data state -->
+        <div *ngIf="!items.length">
+          <div class="inbox-dropdown__no-result-wrapper">
+            <div class="item__circle absolute-center notification_bell">
+              <cad-icon name="notification_bell"></cad-icon>
+              <div class="no_result__message"
+                   [innerHTML]="'notifications.you_have_no_unread_notifications' | translate">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- footer -->
+      <div class="inbox-dropdown__show-all">
+        <cad-link [href]="notificationsFeedLink"
+                  type="primary"
+                  value="notifications.show_all_notifications"
+                  (click)="close()">
+        </cad-link>
+      </div>
+    </div>
+  </cad-dropdown>
+</div>

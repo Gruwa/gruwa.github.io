@@ -1,0 +1,296 @@
+@import '../../../../core/assets/scss/variables';
+
+@mixin primary-colors {
+  background-color: $primary-btn;
+  color: $primary-btn-text;
+
+  &:hover {
+    background-color: $primary-btn-hover;
+  }
+  &:active {
+    background-color: $primary-btn-active;
+  }
+  &[disabled] {
+    background-color: $primary-btn-disabled;
+    color: $primary-btn-disabled-text;
+  }
+}
+
+@mixin cta-back-colors {
+  background-color: $cta-back-btn;
+  border: 1px solid $cta-back-btn-border;
+  color: $cta-back-btn-font;
+
+  &:after, &:before {
+    border: 1px solid $cta-back-btn-border;
+  }
+
+  &:hover {
+    background-color: $cta-back-btn-hover;
+  }
+  &:active {
+    background-color: $cta-back-btn-active;
+  }
+  &[disabled] {
+    background-color: $gray-f7;
+    border-color: $cta-back-btn-border-disabled;
+    color: $border-grey;
+
+    &:after, &:before {
+      border-color: $cta-back-btn-border-disabled;
+    }
+  }
+}
+
+@mixin secondary-colors {
+  background-color: transparent;
+  border: 1px solid $gray-d;
+  color: rgba($cl, .8);
+
+  &:hover {
+    background-color: $gray-f7;
+  }
+  &:active {
+    background-color: $bg;
+  }
+  &[disabled] {
+    background-color: transparent;
+    border-color: rgba($gray-d, .3);
+    color: rgba($cl, .3);
+    cad-icon {
+      fill: rgba($gray-d, .3);
+    }
+  }
+  cad-icon {
+    fill: $gray-d;
+  }
+}
+
+@mixin tertiary-colors {
+  background-color: $bg;
+  border: 1px solid $gray-d;
+  opacity: 0.8;
+  color: $cl;
+
+  &:hover {
+    background-color: $gray-f7;
+  }
+  &:active {
+    background-color: $gray-e2;
+  }
+  &[disabled] {
+    background-color: $bg;
+    opacity: 0.3;
+  }
+}
+
+@mixin triangle($isSmall) {
+  content: '';
+  top: 50%; // old safari doesn't align absolutely positioned elements inside flex container, so do it manually
+  transform: translateY(-50%) rotate(45deg);
+  background-color: inherit;
+  position: absolute;
+  z-index: 0;
+
+  @if $isSmall == true {
+    width: 20px;
+    height: 20px;
+    border-radius: 0 2px;
+  }
+  @else {
+    width: 28px;
+    height: 28px;
+    border-radius: 2px 4px;
+  }
+}
+
+.cad-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 1;
+  height: 40px;
+  padding: 0 30px;
+  border-radius: 4px;
+  width: 100%;
+
+  &[disabled] {
+    cursor: not-allowed;
+  }
+
+  // TODO: check one more time
+  &__content-wrapper {
+    z-index: 1;
+    visibility: visible;
+    width: 100%;
+
+    &--hidden {
+      visibility: hidden;
+    }
+  }
+
+  // old safari doesn't align absolutely positioned elements inside flex container, so do it manually
+  &__spinner {
+    position: absolute;
+    display: flex;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &--small {
+    height: 30px;
+    padding: 0 20px;
+    border-radius: 2px;
+  }
+
+  &--hidden {
+    display: none;
+  }
+
+  &--primary {
+    @include primary-colors;
+  }
+
+  &--cta {
+    @include primary-colors;
+    padding-right: 20px; // shrink right padding to make text look symmetrical when there's triangle at right side
+    margin-right: 18px; // extend margin to make absolutely positioned triangle be inside component
+
+    &:after {
+      @include triangle(false);
+      right: -12px;
+    }
+
+    &.cad-button--small {
+      padding-right: 11px;
+      margin-right: 14px;
+
+      &:after {
+        @include triangle(true);
+        right: -10px;
+      }
+    }
+  }
+
+  // not used anywhere and not present in design ui kit
+  &--cta-back {
+    @include cta-back-colors;
+    border-left: 0;
+    padding-left: 20px;
+    margin-left: 18px;
+
+    &:before {
+      @include triangle(false);
+      border-top: 0;
+      border-right: 0;
+      left: -12px;
+    }
+
+    &.cad-button--small {
+      padding-left: 11px;
+      margin-left: 14px;
+
+      &:before {
+        @include triangle(true);
+        left: -10px;
+      }
+    }
+  }
+
+  &--secondary {
+    @include secondary-colors;
+
+    cad-icon {
+      margin-left: -10px;
+      margin-right: 18px;
+    }
+
+    &.cad-button--small {
+      cad-icon {
+        margin-left: -7px;
+        margin-right: 10px;
+      }
+    }
+  }
+
+  &--tertiary {
+    @include tertiary-colors;
+  }
+
+  // special buttons, without size variations
+  &--flat {
+    background-color: $bg;
+    opacity: 0.8;
+    color: $black;
+    text-transform: none;
+    padding: 0 10px;
+    height: 30px;
+
+    &:hover {
+      background-color: $gray-f7;
+    }
+    &:active {
+      background-color: $gray-e2;
+    }
+    &[disabled] {
+      background-color: $bg;
+      opacity: 0.3;
+    }
+  }
+
+  &--back-orange {
+    background-color: $primary-back-btn;
+    color: $primary-back-btn-text;
+    text-transform: none;
+    padding: 0 10px;
+    height: 30px;
+    border-radius: 2px;
+
+    cad-icon {
+      margin-right: 8px;
+      fill: $primary-back-btn-text;
+    }
+
+    &:hover {
+      background: rgba($primary-back-btn, 0.8);
+    }
+    &:active {
+      background: $primary-back-btn-active;
+    }
+    &[disabled] {
+      background: rgba($primary-back-btn, 0.2);
+      color: rgba($primary-back-btn-text, 0.5);
+      cad-icon {
+        fill: rgba($primary-back-btn-text, 0.5);
+      }
+    }
+  }
+
+  &--back {
+    width: 20px;
+    height: 61px;
+    margin-right: 20px;
+    background-color: $gray;
+    border-radius: 2px;
+    font-size: 0;
+    padding: 0;
+
+    cad-icon {
+      fill: $white;
+    }
+
+    &:hover {
+      background-color: $back-btn-hv;
+    }
+    &:active {
+      background-color: $back-btn-bg;
+    }
+  }
+}

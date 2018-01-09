@@ -1,0 +1,16 @@
+// import grid from bootstrap@4.0.0-beta.2 and override some variables
+$grid-gutter-width: 20px;
+$grid-breakpoints: (
+  xs: 0,
+  sm: 1024px,
+  md: 1280px,
+  lg: 1440px,
+  xl: 1600px
+);
+$container-max-widths: (
+  sm: 1024px, // 1004px without gutters
+  md: 1280px, // 1260px without gutters
+  lg: 1440px, // 1420px without gutters
+  xl: 1600px // 1580px without gutters
+);
+@import '~bootstrap4/scss/bootstrap-grid.scss';

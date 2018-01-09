@@ -1,0 +1,137 @@
+.link-icon {
+  display: inline-block;
+  font-size: 0;
+  white-space: nowrap;
+  vertical-align: middle;
+
+  &:hover, &.hover,
+  &:focus {
+    cursor: pointer;
+    text-decoration: none;
+    span {
+      text-decoration: underline;
+    }
+  }
+
+  &:active, &.active {
+    opacity: 0.8;
+  }
+
+  &.disabled, &[disabled="disabled"] {
+    pointer-events: none;
+    opacity: 0.35;
+    span,
+    .icon {
+      fill: $gray;
+    }
+    &:hover {
+      cursor: default;
+      span {
+        text-decoration: none;
+      }
+
+      .icon {
+        /* use important to not redefine disabled in each type */
+        fill: $gray !important;
+      }
+    }
+  }
+
+  span, .icon {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .icon {
+    position: relative;
+    margin-right: 10px;
+    fill: $gray;
+  }
+  span + .icon {
+    margin-right: 0;
+    margin-left: 10px;
+  }
+  &.icon-right {
+    .icon {
+      float: right;
+      top: 6px;
+      margin-left: 10px;
+    }
+  }
+
+  &.primary {
+    &:hover, &.hover,
+    &:active, &.active,
+    &:focus {
+      .icon {
+        fill: $wl-tertiary;
+      }
+    }
+
+    span {
+      font-size: 14px;
+      @include fs;
+      color: $wl-tertiary;
+    }
+  }
+
+  &.secondary {
+    &:hover, &.hover,
+    &:active, &.active,
+    &:focus {
+      .icon {
+        fill: $wl-tertiary-d;
+      }
+    }
+
+    span {
+      font-size: 14px;
+      @include fs;
+      color: $wl-tertiary-d;
+    }
+  }
+
+  &.tertiary {
+    &:hover, &.hover,
+    &:active, &.active,
+    &:focus {
+      .icon {
+        fill: $wl-tertiary;
+      }
+    }
+
+    span {
+      font-size: 16px;
+      color: $gray-dark;
+      font-weight: 400;
+    }
+  }
+
+  &.negative {
+    .icon {
+      opacity: 0;
+    }
+
+    &:hover, &.hover,
+    &:active, &.active,
+    &:focus {
+      .icon {
+        fill: $primary;
+        opacity: 1;
+      }
+    }
+
+    span {
+      font-size: 16px;
+      color: $gray-dark;
+      font-weight: 400;
+    }
+
+    &.disabled, &[disabled="disabled"] {
+      pointer-events: none;
+      .icon {
+        opacity: 0;
+      }
+    }
+  }
+}

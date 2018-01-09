@@ -1,0 +1,209 @@
+.cad-search-list {
+  position: relative;
+  border: 1px solid $brd;
+
+  &.cad-search-list_no_border {
+    border: none;
+  }
+	&.cad-search-list_dropdown {
+		width: 290px;
+		border: none;
+		.cad-search-list__head {
+			border-radius: 4px 4px 0 0;
+		}
+		.cad-search-list__body {
+			height: auto;
+			max-height: 325px;
+		}
+		.cad-search-list__row {
+			padding-right: 15px;
+			&.is-active {
+				.cad-search-list__right-in {
+					.icon-tick {
+						visibility: visible;
+					}
+					.status {
+						display: inline-block;
+					}
+				}
+			}
+		}
+		.cad-search-list__right-in {
+			.icon-tick,
+			.status,
+			.label {
+				display: inline-block;
+				vertical-align: middle;
+			}
+			.icon-tick {
+				margin-left: 15px;
+				visibility: hidden;
+			}
+		}
+	}
+  .cad-search-list__head {
+    padding: 14px 20px;
+    border-bottom: 1px solid $brd;
+    background: $bg;
+    .selected {
+      display: block;
+      .selected__title {
+        @include text-overflow;
+      }
+    }
+  }
+  .cad-search-list__body {
+    height: 415px;
+    overflow: auto;
+    background-color: $white;
+    // overflow-y: auto;
+    // overflow-x: hidden;
+    // @include scrollbar {
+    // 	width: 10px;
+    // 	background: transparent;
+    // 	box-shadow: -1px 0 0 $brd;
+    // }
+    // @include scrollbar-track {
+    // 	background: transparent;
+    // }
+    // @include scrollbar-thumb {
+    // 	background: rgba($cl,.3);
+    // 	border: 2px solid $white;
+    // 	border-radius: 15px;
+    // }
+    // @include scrollbar-track-piece {
+    // 	background: transparent;
+    // }
+
+  }
+  .cad-search-list__row-wrapper {
+    width: 100%;
+  }
+  .cad-search-list__row {
+    padding: 0 20px;
+    border-bottom: 1px solid $brd-l;
+    cursor: pointer;
+    @include clr;
+    // &:first-child {
+    //   border-width: 0 0 1px;
+    // }
+    &.is-active, &:hover {
+      background: $wl-tertiary-background;
+    }
+    &.is-active {
+      .cad-search-list__right-in {
+        .icon-tick {
+          display: inline-block;
+        }
+        .status {
+          display: none;
+        }
+      }
+    }
+  }
+  .cad-search-list__row_head {
+    margin-top: -1px;
+    padding: 8px 20px;
+    background: $bg;
+    color: $gray-d;
+    border-top: 1px solid $brd;
+    border-bottom: 1px solid $brd;
+    /* TODO remove float properties */
+    clear: both;
+    overflow: hidden;
+    .cad-search-list__right {
+      height: 18px;
+      font-size: 14px;
+    }
+    .cad-search-list__left {
+      padding: 0;
+    }
+    .link-icon {
+      vertical-align: top;
+    }
+  }
+  .cad-search-list__right {
+    float: right;
+    margin-left: 15px;
+    height: 49px;
+    @include vertical;
+  }
+  .cad-search-list__left {
+    padding: 17px 0 13px;
+    overflow: hidden;
+  }
+  .cad-search-list__right-in {
+    display: inline-block;
+    vertical-align: middle;
+    .icon {
+      vertical-align: middle;
+    }
+    .icon-tick {
+      display: none;
+      fill: $wl-tertiary;
+    }
+    .icon-arrow-right {
+      fill: $gray-d;
+    }
+    .status {
+      font-size: 14px;
+    }
+  }
+  .cad-search-list__popup {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba($white,.84);
+    .cad-search-list__head {
+      background: none;
+      border: none
+    }
+  }
+	.cad-search-list__foot {
+		padding: 15px 20px;
+		border-top: 1px solid $brd;
+		text-align: center;
+		.button + .button {
+			margin-left: 7px;
+		}
+	}
+  .title {
+    position: static;
+    white-space: nowrap;
+  }
+
+  .cad-search-list__no-search-results {
+    padding: 20px;
+    color: $gray-d;
+  }
+}
+
+.cad-search-list-help {
+  height: 482px;
+  padding: 40px;
+  @include vertical;
+  .cad-search-list-help__title {
+    display: inline-block;
+    @include fs;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: $gray;
+    vertical-align: middle;
+  }
+}
+
+.cad-search-list-disabled {
+  @include vertical;
+  height: 100%;
+  .cad-search-list-help__title {
+    display: inline-block;
+    @include fs;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: $gray;
+    vertical-align: middle;
+  }
+}

@@ -1,0 +1,17 @@
+<!-- default items for smart search list with main text, market and selection tick -->
+<div class="list-item"
+     [class.list-item--selected]="selected">
+  <div class="list-item__text"
+       [cadSmartTooltip]="text"
+       [innerHTML]="text | highlight:searchText">
+  </div>
+  <div class="list-item__icons">
+    <div class="market list-item__market" [hidden]="!market">
+      {{ market }}
+    </div>
+    <cad-icon *ngIf="showTicks"
+              name="tick"
+              [style.visibility]="selected ? 'visible' : 'hidden'" >
+    </cad-icon>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+<cad-panel headTitle="| Number Pipes">
+  <div cad-panel-content>
+
+    <div class="title title_2">cadNumber Pipe</div>
+
+    <div class="mt-20 mb-20" style="font-family: monospace" ngNonBindable>
+      {{ 12345.6789 | cadNumber : '1.2-2' }}
+    </div>
+
+    <div class="bb mb-20 overflow-hidden">
+      <div class="column-50 float-left">
+        <input class="input mb-20"
+               placeholder="Number to format"
+               type="number"
+               [(ngModel)]="number2format" />
+        <input class="input mb-20"
+               placeholder="digits format"
+               type="text"
+               [(ngModel)]="digitsInput" />
+      </div>
+      <div class="column-50 float-right pl-20">
+        {{ number2format | cadNumber : digitsInput }}
+      </div>
+
+    </div>
+
+    <div class="bb mb-20 overflow-hidden">
+      <div class="title title_2">cadNumberShort Pipe</div>
+
+      <div class="mt-20 mb-20" style="font-family: monospace" ngNonBindable>
+        {{ 12345.6789 | cadNumberShort : '1.2-2' : '1.0-0' }}
+      </div>
+
+      <div class="border-bottom overflow-hidden">
+        <div class="column-50 float-left">
+          <input class="input mb-20"
+                 placeholder="Number to format"
+                 type="number"
+                 [(ngModel)]="number2format" />
+          <input class="input mb-20"
+                 placeholder="digits format for small number < 1000"
+                 type="text"
+                 [(ngModel)]="digitsSmallInput" />
+          <input class="input mb-20"
+                 placeholder="digits format for big number >= 1000"
+                 type="text"
+                 [(ngModel)]="digitsBigInput" />
+        </div>
+        <div class="column-50 float-right pl-20">
+          {{ number2format | cadNumberShort : digitsSmallInput : digitsBigInput }}
+        </div>
+      </div>
+    </div>
+
+  </div>
+</cad-panel>

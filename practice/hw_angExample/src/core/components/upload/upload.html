@@ -1,0 +1,81 @@
+<div class="cad-upload" ng-switch="vm.activeState">
+  <div class="cad-upload-initial"
+       ng-switch-when="initial"
+       ngf-drop="vm.invokeUpload($file)"
+       ngf-drag-over-class="{ accept: 'cad-upload-initial--drop-ok', reject: 'cad-upload-initial--drop-reject', delay: 100 }"
+       ngf-pattern="vm.options.pattern"
+       ngf-accept="vm.options.accept">
+    <div class="title title_2 mt-100">{{ ::vm.textPath('drop_file') | translate }}</div>
+    <div class="cad-upload-or-delim mt-12">
+      <span>{{ ::'global.or' | translate }}</span>
+    </div>
+    <div class="mt-20">
+      <cad-button text="buttons.browse"
+                  view="tertiary"
+                  ngf-select="vm.invokeUpload($file)"
+                  ngf-pattern="vm.options.pattern"
+                  ngf-accept="vm.options.accept"
+                  accept="{{ vm.options.accept }}"
+                  data-automation="upload_browse">
+      </cad-button>
+    </div>
+    <div class="title title_6 title_thin title_default_color mt-25"
+         translate="{{ ::vm.textPath('file_details') }}"
+         translate-compile
+         data-automation="upload_text">
+    </div>
+  </div>
+
+  <div class="cad-upload-progress" ng-switch-when="progress">
+    <div class="title title_2 mt-100">{{ ::vm.textPath('uploading') | translate }}</div>
+    <div class="title title_5 mt-12">{{ vm.progressPosition }}%</div>
+    <div class="cad-upload-progress__bar" data-automation="upload_progress-bar">
+      <div ng-style="{ width: vm.progressPosition + '%' }"></div>
+    </div>
+    <div class="title title_6 title_thin title_default_color three-dots mt-25">{{ vm.fileName }}</div>
+    <div class="mt-15">
+      <cad-button text="buttons.cancel" view="tertiary" ng-click="vm.cancelUpload()" data-automation="upload_cancel"></cad-button>
+    </div>
+  </div>
+
+  <div class="cad-upload-success" ng-switch-when="success">
+    <div class="cad-upload-success__inactive">
+      <div class="title title_2 mt-80">{{ ::vm.textPath('drop_file') | translate }}</div>
+      <div class="cad-upload-or-delim mt-15">
+        <span>{{ ::'global.or' | translate }}</span>
+      </div>
+    </div>
+    <div class="mt-20">
+      <cad-button text="buttons.browse" view="tertiary" disabled data-automation="upload_browse"></cad-button>
+    </div>
+    <div class="mt-25">
+      <span>{{ vm.fileName }}</span>
+      <a class="link-icon primary" ng-click="vm.resetState()">
+        <cad-icon name="close" data-automation="upload_close"></cad-icon>
+      </a>
+    </div>
+    <div class="inform inform_gray inform_big mt-15">
+      <cad-icon name="attention" data-automation="upload_attention"></cad-icon>
+      <div class="inform__content">{{ ::vm.textPath('limitation') | translate }}</div>
+    </div>
+  </div>
+
+  <div class="cad-upload-error" ng-switch-when="error" data-automation="upload_error">
+    <div class="title title_2 mt-115">{{ ::vm.textPath('error_header') | translate }}</div>
+    <div class="title title_6 title_thin title_default_color mt-25" ng-switch="vm.errorType">
+      <span ng-switch-when="size">
+        {{ ::vm.textPath('size_error') | translate }} {{ vm.options.maxSize | byteFmt:0 }}
+      </span>
+      <span ng-switch-when="duplicate">
+        {{ ::vm.textPath('duplicate') | translate }}
+      </span>
+      <span ng-switch-default>
+        {{ ::vm.textPath('limitation') | translate }}
+      </span>
+    </div>
+    <div class="mt-35">
+      <cad-button text="buttons.another" view="tertiary" ng-click="vm.resetState()" data-automation="upload_another"></cad-button>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,158 @@
+@import '../../../../core/assets/scss/variables';
+
+%stretch {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+  width: 100%;
+};
+
+%center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// for correct merging of intersecting highlighted areas this must be exact color, without alpha channel
+$highlight-color: #DDF1F5;
+
+:host {
+  display: inline-flex;
+}
+
+.cad-month-calendar {
+  background-color: $white;
+  width: 266px;
+
+  &__header {
+    @extend %stretch;
+    margin-bottom: 10px;
+
+    &__icon {
+      cursor: pointer;
+      fill: rgba($gray-d, 0.8);
+
+      &:hover {
+        fill: $gray-d;
+      }
+
+      &:active {
+        fill: $gray;
+      }
+    }
+
+    &__title {
+      color: $cl;
+      font-size: 18px;
+      font-weight: normal;
+    }
+  }
+
+  &__week-days {
+    @extend %stretch;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid $brd;
+
+    &__day {
+      width: 100%;
+      text-align: center;
+      color: $gray-d;
+      font-size: 14px;
+      font-weight: normal;
+    }
+  }
+
+  &__matrix {
+    &__row {
+      @extend %stretch;
+      margin-bottom: 4px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &__cell {
+        @extend %center;
+        width: 100%;
+        position: relative;
+      }
+    }
+  }
+
+  &__range-highlight {
+    z-index: 1;
+    display: none;
+
+    &--visible {
+      display: block;
+    }
+
+    &:before, &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      background-color: $highlight-color;
+    }
+
+    &:before {
+      left: 0;
+    }
+    &:after {
+      right: 0;
+    }
+
+    // make start/end date highlights rounded and centered at cell
+    &--range-start:before, &--range-end:after {
+      border-radius: 50%;
+      width: 26px;
+      left: 6px;
+    }
+  }
+
+  &__day-item {
+    @extend %center;
+    z-index: 2;
+
+    color: $gray-d;
+    font-size: 16px;
+    font-weight: normal;
+
+    cursor: pointer;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+
+    // highlight date on hover unless it's already selected or disabled
+    &:hover:not(&--selected, &--disabled) {
+      background-color: rgba($wl-tertiary, 0.2);
+    }
+
+    &--active-month {
+      color: $cl;
+    }
+
+    &--today {
+      color: $wl-tertiary;
+      font-weight: bold;
+    }
+
+    &--selected {
+      color: $white;
+      background-color: $wl-tertiary;
+    }
+
+    &--disabled {
+      color: $gray;
+      cursor: not-allowed;
+    }
+
+    &--hidden {
+      display: none;
+    }
+  }
+}

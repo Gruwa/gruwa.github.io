@@ -1,0 +1,60 @@
+<div class="cad-time-input"
+     [class.cad-time-input--small]="small">
+
+  <div class="cad-time-input__time-column"
+       [class.cad-time-input__time-column--small]="small">
+    <cad-icon (click)="inc(HOURS)"
+              name="arrow-up"
+              class="cad-time-input__arrow-icon">
+    </cad-icon>
+
+    <input type="text"
+           class="input cad-time-input__input"
+           [ngModel]="time | cadMomentFormat:'h'"
+           (keydown)="onKeydown($event, HOURS)"
+           (blur)="onBlur($event, HOURS)"
+           [class.cad-time-input__input--small]="small"
+           maxlength="2" />
+
+    <cad-icon (click)="dec(HOURS)"
+              name="arrow-down"
+              class="cad-time-input__arrow-icon">
+    </cad-icon>
+  </div>
+
+  <div class="cad-time-input__delimiter">
+    <span>:</span>
+  </div>
+
+  <div class="cad-time-input__time-column"
+       [class.cad-time-input__time-column--small]="small">
+    <cad-icon (click)="inc(MINUTES)"
+              name="arrow-up"
+              class="cad-time-input__arrow-icon">
+    </cad-icon>
+
+    <input type="text"
+           class="input cad-time-input__input"
+           [ngModel]="time | cadMomentFormat:'mm'"
+           (keydown)="onKeydown($event, MINUTES)"
+           (blur)="onBlur($event, MINUTES)"
+           [class.cad-time-input__input--small]="small"
+           maxlength="2" />
+
+    <cad-icon (click)="dec(MINUTES)"
+              name="arrow-down"
+              class="cad-time-input__arrow-icon">
+    </cad-icon>
+  </div>
+
+  <div class="cad-time-input__ampm"
+       [class.cad-time-input__ampm--small]="small">
+    <cad-select [head]="time | cadMomentFormat:'A'"
+                ngModel
+                (ngModelChange)="onAmpmChange($event)"
+                [small]="small"
+                [items]="ampmList">
+    </cad-select>
+  </div>
+
+</div>

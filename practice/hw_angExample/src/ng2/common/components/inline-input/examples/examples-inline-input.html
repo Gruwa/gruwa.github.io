@@ -1,0 +1,117 @@
+<cad-panel headTitle="Inline Input">
+  <div cad-panel-content>
+
+    <div class="examples__params">
+      <ul>
+        <li><strong>@Input() size: 'small' | 'medium' | 'big'</strong> - predefined size of the control, default is <b>small</b></li>
+        <li><strong>@Input() showSpinner: boolean</strong> - if to show spinner instead of pencil icon to demonstrate async saving process</li>
+        <li><strong>@Input() placeholder: string</strong> - text to display in view mode when no value set to the inner input</li>
+        <li><strong>@Output() onSave($event)</strong> - event emitted on save button pressed with old and new values in $event</li>
+      </ul>
+    </div>
+
+    <div class="cad-row">
+      <div class="column column-30">
+        <div class="mb-10">
+          Container width:
+          <input class="mb-15" type="range" min="20" max="1000" [(ngModel)]="elemWidth" />
+        </div>
+        <input type="text" class="input mb-10" placeholder="placeholder" [(ngModel)]="placeholder" />
+        <div class="mb-10">
+          <select [(ngModel)]="size">
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="big">Big</option>
+          </select>
+        </div>
+        <div class="mb-10">
+          <cad-checkbox [(ngModel)]="showValidation">Show validation messages</cad-checkbox>
+        </div>
+        <div class="mb-10">
+          <cad-checkbox [(ngModel)]="savingSpinner">Show saving spinner</cad-checkbox>
+        </div>
+        <div class="mb-10">
+          <cad-checkbox [(ngModel)]="isRequired">Required validator</cad-checkbox>
+        </div>
+        <div class="mb-10">
+          <span>Min length validator:</span>
+          <input type="number" class="input width-90 ml-10" [(ngModel)]="minLength" />
+        </div>
+        <div class="mb-10">
+          <span>Max length validator:</span>
+          <input type="number" class="input width-90 ml-10" [(ngModel)]="maxLength" />
+        </div>
+      </div>
+
+      <div class="column column-70">
+        <div class="mb-20"><b>Value:</b> {{ inputValue }}</div>
+        <hr/>
+
+        <div class="mb-10">Input with configurable required/min/max length validations:</div>
+        <div class="mb-20" [style.width.px]="elemWidth" style="border: 1px solid #eee; padding: 10px 10px 30px 10px;">
+          <cad-inline-input [size]="size"
+                            [placeholder]="placeholder"
+                            [showSpinner]="isSaving"
+                            (onSave)="save($event)">
+            <div input-slot>
+              <input type="text"
+                     [required]="isRequired"
+                     [minlength]="minLength"
+                     [maxlength]="maxLength"
+                     #input1="ngModel"
+                     [(ngModel)]="inputValue" />
+            </div>
+            <div errors-slot>
+              <cad-validation-errors [fieldControl]="input1"
+                                     [validationMessages]="validationMessages">
+              </cad-validation-errors>
+            </div>
+          </cad-inline-input>
+        </div>
+
+        <div class="mb-10">Input with hardcoded email and required validations:</div>
+        <div [style.width.px]="elemWidth" style="border: 1px solid #eee; padding: 10px 10px 30px 10px;">
+          <cad-inline-input [size]="size"
+                            [placeholder]="placeholder"
+                            [showSpinner]="isSaving"
+                            (onSave)="save($event)">
+            <div input-slot>
+              <input type="text"
+                     required
+                     cadValidateEmail
+                     #inputEmail="ngModel"
+                     [(ngModel)]="inputValue" />
+            </div>
+            <div errors-slot>
+              <cad-validation-errors [fieldControl]="inputEmail"></cad-validation-errors>
+            </div>
+          </cad-inline-input>
+
+        </div>
+      </div>
+
+    </div>
+
+    <textarea class="examples__copy" rows="18" ngNonBindable spellcheck="false">
+<cad-inline-input [size]="size"
+                  [placeholder]="placeholder"
+                  [showSpinner]="isSaving"
+                  (onSave)="save($event)">
+  <div input-slot>
+    <input type="text"
+           required
+           cadValidateEmail
+           #inputEmail="ngModel"
+           [(ngModel)]="inputValue" />
+  </div>
+  <div errors-slot>
+    <div [hidden]="inputEmail.valid">
+      <div [hidden]="!inputEmail.errors?.required">Value is required</div>
+      <div [hidden]="!inputEmail.errors?.validateEmail">Enter valid email</div>
+    </div>
+  </div>
+</cad-inline-input>
+    </textarea>
+
+  </div>
+</cad-panel>

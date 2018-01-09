@@ -1,0 +1,52 @@
+<cad-panel headTitle="Link">
+  <div cad-panel-content>
+
+    <div class="examples__params">
+      <ul>
+        <li><strong>@Input() type: string</strong>'primary', 'secondary', 'tertiary', 'negative'</li>
+        <li><strong>@Input() icon: string</strong> icon name</li>
+        <li><strong>@Input() icon-right: boolean</strong> </li>
+        <li><strong>@Input() value: string</strong></li>
+        <li><strong>@Input() href: string</strong> url to navigate</li>
+        <li><strong>@Input() target: string</strong> </li>
+        <li><strong>@Input() disabled: boolean</strong> </li>
+      </ul>
+    </div>
+
+    <div class="mb-20 border-bottom">
+      <cad-link type="primary" icon="upload-circle" value="normal" class="mr-20"></cad-link>
+      <cad-link type="primary" icon="upload-circle" value="Disabled" disabled="true" class="mr-20"></cad-link>
+
+      <textarea class="examples__copy"><cad-link type="primary" icon="upload-circle" value="normal"></cad-link></textarea>
+    </div>
+
+    <div class="mb-20 border-bottom">
+      <cad-link type="secondary" icon="upload-circle" value="normal" class="mr-20"></cad-link>
+      <cad-link type="secondary" icon="upload-circle" value="Disabled" disabled="true" class="mr-20"></cad-link>
+
+      <textarea class="examples__copy"><cad-link type="secondary" icon="upload-circle" value="normal"></cad-link></textarea>
+    </div>
+
+    <div class="mb-20 border-bottom">
+      <cad-link type="tertiary" icon="upload-circle" value="normal" class="mr-20"></cad-link>
+      <cad-link type="tertiary" icon="upload-circle" value="Disabled" disabled="true" class="mr-20"></cad-link>
+
+      <textarea class="examples__copy"><cad-link type="tertiary" icon="upload-circle" value="normal"></cad-link></textarea>
+    </div>
+
+    <div class="mb-20 border-bottom">
+      <cad-link type="negative" icon="upload-circle" value="normal" class="mr-20"></cad-link>
+      <cad-link type="negative" icon="upload-circle" value="Disabled" disabled="'true'" class="mr-20"></cad-link>
+
+      <textarea class="examples__copy"><cad-link type="negative" icon="upload-circle" value="normal"></cad-link></textarea>
+    </div>
+
+    <div class="mb-20 border-bottom">
+      <cad-link type="tertiary" icon="upload-circle" value="normal" class="mr-20" [iconRight]="true"></cad-link>
+      <cad-link type="tertiary" icon="upload-circle" value="Disabled" disabled="true" class="mr-20" [iconRight]="true"></cad-link>
+
+      <textarea class="examples__copy"><cad-link type="tertiary" icon="upload-circle" value="normal" class="mr-20" [iconRight]="true"></cad-link></textarea>
+    </div>
+
+  </div>
+</cad-panel>

@@ -1,0 +1,120 @@
+<cad-panel headTitle="| Currency Pipes">
+  <div cad-panel-content>
+
+    <div class="title title_2">cadCurrency Pipe</div>
+
+    <textarea class="examples__copy" rows="2" ngNonBindable>
+      {{ 12345.6789 | cadCurrency : 'USD' : 'SIGN' : '1.2-2' }}
+    </textarea>
+
+    <div class="cad-row">
+      <div class="column column-30">
+        <div class="mb-15">
+          <input class="input"
+                 placeholder="Money to format"
+                 type="number"
+                 [(ngModel)]="money2format" />
+        </div>
+
+        <div class="mb-15">
+          <input class="input mb-20"
+                 placeholder="digits format"
+                 type="text"
+                 [(ngModel)]="digitsInput" />
+        </div>
+
+      </div>
+
+      <div class="column column-70">
+        {{ money2format | cadCurrency : 'USD' : 'SIGN' : digitsInput }}
+      </div>
+    </div>
+
+    <div class="title title_2">cadCurrencyShort Pipe</div>
+
+    <textarea class="examples__copy" rows="2" ngNonBindable>
+      {{ 12345.6789 | cadCurrencyShort : 'USD' : 'SIGN' : '1.2-2', '1.2-2' }}
+    </textarea>
+
+    <div class="cad-row">
+      <div class="column column-30">
+        <div class="mb-15">
+          <input class="input"
+                 placeholder="Money to format"
+                 type="number"
+                 [(ngModel)]="money2format" />
+        </div>
+
+        <div class="mb-15">
+          <input class="input"
+                 placeholder="digits format for small number < 1000"
+                 type="text"
+                 [(ngModel)]="digitsSmallInput" />
+        </div>
+
+        <div class="mb-15">
+          <input class="input"
+                 placeholder="digits format for big number >= 1000"
+                 type="text"
+                 [(ngModel)]="digitsBigInput" />
+        </div>
+
+      </div>
+
+      <div class="column column-70">
+        {{ money2format | cadCurrencyShort : 'USD' : 'SIGN' : digitsSmallInput : digitsBigInput }}
+      </div>
+    </div>
+
+
+    <div class="title title_2">cadCurrencySign Pipe</div>
+
+    <textarea class="examples__copy" rows="2" ngNonBindable>
+      {{ 'USD' | cadCurrencySign }}
+    </textarea>
+
+    <div class="cad-row">
+      <div class="column column-30">
+        <div class="mb-15">
+          <select [(ngModel)]="currencyCode">
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="UAH">UAH</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="column column-70">
+        {{ currencyCode | cadCurrencySign }}
+      </div>
+    </div>
+
+
+    <div class="title title_2">cadCurrencyName Pipe</div>
+
+    <textarea class="examples__copy" rows="2" ngNonBindable>
+      {{ 'USD' | cadCurrencyName:{withCode?: boolean} }}
+    </textarea>
+
+    <div class="cad-row">
+      <div class="column column-30">
+        <div class="mb-15">
+          <select [(ngModel)]="currencyCode">
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="UAH">UAH</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="column column-35">
+        {{ currencyCode | cadCurrencyName }}
+      </div>
+
+      <div class="column column-35">
+        {{ currencyCode | cadCurrencyName: {withCode: true} }}
+      </div>
+    </div>
+
+  </div>
+</cad-panel>

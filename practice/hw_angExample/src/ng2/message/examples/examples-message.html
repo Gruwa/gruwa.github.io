@@ -1,0 +1,57 @@
+<cad-panel headTitle="Toastr / Messages">
+  <div cad-panel-content>
+
+    <div class="examples__params">
+      See <a href="https://github.com/PointInside/ng2-toastr">ng2-toastr</a> docs for params details
+
+    </div>
+
+    <textarea class="examples__copy" rows="8" ngNonBindable>
+
+    </textarea>
+
+    <div class="cad-row">
+      <div class="column column-30">
+        <div class="mb-15">
+          <div class="title title_6 title_thin mb-10">Message:</div>
+          <input class="input" type="text" [(ngModel)]="message" />
+        </div>
+
+        <div class="mb-15">
+          <div class="title title_6 title_thin mb-10">Title:</div>
+          <input class="input" type="text" [(ngModel)]="title" />
+        </div>
+
+        <div class="mb-15">
+          <div class="title title_6 title_thin mb-10">Display duration:</div>
+          <input class="input" type="text" [(ngModel)]="toastLife" />
+        </div>
+
+        <div class="mb-15">
+          <cad-checkbox [(ngModel)]="isWhite">
+            Is white?
+          </cad-checkbox>
+        </div>
+
+        <div class="mb-15">
+          <div class="title title_6 title_thin mb-10">Type:</div>
+          <cad-radio-button-group [(ngModel)]="messageType"
+                                  buttonDirection="in-column"
+                                  name="radio">
+            <cad-radio-button value="success">success</cad-radio-button>
+            <cad-radio-button value="error">error</cad-radio-button>
+            <cad-radio-button value="progress">progress</cad-radio-button>
+            <cad-radio-button value="system">system</cad-radio-button>
+          </cad-radio-button-group>
+
+        </div>
+
+      </div>
+
+      <div class="column column-70">
+        <cad-button view="primary" text="show message" (onClick)="showMessage()"></cad-button>
+      </div>
+    </div>
+
+  </div>
+</cad-panel>

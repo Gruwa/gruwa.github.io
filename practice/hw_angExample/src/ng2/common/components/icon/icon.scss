@@ -1,0 +1,49 @@
+@import '../../../../core/assets/scss/mixin';
+
+:host {
+  display: inline-flex; // fixing vertical alignment
+  vertical-align: middle;
+}
+
+.icon {
+  &.icon-preloader, &.icon-preloader-blue {
+
+    &.big-block-centered {
+      width: 104px;
+      height: 104px;
+      margin: 0 auto;
+      display: block;
+    }
+
+    &.big {
+      width: 104px;
+      height: 104px;
+
+      &.centered {
+        @include centered(104, 104);
+      }
+
+    }
+
+    &.medium {
+      width: 34px;
+      height: 34px;
+
+      &.centered {
+        @include centered(34, 34);
+      }
+
+    }
+
+    &.small {
+      width: 22px;
+      height: 22px;
+
+      &.centered {
+        @include centered(22, 22);
+      }
+    }
+
+  }
+
+}

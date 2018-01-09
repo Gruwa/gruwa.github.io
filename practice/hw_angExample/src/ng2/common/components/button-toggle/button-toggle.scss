@@ -1,0 +1,15 @@
+.button-toggle {
+  display: inline-block;
+  vertical-align: top;
+  a {
+    cursor: pointer;
+    display: inline-block;
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+    &.is-active {
+      cursor: default;
+    }
+  }
+}

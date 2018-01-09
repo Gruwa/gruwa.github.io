@@ -1,0 +1,53 @@
+<div [ngSwitch]="state" class="cad-compact-upload">
+  <div *ngSwitchCase="'initial'">
+    <cad-button cadSelectFile
+                [disabled]="options.disabled"
+                [accept]="options.accept"
+                (fileChanged)="upload($event)"
+                text="buttons.attach_file"
+                view="secondary"
+                icon="plus">
+    </cad-button>
+    <span class="title title_6 title_thin title_gray display-inline ml-20">
+      {{ textPath('limitation') | translate }}
+    </span>
+  </div>
+  <div *ngSwitchCase="'progress'">
+    <cad-button text="buttons.attach_file" view="secondary" icon="plus" showSpinner="true"></cad-button>
+    <span class="title title_6 title_thin title_gray display-inline ml-20">
+      {{ textPath('uploading') | translate }}
+    </span>
+  </div>
+  <div *ngSwitchCase="'success'" class="cad-compact-upload__success cad-row cad-row_clear">
+    <div class="column column-80">
+      <cad-icon name="attachment" fill="#ccc" customClass="mr-10"></cad-icon>
+      <span class="title title_6 title_thin title_default display-inline">
+        {{ fileName }}
+      </span>
+    </div>
+    <div class="column column-20 ta-right">
+      <cad-link type="primary" icon="close" value="buttons.remove" (click)="resetState()"></cad-link>
+    </div>
+  </div>
+  <div *ngSwitchCase="'error'">
+    <cad-button cadSelectFile
+                [disabled]="options.disabled"
+                [accept]="options.accept"
+                (fileChanged)="upload($event)"
+                text="buttons.attach_file"
+                view="secondary"
+                icon="plus">
+    </cad-button>
+    <span [ngSwitch]="error" class="title title_6 ml-20 error">
+      <span *ngSwitchCase="'size'">
+        {{ textPath('size_error') | translate }} {{ options.maxSize | bytes }}
+      </span>
+      <span *ngSwitchCase="'duplicate'">
+        {{ textPath('duplicate') | translate }}
+      </span>
+      <span *ngSwitchDefault>
+        {{ textPath('limitation') | translate }}
+      </span>
+    </span>
+  </div>
+</div>

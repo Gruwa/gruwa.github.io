@@ -1,0 +1,151 @@
+<cad-panel headTitle="Date Picker, Calendar, Time Input">
+  <div cad-panel-content>
+
+    <div class="examples__params">
+      <ul>
+        <li><strong>[small]: boolean</strong> - render control in small or default size (default is <strong>false</strong>)</li>
+        <li><strong>[placement]: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right'</strong> - where to show calendar dropdown (default is <strong>'bottom-left'</strong>)</li>
+        <li><strong>[format]: string</strong> - format how to display selected date in input (default is <strong>LL</strong>)</li>
+        <li><strong>[modelFormat]: string</strong> - if defined - ngModel value will be string in provided format, if not set - value will be moment.Moment object</li>
+        <li><strong>[placeholder]: string</strong> - text for empty input</li>
+        <li><strong>[startOnMonday]: boolean</strong> - if to render calendar starting week from Monday (true) or Sunday (false) (default is <strong>true</strong>)</li>
+        <li><strong>[editTime]: boolean</strong> - if to display time edit controls (default is <strong>false</strong>)</li>
+        <li><strong>[minDate]: moment.Moment</strong> - optional, if set - defines <strong>min</strong> date allowed for selection</li>
+        <li><strong>[maxDate]: moment.Moment</strong> - optional, if set - defines <strong>max</strong> date allowed for selection</li>
+        <li><strong>[activeMonth]: moment.Moment</strong> - optional, if set - activates month in calendar. Will be overwritten right after Calendar value changes</li>
+      </ul>
+      <br>
+      <div class="examples__params__note">
+        Component implements <strong>ControlValueAccessor</strong> - i.e. supports <strong>[(ngModel)]</strong>
+      </div>
+      <div class="title title_6 title_thin mt-10">
+        <i>ngModel</i> value is either <strong>moment.Moment</strong> date object or <strong>string</strong> in format defined by <i>modelFormat</i> param
+      </div>
+    </div>
+
+    <div class="cad-row">
+      <div class="column column-30">
+        <div class="mb-10">
+          <cad-checkbox [(ngModel)]="isSmall">Small mode</cad-checkbox>
+        </div>
+        <div class="mb-10">
+          <cad-checkbox [(ngModel)]="isDisabled">Disabled</cad-checkbox>
+        </div>
+        <div class="mb-10">
+          <cad-checkbox [(ngModel)]="isStartOnMonday">Week starts from Monday</cad-checkbox>
+        </div>
+        <div class="mb-10">
+          <cad-checkbox [(ngModel)]="isTimeEdits">Show time edits</cad-checkbox>
+        </div>
+        <div class="mb-10">
+          <span class="title title_6 title_thin">Dropdown placement:</span>
+          <select [(ngModel)]="placement">
+            <option value="top-left">Top Left</option>
+            <option value="top-right">Top Right</option>
+            <option value="bottom-left">Bottom Left</option>
+            <option value="bottom-right">Bottom Right</option>
+          </select>
+        </div>
+        <div class="mb-10">
+          <span class="title title_6 title_thin mr-5">Min date:</span>
+          <input class="input width-160" type="date" [(ngModel)]="minDate" />
+        </div>
+        <div class="mb-10">
+          <span class="title title_6 title_thin mr-5">Max date:</span>
+          <input class="input width-160" type="date" [(ngModel)]="maxDate" />
+        </div>
+        <div class="mb-10">
+          <span class="title title_6 title_thin mr-5">Active month:</span>
+          <input class="input width-160" type="date" [(ngModel)]="activeMonth" />
+        </div>
+        <div class="mb-10">
+          <div class="title title_6 title_thin mb-5">Set date from outside:</div>
+          <input class="input" type="datetime-local" [(ngModel)]="htmlDate" />
+        </div>
+        <div class="mb-10">
+          <div class="title title_6 title_thin mb-5">Display Format (<a href="https://momentjs.com/docs/#/displaying/format/" target="_blank">momentjs tokens</a>):</div>
+          <input class="input" type="text" [(ngModel)]="format" />
+        </div>
+        <div class="mb-10">
+          <div class="title title_6 title_thin mb-5">ngModel Format (<a href="https://momentjs.com/docs/#/displaying/format/" target="_blank">momentjs tokens</a>):</div>
+          <input class="input" type="text" [(ngModel)]="modelFormat" />
+        </div>
+      </div>
+
+      <div class="column column-70">
+        <div class="cad-row mb-20">
+
+          <div class="column column-50">
+            <div class="title title_5 title_thin mb-20" style="padding: 10px; background-color: #fafad2">
+              <div>ngModel value:</div>
+              <div><strong>{{ date || 'n/a' }}</strong></div>
+            </div>
+
+            <div class="title title_6 title_thin mb-15">
+              <strong>&lt;cad-datepicker&gt;</strong> component:
+            </div>
+            <div class="width-255">
+              <cad-datepicker [small]="isSmall"
+                              placeholder="enter time in {{ format }} format"
+                              [format]="format"
+                              [modelFormat]="modelFormat"
+                              [placement]="placement"
+                              [startOnMonday]="isStartOnMonday"
+                              [editTime]="isTimeEdits"
+                              [minDate]="minDate"
+                              [maxDate]="maxDate"
+                              [activeMonth]="activeMonth"
+                              [disabled]="isDisabled"
+                              [(ngModel)]="date">
+              </cad-datepicker>
+            </div>
+          </div>
+
+          <div class="column column-50">
+            <div class="title title_5 title_thin mb-20" style="padding: 10px; background-color: #fafad2">
+              <div>ngModel value:</div>
+              <div><strong>{{ date2 || 'n/a' }}</strong></div>
+            </div>
+
+            <div class="title title_6 title_thin mb-15">
+              <strong>&lt;cad-month-calendar&gt;</strong> component:
+            </div>
+
+            <cad-month-calendar [startOnMonday]="isStartOnMonday"
+                                [minDate]="minDate"
+                                [maxDate]="maxDate"
+                                [(ngModel)]="date2">
+            </cad-month-calendar>
+
+            <div class="title title_6 title_thin mt-30 mb-15">
+              <strong>&lt;cad-time-input&gt;</strong> component:
+            </div>
+
+            <cad-time-input [small]="isSmall"
+                            [(ngModel)]="date2">
+            </cad-time-input>
+          </div>
+
+        </div> <!-- row -->
+
+      </div> <!-- right 70% column -->
+
+    </div>
+
+    <textarea class="examples__copy" rows="11" ngNonBindable spellcheck="false">
+<cad-datepicker [small]="false"
+                placeholder="this is a placeholder"
+                format="LL"
+                modelFormat="YYYY-MM-DD"
+                placement="bottom-left"
+                [startOnMonday]="true"
+                [editTime]="true"
+                [minDate]="minDate"
+                [maxDate]="maxDate"
+                [disabled]="isDisabled"
+                [(ngModel)]="date">
+</cad-datepicker>
+    </textarea>
+
+  </div>
+</cad-panel>

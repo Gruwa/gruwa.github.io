@@ -1,0 +1,10 @@
+@import '../../../../core/assets/scss/mixin';
+@import '../../../../core/assets/scss/variables';
+
+:host {
+  display: block;
+  .field .input.is-error, .field .input.ng-invalid.ng-touched, .field .input.ng-invalid.ng-dirty {
+    border: none;
+    box-shadow: 0 0 0 1px $red;
+  }
+}

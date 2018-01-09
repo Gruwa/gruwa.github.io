@@ -1,0 +1,59 @@
+@import '../../../core/assets/scss/variables';
+
+.cad-search-global {
+  width: 100%;
+  padding-right: 20px;
+
+  .cad-search-global__input {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 205px;
+    height: 32px;
+    padding: 0 12px;
+    background-color: $white;
+    border-radius: 5px;
+    transition: width .2s, background .2s;
+
+    input {
+      order: 2;
+      width: 100%;
+      margin-left: 10px;
+      margin-right: 10px;
+      background-color: transparent;
+    }
+
+    .icon-search {
+      cursor: pointer;
+      order: 1;
+      fill: $wl-header-background;
+    }
+
+    .icon-clear {
+      cursor: pointer;
+      order: 3;
+      fill: $gray;
+
+      &:hover {
+        fill: $gray-d;
+      }
+    }
+  }
+
+  &--collapsed .cad-search-global__input {
+    width: 38px;
+    background-color: $wl-header-background;
+
+    input {
+      width: 0;
+    }
+
+    .icon-search {
+      fill: $wl-header-icon;
+
+      &:hover {
+        fill: $wl-header-icon-hover;
+      }
+    }
+  }
+}

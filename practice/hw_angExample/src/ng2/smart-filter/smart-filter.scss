@@ -1,0 +1,28 @@
+@import '../../core/assets/scss/variables';
+
+.smart-filter {
+  $rowHeight: 70px;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  & > .title {
+    // title has fixed width, it should not be reduced
+    flex-shrink: 0;
+  }
+
+  &:before {
+    content: '';
+    display: inline-block;
+    height: $rowHeight;
+    vertical-align: middle;
+  }
+
+  .smart-filter__clear-button {
+    position: absolute;
+    top: -2px;
+    right: 0;
+    line-height: $rowHeight;
+  }
+}

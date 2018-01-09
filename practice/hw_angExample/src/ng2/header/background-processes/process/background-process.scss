@@ -1,0 +1,21 @@
+@import '../../../../core/assets/scss/variables';
+
+.cad-background-process {
+  display: flex;
+
+  &__data {
+    padding-left: 10px;
+  }
+
+  &__title {
+    font-size: 12px;
+    font-weight: 600;
+    color: $cl;
+  }
+
+  &__name {
+    font-size: 14px;
+    color: $black;
+    word-break: break-all
+  }
+}

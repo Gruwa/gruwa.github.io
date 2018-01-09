@@ -1,0 +1,27 @@
+@import '../../../../core/assets/scss/mixin';
+@import '../../../../core/assets/scss/variables';
+
+.unsaved-popup {
+  &__title {
+    @include f;
+    font-weight: 600;
+    font-size: 22px;
+    color: $white;
+  }
+
+  &__body {
+    display: flex;
+  }
+
+  &__icon {
+    fill: $gray;
+  }
+
+  &__text {
+    @include f;
+    font-size: 14px;
+    color: $cl;
+    line-height: 1.43;
+    margin-left: 20px;
+  }
+}

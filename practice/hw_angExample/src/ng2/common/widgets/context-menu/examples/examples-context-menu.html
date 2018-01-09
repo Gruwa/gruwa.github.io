@@ -1,0 +1,70 @@
+<cad-panel headTitle="Context Menu Component">
+  <div cad-panel-content>
+
+    <div class="examples__params">
+      <ul>
+        <li><strong>[items]: IContextMenuItem[]</strong> - configuration of context menu items</li>
+        <li><strong>[placement]: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right'</strong> - where to show dropdown (default is <strong>'bottom-left'</strong>)</li>
+        <li><strong>[headType]: 'dots' | 'button'</strong> - context menu appearance</li>
+        <li><strong>[small]: boolean</strong> - if to render items in compact mode (default is <strong>false</strong>)</li>
+      </ul>
+    </div>
+
+    <div class="cad-row">
+      <div class="column column-30">
+        <div class="mb-10">
+          <span class="title title_6 title_thin">Dropdown placement:</span>
+          <select [(ngModel)]="placement">
+            <option value="top-left">Top Left</option>
+            <option value="top-right">Top Right</option>
+            <option value="bottom-left">Bottom Left</option>
+            <option value="bottom-right">Bottom Right</option>
+          </select>
+        </div>
+        <div class="mb-10">
+          <cad-checkbox [(ngModel)]="isSmall">Compact view</cad-checkbox>
+        </div>
+        <div class="mb-10">
+          <span class="title title_6 title_thin">Head Type:</span>
+          <select [(ngModel)]="headType">
+            <option value="dots">Dots</option>
+            <option value="button">Button</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="column column-30">
+        <div class="title title_6 title_thin mb-15">
+          <strong>&lt;cad-context-menu&gt;</strong> component:
+        </div>
+
+        <cad-context-menu [placement]="placement"
+                          [small]="isSmall"
+                          [headType]="headType"
+                          [items]="menuItems">
+        </cad-context-menu>
+      </div>
+
+      <div class="column column-40">
+        <div class="title title_6 title_thin mb-15">
+          <strong>&lt;cad-context-menu-item&gt;</strong> component:
+        </div>
+
+        <cad-context-menu-item [small]="isSmall"
+                               [item]="menuItems[0]">
+        </cad-context-menu-item>
+      </div>
+
+    </div>
+
+    <textarea class="examples__copy" rows="4" ngNonBindable spellcheck="false">
+<cad-context-menu [placement]="placement"
+                  [small]="isSmall"
+                  [headType]="headType"
+                  [items]="menuItems">
+</cad-context-menu>
+    </textarea>
+
+  </div>
+</cad-panel>

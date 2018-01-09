@@ -1,0 +1,265 @@
+@import '../../../core/assets/scss/mixin';
+@import '../../../core/assets/scss/variables';
+
+// this is to make grid row stretch and fit all header height so that content is centrally aligned
+cad-main-header .header {
+  .container, .row {
+    height: 100%;
+  }
+}
+
+// TODO: refactor legacy styles to get rid of "ViewEncapsulation.None" in component
+.header {
+  height: 70px;
+  transition: height .2s;
+  color: $wl-header-text;
+  background-color: $wl-header-background;
+  .center {
+    padding: 0 10px;
+  }
+  &.is-fixed {
+    height: 40px;
+    background: $wl-header-background;
+    .header__cell {
+      height: 40px;
+    }
+    .header__nav {
+      a {
+        height: 40px;
+        line-height: 40px;
+        font-size: 16px;
+        &:after {
+          display: none;
+        }
+      }
+    }
+    .header__cell .cad-search-global .cad-search-global__input {
+      height: 26px;
+    }
+    .field__reset {
+      height: 26px;
+    }
+    .header__btn-menu {
+      width: auto;
+      height: auto;
+      border: 0 solid transparent;
+      border-radius: 0;
+    }
+    .header__chapter {
+      .cad-dropdown-menu {
+        left: -16px;
+      }
+    }
+    .header__chapter-title {
+      font-size: 20px;
+    }
+    .header__chapter-add {
+      width: 22px;
+      height: 22px;
+
+      .dropdown {
+        .dropdown__head {
+          width: 22px;
+          height: 22px;
+        }
+        .dropdown-content {
+          left: -16px;
+          top: 23px;
+        }
+      }
+
+      .icon-plus {
+        padding: 5px 4px;
+        @include transition(all .2s);
+      }
+
+      &.is-disabled {
+        .icon-plus, .header__add-btn {
+          cursor: default;
+        }
+      }
+    }
+  }
+  .header__left {
+    float: left;
+  }
+  .header__right {
+    float: right;
+  }
+  .header__cell {
+    display: table-cell;
+    height: 70px;
+    vertical-align: middle;
+    transition: height .2s;
+    font-size: 0;
+  }
+  .header__btn-menu {
+    position: relative;
+    top: -1px;
+    height: 30px;
+    margin-right: 30px;
+    font-size: 0;
+    vertical-align: middle;
+    fill: $wl-header-icon;
+    &:hover {
+      fill: $wl-header-icon-hover;
+    }
+  }
+  .icon-logo-head {
+    display: inline-flex;
+    margin-right: 30px;
+    vertical-align: middle;
+  }
+  .header__chapter {
+    display: inline-block;
+    vertical-align: middle;
+    .btn-round {
+      position: relative;
+      top: 2px;
+      vertical-align: middle;
+    }
+    .cad-dropdown-menu {
+      left: -12px;
+    }
+    & + .dropdown {
+      margin-left: -35px;
+    }
+
+    &.composite {
+      margin-top: -5px;
+    }
+  }
+  .header__chapter-title {
+    position: relative;
+    top: -2px;
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 23px;
+    vertical-align: middle;
+    transition: font-size .2s;
+  }
+
+  .header__chapter-subtitle {
+    position: relative;
+    display: block;
+    margin-right: 10px;
+    font-size: 12px;
+    margin-top: -4px;
+  }
+
+  .header__chapter-link {
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .header__chapter-add {
+    display: inline-block;
+    max-width: 100%;
+    width: 28px;
+    height: 28px;
+    background: $wl-header-plus-background;
+    border-radius: 50%;
+    font-size: 0;
+    vertical-align: middle;
+    transition: all .2s;
+
+    // TODO: remove styles for "icon-plus" from header
+    &:hover {
+      .icon-plus {
+        fill: $wl-header-plus-hover;
+      }
+    }
+    &:active {
+      background-color: $wl-header-plus-active-background;
+    }
+    &.is-disabled {
+      background-color: rgba($wl-header-plus-background, 0.3);
+      cursor: default;
+
+      .icon-plus {
+        fill: rgba($wl-header-plus, 0.3);
+        cursor: default;
+      }
+
+      &:hover {
+        .icon-plus {
+          fill: rgba($wl-header-plus, 0.3);
+        }
+      }
+    }
+    .icon-plus {
+      position: absolute;
+      cursor: pointer;
+      fill: $wl-header-plus;
+      padding: 8px 7px;
+      box-sizing: content-box;
+    }
+
+    .dropdown__head, .header__add-btn {
+      width: 28px;
+      height: 28px;
+      cursor: pointer;
+    }
+    .header__add-btn {
+      position: absolute;
+    }
+    .dropdown-content {
+      left: -13px;
+    }
+
+  }
+  .header__custom {
+    display: inline-block;
+  }
+  .header__nav {
+    display: inline-block;
+    vertical-align: middle;
+    a {
+      position: relative;
+      cursor: pointer;
+      float: left;
+      height: 70px;
+      padding: 0 20px;
+      line-height: 70px;
+      font-size: 16px;
+      text-decoration: none;
+      color: $wl-header-menu-text;
+      transition: height .2s, line-height .2s;
+      &.is-active {
+        color: $wl-header-menu-text-active;
+        &:after {
+          background: $white;
+        }
+      }
+      &:hover {
+        color: $wl-header-menu-text-hover;
+      }
+    }
+  }
+  // TODO: delete
+  .header__user {
+    display: inline-block;
+    vertical-align: middle;
+    .dropdown__title {
+      font-size: 14px;
+      font-weight: normal;
+    }
+  }
+  .header__right-container {
+    display: flex;
+    align-items: center;
+  }
+  .header_notifications {
+    display: flex;
+    align-items: center;
+  }
+  .dropdown__title{
+    font-weight: 600;
+  }
+
+  .market-code {
+    margin-top: -4px;
+  }
+}
+

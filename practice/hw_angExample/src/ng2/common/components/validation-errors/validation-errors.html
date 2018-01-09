@@ -1,0 +1,7 @@
+<div *ngIf="showErrors()"
+     class="cad-validation-errors">
+  <p *ngFor="let error of errors"
+     class="cad-validation-errors__item">
+    {{ error }}
+  </p>
+</div>

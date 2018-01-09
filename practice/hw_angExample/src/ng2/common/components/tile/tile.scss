@@ -1,0 +1,21 @@
+@import '../../../../core/assets/scss/variables';
+
+.cad-tile {
+  cursor: pointer;
+  background: white;
+  color: $cl;
+
+  box-shadow: 0 2px 4px rgba($black, 0.1);
+
+  width: 236px;
+  height: 259px;
+
+  &.disabled {
+    cursor: auto;
+  }
+
+  &:hover {
+    box-shadow: 0 4px 8px rgba($black, 0.1);
+  }
+}
+

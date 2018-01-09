@@ -1,0 +1,54 @@
+@import '../../../core/assets/scss/variables';
+
+.infoline-item {
+  display: inline-flex;
+  align-items: center;
+}
+
+.show-more {
+  /deep/ button {
+    font-size: 14px;
+    font-weight: normal;
+    color: $cl;
+
+    background: transparent;
+  }
+
+  &.active {
+    /deep/ button {
+      background-color: $gray-e2;
+    }
+  }
+}
+
+.infoline-tooltip {
+  max-width: 230px;
+  text-align: left;
+
+  font-size: 12px;
+  font-weight: 400;
+  color: #ffffff;
+
+  &__title {
+    font-weight: 600;
+    display: inline-block;
+
+    &:not(:first-child) {
+      margin-top: 10px;
+    }
+
+    &:hover {
+      cursor: pointer;
+      color: white;
+      text-decoration: underline;
+
+      cad-icon {
+        fill: $white;
+      }
+    }
+
+    cad-icon {
+      fill: $gray;
+    }
+  }
+}

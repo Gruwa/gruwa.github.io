@@ -1,0 +1,17 @@
+@import '../../../../../core/assets/scss/variables';
+
+.cad-dropdown {
+  .dropdown__body.dropdown__body--grey {
+    // child combinator required for nested dropdowns (grey parent and default child)
+    & > .dropdown__body__content {
+      background: $bg;
+    }
+
+    // Arrow
+    &:before {
+      background: $bg;
+    }
+  }
+}
+
+

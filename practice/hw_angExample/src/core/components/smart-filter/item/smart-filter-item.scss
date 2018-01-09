@@ -1,0 +1,27 @@
+cad-smart-filter-item {
+
+  &:last-of-type {
+    .smart-filter-item {
+      border-bottom: 0px;
+    }
+  }
+
+  .smart-filter-item {
+    border-bottom: 1px solid $brd-l;
+    display: flex;
+    padding: 14px 0;
+
+    &__title {
+      font-weight: bold;
+      width: 140px;
+      line-height: 40px;
+      vertical-align: middle;
+    }
+
+    &__content {
+      vertical-align: middle;
+    }
+  }
+}
+
+

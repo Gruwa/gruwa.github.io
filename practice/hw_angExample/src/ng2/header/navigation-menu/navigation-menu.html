@@ -1,0 +1,67 @@
+<div class="navigation-menu" *ngIf="visible">
+
+  <div class="navigation-menu__overlay"></div>
+
+  <div class="navigation-menu__content" (click)="close()">
+
+    <div class="navigation-menu__header container">
+      <div class="navigation-menu__hamburger-btn">
+        <div class="animated-hamburger" (click)="close()">
+          <div class="animated-hamburger__line animated-hamburger__line--top"></div>
+          <div class="animated-hamburger__line animated-hamburger__line--middle"></div>
+          <div class="animated-hamburger__line animated-hamburger__line--bottom"></div>
+        </div>
+      </div>
+      <div class="navigation-menu__logo">
+        <span class="icon-logo-head-full animate-slide-right"></span>
+      </div>
+    </div>
+
+    <div class="navigation-menu__devider"></div>
+
+    <div class="navigation-menu__items container animate-slide-up"
+         [class.navigation-menu__items--one-column]="!secondaryItems.length">
+
+      <div class="navigation-menu__items__main">
+        <div *ngFor="let item of mainItems">
+          <a class="navigation-menu__items__item navigation-menu__items__item--main"
+             [class.navigation-menu__items__item--selected]="isSelected(item)"
+             [href]="item.url">
+            {{ item.title | translate }}
+          </a>
+        </div>
+      </div>
+
+      <div class="navigation-menu__items__secondary">
+        <div *ngFor="let item of secondaryItems">
+          <a class="navigation-menu__items__item navigation-menu__items__item--secondary"
+             [class.navigation-menu__items__item--selected]="isSelected(item)"
+             [href]="item.url">
+            {{ item.title | translate }}
+          </a>
+        </div>
+
+        <div class="navigation-menu__items__extra">
+          <div>
+            <!-- "about" item should be hidden if user has "cad_role_id_5" permission -->
+            <cad-dropdown placement="top-right"
+                          (onToggle)="aboutEnvVisible = $event"
+                          (click)="$event.stopPropagation()"
+                          *ngIf="!('cad_role_id_5' | cadHasPermissions)">
+              <div cad-dropdown-head>
+                <span class="navigation-menu__items__item navigation-menu__items__item--extra">
+                  {{ 'left_menu.about.about' | translate }}
+                </span>
+              </div>
+              <div cad-dropdown-body>
+                <cad-about-env *ngIf="aboutEnvVisible"></cad-about-env>
+              </div>
+            </cad-dropdown>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

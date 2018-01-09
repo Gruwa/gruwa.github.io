@@ -1,0 +1,53 @@
+<cad-panel headTitle="Panel">
+  <div cad-panel-content>
+
+    <div class="examples__params">
+      <ul>
+        <li><strong>[headTitle]: string</strong> - default header title; auto-translated; can be omitted in favour to custom head layout</li>
+        <li><strong>[(isOpen)]: boolean</strong> - shows if panel expanded or collapsed</li>
+        <li><strong>[disabled]: boolean</strong> - prevents the panel from expanding or collapsing</li>
+        <li><strong>(onOpen)</strong> - event emitted on panel expands</li>
+        <li><strong>(onClose)</strong> - event emitted on panel collapses</li>
+      </ul>
+    </div>
+
+    <div class="mb-15">
+      <cad-button text="Toggle panel" view="primary" size="small" (click)="isExpanded = !isExpanded"></cad-button>
+      <span>Panel is <strong>{{ isExpanded ? 'open' : 'closed' }}</strong></span>
+    </div>
+
+    <div class="mb-20">
+      <label><input type="checkbox" [(ngModel)]="isDisabled" /> Disabled</label>
+    </div>
+
+    <cad-panel
+      [(isOpen)]="isExpanded"
+      [disabled]="isDisabled"
+      headTitle="global.default_title"
+      (onOpen)="onExpandAction()"
+      (onClose)="onCollapseAction()">
+      <div cad-panel-head>
+        <div class="ml-20">
+          <input type="text" class="input width-230" placeholder="some additional header content">
+        </div>
+      </div>
+      <div cad-panel-content>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto asperiores dicta distinctio esse fugiat minus molestias nam nesciunt nostrum, placeat porro provident quam quo repudiandae saepe sit vitae, voluptas, voluptatem?
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto asperiores dicta distinctio esse fugiat minus molestias nam nesciunt nostrum, placeat porro provident quam quo repudiandae saepe sit vitae, voluptas, voluptatem?
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto asperiores dicta distinctio esse fugiat minus molestias nam nesciunt nostrum, placeat porro provident quam quo repudiandae saepe sit vitae, voluptas, voluptatem?
+      </div>
+    </cad-panel>
+
+    <textarea class="examples__copy" rows="8" ngNonBindable>
+<cad-panel [(isOpen)]="isExpanded" headTitle="some.i18n.path" (onOpen)="onExpandAction()" (onClose)="onCollapseAction()">
+  <div cad-panel-head>
+    // some additional html to include in header
+  </div>
+  <div cad-panel-content>
+    // actual panel content
+  </div>
+</cad-panel>
+    </textarea>
+
+  </div>
+</cad-panel>

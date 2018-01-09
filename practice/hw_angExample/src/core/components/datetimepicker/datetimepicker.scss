@@ -1,0 +1,88 @@
+.bootstrap-datetimepicker-widget {
+  .datepicker {
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    @extend .calendar;
+
+    .table-condensed {
+      @extend .table-condensed;
+
+      thead {
+        vertical-align: top;
+
+        .picker-switch {
+          font-size: 18px;
+          text-align: center;
+          color: $black;
+          padding: 0;
+          margin: 0;
+        }
+
+        .prev, .next {
+          span {
+            width: 9px;
+            height: 13px;
+            font-size: 0;
+            display: inline-block;
+            padding: 0;
+            margin: -1px 0 0;
+            vertical-align: middle;
+          }
+
+          &:hover {
+            span {
+              opacity: .6;
+            }
+          }
+
+          &:active {
+            span {
+              opacity: 1;
+            }
+          }
+        }
+
+        .prev {
+          span {
+            text-align: left;
+            background: url($assetsPath + 'images/calendar_icon_left.svg') left top no-repeat;
+          }
+        }
+
+        .next {
+          span {
+            text-align: right;
+            background: url($assetsPath + 'images/calendar_icon_right.svg') left top no-repeat;
+          }
+        }
+      }
+
+      td {
+        color: $cl;
+
+        span {
+          display: inline-block;
+          width: 54px;
+          height: 40px;
+          line-height: 40px;
+          margin: 2px 1.5px;
+          &.active {
+            border-radius: 4px;
+            background: $wl-tertiary;
+          }
+        }
+      }
+
+    }
+
+    .datepicker-decades .decade {
+      line-height: 1.2em;
+      margin-bottom: 16px;
+    }
+  }
+
+  /* HIDE time/day toggle option */
+  .accordion-toggle .table-condensed {
+    display: none !important;
+  }
+}

@@ -1,0 +1,58 @@
+@import '../../../../core/assets/scss/mixin';
+@import '../../../../core/assets/scss/variables';
+
+:host {
+  display: block;
+  border-bottom: 1px solid $brd-l;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.cad-context-menu-item {
+  padding: 0 20px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 600;
+  color: $black;
+  max-width: 500px;
+  user-select: none;
+
+  &__icon {
+    margin-right: 10px;
+  }
+
+  &:not(&--disabled) {
+    cursor: pointer;
+  }
+
+  &:hover:not(&--disabled) {
+    background-color: rgba($status-blue, 0.1);
+  }
+
+  &__tick {
+    fill: $status-blue;
+    margin-left: 15px;
+    visibility: hidden;
+
+    &--visible {
+      visibility: visible;
+    }
+  }
+
+  &__text {
+    @include text-overflow;
+  }
+
+  &--small {
+    height: 30px;
+  }
+
+  &--disabled {
+    color: rgba($cl, .3);
+  }
+}

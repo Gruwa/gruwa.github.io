@@ -1,0 +1,84 @@
+@import '../../../../../../core/assets/scss/variables';
+
+:host-context(.button-toggle-group--orange):first-child {
+  .button-toggle {
+    a {
+      margin-left: 0;
+    }
+  }
+}
+
+:host-context(.button-toggle-group--orange):last-child {
+  .button-toggle {
+    a {
+      margin-right: 0;
+    }
+  }
+}
+
+:host-context(.button-toggle-group--orange) {
+  .button-toggle {
+    background: transparent;
+    a {
+      margin: 0 20px;
+      padding: 20px 0 17px;
+      font-size: 16px;
+      font-weight: 600;
+      color: $gray-d;
+      border-bottom: 3px solid transparent;
+      &.is-active {
+        border-bottom: 3px solid $primary;
+        color: $cl;
+      }
+      &:hover {
+        color: $cl;
+      }
+      &.is-disabled {
+        opacity: 0.2;
+        cursor: not-allowed;
+        color: inherit;
+      }
+    }
+  }
+}
+
+:host-context(.button-toggle-group--orange.button-toggle-group--small):first-child {
+  .button-toggle {
+    a {
+      margin-left: 0;
+    }
+  }
+}
+
+
+:host-context(.button-toggle-group--orange.button-toggle-group--small) {
+  .button-toggle {
+    a {
+      margin: 0 15px;
+      padding: 0;
+      height: 40px;
+      line-height: 40px;
+      font-size: 14px;
+    }
+  }
+}
+
+:host-context(.button-toggle-group--orange.button-toggle-group--big):first-child {
+  .button-toggle {
+    a {
+      margin-left: 0;
+    }
+  }
+}
+
+:host-context(.button-toggle-group--orange.button-toggle-group--big) {
+  .button-toggle {
+    a {
+      margin: 0 20px;
+      padding: 0;
+      height: 80px;
+      line-height: 80px;
+      font-size: 18px;
+    }
+  }
+}

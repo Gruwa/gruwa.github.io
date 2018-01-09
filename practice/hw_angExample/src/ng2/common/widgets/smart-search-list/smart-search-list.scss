@@ -1,0 +1,106 @@
+@import '../../../../core/assets/scss/mixin';
+@import '../../../../core/assets/scss/variables';
+
+.smart-search-list {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.smart-search-list__search {
+  background-color: $bg;
+  padding: 12px 20px;
+  border-bottom: 1px solid $brd;
+}
+
+.select2style-container {
+  padding: 8px 8px 0 8px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.select2style-item {
+  display: flex;
+  align-items: center;
+  height: 26px;
+  max-width: 100%;
+  padding: 0 10px;
+  border-radius: 13px;
+  border: 1px solid rgba($wl-tertiary, .5);
+  background-color: $wl-tertiary-background;
+  color: $wl-tertiary;
+  font-size: 14px;
+  font-weight: 600;
+  user-select: none;
+  cursor: default;
+
+  span {
+    @include text-overflow;
+  }
+
+  cad-icon {
+    cursor: pointer;
+    width: 8px;
+    fill: $wl-tertiary;
+    margin-left: 10px;
+  }
+  cad-icon:hover {
+    fill: $wl-tertiary-l;
+  }
+}
+.select2style-item:not(:last-child) {
+  margin-right: 3px;
+  margin-bottom: 3px;
+}
+
+.smart-search-list__list {
+  height: 325px;
+  overflow: auto;
+  contain: layout; // tell browser that content of the list will not affect page rendering
+  background-color: $white;
+
+  &--collapsed {
+    display: none;
+  }
+}
+
+.smart-search-list__global-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.smart-search-list__bottom-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+}
+
+.smart-search-list__selection-overlay {
+  background-color: rgba($white, 0.84);
+  position: absolute;
+  padding: 12px 20px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.smart-search-list__no-results {
+  padding: 15px 20px;
+  border-bottom: 1px solid rgba($brd, 0.5);
+  font-size: 14px;
+  font-weight: 400;
+  color: $gray-d;
+}
+.smart-search-list__items-group-header {
+  margin-top: -1px;
+  padding: 8px 20px;
+  background: #f0f0f0;
+  color: #a4a4a4;
+  border-top: 1px solid #dadada;
+  border-bottom: 1px solid #dadada;
+  clear: both;
+  overflow: hidden;
+}

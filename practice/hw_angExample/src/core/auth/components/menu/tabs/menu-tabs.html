@@ -1,0 +1,9 @@
+<div class="header__nav" ng-show="vm.tabs.length > 0">
+
+  <!-- TODO FIXME having 'unique' below is incredibly ugly hack. need to fix that properly -->
+  <a ng-repeat="tab in vm.tabs | unique:'title' track by $index"
+     translate="{{tab.title}}"
+     ng-class="{ 'is-active': vm.isActive(tab.activeState) }"
+     ng-click="vm.goto(tab.linkState, tab.linkStateParams, tab.linkStateOptions);"></a>
+
+</div>

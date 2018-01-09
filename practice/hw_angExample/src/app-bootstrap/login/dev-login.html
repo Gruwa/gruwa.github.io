@@ -1,0 +1,58 @@
+<style>
+  .dev-login-page {
+    height: 100vh;
+    display: flex;
+  }
+
+  .dev-login-page__form {
+    margin: auto;
+    width: 300px;
+  }
+  .dev-login-page__form--animated {
+    animation-duration: 0.4s;
+    animation-fill-mode: both;
+  }
+  .dev-login-page__form--shake {
+    animation-name: shake-animation;
+  }
+
+  @keyframes shake-animation {
+    from, to {
+      transform: translate3d(0, 0, 0);
+    }
+    15%, 45%, 75% {
+      transform: translate3d(-5px, 0, 0);
+    }
+    30%, 60%, 90% {
+      transform: translate3d(5px, 0, 0);
+    }
+  }
+</style>
+
+<div class="dev-login-page">
+  <div class="dev-login-page__form dev-login-page__form--animated"
+       ng-class="{'dev-login-page__form--shake': vm.invalid}">
+    <div class="title title_4 mb-20 ta-center">
+      DEV mode login page
+    </div>
+    <form cad-autofocus>
+      <input class="input mb-20"
+             ng-class="{'is-error': vm.invalid}"
+             placeholder="Login"
+             type="text"
+             ng-model="vm.username"/>
+      <input class="input mb-20"
+             ng-class="{'is-error': vm.invalid}"
+             placeholder="Password"
+             type="password"
+             ng-model="vm.pass"/>
+      <cad-button size="wide"
+                  text="Login"
+                  type="submit"
+                  view="primary"
+                  ng-disabled="vm.isProcessing"
+                  ng-click="vm.login(vm.username, vm.pass)">
+      </cad-button>
+    </form>
+  </div>
+</div>

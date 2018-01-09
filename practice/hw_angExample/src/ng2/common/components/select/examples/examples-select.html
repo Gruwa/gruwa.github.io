@@ -1,0 +1,131 @@
+<cad-panel headTitle="Select">
+  <div cad-panel-content>
+
+    <div class="examples__params">
+      <ul>
+        <li><strong>[items]: any[]</strong> - array of items to select from</li>
+        <li><strong>[head]: string</strong> - what to show in component head</li>
+        <li><strong>[headColor]: SelectHeadColor</strong> - color of text in head section</li>
+        <li><strong>[labelField]: string</strong> - optional path to item's property that should be used as label</li>
+        <li><strong>[trackByField]: string</strong> - <b>required</b> path to item property that should be used an unique ID for item</li>
+        <li><strong>[type]: SelectType</strong> - Different select presentation</li>
+        <li><strong>[small]: boolean</strong> - if to use small layout (default is <strong>false</strong>)</li>
+        <li><strong>[disabled]: boolean</strong> - if to render control in disabled state</li>
+        <li><strong>[invalid]: boolean</strong> - if to render control in invalid state</li>
+        <li><strong>[headLabel]: string</strong> - text label, to show in head section on the right side</li>
+      </ul>
+      <br>
+      <div class="examples__params__note">
+        Component implements <strong>ControlValueAccessor</strong> - i.e. supports <strong>[(ngModel)]</strong>
+      </div>
+    </div>
+
+    <div class="cad-row">
+
+      <div class="column column-30">
+        <div class="mb-10">
+          <label><input type="checkbox" [(ngModel)]="isDisabled" /> Disabled</label>
+        </div>
+        <div class="mb-10">
+          <label><input type="checkbox" [(ngModel)]="isSmall" /> Small</label>
+        </div>
+        <div class="mb-10">
+          <label>headLabel <input class="input" type="text" [(ngModel)]="headLabel" /> </label>
+        </div>
+        <div class="mb-10">
+          <label>trackByField <input class="input" type="text" [(ngModel)]="trackByField" /> </label>
+        </div>
+
+        <div class="mb-10">
+          <span class="title title_6 title_thin">Type</span>
+          <select [(ngModel)]="type">
+            <option value="default">Default</option>
+            <option value="transparent">Transparent</option>
+            <option value="unboxed">Unboxed</option>
+          </select>
+        </div>
+
+        <div class="mb-10">
+          <span class="title title_6 title_thin">Head Color</span>
+          <select [(ngModel)]="headColor">
+            <option value="default">Default</option>
+            <option value="grey">Grey</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="column column-70">
+
+        <div class="mb-20 title title_5">
+          Selected value: {{ selected | json }}
+        </div>
+
+        <div class="display-inline_top mr-20">
+          <div class="title title_6 title_thin mb-10">Default usage:</div>
+          <div class="width-230">
+            <cad-select [head]="selected?.title || 'nothing selected'"
+                        [(ngModel)]="selected"
+                        [items]="items"
+                        [type]="type"
+                        [headColor]="headColor"
+                        [small]="isSmall"
+                        [headLabel]="headLabel"
+                        [trackByField]="trackByField"
+                        [disabled]="isDisabled">
+            </cad-select>
+          </div>
+        </div>
+
+        <div class="display-inline_top">
+          <div class="title title_6 title_thin mb-10">Custom item template and error state when nothing selected:</div>
+          <div class="width-230">
+            <cad-select [head]="selected ? '[' + selected.id + '] ' + selected.title : 'nothing selected'"
+                        [(ngModel)]="selected"
+                        [items]="items"
+                        [type]="type"
+                        [headColor]="headColor"
+                        [small]="isSmall"
+                        [trackByField]="trackByField"
+                        [disabled]="isDisabled"
+                        required
+                        #customSelect="ngModel"
+                        [invalid]="customSelect.invalid">
+              <ng-template let-item>
+                {{ item ? '[' + item.id + '] ' + item.title : '(clear selection)' }}
+              </ng-template>
+            </cad-select>
+
+            <div *ngIf="customSelect.invalid"
+                 class="title title_7 mt-5"
+                 style="color: red">
+              Please, select any value
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <textarea class="examples__copy" rows="13" ngNonBindable spellcheck="false">
+<cad-select [head]="selected.textTitle || ('global.nothing_selected' | translate)"
+            [(ngModel)]="selected"
+            [headLabel]="headLabel"
+            [trackByField]="trackByField"
+            [items]="items"
+            [type]="type"
+            [headColor]="headColor"
+            [small]="isSmall"
+            [disabled]="isDisabled"
+            required
+            #customSelect="ngModel"
+            [invalid]="customSelect.invalid">
+  <ng-template let-item>
+    {{ item ? '[' + item.id + '] ' + item.textTitle : '(clear selection)' }}
+  </ng-template>
+</cad-select>
+<div *ngIf="customSelect.invalid">Please, select any value</div>
+    </textarea>
+
+  </div>
+</cad-panel>

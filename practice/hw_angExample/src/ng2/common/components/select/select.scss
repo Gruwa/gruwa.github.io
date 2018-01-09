@@ -1,0 +1,111 @@
+@import '../../../../core/assets/scss/mixin';
+@import '../../../../core/assets/scss/variables';
+
+:host {
+  display: block;
+}
+
+.cad-select {
+  position: relative;
+  cursor: pointer;
+  min-width: 50px;
+}
+
+.cad-select__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  border: 1px solid $gray-d;
+  border-radius: 4px;
+  background-color: $bg;
+  opacity: 0.8;
+  padding: 0 12px;
+  user-select: none;
+}
+.cad-select__head:hover:not(.cad-select__head--disabled) {
+  background-color: $gray-f7;
+}
+.cad-select__head--disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+.cad-select__head--expanded {
+  background-color: $gray-f7;
+  border-radius: 4px 4px 0 0;
+  opacity: 1;
+}
+.cad-select__head--grey {
+  .cad-select__head__value {
+    color: $gray-dark;
+  }
+}
+.cad-select__head--small {
+  height: 32px;
+}
+.cad-select__head--error {
+  border-color: $red;
+}
+
+.cad-select__head__label {
+  position: absolute;
+  right: 34px;
+  top: 0;
+  height: 40px;
+  line-height: 40px;
+  @include fs;
+  color: $gray-d;
+}
+
+.cad-select__head__value {
+  @include text-overflow;
+  color: $cl;
+  font-weight: 600;
+  margin-right: 5px;
+}
+.cad-select__head__icon {
+  fill: $gray-d;
+  transition: transform 300ms;
+}
+.cad-select__head__icon--rotated {
+  transform: rotate(180deg);
+}
+
+.cad-select__items-list {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  margin-top: -1px; // to overlap head bottom border
+  border: 1px solid $gray-d;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  z-index: 2;
+  background-color: $white;
+  max-height: 250px;
+  overflow-y: auto;
+}
+.cad-select__items-list--visible {
+  display: block;
+}
+.cad-select__items-list--error {
+  border-color: $red;
+}
+
+.cad-select__item {
+  @include text-overflow;
+  display: block;
+  padding: 11px 12px;
+  color: $cl;
+  font-weight: 600;
+}
+.cad-select__item:hover {
+  background-color: $bg;
+}
+.cad-select__item--small {
+  padding: 6px 12px;
+}
+.cad-select__item--hidden {
+  display: none;
+}

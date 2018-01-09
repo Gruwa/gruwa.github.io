@@ -1,0 +1,537 @@
+.button {
+  /* general rules */
+  padding: 0 30px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  @include fs;
+
+  >.icon {
+    position: relative;
+    margin-right: 18px;
+    fill: $cl;
+    vertical-align: middle;
+  }
+
+  /* general types */
+  &.primary {
+    background: $primary-btn;
+    color: $primary-btn-text;
+    font-size: 15px;
+    height: 46px;
+    line-height: 46px;
+    text-transform: uppercase;
+
+    &.middle {
+      font-size: 13px;
+    }
+
+    &:hover, &.hover {
+      background: $primary-btn-hover;
+    }
+    &:active, &.active {
+      background: $primary-btn-active;
+    }
+    &[disabled] {
+      background: $primary-btn-disabled;
+      color: $primary-btn-disabled-text;
+    }
+
+    // TODO: Remove deprecated code when old login will be totaly removed
+    &.login {
+      background: $wl-login-btn;
+      color: $wl-login-btn-text;
+      &:hover {
+        background: $wl-login-btn-hover;
+      }
+      &[disabled] {
+        background: rgba($white,.3);
+        color: rgba($white,.5);
+      }
+    }
+  }
+
+  &.secondary {
+    background: transparent;
+    border: 1px solid $gray-d;
+    color: rgba($cl,.8);
+    height: 40px;
+    font-size: 13px;
+    text-transform: uppercase;
+    padding: 0 30px;
+
+    &.small {
+      padding: 0 20px;
+      line-height: 27px;
+    }
+
+    &:hover, &.hover {
+      background: $gray-f7;
+    }
+    &:active, &.active {
+      background: $bg;
+    }
+    &[disabled] {
+      background: transparent;
+      border-color: rgba($gray-d,.3);
+      color: rgba($cl,.3);
+      .icon {
+        fill: rgba($gray-d,.3);
+      }
+    }
+    .icon {
+      fill: $gray-d;
+    }
+  }
+
+  &.tertiary {
+    background: $bg;
+    border: 1px solid $gray-d;
+    opacity: 0.8;
+    color: $cl;
+    font-size: 15px;
+    height: 46px;
+    line-height: 44px;
+    text-transform: uppercase;
+    padding: 0 30px;
+
+    &.middle {
+      line-height: 38px;
+    }
+
+    &.small {
+      padding: 0 20px;
+      line-height: 27px;
+    }
+
+    &:hover, &.hover {
+      background: $gray-f7;
+    }
+    &:active, &.actie {
+      background: $gray-e2;
+    }
+    &[disabled] {
+      background: $bg;
+      opacity: 0.3;
+    }
+  }
+
+  &.white {
+    border-radius: 2px;
+    background-color: $white;
+    width: 84px;
+    height: 31px;
+    color: $primary-back-btn;
+    font-size: 13px;
+    padding: 0 20px;
+    width: auto;
+
+    &:hover, &.hover {
+      opacity: 0.8;
+    }
+    &:active, &.active {
+      opacity: 0.9;
+    }
+    &:disabled, &.disabled {
+      opacity: 0.3;
+    }
+  }
+
+  &.button_blue {
+    height: 29px;
+    padding: 0 20px;
+    border-radius: 2px;
+    background-color: $wl-tertiary-d;
+    font-size: 13px;
+    @include fs;
+    text-transform: uppercase;
+    color: $white;
+
+    &:hover, &.hover {
+      background-color: $wl-tertiary-d-hover;
+    }
+    &:active, &.active {
+      background-color: $wl-tertiary-d-active;
+    }
+    &:disabled, &.disabled {
+      background-color: rgba($wl-tertiary-d, 0.2);
+    }
+  }
+
+  &.cta {
+    overflow: hidden;
+    position: relative;
+    padding-left: 0;
+    padding-right: 20px;
+
+    span {
+      @extend .button;
+      @extend .primary;
+      display: block;
+      position: relative;
+      z-index: 1;
+      padding: 0 17px 0 30px;
+      line-height: 46px;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      width: 34px;
+      height: 34px;
+      @include rotate(45);
+      background-color: $primary-btn;
+      z-index: 0;
+      border-radius: 4px;
+    }
+
+    &:hover, &.hover {
+      span {
+        @extend .hover;
+      }
+      &:after {
+        background-color: $primary-btn-hover;
+      }
+    }
+    &:active, &.active {
+      span {
+        @extend .active;
+      }
+      &:after {
+        background-color: $primary-btn-active;
+      }
+    }
+    &[disabled] {
+      span {
+        @extend [disabled];
+      }
+      &:after {
+        background-color: $primary-btn-disabled;
+      }
+    }
+
+    &.middle {
+      height: 40px;
+      line-height: 40px;
+      padding-left: 0;
+      padding-right: 17px;
+
+      span {
+        padding: 0 19px 0 30px;
+        height: 40px;
+        line-height: 40px;
+      }
+
+      &:after {
+        width: 30px;
+        height: 30px;
+        top: 5px;
+        right: 5px;
+      }
+    }
+
+    &.small {
+      height: 29px;
+      line-height: 29px;
+      padding-left: 0;
+      padding-right: 14px;
+
+      span {
+        padding: 0 10px 0 20px;
+        font-size: 13px;
+        height: 29px;
+        line-height: 29px;
+      }
+
+      &:after {
+        width: 23px;
+        height: 23px;
+        top: 3px;
+        right: 4px;
+      }
+    }
+  }
+
+  &.cta-back {
+    line-height: 46px;
+    overflow: hidden;
+    position: relative;
+    padding-right: 0;
+    padding-left: 21px;
+
+    span {
+      @extend .button;
+      @extend .tertiary;
+      display: block;
+      position: relative;
+      z-index: 1;
+      padding: 0 30px 0 17px;
+      opacity: 1;
+      background-color: $cta-back-btn;
+      border: 1px solid $cta-back-btn-border;
+      color: $cta-back-btn-font;
+      border-left: 0;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      width: 34px;
+      height: 34px;
+      @include rotate(45);
+      background-color: $cta-back-btn;
+      border: 1px solid $cta-back-btn-border;
+      z-index: 0;
+      border-radius: 4px;
+    }
+
+    &:hover, &.hover {
+      span {
+        @extend .hover;
+        opacity: 1;
+        background-color: $cta-back-btn-hover;
+      }
+      &:after {
+        background-color: $cta-back-btn-hover;
+      }
+    }
+    &:active, &.active {
+      span {
+        @extend .active;
+        opacity: 1;
+        background-color: $cta-back-btn-active;
+      }
+      &:after {
+        background-color: $cta-back-btn-active;
+      }
+    }
+    &[disabled] {
+      span {
+        @extend [disabled];
+        opacity: 1;
+        background-color: $gray-f7;
+        border-color: $cta-back-btn-border-disabled;
+        color: $border-grey;
+      }
+      &:after {
+        background-color: $gray-f7;
+        border-color: $cta-back-btn-border-disabled;
+      }
+    }
+
+    &.middle {
+      height: 40px;
+      line-height: 40px;
+      padding-right: 0;
+      padding-left: 17px;
+
+      span {
+        padding: 0 50px;
+        height: 40px;
+      }
+
+      &:after {
+        top: 3px;
+        left: 8px;
+      }
+    }
+
+    &.small {
+      height: 29px;
+      line-height: 28px;
+      padding-right: 0;
+      padding-left: 14px;
+
+      span {
+        padding: 0 20px 0 10px;
+        height: 29px;
+      }
+
+      &:after {
+        top: -2px;
+        left: 14px;
+      }
+    }
+  }
+
+  &.middle {
+    height: 40px;
+    line-height: 38px;
+    padding: 0 30px;
+    font-size: 13px;
+    span {
+      font-size: 13px;
+      line-height: 38px;
+    }
+  }
+
+  &.small {
+    height: 29px;
+    line-height: 29px;
+    padding: 0 20px;
+    font-size: 13px;
+    border-radius: 2px;
+    span {
+      font-size: 13px;
+    }
+  }
+
+  &.wide {
+    width: 100%;
+  }
+
+  &.button_with-icon {
+    padding: 0 19px;
+
+    span {
+      vertical-align: middle;
+    }
+  }
+
+  & + .button {
+    margin-left: 17px;
+  }
+
+  &.button_margin_small + .button, &.button.small + .button {
+    margin-left: 7px;
+  }
+
+  &.button_margin_10 + .button {
+    margin-left: 10px;
+  }
+  /* end general types */
+
+  /* exclusions */
+  &.flat {
+    background: $bg;
+    opacity: 0.8;
+    color: $black;
+    text-transform: none;
+    padding: 0 10px;
+    height: 28px;
+
+    &:hover, &.hover {
+      background: $gray-f7;
+    }
+    &:active, &.active {
+      background: $gray-e2;
+    }
+    &[disabled] {
+      background: $bg;
+      opacity: 0.3;
+    }
+  }
+
+  &.cyan {
+    background: rgba($status-blue, 0.1);
+    height: 33px;
+    padding: 0 7px;
+    color: $status-blue;
+    font-size: 24px;
+    font-weight: 400;
+    text-transform: none;
+
+    &:hover, &.hover {
+      text-decoration: underline;
+      background: rgba($status-blue, 0.08);
+    }
+    &:active, &.active {
+      background: rgba($status-blue, 0.12);
+    }
+  }
+
+  &.back {
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    height: 61px;
+    margin-right: 20px;
+    background: $gray;
+    border-radius: 2px;
+    font-size: 0;
+    padding: 0;
+    min-width: 20px;
+
+    &:hover, &.hover {
+      background: $back-btn-hv;
+    }
+    &:active, &.active {
+      background: $back-btn-bg;
+    }
+
+    .icon-arrow-left {
+      width: 9px;
+      height: 13px;
+      fill: $white;
+      margin: 0;
+      top: 0;
+    }
+  }
+
+  &.back-orange {
+    height: 31px;
+    padding: 0 10px;
+    background: $primary-back-btn;
+    border-radius: 2px;
+    color: $primary-back-btn-text;
+    line-height: 31px;
+    font-size: 14px;
+    text-transform: none;
+
+    &:hover, &.hover {
+      background: rgba($primary-back-btn, 0.8);
+    }
+    &:active, &.active {
+      background: $primary-back-btn-active;
+    }
+    &[disabled] {
+      background: rgba($primary-back-btn, 0.2);
+      color: rgba($primary-back-btn-text, 0.5);
+      .icon {
+        fill: rgba($primary-back-btn-text, 0.5);
+      }
+    }
+
+    .icon {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 9px;
+      fill: $primary-back-btn-text;
+    }
+
+    //TODO fix for http://stackoverflow.com/questions/24289251/flexbox-not-working-in-buttons-in-firefox/24319292
+    span  {
+      display: inline-block;
+      margin-top: -3px;
+    }
+
+    .icon {
+      display: inline-block;
+      margin-top: -3px;
+    }
+  }
+
+  &.back-modal {
+    @extend .back-orange;
+    display: inline-block;
+    position: relative;
+    float: left;
+    margin: -2px 19px 0 -21px;
+    z-index: 1;
+  }
+
+  &.save-white {
+    height: 31px;
+    padding: 0 20px;
+    background: $white;
+    border-radius: 2px;
+    color: $primary-btn;
+    vertical-align: middle;
+    font-size: 14px;
+    text-transform: none;
+  }
+  /* end exclusions */
+}

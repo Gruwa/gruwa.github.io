@@ -1,0 +1,149 @@
+<cad-panel headTitle="Smart Filter">
+  <div cad-panel-content>
+
+    <div class="examples__params">
+      <div class="title title_5">cad-smart-filter-group</div><br/>
+      <ul>
+        <li><strong>[view]: 'modal' | 'dropdown'</strong> - how to display filters, either in dropdown (default) or in modal window</li>
+        <li><strong>[label]: string</strong> - button text</li>
+        <li><strong>[showOverlay]: boolean = false</strong> - display overlay</li>
+        <li><strong>[autoClose]: : boolean = false</strong> - close (and cancel) filter on outer click</li>
+        <li><strong>[selected]: ISmartFilterGroupValue</strong> - selected value (keys are associated with cadSmartFilter by name attribute)</li>
+        <li><strong>[bodyHeight]: number</strong> - limites the popover height in pixels and therefore makes it scrollable</li>
+        <li><strong>(onApply): EventEmitter&lt;ISmartFilterGroupValue&gt;</strong> - Trigger when apply button is clicked</li>
+      </ul>
+      <br/>
+    </div>
+
+    <div class="examples__params">
+      <div class="title title_5">cad-smart-filter</div><br/>
+      <ul>
+        <li><strong>[label]: string</strong> - short filter description</li>
+        <li><strong>[name]: string</strong> - corresponding key of <i>ISmartFilterGroupValue</i></li>
+      </ul>
+      <br/>
+      <div class="examples__params__note">
+        <strong>Requires a custom control(component) as a child element (should be implemented by client). It's responsible for a control inside a cad-smart-filter.</strong><br/>
+        <div class="mt-10">How to create a custom control:</div>
+        <ol class="mt-5 pl-10">
+          <li>1. Create a component which implements <strong>ISmartFilterControl</strong> interface.</li>
+          <li>2. Supply a component as child element with <strong>#cadSmartFilterControl</strong> attribute.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="title title_4">Predefined Controls:</div><br/>
+
+    <div class="examples__params">
+      <div class="title title_5">cad-smart-filter-button-toggle</div><br/>
+      <ul>
+        <li><strong>[items]: any[]</strong> - list of items</li>
+        <li><strong>[trackByField]: string</strong> - path to item property that should be used an unique ID for item (if item isn't a string)</li>
+        <li><strong>[labelField]: string</strong> - path to item property that should be rendered as item title (if item isn't a string)</li>
+      </ul>
+      <br/>
+      <div class="examples__params__note">
+        Predefined control for cad-smart-filter (implements <strong>ISmartFilterControl</strong> interface).
+      </div>
+      <br/>
+    </div>
+
+    <div class="examples__params">
+      <div class="title title_5">cad-smart-filter-date-range</div><br/>
+      <ul>
+        <li><strong>[ranges]: IDateRangeItem[]</strong> - data ranges (optional)</li>
+        <li><strong>[maxDate]: Moment</strong> - range max date (optional)</li>
+        <li><strong>[minDate]: Moment</strong> - range min date  (optional)</li>
+        <li><strong>[placement]: DropdownPlacements = 'bottom-right'</strong> - calendar position (optional)</li>
+      </ul>
+      <br/>
+      <div class="examples__params__note">
+        Predefined control for cad-smart-filter (implements <strong>ISmartFilterControl</strong> interface).
+      </div>
+      <br/>
+    </div>
+
+    <div class="examples__params">
+      <div class="title title_5">cad-smart-filter-select</div><br/>
+      <ul>
+        <li><strong>[items]: any[]</strong> - list of items</li>
+        <li ngNonBindable><strong>[labelWhenSelected]: string</strong> - label when items are selected (template: '# {{labelWhenSelected}} Selected')</li>
+        <li><strong>[labelField]: string</strong> - path to item property that should be rendered as item title and used for local search</li>
+        <li><strong>[trackByField]: string</strong> - <b>required</b> path to item property that should be used an unique ID for item</li>
+        <li><strong>[listHeight]: number</strong> - height of list in pixels (by default 4 items are displayed)</li>
+        <li><strong>[dropdownWidth]: number</strong> - width of dropdown in px(default is 340)</li>
+      </ul>
+      <br/>
+      <div class="examples__params__note">
+        Predefined control for cad-smart-filter (implements <strong>ISmartFilterControl</strong> interface).
+      </div>
+      <br/>
+    </div>
+
+    <div class="cad-row">
+      <div class="column column-100">
+
+        <cad-smart-filter-group label="Filter" [selected]="value" (onApply)="setValue($event)">
+          <cad-smart-filter label="Date Range" name="dateRange">
+            <cad-smart-filter-date-range #cadSmartFilterControl></cad-smart-filter-date-range>
+          </cad-smart-filter>
+
+          <cad-smart-filter label="Status" name="status">
+            <cad-smart-filter-button-toggle [items]="statusList" trackByField="key" labelField="text" #cadSmartFilterControl></cad-smart-filter-button-toggle>
+          </cad-smart-filter>
+
+          <cad-smart-filter label="Query" name="query">
+            <cad-examples-smart-filter-input #cadSmartFilterControl></cad-examples-smart-filter-input>
+          </cad-smart-filter>
+
+          <cad-smart-filter label="Applications" name="applications">
+            <cad-smart-filter-select [items]="applications"
+                                     [listHeight]="100"
+                                     trackByField="key"
+                                     labelField="title"
+                                     labelWhenSelected="Applications"
+                                     #cadSmartFilterControl>
+            </cad-smart-filter-select>
+          </cad-smart-filter>
+        </cad-smart-filter-group>
+
+      </div>
+    </div>
+
+    <div class="cad-row mt-25">
+      <div class="column column-100">
+
+        <div class="mb-10 title title_6">Selected value:</div>
+        <pre>{{ value | json }}</pre>
+
+      </div>
+    </div>
+
+    <textarea class="examples__copy" rows="24" ngNonBindable>
+        <cad-smart-filter-group label="Filter" [selected]="value" (onApply)="setValue($event)">
+          <cad-smart-filter label="Date Range" name="dateRange">
+            <cad-smart-filter-date-range #cadSmartFilterControl></cad-smart-filter-date-range>
+          </cad-smart-filter>
+
+          <cad-smart-filter label="Status" name="status">
+            <cad-smart-filter-button-toggle [items]="statusList" trackByField="key" labelField="text" #cadSmartFilterControl></cad-smart-filter-button-toggle>
+          </cad-smart-filter>
+
+          <cad-smart-filter label="Query" name="query">
+            <cad-examples-smart-filter-input #cadSmartFilterControl></cad-examples-smart-filter-input>
+          </cad-smart-filter>
+
+          <cad-smart-filter label="Applications" name="applications">
+            <cad-smart-filter-select [items]="applications"
+                                     [listHeight]="100"
+                                     trackByField="key"
+                                     labelField="title"
+                                     labelWhenSelected="Applications"
+                                     #cadSmartFilterControl>
+            </cad-smart-filter-select>
+          </cad-smart-filter>
+        </cad-smart-filter-group>
+    </textarea>
+
+  </div>
+</cad-panel>

@@ -1,0 +1,54 @@
+.pager {
+  font-size: 0;
+  margin: 0;
+
+  .accord__head & {
+    // to prevent panel header height change
+    margin-top: -10px;
+    margin-bottom: -10px;
+  }
+
+  .pager__list {
+    display: inline-block;
+    padding: 0 28px;
+    vertical-align: top;
+  }
+  .pager__prev,
+  .pager__next {
+    min-width: 0;
+    width: 40px;
+    padding: 0;
+    font-size: 0;
+    line-height: normal;
+    .icon {
+      fill: #b7b7b7;
+      margin: 0;
+      top: 0;
+    }
+  }
+  .pager__prev {
+    padding-right: 2px;
+  }
+  .pager__next {
+    padding-left: 2px;
+  }
+  .pager__active,
+  .pager__separator,
+  .pager__total{
+    font-size: 16px;
+    line-height: 40px;
+    display: inline-block;
+  }
+
+  .pager__separator {
+    font-size: 20px;
+    color: $brd;
+    width: 30px;
+  }
+
+  .pager__active {
+    font-weight: bold;
+  }
+
+
+}

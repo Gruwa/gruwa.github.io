@@ -1,0 +1,396 @@
+{
+  "global": {
+    "default_title": "Cadreon Unity",
+    "yes": "是",
+    "no": "没有",
+    "ok": "好",
+    "general": "一般",
+    "success": "成功",
+    "error": "错误",
+    "cancel": "取消",
+    "close": "关",
+    "back": "返回",
+    "apply": "应用",
+    "save": "保存",
+    "view": "查看",
+    "save_changes": "保存更改",
+    "search": "搜索",
+    "no_results": "没有结果",
+    "UTC": "UTC",
+    "not_set": "没有设置",
+    "discard": "放弃",
+    "discard_changes": "放弃更改",
+    "total": "总",
+    "no_matches_found": "没有找到匹配",
+    "list_is_empty": "列表为空",
+    "customize": "定制",
+    "select": "选择",
+    "select_all": "全选",
+    "clear_all": "清除所有",
+    "reset_to_all": "重置所有",
+    "on": "打开",
+    "off": "关闭",
+    "enabled": "启用",
+    "disabled": "禁用",
+    "clone": "复制",
+    "push_to_dsp": "推到DSP",
+    "or": "要么",
+    "na": "不可用",
+    "select_group": "选定群组",
+    "deselect_group": "清除群组",
+    "all": "所有",
+    "filter": "筛选",
+    "time": "时间",
+    "select_items": "选择项目",
+    "selected": "{{number}} {{name}} 已选择",
+    "updated": "已更新",
+    "show": "显示",
+    "hide": "隐藏",
+    "campaigns": {
+      "status": {
+        "ranker_ready": "排序器就绪",
+        "draft": "草案",
+        "push_in_progress": "推到DSP",
+        "pushed_to_dsp": "推到DSP",
+        "live": "在线",
+        "new": "新",
+        "cancelled": "取消",
+        "paused": "已暂停",
+        "completed": "完成",
+        "n_a": "不可用"
+      },
+      "status-short": {
+        "draft": "草案",
+        "push_in_progress": "正在推送",
+        "pushed_to_dsp": "已推送",
+        "live": "在线",
+        "new": "新",
+        "cancelled": "取消",
+        "paused": "已暂停",
+        "completed": "完成"
+      },
+      "status-io": {
+        "new": "新建",
+        "pending_approval": "审批中",
+        "finance_approved": "财务审批",
+        "ops_approved": "运营审批",
+        "not_approved": "未批准"
+      }
+    }
+  },
+  "currencyCodes": {
+    "USD": "$",
+    "EUR": "€",
+    "CAD": "$",
+    "AUD": "$",
+    "GBP": "£"
+  },
+  "date": {
+    "range": {
+      "yesterday": "昨天",
+      "last3days": "最近3天",
+      "last7days": "过去7天",
+      "last_month": "上个月",
+      "next7days": "未来7天",
+      "next_month": "下个月",
+      "custom": "自定义范围"
+    }
+  },
+  "statuses": {
+    "READY": "准备",
+    "ACTIVE": "激活",
+    "DISABLED": "已禁用",
+    "IN_FLIGHT": "在线的",
+    "COMPLETED": "完成"
+  },
+  "form": {
+    "quick_search": "搜索",
+    "search_line_item": "搜索线项目",
+    "username": "用户名",
+    "password": "密码",
+    "log_in": "登录",
+    "name": "名称",
+    "market": "市场",
+    "stage": "阶段",
+    "platform": "平台",
+    "media_type": "媒体类型",
+    "io_amount": "IO Amount",
+    "start_date": "开始日期",
+    "end_date": "结束日期",
+    "import": "输入",
+    "view": "查看",
+    "importing": "输入...",
+    "email": "电子邮件",
+    "unsaved_changes": {
+      "title": "未保存的更改",
+      "statement": "在这里您有未保存的更改。",
+      "question": "离开此页面会丢失信息， 您确定？",
+      "stay": "停留在此页面",
+      "leave": "离开这个页面"
+    }
+  },
+  "left_menu": {
+    "marketplace": "Marketplace",
+    "campaigns": "活动",
+    "totaltag": "uTag",
+    "amp": "AMP",
+    "advanced_tv": "ATV活动",
+    "reports": "报告",
+    "creatives": "素材",
+    "about": {
+      "about": "关于",
+      "build": "建立",
+      "environment": "环境"
+    },
+    "mobile_version": "手机版",
+    "accounts": "账户"
+  },
+  "system_messages": {
+    "ok_button": "OK，心动不如行动！"
+  },
+  "ad-blocker": {
+    "ad-blocker-title": "Ad Blocker",
+    "ad-blocker-desc": "您的浏览器正在使用广告拦截。<br/>同时为确保Unity的功能，请关闭广告拦截。<br/>（打开扩展设置并选择“禁用此站点”选项）"
+  },
+  "navbar": {
+    "add_menu": {
+      "digital_campaign": "Digital Campaign",
+      "tv_Campaign": "ATV Campaign"
+    },
+    "user_menu": {
+      "logout": "登出",
+      "support": "支持",
+      "documentation": "用户概览",
+      "profile_settings": "配置文件设置",
+      "preferences": "偏好",
+      "market": "市场"
+    }
+  },
+  "tabs": {
+    "digital": "数字",
+    "tv": "ATV",
+    "profile_settings": "配置文件设置",
+    "support": "支持",
+    "alerts": "提醒",
+    "integrations": "对接"
+  },
+  "advertiser": {
+    "header_title": "广告商",
+    "brand": "牌",
+    "account": "帐户",
+    "parent_account": "父帐户",
+    "categories": "分类",
+    "no_categories": "没有分类",
+    "market": "市场",
+    "opportunities": "广告订单",
+    "opportunity_search_placeholder": "广告订单检索",
+    "filter": {
+      "accounts": "帐号",
+      "all": "所有",
+      "brands": "品牌",
+      "all_advertisers": "所有广告",
+      "all_agencies": "@:用户.过滤.所有代理",
+      "all_industries": "所有行业"
+    },
+    "detail": {
+      "market": "市场",
+      "opportunities": "广告订单",
+      "classification": "分类",
+      "account_type": "帐户类型",
+      "salesforce_id": "Salesforce ID",
+      "parent_accounts": "父帐户",
+      "brands": "品牌",
+      "brand": "牌",
+      "account": "帐户"
+    }
+  },
+  "opportunity": {
+    "import": {
+      "importing": "导入正在进行中。 稍等片刻...",
+      "imported": "已导入的广告订单",
+      "failed": "我们无法马上与服务器进行通信。 请再试一次。"
+    }
+  },
+  "notifications": {
+    "header_title": "通知中心",
+    "api_error": "通知API调用失败。",
+    "last_notifications": "最新通知",
+    "show_all_notifications": "显示所有通知",
+    "by": "通过",
+    "today": "今天",
+    "yesterday": "昨天",
+    "older": "旧的",
+    "view_more_notifications": "查看<span>{{numnew}}更多</span>的通知",
+    "you_have_no_unread_notifications": "您有没有<br>未读通知"
+  },
+  "buttons": {
+    "create": "创建",
+    "edit": "编辑",
+    "delete": "删除",
+    "cancel": "取消",
+    "apply": "应用",
+    "activate": "启用",
+    "deactivate": "停用",
+    "ok": "好",
+    "browse": "浏览",
+    "add": "加",
+    "save": "保存",
+    "remove": "去掉",
+    "pause": "暂停",
+    "another": "选择另一个",
+    "attach_file": "附上文件",
+    "submit": "提交"
+  },
+  "upload": {
+    "uploading_file": "正在上传文件...",
+    "change_file": "更改文件"
+  },
+  "session": {
+    "revoked": "会话撤销",
+    "message": "请重新登录更新您的会话"
+  },
+  "messages": {
+    "empty_data": "无可用数据",
+    "no_data": "没有数据"
+  },
+  "validation": {
+    "required": "这是必填栏。",
+    "required_first_last_names": "姓和名是必需的。",
+    "invalid_password": "这不是一个有效的密码。",
+    "invalid_email": "这个电子邮件地址无效。",
+    "does_not_meet_requirements": "您的输入不符合要求。",
+    "forbidden_characters": "该名称包含不允许的字符。请修改名称，只包含字母数字字符。",
+    "invalid_date": "这不是一个有效的日期。",
+    "invalid_time": "这不是一个有效的时间。",
+    "invalid_date_time": "这不是有效的日期时间。",
+    "invalid_local_date_time": "这不是一个有效的本地日期时间。",
+    "invalid_number": "这不是一个有效的数字。",
+    "invalid_color": "这不是一个有效的颜色。",
+    "invalid_range": "这不是一个有效范围。",
+    "invalid_month": "这不是一个有效的月份。",
+    "invalid_url": "这不是一个有效的URL。",
+    "invalid_file": "这不是一个有效的文件。",
+    "error_user_exists": "该用户名已被使用。",
+    "does_not_meet_min_length": "您的字段必须至少有 {{ minlength }} 个字符。",
+    "does_not_meet_max_length": "您的字段最多有{{ maxlength }} 个字符。",
+    "does_not_meet_min_time": "提供时间不得超过前面  {{ attrs.min |date: 'HH:mm' }}。",
+    "does_not_meet_max_time": "时间不得晚于 {{attrs.max |date: 'HH:mm’}}。",
+    "does_not_meet_min_date": "提供的日期必须大于{{attrs.min | date:'dd.MM.yy’}}。",
+    "does_not_meet_max_date": "该日期不得迟于{{attrs.max |date: 'dd.MM.yy’}}。",
+    "more_then_max": "该值不能大于{{ max }}。",
+    "less_then_min": "该值必须不小于{{ min }}。",
+    "number_decimals_exceed": "数字最多有{{ maxDecimals }} 位小数。",
+    "number_digits_exceed": "数值过大。",
+    "date_should_be_after": "提供的日期必须不早于{{cadDateTimeValidateAfter || startDateTime | date:'MMM d, y h:mm a'}}.",
+    "exceed_period": "这不是一个有效周期 - 它不能超过{{cadValidatePeriodDays}}天。",
+    "passwords_do_not_match": "您输入的密码不匹配。",
+    "password_between": "密码必须在{{ ngMinlength }}和{{ ngMaxlength }}个字符之间。",
+    "password_to_short": "密码太短。",
+    "password_to_long": "密码太长。",
+    "old_password_is_incorrect": "旧密码不正确。",
+    "username_between": "之间{{ ngMinlength }}和{{ ngMaxlength }}字符是必需的。",
+    "user_name_not_unique": "这些用户名已存在",
+    "user_name_short": "用户名是太短了。",
+    "user_name_invalid": "用户名无效。",
+    "wrong_css_characters": "请按CSS规范输入文字"
+  },
+  "words": {
+    "2": "二",
+    "3": "三",
+    "4": "四",
+    "5": "五",
+    "expand": "扩大",
+    "collapse": "宕机",
+    "day": "天",
+    "date": "日期",
+    "details": "详情",
+    "from": "从",
+    "field": "字段",
+    "left": "剩下",
+    "more": "更多",
+    "user": "用户",
+    "yesterday": "昨天",
+    "today": "今天",
+    "week": "周",
+    "just_now": "现在",
+    "hours": "小时",
+    "min_ago": "分钟前",
+    "new": "新",
+    "n_days_ago": "{{days}}天前"
+  },
+  "audit_trail": {
+    "search_query": "搜索最近更改",
+    "old_value": "旧值",
+    "new_value": "新值",
+    "no_data": "此日志没有数据更新{{name}}",
+    "formatter": {
+      "t_boolean": {
+        "true": "真",
+        "false": "假"
+      }
+    },
+    "attribute_updated": "属性更新",
+    "attributes_updated": "属性更新",
+    "was_changed": "已更改",
+    "ADD": "已创建",
+    "MOD": "已编辑",
+    "DEL": "已删除"
+  },
+  "clipboard": {
+    "press_to_copy": "请按{{command}}复制",
+    "text_copied": "文本复制到剪贴板"
+  },
+  "administration": {
+    "pages": {
+      "integrations": "对接",
+      "advertisers_mapping": {
+        "title": "广告主匹配"
+      },
+      "user_management": "用户管理",
+      "system_alerts": "系统提醒",
+      "role_management": "角色管理"
+    },
+    "title": "管理员权限"
+  },
+  "default_locale": {
+    "locale_settings": "区域设置",
+    "description": "您的浏览器正在使用{{browserLocale}}语言环境。 您想在Unity中使用相同的设置吗？",
+    "no_keep_us_locale": "不，保持美国地区",
+    "update_success": "区域设置为{{locale}}。 您可以随时在“个人资料”设置中更改它。",
+    "update_error": "无法更新区域设置"
+  },
+  "http_errors": {
+    "400": {
+      "title": "错误请求",
+      "text": "您尝试访问的页面无法显示。"
+    },
+    "404": {
+      "title": "页面不存在",
+      "text": "您查找的页面不存在，无法查看。"
+    },
+    "500": {
+      "title": "某处出错",
+      "text": "您查找的页面不存在，无法查看。"
+    }
+  },
+  "support": {
+    "support_request": "请求支持团队",
+    "support_request_desc": "将您的请求提交到服务台。",
+    "subject": "主题",
+    "describe_your_problem": "描述您的问题",
+    "send": "发送",
+    "thank_you": "谢谢！",
+    "request_sent_desc": "您的请求已提交。 我们将尽快提供反馈意见。",
+    "sending_error": "我们现在无法与服务器连接。 请再试一次。",
+    "submit_new": "提交新请求",
+    "attach": "附加截图",
+    "upload_screenshot": {
+      "drop_file": "在这里放您的屏幕截图",
+      "file_details": "请选择最多5 Mb的JPG或PNG文件",
+      "error_header": "上传屏幕截图错误。",
+      "limitation": "每个请求可以附加1个屏幕截图",
+      "size_error": "上传的屏幕截图不能超过",
+      "uploading": "上传截图…"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+<div class="inline-input"
+     [class.inline-input--small]="size === 'small'"
+     [class.inline-input--medium]="size === 'medium'"
+     [class.inline-input--big]="size === 'big'">
+
+  <div class="inline-input__view" *ngIf="!isEditing">
+    <div class="inline-input__view__value" [cadSmartTooltip]="input.value">{{ input.value }}</div>
+    <div class="inline-input__view__placeholder" *ngIf="!input.value">{{ placeholder }}</div>
+    <div class="inline-input__view__icon">
+      <cad-icon *ngIf="!showSpinner" name="edit" (click)="edit()"></cad-icon>
+      <cad-icon *ngIf="showSpinner" name="preloader" customClass="small"></cad-icon>
+    </div>
+  </div>
+
+  <div class="inline-input__edit" *ngIf="isEditing">
+
+    <div class="inline-input__edit__editor" cadAutofocus>
+      <ng-content select="[input-slot]"></ng-content>
+    </div>
+
+    <div class="inline-input__edit__footer"
+         [class.inline-input__edit__footer--invalid]="input.invalid && (input.touched || input.dirty)">
+
+      <div class="inline-input__edit__error-message">
+        <ng-content select="[errors-slot]"></ng-content>
+      </div>
+
+      <div class="inline-input__edit__buttons">
+        <div class="inline-input__edit__save-btn"
+             [class.inline-input__edit__save-btn--valid]="input.valid"
+             [attr.data-automation]="'save_btn_' + (input.valid ? 'valid' : 'invalid')"
+             (click)="save()">
+          <cad-icon name="tick"></cad-icon>
+        </div>
+        <div class="inline-input__edit__cancel-btn"
+             data-automation="cancel_btn"
+             (click)="cancel()">
+          <cad-icon name="close"></cad-icon>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

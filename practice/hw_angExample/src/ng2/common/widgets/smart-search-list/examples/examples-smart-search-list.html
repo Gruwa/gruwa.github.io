@@ -1,0 +1,270 @@
+<cad-panel headTitle="Smart Search List">
+  <div cad-panel-content>
+
+    <div class="examples__params">
+      <ul>
+        <li><strong>@Input() multiselect: boolean</strong></li>
+        <li><strong>@Input() showGlobalSpinner: boolean</strong> - if to show spinner instead of list</li>
+        <li><strong>@Input() showBottomSpinner: boolean</strong> - if to show spinner at the bottom of the list for indicating next page loading</li>
+        <li><strong>@Input() select2style: boolean</strong> - if to display selected items in search field like in select2 control</li>
+        <li><strong>@Input() groupField: string</strong> - field by which items will be grouped</li>
+        <li><strong>@Input() selectionOverlay: boolean</strong> - if to display overlay above list with selected <b>single</b> item</li>
+        <li><strong>@Input() labelField: string</strong> - path to item property that should be rendered as item title and used for local search</li>
+        <li><strong>@Input() trackByField: string</strong> - <b>required</b> path to item property that should be used an unique ID for item</li>
+        <li><strong>@Input() listHeight: number</strong> - height if list in pixels (optional)</li>
+        <li><strong>@Input() adaptiveHeight: boolean</strong> -  if to reduce list height by content size (optional)</li>
+        <li><strong>@Input() searchQuery: string</strong> - initial value if search input</li>
+        <li><strong>@Input() noResultsMessage: string</strong> - text to show when nothing found by search (optional)</li>
+        <li><strong>@Input() searchPlaceholder: string</strong> - placeholder for search input (optional)</li>
+        <li><strong>@Input() externalSearch: boolean</strong> - if to apply local search</li>
+        <li><strong>@Input() disableSearch: boolean</strong> - disable search completely (<b>can't be changed after component created</b>)</li>
+        <li><strong>@Input() renderChunkSize: number</strong> - if set - list will be rendered by chunks with loading next chunk in "infinite scroll" style</li>
+        <li><strong>@Input() focusOnSearch: boolean = true</strong> - if set - move focus to search input (could be useful inside dropdown)</li>
+        <li><strong>@Input() expandOnFocus: boolean</strong> - if set - list will be shown only when the input field is focused, false by default</li>
+        <li><strong>@Input() toggleDisabled: boolean</strong> - if set - item already selected cannot be unselected clicking again (Single selection only) </li>
+        <li><strong>@Output() searchQueryChange</strong> - called when internal search input changed; called with 100ms debounce time</li>
+        <li><strong>@Output() onNextPage</strong> - called when reached end of the list; used to load content from BE</li>
+      </ul>
+      <br>
+      <div class="examples__params__note">
+        Component implements <strong>ControlValueAccessor</strong> - i.e. supports <strong>[(ngModel)]</strong>
+      </div>
+    </div>
+
+    <div class="cad-row mb-20">
+      <div class="column column-30"></div>
+      <div class="column column-70">
+        <cad-button-toggle-group type="blue"
+                                 (onChange)="changeExample($event)"
+                                 [activeButton]="activeExample">
+          <cad-button-toggle value="default">Default</cad-button-toggle>
+          <cad-button-toggle value="custom">Custom Template</cad-button-toggle>
+          <cad-button-toggle value="live">BE search and pagination</cad-button-toggle>
+        </cad-button-toggle-group>
+      </div>
+    </div>
+
+    <div class="cad-row">
+      <div class="column column-30">
+        <div class="mb-10">
+          List height: {{listHeight}}px
+          <input class="mb-15" type="range" min="20" max="1000" [(ngModel)]="listHeight" />
+        </div>
+        <div class="mb-10">
+          <cad-checkbox [(ngModel)]="isMultiselect">Multiselect</cad-checkbox>
+        </div>
+        <div class="mb-10">
+          <cad-checkbox [(ngModel)]="isSelect2style">Select2 style</cad-checkbox>
+        </div>
+        <div class="mb-10">
+          <cad-checkbox [(ngModel)]="isSelectionOverlay">Single selection overlay</cad-checkbox>
+        </div>
+        <div class="mb-10">
+          <cad-checkbox [(ngModel)]="isShowSpinner">Global spinner</cad-checkbox>
+        </div>
+        <div class="mb-10">
+          <cad-checkbox (click)="toggleGroupField()">Items in groups</cad-checkbox>
+        </div>
+        <div class="mb-10">
+          <cad-checkbox [(ngModel)]="expandOnFocus">Expand on focus only</cad-checkbox>
+        </div>
+        <div class="mb-10">
+          <cad-checkbox disabled [ngModel]="activeExample === 'live'">External search</cad-checkbox>
+        </div>
+        <div class="mb-10">
+          <cad-checkbox [(ngModel)]="disableSearch">Disable search</cad-checkbox>
+        </div>
+        <div class="mb-10">
+          <cad-checkbox [(ngModel)]="toggleDisabled">Toggle Disabled</cad-checkbox>
+        </div>
+        <div class="mb-10">
+          <cad-checkbox [(ngModel)]="adaptiveHeight">Adaptive height</cad-checkbox>
+        </div>
+        <div class="mb-10">
+          <span>Render by chunks:</span>
+          <input type="number" class="input width-90 ml-10" [(ngModel)]="chunkSize" />
+        </div>
+
+        <input type="text" class="input mb-10" placeholder="search placeholder" [(ngModel)]="searchPlaceholder" />
+        <input type="text" class="input mb-10" placeholder="search query" [(ngModel)]="searchQuery" />
+        <input type="text" class="input mb-10" placeholder="no result text" [(ngModel)]="noResultsMessage" />
+        <input type="text" class="input mb-10" placeholder="group field name" [(ngModel)]="groupField" />
+      </div>
+
+      <div class="column column-70">
+        <div class="cad-row">
+
+          <div class="column column-50">
+
+            <div *ngIf="activeExample === 'default'">
+              <div class="mb-10">
+                <cad-button text="load 300" view="secondary" size="small" (click)="load(false)"></cad-button>
+                <cad-button text="load 100k" view="secondary" size="small" (click)="load(true)"></cad-button>
+                <cad-button text="clear" view="secondary" size="small" (click)="clear()"></cad-button>
+                <cad-button text="clear selection" view="secondary" size="small" (click)="clearSelection()"></cad-button>
+              </div>
+              <div style="border: 1px solid #dadada; width: 315px;">
+                <cad-smart-search-list [items]="items"
+                                       labelField="nameField"
+                                       trackByField="id"
+                                       [listHeight]="listHeight"
+                                       [adaptiveHeight]="adaptiveHeight"
+                                       [(ngModel)]="selection"
+                                       [multiselect]="isMultiselect"
+                                       [select2style]="isSelect2style"
+                                       [selectionOverlay]="isSelectionOverlay"
+                                       [showGlobalSpinner]="isShowSpinner"
+                                       [renderChunkSize]="chunkSize"
+                                       [(searchQuery)]="searchQuery"
+                                       [disableSearch]="disableSearch"
+                                       [noResultsMessage]="noResultsMessage"
+                                       [searchPlaceholder]="searchPlaceholder"
+                                       [expandOnFocus]="expandOnFocus"
+                                       [toggleDisabled]="toggleDisabled"
+                                       [groupField]="groupField">
+                </cad-smart-search-list>
+              </div>
+            </div>
+
+            <div *ngIf="activeExample === 'custom'">
+              <div class="mb-10">
+                <cad-button text="load 300" view="secondary" size="small" (click)="load(false)"></cad-button>
+                <cad-button text="load 100k" view="secondary" size="small" (click)="load(true)"></cad-button>
+                <cad-button text="clear" view="secondary" size="small" (click)="clear()"></cad-button>
+              </div>
+
+              <cad-select class="select mb-20"
+                          [head]="activeCustomTemplate.name"
+                          [ngModel]="activeCustomTemplate"
+                          (ngModelChange)="activeCustomTemplate = $event"
+                          [items]="customTemplateList">
+              </cad-select>
+
+              <div style="border: 1px solid #dadada; width: 315px;">
+                <cad-smart-search-list [items]="items"
+                                       labelField="nameField"
+                                       trackByField="id"
+                                       [listHeight]="listHeight"
+                                       [adaptiveHeight]="adaptiveHeight"
+                                       [(ngModel)]="selection"
+                                       [multiselect]="isMultiselect"
+                                       [select2style]="isSelect2style"
+                                       [selectionOverlay]="isSelectionOverlay"
+                                       [showGlobalSpinner]="isShowSpinner"
+                                       [renderChunkSize]="chunkSize"
+                                       [(searchQuery)]="searchQuery"
+                                       [noResultsMessage]="noResultsMessage"
+                                       [searchPlaceholder]="searchPlaceholder"
+                                       [expandOnFocus]="expandOnFocus"
+                                       [toggleDisabled]="toggleDisabled"
+                                       [groupField]="groupField">
+
+                  <ng-template let-item="item" let-isSelected="isSelected">
+                    <ng-container [ngTemplateOutlet]="activeCustomTemplate.template"
+                                  [ngTemplateOutletContext]="{item: item, isSelected: isSelected}"></ng-container>
+                  </ng-template>
+                </cad-smart-search-list>
+              </div>
+            </div>
+
+            <!-- Templates should be on this level -->
+            <ng-template #listItemCustom let-item="item" let-isSelected="isSelected">
+              <div class="three-dots"
+                   style="padding: 10px; border-bottom: 1px solid silver; cursor: pointer;"
+                   [style.backgroundColor]="isSelected ? 'lightgreen' : 'white'"
+                   [innerHTML]="item | itemLabel:'nameField' | highlight:searchQuery">
+              </div>
+            </ng-template>
+
+            <ng-template #listItemDefault let-item="item" let-isSelected="isSelected">
+              <cad-smart-search-list-item [text]="item | itemLabel: 'nameField' "
+                                          [searchText]="searchQuery"
+                                          [market]="item.market"
+                                          [showTicks]="!selectionOverlay"
+                                          [selected]="isSelected">
+              </cad-smart-search-list-item>
+            </ng-template>
+
+            <ng-template #listItemSubtext let-item="item" let-isSelected="isSelected">
+              <cad-smart-search-list-item-subtext [text]="item | itemLabel:'nameField'"
+                                                  [subtext]="item | itemLabel:'nameField'"
+                                                  [searchText]="searchQuery"
+                                                  [market]="item.market"
+                                                  [selected]="isSelected">
+              </cad-smart-search-list-item-subtext>
+            </ng-template>
+            <!-- Templates -->
+
+            <div *ngIf="activeExample === 'live'">
+              <div class="mb-10">
+                <cad-button text="reload" view="secondary" size="small" (click)="searchAdvertisers('')"></cad-button>
+                <cad-button text="clear" view="secondary" size="small" (click)="clear()"></cad-button>
+              </div>
+              <div style="border: 1px solid #dadada; width: 315px;">
+                <cad-smart-search-list [items]="items"
+                                       trackByField="id"
+                                       [listHeight]="listHeight"
+                                       [adaptiveHeight]="adaptiveHeight"
+                                       [(ngModel)]="selection"
+                                       [multiselect]="isMultiselect"
+                                       [select2style]="isSelect2style"
+                                       [selectionOverlay]="isSelectionOverlay"
+                                       [showGlobalSpinner]="isGlobalLoading"
+                                       [showBottomSpinner]="isPageLoading"
+                                       (onNextPage)="loadMoreAdvertisers()"
+                                       (searchQueryChange)="searchAdvertisers($event)"
+                                       [renderChunkSize]="chunkSize"
+                                       [externalSearch]="true"
+                                       [(searchQuery)]="searchQuery"
+                                       [noResultsMessage]="noResultsMessage"
+                                       [searchPlaceholder]="searchPlaceholder"
+                                       [expandOnFocus]="expandOnFocus"
+                                       [toggleDisabled]="toggleDisabled"
+                                       [groupField]="groupField">
+                </cad-smart-search-list>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="column column-50">
+            <div class="mb-10 title title_6">Selected value:</div>
+            <pre>{{ selection | json }}</pre>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <textarea class="examples__copy" rows="24" ngNonBindable spellcheck="false">
+<cad-smart-search-list [items]="items"
+                       trackByField="id"
+                       [listHeight]="listHeight"
+                       [adaptiveHeight]="adaptiveHeight"
+                       [(ngModel)]="selection"
+                       [multiselect]="isMultiselect"
+                       [select2style]="isSelect2style"
+                       [selectionOverlay]="isSelectionOverlay"
+                       [showGlobalSpinner]="isGlobalLoading"
+                       [showBottomSpinner]="isPageLoading"
+                       (onNextPage)="loadMoreAdvertisers()"
+                       (searchQueryChange)="searchAdvertisers($event)"
+                       [renderChunkSize]="chunkSize"
+                       [externalSearch]="true"
+                       [(searchQuery)]="searchQuery"
+                       [noResultsMessage]="noResultsMessage"
+                       [searchPlaceholder]="searchPlaceholder"
+                       [expandOnFocus]="expandOnFocus"
+                       [toggleDisabled]="toggleDisabled"
+                       [groupField]="groupField">
+  <ng-template let-item="item" let-isSelected="isSelected">
+    <div class="custom-class-for-item"
+         [ngClass]="{'is-selected': isSelected}"
+         [innerHTML]="item | itemLabel | highlight:searchQuery">
+    </div>
+  </ng-template>
+</cad-smart-search-list>
+    </textarea>
+
+  </div>
+</cad-panel>

@@ -1,0 +1,91 @@
+// primary color
+$wl-primary: #f63;
+$wl-primary-hover: #fe7d53;
+$wl-primary-active: #fd5923;
+$wl-primary-disabled: #ffdccf;
+$wl-primary-disabled-text: #fff3ee;
+
+// secondary color
+$wl-secondary: #fff;
+
+// tertiary color
+$wl-tertiary: #5bc;
+$wl-tertiary-background: #eef8fa;
+$wl-tertiary-background-l: rgba(85, 187, 204, 0.1);
+// tertiary :: light
+$wl-tertiary-l: #77c9d6;
+// tertiary :: dark
+$wl-tertiary-d: #1c89a3;
+$wl-tertiary-d-hover: #2e9ab4;
+$wl-tertiary-d-active: #177e97;
+
+// primary buttons
+$wl-primary-btn: $wl-primary;
+$wl-primary-btn-text: $wl-secondary;
+$wl-primary-btn-hover: $wl-primary-hover;
+$wl-primary-btn-active: $wl-primary-active;
+$wl-primary-btn-disabled: $wl-primary-disabled;
+$wl-primary-btn-disabled-text: $wl-primary-disabled-text;
+
+// primary back buttons
+$wl-primary-back-btn: #eb430f;
+$wl-primary-back-btn-text: #fff;
+$wl-primary-back-btn-active: #df4110;
+
+// button with inverted colors
+$wl-inverted-btn: $wl-primary;
+$wl-inverted-btn-hover: $wl-inverted-btn;
+$wl-inverted-btn-active: $wl-inverted-btn;
+$wl-inverted-btn-background: $wl-secondary;
+
+// header
+$wl-header-background: $wl-primary;
+$wl-header-text: $wl-secondary;
+$wl-header-menu-text: #ffce6a;
+$wl-header-menu-text-hover: $wl-secondary;
+$wl-header-menu-text-active: $wl-secondary;
+
+// header > icons
+$wl-header-icon: $wl-secondary;
+$wl-header-icon-hover: rgba($wl-header-icon, 0.75);
+$wl-header-plus: $wl-tertiary;
+$wl-header-plus-hover: $wl-primary;
+$wl-header-plus-background: $wl-header-icon;
+$wl-header-plus-active-background: #ffe0d6;
+$wl-header-plus-disabled: #cc9f8c;
+$wl-header-plus-disabled-background: #ff9470;
+
+// header > notifications
+$wl-notifications-number: $wl-secondary;
+$wl-notifications-number-background: $wl-tertiary;
+
+// navigation
+$wl-navigation-background: $wl-primary;
+$wl-navigation-menu-item-text: $wl-secondary;
+$wl-navigation-menu-item-hover-text: #ff1300;
+$wl-navigation-menu-item-hover-background: rgba($wl-secondary, 0);
+$wl-navigation-menu-item-active-text: #ff1300;
+$wl-navigation-menu-item-active-background: rgba($wl-secondary, 0.15);
+
+// login page
+$wl-login-page-background: $wl-tertiary;
+$wl-login-btn: $wl-primary;
+$wl-login-btn-hover: rgba($wl-primary, 0.8);
+$wl-login-btn-text: $wl-secondary;
+
+// main preloader
+$wl-preloader: $wl-primary;
+
+// spinner
+$wl-primary-spinner-inner: #ccc;
+$wl-primary-spinner-outer: #f26739;
+
+// dashboard tile
+$wl-dashboard-tile-head: #1c89a3;
+$wl-dashboard-tile-content: #5bc;
+$wl-dashboard-tile-info-label: #fff;
+$wl-dashboard-tile-info-value: #b2f6ff;
+$wl-dashboard-tile-stats-label: #096482;
+$wl-dashboard-tile-stats-label-bottom: #b2f6ff;
+$wl-dashboard-tile-stats-value: #fff;
+$wl-dashboard-tile-stats-value-empty: #94E3ED;

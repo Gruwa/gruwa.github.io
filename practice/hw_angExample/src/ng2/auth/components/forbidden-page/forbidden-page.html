@@ -1,0 +1,21 @@
+<div class="cad-forbidden-page">
+  <div class="cad-forbidden-page__circle">
+    <cad-icon class="cad-forbidden-page__icon"
+              name="reject">
+    </cad-icon>
+  </div>
+
+  <div class="cad-forbidden-page__title">
+    {{ 'forbidden.no_permissions' | translate }}
+  </div>
+
+  <div class="cad-forbidden-page__text"
+       [innerHTML]="'forbidden.no_permissions_desc' | translate">
+  </div>
+
+  <cad-button class="cad-forbidden-page__button"
+              view="tertiary"
+              text="forbidden.contact_support"
+              cadSref="home.support">
+  </cad-button>
+</div>

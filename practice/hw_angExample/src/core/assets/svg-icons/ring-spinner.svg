@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	width="67px" height="67px" viewBox="0 0 67 67">
+<filter filterUnits="objectBoundingBox" x="0.00" y="0.00" width="100.00" height="100.00" id="filter0">
+<feImage x="0" y="0" width="67" height="67" preserveApectRatio="none" xlink:href="#symbol0"/>
+<feComposite in="grImage1" in2="SourceAlpha" operator="in" result="grOverlay1"/>
+<feBlend in="grOverlay1" in2="SourceGraphic" mode="normal" result="gradientOverlay1"/>
+</filter>
+<linearGradient id="linear_PSgrad_0" x1="100%" y1="50%" x2="0%" y2="50%">
+    <stop offset="0%" stop-color="rgb(85,187,203)" stop-opacity="1" />
+    <stop offset="57.8613%" stop-color="rgb(166,237,248)" stop-opacity="1" />
+    <stop offset="100%" stop-color="rgb(194,242,250)" stop-opacity="1" />
+</linearGradient>
+<defs>
+<rect x="0" y="0" width="67" height="67" id="symbol0" /></defs>
+<path fillRule="evenodd" d="M 67 33.5C 67 51.97 51.97 67 33.5 67 15.03 67-0 51.97-0 33.5-0 30.68 0.35 27.87 1.05 25.16 1.25 24.36 2.07 23.87 2.87 24.08 3.2 24.17 3.48 24.36 3.68 24.61 3.96 24.96 4.07 25.43 3.95 25.9 3.32 28.37 3 30.93 3 33.5 3 50.32 16.68 64 33.5 64 50.32 64 64 50.32 64 33.5 64 16.68 50.32 3 33.5 3 33.01 3 32.58 2.77 32.32 2.41 32.12 2.16 32 1.84 32 1.5 32 0.67 32.67-0 33.5-0 51.97-0 67 15.03 67 33.5Z"  filter="url(#filter0)"><animateTransform attributeName="transform" type="rotate" from="0 33.5 33.5" to="360 33.5 33.5" repeatCount="indefinite" dur="1s"></animateTransform></path></svg>

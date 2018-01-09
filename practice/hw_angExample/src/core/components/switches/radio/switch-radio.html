@@ -1,0 +1,13 @@
+ <label class="switch__item" ng-class="{ 'disabled': disabled }">
+  <input type="radio"
+         class="switch__input"
+         name="{{ name }}"
+         ng-model="model"
+         ng-value="{{ value === 'true' || value === 'false' ? value : 'value' }}"
+         ng-disabled="disabled"
+         ng-change="change()"/>
+
+  <span class="switch__el" translate="{{ text }}"></span>
+  <span class="switch__hint" translate="{{ hint }}"></span>
+  <strong><span class="switch__hint" translate="{{ strongHint }}"></span></strong>
+</label>

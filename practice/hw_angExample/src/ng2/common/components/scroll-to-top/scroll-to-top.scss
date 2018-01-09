@@ -1,0 +1,49 @@
+@import '../../../../../../unity-core/src/core/assets/scss/variables';
+
+.cad-strip {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 46px;
+  height: 100%;
+  opacity: 0;
+
+  &:hover {
+    opacity: 1;
+    background-color: rgba($white, 0.5);
+    cursor: pointer;
+  }
+}
+
+.cad-scroll-to-top-button {
+  position: fixed;
+  left: 0;
+  bottom: 60px;
+  z-index: 88; // below dropdown
+
+  width: 46px;
+  height: 46px;
+
+  border-radius: 4px 0 0 4px;
+  background-color: $wl-inverted-btn-background;
+  box-shadow: 0 4px 8px rgba($black, 0.1);
+
+  &__icon {
+    fill: $wl-inverted-btn;
+
+    &:hover {
+      fill: $wl-inverted-btn-hover;
+    }
+
+    &:active {
+      fill: $wl-inverted-btn-active;
+    }
+  }
+}
+
+.scroll {
+  display: none;
+  &--visible {
+    display: block;
+  }
+}

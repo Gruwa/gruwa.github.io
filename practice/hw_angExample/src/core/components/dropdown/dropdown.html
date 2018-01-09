@@ -1,0 +1,48 @@
+<div class="dropdown dropdown_{{ vm.color }} dropdown_{{ vm.size }} disabled-{{ vm.disable }} {{ vm.customClass }}"
+     ng-class="{ 'is-open': vm.visible }"
+     cad-click-out="vm.close()"
+     visible-class="is-open"
+     close-on-esc="true"
+     visibility-action="{{ vm.visibilityAction }}"
+     >
+
+  <div class="dropdown__head js-dropdown-head"
+       role="button"
+       aria-expanded="false"
+       ng-click="vm.click($event);"
+       ng-class="{ 'is-error': vm.isError }"
+       ng-transclude="title">
+
+    <div class="dropdown__title"
+         ng-class="{ 'is-empty': !vm.head.length }"
+         uib-tooltip="{{ vm.tooltipContent || (vm.head | translate) }}"
+         tooltip-placement="bottom"
+         tooltip-enable="{{ vm.showTooltip || true }}"
+         data-automation="{{ vm.head | translate }}">
+      {{ vm.head | translate | cadLimitTo: vm.limit }}
+    </div>
+
+    <span ng-show="!vm.isCloseButton()"
+          class="dropdown__head__icon">
+      <cad-icon name="{{ vm.icon }}"></cad-icon>
+    </span>
+
+    <span ng-show="vm.isCloseButton()"
+          class="dropdown__head__icon"
+          ng-click="vm.closeButtonAction(); $event.stopPropagation();">
+      <cad-icon name="close"></cad-icon>
+    </span>
+
+
+  </div>
+
+  <div class="dropdown-content dropdown-content_{{vm.contentColor}}"
+       ng-class="{
+                    'dropdown-content_left': vm.positions.includes('left'),
+                    'dropdown-content_right': vm.positions.includes('right'),
+                    'dropdown-content_top': vm.positions.includes('top'),
+                    'dropdown-content_bottom': vm.positions.includes('bottom'),
+                 }">
+    <div class="dropdown-content-data" ng-transclude></div>
+  </div>
+</div>

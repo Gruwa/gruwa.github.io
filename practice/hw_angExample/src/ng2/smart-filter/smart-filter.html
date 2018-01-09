@@ -1,0 +1,17 @@
+<div class="smart-filter bb">
+  <span class="display-inline width-140 title title_6">
+    {{ label | translate }}
+  </span>
+
+  <div class="display-inline mr-20">
+    <ng-content></ng-content>
+  </div>
+
+  <cad-link *ngIf="!isCleared()"
+            (click)="$event.stopPropagation(); clear()"
+            type="primary"
+            icon="close"
+            [iconRight]="true"
+            class="smart-filter__clear-button">
+  </cad-link>
+</div>

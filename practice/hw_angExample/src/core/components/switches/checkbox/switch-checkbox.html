@@ -1,0 +1,17 @@
+ <label class="switch__item">
+  <input type="checkbox"
+         ng-checked="checked"
+         ng-disabled="disabled"
+         class="switch__input"
+         ng-click="click()" />
+  <span class="switch__el">
+  	<span class="switch__content three-dots"
+          uib-tooltip="{{ ::(text || title) }}"
+          tooltip-placement="{{ ::tooltipPlacement || 'bottom' }}"
+          tooltip-append-to-body="true"
+          translate="{{text || title}}"
+          cad-smart-tooltip-enable>
+    </span>
+  	<cad-icon name="tick"></cad-icon>
+  </span>
+</label>

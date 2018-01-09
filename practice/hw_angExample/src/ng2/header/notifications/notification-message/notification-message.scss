@@ -1,0 +1,10 @@
+@import '../../../../core/assets/scss/variables';
+
+.notification-message-holder {
+  .notification-message {
+    border-radius: 20px;
+    background-color: $bg;
+    padding: 110px 120px 115px;
+    text-align: center;
+  }
+}

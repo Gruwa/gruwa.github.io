@@ -1,0 +1,22 @@
+<cad-icon name="close" (click)="close()" data-automation="popup_close"></cad-icon>
+
+<div class="modal-window-content"
+     [class.modal-window-content--compact]="view === 'compact'"
+     [class.modal-window-content--wide-content]="view === 'wide-content'"
+     [style.width.px]="width"
+     data-automation="popup">
+
+  <div class="modal-window-title" data-automation="popup_title">
+    <ng-content select="[modal-header]"></ng-content>
+  </div>
+
+  <div class="modal-window-body" data-automation="popup_body">
+    <ng-content select="[modal-body]"></ng-content>
+  </div>
+
+  <div *ngIf="footerVisible"
+       class="bt modal-window-footer"
+       data-automation="popup_footer">
+    <ng-content select="[modal-footer]"></ng-content>
+  </div>
+</div>

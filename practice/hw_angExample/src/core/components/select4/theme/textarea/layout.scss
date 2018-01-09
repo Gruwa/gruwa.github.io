@@ -1,0 +1,118 @@
+.select2-container {
+  font-size: 14px;
+
+  &.select2-container--textarea {
+    @import "single";
+    @import "multiple";
+    background-color: white;
+    border: 1px solid $brd;
+
+    .select2-search {
+      width: 100%;
+    }
+
+    .select2-search--dropdown {
+      .select2-search__field {
+        border: 1px solid #aaa;
+      }
+    }
+
+    .select2-search--inline {
+      .select2-search__field {
+        margin-top: 7px;
+        margin-left: 5px;
+        background: transparent;
+        border: none;
+        outline: 0;
+        box-shadow: none;
+        -webkit-appearance: textfield;
+      }
+    }
+
+    .select2-dropdown {
+      //overflow: auto;
+      min-width: 280px;
+      background-color: $white;
+      border-radius: 0;
+      box-shadow: 0 0 7px rgba(0,0,0,.3);
+    }
+
+    .select2-results > .select2-results__options {
+      max-height: 290px;
+      overflow-y: auto;
+    }
+
+    .select2-results__options {
+      box-shadow: 0 0 7px rgba(0,0,0,.3);
+    }
+
+    .select2-results__option {
+
+      border-bottom: 1px solid $brd;
+      height: 50px;
+      padding: 14px 20px;
+      font-weight: 600;
+
+      word-break: break-all;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      @include text-overflow;
+
+      &[role=group] {
+        padding: 0;
+      }
+
+      &[aria-disabled=true] {
+        color: #999;
+      }
+
+      &[aria-selected=true] {
+        background-color: $wl-tertiary-background;
+      }
+
+      .select2-results__option {
+        padding-left: 1em;
+
+        .select2-results__group {
+          padding-left: 0;
+        }
+
+        .select2-results__option {
+          margin-left: -1em;
+          padding-left: 2em;
+
+          .select2-results__option {
+            margin-left: -2em;
+            padding-left: 3em;
+
+            .select2-results__option {
+              margin-left: -3em;
+              padding-left: 4em;
+
+              .select2-results__option {
+                margin-left: -4em;
+                padding-left: 5em;
+
+                .select2-results__option {
+                  margin-left: -5em;
+                  padding-left: 6em;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .select2-results__option--highlighted[aria-selected] {
+      background: $wl-tertiary-background;
+      color: $black;
+    }
+
+    .select2-results__group {
+      cursor: default;
+      display: block;
+      padding: 6px;
+    }
+  }
+}

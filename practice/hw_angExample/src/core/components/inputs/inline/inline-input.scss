@@ -1,0 +1,343 @@
+.cad-input-data {
+  &.cad-input-data_hidden:hover {
+    .cad-edit__action__edit {
+      display: block;
+    }
+  }
+  &.cad-input-data_hidden,
+  &.cad-input-data_hidden.is-active {
+    .cad-edit__action__edit {
+      display: none;
+    }
+  }
+
+  &.cad-input-data_dark {
+    color: $black;
+    .cad-input-data__label {
+      color: $cl;
+    }
+  }
+  &.cad-input-data_white {
+    .cad-input-data__label {
+      color: $blue-d1;
+    }
+    .cad-edit {
+      color: $white;
+      .cad-edit__action {
+        .icon {
+          fill: $white;
+        }
+
+        &:hover {
+          .icon {
+            fill: rgba($white, 0.75);
+          }
+        }
+      }
+      .cad-edit__field {
+        .cad-edit__content {
+          color: $white;
+
+          &.no-value {
+             color: $white;
+          }
+        }
+
+        input {
+          color: $white;
+        }
+      }
+    }
+
+    &.is-active {
+      border-color: $white;
+    }
+  }
+  &.cad-input-data_important{
+    .cad-input-data__value{
+      color: $black;
+    }
+    .cad-input-data__label{
+      @include fs();
+    }
+  }
+  .cad-input-data__label {
+    margin-bottom: 2px;
+    color: $gray-d;
+  }
+  .cad-input-data__value {
+    font-size: 18px;
+  }
+  .cad-input-data__value_mid {
+    font-size: 24px;
+  }
+  .cad-input-data__value_big {
+    font-size: 32px;
+    line-height: 1;
+  }
+  .cad-input-data__value_bigger {
+    font-size: 42px;
+    line-height: 1;
+    .cad-input-data__empty {
+      padding: 5px 0;
+      font-size: 32px;
+    }
+  }
+  .cad-input-data__value_biggest {
+    font-size: 52px;
+    line-height: 1;
+  }
+  .cad-input-data__value-bold {
+    font-weight: 600;
+  }
+  .cad-input-data__graph {
+    display: inline-block;
+    margin-left: 20px;
+    vertical-align: middle;
+    font-size: 0;
+  }
+  .cad-input-data__group {
+    font-size: 0;
+    .cad-input-data__value,
+    .cad-input-data__graph {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .cad-input-data__value {
+      min-width: 60px;
+      margin-right: 10px;
+    }
+  }
+  .cad-input-data__empty {
+    color: #94E3ED;
+  }
+}
+
+
+.cad-edit {
+  position: relative;
+  display: inline-block;
+  padding-right: 25px;
+  vertical-align: top;
+  &.is-error, .ng-invalid {
+    .cad-edit__input input {
+      border-color: $red;
+    }
+  }
+  &.cad-edit_data {
+    .cad-edit__content {
+      font-size: 18px;
+
+      &.no-value {
+        color: $gray-d;
+      }
+    }
+    .cad-edit__input input {
+      height: 23px;
+      font-size: 18px;
+    }
+  }
+
+  &.cad-edit_small {
+    height: 17px;
+    .cad-edit__content {
+      font-size: 14px;
+      font-weight: 600;
+      color: $black;
+      line-height: 1.2;
+    }
+    .cad-edit__action {
+      position: absolute;
+      top: -2px;
+      .icon-edit {
+        width: 13px;
+        height: 13px;
+      }
+    }
+    .cad-edit__input input {
+      top: -1px;
+      height: 18px;
+      font-size: 14px;
+      font-weight: 600;
+      color: $black;
+    }
+    .cad-edit__action__save {
+      top: auto;
+      right: 20px;
+      bottom: -24px;
+    }
+    .cad-edit__action__close {
+      top: auto;
+      right: 0;
+      bottom: -24px;
+    }
+    .cad-edit__error-icon {
+      position: absolute;
+      top: -6px;
+      right: 0;
+      fill: #ed7f7f;
+    }
+  }
+
+  &.cad-edit_medium {
+    height: 24px;
+    .cad-edit__content {
+      font-size: 22px;
+      font-weight: 600;
+      color: $black;
+      line-height: 1.2;
+    }
+    .cad-edit__action {
+      position: absolute;
+      top: 5px;
+      .icon-edit {
+        width: 16px;
+        height: 16px;
+      }
+    }
+    .cad-edit__input input {
+      top: -1px;
+      height: 25px;
+      font-size: 22px;
+      font-weight: 600;
+      color: $black;
+    }
+    .cad-edit__action__save {
+      top: auto;
+      right: 20px;
+      bottom: -24px;
+    }
+    .cad-edit__action__close {
+      top: auto;
+      right: 0;
+      bottom: -24px;
+    }
+    .cad-edit__error-icon {
+      position: absolute;
+      top: -6px;
+      right: 0;
+      fill: #ed7f7f;
+    }
+  }
+
+  &.cad-edit_big {
+    padding-right: 30px;
+    height: 40px;
+    .cad-edit__content {
+      font-size: 34px;
+      font-weight: 600;
+      color: $black;
+      line-height: 1.2;
+    }
+    .cad-edit__action {
+      position: absolute;
+      top: 13px;
+      .icon-edit {
+        width: 18px;
+        height: 18px;
+      }
+    }
+    .cad-edit__input input {
+      top: -1px;
+      height: 40px;
+      font-size: 34px;
+      font-weight: 600;
+      color: $black;
+    }
+    .cad-edit__action__save {
+      top: auto;
+      right: 20px;
+      bottom: -24px;
+    }
+    .cad-edit__action__close {
+      top: auto;
+      right: 0;
+      bottom: -24px;
+    }
+    .cad-edit__error-icon {
+      position: absolute;
+      top: -6px;
+      right: 0;
+      fill: #ed7f7f;
+    }
+  }
+
+  .cad-edit__action {
+    position: absolute;
+    top: 2px;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    font-size: 0;
+    &:hover {
+      .icon {
+        fill: $brd;
+      }
+    }
+    &:active {
+      .icon {
+        fill: $gray-d;
+      }
+    }
+    .icon {
+      fill: $gray;
+    }
+    .icon-edit {
+      width: 15px;
+      height: 15px;
+    }
+    .icon-checkbox-tick {
+      width: 20px;
+      height: 18px;
+    }
+
+    &.cad-edit__action__save {
+      &:hover {
+        .icon {
+          fill: $wl-tertiary;
+        }
+      }
+    }
+  }
+  .cad-edit__input input {
+    position: relative;
+    width: 100%;
+  }
+  .cad-edit__input input,
+  .cad-edit__error-icon,
+  .cad-edit__action__save,
+  .cad-edit__action__close{
+    display: none;
+  }
+  .cad-edit__error, .validation-errors {
+    @include fs;
+    font-size: 12px;
+    color: $red;
+  }
+}
+
+.cad-input-data.is-active {
+  border-bottom: 1px solid $gray;
+  margin-bottom: -1px;
+  display: block;
+  .cad-edit{
+    display: block;
+  }
+  .cad-edit__input input,
+  .cad-edit__error-icon,
+  .cad-edit__action__save,
+  .cad-edit__action__close{
+    display: block;
+  }
+  .cad-edit__content,
+  .cad-edit__action__edit {
+    display: none;
+  }
+  .cad-edit__input input {
+    background: transparent;
+  }
+}
+
+.cad-edit.cad-edit--not-editable .cad-edit__action {
+  display: none;
+}

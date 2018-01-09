@@ -1,0 +1,54 @@
+@import '../../../../core/assets/scss/variables';
+
+.cad-collapsible-panel {
+  background: $white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.cad-collapsible-panel__head {
+  position: relative;
+  padding: 20px 40px;
+  min-height: 70px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.cad-collapsible-panel__head--disabled{
+  cursor: auto;
+}
+.cad-collapsible-panel__head:hover .cad-collapsible-panel__head__arrow-icon {
+  fill: $gray-d;
+}
+
+.cad-collapsible-panel__head__arrow-icon {
+  font-size: 0;
+  transition: transform 300ms;
+  fill: $gray;
+  margin-right: 20px;
+}
+.cad-collapsible-panel__head__arrow-icon--down {
+  transform: rotate(90deg);
+}
+.cad-collapsible-panel__head__arrow-icon--disabled {
+  visibility: hidden;
+}
+
+.cad-collapsible-panel__head__title {
+  font-weight: 600;
+  font-size: 24px;
+  color: $black;
+}
+.cad-collapsible-panel__head__title:hover {
+  text-decoration: underline;
+}
+
+.cad-collapsible-panel__head__custom-title {
+  flex-grow: 1;
+}
+
+.cad-collapsible-panel__content {
+  padding: 30px 40px;
+  border-top: 1px solid $brd-l;
+}

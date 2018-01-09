@@ -1,0 +1,119 @@
+<cad-panel headTitle="| Common Pipes">
+  <div cad-panel-content>
+
+    <div class="title title_2">translate</div>
+
+    <div class="border-bottom overflow-hidden">
+      <div class="mt-20 mb-20">
+        <div style="font-family: monospace" ngNonBindable>
+          <span>{{ 'global.default_title' | translate }}</span>
+        </div>
+        <div>
+          <span>{{ 'global.default_title' | translate }}</span>
+        </div>
+      </div>
+
+      <div class="mt-20 mb-20">
+        <div style="font-family: monospace" ngNonBindable>
+          <span>{{ 'words.n_days_ago' | translate:({days: 50}) }}</span>
+        </div>
+        <div>
+          <span>{{ 'words.n_days_ago' | translate:({days: 50}) }}</span>
+        </div>
+      </div>
+
+      <div class="mt-20 mb-20">
+        <em>HTML in message:</em>
+        <div style="font-family: monospace" ngNonBindable>
+          &lt;p [innerHTML]=&quot;'notifications.view_more_notifications' | translate:(&#123;numNew: 'many'&#125;)&quot;&gt;&lt;/p&gt;
+        </div>
+        <div>
+          <p [innerHTML]="'notifications.view_more_notifications' | translate:({numNew: 'billion'})"></p>
+        </div>
+      </div>
+
+      <div class="mt-20 mb-20">
+        <em>HTML in both message and message variables:</em>
+        <div style="font-family: monospace" ngNonBindable>
+          &lt;p [innerHTML]=&quot;'notifications.view_more_notifications' | translate:(&#123;numNew: '&lt;a&gt;many&lt;/a&gt;'&#125;)&quot;&gt;&lt;/p&gt;
+        </div>
+        <div>
+          <p [innerHTML]="'notifications.view_more_notifications' | translate:({numNew: '<a>billion</a>'})"></p>
+        </div>
+      </div>
+
+    </div>
+
+    <hr>
+
+    <div class="title title_2">highlight</div>
+
+    <div class="mt-20 mb-20" style="font-family: monospace">
+      &lt;span [innerHTML]="highlightText | highlight:highlightSearch"&gt;&lt;/span&gt;
+    </div>
+
+    <div class="border-bottom overflow-hidden">
+      <div class="column-50 float-left">
+        <input class="input mb-20"
+               title="highlightSearch value"
+               type="text"
+               [(ngModel)]="highlightSearch" />
+        <textarea class="el-w100"
+                  rows="5"
+                  title="highlightText value"
+                  spellcheck="false"
+                  [(ngModel)]="highlightText">
+          </textarea>
+      </div>
+      <div class="column-50 float-right pl-20">
+        <span [innerHTML]="highlightText | highlight:highlightSearch"></span>
+      </div>
+    </div>
+
+    <hr/>
+
+    <div class="title title_2">cadPercent</div>
+
+    <div class="mt-20 mb-20" style="font-family: monospace">
+      &lt;span [innerHTML]="123.4567 | cadPercent:'1.2-2'"&gt;&lt;/span&gt;
+    </div>
+
+    <div class="border-bottom overflow-hidden">
+      <div class="column-50 float-left">
+        <input class="input mb-20"
+               type="number"
+               placeholder="input value"
+               type="text"
+               [(ngModel)]="percentInput" />
+        <input class="input mb-20"
+               placeholder="input value"
+               type="text"
+               [(ngModel)]="digitsInput" />
+
+      </div>
+      <div class="column-50 float-right pl-20">
+        {{ percentInput | cadPercent:digitsInput }}
+      </div>
+    </div>
+
+    <div class="title title_2">cadUsername</div>
+
+    <div class="mt-20 mb-20" style="font-family: monospace">
+      &lt;span [innerHTML]="jhon.dhoe | cadUsername"&gt;&lt;/span&gt;
+    </div>
+
+    <div class="border-bottom overflow-hidden">
+      <div class="column-50 float-left">
+        <input class="input mb-20"
+               type="text"
+               placeholder="input value"
+               type="text"
+               [(ngModel)]="usernameInput" />
+
+      </div>
+      <div class="column-50 float-right pl-20">
+        {{ usernameInput | cadUsername }}
+      </div>
+    </div>
+  </div>
+</cad-panel>

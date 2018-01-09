@@ -1,0 +1,22 @@
+<div class="accord__head">
+  <cad-icon custom-class="accord__head__icon" name="arrow-down"></cad-icon>
+
+  <div class="cad-row cad-row_vertical_middle" ng-if="head">
+    <div cad-column="{{ headColumnWidth }}">
+      <div class="title title_2">
+       <span ng-transclude="preTitle">
+         <a class="title__link">
+           <span class="title__text" translate="{{ head }}"></span>
+           <span class="title__counter">{{ counter }}</span>
+         </a>
+       </span>
+        <span ng-transclude="title"></span>
+      </div>
+    </div>
+    <div cad-column="{{ 100 - headColumnWidth }}" ng-show="isOpen" ng-transclude>
+    </div>
+  </div>
+
+  <div class="cad-row cad-row_vertical_middle" ng-if="!head" ng-transclude></div>
+
+</div>

@@ -1,0 +1,50 @@
+// TODO: delete once refactor main header styles
+.head {
+  background: $white;
+  position: relative;
+  &.head_p-12 {
+    padding: 12px 0;
+  }
+  &.head_p-10 {
+    padding: 10px 0;
+  }
+  .head__in {
+    padding: 20px 0;
+  }
+  .head__in_p-0 {
+    padding: 0;
+  }
+  .head__in_p-12 {
+    padding: 12px 0;
+  }
+  .head__in_p-15 {
+    padding: 15px 0;
+  }
+  .head__in_gray {
+    padding: 15px 0;
+    background: $gray-f7;
+  }
+  /* CASTOMIZED added */
+  .head__in_shadow {
+    box-shadow: 0 0 10px rgba($black,.2);
+    position: relative;
+  }
+  /**/
+  .head__in_bg {
+    padding: 15px 0;
+    background: $bg;
+  }
+  .head__table {
+    display: table;
+  }
+  .head__col {
+    display: table-cell;
+    padding: 0 20px;
+    border-left: 1px solid $brd;
+    vertical-align: middle;
+    &:first-child {
+      padding-left: 0;
+      border: none;
+    }
+  }
+}

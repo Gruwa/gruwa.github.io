@@ -1,0 +1,43 @@
+<cad-modal-content [view]="currentView" [width]="modalWidth < 500 ? 500 : modalWidth">
+  <div modal-header class="cad-flex el-w100 test-modal-header">
+    <div>
+      <div class="title title_3 title_white">Title</div>
+      <div class="title title_6 title_white title_thin">Subtitle (created: {{ creationTime }})</div>
+    </div>
+
+    <div class="test-modal-header--right">
+      <cad-select [head]="currentView"
+                  [items]="views"
+                  type="transparent"
+                  [(ngModel)]="currentView">
+      </cad-select>
+    </div>
+  </div>
+
+  <div modal-body>
+    <div class="title title_4 mb-10">Input data:</div>
+    <div class="mb-10">aParam: {{ aParam }}</div>
+    <div class="mb-10">bParamCustomName: {{ bParam }}</div>
+
+    <div class="title title_4 mb-10">Output value:</div>
+    <div>
+      <cad-select [head]="outputValue || 'Select Value'"
+                  [items]="outputItems"
+                  [(ngModel)]="outputValue">
+      </cad-select>
+    </div>
+
+    <br>
+    <div class="title title_4 mb-10">Modal width:</div>
+    <input type="text" class="input" [(ngModel)]="modalWidth">
+  </div>
+
+  <div modal-footer class="cad-flex cad-flex_space_between el-w100">
+    <cad-button view="primary" text="+ One More Modal" (click)="openModal()"></cad-button>
+
+    <div>
+      <cad-button view="secondary" text="buttons.cancel" (click)="onCancel()"></cad-button>
+      <cad-button view="primary" text="buttons.apply" (click)="onApply()"></cad-button>
+    </div>
+  </div>
+</cad-modal-content>

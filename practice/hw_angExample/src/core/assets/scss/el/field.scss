@@ -1,0 +1,158 @@
+.field {
+  position: relative;
+  label.field__in {
+    position: relative;
+    width: 100%;
+
+    &.field__small {
+      input {
+        height: 32px;
+        font-size: 14px;
+        padding: 0 10px 0 30px;
+      }
+      .field__icon {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 4px;
+      }
+      .field__icon-text {
+        display: inline-block;
+        font-weight: 700;
+        font-size: 14px;
+        color: $gray-d;
+        vertical-align: middle;
+      }
+    }
+  }
+  .input {
+    width: 100%;
+    height: 40px;
+    padding: 0 12px;
+    border: 1px solid $brd;
+    border-radius: 4px;
+    @include placeholder;
+    &:focus {
+      border-color: rgba($gray-d, 0.8);
+    }
+    &[disabled] {
+      opacity: 0.4;
+    }
+
+    &[disabled] + .field__icon {
+      opacity: 0.4;
+    }
+    &.is-error,
+    &.ng-invalid.ng-touched,
+    &.ng-invalid.ng-dirty {
+      border-color: $red;
+    }
+    &:-webkit-autofill {
+      background-color: $white !important;
+      -webkit-box-shadow:0 0 0 50px white inset;
+    }
+  }
+  &.field_icon {
+    .input {
+      padding-right: 40px;
+    }
+
+    label.field__in {
+      width: 100%;
+    }
+  }
+  &.field_icon_left {
+    .field__icon {
+      right: auto;
+      left: 0;
+      border-radius: 4px 0 0 4px;
+    }
+    .input {
+      padding: 0 10px 0 40px;
+    }
+  }
+  // TODO: Remove or rename field_icon_blue
+  &.field_icon_blue {
+    .field__icon {
+      background: $wl-tertiary;
+    }
+    .input {
+      padding: 0 10px 0 55px;
+    }
+
+    &.disabled {
+      input {
+        opacity: 0.4;
+      }
+      .field__icon {
+        background: rgba($wl-tertiary, 0.4);
+      }
+
+    }
+
+    &.field_icon_blue-dark {
+      .field__icon {
+        background: $wl-tertiary-d;
+      }
+    }
+  }
+  .field__error {
+    padding: 6px 12px 0;
+    font-size: 13px;
+    @include fs;
+    color: $red;
+  }
+  .validation {
+    width: 100%;
+    font-size: 12px;
+    font-weight: 600;
+    .validation-errors {
+      margin-top: 5px;
+    }
+    .field__error {
+      line-height: 1;
+    }
+  }
+  .field__icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 40px;
+    border-radius: 0 4px 4px 0;
+    height: 40px;
+    @include vertical;
+    .icon {
+      fill: $gray-d;
+      vertical-align: middle;
+    }
+  }
+  .field__icon-text {
+    display: inline-block;
+    padding-bottom: 2px;
+    font-weight: 700;
+    font-size: 18px;
+    color: $white;
+    vertical-align: middle;
+  }
+  .field__reset {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 34px;
+    height: 34px;
+    font-size: 0;
+    .icon-close {
+      fill: $gray;
+      position: static;
+      margin: 0;
+      width: 13px;
+      height: 12px;
+    }
+    &:hover .icon-close {
+      fill: $gray-d;
+    }
+  }
+}

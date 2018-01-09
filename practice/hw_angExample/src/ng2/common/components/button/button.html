@@ -1,0 +1,32 @@
+<button [type]="type"
+        class="cad-button"
+        [class.cad-button--primary]="view === 'primary'"
+        [class.cad-button--cta]="view === 'cta'"
+        [class.cad-button--cta-back]="view === 'cta-back'"
+        [class.cad-button--secondary]="view === 'secondary'"
+        [class.cad-button--tertiary]="view === 'tertiary'"
+        [class.cad-button--flat]="view === 'flat'"
+        [class.cad-button--back-orange]="view === 'back-orange'"
+        [class.cad-button--back]="view === 'back'"
+        [class.cad-button--small]="small"
+        [class.cad-button--hidden]="hidden"
+        [disabled]="disabled || showSpinner"
+        (click)="onClick.emit($event)">
+
+  <div class="cad-button__content-wrapper"
+       [class.cad-button__content-wrapper--hidden]="showSpinner">
+    <cad-icon *ngIf="icon" [name]="icon"></cad-icon>
+    <span>
+      {{ text | translate }}
+      <ng-content></ng-content>
+    </span>
+  </div>
+
+  <cad-spinner *ngIf="showSpinner"
+               borderWidth="2"
+               width="15"
+               size="small"
+               type="ring"
+               class="cad-button__spinner">
+  </cad-spinner>
+</button>

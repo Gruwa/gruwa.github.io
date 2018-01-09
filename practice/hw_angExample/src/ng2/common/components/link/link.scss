@@ -1,0 +1,153 @@
+@import '../../../../core/assets/scss/mixin';
+@import '../../../../core/assets/scss/variables';
+
+:host {
+  display: inline-block;
+}
+
+.cad-link-icon {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  font-size: 0;
+  max-width: 100%;
+
+  &:hover, &.hover,
+  &:focus {
+    cursor: pointer;
+    text-decoration: none;
+    span {
+      text-decoration: underline;
+    }
+  }
+
+  &:active, &.active {
+    opacity: 0.8;
+  }
+
+  &.disabled {
+    opacity: 0.35;
+    span,
+    /deep/ .icon {
+      fill: $gray;
+    }
+    &:hover {
+      cursor: default;
+      span {
+        text-decoration: none;
+      }
+
+      /deep/ .icon {
+        /* use important to not redefine disabled in each type */
+        fill: $gray !important;
+      }
+    }
+  }
+
+  span, /deep/ .icon {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  /deep/ .icon {
+    position: relative;
+    fill: $gray;
+  }
+
+  .cad-link-icon__left-text {
+    margin-right: 10px;
+  }
+  .cad-link-icon__right-text {
+    margin-left: 10px;
+  }
+
+  .cad-link-icon__left-text,
+  .cad-link-icon__right-text {
+    @include text-overflow;
+  }
+
+  &.icon-right {
+    /deep/ .icon {
+      float: right;
+      top: 6px;
+      margin-left: 10px;
+    }
+  }
+
+  &.primary {
+    &:hover, &.hover,
+    &:active, &.active,
+    &:focus {
+      /deep/ .icon {
+        fill: $wl-tertiary;
+      }
+    }
+
+    span {
+      font-size: 14px;
+      @include fs;
+      color: $wl-tertiary;
+    }
+  }
+
+  &.secondary {
+    &:hover, &.hover,
+    &:active, &.active,
+    &:focus {
+      /deep/ .icon {
+        fill: $wl-tertiary-d;
+      }
+    }
+
+    span {
+      font-size: 14px;
+      @include fs;
+      color: $wl-tertiary-d;
+    }
+  }
+
+  &.tertiary {
+    &:hover, &.hover,
+    &:active, &.active,
+    &:focus {
+      /deep/ .icon {
+        fill: $wl-tertiary-d;
+      }
+    }
+
+    span {
+      font-size: 16px;
+      color: $gray-dark;
+      font-weight: 400;
+    }
+  }
+
+  &.negative {
+    /deep/ .icon {
+      opacity: 0;
+    }
+
+    &:hover, &.hover,
+    &:active, &.active,
+    &:focus {
+      /deep/ .icon {
+        fill: $wl-primary;
+        opacity: 1;
+      }
+    }
+
+    span {
+      font-size: 16px;
+      color: $gray-dark;
+      font-weight: 400;
+    }
+
+    &.disabled {
+      pointer-events: none;
+      /deep/ .icon {
+        opacity: 0;
+      }
+    }
+  }
+}
+

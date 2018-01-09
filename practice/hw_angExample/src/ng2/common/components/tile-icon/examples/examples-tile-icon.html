@@ -1,0 +1,51 @@
+<cad-panel headTitle="Tile Icon">
+  <div cad-panel-content>
+
+    <div class="examples__params">
+      <ul>
+        <li><strong>[icon]: string</strong> - Icon name</li>
+        <li><strong>[title]: string</strong> - Tile title</li>
+        <li><strong>[customClass]: string</strong> - Custom class</li>
+      </ul>
+    </div>
+
+    <textarea class="examples__copy" rows="8" ngNonBindable>
+            <cad-tile-icon
+               [icon]="icon"
+               [title]="title"
+               [customClass]="customClass">
+            </cad-tile-icon>
+    </textarea>
+
+    <div class="cad-row">
+      <div class="column column-30">
+
+        <div class="mb-15">
+          <div class="title title_6 title_thin mb-10">Number of tiles ({{numTiles}}):</div>
+          <input class="mb-15" type="range" min="1" max="40" [(ngModel)]="numTiles" />
+        </div>
+
+        <div class="mb-15">
+          <div class="title title_6 title_thin mb-10">Tile title:</div>
+          <input class="mb-15 input" type="text" [(ngModel)]="title" />
+        </div>
+
+
+      </div>
+
+      <div class="column column-70">
+          <div [style.display]="'flex'"
+               [style.justify-content]="'space-between'"
+               [style.flex-wrap]="'wrap'"
+              >
+            <cad-tile-icon *ngFor="let i of tilesIds"
+                           [icon]="icon"
+                           [title]="title"
+                           [customClass]="customClass">
+            </cad-tile-icon>
+          </div>
+      </div>
+    </div>
+
+  </div>
+</cad-panel>

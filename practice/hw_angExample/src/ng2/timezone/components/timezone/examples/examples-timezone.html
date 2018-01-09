@@ -1,0 +1,54 @@
+<cad-panel headTitle="Timezone">
+  <div cad-panel-content>
+
+    <div class="examples__params">
+      <ul>
+        <li>Component for selectiong timezone</li>
+        <li><strong>@Input() [ngModel]: string - timezone code</strong></li>
+        <li><strong>@Input() [dropdownPosition]: string - see placement for dropdown component</strong></li>
+        <li><strong>@Input() [contentColor]: string - see contentColor for dropdown component</strong></li>
+        <li><strong>@Input() [toggleDisabled]: boolean</strong> - if set - item already selected cannot be unselected clicking again</li>
+        <li><strong>@Output() (ngModelChange): Function</strong></li>
+      </ul>
+    </div>
+
+    <div>
+      <div>
+        <cad-timezone [(ngModel)]="timezone"
+                      [dropdownPosition]="dropdownPosition"
+                      [contentColor]="contentColor"
+                      [toggleDisabled]="toggleDisabled">
+        </cad-timezone>
+      </div>
+
+      <div>
+        <div class="mb-15">
+          <div class="title title_6 title_thin mb-10">timezone:</div>
+          <input class="input" placeholder="timezone" [(ngModel)]="timezone">
+        </div>
+
+        <div class="mb-15">
+          <div class="title title_6 title_thin mb-10">dropdownPosition:</div>
+          <input class="input" placeholder="dropdownPosition" [(ngModel)]="dropdownPosition">
+        </div>
+
+        <div class="mb-15">
+          <div class="title title_6 title_thin mb-10">contentColor:</div>
+          <input class="input" placeholder="contentColor" [(ngModel)]="contentColor">
+        </div>
+
+        <div class="mb-15">
+          <cad-checkbox [(ngModel)]="toggleDisabled">Toggle Disabled</cad-checkbox>
+        </div>
+      </div>
+      <textarea class="examples__copy" rows="12">
+<cad-timezone [(ngModel)]="timezone"
+              [dropdownPosition]="dropdownPosition"
+              [contentColor]="contentColor"
+              [toggleDisabled]="toggleDisabled">
+</cad-timezone>
+      </textarea>
+    </div>
+
+  </div>
+</cad-panel>

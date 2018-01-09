@@ -1,0 +1,161 @@
+<cad-panel headTitle="Smart Tooltip">
+  <div cad-panel-content>
+    <div class="title title_2 mb-10">cad-smart-tooltip</div>
+    <div class="title title_6 title_thin mb-10">
+      Shows tooltip when host element hovered or clicked. By default works in "smart" mode - tooltip popups when inner text is truncated by CSS overflow.
+      <br>
+      If inside element with <strong>cadSmartTooltip</strong> attribute contains <strong>&lt;template #customTooltipTemplate&gt;</strong> - that markup will be used as custom template body.
+    </div>
+
+    <div class="examples__params">
+      <ul>
+        <li><strong>[cadSmartTooltip]: string</strong> - value will be shown as tooltip text</li>
+        <li><strong>[cadSmartTooltipOptions]: ISmartTooltipOptions</strong> - tooltip options object</li>
+        <li><strong>&nbsp;&nbsp;&nbsp;&nbsp;textElemSelector: string</strong> - selector for custom text element inside host, used in smart mode only</li>
+        <li><strong>&nbsp;&nbsp;&nbsp;&nbsp;placement: 'top' | 'top-left' | 'top-right' | 'bottom' | 'bottom-left' | 'bottom-right'</strong> - where to display tooltip (default is <strong>bottom</strong>)</li>
+        <li><strong>&nbsp;&nbsp;&nbsp;&nbsp;triggerOn: 'hover' | 'click'</strong> - event when to show tooltip (default is <strong>hover</strong>)</li>
+        <li><strong>&nbsp;&nbsp;&nbsp;&nbsp;isEnabled: boolean</strong> - if tooltip functionality is enabled at all (default is <strong>true</strong>)</li>
+        <li><strong>&nbsp;&nbsp;&nbsp;&nbsp;isSmart: boolean</strong> - to check if inner text is truncated or show tooltip without any conditions (default is <strong>true</strong>)</li>
+        <li><strong>&nbsp;&nbsp;&nbsp;&nbsp;isHTML: boolean</strong> - to treat tooltip text as html, however it won't be compiled (default is <strong>false</strong>)</li>
+        <li><strong>&nbsp;&nbsp;&nbsp;&nbsp;isClipboard: boolean</strong> - to enable "copy to clipboard" feature (default is <strong>true</strong>)</li>
+        <li><strong>&nbsp;&nbsp;&nbsp;&nbsp;customClass: string</strong> - custom class to add to tooltip element</li>
+      </ul>
+    </div>
+
+    <textarea class="examples__copy" rows="5" ngNonBindable>
+<div class="three-dots"
+     [cadSmartTooltip]="controller.someProperty"
+     [cadSmartTooltipOptions]="{isClipboard: true, placement: 'top'}">
+  {{ controller.someProperty }}
+</div>
+    </textarea>
+
+    <div class="title title_6">Tooltip text</div>
+    <input class="input mb-30" type="text" [(ngModel)]="tooltipText" />
+
+    <div class="cad-row">
+      <div class="column column-30">
+        <div class="title title_6 title_thin mb-10">Element width:</div>
+        <input class="mb-15" type="range" min="1" max="700" [(ngModel)]="textWidth" />
+
+        <div class="mb-15">
+          <span class="title title_6 title_thin">Placement:</span>
+          <select [(ngModel)]="placement">
+            <option value="top">top</option>
+            <option value="top-left">top-left</option>
+            <option value="top-right">top-right</option>
+            <option value="bottom">bottom</option>
+            <option value="bottom-left">bottom-left</option>
+            <option value="bottom-right">bottom-right</option>
+          </select>
+        </div>
+
+        <div class="mb-15">
+          <span class="title title_6 title_thin">Trigger on:</span>
+          <select [(ngModel)]="trigger">
+            <option value="hover">hover</option>
+            <option value="click">click</option>
+          </select>
+        </div>
+
+        <div class="mb-15">
+          <label><input type="checkbox" [(ngModel)]="enabled" /> isEnabled</label>
+        </div>
+
+        <div class="mb-15">
+          <label><input type="checkbox" [(ngModel)]="smart" /> isSmart</label>
+        </div>
+
+        <div class="mb-15">
+          <label><input type="checkbox" [(ngModel)]="html" /> isHTML</label>
+        </div>
+
+        <div class="mb-15">
+          <label><input type="checkbox" [(ngModel)]="clipboard" /> isClipboard</label>
+        </div>
+
+      </div>
+
+      <div class="column column-70">
+        <div class="three-dots mb-20"
+             style="border: 1px solid silver; padding: 5px;"
+             [style.width.px]="textWidth"
+             [cadSmartTooltip]="tooltipText"
+             [cadSmartTooltipOptions]="{
+               placement: placement,
+               triggerOn: trigger,
+               isEnabled: enabled,
+               isSmart: smart,
+               isHTML: html,
+               isClipboard: clipboard
+             }">
+          {{ fullText }}
+        </div>
+
+        <div class="title title_6 mb-10">Tooltip for container, text element is picked by "textElemSelector" setting:</div>
+
+        <div class="mb-20" style="background-color: #90ee90; padding: 10px 20px; display: flex; align-items: center;"
+             [cadSmartTooltip]="tooltipText"
+             [cadSmartTooltipOptions]="{
+               textElemSelector: '.three-dots',
+               placement: placement,
+               triggerOn: trigger,
+               isEnabled: enabled,
+               isSmart: smart,
+               isHTML: html,
+               isClipboard: clipboard
+             }">
+          <cad-icon name="note" style="display: flex;"></cad-icon>
+          <div class="three-dots ml-10" [style.width.px]="textWidth">
+            {{ fullText }}
+          </div>
+        </div>
+
+        <div class="mb-20">
+          <div class="title title_6 mb-10">Always shown tooltip regardless of inner text (hardcoded {{'{'}}isSmart: false{{'}'}}):</div>
+          <cad-icon name="info"
+                    fill="gray"
+                    [cadSmartTooltip]="tooltipText"
+                    [cadSmartTooltipOptions]="{
+                      placement: placement,
+                      triggerOn: trigger,
+                      isEnabled: enabled,
+                      isSmart: false,
+                      isHTML: html,
+                      isClipboard: clipboard
+                  }">
+          </cad-icon>
+        </div>
+
+        <div class="mb-20">
+          <div class="title title_6 mb-10">Custom tooltip template (hardcoded {{'{'}}isSmart: false, isClipboard: false{{'}'}}):</div>
+          <cad-icon name="info"
+                    fill="gray"
+                    cadSmartTooltip
+                    [cadSmartTooltipOptions]="{
+                      placement: placement,
+                      triggerOn: trigger,
+                      isEnabled: enabled,
+                      isSmart: false,
+                      isClipboard: false
+                  }">
+            <ng-template #customTooltipTemplate>
+              <div class="width-150 ta-left">
+                <div class="cad-row bb">
+                  <div class="column column-60"><strong>Model</strong></div>
+                  <div class="column column-40"><strong>Price</strong></div>
+                </div>
+                <div class="cad-row" *ngFor="let item of customTooltipItems">
+                  <div class="column column-60">{{ item.text }}</div>
+                  <div class="column column-40">{{ item.value | cadCurrency : 'USD' : 'SIGN' : '1.2-2' }}</div>
+                </div>
+              </div>
+            </ng-template>
+          </cad-icon>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</cad-panel>

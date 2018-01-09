@@ -1,0 +1,34 @@
+@import '../../../../../core/assets/scss/variables';
+
+.cad-dropdown.dropdown--white {
+
+  &.dropdown--opened {
+    .dropdown__head {
+      .dropdown__head__content {
+        .dropdown__head__content__title {
+          color: rgba($white, 0.75);
+        }
+
+        .icon {
+          fill: rgba($white, 0.75);
+        }
+      }
+    }
+  }
+
+  .dropdown__head {
+    .dropdown__head__content {
+      .dropdown__head__content__title {
+        color: $white;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+
+      .icon {
+        fill: $white;
+      }
+    }
+  }
+}

@@ -1,0 +1,94 @@
+@import '../../../core/assets/scss/variables';
+@import '../../../core/assets/scss/mixin';
+
+cad-ngx-system-message-container {
+  #toast-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
+
+    &.toast-bottom-center {
+      bottom: 80px;
+    }
+
+    .toast {
+      box-shadow: none;
+      position: relative;
+      overflow: hidden;
+      margin: 0 0 6px;
+      padding: 20px 20px 20px 45px;
+      border-radius: 3px 3px 3px 3px;
+      background-position: 15px center;
+      background-repeat: no-repeat;
+      color: $white;
+      opacity: 0.8;
+
+      &.toast-custom {
+        padding: 20px 15px 20px 65px;
+        background-image: url('../../../core/assets/images/attention.svg');
+        background-position: 30px center;
+        opacity: 1;
+        background-color: rgba($cl, 0.86);
+        display: flex;
+        align-items: center;
+
+        .toast-title {
+          color: $white;
+          font-size: 14px;
+          font-weight: 400;
+        }
+
+        .toast-message {
+          color: $white;
+          font-size: 16px;
+          font-weight: 600;
+          display: block;
+          margin-right: 20px;
+          word-break: break-all;
+        }
+
+        .toast-close-button {
+          color: transparent;
+          order: 1;
+          width: 106px;
+        }
+
+        .toast-close-button::before {
+          content: 'OK, GOT IT!';
+          text-shadow: 0 1px 0 $white;
+          color: $white;
+          font-size: 15px;
+          font-weight: 600;
+          padding: 5px 10px;
+          text-transform: uppercase;
+          cursor: pointer;
+          position: static;
+          opacity: 1;
+          border-radius: 2px;
+          border: 1px solid $gray-d;
+          height: 30px;
+          @include align-self(center);
+          white-space: nowrap;
+        }
+
+        .toast-close-button:hover::before {
+            opacity: 1;
+            border-color: transparent;
+            background-color: rgba($white, 0.4);
+          }
+
+        .toast-close-button:active::before {
+            opacity: 1;
+            border-color: transparent;
+            background-color: rgba($white, 0.6);
+        }
+
+      }
+    }
+  }
+}
+
+

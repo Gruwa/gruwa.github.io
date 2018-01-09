@@ -1,0 +1,79 @@
+@import '../../../../core/assets/scss/variables';
+
+:host {
+  display: inline-flex;
+}
+
+.cad-pagination {
+  display: flex;
+  align-items: center;
+
+  &__btn {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid $gray-d;
+    background-color: $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cad-icon {
+      fill: rgba($gray-d, 0.8);
+    }
+
+    &--disabled {
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    &:hover {
+      background-color: $cta-back-btn-disabled;
+
+      cad-icon {
+        fill: rgba($cl, 0.8);
+      }
+    }
+
+    &:active {
+      background-color: $bg;
+    }
+  }
+
+  &__info {
+    margin: 0 28px;
+    font-size: 16px;
+    color: $black;
+    cursor: default;
+    user-select: none;
+
+    &--disabled {
+      opacity: 0.4;
+    }
+
+    &__active {
+      font-weight: 600;
+    }
+
+    &__delimiter {
+      margin: 0 11px;
+      color: $brd;
+      font-size: 20px;
+    }
+  }
+
+  &--small {
+    .cad-pagination__btn {
+      width: 25px;
+      height: 25px;
+    }
+    .cad-pagination__info {
+      font-size: 14px;
+      margin: 0 15px;
+    }
+    .cad-pagination__info__delimiter {
+      font-size: 16px;
+    }
+  }
+}

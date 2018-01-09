@@ -1,0 +1,8 @@
+<cad-button-toggle-group [activeButton]="value | itemLabel:trackByField" type="simple" class="display-inline mr-20">
+  <cad-button-toggle [value]="EMPTY_VALUE | itemLabel" (onClick)="value = EMPTY_VALUE">
+    {{ 'global.all' | translate }}
+  </cad-button-toggle>
+  <cad-button-toggle *ngFor="let item of items" [value]="item | itemLabel:trackByField" (onClick)="value = item">
+    {{ item | itemLabel:labelField }}
+  </cad-button-toggle>
+</cad-button-toggle-group>

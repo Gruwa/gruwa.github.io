@@ -1,0 +1,9 @@
+@import '../../../../../../core/assets/scss/variables';
+
+.button-toggle-group--rounded {
+  display: inline-block;
+  border: 2px solid $gray;
+  background: $gray;
+  border-radius: 17px;
+  vertical-align: top;
+}

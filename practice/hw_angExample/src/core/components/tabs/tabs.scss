@@ -1,0 +1,228 @@
+.tabs {
+  font-size: 0;
+
+  &.tabs_nav_panel {
+    padding: 0 20px;
+    background: $white;
+    text-align: right;
+  }
+
+  &.tabs_simple {
+    & .tabs__item a {
+      height: 26px;
+      line-height: 26px;
+      margin-right: 5px;
+      padding: 0 12px;
+      background: transparent;
+      border-radius: 13px;
+      font-size: 16px;
+      font-weight: 600;
+      color: $cl;
+      &:hover {
+        background: $brd-l;
+      }
+      &.is-active {
+        background: #9f9f9f;
+        color: $white;
+      }
+    }
+    &.tabs_simple-bold {
+      & .tabs__item a{
+        margin: 0 5px 0 0;
+        padding: 0 15px;
+        @include fs;
+      }
+    }
+  }
+
+  // TODO: Rename or remove
+  &.tabs_blue {
+    & .tabs__item{
+      background: transparent;
+      border: 1px solid $wl-tertiary;
+      border-width: 1px 1px 1px 0;
+      text-align: center;
+
+      &:first-child,
+      &:first-child a {
+        border-radius: 16px 0 0 16px;
+        border-width: 1px;
+      }
+      &:last-child,
+      &:last-child a {
+        border-radius: 0 16px 16px 0;
+      }
+      &:hover {
+        background: $wl-tertiary-background;
+      }
+      a {
+        min-width: 94px;
+        height: 30px;
+        line-height: 30px;
+        padding: 0 12px;
+        font-size: 16px;
+        color: $wl-tertiary;
+
+        &.is-active {
+          background: $wl-tertiary;
+          color: white;
+        }
+      }
+      &.is-active a {
+        background: $wl-tertiary;
+        color: white;
+      }
+    }
+  }
+
+  &.tabs_rounded {
+    display: inline-block;
+    border: 2px solid #cfcfcf;
+    background: rgba(159,159,159,.5);
+    border-radius: 17px;
+    vertical-align: top;
+    & button.tabs__item,
+    & .tabs__item a {
+      height: 30px;
+      line-height: 30px;
+      padding: 0 17px;
+      background: transparent;
+      border-radius: 15px;
+      font-size: 16px;
+      font-weight: 600;
+      color: $white;
+      &:hover {
+        color: $cl;
+      }
+      &.is-active {
+        background: $white;
+        color: $cl;
+      }
+    }
+  }
+
+  &.tabs_orange {
+    &.tabs_orange-mb {
+      margin-bottom: -20px;
+    }
+    & .tabs__item {
+      background: transparent;
+      a {
+        margin: 0 20px;
+        padding: 20px 0 17px;
+        font-size: 16px;
+        @include fs;
+        color: $gray-d;
+        border-bottom: 3px solid transparent;
+        &.is-active {
+          border-bottom: 3px solid #ff6633;
+          color: $cl;
+        }
+        &:hover {
+          color: $cl;
+        }
+        &.is-disabled {
+          opacity: 0.2;
+          cursor: not-allowed;
+          color: inherit;
+        }
+      }
+      &:first-child a {
+        margin-left: 0;
+      }
+      &:last-child a {
+        margin-right: 0;
+      }
+
+      /* NEED REMOVE AFTER CHANGE tabs by ATV-tabs-orange */
+      &.is-active a {
+        border-bottom: 3px solid #ff6633;
+        color: $cl;
+      }
+      /* end */
+
+    }
+    &.tabs_center {
+      background: $white;
+      text-align: center;
+    }
+  }
+  .tabs__item {
+    display: inline-block;
+    vertical-align: top;
+    @include f;
+    a {
+      display: inline-block;
+      &:hover,
+      &:focus {
+        text-decoration: none;
+      }
+      &.is-active {
+        cursor: default;
+      }
+      .number-items {
+        color: $gray-d;
+      }
+    }
+  }
+}
+
+/* TODO research end extend directve */
+
+.tabs_line {
+  .tabs__item {
+    position: relative;
+    height: 40px;
+    padding: 0 20px;
+    @include fs;
+    font-size: 14px;
+    color: $white;
+    overflow: visible;
+    &.is-active {
+      background: $wl-tertiary;
+      &:after {
+        content: "";
+        position: absolute;
+        left: 20px;
+        right: 20px;
+        bottom: 0;
+        height: 2px;
+        background: $white;
+      }
+    }
+  }
+}
+
+.tabs_small {
+  .tabs__item {
+    position: relative;
+    height: 25px;
+    padding: 0 7px;
+    border-radius: 2px;
+    font-size: 12px;
+    color: $white;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 5px;
+      left: 0;
+      bottom: 5px;
+      width: 1px;
+      background: rgba($white,.3);
+    }
+    &:first-child,
+    &.is-active {
+      &:before {
+        display: none;
+      }
+    }
+    &.is-active {
+      background: $wl-tertiary-d;
+      & + .tabs__item {
+        &:before {
+          display: none;
+        }
+      }
+    }
+  }
+}

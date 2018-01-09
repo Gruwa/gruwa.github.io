@@ -1,0 +1,80 @@
+<cad-dropdown [placement]="placement"
+              ngModel
+              [disabled]="disabled"
+              (onToggle)="onDropdownToggle($event)">
+
+  <div cad-dropdown-head>
+    <div class="cad-date-range-picker__header"
+         [class.cad-date-range-picker__header--small]="small"
+         [class.cad-date-range-picker__header--disabled]="disabled">
+      <input class="cad-date-range-picker__header__input"
+             readonly
+             [disabled]="disabled"
+             [placeholder]="placeholder"
+             [ngModel]="getPrettyRange()"
+             type="text" />
+      <cad-icon class="cad-date-range-picker__header__icon" name="calendar"></cad-icon>
+    </div>
+  </div>
+
+  <div cad-dropdown-body>
+    <div class="cad-date-range-picker__dropdown"
+         [class.cad-date-range-picker__dropdown--right-to-left]="placement === 'top-left' || placement === 'bottom-left'">
+
+      <div class="cad-date-range-picker__ranges">
+        <div class="cad-date-range-picker__ranges__items">
+          <div *ngFor="let item of ranges"
+               (click)="selectPredefinedRange(item.range)"
+               class="cad-date-range-picker__ranges__item"
+               [class.cad-date-range-picker__ranges__item--selected]="!isCalendarsVisible && isSelected(item.range)">
+            <span>{{ item.title | translate }}</span>
+            <cad-icon name="tick" *ngIf="!isCalendarsVisible && isSelected(item.range)"></cad-icon>
+          </div>
+
+          <div (click)="toggleCalendars()"
+               class="cad-date-range-picker__ranges__item"
+               [class.cad-date-range-picker__ranges__item--selected]="isCalendarsVisible || isCustomRange()">
+            <span>{{ 'date.range.custom' | translate }}</span>
+            <cad-icon name="tick" *ngIf="isCalendarsVisible || isCustomRange()"></cad-icon>
+          </div>
+      </div>
+
+        <div *ngIf="isCalendarsVisible"
+             class="cad-date-range-picker__ranges__buttons">
+          <cad-button (onClick)="close()" text="buttons.cancel" view="secondary" size="small"></cad-button>
+          <cad-button (onClick)="apply()"
+                      text="buttons.apply"
+                      view="primary"
+                      size="small"
+                      [disabled]="!canApply()">
+          </cad-button>
+        </div>
+      </div>
+
+      <div *ngIf="isCalendarsVisible"
+           class="cad-date-range-picker__calendars"
+           [class.cad-date-range-picker__calendars--border-left]="placement === 'top-right' || placement === 'bottom-right'"
+           [class.cad-date-range-picker__calendars--border-right]="placement === 'top-left' || placement === 'bottom-left'">
+        <cad-month-calendar [startOnMonday]="startOnMonday"
+                            [rangeMode]="true"
+                            [(activeMonth)]="monthLeft"
+                            [(dateUnderMouse)]="hoverDate"
+                            [minDate]="minDate"
+                            [maxDate]="maxDate"
+                            [(ngModel)]="innerValue">
+        </cad-month-calendar>
+        <div class="cad-date-range-picker__calendars__devider"></div>
+        <cad-month-calendar [startOnMonday]="startOnMonday"
+                            [rangeMode]="true"
+                            [(activeMonth)]="monthRight"
+                            [(dateUnderMouse)]="hoverDate"
+                            [minDate]="minDate"
+                            [maxDate]="maxDate"
+                            [(ngModel)]="innerValue">
+        </cad-month-calendar>
+      </div>
+
+    </div>
+  </div>
+
+</cad-dropdown>

@@ -1,0 +1,27 @@
+<div class="cad-context-menu-item"
+     [class.cad-context-menu-item--small]="small"
+     [class.cad-context-menu-item--disabled]="item.disabled"
+     (click)="runAction()">
+
+  <cad-icon *ngIf="item.icon"
+            [name]="item.icon"
+            class="cad-context-menu-item__icon">
+  </cad-icon>
+
+  <span class="cad-context-menu-item__text"
+        [cadSmartTooltip]="getTooltip() | translate"
+        [cadSmartTooltipOptions]="{
+          isEnabled: !!getTooltip(),
+          isSmart: false,
+          isClipboard: false,
+          isHTML: true,
+          placement: 'top'
+        }">
+    {{ item.title | translate }}
+  </span>
+
+  <cad-icon name="tick"
+            class="cad-context-menu-item__tick"
+            [class.cad-context-menu-item__tick--visible]="item.selected">
+  </cad-icon>
+</div>

@@ -1,0 +1,26 @@
+<cad-dropdown class="cad-context-menu"
+              [class.cad-context-menu--dots]="headType === 'dots'"
+              [class.cad-context-menu--button]="headType === 'button'"
+              [isOpened]="isDropdownOpened"
+              (onToggle)="isDropdownOpened = $event"
+              [placement]="placement">
+  <div cad-dropdown-head>
+    <div *ngIf="headType === 'dots'"
+         class="cad-context-menu__dots"
+         [class.cad-context-menu__dots--active]="isDropdownOpened">
+      <cad-icon name="dots"></cad-icon>
+    </div>
+
+    <cad-button *ngIf="headType === 'button'"
+                view="secondary"
+                icon="dots">
+    </cad-button>
+  </div>
+  <div cad-dropdown-body>
+    <cad-context-menu-item *ngFor="let item of items"
+                           (click)="onItemClick(item)"
+                           [item]="item"
+                           [small]="small">
+    </cad-context-menu-item>
+  </div>
+</cad-dropdown>

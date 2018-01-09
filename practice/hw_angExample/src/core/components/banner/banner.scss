@@ -1,0 +1,32 @@
+.is-header-fixed {
+  .banner-message {
+    display: none;
+    overflow: hidden;
+  }
+}
+
+.banner-message {
+  height: 32px;
+  background: $cl;
+  color: $white;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 32px;
+  text-align: center;
+  display: block;
+
+  .icon {
+    width: 18px;
+    height: 18px;
+    fill: $white;
+    vertical-align: text-top;
+    margin-right: 10px;
+  }
+
+  span {
+    position: absolute;
+    width: 100%;
+    left: 50%;
+    margin-left: -50%;
+  }
+}

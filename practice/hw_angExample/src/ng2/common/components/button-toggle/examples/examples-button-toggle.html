@@ -1,0 +1,99 @@
+<cad-panel headTitle="Button Toggle">
+  <div cad-panel-content>
+
+    <div class="examples__params">
+      <div class="title title_5">cad-button-toggle-group</div><br/>
+      <ul>
+        <li><strong>[disabled]: boolean</strong> - Is toggle group disabled</li>
+        <li><strong>[type]: ButtonToggleGroupType</strong> Toggle group appearance</li>
+        <li><strong>[activeButton]: any</strong> - Define active button in the group</li>
+        <li><strong>(onChange): EventEmitter&lt;any&gt;</strong> - Trigger when active button is changed</li>
+      </ul>
+      <br/>
+    </div>
+
+    <div class="examples__params">
+      <div class="title title_5">cad-button-toggle</div><br/>
+      <ul>
+        <li><strong>[disabled]: boolean</strong> - Is button disabled</li>
+        <li><strong>[value]: any</strong> - Button value (this value is set to Toggle group value if button is active)</li>
+        <li><strong>(onClick): EventEmitter&lt;void&gt;</strong> - trigger when button is pressed</li>
+      </ul>
+      <br/>
+    </div>
+
+    <textarea class="examples__copy" rows="8" ngNonBindable>
+        <cad-button-toggle-group [disabled]="isDisabledAll"
+                                 [type]="type"
+                                 [activeButton]="groupValue"
+                                 (onChange)="change($event)">
+          <cad-button-toggle value="test1" (onClick)="click('test1')" [disabled]="isDisabledFirst">Test1</cad-button-toggle>
+          <cad-button-toggle value="test2" (onClick)="click('test2')">Test2</cad-button-toggle>
+          <cad-button-toggle value="test3" (onClick)="click('test3')">Test3</cad-button-toggle>
+        </cad-button-toggle-group>
+    </textarea>
+
+    <div class="cad-row">
+      <div class="column column-30">
+        <div class="mb-15">
+          <span class="title title_6 title_thin">Type</span>
+          <select [(ngModel)]="type">
+            <option value="simple">simple</option>
+            <option value="simple-white">simple-white</option>
+            <option value="blue">blue</option>
+            <option value="rounded">rounded</option>
+            <option value="orange">orange</option>
+          </select>
+        </div>
+
+        <div class="mb-15">
+          <span class="title title_6 title_thin">Size</span>
+          <select [(ngModel)]="size">
+            <option value="default">default</option>
+            <option value="small">small (orange)</option>
+          </select>
+        </div>
+
+        <div class="mb-15">
+          <div class="title title_6 title_thin mb-10">Set value manually:</div>
+          <input class="input" [(ngModel)]="groupValue" />
+        </div>
+
+        <div class="mb-15">
+          <label><input type="checkbox" [(ngModel)]="isDisabledAll" /> Disabled all group</label>
+        </div>
+
+        <div class="mb-15">
+          <label><input type="checkbox" [(ngModel)]="isDisabledFirst" /> Disabled only first element in group</label>
+        </div>
+
+
+      </div>
+
+      <div class="column column-70" [ngStyle]="type === 'simple-white' ? {'background-color':'#ff6633'} : null">
+
+        <cad-button-toggle-group [disabled]="isDisabledAll"
+                                 [type]="type"
+                                 [size]="size"
+                                 [activeButton]="groupValue"
+                                 (onChange)="change($event)">
+          <cad-button-toggle value="test1" (onClick)="click('test1')" [disabled]="isDisabledFirst">Test1</cad-button-toggle>
+          <cad-button-toggle value="test2" (onClick)="click('test2')">Test2</cad-button-toggle>
+          <cad-button-toggle value="test3" (onClick)="click('test3')">Test3</cad-button-toggle>
+        </cad-button-toggle-group>
+
+        <cad-button-toggle-group [disabled]="isDisabledAll"
+                                 [type]="type"
+                                 [size]="size"
+                                 [activeButton]="groupValue"
+                                 (onChange)="change($event)">
+          <cad-button-toggle value="test1" (onClick)="click('test1')" [disabled]="isDisabledFirst">Test1</cad-button-toggle>
+          <cad-button-toggle value="test2" (onClick)="click('test2')">Test2</cad-button-toggle>
+          <cad-button-toggle value="test3" (onClick)="click('test3')">Test3</cad-button-toggle>
+        </cad-button-toggle-group>
+
+      </div>
+    </div>
+
+  </div>
+</cad-panel>

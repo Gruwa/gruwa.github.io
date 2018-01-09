@@ -1,0 +1,33 @@
+<cad-sticky-subheader (sticked)="isSticked = $event">
+
+  <div class="sticky-header-example"
+       [class.sticky-header-example--sticked]="isSticked">
+
+    <div class="sticky-header-example__message">
+      This is example of System Message in sticky header
+    </div>
+
+    <div class="sticky-header-example__subheader"
+         [class.sticky-header-example__subheader--sticked]="isSticked">
+      <div class="container">
+        <div class="row align-items-center justify-content-between">
+          <div class="col-auto">
+            <div class="title title_1"
+                 [ngClass]="{'title_5 title_thin': isSticked}">
+              This is example of Sticky Subheader with responsive layout
+            </div>
+          </div>
+          <div class="col"></div>
+          <div class="col-auto">
+            <cad-button [view]="isSticked ? 'primary' : 'tertiary'"
+                        [size]="isSticked ? 'small' : 'middle'"
+                        text="example">
+            </cad-button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</cad-sticky-subheader>

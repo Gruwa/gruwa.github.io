@@ -1,0 +1,66 @@
+.date-range-filter {
+
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+
+  input {
+
+    &:hover {
+      text-decoration: underline;
+
+      @include placeholder {
+        text-decoration: underline;
+      };
+    }
+    @include placeholder {
+      color: $cl;
+    };
+
+    font-size: 16px;
+    cursor: pointer;
+    width: 95px;
+    background-color: transparent;
+
+  }
+
+  .icon {
+    fill: $gray-d;
+  }
+
+  .icon-close {
+    width: 11px;
+    height: 10px;
+    display: none;
+    cursor: pointer;
+  }
+  .icon-arrow-down {
+    width: 11px;
+    height: 7px;
+    transition: transform 0.2s;
+    position: relative;
+    top: -1px;
+  }
+
+  &.active {
+    input {
+      width: 180px;
+    }
+
+    .icon-close {
+      display: inline;
+    }
+    .icon-arrow-down {
+      display: none;
+    }
+  }
+
+  &.opened {
+
+    .icon-arrow-down {
+      transform: rotate(180deg);
+    }
+
+  }
+
+}

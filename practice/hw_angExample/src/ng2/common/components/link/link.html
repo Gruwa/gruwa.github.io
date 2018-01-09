@@ -1,0 +1,11 @@
+<a class="cad-link-icon {{ type }}"
+   (click)="onClick($event)"
+   [attr.href]="href"
+   [attr.target]="target"
+   [ngClass]="{'disabled': disabled}">
+
+  <span class="cad-link-icon__left-text" *ngIf="iconRight">{{ value | translate }}</span>
+  <cad-icon *ngIf="icon" [name]="icon"></cad-icon>
+  <span class="cad-link-icon__right-text" *ngIf="!iconRight">{{ value | translate }}</span>
+
+</a>

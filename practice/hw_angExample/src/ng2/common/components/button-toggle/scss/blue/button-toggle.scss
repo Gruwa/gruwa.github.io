@@ -1,0 +1,52 @@
+@import '../../../../../../core/assets/scss/variables';
+
+:host-context(.button-toggle-group--blue):first-child {
+  .button-toggle {
+    border-radius: 16px 0 0 16px;
+    border-width: 1px;
+    a {
+      border-radius: 16px 0 0 16px;
+      border-width: 1px;
+    }
+  }
+}
+
+:host-context(.button-toggle-group--blue):last-child {
+  .button-toggle {
+    border-radius: 0 16px 16px 0;
+    a {
+      border-radius: 0 16px 16px 0;
+    }
+  }
+}
+
+
+:host-context(.button-toggle-group--blue) {
+  .button-toggle {
+    background: transparent;
+    border: 1px solid $wl-tertiary;
+    border-width: 1px 1px 1px 0;
+    text-align: center;
+
+    &:hover {
+      background: $wl-tertiary-background;
+    }
+    a {
+      min-width: 94px;
+      height: 30px;
+      line-height: 30px;
+      padding: 0 12px;
+      font-size: 16px;
+      color: $wl-tertiary;
+
+      &.is-active {
+        background: $wl-tertiary;
+        color: $white;
+      }
+    }
+    &.is-active a {
+      background: $wl-tertiary;
+      color: $white;
+    }
+  }
+}

@@ -1,0 +1,66 @@
+<cad-panel headTitle="Number Formatter">
+  <div cad-panel-content>
+
+    <div class="examples__params mb-10">
+      <ul>
+        <li>
+          <strong>[cadFormatNumber]: &#123; decimals: number &#125;</strong> - formatter directive for a number. May
+          provide options for decimal part length. Could be used with both reactive and template driven form controls.
+        </li>
+      </ul>
+    </div>
+
+    <textarea class="examples__copy mb-20" rows="10" ngNonBindable spellcheck="false">
+      <input class="input"
+             type="text"
+             cadFormatNumber
+             [formControl]="reactiveValue"/>
+
+      <input class="input"
+             type="text"
+             [cadFormatNumber]="{decimals: 1}"
+             [ngModel]="modelValue"/>
+    </textarea>
+
+    <div class="cad-row">
+
+      <div class="column column-100">
+
+        <div class="title title_5 mb-10">Samples</div>
+
+        <div class="mb-10">
+
+          <div class="display-inline">
+            <input class="input"
+                   type="text"
+                   cadFormatNumber
+                   [formControl]="reactiveValue"/>
+          </div>
+
+          <div class="ml-30 display-inline">
+            <strong>reactiveValue.value:</strong> {{ reactiveValue.value | json }}
+          </div>
+
+        </div>
+
+        <div class="mb-10">
+
+          <div class="display-inline">
+            <input class="input"
+                   type="text"
+                   [cadFormatNumber]="{decimals: 1}"
+                   [ngModel]="modelValue"/>
+          </div>
+
+          <div class="ml-30 display-inline">
+            <strong>modelValue:</strong> {{ modelValue | json }}
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</cad-panel>

@@ -1,0 +1,103 @@
+@import '../../../core/assets/scss/variables';
+
+.cad-standard-upload {
+  width: 100%;
+  min-width: 600px;
+  height: 371px;
+  position: relative;
+}
+
+%common {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; // establish new block formatting context inside element to prevent collapsing top margins
+  border-radius: 20px;
+  text-align: center;
+  position: absolute; // makes all <div> act as layers to prevent UI flicking on steps change
+}
+
+.cad-standard-upload__initial {
+  @extend %common;
+  background-color: $gray-f7;
+  border: 3px dashed $gray;
+
+  &.cad-standard-upload__initial_drop-ok {
+    border-color: $status-green;
+    background-color: $status-green-l;
+  }
+
+  &.cad-standard-upload__initial_drop-reject {
+    border-color: $red;
+    background-color: $primary-disabled;
+  }
+}
+
+.cad-standard-upload__delimiter {
+  font-size: 0; // kill space between inner inline-block elements
+
+  // lines
+  &:after,
+  &:before {
+    content: "";
+    display: inline-block;
+    width: 115px;
+    height: 1px;
+    background: $brd;
+    vertical-align: middle;
+  }
+
+  // "OR" in circle
+  span {
+    display: inline-block;
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
+    border: 1px solid $brd;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 35px;
+    vertical-align: middle;
+    color: $black;
+    background-color: $white;
+  }
+}
+
+.cad-standard-upload__progress {
+  @extend %common;
+  background-color: $bg;
+}
+
+.cad-standard-upload__progress-bar {
+  $radius: 6px;
+  margin: 9px auto;
+  width: 373px;
+  height: 13px;
+  background-color: $white;
+  border-radius: $radius;
+
+  div {
+    background-color: $primary;
+    width: 0;
+    height: 100%;
+    border-radius: $radius;
+    transition: width 0.4s ease-in-out;
+  }
+}
+
+.cad-standard-upload__error {
+  @extend %common;
+  background-color: $bg;
+}
+
+.cad-standard-upload__success {
+  $opacity: 0.3;
+  @extend %common;
+  background-color: $gray-f7;
+  border: 3px dashed rgba($gray, $opacity);
+}
+
+.cad-standard-upload__success-inactive {
+  opacity: 0.3;
+}

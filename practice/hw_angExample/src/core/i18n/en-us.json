@@ -1,0 +1,501 @@
+{
+  "global": {
+    "default_title": "Cadreon Unity",
+    "yes": "Yes",
+    "no": "No",
+    "ok": "OK",
+    "all": "All",
+    "general": "General",
+    "success": "Success",
+    "error": "Error",
+    "cancel": "Cancel",
+    "close": "Close",
+    "back": "Back",
+    "apply": "Apply",
+    "save": "Save",
+    "view": "View",
+    "dismiss": "Dismiss",
+    "filter": "Filter",
+    "save_changes": "Save Changes",
+    "search": "Search",
+    "no_results": "No Results",
+    "UTC": "UTC",
+    "time": "Time",
+    "not_set": "Not Set",
+    "discard": "Discard",
+    "discard_changes": "Discard Changes",
+    "total": "Total",
+    "no_matches_found": "No matches found",
+    "list_is_empty": "List is empty",
+    "customize": "Customize",
+    "select": "select",
+    "select_all": "Select all",
+    "select_group": "Select Group",
+    "select_items": "Select Items",
+    "selected": "{{number}} {{name}} Selected",
+    "deselect_group": "Clear Group",
+    "clear_all": "Clear all",
+    "reset_to_all": "Reset to All",
+    "on": "On",
+    "off": "Off",
+    "enabled": "Enabled",
+    "disabled": "Disabled",
+    "updated": "Updated",
+    "clone": "Clone",
+    "actions": "Actions",
+    "push_to_dsp": "push to dsp",
+    "or": "or",
+    "na": "N/A",
+    "default": "Default",
+    "by": "by",
+    "show": "Show",
+    "hide": "Hide",
+    "campaigns": {
+      "status": {
+        "draft": "Draft",
+        "push_in_progress": "Pushing to DSP",
+        "pushed_to_dsp": "Pushed to DSP",
+        "live": "Live",
+        "new": "New",
+        "cancelled": "Cancelled",
+        "paused": "Paused",
+        "completed": "Completed",
+        "n_a": "N/A",
+        "rankering": "In Progress",
+        "final": "Final",
+        "ready": "Ready for Review",
+        "submitted": "Submitted",
+        "confirmed": "Confirmed",
+        "failed": "Submitted - Failed",
+        "ranker_ready": "Ranker Ready",
+        "pending": "Pending",
+        "running": "Running",
+        "finished": "Finished",
+        "no_data": "No Data",
+        "rejected": "Rejected"
+      },
+      "status-short": {
+        "draft": "Draft",
+        "push_in_progress": "Pushing",
+        "pushed_to_dsp": "Pushed",
+        "live": "Live",
+        "new": "New",
+        "cancelled": "Cancelled",
+        "paused": "Paused",
+        "completed": "Completed"
+      },
+      "status-io": {
+        "new": "New",
+        "pending_approval": "Pending Approval",
+        "finance_approved": "Finance Approved",
+        "ops_approved": "Ops Approved",
+        "not_approved": "Not Approved"
+      }
+    }
+  },
+  "applications": {
+    "csf": "Insertion Orders",
+    "marketplace": "Marketplace",
+    "marketplace-analytics": "Marketplace Analytics",
+    "cm": "Campaign Management",
+    "creatives": "Creatives",
+    "utag": "uTag",
+    "amp": "AMP",
+    "atv": "Advanced TV",
+    "reports": "Performance Reports",
+    "taxonomies": "Taxonomies",
+    "publisher_data_manager": "Publisher Data Manager",
+    "dashboards": "Dashboards",
+    "planning_and_booking": "Planning & Booking",
+    "tools": "Tools",
+    "cfd": "Financial Reports",
+    "administration": "Unity Administration",
+    "optimization": "Optimization"
+  },
+  "administration": {
+    "title": "Administration",
+    "pages": {
+      "user_management": "User Management",
+      "system_alerts": "System Alerts",
+      "integrations": "Integrations",
+      "role_management": "Role Management",
+      "markets_management": "Markets Management",
+      "platform_management": "Platform Management",
+      "advertisers_mapping": {
+        "title": "Advertisers Mapping"
+      }
+    }
+  },
+  "currencyCodes": {
+    "USD": "$",
+    "EUR": "€",
+    "CAD": "$",
+    "AUD": "$",
+    "GBP": "£",
+    "JPY": "¥",
+    "CHF": "Fr",
+    "CNY": "¥",
+    "SEK": "kr",
+    "MXN": "$",
+    "NZD": "$",
+    "SGD": "$",
+    "HKD": "$",
+    "NOK": "kr",
+    "KRW": "₩",
+    "TRY": "₺",
+    "INR": "₹",
+    "RUB": "₽",
+    "BRL": "R$",
+    "ZAR": "R",
+    "ARS": "$",
+    "CLP": "$",
+    "DKK": "kr",
+    "HUF": "Ft",
+    "MYR": "RM",
+    "NOK": "kr",
+    "PEN": "S/.",
+    "TWD": "NT$",
+    "AED": "د.إ",
+    "UYU": "$U"
+  },
+  "date": {
+    "time_zone": "Time Zone",
+    "select_timezone": "Select Time Zone",
+    "range": {
+      "yesterday": "Yesterday",
+      "last3days": "Last 3 Days",
+      "last7days": "Last 7 Days",
+      "last_month": "Last Month",
+      "next7days": "Next 7 days",
+      "next_month": "Next Month",
+      "quarter_number_year": "{{year}} Q{{quarter}}",
+      "half_year_number": "{{year}} H{{halfYear}}",
+      "custom": "Custom Range"
+    }
+  },
+  "statuses": {
+    "READY": "Ready",
+    "ACTIVE": "Active",
+    "DISABLED": "Disabled",
+    "IN_FLIGHT": "In Flight",
+    "COMPLETED": "Completed"
+  },
+  "form": {
+    "quick_search": "Search",
+    "search_line_item": "Search Line item",
+    "username": "Username",
+    "password": "Password",
+    "log_in": "Log In",
+    "name": "Name",
+    "market": "Market",
+    "stage": "Stage",
+    "platform": "Platform",
+    "media_type": "Media Type",
+    "io_amount": "IO Amount",
+    "start_date": "Start Date",
+    "end_date": "End Date",
+    "import": "Import",
+    "view": "View",
+    "importing": "Importing...",
+    "email": "Email",
+    "unsaved_changes": {
+      "title": "Unsaved Changes",
+      "statement": "You have unsaved changes here.",
+      "question": "Are you sure you want to leave this page and lose them?",
+      "stay": "Stay on this page",
+      "leave": "Leave this page"
+    }
+  },
+  "left_menu": {
+    "insertion_orders": "Insertion Orders",
+    "marketplace": "Marketplace",
+    "marketplace-analytics": "Marketplace Analytics",
+    "campaigns": "Campaigns",
+    "totaltag": "uTag",
+    "amp": "Amp",
+    "advanced_tv": "ATV Campaigns",
+    "reports": "Reports",
+    "taxonomies": "Taxonomies",
+    "publisher_data_manager": "Publisher Data Manager",
+    "dashboards": "Dashboards",
+    "planning_and_booking": "Planning & Booking",
+    "tools": "Tools",
+    "accounts": "Accounts",
+    "administration": "Administration",
+    "creatives": "Creatives",
+    "finance": "Finance",
+    "optimization": "Optimization",
+    "about": {
+      "about": "About",
+      "build": "build",
+      "environment": "Environment"
+    },
+    "mobile_version": "Mobile Version"
+  },
+  "system_messages": {
+    "ok_button": "OK, GOT IT!"
+  },
+  "ad-blocker": {
+    "ad-blocker-title": "Ad Blocker",
+    "ad-blocker-desc": "Your browser is using an ad blocker.<br/>To ensure Unity functions properly, please turn off the ad blocker.<br/>(Open the extension settings and select the option to \"disable for this site\")"
+  },
+  "default_locale": {
+    "locale_settings": "Locale Settings",
+    "description": "It looks like your browser is using {{browserLocale}} locale. Would you like to use the same settings in Unity?",
+    "no_keep_us_locale": "No, keep US locale",
+    "update_success": "Locale set to {{locale}}. You can always change it in your Profile settings.",
+    "update_error": "Couldn't update locale settings"
+  },
+  "navbar": {
+    "add_menu": {
+      "digital_campaign": "Digital Campaign",
+      "tv_Campaign": "ATV Campaign"
+    },
+    "user_menu": {
+      "market": "Market",
+      "logout": "Log Out",
+      "support": "Support",
+      "documentation": "User Guide",
+      "profile_settings": "Profile Settings",
+      "preferences": "Preferences"
+    }
+  },
+  "tabs": {
+    "digital": "Digital",
+    "tv": "ATV",
+    "profile_settings": "Profile Settings",
+    "support": "Support",
+    "alerts": "Alerts",
+    "integrations": "Integrations"
+  },
+  "advertiser": {
+    "header_title": "Advertisers",
+    "brand": "Brand",
+    "account": "Account",
+    "parent_account": "Parent Account",
+    "categories": "Categories",
+    "no_categories": "No Categories",
+    "market": "Market",
+    "multi_markets_tooltip": "You can now restrict campaign information to a single market by clicking on Market in the drop down menu beside your name.",
+    "opportunities": "Insertion Orders",
+    "opportunity_search_placeholder": "Insertion Orders Search",
+    "filter": {
+      "accounts": "Accounts",
+      "all": "All",
+      "brands": "Brands",
+      "all_advertisers": "All advertisers",
+      "all_agencies": "All agencies",
+      "all_industries": "All industries"
+    },
+    "detail": {
+      "market": "Market",
+      "opportunities": "Insertion Orders",
+      "classification": "Classification",
+      "account_type": "Account Type",
+      "salesforce_id": "Salesforce ID",
+      "parent_accounts": "Parent Accounts",
+      "brands": "Brands",
+      "brand": "Brand",
+      "account": "Account"
+    }
+  },
+  "opportunity": {
+    "import": {
+      "importing": "Import in progress. Wait a while...",
+      "imported": "Insertion Order imported",
+      "failed": "We're unable to communicate with the server right now. Please try again."
+    }
+  },
+  "notifications": {
+    "header_title": "Notification Center",
+    "api_error": "Notifications API call failed.",
+    "last_notifications": "Last Notifications",
+    "show_all_notifications": "Show All Notifications",
+    "by": "@:global.by",
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "older": "Older",
+    "view_more_notifications": "View <span>{{numNew}} more</span> notifications",
+    "you_have_no_unread_notifications": "You have <br> no unread notifications"
+  },
+  "buttons": {
+    "create": "Create",
+    "edit": "Edit",
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "apply": "Apply",
+    "activate": "Activate",
+    "deactivate": "Deactivate",
+    "ok": "OK",
+    "browse": "Browse",
+    "attach_file": "Attach File",
+    "add": "Add",
+    "add_more": "Add More",
+    "save": "Save",
+    "remove": "Remove",
+    "pause": "Pause",
+    "another": "Choose another",
+    "submit": "Submit"
+  },
+  "upload": {
+    "uploading_file": "UPLOADING FILE...",
+    "change_file": "CHANGE FILE"
+  },
+  "session": {
+    "revoked": "Session Revoked",
+    "message": "Please re-login to renew your session"
+  },
+  "messages": {
+    "empty_data": "No Data Available",
+    "no_data": "No Data"
+  },
+  "validation": {
+    "required": "This field is required.",
+    "invalid": "This field is not valid.",
+    "required_first_last_names": "First and last names are required.",
+    "invalid_password": "This is not a valid password.",
+    "invalid_email": "This is not a valid email address.",
+    "does_not_meet_requirements": "Your input does not match the requirements.",
+    "forbidden_characters": "This name contains characters which are not allowed. Please revise the name to include only alphanumeric characters.",
+    "wrong_css_characters": "Please use only characters allowed according to CSS specification.",
+    "invalid_date": "This is not a valid date.",
+    "invalid_time": "This is not a valid time.",
+    "invalid_date_time": "This is not a valid datetime.",
+    "invalid_local_date_time": "This is not a valid local datetime.",
+    "invalid_number": "This is not a valid number.",
+    "invalid_color": "This is not a valid color.",
+    "invalid_range": "This is not a valid range.",
+    "invalid_month": "This is not a valid month.",
+    "invalid_url": "This is not a valid URL.",
+    "invalid_file": "This not a valid file.",
+    "date_is_not_after_start_date": "The date provided must be no earlier than {{ startDate }}.",
+    "date_is_not_before": "The date must be no later than {{ date }}.",
+    "date_is_not_after": "The date must be no earlier than {{ date }}.",
+    "datetime_is_not_after_start_date": "The datetime provided must be no earlier than start datetime.",
+    "error_user_exists": "This username is already taken.",
+    "does_not_meet_min_length": "Your field must have at least {{ requiredLength || minlength }} characters.",
+    "does_not_meet_max_length": "Your field must have a maximum of {{ requiredLength || maxlength }} characters.",
+    "does_not_meet_min_time": "The time provided must be no earlier than {{ attrs.min |date: 'HH:mm' }}.",
+    "does_not_meet_max_time": "The time must be no later than {{attrs.max |date: 'HH:mm’}}.",
+    "does_not_meet_min_date": "The date provided must be no earlier than {{attrs.min | date:'dd.MM.yy’}}.",
+    "does_not_meet_max_date": "The date must be no later than {{attrs.max |date: 'dd.MM.yy’}}.",
+    "more_then_max": "The value must not be greater than {{ max }}.",
+    "less_then_min": "The value must not be less than {{ min }}.",
+    "number_decimals_exceed": "The number must have a maximum of {{ maxDecimals }} decimals.",
+    "number_digits_exceed": "The number is too large.",
+    "number_integer_exceed": "The number must have a maximum of {{ maxIntegerPart }} in integer part.",
+    "date_should_be_after": "The date provided must be no earlier than {{ value | cadDate: 'mediumDateShortTime' }}.",
+    "exceed_period": "This is not a valid period - it cannot exceed {{ cadValidatePeriodDays }} days.",
+    "passwords_do_not_match": "The passwords you entered do not match.",
+    "password_between": "Password between {{ ngMinlength }} and {{ ngMaxlength }} characters is required.",
+    "password_to_short": "Password is too short.",
+    "password_to_long": "Password is too long.",
+    "old_password_is_incorrect": "The old password is incorrect.",
+    "username_between": "Username between {{ ngMinlength }} and {{ ngMaxlength }} characters is required.",
+    "user_name_not_unique": "User with such username already exists.",
+    "user_name_short": "The username is too short.",
+    "user_name_invalid": "The username is not valid."
+  },
+  "words": {
+    "2": "Two",
+    "3": "Three",
+    "4": "Four",
+    "5": "Five",
+    "expand": "Expand",
+    "collapse": "Collapse",
+    "day": "Day",
+    "date": "Date",
+    "details": "Details",
+    "from": "from",
+    "field": "Field",
+    "left": "left",
+    "more": "more",
+    "user": "User",
+    "yesterday": "Yesterday",
+    "today": "Today",
+    "week": "week",
+    "just_now": "Just now",
+    "hours": "hours",
+    "min_ago": "min ago",
+    "new": "new",
+    "n_days_ago": "{{days}} days ago",
+    "n_day_left": "{{daysLeft}} day left",
+    "n_days_left": "{{daysLeft}} days left",
+    "expired": "Expired"
+  },
+  "audit_trail": {
+    "attribute_updated": "Attribute updated",
+    "attributes_updated": "Attributes updated",
+    "was_changed": "was changed",
+    "search_query": "Search last changes",
+    "old_value": "Old Value",
+    "new_value": "New Value",
+    "no_data": "No change log data on this {{name}}",
+    "ADD": "Created",
+    "MOD": "Edited",
+    "DEL": "Deleted",
+    "formatter": {
+      "t_boolean": {
+        "true": "true",
+        "false": "false"
+      }
+    }
+  },
+  "clipboard": {
+    "press_to_copy": "Please press {{command}} to copy",
+    "text_copied": "Text copied to the clipboard"
+  },
+  "forbidden": {
+    "no_permissions": "No Permissions",
+    "no_permissions_desc": "You do not have sufficient permissions to access this page. <br/>Please contact our support to request access if needed.",
+    "contact_support": "Contact support"
+  },
+  "http_errors": {
+    "404": {
+      "title": "Page not found",
+      "text": "The page you are looking for cannot be viewed because it does not exist."
+    },
+    "500": {
+      "title": "Something went wrong",
+      "text": "The page you are looking for cannot be viewed because it does not exist."
+    },
+    "400": {
+      "title": "Bad request",
+      "text": "The page you are trying to access can not be displayed."
+    }
+  },
+  "support": {
+    "support_request": "Support Request",
+    "support_request_desc": "Submit your request to the Helpdesk.",
+    "subject": "Subject",
+    "describe_your_problem": "Describe your problem",
+    "send": "Send",
+    "thank_you": "Thank you!",
+    "request_sent_desc": "Your request has been submitted. We will provide our feedback soon.",
+    "sending_error": "We're unable to communicate with the server right now. Please try again.",
+    "submit_new": "Submit New Request",
+    "submit_request": "Submit Support Request",
+    "attach": "Attach Screenshot",
+    "upload_screenshot": {
+      "drop_file": "Drop your Screenshot Here",
+      "file_details": "Please select JPG or PNG file up to 5 Mb",
+      "error_header": "Error While Uploading Screenshot.",
+      "limitation": "You can attach 1 screenshot per request",
+      "size_error": "The uploaded screenshot cannot exceed",
+      "uploading": "Uploading Screenshot...",
+      "success_toast": "Screenshot has been uploaded",
+      "invalid_template": "Please use a valid template"
+    }
+  },
+  "smart_filter": {
+    "n_more": "{{ count }} more",
+    "filters": "Filters"
+  },
+  "background_processes": {
+    "dismiss_changes_title": "Dismiss Changes",
+    "dismiss_warning": "Changes you have made to the <strong>{{name}}</strong> were not pushed to DSP and will be lost if you dismiss this message.",
+    "dismiss_confirmation": "I understand that all unsaved changes will be lost.",
+    "if_keeps_appearing": "If problem keeps appearing"
+  }
+
+}

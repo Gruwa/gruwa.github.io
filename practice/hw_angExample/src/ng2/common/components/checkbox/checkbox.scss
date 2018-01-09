@@ -1,0 +1,79 @@
+@import '../../../../core/assets/scss/variables';
+
+:host {
+  display: inline-flex;
+}
+
+:host(.ng-invalid.ng-touched) {
+  .cad-checkbox {
+    .checkbox__content:before {
+      border: 1px solid $red;
+    }
+  }
+}
+
+.cad-checkbox {
+  cursor: pointer;
+  position: relative;
+
+  .checkbox__input {  // hide native input
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+  }
+
+  .checkbox__content {
+    position: relative;
+    padding-left: 30px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    display: inline-flex;
+
+    &:hover {
+      &:before {
+        background: $white;
+      }
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      background: $bg;
+      border: 1px solid $brd;
+      border-radius: 2px;
+    }
+    /deep/ .icon-tick {
+      display: none;
+      position: absolute;
+      top: 5px;
+      left: 4px;
+      width: 12px;
+      height: 10px;
+      fill: $white;
+    }
+  }
+
+  &.checkbox--checked {
+    .checkbox__content {
+      &:before {
+        background: $wl-tertiary;
+        border-color: $wl-tertiary;
+      }
+      /deep/ .icon-tick {
+        display: block;
+      }
+    }
+  }
+
+  &.checkbox--disabled {
+    .checkbox__content {
+      opacity: 0.4;
+    }
+  }
+
+}

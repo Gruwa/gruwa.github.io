@@ -1,0 +1,119 @@
+<div class="smart-search-list">
+
+  <div *ngIf="selectionOverlay && selectedItems.length"
+       class="smart-search-list__selection-overlay">
+    <cad-chip type="single-line"
+              [text]="(selectedItems[0] | itemLabel:labelField) + (selectedItems[0].market ? ' | ' + selectedItems[0].market : '')"
+              [cadSmartTooltip]="selectedItems[0] | itemLabel:labelField"
+              [cadSmartTooltipOptions]="{textElemSelector: '.cad-chip__title'}"
+              (onDelete)="toggle(selectedItems[0])">
+    </cad-chip>
+  </div>
+
+  <div class="smart-search-list__search" *ngIf="!disableSearch">
+    <cad-search-input
+      #searchInput
+      cadAutofocus
+      [cadAutofocusEnabled]="isAutofocusEnabled()"
+      [placeholder]="searchPlaceholder"
+      [(ngModel)]="searchQuery"
+      (onFocus)="onFocus()">
+      <div *ngIf="select2style"
+           [class.select2style-container]="selectedItems.length">
+
+        <div *ngFor="let item of selectedItems; trackBy: trackByFn"
+             class="select2style-item"
+             [cadSmartTooltip]="item | itemLabel:labelField"
+             [cadSmartTooltipOptions]="{textElemSelector: 'span'}">
+          <span>{{ item | itemLabel:labelField }}</span>
+          <cad-icon name="close" (click)="toggle(item)"></cad-icon>
+        </div>
+
+      </div>
+    </cad-search-input>
+  </div>
+
+  <div #list
+       class="smart-search-list__list"
+       [class.smart-search-list__list--collapsed]="isListCollapsed"
+       [style.height]="adaptiveHeight ? 'auto' : (listHeight + 'px')"
+       [style.maxHeight.px]="listHeight"
+       cadInfiniteScroll (onNextPage)="loadNext()">
+
+    <div *ngIf="showGlobalSpinner"
+         class="smart-search-list__global-spinner">
+      <cad-icon name="preloader" customClass="big"></cad-icon>
+    </div>
+
+    <div *ngIf="!showGlobalSpinner && !groupField">
+      <div *ngFor="let item of visibleItems; trackBy: trackByFn"
+           (click)="toggle(item)">
+
+        <div *ngIf="!customItemTemplate">
+          <cad-smart-search-list-item [text]="item | itemLabel:labelField"
+                                      [searchText]="searchQuery"
+                                      [market]="item.market"
+                                      [showTicks]="!selectionOverlay"
+                                      [selected]="isSelected(item) && !selectionOverlay">
+          </cad-smart-search-list-item>
+        </div>
+
+        <div *ngIf="customItemTemplate">
+          <ng-template [ngTemplateOutlet]="customItemTemplate"
+                       [ngTemplateOutletContext]="getItemTemplateContext(item)">
+          </ng-template>
+        </div>
+
+      </div>
+
+      <div *ngIf="showBottomSpinner"
+           class="smart-search-list__bottom-spinner">
+        <cad-icon name="preloader" customClass="medium"></cad-icon>
+      </div>
+
+      <div *ngIf="!visibleItems.length && !showBottomSpinner"
+           class="smart-search-list__no-results">
+        {{
+          (
+            noResultsMessage || (disableSearch ? 'global.list_is_empty' : 'global.no_matches_found')
+          ) | translate
+        }}
+      </div>
+    </div>
+
+    <div *ngIf="!showGlobalSpinner && groupField">
+      <div *ngFor="let item of visibleItems; let i = index; trackBy: trackByFn"
+           (click)="toggle(item)">
+        <div *ngIf="isFirstItemOfGroup(item, i)"
+             class="smart-search-list__items-group-header">
+            {{ item[groupField] || ( item | itemLabel:labelField ) }}
+        </div>
+          <div *ngIf="!customItemTemplate">
+            <cad-smart-search-list-item [text]="item | itemLabel:labelField"
+                                        [searchText]="searchQuery"
+                                        [market]="item.market"
+                                        [showTicks]="!selectionOverlay"
+                                        [selected]="isSelected(item) && !selectionOverlay">
+            </cad-smart-search-list-item>
+          </div>
+
+          <div *ngIf="customItemTemplate">
+            <ng-template [ngTemplateOutlet]="customItemTemplate"
+                         [ngTemplateOutletContext]="getItemTemplateContext(item)">
+            </ng-template>
+          </div>
+      </div>
+
+      <div *ngIf="showBottomSpinner"
+           class="smart-search-list__bottom-spinner">
+        <cad-icon name="preloader" customClass="medium"></cad-icon>
+      </div>
+
+      <div *ngIf="!visibleItems.length && !showBottomSpinner"
+           class="smart-search-list__no-results">
+        {{ (noResultsMessage || 'global.no_matches_found') | translate }}
+      </div>
+    </div>
+  </div>
+
+</div>
