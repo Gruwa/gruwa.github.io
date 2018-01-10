@@ -1,1 +1,1 @@
-Clean build on Webpack 3+ for starting work with Angular 4+
+Clean build on Webpack 3.10 for starting work with Angular 4.4.1
