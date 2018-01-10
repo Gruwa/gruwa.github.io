@@ -1,3 +1,8 @@
+@import 'reset';
+@import 'font';
+//@import '../../app/components/components';
+@import '../../app/directives/directives';
+
 body {
     background: #0147A7;
     color: #fff;
@@ -23,5 +28,3 @@ body {
   display: inline-block;
 }
 
-@import 'reset';
-@import 'font';

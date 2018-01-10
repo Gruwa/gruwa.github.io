@@ -11,15 +11,8 @@ const extractSass = new ExtractTextPlugin({
 module.exports = {
     config: {
         test: /\.scss$/,
-        use: extractSass.extract({
-            use: [{
-                loader: "css-loader"
-            }, {
-                loader: "sass-loader"
-            }],
-            // use style-loader in development
-            fallback: "style-loader"
-        })
+        exclude: /node_modules/,
+        loader: 'to-string-loader!style-loader!css-loader!sass-loader'
     },
     plugin: extractSass
 };

@@ -1,0 +1,28 @@
+.title-modal h1 {
+  font-size: 25px;
+  font-weight: 500;
+  text-transform: capitalize;
+  padding-left: 25px;
+  color: #333333;
+}
+
+.project_delete_wrapper {
+  text-align: center;
+}
+
+.button-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.project-delete {
+
+    &__btn {
+        padding-left: 50px;
+        padding-right: 50px;
+
+        &--cancel {
+            margin-left: 17px;
+        }
+    }
+}
