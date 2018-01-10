@@ -2,52 +2,114 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="890a2d31-a6db-4d59-9fb9-3e90cfa4ce6c" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/animations/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/animations/index.ts" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/components/components.module.ts" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/components/index.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/components/index.ts" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/components/project-button/project-button.component.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/components/project-button/project-button.component.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/components/project-button/project-button.component.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/components/project-button/project-button.component.spec.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/components/project-button/project-button.component.spec.ts" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/components/project-button/project-button.component.ts" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/components/project-delete/project-delete.component.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/components/project-delete/project-delete.component.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/components/project-delete/project-delete.component.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/components/project-delete/project-delete.component.ts" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/components/project-modal/project-modal.component.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/components/project-modal/project-modal.component.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/components/project-modal/project-modal.component.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/components/project-modal/project-modal.component.spec.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/components/project-modal/project-modal.component.spec.ts" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/components/project-modal/project-modal.component.ts" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/directives/directives.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/directives/index.ts" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/directives/project-text-ellipsis.directive.ts" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/directives/project-text.directive.ts" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/pages/index.ts" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/pages/main-page/main-page.component.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/pages/main-page/main-page.component.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/pages/main-page/main-page.component.ts" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/services/auth.service.ts" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/services/index.ts" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/assets/style/color.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/assets/style/custom.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/assets/style/mixins.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/.eslintrc.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/.gitignore" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/config/helpers.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/config/karma-test-shim.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/config/karma.conf.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/config/webpack.common.css.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/config/webpack.common.font.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/config/webpack.common.img.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/config/webpack.common.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/config/webpack.common.scss.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/config/webpack.common.svg.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/config/webpack.common.ts.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/config/webpack.dev.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/config/webpack.prod.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/config/webpack.test.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/dop/LookDEPENDpackage.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/dop/LookDEPENDtsconfig.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/dop/REDwebpack.common.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/karma.conf.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/package.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/postcss.config.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/readme.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/animations/index.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/animations/index.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/animations/project-fade.animation.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/animations/project-fade.animation.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/app.component.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/app.component.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/app.component.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/app.component.spec.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/app.component.spec.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/app.component.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/app.module.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/app.module.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/components/components.module.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/components/index.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/components/index.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/components/project-bar/project-bar.component.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/components/project-bar/project-bar.component.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/components/project-bar/project-bar.component.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/components/project-button/project-button.component.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/components/project-button/project-button.component.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/components/project-button/project-button.component.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/components/project-button/project-button.component.spec.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/components/project-button/project-button.component.spec.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/components/project-button/project-button.component.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/components/project-checkbox/project-checkbox.component.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/components/project-checkbox/project-checkbox.component.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/components/project-circle/project-circle.component.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/components/project-circle/project-circle.component.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/components/project-circle/project-circle.component.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/components/project-delete/project-delete.component.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/components/project-delete/project-delete.component.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/components/project-delete/project-delete.component.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/components/project-delete/project-delete.component.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/components/project-input/project-input.component.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/components/project-input/project-input.component.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/components/project-modal/project-modal.component.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/components/project-modal/project-modal.component.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/components/project-modal/project-modal.component.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/components/project-modal/project-modal.component.spec.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/components/project-modal/project-modal.component.spec.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/components/project-modal/project-modal.component.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/components/project-select/project-select.component.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/components/project-select/project-select.component.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/components/project-textarea/project-textarea.component.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/components/project-textarea/project-textarea.component.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/directives/directives.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/directives/index.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/directives/project-pointer.directive.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/directives/project-text-ellipsis.directive.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/directives/project-text.directive.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/directives/project-title.directive.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/pages/index.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/pages/main-page/main-page.component.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/pages/main-page/main-page.component.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/pages/main-page/main-page.component.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/services/auth.service.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/app/services/index.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/assets/font/montserrat-bold-webfont.eot" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/assets/font/montserrat-bold-webfont.ttf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/assets/font/montserrat-bold-webfont.woff" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/assets/font/montserrat-bold-webfont.woff2" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/assets/img/angular.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/assets/img/angular2.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/assets/img/svg/partners__airplane.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/assets/img/svg/partners__airplane2.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/assets/img/svg/partners__cup.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/assets/img/svg/partners__flask.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/assets/img/svg/partners__tv.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/assets/server/data.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/assets/style/color.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/assets/style/custom.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/assets/style/font.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/assets/style/mixins.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/assets/style/reset.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/assets/style/style.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/index.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/main.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/main.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/polyfills.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/polyfills.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/vendor.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/src/vendor.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/tsconfig.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/tslint.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/webpack.config.js" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/practice/hw_ang2_tests/package.json" afterPath="$PROJECT_DIR$/practice/hw_ang2_tests/package.json" />
-      <change beforePath="$PROJECT_DIR$/practice/hw_ang2forms/src/app/app.module.js" afterPath="$PROJECT_DIR$/practice/hw_ang2forms/src/app/app.module.js" />
-      <change beforePath="$PROJECT_DIR$/practice/hw_ang2forms/src/app/app.module.js.map" afterPath="$PROJECT_DIR$/practice/hw_ang2forms/src/app/app.module.js.map" />
-      <change beforePath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/config/webpack.common.scss.js" afterPath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/config/webpack.common.scss.js" />
-      <change beforePath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/package.json" afterPath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/package.json" />
-      <change beforePath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/readme.md" afterPath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/readme.md" />
-      <change beforePath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/app.component.css" afterPath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/app.component.css" />
-      <change beforePath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/app.component.html" afterPath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/app.component.html" />
-      <change beforePath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/app.module.ts" afterPath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/app.module.ts" />
-      <change beforePath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/assets/style/style.scss" afterPath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/assets/style/style.scss" />
-      <change beforePath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/index.html" afterPath="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/index.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -61,8 +123,8 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name=".eslintrc.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/.eslintrc.json">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -72,90 +134,10 @@
         </entry>
       </file>
       <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/practice/hw_ang2_fund/package.json">
+        <entry file="file://$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="37" column="28" lean-forward="false" selection-start-line="37" selection-start-column="28" selection-end-line="37" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="karma.conf.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/karma.conf.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="package-lock.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/package-lock.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="postcss.config.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/postcss.config.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="readme.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/readme.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tsconfig.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/tsconfig.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".eslintrc.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/practice/hw_ang2_fund/.eslintrc.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="1" />
+            <state relative-caret-position="210">
+              <caret line="14" column="37" lean-forward="true" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -216,7 +198,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/practice/hw_ang4_webpack/package.json" />
         <option value="$PROJECT_DIR$/practice/hw_ang4_webpack/src/app/app.component.html" />
         <option value="$PROJECT_DIR$/practice/hw_ang4_webpack/readme.md" />
         <option value="$PROJECT_DIR$/practice/hw_ang4_webpack/src/tsconfig.json" />
@@ -267,6 +248,7 @@
         <option value="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/components/toast-module/toast.module.ts" />
         <option value="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/services/index.ts" />
         <option value="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/pages/main-page/main-page.component.ts" />
+        <option value="$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/package.json" />
       </list>
     </option>
   </component>
@@ -295,11 +277,10 @@
     <handled-path value="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/node_modules" />
     <handled-path value="$PROJECT_DIR$/practice/webpackAngular5/node_modules" />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-1644" />
-    <option name="y" value="126" />
-    <option name="width" value="1366" />
-    <option name="height" value="687" />
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="x" value="-1920" />
+    <option name="width" value="1920" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -360,8 +341,13 @@
             <path>
               <item name="Root" type="cbb8eebc:String" user="Root" />
               <item name="gruwa.github.io" type="cbb8eebc:String" user="gruwa.github.io" />
-              <item name="practice" type="cbb8eebc:String" user="practice" />
-              <item name="hw_ang2_fund" type="cbb8eebc:String" user="hw_ang2_fund" />
+              <item name="webpack" type="cbb8eebc:String" user="webpack" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="gruwa.github.io" type="cbb8eebc:String" user="gruwa.github.io" />
+              <item name="webpack" type="cbb8eebc:String" user="webpack" />
+              <item name="webpack3.10_Angular4.4_v.1" type="cbb8eebc:String" user="webpack3.10_Angular4.4_v.1" />
             </path>
           </expand>
           <select />
@@ -463,19 +449,19 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/webpack" />
+      <recent name="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/components" />
+      <recent name="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/directives/title-directive" />
+      <recent name="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/animation" />
+      <recent name="$PROJECT_DIR$/practice/webpack3.6_Angular4.4_v.0" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/modules/toast" />
       <recent name="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app" />
       <recent name="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/.idea/1" />
       <recent name="$PROJECT_DIR$/practice/hw_nodejs/node_modules" />
       <recent name="$PROJECT_DIR$/practice/hw_nodejs/db" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/components" />
-      <recent name="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/directives/title-directive" />
-      <recent name="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/animation" />
-      <recent name="$PROJECT_DIR$/practice/webpack3.6_Angular4.4_v.0" />
-      <recent name="$PROJECT_DIR$/practice" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -630,7 +616,7 @@
       <workItem from="1515452555165" duration="918000" />
       <workItem from="1515488774555" duration="28009000" />
       <workItem from="1515575740904" duration="16522000" />
-      <workItem from="1515616729287" duration="194000" />
+      <workItem from="1515616729287" duration="1663000" />
     </task>
     <servers />
   </component>
@@ -655,7 +641,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="290143000" />
+    <option name="totallyTimeSpent" value="291612000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -667,17 +653,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1644" y="126" width="1366" height="687" extended-state="0" />
+    <frame x="-1920" y="0" width="1920" height="1080" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21251242" sideWeight="0.4978903" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33828998" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2395998" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25486183" sideWeight="0.4978903" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2763562" sideWeight="0.5509343" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36745137" sideWeight="0.47197106" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6824324" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24894515" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33952704" sideWeight="0.44906572" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19960278" sideWeight="0.44906572" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39864865" sideWeight="0.4795539" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -905,73 +892,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/directives/directives.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="1" lean-forward="true" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpack/webpack3.6_Angular4.4_v.0/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="28" column="26" lean-forward="true" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/components/project-button/project-button.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="33" column="26" lean-forward="false" selection-start-line="33" selection-start-column="14" selection-end-line="33" selection-end-column="26" />
-          <folding>
-            <marker date="1515601424000" expanded="true" signature="226:484" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/app.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/webpack.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/app.component.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/pages/index.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="48" lean-forward="false" selection-start-line="0" selection-start-column="48" selection-end-line="0" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/app.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/components/project-delete/project-delete.component.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/pages/main-page/main-page.component.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -1244,8 +1164,80 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/practice/hw_ang2_fund/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
+        <state relative-caret-position="555">
           <caret line="37" column="28" lean-forward="false" selection-start-line="37" selection-start-column="28" selection-end-line="37" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/karma.conf.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/dop/LookDEPENDpackage.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/dop/LookDEPENDtsconfig.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/dop/REDwebpack.common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack/webpack3.6_Angular4.4_v.0/dop/LookDEPENDpackage.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack/webpack3.6_Angular4.4_v.0/dop/LookDEPENDtsconfig.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack/webpack3.6_Angular4.4_v.0/dop/REDwebpack.common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack/webpack3.10_Angular4.4_v.1/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="37" lean-forward="true" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
           <folding />
         </state>
       </provider>
