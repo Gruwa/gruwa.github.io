@@ -1,7 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="890a2d31-a6db-4d59-9fb9-3e90cfa4ce6c" name="Default" comment="" />
+    <list default="true" id="890a2d31-a6db-4d59-9fb9-3e90cfa4ce6c" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/.eslintrc.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/.gitignore" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/config/helpers.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/config/karma-test-shim.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/config/karma.conf.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/config/webpack.common.css.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/config/webpack.common.font.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/config/webpack.common.img.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/config/webpack.common.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/config/webpack.common.scss.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/config/webpack.common.svg.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/config/webpack.common.ts.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/config/webpack.dev.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/config/webpack.prod.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/config/webpack.test.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/dop/LookDEPENDpackage.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/dop/LookDEPENDtsconfig.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/dop/REDwebpack.common.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/karma.conf.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/package.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/postcss.config.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/readme.md" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/src/app/app.component.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/src/app/app.component.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/src/app/app.component.spec.ts" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/src/app/app.component.ts" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/src/app/app.module.ts" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/src/app/shared/components/portal-checkbox/portal-checkbox.component.scss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/src/app/shared/components/portal-checkbox/portal-checkbox.component.ts" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/src/app/shared/components/portal-input/portal-input.component.scss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/src/app/shared/components/portal-input/portal-input.component.ts" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/src/app/shared/components/portal-select/portal-select.component.scss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/src/app/shared/components/portal-select/portal-select.component.ts" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/src/app/shared/components/portal-textarea/portal-textarea.component.scss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/src/app/shared/components/portal-textarea/portal-textarea.component.ts" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/src/app/shared/components/progress-bar/progress-bar.component.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/src/app/shared/components/progress-bar/progress-bar.component.scss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/src/app/shared/components/progress-bar/progress-bar.component.spec.ts" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/src/app/shared/components/progress-bar/progress-bar.component.ts" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/src/app/shared/components/progress-circle/progress-circle.component.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/src/app/shared/components/progress-circle/progress-circle.component.scss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/src/app/shared/components/progress-circle/progress-circle.component.spec.ts" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/src/app/shared/components/progress-circle/progress-circle.component.ts" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/src/app/shared/components/projectl-button/projectl-button.component.scss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/src/app/shared/components/projectl-button/projectl-button.component.ts" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/src/app/shared/shared.module.ts" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/src/assets/font/montserrat-bold-webfont.eot" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/src/assets/font/montserrat-bold-webfont.ttf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/src/assets/font/montserrat-bold-webfont.woff" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/src/assets/font/montserrat-bold-webfont.woff2" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/src/assets/img/angular.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/src/assets/img/angular2.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/src/assets/img/svg/partners__airplane.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/src/assets/img/svg/partners__airplane2.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/src/assets/img/svg/partners__cup.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/src/assets/img/svg/partners__flask.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/src/assets/img/svg/partners__tv.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/src/assets/server/data.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/src/assets/style/font.scss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/src/assets/style/reset.scss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/src/assets/style/style.scss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/src/index.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/src/main.ts" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/src/polyfills.ts" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/src/tsconfig.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/src/vendor.ts" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/tsconfig.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/tslint.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/webpack.config.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/webpackAngular5/yarn.lock" afterPath="" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -146,13 +218,12 @@
     <handled-path value="$PROJECT_DIR$/practice/hw_rxjs/node_modules" />
     <handled-path value="$PROJECT_DIR$/practice/hw_ts_01/node_modules" />
     <handled-path value="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/node_modules" />
-    <handled-path value="$PROJECT_DIR$/practice/webpackAngular5/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1644" />
-    <option name="y" value="126" />
+    <option name="x" value="-1698" />
+    <option name="y" value="220" />
     <option name="width" value="1366" />
-    <option name="height" value="687" />
+    <option name="height" value="767" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -209,11 +280,6 @@
               <item name="Root" type="cbb8eebc:String" user="Root" />
               <item name="gruwa.github.io" type="cbb8eebc:String" user="gruwa.github.io" />
               <item name="practice" type="cbb8eebc:String" user="practice" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="gruwa.github.io" type="cbb8eebc:String" user="gruwa.github.io" />
-              <item name="webpack" type="cbb8eebc:String" user="webpack" />
             </path>
           </expand>
           <select />
@@ -482,7 +548,7 @@
       <workItem from="1515452555165" duration="918000" />
       <workItem from="1515488774555" duration="28009000" />
       <workItem from="1515575740904" duration="16522000" />
-      <workItem from="1515616729287" duration="2719000" />
+      <workItem from="1515616729287" duration="3361000" />
     </task>
     <servers />
   </component>
@@ -507,7 +573,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="292668000" />
+    <option name="totallyTimeSpent" value="293310000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -519,17 +585,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1644" y="126" width="1366" height="687" extended-state="0" />
+    <frame x="-1698" y="220" width="1366" height="767" extended-state="0" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21114865" sideWeight="0.4978903" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33828998" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33828998" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25486183" sideWeight="0.4978903" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2763562" sideWeight="0.5509343" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36655405" sideWeight="0.47197106" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6824324" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24894515" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33952704" sideWeight="0.44906572" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29910713" sideWeight="0.44906572" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39864865" sideWeight="0.4795539" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -783,13 +849,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/components/project-button/project-button.component.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/app.module.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1130,6 +1189,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="64" lean-forward="false" selection-start-line="0" selection-start-column="64" selection-end-line="0" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practice/webpackAngular5/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
