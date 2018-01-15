@@ -1,0 +1,49 @@
+@import '../../style/custom';
+
+.project-textarea {
+  position: relative;
+  margin-bottom: 24px;
+  margin-top: 24px;
+  height: 100%;
+
+  .group {
+    height: 100%;
+  }
+
+  &.error {
+    textarea {
+      border-color: $red;
+    }
+  }
+
+  .input_label-star {
+    color: $red;
+  }
+
+  textarea {
+    font-size: 16px;
+    padding: 10px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: $black;
+    border: 2px solid $grey;
+    resize: none;
+    @include animate(border-color);
+
+    &.with-border {
+      border: solid 2px #e0e0e0;
+    }
+
+    &:focus {
+      border-color: $dark_blue;
+      outline: none;
+      @include animate(border-color);
+    }
+
+    &.empty, &::placeholder {
+      color: $text_light_grey;
+      font-weight: 400;
+    }
+  }
+}

@@ -6,8 +6,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var platform_browser_1 = require("@angular/platform-browser");
 var http_1 = require("@angular/http");
+var platform_browser_1 = require("@angular/platform-browser");
 var router_1 = require("@angular/router");
 var app_component_1 = require("./app.component");
 var welcome_component_1 = require("./home/welcome.component");
@@ -91,5 +91,5 @@ NgModule metadata =>
 - Imports => Импортируемый массив, это поддерживаемые модули в которых нуждается модуль
 - Providers => Провайдер массив, это сервисные провадеры, эти сервисы могут быть
 подключены к любому классу в приложении
-*/ 
+*/
 //# sourceMappingURL=app.module.js.map

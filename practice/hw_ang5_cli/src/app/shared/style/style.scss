@@ -1,0 +1,29 @@
+@import 'reset';
+@import 'font';
+@import '../directives/directives';
+
+body {
+    background: #0147A7;
+    color: #fff;
+    font-family:'montserratbold';
+    font-size: 20px;
+}
+
+.div {
+  background-image: url('./../img/svg/partners__airplane2.svg');
+  background-repeat: no-repeat;
+  background-size: 23px 23px;
+  width: 23px;
+  height: 23px;
+  display: inline-block;
+}
+
+.div--img {
+  background-image: url('./../img/angular2.png');
+  background-repeat: no-repeat;
+  background-size: 23px 23px;
+  width: 23px;
+  height: 23px;
+  display: inline-block;
+}
+

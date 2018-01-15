@@ -1,0 +1,32 @@
+{
+    "databaseConfig": {
+        "host": "mongo",
+        "database": "codeWithDan",
+        "username": "webrole",
+        "password": "password"
+    },
+    
+    "redisConfig": {
+        "host": "redis",
+        "port": 6379,
+        "password": "password"
+    },
+
+    "brainTreeConfig": {
+        "merchantId": "br2f7sdfsmt9b857p",
+        "publicKey": "d4ffgzmpdfdxszb",
+        "privateKey": "q3380712de6f76091d8t"
+    },
+
+    "bcrypt": {
+        "difficulty": 8
+    },
+
+    "mandrillConfig": {
+        "host": "smtp.mandrillapp.com",
+        "port": "587",
+        "userName": "test@test.com",
+        "password": "ks5mGNMmpaEy3lw",
+        "adminEmail": "test@test.com"
+    }
+}

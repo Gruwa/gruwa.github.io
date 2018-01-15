@@ -1,0 +1,29 @@
+[
+  {
+    "context": [
+      "/admin"
+    ],
+    "target": {
+      "host": "localhost",
+      "protocol": "http:",
+      "port": 4203
+    },
+    "secure": false,
+    "pathRewrite": {
+      "^/admin": "/"
+    }
+  },
+  {
+    "context": [
+      "/api",
+      "/media",
+      "/static"
+    ],
+    "target": {
+      "host": "localhost",
+      "protocol": "http:",
+      "port": 8000
+    },
+    "secure": false
+  }
+]
