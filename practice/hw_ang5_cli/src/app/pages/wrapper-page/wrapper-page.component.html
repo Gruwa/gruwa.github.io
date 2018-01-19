@@ -1,0 +1,45 @@
+<div class="wrapper-page" *ngIf="router.url !== '/404'">
+  <div class="wrapper-header">
+    <app-header-page></app-header-page>
+  </div>
+  <div class="wrapper-main">
+    <div class="wrapper-sidebar">
+      <ul class="wrapper-sidebar__list">
+        <li class="wrapper-sidebar__item">
+          <a>
+            <span class="wrapper-sidebar__line"></span>
+            <div class="wrapper-sidebar__icon"></div>
+            <div class="wrapper-sidebar__description">Information</div>
+          </a>
+        </li>
+        <li class="wrapper-sidebar__item">
+          <a>
+            <span class="wrapper-sidebar__line"></span>
+            <div class="wrapper-sidebar__icon"></div>
+            <div class="wrapper-sidebar__description">Information</div>
+          </a>
+        </li>
+        <li class="wrapper-sidebar__item">
+          <a>
+            <span class="wrapper-sidebar__line"></span>
+            <div class="wrapper-sidebar__icon"></div>
+            <div class="wrapper-sidebar__description">Information</div>
+          </a>
+        </li>
+        <li class="wrapper-sidebar__item">
+          <a>
+            <span class="wrapper-sidebar__line"></span>
+            <div class="wrapper-sidebar__icon"></div>
+            <div class="wrapper-sidebar__description">Information</div>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="wrapper-content">
+      <div class="wrapper-line-top"></div>
+      <router-outlet></router-outlet>
+      <div></div>
+    </div>
+  </div>
+</div>
+<app-error *ngIf="router.url === '/404'"></app-error>
