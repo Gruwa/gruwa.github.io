@@ -27,11 +27,13 @@ import {
   ProjectPointerDirective,
   ProjectTextDirective,
   ProjectTextEllipsisDirective,
-  ProjectTitleDirective
+  ProjectTitleDirective,
+  ProjectListDirective
 } from './shared/directives';
 import {
-    AuthService,
-    ProjectInterceptor
+  AuthService,
+  ProjectInterceptor,
+  MainService
 } from './shared/services';
 import { HelloPageComponent } from './pages/hello-page/hello-page.component';
 import { FormPageComponent } from './pages/form-page/form-page.component';
@@ -65,26 +67,28 @@ export function HttpLoaderFactory(http: HttpClient) {
     RouterModule.forRoot(appRoutes)
   ],
   declarations: [
-      AppComponent,
-      MainPageComponent,
-      ProjectTextEllipsisDirective,
-      ProjectTextDirective,
-      ProjectTitleDirective,
-      ProjectPointerDirective,
-      HelloPageComponent,
-      FormPageComponent,
-      Error404Component,
-      TabPageComponent,
-      WrapperPageComponent,
-      HeaderPageComponent
+    AppComponent,
+    MainPageComponent,
+    ProjectTextEllipsisDirective,
+    ProjectTextDirective,
+    ProjectTitleDirective,
+    ProjectPointerDirective,
+    ProjectListDirective,
+    HelloPageComponent,
+    FormPageComponent,
+    Error404Component,
+    TabPageComponent,
+    WrapperPageComponent,
+    HeaderPageComponent
   ],
   providers: [
-      AuthService,
-      {
-        provide: HTTP_INTERCEPTORS,
-        useClass: ProjectInterceptor,
-        multi: true,
-      }
+    AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ProjectInterceptor,
+      multi: true,
+    },
+    MainService
   ],
   bootstrap: [AppComponent]
 })

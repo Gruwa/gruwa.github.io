@@ -1,0 +1,12 @@
+@import '../../shared/style/custom';
+
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.content {
+  display: block;
+}

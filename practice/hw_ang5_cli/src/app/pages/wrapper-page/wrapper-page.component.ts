@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
-import {LocalStorageService} from 'ngx-webstorage';
+import { Router } from '@angular/router';
+import { MainService } from '../../shared/services/main.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-wrapper-page',
@@ -11,14 +12,14 @@ export class WrapperPageComponent implements OnInit {
   title = 'app';
 
   constructor (
-    private localStorageService: LocalStorageService,
-    public router: Router
+    public router: Router,
+    public mainService: MainService,
+    public translate: TranslateService
   ) {
   }
 
   ngOnInit() {
-    this.localStorageService.store('language', 'en');
-    console.log(this.localStorageService.retrieve('language'));
+    this.mainService.setLanguage('en');
   }
 
 }

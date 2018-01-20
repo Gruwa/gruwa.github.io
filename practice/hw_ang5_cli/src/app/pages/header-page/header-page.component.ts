@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
+import {TranslateService} from '@ngx-translate/core';
+import {MainService} from '../../shared/services';
 
 @Component({
   selector: 'app-header-page',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    public translate: TranslateService,
+    public mainService: MainService
+  ) { }
 
   ngOnInit() {
   }
 
+  click() {
+    this.router.navigate(['/main']);
+  }
+
+  changeLanguage(lang: string) {
+    this.mainService.setLanguage(lang);
+  }
 }

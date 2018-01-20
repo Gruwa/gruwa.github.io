@@ -154,3 +154,6 @@ input:focus {
 [ng\:cloak], [ng-cloak], .ng-cloak {
   display: none;
 }
+*:focus {
+  outline: 0;
+}
