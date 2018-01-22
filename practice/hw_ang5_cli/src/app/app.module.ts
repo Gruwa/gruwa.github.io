@@ -33,7 +33,8 @@ import {
 import {
   AuthService,
   ProjectInterceptor,
-  MainService
+  MainService,
+  UserService
 } from './shared/services';
 import { HelloPageComponent } from './pages/hello-page/hello-page.component';
 import { FormPageComponent } from './pages/form-page/form-page.component';
@@ -88,7 +89,8 @@ export function HttpLoaderFactory(http: HttpClient) {
       useClass: ProjectInterceptor,
       multi: true,
     },
-    MainService
+    MainService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

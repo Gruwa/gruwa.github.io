@@ -29,6 +29,14 @@
   }
 }
 
+.header-sidebar_close {
+  color: #80919A;
+  font-size: 20px;
+  position: absolute;
+  left: 210px;
+  display: none;
+}
+
 .header-languages {
   color: grey;
   margin-right: 30px;
@@ -51,5 +59,12 @@
 
   &--active {
     color: red;
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  .header-sidebar_close {
+    display: block;
   }
 }

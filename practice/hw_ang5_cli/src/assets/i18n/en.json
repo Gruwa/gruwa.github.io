@@ -1,7 +1,26 @@
 {
-  "Log In" : "Log in",
+  "Click" : "Click",
   "Information" : "Information",
   "Users" : "Users",
   "Forms" : "Forms",
-  "Messages" : "Messages"
+  "Messages" : "Messages",
+  "Here are some links to help you start:": "Here are some links to help you start:",
+  "Tour of Heroes": "Tour of Heroes",
+  "CLI Documentation": "CLI Documentation",
+  "Angular blog": "Angular blog",
+  "Hello from Angular 5 App CLI": "Hello from Angular 5 App CLI",
+  "Students": "Students",
+  "Instructors": "Instructors",
+  "Admins": "Admins",
+  "Name": "Name",
+  "Email": "Email",
+  "user ID": "user ID",
+  "Created": "Created",
+  "Activate": "Activate",
+  "Remove": "Remove",
+  "Admins": "Admins",
+  "Admins": "Admins",
+  "Admins": "Admins",
+  "Admins": "Admins"
+
 }

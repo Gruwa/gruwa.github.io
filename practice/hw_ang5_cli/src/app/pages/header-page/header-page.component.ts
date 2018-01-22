@@ -26,4 +26,8 @@ export class HeaderPageComponent implements OnInit {
   changeLanguage(lang: string) {
     this.mainService.setLanguage(lang);
   }
+
+  closeSideBar() {
+    this.mainService.changePositionSideBar();
+  }
 }

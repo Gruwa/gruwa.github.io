@@ -3,9 +3,10 @@
 body {
   background-color: #EEF2F5;
   color: #fff;
-  font-family:'montserratbold';
+  font-family:'robotomedium';
   font-size: 20px;
   margin: 0;
+  font-weight: lighter;
 }
 
 .div {

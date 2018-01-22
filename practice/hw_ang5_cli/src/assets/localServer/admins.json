@@ -1,0 +1,5 @@
+{
+  "results": [
+    {"id":"47e7b34b-bc86-405a-9afd-c22fbf05a23e","vendor":"d56806a3-a6a2-4292-ad7c-cdc40b0371e5","user":{"id":18,"avatar":"https://learnster-dev.s3.amazonaws.com/users/18/avatar/aaron_TgTcu4k.jpg?AWSAccessKeyId=AKIAJNVKGCHPPFM4ZWVA&Signature=5Yvo0FrU8%2BfKjykhqQaboYtIUU0%3D&Expires=1516639133","first_name":"Akron","last_name":"Clastaneda","email":"aaron.castaneda@gmail.com","address":{"id":"b5d1e26d-b42f-45b5-b913-9aea3cf4041a","city":"Stockholm","country":null},"title":"Project Management","company_name":"","about":"This is a short description of myself.\nThis is a short description of myself.\nThis is a short description of myself.\nThis is a short description of myself.\nThis is a short description of myself."},"active":true,"created_date":"2018-01-14T15:53:48.778280Z"}
+  ]
+}

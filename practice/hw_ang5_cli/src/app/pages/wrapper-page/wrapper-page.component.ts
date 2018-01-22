@@ -9,7 +9,6 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./wrapper-page.component.scss']
 })
 export class WrapperPageComponent implements OnInit {
-  title = 'app';
 
   constructor (
     public router: Router,

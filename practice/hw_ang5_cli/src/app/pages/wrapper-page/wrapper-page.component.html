@@ -3,12 +3,11 @@
     <app-header-page></app-header-page>
   </div>
   <div class="wrapper-main">
-    <div class="wrapper-sidebar">
+    <div class="wrapper-sidebar" [ngClass]="{'wrapper-sidebar--close' : mainService.closeSideBar}">
       <ul class="wrapper-sidebar__list">
         <li class="wrapper-sidebar__item"
             [ngClass]="{'wrapper-sidebar__item--active' : router.url === '/main'}"
             [routerLink]="['/main']">
-          <!--<span class="wrapper-sidebar__line"></span>-->
           <div [ngClass]="{'wrapper-sidebar__icon-box' : router.url === '/main'}">
             <img class="wrapper-sidebar__icon" *ngIf="router.url !== '/main'" src="../../../assets/img/icon/courses.svg">
             <img class="wrapper-sidebar__icon" *ngIf="router.url === '/main'" src="../../../assets/img/icon/courses-white.svg">
@@ -19,7 +18,6 @@
         <li class="wrapper-sidebar__item"
             [routerLink]="['/main/tab']"
             [ngClass]="{'wrapper-sidebar__item--active' : router.url === '/main/tab'}">
-          <!--<span class="wrapper-sidebar__line"></span>-->
           <div [ngClass]="{'wrapper-sidebar__icon-box' : router.url === '/main/tab'}">
             <img class="wrapper-sidebar__icon" *ngIf="router.url !== '/main/tab'" src="../../../assets/img/icon/users.svg">
             <img class="wrapper-sidebar__icon" *ngIf="router.url === '/main/tab'" src="../../../assets/img/icon/users-white.svg">
@@ -30,7 +28,6 @@
         <li class="wrapper-sidebar__item"
             [routerLink]="['/main/form']"
             [ngClass]="{'wrapper-sidebar__item--active' : router.url === '/main/form'}">
-          <!--<span class="wrapper-sidebar__line"></span>-->
           <div [ngClass]="{'wrapper-sidebar__icon-box' : router.url === '/main/form'}">
             <img class="wrapper-sidebar__icon" *ngIf="router.url !== '/main/form'" src="../../../assets/img/icon/forms.svg">
             <img class="wrapper-sidebar__icon" *ngIf="router.url === '/main/form'" src="../../../assets/img/icon/forms-white.svg">
@@ -41,7 +38,46 @@
         <li class="wrapper-sidebar__item"
             [routerLink]="['/main/message']"
             [ngClass]="{'wrapper-sidebar__item--active' : router.url === '/main/message'}">
-          <!--<span class="wrapper-sidebar__line"></span>-->
+          <div [ngClass]="{'wrapper-sidebar__icon-box' : router.url === '/main/message'}">
+            <img class="wrapper-sidebar__icon" *ngIf="router.url !== '/main/message'" src="../../../assets/img/icon/messages.svg">
+            <img class="wrapper-sidebar__icon" *ngIf="router.url === '/main/message'" src="../../../assets/img/icon/messages-white.svg">
+          </div>
+          <div class="wrapper-sidebar__description"
+               [ngClass]="{'wrapper-sidebar__description--active' : router.url === '/main/message'}">{{'Messages' | translate}}</div>
+        </li>
+        <li class="wrapper-sidebar__item"
+            [routerLink]="['/main/message']"
+            [ngClass]="{'wrapper-sidebar__item--active' : router.url === '/main/message'}">
+          <div [ngClass]="{'wrapper-sidebar__icon-box' : router.url === '/main/message'}">
+            <img class="wrapper-sidebar__icon" *ngIf="router.url !== '/main/message'" src="../../../assets/img/icon/messages.svg">
+            <img class="wrapper-sidebar__icon" *ngIf="router.url === '/main/message'" src="../../../assets/img/icon/messages-white.svg">
+          </div>
+          <div class="wrapper-sidebar__description"
+               [ngClass]="{'wrapper-sidebar__description--active' : router.url === '/main/message'}">{{'Messages' | translate}}</div>
+        </li>
+        <li class="wrapper-sidebar__item"
+            [routerLink]="['/main/message']"
+            [ngClass]="{'wrapper-sidebar__item--active' : router.url === '/main/message'}">
+          <div [ngClass]="{'wrapper-sidebar__icon-box' : router.url === '/main/message'}">
+            <img class="wrapper-sidebar__icon" *ngIf="router.url !== '/main/message'" src="../../../assets/img/icon/messages.svg">
+            <img class="wrapper-sidebar__icon" *ngIf="router.url === '/main/message'" src="../../../assets/img/icon/messages-white.svg">
+          </div>
+          <div class="wrapper-sidebar__description"
+               [ngClass]="{'wrapper-sidebar__description--active' : router.url === '/main/message'}">{{'Messages' | translate}}</div>
+        </li>
+        <li class="wrapper-sidebar__item"
+            [routerLink]="['/main/message']"
+            [ngClass]="{'wrapper-sidebar__item--active' : router.url === '/main/message'}">
+          <div [ngClass]="{'wrapper-sidebar__icon-box' : router.url === '/main/message'}">
+            <img class="wrapper-sidebar__icon" *ngIf="router.url !== '/main/message'" src="../../../assets/img/icon/messages.svg">
+            <img class="wrapper-sidebar__icon" *ngIf="router.url === '/main/message'" src="../../../assets/img/icon/messages-white.svg">
+          </div>
+          <div class="wrapper-sidebar__description"
+               [ngClass]="{'wrapper-sidebar__description--active' : router.url === '/main/message'}">{{'Messages' | translate}}</div>
+        </li>
+        <li class="wrapper-sidebar__item"
+            [routerLink]="['/main/message']"
+            [ngClass]="{'wrapper-sidebar__item--active' : router.url === '/main/message'}">
           <div [ngClass]="{'wrapper-sidebar__icon-box' : router.url === '/main/message'}">
             <img class="wrapper-sidebar__icon" *ngIf="router.url !== '/main/message'" src="../../../assets/img/icon/messages.svg">
             <img class="wrapper-sidebar__icon" *ngIf="router.url === '/main/message'" src="../../../assets/img/icon/messages-white.svg">
@@ -51,7 +87,7 @@
         </li>
       </ul>
     </div>
-    <div class="wrapper-content">
+    <div class="wrapper-content" [ngClass]="{'wrapper-content--close' : mainService.closeSideBar}">
       <div class="wrapper-line-top"></div>
       <router-outlet></router-outlet>
       <div></div>

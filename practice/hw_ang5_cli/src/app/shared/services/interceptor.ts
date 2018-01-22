@@ -19,11 +19,11 @@ export class ProjectInterceptor implements HttpInterceptor {
 
     return next.handle(request).do(() => {},
       (err: any) => {
-        if (err instanceof HttpErrorResponse) {
-          if (err.status === 404) {
-            this.toast.error('Bad request!', 'Error 404');
-          }
-        }
+        // if (err instanceof HttpErrorResponse) {
+        //   if (err.status === 404) {
+        //     this.toast.error('Bad request!', 'Error 404');
+        //   }
+        // }
       });
   }
 }

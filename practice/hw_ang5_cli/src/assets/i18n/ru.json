@@ -1,7 +1,21 @@
 {
-  "Log In" : "Залогинься",
+  "Click" : "Клик",
   "Information" : "Информация",
-  "Users" : "Юзеры",
+  "Users" : "Пользователи",
   "Forms" : "Формы",
-  "Messages" : "Сообщения"
+  "Messages" : "Сообщения",
+  "Here are some links to help you start:": "Тут находятся ссылки, которые могут тебе помочь:",
+  "Tour of Heroes": "Тур героев",
+  "CLI Documentation": "CLI Документация",
+  "Angular blog": "Блог Angular",
+  "Hello from Angular 5 App CLI": "Привет от Angular 5 App CLI",
+  "Students": "Студенты",
+  "Instructors": "Инструкторы",
+  "Admins": "Админы",
+  "Name": "Имя",
+  "Email": "Емейл",
+  "user ID": "юзер ID",
+  "Created": "Создано",
+  "Activate": "Активный",
+  "Remove": "Удалить"
 }

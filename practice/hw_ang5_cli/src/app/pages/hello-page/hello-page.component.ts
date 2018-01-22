@@ -11,27 +11,19 @@ import {Router} from '@angular/router';
 })
 export class HelloPageComponent implements OnInit {
   constructor(
-    public toastr: ToastsManager, vcr: ViewContainerRef,
+    public toast: ToastsManager, vcr: ViewContainerRef,
     public translate: TranslateService,
     private localStorageService: LocalStorageService,
     public router: Router
   ) {
-    this.toastr.setRootViewContainerRef(vcr);
+    this.toast.setRootViewContainerRef(vcr);
   }
 
   ngOnInit() {
-    const language = this.localStorageService.retrieve('language');
-    this.translate.use(language);
-    this.translate.setDefaultLang(language);
-    this.localStorageService.observe('language').subscribe((value) => {
-      this.translate.use(value);
-    });
-
-    console.log(this.translate)
   }
 
   helloAngular() {
-    this.toastr.success('Hello Ang');
+    this.toast.success('Hello Ang');
     if (this.localStorageService.retrieve('language') === 'ru') {
       this.localStorageService.store('language', 'en');
     } else {

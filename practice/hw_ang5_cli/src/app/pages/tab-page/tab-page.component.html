@@ -1,3 +1,91 @@
-<p>
-  tab-page works!
-</p>
+<div class="users ui-g ui-g-12">
+  <div appProjectTitleStyle>{{'Users' | translate}}</div>
+  <div class="users ui-g ui-g-12 users__wrapper-search">
+    <!--<div class="users users__search ui-g-4">-->
+      <!--<input class="users__search-input" type="text" [(ngModel)]="filter" (keyup)="onPressEnter($event)"-->
+             <!--name="users_search" id="" placeholder={{'search_user'}}>-->
+      <!--<img src="../assets/images/icon/courses_search.svg" (click)="onGetUsers()"-->
+           <!--alt="courses_search" class="users__search-img">-->
+    <!--</div>-->
+    <div class="ui-g ui-g-8 ui-g-nopad">
+      <div class="">
+        <div class="add-session__instructil on-btn">
+          <!--<app-learnster-button ripple (onClickEvent)="onShowModal(true)"-->
+                                <!--title={{'title_btn'}}-->
+                                <!--cancel="true"-->
+                                <!--newClass="users__btn">-->
+          <!--</app-learnster-button>-->
+        </div>
+      </div>
+      <div class="">
+        <div class="add-session__instruction-btn">
+          <!--<app-form-uploader title="Bulk Upload"-->
+                             <!--attribute="application/x-excel"-->
+                             <!--classLabel="users__instruction-btn"-->
+                             <!--classUploader="users__instruction-btn&#45;&#45;uploader"-->
+                             <!--(fileUpload)="getFileUploader($event)"-->
+                             <!--label="+ Bulk Upload">-->
+          <!--</app-form-uploader>-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui-g ui-g-12 ui-g-nopad users__nav-students">
+    <ul class="list_title_students ui-g-9 ui-md-8 ui-g-nopad">
+      <li [ngClass]="{'users__active_course_tab' : tab === 'students'}" (click)="changeTab('students')">{{'Students' | translate}}</li>
+      <li [ngClass]="{'users__active_course_tab' : tab === 'instructors'}" (click)="changeTab('instructors')">{{'Instructors' | translate}}</li>
+      <li [ngClass]="{'users__active_course_tab' : tab === 'admins'}" (click)="changeTab('admins')">{{'Admins' | translate}}</li>
+    </ul>
+  </div>
+  <div class="ui-g ui-g-12 ui-g-nopad">
+    <div class="users__current-students ui-md-12 ui-lg-12 ui-sm-12 ui-xl-12">
+      <div class="filter_list_students ui-g ui-g-12">
+        <span class="ui-g-4" (click)="onGetUsers('name')">{{'Name' | translate}}<span class="arow_down">&#9662;</span></span>
+        <span class="ui-g-2" (click)="onGetUsers('email')">{{'Email' | translate}}<span class="arow_down">&#9662;</span></span>
+        <span class="ui-g-2" (click)="onGetUsers('id')">{{'user ID' | translate}}<span class="arow_down">&#9662;</span></span>
+        <span class="ui-g-2" (click)="onGetUsers('created_date')">{{'Created' | translate}}<span class="arow_down">&#9662;</span></span>
+        <span class="ui-g-1">{{'Activate' | translate}}</span>
+        <span class="ui-g-1">{{'Remove' | translate}}</span>
+      </div>
+      <div *ngFor="let user of users">
+        <div class="list-group-item ui-g ui-g-12">
+          <span class="ui-g-4" (click)="onShowModalEditUser(true, user)">{{user.user.first_name}} {{user.user.last_name}}</span>
+          <span class="ui-g-2" (click)="onShowModalEditUser(true, user)">{{user.user.email}}</span>
+          <span class="ui-g-2" (click)="onShowModalEditUser(true, user)">{{user.user.id}}</span>
+          <span class="ui-g-2" (click)="onShowModalEditUser(true, user)">{{user.created_date | date:'longDate'}}</span>
+          <span class="ui-g-1" >
+                    <div class="users__toggle-status-students" (click)="toggleStudentStatus($event, user)">
+                        <input class='toggle' type="checkbox"
+                               [checked]="user.active"
+                               name='check-3'/>
+                    </div>
+                    </span>
+          <span class="users__trash ui-g-1">
+                        <img src="../../../assets/img/icon/courses_trash.svg"
+                             alt="courses_trash" (click)="removeRecordShowModal($event, 'delete', user)">
+                    </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--<app-huge-modal title="{{addUser}} {{this.tab}}"-->
+                  <!--(onModalClose)="onVisibleChange($event)"-->
+                  <!--[visible]="visibleModal">-->
+    <!--<app-add-user class="ui-g-12 users__form"-->
+                  <!--*ngIf="visibleModal"-->
+                  <!--[userActive]="userActive"-->
+                  <!--[tab]="tab"-->
+                  <!--(onModalClose)="onVisibleChange($event)"-->
+                  <!--(visible)="onVisibleChange($event)">-->
+    <!--</app-add-user>-->
+  <!--</app-huge-modal>-->
+  <!--<app-learnster-modal-->
+    <!--[visible]="showModal"-->
+    <!--(visibleChange)="closeModal($event)">-->
+    <!--<entity-delete *ngIf="modalType === 'delete'"-->
+                   <!--entityName="user" (onDelete)="deleteGroup($event)">-->
+    <!--</entity-delete>-->
+  <!--</app-learnster-modal>-->
+
+</div>
