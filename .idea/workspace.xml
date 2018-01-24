@@ -2,82 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="890a2d31-a6db-4d59-9fb9-3e90cfa4ce6c" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-black-webfont.eot" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-black-webfont.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-black-webfont.woff" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-black-webfont.woff2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-blackitalic-webfont.eot" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-blackitalic-webfont.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-blackitalic-webfont.woff" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-blackitalic-webfont.woff2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-bold-webfont.eot" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-bold-webfont.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-bold-webfont.woff" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-bold-webfont.woff2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-bolditalic-webfont.eot" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-bolditalic-webfont.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-bolditalic-webfont.woff" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-bolditalic-webfont.woff2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-italic-webfont.eot" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-italic-webfont.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-italic-webfont.woff" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-italic-webfont.woff2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-light-webfont.eot" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-light-webfont.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-light-webfont.woff" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-light-webfont.woff2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-lightitalic-webfont.eot" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-lightitalic-webfont.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-lightitalic-webfont.woff" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-lightitalic-webfont.woff2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-medium-webfont.eot" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-medium-webfont.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-medium-webfont.woff" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-medium-webfont.woff2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-mediumitalic-webfont.eot" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-mediumitalic-webfont.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-mediumitalic-webfont.woff" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-mediumitalic-webfont.woff2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-regular-webfont.eot" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-regular-webfont.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-regular-webfont.woff" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-regular-webfont.woff2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-thin-webfont.eot" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-thin-webfont.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-thin-webfont.woff" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-thin-webfont.woff2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-thinitalic-webfont.eot" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-thinitalic-webfont.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-thinitalic-webfont.woff" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/font/roboto-thinitalic-webfont.woff2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/img/icon/courses_trash.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/localServer/admins.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/localServer/instructors.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/localServer/students.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_node_with_angular2/models/message.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_node_with_angular2/models/user.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_node_with_angular2/views/node.hbs" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/app.module.ts" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/app.module.ts" />
-      <change beforePath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/pages/header-page/header-page.component.html" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/pages/header-page/header-page.component.html" />
-      <change beforePath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/pages/header-page/header-page.component.scss" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/pages/header-page/header-page.component.scss" />
-      <change beforePath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/pages/header-page/header-page.component.ts" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/pages/header-page/header-page.component.ts" />
-      <change beforePath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/pages/hello-page/hello-page.component.html" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/pages/hello-page/hello-page.component.html" />
-      <change beforePath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/pages/hello-page/hello-page.component.ts" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/pages/hello-page/hello-page.component.ts" />
-      <change beforePath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/pages/tab-page/tab-page.component.html" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/pages/tab-page/tab-page.component.html" />
-      <change beforePath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/pages/tab-page/tab-page.component.scss" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/pages/tab-page/tab-page.component.scss" />
-      <change beforePath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/pages/tab-page/tab-page.component.ts" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/pages/tab-page/tab-page.component.ts" />
-      <change beforePath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/pages/wrapper-page/wrapper-page.component.html" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/pages/wrapper-page/wrapper-page.component.html" />
-      <change beforePath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/pages/wrapper-page/wrapper-page.component.scss" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/pages/wrapper-page/wrapper-page.component.scss" />
-      <change beforePath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/pages/wrapper-page/wrapper-page.component.ts" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/pages/wrapper-page/wrapper-page.component.ts" />
-      <change beforePath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/shared/directives/directives.scss" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/shared/directives/directives.scss" />
-      <change beforePath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/shared/services/index.ts" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/shared/services/index.ts" />
-      <change beforePath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/shared/services/interceptor.ts" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/shared/services/interceptor.ts" />
-      <change beforePath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/shared/services/main.service.ts" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/shared/services/main.service.ts" />
-      <change beforePath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/shared/style/color.scss" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/shared/style/color.scss" />
-      <change beforePath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/shared/style/font.scss" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/shared/style/font.scss" />
-      <change beforePath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/i18n/en.json" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/i18n/en.json" />
-      <change beforePath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/i18n/ru.json" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/assets/i18n/ru.json" />
-      <change beforePath="$PROJECT_DIR$/practice/hw_ang5_cli/src/environments/environment.ts" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/environments/environment.ts" />
-      <change beforePath="$PROJECT_DIR$/practice/hw_ang5_cli/src/styles.css" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/styles.css" />
-      <change beforePath="$PROJECT_DIR$/practice/hw_ang5_cli/tslint.json" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/tslint.json" />
+      <change beforePath="$PROJECT_DIR$/practice/hw_nodejs_server/server_echo.js" afterPath="$PROJECT_DIR$/practice/hw_nodejs_server/server_echo.js" />
+      <change beforePath="$PROJECT_DIR$/practice/hw_nodejs_server/server_main.js" afterPath="$PROJECT_DIR$/practice/hw_nodejs_server/server_main.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -91,20 +21,7 @@
   </component>
   <component name="ChangesViewManager" show_ignored="true" />
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="products.service.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/practice/hw_Buddhasoft/src/app/shared/products.service.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
-              <caret line="44" column="59" lean-forward="false" selection-start-line="44" selection-start-column="50" selection-end-line="44" selection-end-column="59" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -234,6 +151,7 @@
     <handled-path value="$PROJECT_DIR$/practice/hw_ang2forms/node_modules" />
     <handled-path value="$PROJECT_DIR$/practice/hw_ang5_cli/node_modules" />
     <handled-path value="$PROJECT_DIR$/practice/hw_js_19_gulp/node_modules" />
+    <handled-path value="$PROJECT_DIR$/practice/hw_node_with_angular2/node_modules" />
     <handled-path value="$PROJECT_DIR$/practice/hw_nodejs/node_modules" />
     <handled-path value="$PROJECT_DIR$/practice/hw_rxjs/node_modules" />
     <handled-path value="$PROJECT_DIR$/practice/hw_ts_01/node_modules" />
@@ -242,8 +160,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="1366" />
     <option name="y" value="23" />
-    <option name="width" value="1920" />
-    <option name="height" value="1057" />
+    <option name="width" value="1680" />
+    <option name="height" value="1027" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -301,36 +219,6 @@
               <item name="Root" type="cbb8eebc:String" user="Root" />
               <item name="gruwa.github.io" type="cbb8eebc:String" user="gruwa.github.io" />
               <item name="practice" type="cbb8eebc:String" user="practice" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="gruwa.github.io" type="cbb8eebc:String" user="gruwa.github.io" />
-              <item name="practice" type="cbb8eebc:String" user="practice" />
-              <item name="hw_Buddhasoft" type="cbb8eebc:String" user="hw_Buddhasoft" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="gruwa.github.io" type="cbb8eebc:String" user="gruwa.github.io" />
-              <item name="practice" type="cbb8eebc:String" user="practice" />
-              <item name="hw_Buddhasoft" type="cbb8eebc:String" user="hw_Buddhasoft" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="gruwa.github.io" type="cbb8eebc:String" user="gruwa.github.io" />
-              <item name="practice" type="cbb8eebc:String" user="practice" />
-              <item name="hw_Buddhasoft" type="cbb8eebc:String" user="hw_Buddhasoft" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="app" type="cbb8eebc:String" user="app" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="gruwa.github.io" type="cbb8eebc:String" user="gruwa.github.io" />
-              <item name="practice" type="cbb8eebc:String" user="practice" />
-              <item name="hw_Buddhasoft" type="cbb8eebc:String" user="hw_Buddhasoft" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="app" type="cbb8eebc:String" user="app" />
-              <item name="shared" type="cbb8eebc:String" user="shared" />
             </path>
           </expand>
           <select />
@@ -613,7 +501,9 @@
       <workItem from="1516460578037" duration="1210000" />
       <workItem from="1516574934625" duration="592000" />
       <workItem from="1516620848623" duration="18000" />
-      <workItem from="1516621284864" duration="2168000" />
+      <workItem from="1516621284864" duration="2305000" />
+      <workItem from="1516711599528" duration="3558000" />
+      <workItem from="1516783377848" duration="564000" />
     </task>
     <servers />
   </component>
@@ -638,7 +528,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="318857000" />
+    <option name="totallyTimeSpent" value="323116000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -650,19 +540,20 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1366" y="23" width="1920" height="1057" extended-state="0" />
+    <frame x="1366" y="23" width="1680" height="1027" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21114865" sideWeight="0.4978903" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2390732" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.238698" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25486183" sideWeight="0.4978903" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32952183" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2763562" sideWeight="0.5509343" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6824324" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952183" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24532224" sideWeight="0.5529226" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36643496" sideWeight="0.47197106" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6824324" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24894515" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24564995" sideWeight="0.44906572" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39864865" sideWeight="0.4795539" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2446352" sideWeight="0.44707742" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39864865" sideWeight="0.4795539" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -915,17 +806,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" column="23" lean-forward="true" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practice/hw_rxjs/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/practice/hw_Buddhasoft/src/app/shared/products.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
+        <state relative-caret-position="86">
           <caret line="44" column="59" lean-forward="false" selection-start-line="44" selection-start-column="50" selection-end-line="44" selection-end-column="59" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
