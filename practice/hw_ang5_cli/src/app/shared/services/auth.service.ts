@@ -9,13 +9,13 @@ export class AuthService {
         public http: HttpClient
     ) { }
 
-    singupUser(email: string, password: string) {
-        let data = {
+    loginUser(email: string, password: string) {
+        let params = {
             email: email,
             password: password
         };
 
-        return this.http.put(this.authUrl, data);
+        return this.http.put(this.authUrl, params);
     }
 
 }

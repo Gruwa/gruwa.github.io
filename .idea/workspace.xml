@@ -2,12 +2,47 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="890a2d31-a6db-4d59-9fb9-3e90cfa4ce6c" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_node_with_angular2/models/message.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_node_with_angular2/models/user.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_node_with_angular2/views/node.hbs" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_node_with_angular2/assets/app/app.routing.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_node_with_angular2/assets/app/auth/auth.routes.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_node_with_angular2/assets/app/auth/authentication.component.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_node_with_angular2/assets/app/auth/logout.component.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_node_with_angular2/assets/app/auth/signin.component.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_node_with_angular2/assets/app/auth/signin.component.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_node_with_angular2/assets/app/auth/signup.component.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_node_with_angular2/assets/app/auth/signup.component.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_node_with_angular2/assets/app/auth/user.model.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_node_with_angular2/assets/app/header.component.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_node_with_angular2/assets/app/messages/message-input.component.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_node_with_angular2/assets/app/messages/message-input.component.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_node_with_angular2/assets/app/messages/message-list.component.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_node_with_angular2/assets/app/messages/message.component.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_node_with_angular2/assets/app/messages/message.component.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_node_with_angular2/assets/app/messages/message.model.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_node_with_angular2/assets/app/messages/message.service.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/practice/hw_node_with_angular2/assets/app/messages/messages.component.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/project/first_pancake/.idea/first_pancake.iml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/project/first_pancake/.idea/modules.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/project/first_pancake/.idea/workspace.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/project/first_pancake/storeAngular5/readme.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/project/first_pancake/storeNodeServerMongoDB/readme.md" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/practice/hw_nodejs_server/server_echo.js" afterPath="$PROJECT_DIR$/practice/hw_nodejs_server/server_echo.js" />
-      <change beforePath="$PROJECT_DIR$/practice/hw_nodejs_server/server_main.js" afterPath="$PROJECT_DIR$/practice/hw_nodejs_server/server_main.js" />
+      <change beforePath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/shared/components/project-button/project-button.component.html" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/shared/components/project-button/project-button.component.html" />
+      <change beforePath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/shared/components/project-button/project-button.component.ts" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/shared/components/project-button/project-button.component.ts" />
+      <change beforePath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/shared/components/project-circle/project-circle.component.html" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/shared/components/project-circle/project-circle.component.html" />
+      <change beforePath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/shared/services/auth.service.ts" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/shared/services/auth.service.ts" />
+      <change beforePath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/shared/services/interceptor.ts" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/shared/services/interceptor.ts" />
+      <change beforePath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/shared/services/main.service.ts" afterPath="$PROJECT_DIR$/practice/hw_ang5_cli/src/app/shared/services/main.service.ts" />
+      <change beforePath="$PROJECT_DIR$/practice/hw_node_with_angular2/.gitignore" afterPath="$PROJECT_DIR$/practice/hw_node_with_angular2/.gitignore" />
+      <change beforePath="$PROJECT_DIR$/practice/hw_node_with_angular2/app.js" afterPath="$PROJECT_DIR$/practice/hw_node_with_angular2/app.js" />
+      <change beforePath="$PROJECT_DIR$/practice/hw_node_with_angular2/assets/app/app.component.html" afterPath="$PROJECT_DIR$/practice/hw_node_with_angular2/assets/app/app.component.html" />
+      <change beforePath="$PROJECT_DIR$/practice/hw_node_with_angular2/assets/app/app.component.ts" afterPath="$PROJECT_DIR$/practice/hw_node_with_angular2/assets/app/app.component.ts" />
+      <change beforePath="$PROJECT_DIR$/practice/hw_node_with_angular2/assets/app/app.module.ts" afterPath="$PROJECT_DIR$/practice/hw_node_with_angular2/assets/app/app.module.ts" />
+      <change beforePath="$PROJECT_DIR$/practice/hw_node_with_angular2/models/message.js" afterPath="$PROJECT_DIR$/practice/hw_node_with_angular2/models/message.js" />
+      <change beforePath="$PROJECT_DIR$/practice/hw_node_with_angular2/models/user.js" afterPath="$PROJECT_DIR$/practice/hw_node_with_angular2/models/user.js" />
+      <change beforePath="$PROJECT_DIR$/practice/hw_node_with_angular2/package-lock.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/practice/hw_node_with_angular2/package.json" afterPath="$PROJECT_DIR$/practice/hw_node_with_angular2/package.json" />
+      <change beforePath="$PROJECT_DIR$/practice/hw_node_with_angular2/routes/app.js" afterPath="$PROJECT_DIR$/practice/hw_node_with_angular2/routes/app.js" />
+      <change beforePath="$PROJECT_DIR$/practice/hw_node_with_angular2/views/node.hbs" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,7 +56,28 @@
   </component>
   <component name="ChangesViewManager" show_ignored="true" />
   <component name="FileEditorManager">
-    <leaf />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="docker-compose.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/practice/hw_docker_NodeExpressMongoDB/docker-compose.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="10" lean-forward="false" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/practice/hw_docker_NodeExpressMongoDB/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="1" lean-forward="false" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -157,11 +213,11 @@
     <handled-path value="$PROJECT_DIR$/practice/hw_ts_01/node_modules" />
     <handled-path value="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/node_modules" />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="1366" />
-    <option name="y" value="23" />
-    <option name="width" value="1680" />
-    <option name="height" value="1027" />
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="x" value="1645" />
+    <option name="y" value="275" />
+    <option name="width" value="1366" />
+    <option name="height" value="687" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -207,18 +263,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <expand>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="gruwa.github.io" type="cbb8eebc:String" user="gruwa.github.io" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -286,6 +330,42 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="gruwa.github.io" type="cbb8eebc:String" user="gruwa.github.io" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="gruwa.github.io" type="cbb8eebc:String" user="gruwa.github.io" />
+              <item name="practice" type="cbb8eebc:String" user="practice" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="gruwa.github.io" type="cbb8eebc:String" user="gruwa.github.io" />
+              <item name="practice" type="cbb8eebc:String" user="practice" />
+              <item name="hw_docker_NodeExpressMongoDB" type="cbb8eebc:String" user="hw_docker_NodeExpressMongoDB" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="gruwa.github.io" type="cbb8eebc:String" user="gruwa.github.io" />
+              <item name="practice" type="cbb8eebc:String" user="practice" />
+              <item name="hw_docker_NodeExpressMongoDB" type="cbb8eebc:String" user="hw_docker_NodeExpressMongoDB" />
+              <item name="models" type="cbb8eebc:String" user="models" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="gruwa.github.io" type="cbb8eebc:String" user="gruwa.github.io" />
+              <item name="practice" type="cbb8eebc:String" user="practice" />
+              <item name="hw_node_with_angular2" type="cbb8eebc:String" user="hw_node_with_angular2" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -314,19 +394,19 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/practice/hw_docker_WithDanDockerServices" />
-      <recent name="$PROJECT_DIR$/practice/hw_docker_NodeExpressMongoDB" />
-      <recent name="$PROJECT_DIR$/webpack" />
-      <recent name="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/components" />
-      <recent name="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/directives/title-directive" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/modules/toast" />
       <recent name="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app" />
       <recent name="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/.idea/1" />
       <recent name="$PROJECT_DIR$/practice/hw_nodejs/node_modules" />
       <recent name="$PROJECT_DIR$/practice/hw_nodejs/db" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/practice/hw_docker_WithDanDockerServices" />
+      <recent name="$PROJECT_DIR$/practice/hw_docker_NodeExpressMongoDB" />
+      <recent name="$PROJECT_DIR$/webpack" />
+      <recent name="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/components" />
+      <recent name="$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/src/app/directives/title-directive" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -498,7 +578,11 @@
       <workItem from="1516620848623" duration="18000" />
       <workItem from="1516621284864" duration="2305000" />
       <workItem from="1516711599528" duration="3558000" />
-      <workItem from="1516783377848" duration="602000" />
+      <workItem from="1516783377848" duration="6532000" />
+      <workItem from="1516874058102" duration="1015000" />
+      <workItem from="1516883631236" duration="616000" />
+      <workItem from="1516904379906" duration="559000" />
+      <workItem from="1516958660544" duration="1448000" />
     </task>
     <servers />
   </component>
@@ -523,7 +607,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="323154000" />
+    <option name="totallyTimeSpent" value="332722000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -535,19 +619,19 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1366" y="23" width="1680" height="1027" extended-state="6" />
+    <frame x="1366" y="0" width="1920" height="1080" extended-state="0" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21114865" sideWeight="0.4978903" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.238698" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16903633" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25486183" sideWeight="0.4978903" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952183" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24532224" sideWeight="0.5529226" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36643496" sideWeight="0.47197106" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6824324" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36643496" sideWeight="0.47197106" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24894515" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2446352" sideWeight="0.44707742" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18867925" sideWeight="0.44707742" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39864865" sideWeight="0.4795539" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -796,6 +880,110 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/practice/hw_js_19_gulp/gulpfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/config/webpack.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practice/hw_js_19/gruntfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="21" lean-forward="false" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practice/hw_ang2_tests/src/app/services/happy.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#43#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practice/hw_ang2_tests/src/app/services/happy.service.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="14" column="9" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#67#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/first_pancake/storeAngular5/readme.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practice/hw_js_19_gulp/gulpfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/config/webpack.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practice/hw_js_19/gruntfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="21" lean-forward="false" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practice/hw_ang2_tests/src/app/services/happy.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#43#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practice/hw_ang2_tests/src/app/services/happy.service.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="9" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#67#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/first_pancake/storeAngular5/readme.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/practice/hw_js_final_gulp/src/style/font.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -814,6 +1002,200 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="86">
           <caret line="44" column="59" lean-forward="false" selection-start-line="44" selection-start-column="50" selection-end-line="44" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/webpack.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practice/hw_ang2_tests/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/config/webpack.prod.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/config/webpack.dev.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/config/webpack.common.scss.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/config/webpack.common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/config/webpack.common.img.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="24" column="14" lean-forward="true" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/config/webpack.common.css.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practice/hw_js_19/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="22" lean-forward="true" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practice/hw_js_19/gruntfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="23" column="21" lean-forward="false" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practice/hw_ang2_tests/src/app/services/happy.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#43#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practice/hw_ang2_tests/src/app/services/happy.service.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="14" column="9" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#67#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/first_pancake/storeAngular5/readme.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practice/hw_js_19_gulp/gulpfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practice/webpack3.10_Angular4.4_v.1/config/webpack.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practice/hw_expressNodeJs/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practice/hw_expressNodeJs/bin/www">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practice/hw_expressNodeJs/routes/users.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practice/hw_expressNodeJs/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practice/hw_docker_NodeExpressMongoDB/node.dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practice/hw_docker_NodeExpressMongoDB/models/dockerCommand.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="36" lean-forward="true" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practice/hw_docker_NodeExpressMongoDB/models/._dockerCommand.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practice/hw_docker_NodeExpressMongoDB/docker-compose.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="10" lean-forward="false" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practice/hw_docker_NodeExpressMongoDB/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="1" lean-forward="false" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>

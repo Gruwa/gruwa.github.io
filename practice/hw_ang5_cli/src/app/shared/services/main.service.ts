@@ -17,9 +17,12 @@ export class MainService {
     this.localStorageService.store('language', lang);
     this.translate.setDefaultLang('en');
     this.translate.use(lang);
-    this.localStorageService.observe('language').subscribe((language) => {
-      this.translate.use(language);
-    });
+
+    this.localStorageService
+      .observe('language')
+      .subscribe((language) => {
+        this.translate.use(language);
+      });
   }
 
   changePositionSideBar() {

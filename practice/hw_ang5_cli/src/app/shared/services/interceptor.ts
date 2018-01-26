@@ -14,7 +14,9 @@ import {ToastsManager} from 'ng2-toastr';
 export class ProjectInterceptor implements HttpInterceptor {
   constructor(
     public router: Router,
-    public toast: ToastsManager) {}
+    public toast: ToastsManager
+  ) {}
+
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
     return next.handle(request).do(() => {},

@@ -15,7 +15,7 @@ import {
 })
 export class ProjectButtonComponent implements OnInit {
 
-    @Input() color: string = 'project__btn__color';
+    @Input() buttonStyle: string = 'project__btn__color';
     @Input() type: string = 'button';
     @Input() fa: boolean = false;
     @Input() iconname: string = '';
@@ -25,23 +25,29 @@ export class ProjectButtonComponent implements OnInit {
     @Input() cancel: boolean = false;
     @Output() onClickEvent: EventEmitter<any> = new EventEmitter<any>();
 
-    private classes: string = '';
+    componentClass: string = '';
+
+    classes: string = '';
     constructor() {
     }
 
     ngOnInit() {
-
+      this.getClass();
     }
 
     getClass() {
-        this.classes = this.color;
+        this.classes = this.buttonStyle;
 
         if (this.newClass) {
             this.classes += ' ' + this.newClass;
         }
+
         if (this.cancel) {
             this.classes += ' ' + 'project__btn__color--cancel';
         }
+
+
+        console.log('getClass', this.classes);
 
         return this.classes;
     }
