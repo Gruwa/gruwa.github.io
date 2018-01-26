@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+
+  node:
+    build:
+      context: .
+      dockerfile: angular5.dockerfile
+    ports:
+     - "8000:8000"
+    networks:
+      - angular-network
+
+networks:
+  angular-network:
+    driver: bridge

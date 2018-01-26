@@ -1,0 +1,5 @@
+    <div [@fadeInOutAnimation] *ngIf="visible" class="dialog">
+        <ng-content></ng-content>
+        <span *ngIf="closable" (click)="close()" aria-label="Close" class="dialog__close-btn">&#10005;</span>
+    </div>
+    <div *ngIf="visible" class="overlay" (click)="close()"></div>

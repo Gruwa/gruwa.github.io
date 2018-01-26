@@ -1,0 +1,8 @@
+<button [disabled]="disabled"
+        [type]="type"
+        class="project__btn"
+        [ngClass]="classes"
+        (click)="onClickEvent.emit($event)">
+    <i *ngIf="fa" ngClass="{{ iconname }}"></i>
+    {{ title }}
+</button>

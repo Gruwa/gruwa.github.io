@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+  background-color: #EEF2F5;
+  color: #fff;
+  font-family:'robotomedium';
+  font-size: 20px;
+  margin: 0;
+  font-weight: lighter;
+}
+
+.div {
+  background-image: url('assets/img/svg/partners__airplane2.svg');
+  background-repeat: no-repeat;
+  background-size: 23px 23px;
+  width: 23px;
+  height: 23px;
+  display: inline-block;
+}
+
+.div--img {
+  background-image: url('assets/img/angular2.png');
+  background-repeat: no-repeat;
+  background-size: 23px 23px;
+  width: 23px;
+  height: 23px;
+  display: inline-block;
+}

@@ -1,0 +1,82 @@
+@import '../../style/custom';
+
+.group-checkbox {
+  margin-bottom: 24px;
+  margin-top: 24px;
+
+  [type="checkbox"]:not(:checked),
+  [type="checkbox"]:checked {
+    position: absolute;
+    left: -9999px;
+  }
+  [type="checkbox"]:not(:checked) + label,
+  [type="checkbox"]:checked + label {
+    position: relative;
+    padding-left: 55px;
+    padding-top: 7px;
+    font-family: inherit;
+    background-color: transparent;
+    color: $text_light_grey;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+  }
+
+  [type="checkbox"]:checked + label {
+    color: $black;
+  }
+
+  [type="checkbox"]:not(:checked) + label:before,
+  [type="checkbox"]:checked + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    border: 2px solid $grey;
+    background: $white;
+  }
+
+  [type="checkbox"]:not(:checked) + label:after,
+  [type="checkbox"]:checked + label:after {
+    content: '✔';
+    position: absolute;
+    top: 11px;
+    left: 11px;
+    font-size: 17px;
+    line-height: 0.8;
+    color: $dark_blue;
+    transition: all .2s;
+  }
+
+  [type="checkbox"]:not(:checked) + label:after {
+    opacity: 0;
+    transform: scale(0);
+  }
+  [type="checkbox"]:checked + label:after {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  [type="checkbox"]:disabled:not(:checked) + label:before,
+  [type="checkbox"]:disabled:checked + label:before {
+    box-shadow: none;
+    border-color: $text_grey;
+    background-color: $darky_grey;
+  }
+  [type="checkbox"]:disabled:checked + label:after {
+    color: $grey;
+  }
+  [type="checkbox"]:disabled + label {
+    color: $grey;
+  }
+
+  label:hover:before {
+    border: 2px solid $dark_blue !important;
+  }
+
+  [type="checkbox"]:checked + label:before {
+    border: 2px solid $text_grey;
+  }
+}

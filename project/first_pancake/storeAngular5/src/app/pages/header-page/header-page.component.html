@@ -1,0 +1,16 @@
+<div class="header">
+  <div class="header-logo" (click)="click()">
+    <img class="header-logo__picture" src="../../../assets/img/angular.png">
+  <div (click)="closeSideBar()" class="header-sidebar_close">
+    ☰
+  </div>
+  </div>
+  <div class="header-languages">
+    <span class="header-en"
+          (click)="changeLanguage('en')"
+          [ngClass]="{'header-en--active' : translate.currentLang === 'en'}">en</span>
+    <span class="header-ru"
+          (click)="changeLanguage('ru')"
+          [ngClass]="{'header-ru--active' : translate.currentLang === 'ru'}">ru</span>
+  </div>
+</div>

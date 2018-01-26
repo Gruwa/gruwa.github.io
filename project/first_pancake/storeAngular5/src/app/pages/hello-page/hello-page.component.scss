@@ -1,0 +1,14 @@
+@import '../../shared/style/custom';
+
+.hello-page {
+  font-family: 'montserratbold', Arial, Helvetica, sans-serif;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.hello-page-logo {
+  display: block;
+}

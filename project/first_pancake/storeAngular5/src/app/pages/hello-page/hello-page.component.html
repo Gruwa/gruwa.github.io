@@ -1,0 +1,36 @@
+<main class="hello-page">
+  <h1 appProjectTitleStyle>{{'Hello from Angular 5 App CLI' | translate}}</h1>
+
+  <img class="hello-page-logo" src="../../../assets/img/angular.png">
+
+  <app-project-button (onClickEvent)="helloAngular()" title="{{'Click' | translate}}">
+
+  </app-project-button>
+  <br/>
+  <div>
+    <img src="../../../assets/img/svg/partners__airplane.svg">
+    <img src="../../../assets/img/svg/partners__cup.svg">
+    <img src="../../../assets/img/svg/partners__flask.svg">
+    <img src="../../../assets/img/svg/partners__tv.svg">
+  </div>
+  <br/>
+  <div>
+    <div class="div"></div>
+    <div class="div--img"></div>
+  </div>
+  <br/>
+  <div>
+    <h2 appProjectTitleStyle>{{'Here are some links to help you start:' | translate}}</h2>
+    <ul>
+      <li appProjectListStyle>
+        <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">{{'Tour of Heroes' | translate}}</a></h2>
+      </li>
+      <li appProjectListStyle>
+        <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">{{'CLI Documentation' | translate}}</a></h2>
+      </li>
+      <li appProjectListStyle>
+        <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">{{'Angular blog' | translate}}</a></h2>
+      </li>
+    </ul>
+  </div>
+</main>
