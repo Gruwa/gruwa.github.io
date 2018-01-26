@@ -11,7 +11,7 @@ var schema = new Schema({
     password: {type: String, required: true},
     email: {type: String, required: true, unique: true},
     avatar: {type: String},
-    created_date: {type: Date},
+    createdDate: {type: Date},
     user: [{type: Schema.Types.ObjectId, ref: 'User'}],
     lecturer: [{type: Schema.Types.ObjectId, ref: 'Lecturer'}]
 
