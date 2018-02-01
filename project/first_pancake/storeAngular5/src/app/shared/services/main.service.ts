@@ -1,18 +1,19 @@
-import { Injectable } from '@angular/core';
-import { LocalStorageService } from 'ngx-webstorage';
-import { TranslateService } from '@ngx-translate/core';
+import {Injectable} from '@angular/core';
+import {LocalStorageService} from 'ngx-webstorage';
+import {TranslateService} from '@ngx-translate/core';
 import {HttpClient} from '@angular/common/http';
+import {environment} from '../../../environments/environment';
 
 @Injectable()
 export class MainService {
 
   public closeSideBar: boolean = false;
+  public authUrl: string = `${environment.apiRoot}`;
 
-  constructor(
-    public localStorageService: LocalStorageService,
-    public translate: TranslateService,
-    public http: HttpClient
-  ) { }
+  constructor(public localStorageService: LocalStorageService,
+              public translate: TranslateService,
+              public http: HttpClient) {
+  }
 
   setLanguage(lang: string) {
     this.localStorageService.store('vendor_id', 'vendor_id');
@@ -32,12 +33,11 @@ export class MainService {
   }
 
   sentGet(url) {
-    return this.http.get(url).map(
+    return this.http.get(this.authUrl).map(
       (response) => {
-        console.log('FIIRST response', response)
+        console.log('FIIRST response', response);
 
       }
-
     );
   }
 }

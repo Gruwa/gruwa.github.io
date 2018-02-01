@@ -7,3 +7,5 @@ export * from './project-bar/project-bar.component';
 export * from './project-textarea/project-textarea.component';
 export * from './project-select/project-select.component';
 export * from './project-input/project-input.component';
+export * from './project-uploader/project-uploader.component';
+export  * from './project-uploader/project-uploader.directive';

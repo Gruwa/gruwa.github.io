@@ -10,7 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
-import { ToastModule} from 'ng2-toastr/ng2-toastr';
+import { ToastModule} from 'ng2-toastr';
 import { ContextMenuModule } from 'ngx-contextmenu';
 import { Ng2Webstorage } from 'ngx-webstorage';
 import { ComponentsModule } from './shared/components/components.module';
@@ -34,7 +34,9 @@ import {
   AuthService,
   ProjectInterceptor,
   MainService,
-  UserService
+  UserService,
+  RouteActivatorService,
+  UserResolverService
 } from './shared/services';
 import { HelloPageComponent } from './pages/hello-page/hello-page.component';
 import { FormPageComponent } from './pages/form-page/form-page.component';
@@ -44,6 +46,8 @@ import { appRoutes } from './app.routes';
 import { TabPageComponent } from './pages/tab-page/tab-page.component';
 import { WrapperPageComponent } from './pages/wrapper-page/wrapper-page.component';
 import { HeaderPageComponent } from './pages/header-page/header-page.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { SidebarPageComponent } from './pages/sidebar-page/sidebar-page.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -80,7 +84,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     Error404Component,
     TabPageComponent,
     WrapperPageComponent,
-    HeaderPageComponent
+    HeaderPageComponent,
+    LoginPageComponent,
+    SidebarPageComponent
   ],
   providers: [
     AuthService,
@@ -90,7 +96,9 @@ export function HttpLoaderFactory(http: HttpClient) {
       multi: true,
     },
     MainService,
-    UserService
+    UserService,
+    RouteActivatorService,
+    UserResolverService
   ],
   bootstrap: [AppComponent]
 })

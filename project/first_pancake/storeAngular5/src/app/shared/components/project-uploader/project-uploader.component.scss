@@ -1,0 +1,35 @@
+@import '../../style/custom';
+
+.uploader {
+  display: flex;
+  width: 50%;
+  margin: auto;
+  flex-direction: column;
+  .inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+  }
+  .inputfile + label.loader {
+    text-align: center;
+    padding: 10px 30px 10px 30px;
+    border-radius: 50px;
+    border: none;
+    -webkit-appearance: none!important;
+    font-family: 'Nunito Sans', sans-serif!important;
+    font-weight: 700;
+    cursor: pointer;
+    outline: 100px;
+    background-color: $tango;
+    color: $white;
+    cursor: pointer;
+    @include transition(box-shadow, 0.3s, linear);
+
+    &:hover {
+      @include box_shadow(1);
+    }
+  }
+}

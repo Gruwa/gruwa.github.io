@@ -30,9 +30,8 @@ export class UserService {
     constructor(
         public http: HttpClient,
         public storage: LocalStorageService,
-        private toast: ToastsManager, vcr: ViewContainerRef
+        // private toast: ToastsManager
     ) {
-      this.toast.setRootViewContainerRef(vcr);
     }
 
     getVendorId(): string {
@@ -79,7 +78,7 @@ export class UserService {
     ) {
         const query_params = new HttpParams();
         // const url = this.setUrl() + `/${tabs[tab]}/`;
-
+      // this.toast.error('Registration failed');
         if (sort_field) {
             query_params.set('sort_field', sort_field);
             query_params.set('asc', ascType + '');

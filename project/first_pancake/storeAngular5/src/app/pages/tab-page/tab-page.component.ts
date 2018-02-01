@@ -12,7 +12,7 @@ import {LocalStorageService} from 'ngx-webstorage';
   providers: [UserService]
 })
 export class TabPageComponent implements OnInit {
-rea
+  rea;
   visibleModal: boolean = false;
   visibleModalEditUser: boolean = false;
   closableModal: boolean = true;
@@ -34,12 +34,10 @@ rea
   public id_user: string = 'Student ID';
   public listErrors: boolean = false;
 
-  constructor(
-              public userService: UserService,
+  constructor(public userService: UserService,
               public translate: TranslateService,
               public toast: ToastsManager, vcr: ViewContainerRef,
-              private storage: LocalStorageService
-  ) {
+              private storage: LocalStorageService) {
     this.toast.setRootViewContainerRef(vcr);
   }
 
@@ -64,37 +62,38 @@ rea
         this.sort = 'name';
       }
     }
-    this.userService.getUsers(this.filter, (sortField ? sortField : 'name'), this.ascType, this.tab )
+    this.userService.getUsers(this.filter, (sortField ? sortField : 'name'), this.ascType, this.tab)
       .subscribe(
-      (value: any) => {
-        this.users = value;
-      },
-      (err: any) => {
-        if (this.storage.retrieve(this.tab)) {
-          this.users = this.storage.retrieve(this.tab)['results'];
-        } else {
-          this.userService.getUsers(this.filter, (sortField ? sortField : 'name'),
-            this.ascType, this.tab, '/../../../assets/localServer/' + this.tab + '.json').subscribe(
-            (value: any) => {
-              this.users = value;
-            });
+        (value: any) => {
+          this.users = value;
+        },
+        (err: any) => {
+          if (this.storage.retrieve(this.tab)) {
+            this.users = this.storage.retrieve(this.tab)['results'];
+          } else {
+            this.userService.getUsers(this.filter, (sortField ? sortField : 'name'),
+              this.ascType, this.tab, '/../../../assets/localServer/' + this.tab + '.json').subscribe(
+              (value: any) => {
+                this.users = value;
+              });
+          }
         }
-      }
-      // (error) => {
-      //
-      //   if ( error.status === 403 ) {
-      //     this.toast.error('Access is denied');
-      //     this.tab = this.tab_active;
-      //     this.title_btn = '+ Add ' + this.tab;
-      //     this.search_user = 'Search ' + this.tab;
-      //     this.onGetUsers();
-      //   }
-      // }
-    );
+        // (error) => {
+        //
+        //   if ( error.status === 403 ) {
+        //     this.toast.error('Access is denied');
+        //     this.tab = this.tab_active;
+        //     this.title_btn = '+ Add ' + this.tab;
+        //     this.search_user = 'Search ' + this.tab;
+        //     this.onGetUsers();
+        //   }
+        // }
+      );
 
     this.toggle = false;
 
   }
+
   //
   // onVisibleChange(modalStatus: boolean) {
   //
@@ -153,6 +152,7 @@ rea
     this.showModal = true;
     $event.stopPropagation();
   }
+
   //
   // deleteGroup(needDelete: boolean) {
   //

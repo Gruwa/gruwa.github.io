@@ -4,7 +4,10 @@
   position: relative;
   margin-bottom: 18px;
   margin-top: 18px;
-  &.error {
+  width: 100%;
+
+  & .error {
+
     .bar:before, .bar:after {
       background: $red;
     }
@@ -23,6 +26,8 @@
 
   .input_label-star {
     color: $red;
+    position: absolute;
+    left: -13px;
   }
 
   input {
@@ -98,6 +103,7 @@
   }
 
   @-webkit-keyframes inputHighlighter {
+
     from {
       background: $text_grey;
     }
@@ -108,6 +114,7 @@
   }
 
   @-moz-keyframes inputHighlighter {
+
     from {
       background: $text_grey;
     }
@@ -118,6 +125,7 @@
   }
 
   @keyframes inputHighlighter {
+
     from {
       background: $text_grey;
     }

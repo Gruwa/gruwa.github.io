@@ -1,0 +1,66 @@
+<div class="login" [formGroup]="formAdmin">
+  <div class="login-input">
+    <app-project-input
+      *ngIf="showRegister"
+      [control]="formAdmin.get('firstName')"
+      [placeholder]="'first name'">
+    </app-project-input>
+  </div>
+  <div class="login-input">
+    <app-project-input
+      *ngIf="showRegister"
+      [control]="formAdmin.get('lastName')"
+      [placeholder]="'last name'">
+    </app-project-input>
+  </div>
+  <div class="input-group"
+       formGroupName="emailGroup">
+    <div class="login-input login-input--inut-group">
+      <app-project-input
+        [type]="'email'"
+        [control]="formAdmin.get('emailGroup.email')"
+        [placeholder]="'email'">
+      </app-project-input>
+    </div>
+    <div class="login-input login-input--inut-group"
+         *ngIf="showRegister">
+      <app-project-input
+        [type]="'confirmEmail'"
+        [control]="formAdmin.get('emailGroup.confirmEmail')"
+        [placeholder]="'email'">
+      </app-project-input>
+    </div>
+  </div>
+  <div class="login-input">
+    <app-project-input
+      [control]="formAdmin.get('password')"
+      [placeholder]="'password'"
+      [type]="'password'">
+    </app-project-input>
+  </div>
+  <div class="login-btn__position"
+       *ngIf="!showRegister">
+    <app-project-button
+      [title]="'Login'"
+      [newStyle]="'login-btn'"
+      (onClickEvent)="onLogin()"
+      [disabled]="!formAdmin.valid">
+    </app-project-button>
+    <app-project-button
+      [title]="'Register'"
+      [newStyle]="'login-btn'"
+      (onClickEvent)="onRegister()"
+      [disabled]="false">
+    </app-project-button>
+  </div>
+  <div class="login-btn__position--register"
+       *ngIf="showRegister">
+    <app-project-button
+      [title]="'Save'"
+      [newStyle]="'login-btn'"
+      (onClickEvent)="onSave()"
+      [disabled]="!formAdmin.valid">
+    </app-project-button>
+  </div>
+</div>
+

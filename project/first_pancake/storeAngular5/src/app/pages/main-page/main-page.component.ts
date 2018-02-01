@@ -16,15 +16,16 @@ import {Router} from '@angular/router';
 })
 export class MainPageComponent implements OnInit {
     constructor(
-        public toastr: ToastsManager, vcr: ViewContainerRef,
+        public toast: ToastsManager, vcr: ViewContainerRef,
         public translate: TranslateService,
         private localStorageService: LocalStorageService,
         public router: Router
     ) {
-        this.toastr.setRootViewContainerRef(vcr);
+        this.toast.setRootViewContainerRef(vcr);
     }
 
     ngOnInit() {
+      console.log('i18n')
         const language = this.localStorageService.retrieve('language');
         this.translate.use(language);
         this.translate.setDefaultLang(language);
@@ -36,7 +37,7 @@ export class MainPageComponent implements OnInit {
     }
 
     helloAngular() {
-        this.toastr.success('Hello Ang');
+        this.toast.success('Hello Ang');
         if (this.localStorageService.retrieve('language') === 'ru') {
           this.localStorageService.store('language', 'en');
         } else {

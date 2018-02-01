@@ -32,7 +32,7 @@ export class HelloPageComponent implements OnInit {
       this.localStorageService.store('language', 'ru');
     }
 
-    this.mainService.sentGet('/api/our/backEnd').subscribe();
+    this.mainService.sentGet('/').subscribe();
   }
 
 }
