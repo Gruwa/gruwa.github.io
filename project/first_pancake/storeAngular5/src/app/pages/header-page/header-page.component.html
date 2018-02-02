@@ -13,4 +13,16 @@
           (click)="changeLanguage('ru')"
           [ngClass]="{'header-ru--active' : translate.currentLang === 'ru'}">ru</span>
   </div>
+  <div class="avatar-dropdown header_dropdown__small-device">
+    <p>{{ 'currentUser.full_name' }}</p>
+    <div focusDirective class="user_logo">
+      <img src="../assets/images/avatar.png" alt="vendor_avatar"><span>&#9662;</span>
+    </div>
+    <div class="dropdown-block">
+      <p class="dropdown-content">My Plan</p>
+      <p class="dropdown-content">My Account</p>
+      <!--<fullscreen-button></fullscreen-button>-->
+      <p (click)="logOut()"  class="dropdown-content">Log Out</p>
+    </div>
+  </div>
 </div>

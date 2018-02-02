@@ -11,7 +11,11 @@ import {UserResolverService} from './shared/services';
 export const appRoutes: Routes = [
   { path: 'main', component: MainPageComponent },
   { path: 'main/form', canActivate: [RouteActivatorService], component: FormPageComponent },
-  { path: 'main/tab', canActivate: [RouteActivatorService], component: TabPageComponent },
+  { path: 'main/tab',
+    canActivate: [RouteActivatorService],
+    component: TabPageComponent,
+    // resolve: [UserResolverService]
+  },
   { path: 'login', component: LoginPageComponent },
   { path: '404', component: Error404Component },
   { path: '**', redirectTo: '/main'}

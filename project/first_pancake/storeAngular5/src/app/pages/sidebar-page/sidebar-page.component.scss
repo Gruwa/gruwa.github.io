@@ -110,3 +110,17 @@
   //  font-size: 22px;
   //}
 }
+
+
+@media screen and (max-width: 768px) {
+
+  .wrapper-sidebar {
+    left: -200px;
+    transition: left 1.3s ease-in-out;
+
+    &--close {
+      left: 11px;
+      transition: left 1.3s ease-in-out;
+    }
+  }
+}

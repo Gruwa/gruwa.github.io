@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewContainerRef, ViewEncapsulation} from '@angular/core';
 import {FormGroup, FormBuilder, Validators, AbstractControl} from '@angular/forms';
-import {AuthService} from '../../shared/services';
+import {AuthService, MainService} from '../../shared/services';
 import {ToastsManager} from 'ng2-toastr';
 import {Router} from '@angular/router';
 
@@ -28,10 +28,12 @@ export class LoginPageComponent implements OnInit {
 
   public showRegister: boolean = false;
   public formAdmin: FormGroup;
+  public loading = false;
 
   constructor(public fb: FormBuilder,
               public authService: AuthService,
               public router: Router,
+              public mainService: MainService,
               private toast: ToastsManager, vcr: ViewContainerRef) {
     this.toast.setRootViewContainerRef(vcr);
   }
@@ -92,6 +94,7 @@ export class LoginPageComponent implements OnInit {
   }
 
   onLogin() {
+    this.mainService.loader$.next(true);
     const user: any = {
       password: this.formAdmin.get('password').value,
       email: this.formAdmin.get('emailGroup.email').value,
@@ -103,8 +106,10 @@ export class LoginPageComponent implements OnInit {
 
         this.toast.success('Login success');
         this.router.navigate(['/main']);
+        this.mainService.loader$.next(false);
       },
       (error) => {
+        this.mainService.loader$.next(false);
         console.log('Vse govno', error);
       }
     );

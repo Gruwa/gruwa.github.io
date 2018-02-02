@@ -21,3 +21,7 @@
                    (visibleChange)="visibleModal($event)">
 <app-login-page></app-login-page>
 </app-project-modal>
+
+<div class="wrapper-loader">
+  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+</div>

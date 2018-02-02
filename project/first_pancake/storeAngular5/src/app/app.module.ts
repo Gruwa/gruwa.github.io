@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 import { ToastModule} from 'ng2-toastr';
 import { ContextMenuModule } from 'ngx-contextmenu';
 import { Ng2Webstorage } from 'ngx-webstorage';
+import { LoadingModule } from 'ngx-loading';
 import { ComponentsModule } from './shared/components/components.module';
 import {
   TranslateModule,
@@ -61,6 +62,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ComponentsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    LoadingModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
