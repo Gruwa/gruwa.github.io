@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 var mongooseUniqueValidator = require('mongoose-unique-validator');
 
 var User = require('./user');
-var Lecturer = require('./Lecturer');
+var Lecturer = require('./lecturer');
 
 var schema = new Schema({
     firstName: {type: String, required: true},
