@@ -28,7 +28,7 @@
 
 .wrapper-content {
   width: 100%;
-  margin-left: 190px;
+  margin-left: 180px;
   transition: margin-left 1.3s ease-in-out;
 }
 
@@ -51,22 +51,12 @@
 @media screen and (max-width: 768px) {
 
   .wrapper-content {
-    margin-left: 10px;
+    margin-left: 0;
     transition: margin-left 1.3s ease-in-out;
 
     &--close {
-      margin-left: 190px;
+      margin-left: 180px;
       transition: margin-left 1.3s ease-in-out;
-    }
-  }
-
-  .wrapper-sidebar {
-    left: -200px;
-    transition: left 1.3s ease-in-out;
-
-    &--close {
-      left: 11px;
-      transition: left 1.3s ease-in-out;
     }
   }
 }

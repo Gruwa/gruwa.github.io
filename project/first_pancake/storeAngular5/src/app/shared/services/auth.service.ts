@@ -11,40 +11,34 @@ import 'rxjs/add/operator/retryWhen';
 import {Subject} from 'rxjs/Subject';
 import {LocalStorageService} from 'ngx-webstorage';
 import {ToastsManager} from 'ng2-toastr';
+import {Router} from '@angular/router';
 
+const AUTHURL = `${environment.apiRoot}/admin`;
 
 @Injectable()
 export class AuthService {
-  public authUrl: string = `${environment.apiRoot}/admin`;
+
   public headers: HttpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
   public stateLogin$ = new Subject<any>();
 
   constructor(public http: HttpClient,
               public localStorageService: LocalStorageService,
-              private toast: ToastsManager
-  ) {
-  }
+              private toast: ToastsManager,
+              public router: Router
+  ) { }
 
   getHeaders() {
-    const token = this.localStorageService.retrieve('token')
 
-    let header = {
+    let headers = {
       'Content-Type': 'application/json'
     };
-
-    if (token) {
-      header['token'] = token;
-    }
-
-    let headers: HttpHeaders = new HttpHeaders(header);
 
     return headers;
   }
 
   onRegistration(admin: any) {
 
-
-    return this.http.post(this.authUrl, admin, {headers: this.getHeaders()}).catch(
+    return this.http.post(AUTHURL, admin, {headers: this.getHeaders()}).catch(
       (error) => {
         this.toast.error('Registration failed');
         return Observable.throw(error);
@@ -54,13 +48,12 @@ export class AuthService {
 
   onLoginUser(body: any) {
 
-console.log(this.getHeaders())
-
-    return this.http.post(this.authUrl + '/signin', body, {headers: this.getHeaders()})
+    return this.http.post(AUTHURL + '/signin', body, {headers: this.getHeaders()})
       .map(
       (response) => {
         this.localStorageService.store('token', response['token']);
         this.localStorageService.store('activeUser', response['userId']);
+        this.localStorageService.store('activeUserName', response['admin'].firstName)
         return response;
       })
       .catch(
@@ -71,12 +64,19 @@ console.log(this.getHeaders())
       );
   }
 
+  onLogOut() {
+    this.localStorageService.clear('token');
+    this.localStorageService.clear('activeuser');
+    this.localStorageService.clear('activeUserName');
+    this.router.navigate(['/main']);
+  }
+
   validToken() {
     const body = {
       token: this.localStorageService.retrieve('token'),
       activeUser: this.localStorageService.retrieve('activeUser')
     };
-    return this.http.post(this.authUrl, body, {headers: this.getHeaders()})
+    return this.http.post(AUTHURL, body, {headers: this.getHeaders()})
       .catch(
         (error) => {
           this.toast.error('Login failed');

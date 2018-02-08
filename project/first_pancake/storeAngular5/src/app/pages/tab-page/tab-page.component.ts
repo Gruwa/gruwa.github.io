@@ -4,6 +4,7 @@ import {UserService} from '../../shared/services/user.service';
 import {TranslateService} from '@ngx-translate/core';
 import {Observable} from 'rxjs/Observable';
 import {LocalStorageService} from 'ngx-webstorage';
+import {MainService} from '../../shared/services';
 
 @Component({
   selector: 'app-tab-page',
@@ -37,16 +38,18 @@ export class TabPageComponent implements OnInit {
   constructor(public userService: UserService,
               public translate: TranslateService,
               public toast: ToastsManager, vcr: ViewContainerRef,
-              private storage: LocalStorageService) {
+              private storage: LocalStorageService,
+              public mainService: MainService) {
     this.toast.setRootViewContainerRef(vcr);
   }
 
   ngOnInit() {
-
     this.onGetUsers();
+
   }
 
   onGetUsers(sortField?: string) {
+    this.mainService.loader$.next(true);
     this.users = [];
 
     if (!this.toggle) {
@@ -91,7 +94,7 @@ export class TabPageComponent implements OnInit {
       );
 
     this.toggle = false;
-
+    this.mainService.loader$.next(false);
   }
 
   //

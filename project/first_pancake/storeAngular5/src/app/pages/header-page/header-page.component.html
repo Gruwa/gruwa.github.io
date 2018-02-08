@@ -5,24 +5,27 @@
     ☰
   </div>
   </div>
-  <div class="header-languages">
-    <span class="header-en"
+  <div class="header-right-side">
+    <span class="header-lang"
           (click)="changeLanguage('en')"
+          *ngIf="translate.currentLang === 'ru'"
           [ngClass]="{'header-en--active' : translate.currentLang === 'en'}">en</span>
-    <span class="header-ru"
+    <span class="header-lang"
           (click)="changeLanguage('ru')"
+          *ngIf="translate.currentLang === 'en'"
           [ngClass]="{'header-ru--active' : translate.currentLang === 'ru'}">ru</span>
-  </div>
-  <div class="avatar-dropdown header_dropdown__small-device">
-    <p>{{ 'currentUser.full_name' }}</p>
-    <div focusDirective class="user_logo">
-      <img src="../assets/images/avatar.png" alt="vendor_avatar"><span>&#9662;</span>
-    </div>
-    <div class="dropdown-block">
-      <p class="dropdown-content">My Plan</p>
-      <p class="dropdown-content">My Account</p>
-      <!--<fullscreen-button></fullscreen-button>-->
-      <p (click)="logOut()"  class="dropdown-content">Log Out</p>
-    </div>
+    <span class="header-avatar">
+      <div focusDirective class="user_logo" (click)="menuFocus = !menuFocus">
+        <span class="user-logo__name">{{localStorageService.retrieve('activeUserName') ? localStorageService.retrieve('activeUserName')[0] : 'u' }}</span><span class="user-logo__point">&#9662;</span>
+        <ul class="dropdown-block" [ngClass]="{'dropdown-block--focus' : menuFocus}">
+          <li class="dropdown-content">My Plan</li>
+          <li class="dropdown-content">My Account</li>
+          <li class="dropdown-content">
+            <!--<fullscreen-button></fullscreen-button>-->
+          </li>
+          <li class="dropdown-content" (click)="LogOut()">Log Out</li>
+        </ul>
+      </div>
+    </span>
   </div>
 </div>

@@ -21,6 +21,14 @@ export class ProjectInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
+    if (this.localStorage.retrieve('token')) {
+      request = request.clone({
+        setHeaders: {
+          token: this.localStorage.retrieve('token')
+        }
+      });
+    }
+
     return next.handle(request).do(() => {
       },
       (err: any) => {

@@ -13,7 +13,7 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  margin-left: 11px;
+  margin-left: 7px;
 
   -webkit-box-shadow: 0px 0px 8px 2px rgba(0,0,0,0.1);
   -moz-box-shadow: 0px 0px 8px 2px rgba(0,0,0,0.1);
@@ -37,126 +37,115 @@
   display: none;
 }
 
-.header-languages {
+.header-right-side {
   color: grey;
-  margin-right: 30px;
+  margin-right: 20px;
   font-size: 20px;
   text-transform: uppercase;
-
-}
-
-.header-en {
-  margin-right: 10px;
-  cursor: pointer;
-
-  &--active {
-    color: red;
-  }
-}
-
-.header-ru {
-  cursor: pointer;
-
-  &--active {
-    color: red;
-  }
-}
-
-
-
-
-.avatar-dropdown {
   display: flex;
+  justify-content: center;
   align-items: center;
-  position: relative;
-  margin: 0 40px 0 45px;
-  .user_logo {
-    cursor: pointer;
-    img {
-      width: 40px;
-      height: 40px;
-      @include transition(all, 0.4s, linear);
-      cursor: pointer;
-      border-radius: 50%;
-      &:hover {
-        @include box_shadow(1);
-      }
-    }
-    span {
-      margin: 5px 0 0 5px;
-    }
+}
+
+.header-lang {
+  //margin-right: 10px;
+  cursor: pointer;
+
+  &--active {
+    color: red;
   }
-  fullscreen-button p {
-    width: 100%;
-    font-weight: 600;
-    @include transition(all, 0.4s, linear);
+}
+
+.header-avatar {
+  display: flex;
+  position: relative;
+  margin: 0 15px;
+
+}
+
+.user-logo {
+
+  &__name {
+    border-radius: 50%;
+    padding: 13px 18px;
+    background-color: #f47a21;
+    color: white;
+    margin-right: 5px;
     cursor: pointer;
+  }
+
+  &__point {
+    font-size: 13px;
+    cursor: pointer;
+  }
+}
+
+.dropdown-block {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 160px;
+  box-shadow: 0px 0px 80px rgba(227, 227, 227, 1);
+  background-color: $white;
+  top: 56px;
+  right: 12px;
+  border-radius: 10px;
+  text-align: center;
+  justify-content: space-around;
+
+  opacity: 0;
+  transform: translateY(-10%);
+  @include transition(all, 0.4s, linear);
+  visibility: hidden;
+
+  .dropdown-content {
+    @include transition(all, 0.4s, linear);
+    width: 100%;
+    font-weight: 400;
+    cursor: pointer;
+    font-size: 10px;
+    line-height: 40px;
+
+    &:first-child {
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+
+    &:last-child {
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+
     &:hover {
       background-color: $aqua__haze;
     }
   }
-  p {
-    margin: 0px 15px 0px 0px;
-    font-weight: 700;
-    line-height: 40px;
-  }
-  .dropdown-block {
-    box-shadow: 0px 0px 80px rgba(227, 227, 227, 1);
-    width: 160px;
-    opacity: 0;
-    transform: translateY(-10%);
-    @include transition(all, 0.4s, linear);
-    visibility: hidden;
-    background-color: $white;
-    top: 56px;
-    right: 12px;
-    position: absolute;
-    border-radius: 10px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    .dropdown-content {
-      @include transition(all, 0.4s, linear);
-      width: 100%;
-      font-weight: 600;
-      cursor: pointer;
-      &:first-child {
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-      }
-      &:last-child {
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-      }
-      &:hover {
-        background-color: $aqua__haze;
-      }
-    }
-  }
-  .dropdown-block:after {
-    bottom: 100%;
-    left: 79%;
-    border: solid transparent;
-    content: " ";
-    height: 0;
-    width: 0;
-    position: absolute;
-    pointer-events: none;
-    border-color: rgba(136, 183, 213, 0);
-    border-bottom-color: $white;
-    border-width: 8px;
-    margin-left: 5px;
-  }
-}
 
-.avatar-dropdown {
-  .focused + .dropdown-block {
+  &--focus {
     opacity: 1;
     transform: translateX(0%);
     visibility: visible;
   }
+
 }
+
+.dropdown-block:after {
+  bottom: 100%;
+  left: 79%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(136, 183, 213, 0);
+  border-bottom-color: $white;
+  border-width: 8px;
+  margin-left: 5px;
+}
+
+
+
 
 @media (max-width: 992px) {
   app-learnster-button.header_btn {

@@ -4,7 +4,7 @@
 
   position: fixed;
   top: 107px;
-  left: 11px;
+  left: 4px;
   bottom: 0;
   z-index: 10;
   border-top: 1px solid #eff3f6;
@@ -119,7 +119,7 @@
     transition: left 1.3s ease-in-out;
 
     &--close {
-      left: 11px;
+      left: 4px;
       transition: left 1.3s ease-in-out;
     }
   }

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
-import {MainService} from '../../shared/services';
+import {AuthService, MainService} from '../../shared/services';
+import {LocalStorageService} from 'ngx-webstorage';
 
 @Component({
   selector: 'app-header-page',
@@ -10,13 +11,18 @@ import {MainService} from '../../shared/services';
 })
 export class HeaderPageComponent implements OnInit {
 
+  public menuFocus: boolean = false;
+
   constructor(
     private router: Router,
     public translate: TranslateService,
-    public mainService: MainService
+    public mainService: MainService,
+    public authService: AuthService,
+    public localStorageService: LocalStorageService
   ) { }
 
   ngOnInit() {
+    console.log ('header', this.localStorageService.retrieve('activeUserName'))
   }
 
   click() {
@@ -29,5 +35,9 @@ export class HeaderPageComponent implements OnInit {
 
   closeSideBar() {
     this.mainService.changePositionSideBar();
+  }
+
+  LogOut() {
+    this.authService.onLogOut();
   }
 }

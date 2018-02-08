@@ -42,12 +42,12 @@ export class UserService {
         }
     }
 
-    getHeaders() {
-        const token = this.storage.retrieve('Token');
-        const headers = new HttpHeaders({'Authorization': `JWT ${token}`});
-
-        return headers;
-    }
+    // getHeaders() {
+    //     const token = this.storage.retrieve('Token');
+    //     const headers = new HttpHeaders({'Authorization': `JWT ${token}`});
+    //
+    //     return headers;
+    // }
 
     setUrl() {
         const url: string = this.baseUrl + this.getVendorId() + '/users';
@@ -89,7 +89,7 @@ export class UserService {
         }
         if ( tabs[tab] ) {
             return this.http.get(url, {
-                headers: this.getHeaders(),
+                // headers: this.getHeaders(),
                 params: query_params
             }).map(
                 (response) => {
