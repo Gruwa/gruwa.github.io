@@ -1,0 +1,15 @@
+{
+  "name": "hw_ts_03",
+  "version": "1.0.0",
+  "description": "",
+  "main": "car.js",
+  "dependencies": {
+    "@types/node": "^9.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

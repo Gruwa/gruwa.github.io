@@ -46,7 +46,7 @@ namespace demo_02_06 {
     console.log('squareIt3 = ' + val3);
 
     var squareIt = function (rect: { h: number; w?: number; }) {
-        //w? - ? указывает на то что у переменной может быть значение как указано - number так и undefined
+        //w? - ? указывает на то что у переменной может быть значение как указано - number так и не передано в функцию, т.е. параметр не обязательный, т.е. не обязательный - undefined
         if (rect.w === undefined) {
             return rect.h * rect.h;
         }
