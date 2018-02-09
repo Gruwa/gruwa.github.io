@@ -37,7 +37,7 @@ export class ProjectButtonComponent implements OnInit {
     this.classes = this.newStyle;
 
     if (this.cancel) {
-      this.classes += ' ' + 'project-btn__color--cancel';
+      this.classes += ' ' + 'project-btn--cancel';
     }
   }
 }

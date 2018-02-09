@@ -45,6 +45,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .header-lang {
@@ -70,16 +71,14 @@
 
   &__point {
     font-size: 13px;
-    cursor: pointer;
   }
-
-
 }
-  .focused > .dropdown-block {
-    opacity: 1;
-    transform: translateX(0%);
-    visibility: visible;
-  }
+
+.focused + .dropdown-block {
+  opacity: 1;
+  transform: translateX(0%);
+  visibility: visible;
+}
 
 .user-logo {
 

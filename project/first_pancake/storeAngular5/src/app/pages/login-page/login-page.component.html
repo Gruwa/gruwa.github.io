@@ -53,13 +53,20 @@
       [disabled]="false">
     </app-project-button>
   </div>
-  <div class="login-btn__position--register"
+  <div class="login-btn__position"
        *ngIf="showRegister">
     <app-project-button
-      [title]="'Save'"
+      [title]="'Create'"
       [newStyle]="'login-btn'"
       (onClickEvent)="onSave()"
       [disabled]="!formAdmin.valid">
+    </app-project-button>
+    <app-project-button
+      [title]="'Canсel'"
+      [cancel]="true"
+      [newStyle]="'login-btn'"
+      (onClickEvent)="onCancel()"
+      [disabled]="false">
     </app-project-button>
   </div>
 </div>

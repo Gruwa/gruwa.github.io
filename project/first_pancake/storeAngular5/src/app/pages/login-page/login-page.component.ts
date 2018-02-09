@@ -69,7 +69,11 @@ export class LoginPageComponent implements OnInit {
   }
 
   onRegister() {
-    this.showRegister = true;
+    this.showRegister = !this.showRegister;
+  }
+
+  onCancel() {
+    this.router.navigate(['/main']);
   }
 
   onSave() {

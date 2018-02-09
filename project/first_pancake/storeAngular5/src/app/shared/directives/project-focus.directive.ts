@@ -1,7 +1,4 @@
-/**
- * Created by deniskondrachuk on 16.01.17.
- */
-import {Directive, ElementRef, Renderer} from '@angular/core';
+import {Directive, ElementRef, Renderer, Renderer2} from '@angular/core';
 
 @Directive({
     selector: '[focusDirective]',
@@ -24,7 +21,7 @@ export class FocusDirective{
      * @param renderer - required to use renderer methods
      */
     constructor(public element: ElementRef,
-                public renderer: Renderer) {
+                public renderer: Renderer2) {
         /**
          * Assigns a nativeElement reference of the attached element
          * get from elementRef.nativeElement
@@ -46,7 +43,7 @@ export class FocusDirective{
      * @protected
      */
     protected onFocus(): void {
-        this.renderer.setElementClass(this._nativeElement, 'focused', true);
+        this.renderer.addClass(this._nativeElement, 'focused');
     }
 
     /**
@@ -55,7 +52,7 @@ export class FocusDirective{
      * @protected
      */
     protected onBlur(): void {
-        this.renderer.setElementClass(this._nativeElement, 'focused', false);
+        this.renderer.removeClass(this._nativeElement, 'focused');
     }
 }
 

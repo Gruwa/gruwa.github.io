@@ -11,7 +11,6 @@ import {LocalStorageService} from 'ngx-webstorage';
 })
 export class HeaderPageComponent implements OnInit {
 
-  @ViewChild('avatar') avatar: ElementRef;
   public menuFocus: boolean = false;
 
   constructor(
@@ -24,12 +23,6 @@ export class HeaderPageComponent implements OnInit {
 
   ngOnInit() {
     console.log ('header', this.localStorageService.retrieve('activeUserName'))
-  }
-
-  onMenuFocus() {
-    this.menuFocus = !this.menuFocus;
-
-    console.log(this.avatar)
   }
 
   click() {
