@@ -6,9 +6,9 @@
     <app-sidebar-page></app-sidebar-page>
 
     <div class="wrapper-content" [ngClass]="{'wrapper-content--close' : mainService.closeSideBar}">
-      <div class="wrapper-line-top"></div>
+      <!--<div class="wrapper-line-top"></div>-->
       <router-outlet></router-outlet>
-      <div class="wrapper-line-top wrapper-line-top--down"></div>
+      <!--<div class="wrapper-line-top wrapper-line-top&#45;&#45;down"></div>-->
     </div>
   </div>
 </div>
@@ -22,6 +22,5 @@
 <app-login-page></app-login-page>
 </app-project-modal>
 
-<div class="wrapper-loader">
-  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
-</div>
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+

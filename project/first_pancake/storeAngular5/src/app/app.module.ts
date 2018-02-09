@@ -29,7 +29,8 @@ import {
   ProjectTextDirective,
   ProjectTextEllipsisDirective,
   ProjectTitleDirective,
-  ProjectListDirective
+  ProjectListDirective,
+  FocusDirective
 } from './shared/directives';
 import {
   AuthService,
@@ -81,6 +82,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ProjectTitleDirective,
     ProjectPointerDirective,
     ProjectListDirective,
+    FocusDirective,
     HelloPageComponent,
     FormPageComponent,
     Error404Component,

@@ -59,25 +59,41 @@
 .header-avatar {
   display: flex;
   position: relative;
-  margin: 0 15px;
-
-}
-
-.user-logo {
-
-  &__name {
-    border-radius: 50%;
-    padding: 13px 18px;
-    background-color: #f47a21;
-    color: white;
-    margin-right: 5px;
-    cursor: pointer;
-  }
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #f47a21;
+  margin: 0 4px 0 15px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 
   &__point {
     font-size: 13px;
     cursor: pointer;
   }
+
+
+}
+  .focused > .dropdown-block {
+    opacity: 1;
+    transform: translateX(0%);
+    visibility: visible;
+  }
+
+.user-logo {
+
+  &__name {
+    //position: absolute;
+    //top: 25%;
+    //left: 25%;
+    border-radius: 50%;
+    //padding: 13px 17px;
+    background-color: #f47a21;
+    color: white;
+    cursor: pointer;
+  }
+
 }
 
 .dropdown-block {
@@ -87,12 +103,11 @@
   width: 160px;
   box-shadow: 0px 0px 80px rgba(227, 227, 227, 1);
   background-color: $white;
-  top: 56px;
-  right: 12px;
+  top: 66px;
+  right: 0px;
   border-radius: 10px;
   text-align: center;
   justify-content: space-around;
-
   opacity: 0;
   transform: translateY(-10%);
   @include transition(all, 0.4s, linear);
@@ -121,12 +136,6 @@
     }
   }
 
-  &--focus {
-    opacity: 1;
-    transform: translateX(0%);
-    visibility: visible;
-  }
-
 }
 
 .dropdown-block:after {
@@ -144,9 +153,6 @@
   margin-left: 5px;
 }
 
-
-
-
 @media (max-width: 992px) {
   app-learnster-button.header_btn {
     display: none;
@@ -158,9 +164,6 @@
     display: none;
   }
 }
-
-
-
 
 @media screen and (max-width: 768px) {
 
