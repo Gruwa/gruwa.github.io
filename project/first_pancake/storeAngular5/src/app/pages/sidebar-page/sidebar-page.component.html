@@ -13,15 +13,15 @@
       </div>
     </li>
     <li class="wrapper-sidebar__item"
-        [routerLink]="['/main/tab']"
-        [ngClass]="{'wrapper-sidebar__item--active' : router.url === '/main/tab'}">
-      <div [ngClass]="{'wrapper-sidebar__icon-box' : router.url === '/main/tab'}">
-        <img class="wrapper-sidebar__icon" *ngIf="router.url !== '/main/tab'" src="../../../assets/img/icon/users.svg">
-        <img class="wrapper-sidebar__icon" *ngIf="router.url === '/main/tab'"
+        [routerLink]="['/main/users']"
+        [ngClass]="{'wrapper-sidebar__item--active' : router.url === '/main/users'}">
+      <div [ngClass]="{'wrapper-sidebar__icon-box' : router.url === '/main/users'}">
+        <img class="wrapper-sidebar__icon" *ngIf="router.url !== '/main/users'" src="../../../assets/img/icon/users.svg">
+        <img class="wrapper-sidebar__icon" *ngIf="router.url === '/main/users'"
              src="../../../assets/img/icon/users-white.svg">
       </div>
       <div class="wrapper-sidebar__description"
-           [ngClass]="{'wrapper-sidebar__description--active' : router.url === '/main/tab'}">{{'Users' | translate}}
+           [ngClass]="{'wrapper-sidebar__description--active' : router.url === '/main/users'}">{{'Users' | translate}}
       </div>
     </li>
     <li class="wrapper-sidebar__item"

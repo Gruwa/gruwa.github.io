@@ -44,12 +44,12 @@ export class TabPageComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.mainService.loader$.next(true);
     this.onGetUsers();
 
   }
 
   onGetUsers(sortField?: string) {
-    this.mainService.loader$.next(true);
     this.users = [];
 
     if (!this.toggle) {

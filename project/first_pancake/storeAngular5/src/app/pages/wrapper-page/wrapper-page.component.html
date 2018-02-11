@@ -1,4 +1,4 @@
-<div class="wrapper-page" *ngIf="router.url !== '/404' && router.url !== '/login'">
+<div class="wrapper-page" *ngIf="router.url !== '/404' && router.url !== '/auth'">
   <div class="wrapper-header">
     <app-header-page></app-header-page>
   </div>
@@ -15,7 +15,7 @@
 <app-error *ngIf="router.url === '/404'"></app-error>
 
 <app-project-modal [visible]="true"
-                   *ngIf="router.url === '/login'"
+                   *ngIf="router.url === '/auth'"
                    [closable]="false"
                    (visibleChange)="visibleModal($event)">
 <app-login-page></app-login-page>

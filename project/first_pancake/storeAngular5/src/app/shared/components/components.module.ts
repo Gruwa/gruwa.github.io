@@ -51,7 +51,8 @@ import {NgCircleProgressModule} from 'ng-circle-progress';
     ProjectTextareaComponent,
     ProjectSelectComponent,
     ProjectInputComponent,
-    ProjectUploaderComponent
+    ProjectUploaderComponent,
+    RouterModule
   ]
 })
 export class ComponentsModule {

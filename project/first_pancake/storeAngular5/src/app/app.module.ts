@@ -1,28 +1,28 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
   HTTP_INTERCEPTORS,
   HttpClient,
   HttpClientModule
 } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
-import { AppComponent } from './app.component';
-import { ToastModule} from 'ng2-toastr';
-import { ContextMenuModule } from 'ngx-contextmenu';
-import { Ng2Webstorage } from 'ngx-webstorage';
-import { LoadingModule } from 'ngx-loading';
-import { ComponentsModule } from './shared/components/components.module';
+import {AppComponent} from './app.component';
+import {ToastModule} from 'ng2-toastr';
+import {ContextMenuModule} from 'ngx-contextmenu';
+import {Ng2Webstorage} from 'ngx-webstorage';
+import {LoadingModule} from 'ngx-loading';
+import {ComponentsModule} from './shared/components/components.module';
 import {
   TranslateModule,
   TranslateLoader
 } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 import {
-    MainPageComponent
+  MainPageComponent
 } from './pages';
 import {
   ProjectPointerDirective,
@@ -40,16 +40,16 @@ import {
   RouteActivatorService,
   UserResolverService
 } from './shared/services';
-import { HelloPageComponent } from './pages/hello-page/hello-page.component';
-import { FormPageComponent } from './pages/form-page/form-page.component';
-import { Error404Component } from './pages/error404/error404.component';
-import { RouterModule } from '@angular/router';
-import { appRoutes } from './app.routes';
-import { TabPageComponent } from './pages/tab-page/tab-page.component';
-import { WrapperPageComponent } from './pages/wrapper-page/wrapper-page.component';
-import { HeaderPageComponent } from './pages/header-page/header-page.component';
-import { LoginPageComponent } from './pages/login-page/login-page.component';
-import { SidebarPageComponent } from './pages/sidebar-page/sidebar-page.component';
+import {HelloPageComponent} from './pages/hello-page/hello-page.component';
+import {FormPageComponent} from './pages/form-page/form-page.component';
+import {Error404Component} from './pages/error404/error404.component';
+import {RouterModule} from '@angular/router';
+import {appRoutes} from './app.routes';
+import {TabPageComponent} from './pages/tab-page/tab-page.component';
+import {WrapperPageComponent} from './pages/wrapper-page/wrapper-page.component';
+import {HeaderPageComponent} from './pages/header-page/header-page.component';
+import {LoginPageComponent} from './pages/login-page/login-page.component';
+import {SidebarPageComponent} from './pages/sidebar-page/sidebar-page.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -104,6 +104,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     RouteActivatorService,
     UserResolverService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [RouterModule]
 })
-export class AppModule { }
+export class AppModule {
+}
