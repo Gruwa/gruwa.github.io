@@ -22,17 +22,6 @@ import {
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 import {
-  MainPageComponent
-} from './pages';
-import {
-  ProjectPointerDirective,
-  ProjectTextDirective,
-  ProjectTextEllipsisDirective,
-  ProjectTitleDirective,
-  ProjectListDirective,
-  FocusDirective
-} from './shared/directives';
-import {
   AuthService,
   ProjectInterceptor,
   MainService,
@@ -40,16 +29,10 @@ import {
   RouteActivatorService,
   UserResolverService
 } from './shared/services';
-import {HelloPageComponent} from './pages/hello-page/hello-page.component';
-import {FormPageComponent} from './pages/form-page/form-page.component';
 import {Error404Component} from './pages/error404/error404.component';
 import {RouterModule} from '@angular/router';
 import {appRoutes} from './app.routes';
-import {TabPageComponent} from './pages/tab-page/tab-page.component';
 import {WrapperPageComponent} from './pages/wrapper-page/wrapper-page.component';
-import {HeaderPageComponent} from './pages/header-page/header-page.component';
-import {LoginPageComponent} from './pages/login-page/login-page.component';
-import {SidebarPageComponent} from './pages/sidebar-page/sidebar-page.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -76,21 +59,8 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   declarations: [
     AppComponent,
-    MainPageComponent,
-    ProjectTextEllipsisDirective,
-    ProjectTextDirective,
-    ProjectTitleDirective,
-    ProjectPointerDirective,
-    ProjectListDirective,
-    FocusDirective,
-    HelloPageComponent,
-    FormPageComponent,
     Error404Component,
-    TabPageComponent,
-    WrapperPageComponent,
-    HeaderPageComponent,
-    LoginPageComponent,
-    SidebarPageComponent
+    WrapperPageComponent
   ],
   providers: [
     AuthService,

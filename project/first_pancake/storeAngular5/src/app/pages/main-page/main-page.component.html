@@ -1,4 +1,22 @@
-    <app-hello-page *ngIf="router.url === '/main'"></app-hello-page>
-    <app-form-page *ngIf="router.url === '/main/form'"></app-form-page>
-    <app-tab-page *ngIf="router.url === '/main/users'"></app-tab-page>
+    <!--<app-hello-page *ngIf="router.url === '/main'"></app-hello-page>-->
+    <!--<app-form-page *ngIf="router.url === '/main/form'"></app-form-page>-->
+    <!--<app-tab-page *ngIf="router.url === '/main/users'"></app-tab-page>-->
+    <!--<router-outlet>-->
+      <div class="wrapper-page">
+        <div class="wrapper-header">
+          <app-header-page></app-header-page>
+        </div>
+        <div class="wrapper-main">
+          <app-sidebar-page></app-sidebar-page>
 
+          <div class="wrapper-content" [ngClass]="{'wrapper-content--close' : mainService.closeSideBar}">
+            <!--<div class="wrapper-line-top"></div>-->
+            <router-outlet>
+            <app-hello-page *ngIf="router.url === '/main'"></app-hello-page>
+
+            </router-outlet>
+            <!--<app-form-page *ngIf="router.url === '/main/form'"></app-form-page>-->
+          </div>
+        </div>
+      </div>
+    <!--</router-outlet>-->

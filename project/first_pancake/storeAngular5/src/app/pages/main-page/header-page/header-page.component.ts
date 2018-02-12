@@ -1,7 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Router} from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
-import {AuthService, MainService} from '../../shared/services';
+import {AuthService, MainService} from '../../../shared/services/index';
 import {LocalStorageService} from 'ngx-webstorage';
 
 @Component({

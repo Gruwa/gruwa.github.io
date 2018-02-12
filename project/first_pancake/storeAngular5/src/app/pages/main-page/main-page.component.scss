@@ -1,3 +1,57 @@
 @import '../../shared/style/custom';
 
 
+
+.wrapper-page {
+
+
+}
+
+.wrapper-main {
+  display: flex;
+  flex-direction: row;
+  //margin-left: 10px;
+  align-items: stretch;
+  justify-content: flex-start;
+  padding-top: 107px;
+}
+
+
+
+.wrapper-header {
+  height: 107px;
+  background-color: rgba(255, 255, 255, 1);
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.wrapper-content {
+  width: 100%;
+  margin-left: 180px;
+  transition: margin-left 1.3s ease-in-out;
+  padding: 40px 0;
+}
+
+.wrapper-line-top {
+  position: relative;
+  background-color: #eff3f6;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #cfd8dc;
+  padding: 0.75rem 1rem;
+}
+
+@media screen and (max-width: 768px) {
+
+  .wrapper-content {
+    margin-left: 0;
+    transition: margin-left 1.3s ease-in-out;
+
+    &--close {
+      margin-left: 180px;
+      transition: margin-left 1.3s ease-in-out;
+    }
+  }
+}

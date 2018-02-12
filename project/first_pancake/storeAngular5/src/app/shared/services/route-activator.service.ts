@@ -19,7 +19,7 @@ export class RouteActivatorService implements CanActivate {
 
     if (!this.localStorge.retrieve('token') || !this.localStorge.retrieve('activeUser')) {
       eventExists = false;
-      this.router.navigate(['/auth']);
+      this.router.navigate(['/auth/login']);
     }
     this.mainService.loader$.next(false);
     return eventExists;

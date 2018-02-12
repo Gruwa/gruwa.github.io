@@ -1,10 +1,10 @@
 import {Component, OnInit, ViewContainerRef} from '@angular/core';
 import {ToastsManager} from 'ng2-toastr';
-import {UserService} from '../../shared/services/user.service';
+import {UserService} from '../../../shared/services/user.service';
 import {TranslateService} from '@ngx-translate/core';
 import {Observable} from 'rxjs/Observable';
 import {LocalStorageService} from 'ngx-webstorage';
-import {MainService} from '../../shared/services';
+import {MainService} from '../../../shared/services/index';
 
 @Component({
   selector: 'app-tab-page',

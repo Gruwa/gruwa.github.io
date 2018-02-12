@@ -3,7 +3,7 @@ import {ToastsManager} from 'ng2-toastr';
 import {TranslateService} from '@ngx-translate/core';
 import {LocalStorageService} from 'ngx-webstorage';
 import {Router} from '@angular/router';
-import {MainService} from '../../shared/services';
+import {MainService} from '../../../shared/services/index';
 
 @Component({
   selector: 'app-hello-page',

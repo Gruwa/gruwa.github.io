@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewContainerRef, ViewEncapsulation} from '@angular/core';
 import {FormGroup, FormBuilder, Validators, AbstractControl} from '@angular/forms';
-import {AuthService, MainService} from '../../shared/services';
+import {AuthService, MainService} from '../../../shared/services/index';
 import {ToastsManager} from 'ng2-toastr';
 import {Router} from '@angular/router';
 
@@ -26,6 +26,7 @@ function emailMatcher(c: AbstractControl) {
 })
 export class LoginPageComponent implements OnInit {
 
+  public visibleLogin: boolean = true;
   public showRegister: boolean = false;
   public formAdmin: FormGroup;
   public loading = false;
@@ -109,7 +110,7 @@ export class LoginPageComponent implements OnInit {
         console.log('vse ok', response);
 
         this.toast.success('Login success');
-        this.router.navigate(['/main']);
+        this.router.navigate([this.authService.activeLink]);
         this.mainService.loader$.next(false);
       },
       (error) => {
@@ -117,6 +118,11 @@ export class LoginPageComponent implements OnInit {
         console.log('Vse govno', error);
       }
     );
+  }
+
+  visibleModal(data: boolean) {
+    this.router.navigate(['/main']);
+    this.visibleLogin = data;
   }
 
 }

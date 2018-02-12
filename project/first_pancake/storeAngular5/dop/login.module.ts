@@ -4,7 +4,7 @@ import { LoginComponent } from './login/login.component';
 import {createTranslateLoader, SharedModule} from '../../shared/shared.module';
 import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ResetPasswordComponent } from '../src/app/pages/auth-page/reset-password/reset-password.component';
 import { ResetEmailComponent } from './reset-email/reset-email.component';
 import {HttpClient} from '@angular/common/http';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
