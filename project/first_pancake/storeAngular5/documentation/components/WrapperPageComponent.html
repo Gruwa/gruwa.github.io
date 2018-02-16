@@ -81,9 +81,6 @@
                                     <a href="../modules/LoginModule.html" >LoginModule</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../modules/LoginModule.html" >LoginModule</a>
-                                </li>
-                                <li class="link">
                                     <a href="../modules/MainModule.html" >MainModule</a>
                                 </li>
                         </ul>
@@ -101,9 +98,6 @@
                                 id="xs-components-links"
                             >
                                 <li class="link">
-                                    <a href="../components/AddUserComponent.html" >AddUserComponent</a>
-                                </li>
-                                <li class="link">
                                     <a href="../components/AddUserPageComponent.html" >AddUserPageComponent</a>
                                 </li>
                                 <li class="link">
@@ -113,19 +107,16 @@
                                     <a href="../components/AuthPageComponent.html" >AuthPageComponent</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../components/Error404Component.html" >Error404Component</a>
+                                    <a href="../components/ChartPageComponent.html" >ChartPageComponent</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../components/FormPageComponent.html" >FormPageComponent</a>
+                                    <a href="../components/Error404Component.html" >Error404Component</a>
                                 </li>
                                 <li class="link">
                                     <a href="../components/HeaderPageComponent.html" >HeaderPageComponent</a>
                                 </li>
                                 <li class="link">
                                     <a href="../components/HelloPageComponent.html" >HelloPageComponent</a>
-                                </li>
-                                <li class="link">
-                                    <a href="../components/ListStudentsComponent.html" >ListStudentsComponent</a>
                                 </li>
                                 <li class="link">
                                     <a href="../components/LoginPageComponent.html" >LoginPageComponent</a>
@@ -397,9 +388,6 @@
                                            <a href="../modules/LoginModule.html" >LoginModule</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../modules/LoginModule.html" >LoginModule</a>
-                                       </li>
-                                       <li class="link">
                                            <a href="../modules/MainModule.html" >MainModule</a>
                                        </li>
                                </ul>
@@ -417,9 +405,6 @@
                                        id="components-links"
                    >
                                        <li class="link">
-                                           <a href="../components/AddUserComponent.html" >AddUserComponent</a>
-                                       </li>
-                                       <li class="link">
                                            <a href="../components/AddUserPageComponent.html" >AddUserPageComponent</a>
                                        </li>
                                        <li class="link">
@@ -429,19 +414,16 @@
                                            <a href="../components/AuthPageComponent.html" >AuthPageComponent</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../components/Error404Component.html" >Error404Component</a>
+                                           <a href="../components/ChartPageComponent.html" >ChartPageComponent</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../components/FormPageComponent.html" >FormPageComponent</a>
+                                           <a href="../components/Error404Component.html" >Error404Component</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/HeaderPageComponent.html" >HeaderPageComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/HelloPageComponent.html" >HelloPageComponent</a>
-                                       </li>
-                                       <li class="link">
-                                           <a href="../components/ListStudentsComponent.html" >ListStudentsComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/LoginPageComponent.html" >LoginPageComponent</a>
@@ -690,6 +672,7 @@
     <p class="comment">
                 <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
                 <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+                <code><a href="https://angular.io/api/core/AfterViewChecked" target="_blank" >AfterViewChecked</a></code>
     </p>
 
 
@@ -786,6 +769,9 @@
                                 <a href="#loaderChange">loaderChange</a>
                             </li>
                             <li>
+                                <a href="#ngAfterViewChecked">ngAfterViewChecked</a>
+                            </li>
+                            <li>
                                 <a href="#ngOnDestroy">ngOnDestroy</a>
                             </li>
                             <li>
@@ -810,7 +796,7 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-    <code>constructor(router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, mainService: <a href="../injectables/MainService.html">MainService</a>, translate: TranslateService, authService: <a href="../injectables/AuthService.html">AuthService</a>)</code>
+    <code>constructor(router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, mainService: <a href="../injectables/MainService.html">MainService</a>, translate: TranslateService, authService: <a href="../injectables/AuthService.html">AuthService</a>, changeDetector: <a href="https://angular.io/api/core/ChangeDetectorRef" target="_blank">ChangeDetectorRef</a>)</code>
                         </td>
                     </tr>
                             <tr>
@@ -873,6 +859,16 @@
                                                       </td>
                                                       <td></td>
                                                     </tr>
+                                                    <tr>
+                                                      <td>changeDetector</td>
+                                                      <td>
+                                                                <code><a href="https://angular.io/api/core/ChangeDetectorRef" target="_blank" >ChangeDetectorRef</a></code>
+                                                      </td>
+                                                      <td>
+                                                            no
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
                                             </tbody>
                                         </table>
                                 </div>
@@ -913,7 +909,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/pages/wrapper-page/wrapper-page.component.ts:37</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/pages/wrapper-page/wrapper-page.component.ts:42</a></div>
                                 </td>
                             </tr>
     
@@ -966,6 +962,43 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
+                            <a name="ngAfterViewChecked"></a>
+                            <span class="name">
+                                <b>
+                                ngAfterViewChecked
+                                </b>
+                                <a href="#ngAfterViewChecked"><span class="fa fa-link"></span></a>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>ngAfterViewChecked()</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/pages/wrapper-page/wrapper-page.component.ts:38</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
                             <a name="ngOnDestroy"></a>
                             <span class="name">
                                 <b>
@@ -984,7 +1017,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/pages/wrapper-page/wrapper-page.component.ts:53</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/pages/wrapper-page/wrapper-page.component.ts:55</a></div>
                                 </td>
                             </tr>
     
@@ -1021,7 +1054,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/pages/wrapper-page/wrapper-page.component.ts:25</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/pages/wrapper-page/wrapper-page.component.ts:26</a></div>
                                 </td>
                             </tr>
     
@@ -1058,7 +1091,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/pages/wrapper-page/wrapper-page.component.ts:42</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/pages/wrapper-page/wrapper-page.component.ts:46</a></div>
                                 </td>
                             </tr>
     
@@ -1129,7 +1162,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/pages/wrapper-page/wrapper-page.component.ts:48</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/pages/wrapper-page/wrapper-page.component.ts:51</a></div>
                                 </td>
                             </tr>
     
@@ -1456,7 +1489,7 @@
 
 
     <div class="tab-pane fade tab-source-code" id="c-source">
-        <pre class="line-numbers"><code class="language-typescript">import {Component, OnInit, OnDestroy} from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers"><code class="language-typescript">import {Component, OnInit, OnDestroy, ChangeDetectorRef, AfterViewChecked} from &#x27;@angular/core&#x27;;
 import {Router} from &#x27;@angular/router&#x27;;
 import {MainService} from &#x27;../../shared/services/main.service&#x27;;
 import {TranslateService} from &#x27;@ngx-translate/core&#x27;;
@@ -1467,7 +1500,7 @@ import {AuthService} from &#x27;../../shared/services&#x27;;
   templateUrl: &#x27;./wrapper-page.component.html&#x27;,
   styleUrls: [&#x27;./wrapper-page.component.scss&#x27;]
 })
-export class WrapperPageComponent implements OnInit, OnDestroy {
+export class WrapperPageComponent implements OnInit, OnDestroy, AfterViewChecked {
 
   public visibleLogin: boolean &#x3D; true;
   public visibleRegister: boolean &#x3D; false;
@@ -1477,13 +1510,14 @@ export class WrapperPageComponent implements OnInit, OnDestroy {
   constructor(public router: Router,
               public mainService: MainService,
               public translate: TranslateService,
-              private authService: AuthService) {
+              private authService: AuthService,
+              private changeDetector: ChangeDetectorRef) {
   }
 
   ngOnInit() {
     this.mainService.setLanguage(&#x27;en&#x27;);
     this.authService.stateLogin$.subscribe(this.stateLogin.bind(this));
-    this.mainService.loader$.subscribe(this.loaderChange.bind(this));
+    this.mainService.loader$.subscribe(event &#x3D;&gt; this.loaderChange(event));
     // this.authService.validToken().subscribe(
     //   (res) &#x3D;&gt; {
     //     this.authService.stateLogin$.next({
@@ -1492,19 +1526,20 @@ export class WrapperPageComponent implements OnInit, OnDestroy {
     //   });
   }
 
+  ngAfterViewChecked(){
+    this.changeDetector.detectChanges();
+  }
+
   loaderChange(value: boolean) {
-    console.log(value)
     this.loading &#x3D; value;
   }
 
   stateLogin(eventData: boolean) {
-    console.log(eventData);
     this.visibleContent &#x3D; eventData;
     this.visibleLogin &#x3D; !eventData;
   }
 
   visibleModal(data: boolean) {
-    console.log(data)
     this.visibleLogin &#x3D; data;
   }
 
@@ -1567,7 +1602,7 @@ export class WrapperPageComponent implements OnInit, OnDestroy {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><router-outlet>  <!--<div class="wrapper-page" *ngIf="router.url !== \'/404\' && router.url !== \'/auth/login\'">-->    <!--<div class="wrapper-header">-->      <!--<app-header-page></app-header-page>-->    <!--</div>-->    <!--<div class="wrapper-main">-->      <!--<app-sidebar-page></app-sidebar-page>-->      <!--<div class="wrapper-content" [ngClass]="{\'wrapper-content&#45;&#45;close\' : mainService.closeSideBar}">-->        <!--&lt;!&ndash;<div class="wrapper-line-top"></div>&ndash;&gt;-->        <!--&lt;!&ndash;<router-outlet></router-outlet>&ndash;&gt;-->        <!--<app-hello-page *ngIf="router.url === \'/main\'"></app-hello-page>-->        <!--<app-form-page *ngIf="router.url === \'/main/form\'"></app-form-page>-->        <!--<app-tab-page *ngIf="router.url === \'/main/users\'"></app-tab-page>-->      <!--</div>-->    <!--</div>-->  <!--</div>-->  <!--<app-error *ngIf="router.url === \'/404\'"></app-error>-->  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: \'14px\' }"></ngx-loading></router-outlet></div>'
-    var COMPONENTS = [{'name': 'AddUserComponent', 'selector': 'app-add-user'},{'name': 'AddUserPageComponent', 'selector': 'app-add-user-page'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthPageComponent', 'selector': 'app-auth-page'},{'name': 'Error404Component', 'selector': 'app-error'},{'name': 'FormPageComponent', 'selector': 'app-form-page'},{'name': 'HeaderPageComponent', 'selector': 'app-header-page'},{'name': 'HelloPageComponent', 'selector': 'app-hello-page'},{'name': 'ListStudentsComponent', 'selector': 'app-list-students'},{'name': 'LoginPageComponent', 'selector': 'app-login-page'},{'name': 'MainPageComponent', 'selector': 'app-main-page'},{'name': 'ProjectBarComponent', 'selector': 'app-project-bar'},{'name': 'ProjectButtonComponent', 'selector': 'app-project-button'},{'name': 'ProjectCheckboxComponent', 'selector': 'app-project-checkbox'},{'name': 'ProjectCircleComponent', 'selector': 'app-project-circle'},{'name': 'ProjectDeleteComponent', 'selector': 'project-delete'},{'name': 'ProjectInputComponent', 'selector': 'app-project-input'},{'name': 'ProjectModalComponent', 'selector': 'app-project-modal'},{'name': 'ProjectSelectComponent', 'selector': 'app-project-select'},{'name': 'ProjectTextareaComponent', 'selector': 'app-project-textarea'},{'name': 'ProjectUploaderComponent', 'selector': 'app-project-uploader'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SidebarPageComponent', 'selector': 'app-sidebar-page'},{'name': 'TabPageComponent', 'selector': 'app-tab-page'},{'name': 'WrapperPageComponent', 'selector': 'app-wrapper-page'}];
+    var COMPONENTS = [{'name': 'AddUserPageComponent', 'selector': 'app-add-user-page'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthPageComponent', 'selector': 'app-auth-page'},{'name': 'ChartPageComponent', 'selector': 'app-chart-page'},{'name': 'Error404Component', 'selector': 'app-error'},{'name': 'HeaderPageComponent', 'selector': 'app-header-page'},{'name': 'HelloPageComponent', 'selector': 'app-hello-page'},{'name': 'LoginPageComponent', 'selector': 'app-login-page'},{'name': 'MainPageComponent', 'selector': 'app-main-page'},{'name': 'ProjectBarComponent', 'selector': 'app-project-bar'},{'name': 'ProjectButtonComponent', 'selector': 'app-project-button'},{'name': 'ProjectCheckboxComponent', 'selector': 'app-project-checkbox'},{'name': 'ProjectCircleComponent', 'selector': 'app-project-circle'},{'name': 'ProjectDeleteComponent', 'selector': 'project-delete'},{'name': 'ProjectInputComponent', 'selector': 'app-project-input'},{'name': 'ProjectModalComponent', 'selector': 'app-project-modal'},{'name': 'ProjectSelectComponent', 'selector': 'app-project-select'},{'name': 'ProjectTextareaComponent', 'selector': 'app-project-textarea'},{'name': 'ProjectUploaderComponent', 'selector': 'app-project-uploader'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SidebarPageComponent', 'selector': 'app-sidebar-page'},{'name': 'TabPageComponent', 'selector': 'app-tab-page'},{'name': 'WrapperPageComponent', 'selector': 'app-wrapper-page'}];
     var DIRECTIVES = [{'name': 'FocusDirective', 'selector': '[focusDirective]'},{'name': 'ProjectListDirective', 'selector': '[appProjectListStyle]'},{'name': 'ProjectPointerDirective', 'selector': '[appProjectPointer]'},{'name': 'ProjectTextDirective', 'selector': '[appProjectText]'},{'name': 'ProjectTextEllipsisDirective', 'selector': '[appProjectTextEllipsis]'},{'name': 'ProjectTitleDirective', 'selector': '[appProjectTitleStyle]'},{'name': 'ProjectUploaderDirective', 'selector': '[formUpload]'}];
     var ACTUAL_COMPONENT = {'name': 'WrapperPageComponent'};
 </script>

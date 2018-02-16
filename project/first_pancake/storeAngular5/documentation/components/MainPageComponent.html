@@ -81,9 +81,6 @@
                                     <a href="../modules/LoginModule.html" >LoginModule</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../modules/LoginModule.html" >LoginModule</a>
-                                </li>
-                                <li class="link">
                                     <a href="../modules/MainModule.html" >MainModule</a>
                                 </li>
                         </ul>
@@ -101,9 +98,6 @@
                                 id="xs-components-links"
                             >
                                 <li class="link">
-                                    <a href="../components/AddUserComponent.html" >AddUserComponent</a>
-                                </li>
-                                <li class="link">
                                     <a href="../components/AddUserPageComponent.html" >AddUserPageComponent</a>
                                 </li>
                                 <li class="link">
@@ -113,19 +107,16 @@
                                     <a href="../components/AuthPageComponent.html" >AuthPageComponent</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../components/Error404Component.html" >Error404Component</a>
+                                    <a href="../components/ChartPageComponent.html" >ChartPageComponent</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../components/FormPageComponent.html" >FormPageComponent</a>
+                                    <a href="../components/Error404Component.html" >Error404Component</a>
                                 </li>
                                 <li class="link">
                                     <a href="../components/HeaderPageComponent.html" >HeaderPageComponent</a>
                                 </li>
                                 <li class="link">
                                     <a href="../components/HelloPageComponent.html" >HelloPageComponent</a>
-                                </li>
-                                <li class="link">
-                                    <a href="../components/ListStudentsComponent.html" >ListStudentsComponent</a>
                                 </li>
                                 <li class="link">
                                     <a href="../components/LoginPageComponent.html" >LoginPageComponent</a>
@@ -397,9 +388,6 @@
                                            <a href="../modules/LoginModule.html" >LoginModule</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../modules/LoginModule.html" >LoginModule</a>
-                                       </li>
-                                       <li class="link">
                                            <a href="../modules/MainModule.html" >MainModule</a>
                                        </li>
                                </ul>
@@ -417,9 +405,6 @@
                                        id="components-links"
                    >
                                        <li class="link">
-                                           <a href="../components/AddUserComponent.html" >AddUserComponent</a>
-                                       </li>
-                                       <li class="link">
                                            <a href="../components/AddUserPageComponent.html" >AddUserPageComponent</a>
                                        </li>
                                        <li class="link">
@@ -429,19 +414,16 @@
                                            <a href="../components/AuthPageComponent.html" >AuthPageComponent</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../components/Error404Component.html" >Error404Component</a>
+                                           <a href="../components/ChartPageComponent.html" >ChartPageComponent</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../components/FormPageComponent.html" >FormPageComponent</a>
+                                           <a href="../components/Error404Component.html" >Error404Component</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/HeaderPageComponent.html" >HeaderPageComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/HelloPageComponent.html" >HelloPageComponent</a>
-                                       </li>
-                                       <li class="link">
-                                           <a href="../components/ListStudentsComponent.html" >ListStudentsComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/LoginPageComponent.html" >LoginPageComponent</a>
@@ -911,7 +893,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/pages/main-page/main-page.component.ts:41</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/pages/main-page/main-page.component.ts:38</a></div>
                                 </td>
                             </tr>
     
@@ -1145,15 +1127,12 @@ export class MainPageComponent implements OnInit {
     }
 
     ngOnInit() {
-      console.log(&#x27;i18n&#x27;)
         const language &#x3D; this.localStorageService.retrieve(&#x27;language&#x27;);
         this.translate.use(language);
         this.translate.setDefaultLang(language);
         this.localStorageService.observe(&#x27;language&#x27;).subscribe((language) &#x3D;&gt; {
           this.translate.use(language);
         });
-
-        console.log(this.router)
     }
 
     helloAngular() {
@@ -1210,7 +1189,7 @@ export class MainPageComponent implements OnInit {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="wrapper-page">  <div class="wrapper-header">    <app-header-page></app-header-page>  </div>  <div class="wrapper-main">    <app-sidebar-page></app-sidebar-page>    <div class="wrapper-content" [ngClass]="{\'wrapper-content--close\' : mainService.closeSideBar}">      <router-outlet>      <app-hello-page *ngIf="router.url === \'/main\'"></app-hello-page>      </router-outlet>    </div>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AddUserComponent', 'selector': 'app-add-user'},{'name': 'AddUserPageComponent', 'selector': 'app-add-user-page'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthPageComponent', 'selector': 'app-auth-page'},{'name': 'Error404Component', 'selector': 'app-error'},{'name': 'FormPageComponent', 'selector': 'app-form-page'},{'name': 'HeaderPageComponent', 'selector': 'app-header-page'},{'name': 'HelloPageComponent', 'selector': 'app-hello-page'},{'name': 'ListStudentsComponent', 'selector': 'app-list-students'},{'name': 'LoginPageComponent', 'selector': 'app-login-page'},{'name': 'MainPageComponent', 'selector': 'app-main-page'},{'name': 'ProjectBarComponent', 'selector': 'app-project-bar'},{'name': 'ProjectButtonComponent', 'selector': 'app-project-button'},{'name': 'ProjectCheckboxComponent', 'selector': 'app-project-checkbox'},{'name': 'ProjectCircleComponent', 'selector': 'app-project-circle'},{'name': 'ProjectDeleteComponent', 'selector': 'project-delete'},{'name': 'ProjectInputComponent', 'selector': 'app-project-input'},{'name': 'ProjectModalComponent', 'selector': 'app-project-modal'},{'name': 'ProjectSelectComponent', 'selector': 'app-project-select'},{'name': 'ProjectTextareaComponent', 'selector': 'app-project-textarea'},{'name': 'ProjectUploaderComponent', 'selector': 'app-project-uploader'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SidebarPageComponent', 'selector': 'app-sidebar-page'},{'name': 'TabPageComponent', 'selector': 'app-tab-page'},{'name': 'WrapperPageComponent', 'selector': 'app-wrapper-page'}];
+    var COMPONENTS = [{'name': 'AddUserPageComponent', 'selector': 'app-add-user-page'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthPageComponent', 'selector': 'app-auth-page'},{'name': 'ChartPageComponent', 'selector': 'app-chart-page'},{'name': 'Error404Component', 'selector': 'app-error'},{'name': 'HeaderPageComponent', 'selector': 'app-header-page'},{'name': 'HelloPageComponent', 'selector': 'app-hello-page'},{'name': 'LoginPageComponent', 'selector': 'app-login-page'},{'name': 'MainPageComponent', 'selector': 'app-main-page'},{'name': 'ProjectBarComponent', 'selector': 'app-project-bar'},{'name': 'ProjectButtonComponent', 'selector': 'app-project-button'},{'name': 'ProjectCheckboxComponent', 'selector': 'app-project-checkbox'},{'name': 'ProjectCircleComponent', 'selector': 'app-project-circle'},{'name': 'ProjectDeleteComponent', 'selector': 'project-delete'},{'name': 'ProjectInputComponent', 'selector': 'app-project-input'},{'name': 'ProjectModalComponent', 'selector': 'app-project-modal'},{'name': 'ProjectSelectComponent', 'selector': 'app-project-select'},{'name': 'ProjectTextareaComponent', 'selector': 'app-project-textarea'},{'name': 'ProjectUploaderComponent', 'selector': 'app-project-uploader'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SidebarPageComponent', 'selector': 'app-sidebar-page'},{'name': 'TabPageComponent', 'selector': 'app-tab-page'},{'name': 'WrapperPageComponent', 'selector': 'app-wrapper-page'}];
     var DIRECTIVES = [{'name': 'FocusDirective', 'selector': '[focusDirective]'},{'name': 'ProjectListDirective', 'selector': '[appProjectListStyle]'},{'name': 'ProjectPointerDirective', 'selector': '[appProjectPointer]'},{'name': 'ProjectTextDirective', 'selector': '[appProjectText]'},{'name': 'ProjectTextEllipsisDirective', 'selector': '[appProjectTextEllipsis]'},{'name': 'ProjectTitleDirective', 'selector': '[appProjectTitleStyle]'},{'name': 'ProjectUploaderDirective', 'selector': '[formUpload]'}];
     var ACTUAL_COMPONENT = {'name': 'MainPageComponent'};
 </script>

@@ -81,9 +81,6 @@
                                     <a href="../modules/LoginModule.html" >LoginModule</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../modules/LoginModule.html" >LoginModule</a>
-                                </li>
-                                <li class="link">
                                     <a href="../modules/MainModule.html" >MainModule</a>
                                 </li>
                         </ul>
@@ -101,9 +98,6 @@
                                 id="xs-components-links"
                             >
                                 <li class="link">
-                                    <a href="../components/AddUserComponent.html" >AddUserComponent</a>
-                                </li>
-                                <li class="link">
                                     <a href="../components/AddUserPageComponent.html" >AddUserPageComponent</a>
                                 </li>
                                 <li class="link">
@@ -113,19 +107,16 @@
                                     <a href="../components/AuthPageComponent.html" >AuthPageComponent</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../components/Error404Component.html" >Error404Component</a>
+                                    <a href="../components/ChartPageComponent.html" >ChartPageComponent</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../components/FormPageComponent.html" >FormPageComponent</a>
+                                    <a href="../components/Error404Component.html" >Error404Component</a>
                                 </li>
                                 <li class="link">
                                     <a href="../components/HeaderPageComponent.html" >HeaderPageComponent</a>
                                 </li>
                                 <li class="link">
                                     <a href="../components/HelloPageComponent.html" >HelloPageComponent</a>
-                                </li>
-                                <li class="link">
-                                    <a href="../components/ListStudentsComponent.html" >ListStudentsComponent</a>
                                 </li>
                                 <li class="link">
                                     <a href="../components/LoginPageComponent.html"  data-type="entity-link" class="active" >LoginPageComponent</a>
@@ -397,9 +388,6 @@
                                            <a href="../modules/LoginModule.html" >LoginModule</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../modules/LoginModule.html" >LoginModule</a>
-                                       </li>
-                                       <li class="link">
                                            <a href="../modules/MainModule.html" >MainModule</a>
                                        </li>
                                </ul>
@@ -417,9 +405,6 @@
                                        id="components-links"
                    >
                                        <li class="link">
-                                           <a href="../components/AddUserComponent.html" >AddUserComponent</a>
-                                       </li>
-                                       <li class="link">
                                            <a href="../components/AddUserPageComponent.html" >AddUserPageComponent</a>
                                        </li>
                                        <li class="link">
@@ -429,19 +414,16 @@
                                            <a href="../components/AuthPageComponent.html" >AuthPageComponent</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../components/Error404Component.html" >Error404Component</a>
+                                           <a href="../components/ChartPageComponent.html" >ChartPageComponent</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../components/FormPageComponent.html" >FormPageComponent</a>
+                                           <a href="../components/Error404Component.html" >Error404Component</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/HeaderPageComponent.html" >HeaderPageComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/HelloPageComponent.html" >HelloPageComponent</a>
-                                       </li>
-                                       <li class="link">
-                                           <a href="../components/ListStudentsComponent.html" >ListStudentsComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/LoginPageComponent.html"  data-type="entity-link" class="active" >LoginPageComponent</a>
@@ -970,7 +952,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="145" class="link-to-prism">src/app/pages/auth-page/login-page/login-page.component.ts:145</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="141" class="link-to-prism">src/app/pages/auth-page/login-page/login-page.component.ts:141</a></div>
                                 </td>
                             </tr>
     
@@ -1041,7 +1023,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="137" class="link-to-prism">src/app/pages/auth-page/login-page/login-page.component.ts:137</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="134" class="link-to-prism">src/app/pages/auth-page/login-page/login-page.component.ts:134</a></div>
                                 </td>
                             </tr>
     
@@ -1300,7 +1282,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="132" class="link-to-prism">src/app/pages/auth-page/login-page/login-page.component.ts:132</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="129" class="link-to-prism">src/app/pages/auth-page/login-page/login-page.component.ts:129</a></div>
                                 </td>
                             </tr>
     
@@ -1770,11 +1752,11 @@ export class LoginPageComponent implements OnInit {
 
   initForm() {
     this.formAdmin &#x3D; this.fb.group({
-      firstName: [&#x27;&#x27;, [
+      first_name: [&#x27;&#x27;, [
         Validators.minLength(2),
         Validators.maxLength(15)
       ]],
-      lastName: [&#x27;&#x27;, [
+      last_name: [&#x27;&#x27;, [
         Validators.minLength(2),
         Validators.maxLength(15)
       ]],
@@ -1803,10 +1785,9 @@ export class LoginPageComponent implements OnInit {
   }
 
   onSave() {
-    debugger
     const user: any &#x3D; {
-      firstName: this.formAdmin.get(&#x27;firstName&#x27;).value,
-      lastName: this.formAdmin.get(&#x27;lastName&#x27;).value,
+      first_name: this.formAdmin.get(&#x27;first_name&#x27;).value,
+      last_name: this.formAdmin.get(&#x27;last_name&#x27;).value,
       password: this.formAdmin.get(&#x27;password&#x27;).value,
       email: this.formAdmin.get(&#x27;emailGroup.email&#x27;).value,
     };
@@ -1814,13 +1795,14 @@ export class LoginPageComponent implements OnInit {
     this.authService.onRegistration(user).subscribe(
       (response) &#x3D;&gt; {
         this.toast.success(&#x27;Registration success&#x27;);
-        console.log(&#x27;vse okr&#x27;, response);
+        this.showRegister &#x3D; false;
+        this.showForgot &#x3D; false;
+        this.formAdmin.reset();
       },
       (error) &#x3D;&gt; {
-        console.log(&#x27;Vse govno&#x27;, error);
+        this.toast.error(&#x27;Registration error&#x27;);
       }
     );
-    console.log(user);
   }
 
   onLogin() {
@@ -1832,8 +1814,6 @@ export class LoginPageComponent implements OnInit {
 
     this.authService.onLoginUser(user).subscribe(
       (response) &#x3D;&gt; {
-        console.log(&#x27;vse ok&#x27;, response);
-
         this.toast.success(&#x27;Login success&#x27;);
 
         if (this.authService.activeLink) {
@@ -1846,7 +1826,6 @@ export class LoginPageComponent implements OnInit {
       },
       (error) &#x3D;&gt; {
         this.mainService.loader$.next(false);
-        console.log(&#x27;Vse govno&#x27;, error);
       }
     );
   }
@@ -1860,7 +1839,6 @@ export class LoginPageComponent implements OnInit {
     const user: any &#x3D; {
       email: this.formAdmin.get(&#x27;emailGroup.email&#x27;).value,
     };
-    console.log(user)
     this.authService.forgotPassword(user).subscribe();
   }
 
@@ -1881,7 +1859,7 @@ export class LoginPageComponent implements OnInit {
     &lt;div class&#x3D;&quot;login-input&quot;&gt;
       &lt;app-project-input
         *ngIf&#x3D;&quot;showRegister&quot;
-        [control]&#x3D;&quot;formAdmin.get(&#x27;firstName&#x27;)&quot;
+        [control]&#x3D;&quot;formAdmin.get(&#x27;first_name&#x27;)&quot;
         [top]&#x3D;&quot;18&quot;
         [bottom]&#x3D;&quot;18&quot;
         [label]&#x3D;&quot;&#x27;first name&#x27;&quot;&gt;
@@ -1890,7 +1868,7 @@ export class LoginPageComponent implements OnInit {
     &lt;div class&#x3D;&quot;login-input&quot;&gt;
       &lt;app-project-input
         *ngIf&#x3D;&quot;showRegister&quot;
-        [control]&#x3D;&quot;formAdmin.get(&#x27;lastName&#x27;)&quot;
+        [control]&#x3D;&quot;formAdmin.get(&#x27;last_name&#x27;)&quot;
         [top]&#x3D;&quot;18&quot;
         [bottom]&#x3D;&quot;18&quot;
         [label]&#x3D;&quot;&#x27;last name&#x27;&quot;&gt;
@@ -2013,8 +1991,8 @@ export class LoginPageComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><app-project-modal [visible]="true"                   *ngIf="router.url === \'/auth/login\'"                   [closable]="true"                   (visibleChange)="visibleModal($event)">  <div class="login" [formGroup]="formAdmin">    <div class="login-input">      <app-project-input        *ngIf="showRegister"        [control]="formAdmin.get(\'firstName\')"        [top]="18"        [bottom]="18"        [label]="\'first name\'">      </app-project-input>    </div>    <div class="login-input">      <app-project-input        *ngIf="showRegister"        [control]="formAdmin.get(\'lastName\')"        [top]="18"        [bottom]="18"        [label]="\'last name\'">      </app-project-input>    </div>    <div class="input-group"         formGroupName="emailGroup">      <div class="login-input login-input--inut-group">        <app-project-input          [type]="\'email\'"          [control]="formAdmin.get(\'emailGroup.email\')"          [top]="18"          [bottom]="18"          [label]="\'email\'">        </app-project-input>      </div>      <div class="login-input login-input--inut-group"           *ngIf="showRegister">        <app-project-input          [type]="\'confirmEmail\'"          [control]="formAdmin.get(\'emailGroup.confirmEmail\')"          [top]="18"          [bottom]="18"          [label]="\'email\'">        </app-project-input>      </div>    </div>    <div class="login-input"         *ngIf="!showForgot">      <app-project-input        [control]="formAdmin.get(\'password\')"        [top]="18"        [bottom]="18"        [label]="\'password\'"        [type]="\'password\'">      </app-project-input>    </div>    <span class="login-forgot"          (click)="this.showForgot = !this.showForgot"          *ngIf="!showRegister && !showForgot">Forgot password?</span>    <span class="login-forgot"          (click)="this.showForgot = !this.showForgot"          *ngIf="showForgot">Has account?</span>    <div class="login-btn__position"         *ngIf="!showRegister && !showForgot">      <app-project-button        [title]="\'Login\'"        [newStyle]="\'login-btn\'"        (onClickEvent)="onLogin()"        [disabled]="!formAdmin.valid">      </app-project-button>      <app-project-button        [title]="\'Register\'"        [newStyle]="\'login-btn\'"        (onClickEvent)="onRegister()"        [disabled]="false">      </app-project-button>    </div>    <div class="login-btn__position"         *ngIf="showRegister">      <app-project-button        [title]="\'Create\'"        [newStyle]="\'login-btn\'"        (onClickEvent)="onSave()"        [disabled]="!formAdmin.valid">      </app-project-button>      <app-project-button        [title]="\'Canсel\'"        [cancel]="true"        [newStyle]="\'login-btn\'"        (onClickEvent)="onCancel()"        [disabled]="false">      </app-project-button>    </div>    <div class="login-btn__position login-btn__position--reset"         *ngIf="showForgot">      <app-project-button        [title]="\'Reset password\'"        [newStyle]="\'login-btn\'"        (onClickEvent)="forgotPassword()"        [disabled]="!formAdmin.valid">      </app-project-button>    </div>    <!--<div class="lang-holder">-->      <!--<span class="header-lang"-->            <!--(click)="changeLanguage(\'en\')"-->            <!--*ngIf="translate.currentLang === \'ru\'"-->            <!--[ngClass]="{\'header-en&#45;&#45;active\' : translate.currentLang === \'en\'}">en</span>-->      <!--<span class="header-lang"-->            <!--(click)="changeLanguage(\'ru\')"-->            <!--*ngIf="translate.currentLang === \'en\'"-->            <!--[ngClass]="{\'header-ru&#45;&#45;active\' : translate.currentLang === \'ru\'}">ru</span>-->    <!--</div>-->  </div></app-project-modal></div>'
-    var COMPONENTS = [{'name': 'AddUserComponent', 'selector': 'app-add-user'},{'name': 'AddUserPageComponent', 'selector': 'app-add-user-page'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthPageComponent', 'selector': 'app-auth-page'},{'name': 'Error404Component', 'selector': 'app-error'},{'name': 'FormPageComponent', 'selector': 'app-form-page'},{'name': 'HeaderPageComponent', 'selector': 'app-header-page'},{'name': 'HelloPageComponent', 'selector': 'app-hello-page'},{'name': 'ListStudentsComponent', 'selector': 'app-list-students'},{'name': 'LoginPageComponent', 'selector': 'app-login-page'},{'name': 'MainPageComponent', 'selector': 'app-main-page'},{'name': 'ProjectBarComponent', 'selector': 'app-project-bar'},{'name': 'ProjectButtonComponent', 'selector': 'app-project-button'},{'name': 'ProjectCheckboxComponent', 'selector': 'app-project-checkbox'},{'name': 'ProjectCircleComponent', 'selector': 'app-project-circle'},{'name': 'ProjectDeleteComponent', 'selector': 'project-delete'},{'name': 'ProjectInputComponent', 'selector': 'app-project-input'},{'name': 'ProjectModalComponent', 'selector': 'app-project-modal'},{'name': 'ProjectSelectComponent', 'selector': 'app-project-select'},{'name': 'ProjectTextareaComponent', 'selector': 'app-project-textarea'},{'name': 'ProjectUploaderComponent', 'selector': 'app-project-uploader'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SidebarPageComponent', 'selector': 'app-sidebar-page'},{'name': 'TabPageComponent', 'selector': 'app-tab-page'},{'name': 'WrapperPageComponent', 'selector': 'app-wrapper-page'}];
+        var COMPONENT_TEMPLATE = '<div><app-project-modal [visible]="true"                   *ngIf="router.url === \'/auth/login\'"                   [closable]="true"                   (visibleChange)="visibleModal($event)">  <div class="login" [formGroup]="formAdmin">    <div class="login-input">      <app-project-input        *ngIf="showRegister"        [control]="formAdmin.get(\'first_name\')"        [top]="18"        [bottom]="18"        [label]="\'first name\'">      </app-project-input>    </div>    <div class="login-input">      <app-project-input        *ngIf="showRegister"        [control]="formAdmin.get(\'last_name\')"        [top]="18"        [bottom]="18"        [label]="\'last name\'">      </app-project-input>    </div>    <div class="input-group"         formGroupName="emailGroup">      <div class="login-input login-input--inut-group">        <app-project-input          [type]="\'email\'"          [control]="formAdmin.get(\'emailGroup.email\')"          [top]="18"          [bottom]="18"          [label]="\'email\'">        </app-project-input>      </div>      <div class="login-input login-input--inut-group"           *ngIf="showRegister">        <app-project-input          [type]="\'confirmEmail\'"          [control]="formAdmin.get(\'emailGroup.confirmEmail\')"          [top]="18"          [bottom]="18"          [label]="\'email\'">        </app-project-input>      </div>    </div>    <div class="login-input"         *ngIf="!showForgot">      <app-project-input        [control]="formAdmin.get(\'password\')"        [top]="18"        [bottom]="18"        [label]="\'password\'"        [type]="\'password\'">      </app-project-input>    </div>    <span class="login-forgot"          (click)="this.showForgot = !this.showForgot"          *ngIf="!showRegister && !showForgot">Forgot password?</span>    <span class="login-forgot"          (click)="this.showForgot = !this.showForgot"          *ngIf="showForgot">Has account?</span>    <div class="login-btn__position"         *ngIf="!showRegister && !showForgot">      <app-project-button        [title]="\'Login\'"        [newStyle]="\'login-btn\'"        (onClickEvent)="onLogin()"        [disabled]="!formAdmin.valid">      </app-project-button>      <app-project-button        [title]="\'Register\'"        [newStyle]="\'login-btn\'"        (onClickEvent)="onRegister()"        [disabled]="false">      </app-project-button>    </div>    <div class="login-btn__position"         *ngIf="showRegister">      <app-project-button        [title]="\'Create\'"        [newStyle]="\'login-btn\'"        (onClickEvent)="onSave()"        [disabled]="!formAdmin.valid">      </app-project-button>      <app-project-button        [title]="\'Canсel\'"        [cancel]="true"        [newStyle]="\'login-btn\'"        (onClickEvent)="onCancel()"        [disabled]="false">      </app-project-button>    </div>    <div class="login-btn__position login-btn__position--reset"         *ngIf="showForgot">      <app-project-button        [title]="\'Reset password\'"        [newStyle]="\'login-btn\'"        (onClickEvent)="forgotPassword()"        [disabled]="!formAdmin.valid">      </app-project-button>    </div>    <!--<div class="lang-holder">-->      <!--<span class="header-lang"-->            <!--(click)="changeLanguage(\'en\')"-->            <!--*ngIf="translate.currentLang === \'ru\'"-->            <!--[ngClass]="{\'header-en&#45;&#45;active\' : translate.currentLang === \'en\'}">en</span>-->      <!--<span class="header-lang"-->            <!--(click)="changeLanguage(\'ru\')"-->            <!--*ngIf="translate.currentLang === \'en\'"-->            <!--[ngClass]="{\'header-ru&#45;&#45;active\' : translate.currentLang === \'ru\'}">ru</span>-->    <!--</div>-->  </div></app-project-modal></div>'
+    var COMPONENTS = [{'name': 'AddUserPageComponent', 'selector': 'app-add-user-page'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthPageComponent', 'selector': 'app-auth-page'},{'name': 'ChartPageComponent', 'selector': 'app-chart-page'},{'name': 'Error404Component', 'selector': 'app-error'},{'name': 'HeaderPageComponent', 'selector': 'app-header-page'},{'name': 'HelloPageComponent', 'selector': 'app-hello-page'},{'name': 'LoginPageComponent', 'selector': 'app-login-page'},{'name': 'MainPageComponent', 'selector': 'app-main-page'},{'name': 'ProjectBarComponent', 'selector': 'app-project-bar'},{'name': 'ProjectButtonComponent', 'selector': 'app-project-button'},{'name': 'ProjectCheckboxComponent', 'selector': 'app-project-checkbox'},{'name': 'ProjectCircleComponent', 'selector': 'app-project-circle'},{'name': 'ProjectDeleteComponent', 'selector': 'project-delete'},{'name': 'ProjectInputComponent', 'selector': 'app-project-input'},{'name': 'ProjectModalComponent', 'selector': 'app-project-modal'},{'name': 'ProjectSelectComponent', 'selector': 'app-project-select'},{'name': 'ProjectTextareaComponent', 'selector': 'app-project-textarea'},{'name': 'ProjectUploaderComponent', 'selector': 'app-project-uploader'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SidebarPageComponent', 'selector': 'app-sidebar-page'},{'name': 'TabPageComponent', 'selector': 'app-tab-page'},{'name': 'WrapperPageComponent', 'selector': 'app-wrapper-page'}];
     var DIRECTIVES = [{'name': 'FocusDirective', 'selector': '[focusDirective]'},{'name': 'ProjectListDirective', 'selector': '[appProjectListStyle]'},{'name': 'ProjectPointerDirective', 'selector': '[appProjectPointer]'},{'name': 'ProjectTextDirective', 'selector': '[appProjectText]'},{'name': 'ProjectTextEllipsisDirective', 'selector': '[appProjectTextEllipsis]'},{'name': 'ProjectTitleDirective', 'selector': '[appProjectTitleStyle]'},{'name': 'ProjectUploaderDirective', 'selector': '[formUpload]'}];
     var ACTUAL_COMPONENT = {'name': 'LoginPageComponent'};
 </script>

@@ -81,9 +81,6 @@
                                     <a href="../modules/LoginModule.html" >LoginModule</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../modules/LoginModule.html" >LoginModule</a>
-                                </li>
-                                <li class="link">
                                     <a href="../modules/MainModule.html" >MainModule</a>
                                 </li>
                         </ul>
@@ -101,9 +98,6 @@
                                 id="xs-components-links"
                             >
                                 <li class="link">
-                                    <a href="../components/AddUserComponent.html" >AddUserComponent</a>
-                                </li>
-                                <li class="link">
                                     <a href="../components/AddUserPageComponent.html" >AddUserPageComponent</a>
                                 </li>
                                 <li class="link">
@@ -113,19 +107,16 @@
                                     <a href="../components/AuthPageComponent.html" >AuthPageComponent</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../components/Error404Component.html" >Error404Component</a>
+                                    <a href="../components/ChartPageComponent.html" >ChartPageComponent</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../components/FormPageComponent.html" >FormPageComponent</a>
+                                    <a href="../components/Error404Component.html" >Error404Component</a>
                                 </li>
                                 <li class="link">
                                     <a href="../components/HeaderPageComponent.html" >HeaderPageComponent</a>
                                 </li>
                                 <li class="link">
                                     <a href="../components/HelloPageComponent.html" >HelloPageComponent</a>
-                                </li>
-                                <li class="link">
-                                    <a href="../components/ListStudentsComponent.html" >ListStudentsComponent</a>
                                 </li>
                                 <li class="link">
                                     <a href="../components/LoginPageComponent.html" >LoginPageComponent</a>
@@ -397,9 +388,6 @@
                                            <a href="../modules/LoginModule.html" >LoginModule</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../modules/LoginModule.html" >LoginModule</a>
-                                       </li>
-                                       <li class="link">
                                            <a href="../modules/MainModule.html" >MainModule</a>
                                        </li>
                                </ul>
@@ -417,9 +405,6 @@
                                        id="components-links"
                    >
                                        <li class="link">
-                                           <a href="../components/AddUserComponent.html" >AddUserComponent</a>
-                                       </li>
-                                       <li class="link">
                                            <a href="../components/AddUserPageComponent.html" >AddUserPageComponent</a>
                                        </li>
                                        <li class="link">
@@ -429,19 +414,16 @@
                                            <a href="../components/AuthPageComponent.html" >AuthPageComponent</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../components/Error404Component.html" >Error404Component</a>
+                                           <a href="../components/ChartPageComponent.html" >ChartPageComponent</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../components/FormPageComponent.html" >FormPageComponent</a>
+                                           <a href="../components/Error404Component.html" >Error404Component</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/HeaderPageComponent.html" >HeaderPageComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/HelloPageComponent.html" >HelloPageComponent</a>
-                                       </li>
-                                       <li class="link">
-                                           <a href="../components/ListStudentsComponent.html" >ListStudentsComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/LoginPageComponent.html" >LoginPageComponent</a>
@@ -698,10 +680,6 @@
         <tbody>
 
 
-            <tr>
-                <td class="col-md-3">encapsulation</td>
-                <td class="col-md-9"><code>ViewEncapsulation.None</code></td>
-            </tr>
 
 
 
@@ -748,6 +726,10 @@
                         <ul class="index-list">
                             <li>
                                 <a href="#classes">classes</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#translate">translate</a>
                             </li>
                         </ul>
                     </td>
@@ -825,7 +807,7 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-    <code>constructor()</code>
+    <code>constructor(translate: TranslateService)</code>
                         </td>
                     </tr>
                             <tr>
@@ -834,6 +816,35 @@
                                 </td>
                             </tr>
     
+                    <tr>
+                        <td class="col-md-4">
+                                <div>
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                    <td>Type</td>
+                                                    <td>Optional</td>
+                                                    <td>Description</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                      <td>translate</td>
+                                                      <td>
+                                                                <code>TranslateService</code>
+                                                      </td>
+                                                      <td>
+                                                            no
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
     </section>
@@ -1160,6 +1171,41 @@
     
                 </tbody>
             </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="translate"></a>
+                            <span class="name">
+                                <b>
+                                    <span class="modifier">Public</span>
+                                translate
+                                </b>
+                                <a href="#translate"><span class="fa fa-link"></span></a>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-reset"></span><code>translate:     <code>TranslateService</code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Type : </i>    <code>TranslateService</code>
+    
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/shared/components/project-button/project-button.component.ts:29</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
     </section>
 
 </div>
@@ -1174,12 +1220,12 @@
   Output,
   ViewEncapsulation
 } from &#x27;@angular/core&#x27;;
+import {TranslateService} from &#x27;@ngx-translate/core&#x27;;
 
 @Component({
   selector: &#x27;app-project-button&#x27;,
   templateUrl: &#x27;./project-button.component.html&#x27;,
-  styleUrls: [&#x27;./project-button.component.scss&#x27;],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: [&#x27;./project-button.component.scss&#x27;]
 })
 export class ProjectButtonComponent implements OnInit {
 
@@ -1194,7 +1240,7 @@ export class ProjectButtonComponent implements OnInit {
 
   classes: string &#x3D; &#x27;&#x27;;
 
-  constructor() {
+  constructor(public translate: TranslateService) {
   }
 
   ngOnInit() {
@@ -1219,7 +1265,7 @@ export class ProjectButtonComponent implements OnInit {
         [ngClass]&#x3D;&quot;classes&quot;
         (click)&#x3D;&quot;onClickEvent.emit($event)&quot;&gt;
   &lt;i *ngIf&#x3D;&quot;ifLabel&quot; ngClass&#x3D;&quot;{{ iconName }}&quot;&gt;&lt;/i&gt;
-  {{ title }}
+  {{ title | translate }}
 &lt;/button&gt;
 </code></pre>
     </div>
@@ -1247,8 +1293,8 @@ export class ProjectButtonComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><button [disabled]="disabled"        [type]="type"        class="project-btn"        [ngClass]="classes"        (click)="onClickEvent.emit($event)">  <i *ngIf="ifLabel" ngClass="{{ iconName }}"></i>  {{ title }}</button></div>'
-    var COMPONENTS = [{'name': 'AddUserComponent', 'selector': 'app-add-user'},{'name': 'AddUserPageComponent', 'selector': 'app-add-user-page'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthPageComponent', 'selector': 'app-auth-page'},{'name': 'Error404Component', 'selector': 'app-error'},{'name': 'FormPageComponent', 'selector': 'app-form-page'},{'name': 'HeaderPageComponent', 'selector': 'app-header-page'},{'name': 'HelloPageComponent', 'selector': 'app-hello-page'},{'name': 'ListStudentsComponent', 'selector': 'app-list-students'},{'name': 'LoginPageComponent', 'selector': 'app-login-page'},{'name': 'MainPageComponent', 'selector': 'app-main-page'},{'name': 'ProjectBarComponent', 'selector': 'app-project-bar'},{'name': 'ProjectButtonComponent', 'selector': 'app-project-button'},{'name': 'ProjectCheckboxComponent', 'selector': 'app-project-checkbox'},{'name': 'ProjectCircleComponent', 'selector': 'app-project-circle'},{'name': 'ProjectDeleteComponent', 'selector': 'project-delete'},{'name': 'ProjectInputComponent', 'selector': 'app-project-input'},{'name': 'ProjectModalComponent', 'selector': 'app-project-modal'},{'name': 'ProjectSelectComponent', 'selector': 'app-project-select'},{'name': 'ProjectTextareaComponent', 'selector': 'app-project-textarea'},{'name': 'ProjectUploaderComponent', 'selector': 'app-project-uploader'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SidebarPageComponent', 'selector': 'app-sidebar-page'},{'name': 'TabPageComponent', 'selector': 'app-tab-page'},{'name': 'WrapperPageComponent', 'selector': 'app-wrapper-page'}];
+        var COMPONENT_TEMPLATE = '<div><button [disabled]="disabled"        [type]="type"        class="project-btn"        [ngClass]="classes"        (click)="onClickEvent.emit($event)">  <i *ngIf="ifLabel" ngClass="{{ iconName }}"></i>  {{ title | translate }}</button></div>'
+    var COMPONENTS = [{'name': 'AddUserPageComponent', 'selector': 'app-add-user-page'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthPageComponent', 'selector': 'app-auth-page'},{'name': 'ChartPageComponent', 'selector': 'app-chart-page'},{'name': 'Error404Component', 'selector': 'app-error'},{'name': 'HeaderPageComponent', 'selector': 'app-header-page'},{'name': 'HelloPageComponent', 'selector': 'app-hello-page'},{'name': 'LoginPageComponent', 'selector': 'app-login-page'},{'name': 'MainPageComponent', 'selector': 'app-main-page'},{'name': 'ProjectBarComponent', 'selector': 'app-project-bar'},{'name': 'ProjectButtonComponent', 'selector': 'app-project-button'},{'name': 'ProjectCheckboxComponent', 'selector': 'app-project-checkbox'},{'name': 'ProjectCircleComponent', 'selector': 'app-project-circle'},{'name': 'ProjectDeleteComponent', 'selector': 'project-delete'},{'name': 'ProjectInputComponent', 'selector': 'app-project-input'},{'name': 'ProjectModalComponent', 'selector': 'app-project-modal'},{'name': 'ProjectSelectComponent', 'selector': 'app-project-select'},{'name': 'ProjectTextareaComponent', 'selector': 'app-project-textarea'},{'name': 'ProjectUploaderComponent', 'selector': 'app-project-uploader'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SidebarPageComponent', 'selector': 'app-sidebar-page'},{'name': 'TabPageComponent', 'selector': 'app-tab-page'},{'name': 'WrapperPageComponent', 'selector': 'app-wrapper-page'}];
     var DIRECTIVES = [{'name': 'FocusDirective', 'selector': '[focusDirective]'},{'name': 'ProjectListDirective', 'selector': '[appProjectListStyle]'},{'name': 'ProjectPointerDirective', 'selector': '[appProjectPointer]'},{'name': 'ProjectTextDirective', 'selector': '[appProjectText]'},{'name': 'ProjectTextEllipsisDirective', 'selector': '[appProjectTextEllipsis]'},{'name': 'ProjectTitleDirective', 'selector': '[appProjectTitleStyle]'},{'name': 'ProjectUploaderDirective', 'selector': '[formUpload]'}];
     var ACTUAL_COMPONENT = {'name': 'ProjectButtonComponent'};
 </script>
