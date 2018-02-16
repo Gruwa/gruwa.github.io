@@ -15,7 +15,6 @@ export class RouteActivatorService implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot) {
     this.mainService.loader$.next(true);
     let eventExists = true;
-    console.log('canActivate', eventExists);
 
     if (!this.localStorge.retrieve('token') || !this.localStorge.retrieve('activeUser')) {
       eventExists = false;

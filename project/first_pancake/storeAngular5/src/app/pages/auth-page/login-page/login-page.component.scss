@@ -18,17 +18,27 @@
   -webkit-box-shadow: 0px 0px 65px 0px rgba(143,143,143,1);
   -moz-box-shadow: 0px 0px 65px 0px rgba(143,143,143,1);
   box-shadow: 0px 0px 65px 0px rgba(143,143,143,1);
+  width: 100%;
 
   & .login-btn {
      padding: 15px 50px;
 
     &__position {
       width: 80%;
-      margin-top: 20px;
+      margin-top: 30px;
       display: flex;
       justify-content: space-between;
+
+      &--reset {
+        justify-content: center;
+      }
     }
   }
+}
+
+.login-forgot {
+  cursor: pointer;
+  border-bottom: 1px solid #f47a21;
 }
 
 .login-input {
@@ -48,4 +58,14 @@
 
 .loader-container {
   position: relative;
+}
+
+.lang-holder {
+  display: flex;
+  align-items: flex-end;
+  justify-content: end;
+  color: #80919A;
+  font-size: 20px;
+  text-transform: uppercase;
+  cursor: pointer;
 }

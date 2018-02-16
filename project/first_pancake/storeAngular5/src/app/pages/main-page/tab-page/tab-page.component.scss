@@ -8,7 +8,10 @@
   }
 
   &__form {
-    padding: 0 15px;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   &__wrapper-search {
@@ -57,8 +60,8 @@
 
         .arow_down {
           font-size: 10px;
-          padding: 0 0 0 5px!important;
-          width: initial!important;
+          padding: 0 0 0 5px !important;
+          width: initial !important;
           text-align: center;
         }
       }
@@ -92,7 +95,7 @@
       @include transition(all, 0.2s, linear);
 
       &:hover {
-        border-left: 1px solid $tango;
+        border-left: 1px solid rgba(20, 103, 189, 0.51);
         background-color: $catskill__white;
       }
 
@@ -206,10 +209,18 @@
     width: 100%;
     padding: 0 15px;
     color: rgb(191, 192, 193);
-    ::-webkit-input-placeholder {color:#c0392b;}
-    ::-moz-placeholder          {color:#c0392b;}
-    :-moz-placeholder           {color:#c0392b;}
-    :-ms-input-placeholder      {color:#c0392b;}
+    ::-webkit-input-placeholder {
+      color: #c0392b;
+    }
+    ::-moz-placeholder {
+      color: #c0392b;
+    }
+    :-moz-placeholder {
+      color: #c0392b;
+    }
+    :-ms-input-placeholder {
+      color: #c0392b;
+    }
 
   }
 
@@ -234,6 +245,9 @@
 
   &__nav-students {
     margin: 20px 0;
+    display: flex;
+    justify-content: left;
+    align-items: center;
 
     ul {
       display: flex;
@@ -265,7 +279,7 @@
   }
 
   &__active_course_tab {
-    color: $tango;
+    color: rgba(20, 103, 189, 0.51);
     position: relative;
 
     &:after {
@@ -340,7 +354,17 @@
     &--uploader {
       width: 100% !important;
     }
-
   }
 }
 
+@media screen and (max-width: 839px) {
+
+  .users__btn {
+    margin-top: 10px;
+  }
+
+}
+
+project-delete {
+  width: 100%;
+}

@@ -13,7 +13,7 @@ import {LocalStorageService} from 'ngx-webstorage';
 import {ToastsManager} from 'ng2-toastr';
 import {Router} from '@angular/router';
 
-const AUTHURL = `${environment.apiRoot}/admin`;
+const AUTHURL = `${environment.apiRoot}/admins`;
 
 @Injectable()
 export class AuthService {
@@ -55,7 +55,7 @@ export class AuthService {
       (response) => {
         this.localStorageService.store('token', response['token']);
         this.localStorageService.store('activeUser', response['userId']);
-        this.localStorageService.store('activeUserName', response['admin'].firstName)
+        this.localStorageService.store('activeUserName', response['admin'].first_name);
         return response;
       })
       .catch(
@@ -71,6 +71,36 @@ export class AuthService {
     this.localStorageService.clear('activeuser');
     this.localStorageService.clear('activeUserName');
     this.router.navigate(['/main']);
+  }
+
+  resetPasswordConfirm(body: any) {
+    return this.http.post(AUTHURL + '/reset', body, {headers: this.getHeaders()})
+      .map(
+        (response) => {
+          return response;
+        }
+      )
+      .catch(
+        (error) => {
+          this.toast.error('Reset Password failed');
+          return Observable.throw(false);
+        }
+      );
+  }
+
+  forgotPassword(body: any) {
+    return this.http.post(AUTHURL + '/forgot', body, {headers: this.getHeaders()})
+      .map(
+        (response) => {
+          return response;
+        }
+      )
+      .catch(
+        (error) => {
+          this.toast.error('Email no sent');
+          return Observable.throw(false);
+        }
+      );
   }
 
   validToken() {

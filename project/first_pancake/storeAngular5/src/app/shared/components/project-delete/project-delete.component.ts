@@ -1,29 +1,31 @@
 import {
-    Component,
-    EventEmitter,
-    Input,
-    OnInit,
-    Output,
-    ViewEncapsulation
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ViewEncapsulation
 } from '@angular/core';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
-    selector: 'project-delete',
-    templateUrl: './project-delete.component.html',
-    styleUrls: ['./project-delete.component.scss'],
-    encapsulation: ViewEncapsulation.None
+  selector: 'project-delete',
+  templateUrl: './project-delete.component.html',
+  styleUrls: ['./project-delete.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ProjectDeleteComponent implements OnInit {
 
-    @Input() entityName: string = 'course';
-    @Output() onDelete: EventEmitter<any> = new EventEmitter();
-    constructor() {
-    }
+  @Input() entityName: string = 'user';
+  @Output() onDelete: EventEmitter<any> = new EventEmitter();
 
-    ngOnInit() {
-    }
+  constructor(public translate: TranslateService) {
+  }
 
-    onDeleteClick(needDelete: boolean = false) {
-        this.onDelete.emit(needDelete);
-    }
+  ngOnInit() {
+  }
+
+  onDeleteClick(needDelete: boolean = false) {
+    this.onDelete.emit(needDelete);
+  }
 }

@@ -23,7 +23,6 @@ export class SidebarPageComponent implements OnInit {
   onActiveLink(value: string) {
     this.authService.activeLink = value;
     this.router.navigate([value]);
-    console.log(this.authService.activeLink)
   }
 
 }

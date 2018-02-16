@@ -3,6 +3,7 @@ import {FormGroup, FormBuilder, Validators, AbstractControl} from '@angular/form
 import {AuthService, MainService} from '../../../shared/services/index';
 import {ToastsManager} from 'ng2-toastr';
 import {Router} from '@angular/router';
+import {TranslateService} from '@ngx-translate/core';
 
 function emailMatcher(c: AbstractControl) {
   let emailControl = c.get('email');
@@ -30,12 +31,14 @@ export class LoginPageComponent implements OnInit {
   public showRegister: boolean = false;
   public formAdmin: FormGroup;
   public loading = false;
+  public showForgot = false;
 
   constructor(public fb: FormBuilder,
               public authService: AuthService,
               public router: Router,
               public mainService: MainService,
-              private toast: ToastsManager, vcr: ViewContainerRef) {
+              private toast: ToastsManager, vcr: ViewContainerRef,
+              public translate: TranslateService) {
     this.toast.setRootViewContainerRef(vcr);
   }
 
@@ -45,11 +48,11 @@ export class LoginPageComponent implements OnInit {
 
   initForm() {
     this.formAdmin = this.fb.group({
-      firstName: ['', [
+      first_name: ['', [
         Validators.minLength(2),
         Validators.maxLength(15)
       ]],
-      lastName: ['', [
+      last_name: ['', [
         Validators.minLength(2),
         Validators.maxLength(15)
       ]],
@@ -78,10 +81,9 @@ export class LoginPageComponent implements OnInit {
   }
 
   onSave() {
-    debugger
     const user: any = {
-      firstName: this.formAdmin.get('firstName').value,
-      lastName: this.formAdmin.get('lastName').value,
+      first_name: this.formAdmin.get('first_name').value,
+      last_name: this.formAdmin.get('last_name').value,
       password: this.formAdmin.get('password').value,
       email: this.formAdmin.get('emailGroup.email').value,
     };
@@ -89,13 +91,14 @@ export class LoginPageComponent implements OnInit {
     this.authService.onRegistration(user).subscribe(
       (response) => {
         this.toast.success('Registration success');
-        console.log('vse okr', response);
+        this.showRegister = false;
+        this.showForgot = false;
+        this.formAdmin.reset();
       },
       (error) => {
-        console.log('Vse govno', error);
+        this.toast.error('Registration error');
       }
     );
-    console.log(user);
   }
 
   onLogin() {
@@ -107,15 +110,18 @@ export class LoginPageComponent implements OnInit {
 
     this.authService.onLoginUser(user).subscribe(
       (response) => {
-        console.log('vse ok', response);
-
         this.toast.success('Login success');
-        this.router.navigate([this.authService.activeLink]);
+
+        if (this.authService.activeLink) {
+          this.router.navigate([this.authService.activeLink]);
+        } else {
+          this.router.navigate(['/main']);
+        }
+
         this.mainService.loader$.next(false);
       },
       (error) => {
         this.mainService.loader$.next(false);
-        console.log('Vse govno', error);
       }
     );
   }
@@ -123,6 +129,17 @@ export class LoginPageComponent implements OnInit {
   visibleModal(data: boolean) {
     this.router.navigate(['/main']);
     this.visibleLogin = data;
+  }
+
+  forgotPassword() {
+    const user: any = {
+      email: this.formAdmin.get('emailGroup.email').value,
+    };
+    this.authService.forgotPassword(user).subscribe();
+  }
+
+  changeLanguage(lang: string) {
+    this.mainService.setLanguage(lang);
   }
 
 }

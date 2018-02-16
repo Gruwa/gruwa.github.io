@@ -15,8 +15,8 @@ export class ProjectInputComponent implements OnInit {
   @Input() control: FormControl;
   @Input() label: string = '';
   @Input() readonly: boolean = false;
-  @Input() bottom: number = 18;
-  @Input() top: number = 18;
+  @Input() bottom: number = 10;
+  @Input() top: number = 0;
   @Input() showLock: boolean = true;
   constructor() { }
 

@@ -6,12 +6,12 @@ import {
   Output,
   ViewEncapsulation
 } from '@angular/core';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-project-button',
   templateUrl: './project-button.component.html',
-  styleUrls: ['./project-button.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./project-button.component.scss']
 })
 export class ProjectButtonComponent implements OnInit {
 
@@ -26,7 +26,7 @@ export class ProjectButtonComponent implements OnInit {
 
   classes: string = '';
 
-  constructor() {
+  constructor(public translate: TranslateService) {
   }
 
   ngOnInit() {

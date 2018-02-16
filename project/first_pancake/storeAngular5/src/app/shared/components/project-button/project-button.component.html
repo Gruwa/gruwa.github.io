@@ -4,5 +4,5 @@
         [ngClass]="classes"
         (click)="onClickEvent.emit($event)">
   <i *ngIf="ifLabel" ngClass="{{ iconName }}"></i>
-  {{ title }}
+  {{ title | translate }}
 </button>

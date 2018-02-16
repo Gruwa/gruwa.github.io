@@ -4,12 +4,12 @@
         [ngClass]="{'wrapper-sidebar__item--active' : router.url === '/main'}"
         [routerLink]="['/main']">
       <div [ngClass]="{'wrapper-sidebar__icon-box' : router.url === '/main'}">
-        <img class="wrapper-sidebar__icon" *ngIf="router.url !== '/main'" src="../../../../assets/img/icon/courses.svg">
+        <img class="wrapper-sidebar__icon" *ngIf="router.url !== '/main'" src="../../../../assets/img/icon/forms.svg">
         <img class="wrapper-sidebar__icon" *ngIf="router.url === '/main'"
-             src="../../../../assets/img/icon/courses-white.svg">
+             src="../../../../assets/img/icon/forms-white.svg">
       </div>
       <div class="wrapper-sidebar__description"
-           [ngClass]="{'wrapper-sidebar__description--active' : router.url === '/main'}">{{'Information' | translate}}
+           [ngClass]="{'wrapper-sidebar__description--active' : router.url === '/main'}">{{'Dashboard' | translate}}
       </div>
     </li>
     <li class="wrapper-sidebar__item"
@@ -25,15 +25,15 @@
       </div>
     </li>
     <li class="wrapper-sidebar__item"
-        (click)="onActiveLink('/main/form')"
-        [ngClass]="{'wrapper-sidebar__item--active' : router.url === '/main/form'}">
-      <div [ngClass]="{'wrapper-sidebar__icon-box' : router.url === '/main/form'}">
-        <img class="wrapper-sidebar__icon" *ngIf="router.url !== '/main/form'" src="../../../../assets/img/icon/forms.svg">
-        <img class="wrapper-sidebar__icon" *ngIf="router.url === '/main/form'"
-             src="../../../../assets/img/icon/forms-white.svg">
+        (click)="onActiveLink('/main/chart')"
+        [ngClass]="{'wrapper-sidebar__item--active' : router.url === '/main/chart'}">
+      <div [ngClass]="{'wrapper-sidebar__icon-box' : router.url === '/main/chart'}">
+        <img class="wrapper-sidebar__icon" *ngIf="router.url !== '/main/chart'" src="../../../../assets/img/icon/courses.svg">
+        <img class="wrapper-sidebar__icon" *ngIf="router.url === '/main/chart'"
+             src="../../../../assets/img/icon/courses-white.svg">
       </div>
       <div class="wrapper-sidebar__description"
-           [ngClass]="{'wrapper-sidebar__description--active' : router.url === '/main/form'}">{{'Forms' | translate}}
+           [ngClass]="{'wrapper-sidebar__description--active' : router.url === '/main/chart'}">{{'Charts' | translate}}
       </div>
     </li>
     <li class="wrapper-sidebar__item"

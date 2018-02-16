@@ -6,15 +6,19 @@
     <div class="login-input">
       <app-project-input
         *ngIf="showRegister"
-        [control]="formAdmin.get('firstName')"
-        [placeholder]="'first name'">
+        [control]="formAdmin.get('first_name')"
+        [top]="18"
+        [bottom]="18"
+        [label]="'first name'">
       </app-project-input>
     </div>
     <div class="login-input">
       <app-project-input
         *ngIf="showRegister"
-        [control]="formAdmin.get('lastName')"
-        [placeholder]="'last name'">
+        [control]="formAdmin.get('last_name')"
+        [top]="18"
+        [bottom]="18"
+        [label]="'last name'">
       </app-project-input>
     </div>
     <div class="input-group"
@@ -23,7 +27,9 @@
         <app-project-input
           [type]="'email'"
           [control]="formAdmin.get('emailGroup.email')"
-          [placeholder]="'email'">
+          [top]="18"
+          [bottom]="18"
+          [label]="'email'">
         </app-project-input>
       </div>
       <div class="login-input login-input--inut-group"
@@ -31,19 +37,30 @@
         <app-project-input
           [type]="'confirmEmail'"
           [control]="formAdmin.get('emailGroup.confirmEmail')"
-          [placeholder]="'email'">
+          [top]="18"
+          [bottom]="18"
+          [label]="'email'">
         </app-project-input>
       </div>
     </div>
-    <div class="login-input">
+    <div class="login-input"
+         *ngIf="!showForgot">
       <app-project-input
         [control]="formAdmin.get('password')"
-        [placeholder]="'password'"
+        [top]="18"
+        [bottom]="18"
+        [label]="'password'"
         [type]="'password'">
       </app-project-input>
     </div>
+    <span class="login-forgot"
+          (click)="this.showForgot = !this.showForgot"
+          *ngIf="!showRegister && !showForgot">Forgot password?</span>
+    <span class="login-forgot"
+          (click)="this.showForgot = !this.showForgot"
+          *ngIf="showForgot">Has account?</span>
     <div class="login-btn__position"
-         *ngIf="!showRegister">
+         *ngIf="!showRegister && !showForgot">
       <app-project-button
         [title]="'Login'"
         [newStyle]="'login-btn'"
@@ -73,5 +90,25 @@
         [disabled]="false">
       </app-project-button>
     </div>
+    <div class="login-btn__position login-btn__position--reset"
+         *ngIf="showForgot">
+      <app-project-button
+        [title]="'Reset password'"
+        [newStyle]="'login-btn'"
+        (onClickEvent)="forgotPassword()"
+        [disabled]="!formAdmin.valid">
+      </app-project-button>
+    </div>
+
+    <!--<div class="lang-holder">-->
+      <!--<span class="header-lang"-->
+            <!--(click)="changeLanguage('en')"-->
+            <!--*ngIf="translate.currentLang === 'ru'"-->
+            <!--[ngClass]="{'header-en&#45;&#45;active' : translate.currentLang === 'en'}">en</span>-->
+      <!--<span class="header-lang"-->
+            <!--(click)="changeLanguage('ru')"-->
+            <!--*ngIf="translate.currentLang === 'en'"-->
+            <!--[ngClass]="{'header-ru&#45;&#45;active' : translate.currentLang === 'ru'}">ru</span>-->
+    <!--</div>-->
   </div>
 </app-project-modal>

@@ -27,15 +27,12 @@ export class MainPageComponent implements OnInit {
     }
 
     ngOnInit() {
-      console.log('i18n')
         const language = this.localStorageService.retrieve('language');
         this.translate.use(language);
         this.translate.setDefaultLang(language);
         this.localStorageService.observe('language').subscribe((language) => {
           this.translate.use(language);
         });
-
-        console.log(this.router)
     }
 
     helloAngular() {

@@ -14,229 +14,240 @@ import {HttpClient, HttpClientModule, HttpHeaders, HttpParams, HttpResponse} fro
 import {ToastsManager} from 'ng2-toastr';
 
 const tabs = {
-    instructors: 'lecturers',
-    students: 'students',
-    admins: 'admins'
+  instructors: 'lecturers',
+  students: 'students',
+  admins: 'admins'
 };
+
+const BASEURL = `${environment.apiRoot}`;
 
 @Injectable()
 export class UserService {
-    private baseUrl: string = `${environment.apiRoot}vendor/`;
-    private vendorParams: {
-        vendor_uuid: string
-    };
-    private vendor_id: string;
+  private baseUrl: string = `${environment.apiRoot}vendor/`;
+  private vendorParams: {
+    vendor_uuid: string
+  };
+  private vendor_id: string;
 
-    constructor(
-        public http: HttpClient,
-        public storage: LocalStorageService,
-        // private toast: ToastsManager
-    ) {
+  constructor(public http: HttpClient,
+              public storage: LocalStorageService,
+              // private toast: ToastsManager
+  ) {
+  }
+
+  /**
+   * Service method for get Headers
+   */
+
+  getHeaders() {
+    const token = this.storage.retrieve('Token');
+    let headers = new HttpHeaders({'token': `${token}`});
+    headers = new HttpHeaders({'Content-Type': 'application/json'});
+
+    return headers;
+  }
+
+  /**
+   * Service method for add new user
+   */
+
+  onAddNewUser(data: any = {}, tab) {
+    if (tabs[tab]) {
+      return this.http.post(BASEURL + `/${tabs[tab]}`, data, {
+        headers: this.getHeaders()
+      });
     }
 
-    getVendorId(): string {
-        if (!this.vendorParams) {
-            this.vendor_id = this.storage.retrieve('vendor_id');
+    this.getUsers(tab);
+  }
 
-            return this.vendor_id;
+  /**
+   * Service method for get list of Student, Instructor, Admin
+   */
+
+  getUsers(tab: string = 'students') {
+    if (tabs[tab]) {
+      return this.http.get(BASEURL + `/${tabs[tab]}/`, {
+        headers: this.getHeaders()
+      }).map(
+        (response) => {
+          this.storage.store(tab, response.toString());
+          return response['users'];
         }
+      );
+    }
+  }
+
+  getChartUsers() {
+    return this.http.get(BASEURL + '/chart/', {
+      headers: this.getHeaders()
+    });
+  }
+
+  /**
+   * Service method for chek email in db
+   */
+
+  getCheckEmail(email: any, tab: string) {
+    return this.http.get(BASEURL + '/' + tab + '/email/' + email + '/', {
+      headers: this.getHeaders()
+    })
+      .map(
+        (resp) => {
+        console.log(resp['user']);
+        return resp['user'];
+      });
+  }
+
+  /**
+   * Service method for change status of Student, Instructor, Admin
+   */
+
+  onEditToggleStatusUser(data,
+                         tab: string) {
+    if (tabs[tab]) {
+      return this.http.post(BASEURL + `/${tabs[tab]}/status/`, data, {
+        headers: this.getHeaders()
+      });
+    }
+  }
+
+  /**
+   * Service method for delete user
+   */
+
+  onDeleteUser(user, tab) {
+    if (tabs[tab]) {
+      return this.http.delete(BASEURL + `/${tabs[tab]}/delete/` + user._id + '/', {
+        headers: this.getHeaders()
+      });
+    }
+  }
+
+  /**
+   * Service method for edit user
+   */
+
+  onEditUser(data: any = {}, tab) {
+    console.log(data);
+    const email = data.user.email;
+    if (tabs[tab]) {
+      return this.http.patch(BASEURL + `/${tabs[tab]}` + '/edit/' + email, data, {
+        headers: this.getHeaders()
+      });
     }
 
-    // getHeaders() {
-    //     const token = this.storage.retrieve('Token');
-    //     const headers = new HttpHeaders({'Authorization': `JWT ${token}`});
-    //
-    //     return headers;
-    // }
+    this.getUsers(tab);
+  }
 
-    setUrl() {
-        const url: string = this.baseUrl + this.getVendorId() + '/users';
+  sentUploaderFile(data: any) {
+    // return this.http.post(this.setUrl() + '/bulk-upload/', data, {
+    //     headers: this.getHeaders()
+    // });
+  }
 
-        return url;
-    }
 
-    onAddNewUser(data: any = {}, tab) {
-        // const search: string = '';
-        // const sort_field: string = '';
-        // const ascType: boolean = true;
-        //
-        // if ( tabs[tab] ) {
-        //
-        //     return this.http.post(this.setUrl() + `/${tabs[tab]}/`, data, {
-        //         headers: this.getHeaders()
-        //     });
-        // }
-        //
-        // this.getUsers( search, sort_field, ascType, tab);
-    }
-
-    getUsers( search: string = '',
-              sort_field: string = '',
-              ascType: boolean = true,
-              tab: string = 'students',
-              url: string = this.setUrl() + `/${tabs[tab]}/`
-    ) {
-        const query_params = new HttpParams();
-        // const url = this.setUrl() + `/${tabs[tab]}/`;
-      // this.toast.error('Registration failed');
-        if (sort_field) {
-            query_params.set('sort_field', sort_field);
-            query_params.set('asc', ascType + '');
-        }
-        if (search) {
-            query_params.set('search', search);
-
-        }
-        if ( tabs[tab] ) {
-            return this.http.get(url, {
-                // headers: this.getHeaders(),
-                params: query_params
-            }).map(
-                (response) => {
-                  console.log('response', response)
-                    this.storage.store(tab, response.toString());
-                    return response['results'];
-                }
-
-            );
-        }
-    }
-
-    onEditToggleStatusUser(data: any = {},
-                           user,
-                           tab: string) {
-        // if ( tabs[tab] ) {
-        //     return this.http.patch(this.setUrl() + `/${tabs[tab]}/` + user.id + '/', data, {
-        //         headers: this.getHeaders()
-        //     });
-        // }
-    }
-
-    onDeleteUser(user, tab) {
-       // if ( tabs[tab] ) {
-       //      return this.http.delete(this.setUrl() + `/${tabs[tab]}/` + user.id + '/', {
-       //          headers: this.getHeaders()
-       //      });
-       //  }
-    }
-
-    sentUploaderFile(data: any) {
-        // return this.http.post(this.setUrl() + '/bulk-upload/', data, {
-        //     headers: this.getHeaders()
-        // });
-    }
-
-    getCheckEmail(email: any) {
-        // return
-      // this.http.get(this.setUrl() + '/email/' + email + '/', {
-        //     headers: this.getHeaders()
-        // }).map((resp: HttpResponse) => resp.json());
-    }
-
-    getSessionsFields(tab: string,
-                      value: any,
-                      sort_field?: any
-    ) {
-        // const query_params = new URLSearchParams();
-        //
-        // if (sort_field) {
-        //     query_params.set('sort_field', sort_field.sort);
-        //     query_params.set('asc', sort_field.asc + '');
-        // }
-        //
-        // return this.http.get(this.setUrl() + (tab === 'students' ? /students/ : '/lecturers/')
-        //     + value.id + '/sessions/', {
-        //     headers: this.getHeaders(),
-        //     params: query_params
-        // }).map((resp: HttpResponse) => resp.json());
-    }
-
-    getGroupsFields(tab: string,
+  getSessionsFields(tab: string,
                     value: any,
-                    sort_field?: any
-    ) {
-        // const query_params = new URLSearchParams();
-        //
-        // if (sort_field) {
-        //     query_params.set('sort_field', sort_field.sort);
-        //     query_params.set('asc', sort_field.asc + '');
-        // }
-        //
-        // return this.http.get(this.setUrl() + (tab === 'students' ? /students/ : '/lecturers/')
-        //     + value.id + '/groups/', {
-        //     headers: this.getHeaders(),
-        //     params: query_params
-        // }).map((resp: HttpResponse) => resp.json());
-    }
+                    sort_field?: any) {
+    // const query_params = new URLSearchParams();
+    //
+    // if (sort_field) {
+    //     query_params.set('sort_field', sort_field.sort);
+    //     query_params.set('asc', sort_field.asc + '');
+    // }
+    //
+    // return this.http.get(this.setUrl() + (tab === 'students' ? /students/ : '/lecturers/')
+    //     + value.id + '/sessions/', {
+    //     headers: this.getHeaders(),
+    //     params: query_params
+    // }).map((resp: HttpResponse) => resp.json());
+  }
 
-    getSessionsResults(params?: any) {
-        // const urlPrams = new URLSearchParams();
-        //
-        // if (params) {
-        //     Object.keys(params).forEach(key => {
-        //         if (params[key]) {
-        //             urlPrams.set(key, '' + params[key]);
-        //         }
-        //     });
-        // }
-        //
-        // return this.http.get(this.setUrl() + '/groups/sessions/', {
-        //     headers: this.getHeaders(), params: urlPrams
-        // }).map((resp: HttpResponse) => resp.json());
-    }
+  getGroupsFields(tab: string,
+                  value: any,
+                  sort_field?: any) {
+    // const query_params = new URLSearchParams();
+    //
+    // if (sort_field) {
+    //     query_params.set('sort_field', sort_field.sort);
+    //     query_params.set('asc', sort_field.asc + '');
+    // }
+    //
+    // return this.http.get(this.setUrl() + (tab === 'students' ? /students/ : '/lecturers/')
+    //     + value.id + '/groups/', {
+    //     headers: this.getHeaders(),
+    //     params: query_params
+    // }).map((resp: HttpResponse) => resp.json());
+  }
 
-    getGroupsResults(params?: any) {
+  getSessionsResults(params?: any) {
+    // const urlPrams = new URLSearchParams();
+    //
+    // if (params) {
+    //     Object.keys(params).forEach(key => {
+    //         if (params[key]) {
+    //             urlPrams.set(key, '' + params[key]);
+    //         }
+    //     });
+    // }
+    //
+    // return this.http.get(this.setUrl() + '/groups/sessions/', {
+    //     headers: this.getHeaders(), params: urlPrams
+    // }).map((resp: HttpResponse) => resp.json());
+  }
 
-        // const urlPrams = new URLSearchParams();
-        //
-        // if (params) {
-        //     Object.keys(params).forEach(key => {
-        //         if (params[key]) {
-        //             urlPrams.set(key, '' + params[key]);
-        //         }
-        //     });
-        // }
-        //
-        // return this.http.get(this.setUrl() + '/groups/', {
-        //     headers: this.getHeaders(), params: urlPrams
-        // }).map((resp: HttpResponse) => resp.json());
-    }
+  getGroupsResults(params?: any) {
 
-    addSessionField(data: any,
-                    tab: any,
-                    session: any
-    ) {
-        // if (tab === 'students') {
-        //     return this.http.post(this.setUrl() + '/students/assign-session/', data, {
-        //         headers: this.getHeaders()
-        //     }).map((resp: HttpResponse) => resp.json());
-        // }else if (tab === 'instructors') {
-        //     return this.http.patch(this.setUrl() + '/lecturers/assign-session/' + session.id + '/', data, {
-        //         headers: this.getHeaders()
-        //     }).map((resp: HttpResponse) => resp.json());
-        // }
-    }
+    // const urlPrams = new URLSearchParams();
+    //
+    // if (params) {
+    //     Object.keys(params).forEach(key => {
+    //         if (params[key]) {
+    //             urlPrams.set(key, '' + params[key]);
+    //         }
+    //     });
+    // }
+    //
+    // return this.http.get(this.setUrl() + '/groups/', {
+    //     headers: this.getHeaders(), params: urlPrams
+    // }).map((resp: HttpResponse) => resp.json());
+  }
 
-    addGroupField(data: any, body: any) {
-        // return this.http.patch(this.setUrl() + '/groups/' + data.id + '/', body, {
-        //     headers: this.getHeaders()
-        // }).map((resp: HttpResponse) => resp.json());
-    }
+  addSessionField(data: any,
+                  tab: any,
+                  session: any) {
+    // if (tab === 'students') {
+    //     return this.http.post(this.setUrl() + '/students/assign-session/', data, {
+    //         headers: this.getHeaders()
+    //     }).map((resp: HttpResponse) => resp.json());
+    // }else if (tab === 'instructors') {
+    //     return this.http.patch(this.setUrl() + '/lecturers/assign-session/' + session.id + '/', data, {
+    //         headers: this.getHeaders()
+    //     }).map((resp: HttpResponse) => resp.json());
+    // }
+  }
 
-    onDeleteSession(tab: string, value: any, userActive: any) {
-        // if (tab === 'students') {
-        //
-        //     return this.http.delete(this.setUrl() + '/students/'
-        //         + userActive.id + '/remove-session/' + value.id + '/', {
-        //         headers: this.getHeaders()
-        //     });
-        // } else if (tab === 'instructors') {
-        //     const body: any = {};
-        //
-        //     return this.http.patch(this.setUrl() + '/lecturers/'
-        //         + userActive.id + '/remove-session/' + value.id + '/', body,{
-        //         headers: this.getHeaders()
-        //     });
-        // }
-    }
+  addGroupField(data: any, body: any) {
+    // return this.http.patch(this.setUrl() + '/groups/' + data.id + '/', body, {
+    //     headers: this.getHeaders()
+    // }).map((resp: HttpResponse) => resp.json());
+  }
+
+  onDeleteSession(tab: string, value: any, userActive: any) {
+    // if (tab === 'students') {
+    //
+    //     return this.http.delete(this.setUrl() + '/students/'
+    //         + userActive.id + '/remove-session/' + value.id + '/', {
+    //         headers: this.getHeaders()
+    //     });
+    // } else if (tab === 'instructors') {
+    //     const body: any = {};
+    //
+    //     return this.http.patch(this.setUrl() + '/lecturers/'
+    //         + userActive.id + '/remove-session/' + value.id + '/', body,{
+    //         headers: this.getHeaders()
+    //     });
+    // }
+  }
 }

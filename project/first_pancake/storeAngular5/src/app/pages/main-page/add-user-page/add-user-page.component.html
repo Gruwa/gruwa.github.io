@@ -1,0 +1,96 @@
+<div class="ui-g add_user">
+  <div class="ui-g-12 ui-g-nopad" *ngIf="!userGroupVisible && !userActive._id">
+    <form (onSubmit)="onSubmit()" [formGroup]="emailGroup">
+      <div class="ui-g-12">
+        <app-project-input [label]="'Email'" [control]="emailGroup.get('email')">
+        </app-project-input>
+      </div>
+      <div class="ui-g-12 add-user__btn-group">
+        <app-project-button ripple [disabled]="!emailGroup.valid"
+                            title="Search"
+                            (onClickEvent)="onSubmitEmailCheck()"
+                            newClass="add-user__btn">
+        </app-project-button>
+        <app-project-button ripple title="Cancel"
+                            (onClickEvent)="onCancel()"
+                            cancel="true"
+                            newClass="add-user__btn">
+        </app-project-button>
+      </div>
+    </form>
+  </div>
+  <div class="ui-g add_user" *ngIf="userGroupVisible || userActive._id">
+    <form (onSubmit)="onSubmit()" [formGroup]="userGroup">
+      <div class="ui-g-12">
+        <app-project-input [label]="'First name'"
+                           [control]="userGroup.get('first_name')">
+        </app-project-input>
+      </div>
+      <div class="ui-g-12">
+        <app-project-input [label]="'Last name'"
+                           [control]="userGroup.get('last_name')">
+        </app-project-input>
+      </div>
+      <div class="ui-g-12">
+        <app-project-input [label]="'Email'"
+                           [control]="userGroup.get('email')">
+        </app-project-input>
+      </div>
+      <div class="ui-g-12"
+           *ngIf="tab !== 'admins'">
+        <app-project-input [label]="'Title'"
+                           [placeholder]="'Title'"
+                           [compulsory]="false"
+                           [control]="userGroup.get('title')">
+        </app-project-input>
+      </div>
+      <div class="ui-g-12"
+           *ngIf="tab !== 'admins'">
+        <app-project-input [label]="'Company'"
+                           [placeholder]="'Company'"
+                           [compulsory]="false"
+                           [control]="userGroup.get('company')">
+        </app-project-input>
+      </div>
+      <div class="ui-g-12"
+           *ngIf="tab !== 'admins'">
+        <app-project-textarea [label]="'About me'"
+                              [placeholder]="'About me'"
+                              [control]="userGroup.get('about_me')">
+        </app-project-textarea>
+      </div>
+      <div class="ui-g-12"
+           *ngIf="tab !== 'admins'">
+        <app-project-input [label]="'City'"
+                           [placeholder]="'City'"
+                           [compulsory]="false"
+                           [control]="userGroup.get('city')">
+        </app-project-input>
+      </div>
+      <div class="ui-g-12 add-user__btn-group">
+        <app-project-button ripple [disabled]="!userGroup.valid"
+                            title="Save"
+                            (onClickEvent)="onSubmit()"
+                            newClass="add-user__btn">
+        </app-project-button>
+        <app-project-button ripple title="Cancel"
+                            (onClickEvent)="onCancel()"
+                            cancel="true"
+                            newClass="add-user__btn">
+        </app-project-button>
+      </div>
+      <!--<div class="ui-g-12 add-user__btn-group" *ngIf="userActive._id">-->
+        <!--<app-project-button ripple [disabled]="!userGroup.valid"-->
+                            <!--title="Edit"-->
+                            <!--(onClickEvent)="editUser()"-->
+                            <!--newClass="add-user__btn">-->
+        <!--</app-project-button>-->
+        <!--<app-project-button ripple title="Cancel"-->
+                            <!--(onClickEvent)="onCancel()"-->
+                            <!--cancel="true"-->
+                            <!--newClass="add-user__btn">-->
+        <!--</app-project-button>-->
+      <!--</div>-->
+    </form>
+  </div>
+</div>

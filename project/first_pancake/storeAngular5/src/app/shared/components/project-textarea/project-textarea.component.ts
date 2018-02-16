@@ -7,8 +7,8 @@ import { FormControl } from '@angular/forms';
     <div class="project-textarea" [ngClass]="{'error' : control && (control.dirty || control.touched) && control.invalid}">
       <div class="group">
         <textarea name="{{ label }}" id="" 
-                  [ngClass]="{'empty': control.value.length === 0, 'with-border': withBorder}" class="{{ newClass }}"
-                  [formControl]='control' cols="30" rows="10" [placeholder]="placeholder"></textarea>
+                  [ngClass]="{'empty': control.value?.length === 0, 'with-border': withBorder}" class="{{ newClass }}"
+                  [formControl]='control' cols="30" rows="rows" [placeholder]="placeholder"></textarea>
         <span class="highlight"></span>
         <span class="bar"></span>
       </div>
@@ -24,5 +24,6 @@ export class ProjectTextareaComponent {
   @Input() compulsory: boolean = false;
   @Input() withBorder: boolean = false;
   @Input() newClass: string = '';
+  @Input() rows: number = 3;
   @Input() control: FormControl = new FormControl('', []);
 }

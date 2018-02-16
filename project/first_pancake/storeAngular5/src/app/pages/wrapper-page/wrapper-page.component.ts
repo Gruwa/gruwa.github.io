@@ -1,4 +1,4 @@
-import {Component, OnInit, OnDestroy} from '@angular/core';
+import {Component, OnInit, OnDestroy, ChangeDetectorRef, AfterViewChecked} from '@angular/core';
 import {Router} from '@angular/router';
 import {MainService} from '../../shared/services/main.service';
 import {TranslateService} from '@ngx-translate/core';
@@ -9,7 +9,7 @@ import {AuthService} from '../../shared/services';
   templateUrl: './wrapper-page.component.html',
   styleUrls: ['./wrapper-page.component.scss']
 })
-export class WrapperPageComponent implements OnInit, OnDestroy {
+export class WrapperPageComponent implements OnInit, OnDestroy, AfterViewChecked {
 
   public visibleLogin: boolean = true;
   public visibleRegister: boolean = false;
@@ -19,13 +19,14 @@ export class WrapperPageComponent implements OnInit, OnDestroy {
   constructor(public router: Router,
               public mainService: MainService,
               public translate: TranslateService,
-              private authService: AuthService) {
+              private authService: AuthService,
+              private changeDetector: ChangeDetectorRef) {
   }
 
   ngOnInit() {
     this.mainService.setLanguage('en');
     this.authService.stateLogin$.subscribe(this.stateLogin.bind(this));
-    this.mainService.loader$.subscribe(this.loaderChange.bind(this));
+    this.mainService.loader$.subscribe(event => this.loaderChange(event));
     // this.authService.validToken().subscribe(
     //   (res) => {
     //     this.authService.stateLogin$.next({
@@ -34,19 +35,20 @@ export class WrapperPageComponent implements OnInit, OnDestroy {
     //   });
   }
 
+  ngAfterViewChecked(){
+    this.changeDetector.detectChanges();
+  }
+
   loaderChange(value: boolean) {
-    console.log(value)
     this.loading = value;
   }
 
   stateLogin(eventData: boolean) {
-    console.log(eventData);
     this.visibleContent = eventData;
     this.visibleLogin = !eventData;
   }
 
   visibleModal(data: boolean) {
-    console.log(data)
     this.visibleLogin = data;
   }
 

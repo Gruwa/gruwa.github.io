@@ -20,12 +20,12 @@
       </div>
     </span>
     <ul class="dropdown-block">
-      <li class="dropdown-content">My Plan</li>
-      <li class="dropdown-content">My Account</li>
+      <li class="dropdown-content" routerLink="['/main']">{{'Main page' | translate}}</li>
+      <li class="dropdown-content">{{'My account' | translate}}</li>
       <li class="dropdown-content">
         <!--<fullscreen-button></fullscreen-button>-->
       </li>
-      <li class="dropdown-content" (click)="LogOut()">Log Out</li>
+      <li class="dropdown-content" (click)="LogOut()">{{'Log Out' | translate}}</li>
     </ul>
     <span class="header-avatar__point">&#9662;</span>
   </div>

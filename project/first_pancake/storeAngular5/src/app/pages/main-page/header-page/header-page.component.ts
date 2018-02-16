@@ -22,7 +22,6 @@ export class HeaderPageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log ('header', this.localStorageService.retrieve('activeUserName'))
   }
 
   click() {

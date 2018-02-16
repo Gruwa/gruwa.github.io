@@ -38,7 +38,7 @@
 }
 
 .header-right-side {
-  color: grey;
+  color: #80919A;
   margin-right: 20px;
   font-size: 20px;
   text-transform: uppercase;
@@ -63,7 +63,7 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: #f47a21;
+  background-color: rgba(20, 103, 189, 1);
   margin: 0 4px 0 15px;
   justify-content: center;
   align-items: center;
@@ -88,7 +88,7 @@
     //left: 25%;
     border-radius: 50%;
     //padding: 13px 17px;
-    background-color: #f47a21;
+    background-color: rgba(20, 103, 189, 1);
     color: white;
     cursor: pointer;
   }

@@ -10,7 +10,7 @@ import {Ng2Webstorage} from 'ngx-webstorage';
 import {ToastModule} from 'ng2-toastr';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {TabPageComponent} from './tab-page/tab-page.component';
-import {FormPageComponent} from './form-page/form-page.component';
+import {ChartPageComponent} from './chart-page/chart-page.component';
 import {RouteActivatorService} from '../../shared/services/route-activator.service';
 import {MainPageComponent} from './main-page.component';
 import {SidebarPageComponent} from './sidebar-page/sidebar-page.component';
@@ -24,6 +24,13 @@ import {
   ProjectTextEllipsisDirective,
   ProjectTitleDirective
 } from '../../shared/directives';
+import {AddUserPageComponent} from './add-user-page/add-user-page.component';
+import {FusionChartsModule} from 'angular4-fusioncharts';
+import * as FusionCharts from 'fusioncharts';
+import * as FintTheme from 'fusioncharts/themes/fusioncharts.theme.fint';
+import * as Charts from 'fusioncharts/fusioncharts.charts';
+
+FusionChartsModule.fcRoot(FusionCharts, Charts, FintTheme);
 
 export const routes: Routes = [
   {
@@ -31,9 +38,9 @@ export const routes: Routes = [
     component: MainPageComponent,
     children: [
       {
-        path: 'form',
+        path: 'chart',
         canActivate: [RouteActivatorService],
-        component: FormPageComponent
+        component: ChartPageComponent
       },
       {
         path: 'users',
@@ -58,6 +65,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     CommonModule,
     ComponentsModule,
     ReactiveFormsModule,
+    FusionChartsModule,
     RouterModule.forChild(routes),
     TranslateModule.forRoot({
       loader: {
@@ -69,7 +77,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     Ng2Webstorage
   ],
   declarations: [
-    FormPageComponent,
+    ChartPageComponent,
     TabPageComponent,
     MainPageComponent,
     SidebarPageComponent,
@@ -80,7 +88,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ProjectTitleDirective,
     ProjectPointerDirective,
     ProjectListDirective,
-    FocusDirective
+    FocusDirective,
+    AddUserPageComponent
   ]
 })
 export class MainModule {

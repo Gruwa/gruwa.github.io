@@ -1,6 +1,5 @@
 import {
-    Directive,
-    HostBinding
+  Directive, ElementRef
 } from '@angular/core';
 
 @Directive({
@@ -8,6 +7,11 @@ import {
 })
 export class ProjectTitleDirective {
 
-    @HostBinding('class.title-directive') isLabelStyle = true;
+  constructor(el: ElementRef) {
+    el.nativeElement.style.fontSize = '40px';
+    el.nativeElement.style.color = '#80919A';
+    el.nativeElement.style.marginBottom = '10px';
+    el.nativeElement.style.display = 'block';
+  }
 
 }
