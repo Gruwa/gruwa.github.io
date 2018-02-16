@@ -4,6 +4,7 @@
 /dist
 /tmp
 /out-tsc
+/dop
 
 # dependencies
 /node_modules

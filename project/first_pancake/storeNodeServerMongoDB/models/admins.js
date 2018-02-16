@@ -2,16 +2,17 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var mongooseUniqueValidator = require('mongoose-unique-validator');
 
-var User = require('./user');
-var Lecturer = require('./lecturer');
+var User = require('./students');
+var Lecturer = require('./lecturers');
 
 var schema = new Schema({
-    firstName: {type: String, required: true},
-    lastName: {type: String, required: true},
-    password: {type: String, required: true},
+    first_name: {type: String, required: true},
+    last_name: {type: String, required: true},
+    password: {type: String},
     email: {type: String, required: true, unique: true},
+    active: {type: Boolean},
     avatar: {type: String},
-    createdDate: {type: Date},
+    created_date: {type: Date},
     user: [{type: Schema.Types.ObjectId, ref: 'User'}],
     lecturer: [{type: Schema.Types.ObjectId, ref: 'Lecturer'}]
 
@@ -19,5 +20,5 @@ var schema = new Schema({
 
 schema.plugin(mongooseUniqueValidator);
 
-module.exports = mongoose.model('Admin', schema);
+module.exports = mongoose.model('Admins', schema);
 

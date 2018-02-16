@@ -11,9 +11,9 @@ var config = require('./lib/configLoader');
 var db = require('./lib/database');
 
 var routes = require('./routes/index');
-var userRoutes = require('./routes/user');
-var lecturerRoutes = require('./routes/lecturer');
-var adminRoutes = require('./routes/admin');
+var userRoutes = require('./routes/students');
+var lecturerRoutes = require('./routes/lecturers');
+var adminRoutes = require('./routes/admins');
 
 var app = express();
 
@@ -41,9 +41,9 @@ db.init(config.databaseConfig);
 //    Routing
 //*********************************************************
 
-app.use('/user', userRoutes);
-app.use('/lecturer', lecturerRoutes);
-app.use('/admin', adminRoutes);
+app.use('/students', userRoutes);
+app.use('/lecturers', lecturerRoutes);
+app.use('/admins', adminRoutes);
 app.use('/', routes);
 
 // catch 404 and forward to error handler

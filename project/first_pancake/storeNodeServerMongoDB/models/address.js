@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var User = require('./user');
+var User = require('./students');
 
 var schema = new Schema({
     city: {type: String},
