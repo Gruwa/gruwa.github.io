@@ -1,6 +1,6 @@
 import {
-    Directive,
-    ElementRef
+  Directive,
+  ElementRef
 } from '@angular/core';
 
 @Directive({

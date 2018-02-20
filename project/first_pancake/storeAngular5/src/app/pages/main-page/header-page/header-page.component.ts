@@ -13,30 +13,53 @@ export class HeaderPageComponent implements OnInit {
 
   public menuFocus: boolean = false;
 
-  constructor(
-    private router: Router,
-    public translate: TranslateService,
-    public mainService: MainService,
-    public authService: AuthService,
-    public localStorageService: LocalStorageService
-  ) { }
+  constructor(private router: Router,
+              public translate: TranslateService,
+              public mainService: MainService,
+              public authService: AuthService,
+              public localStorageService: LocalStorageService) {
+  }
 
   ngOnInit() {
   }
+
+  /**
+   * Method click on button
+   */
 
   click() {
     this.router.navigate(['/main']);
   }
 
+  /**
+   * Method for change language
+   */
+
   changeLanguage(lang: string) {
     this.mainService.setLanguage(lang);
   }
+
+  /**
+   * Method for close side bar
+   */
 
   closeSideBar() {
     this.mainService.changePositionSideBar();
   }
 
+  /**
+   * Method for log out from system
+   */
+
   LogOut() {
     this.authService.onLogOut();
+  }
+
+  /**
+   * Method for log in system
+   */
+
+  LogIn() {
+    this.router.navigate(['/auth/login']);
   }
 }

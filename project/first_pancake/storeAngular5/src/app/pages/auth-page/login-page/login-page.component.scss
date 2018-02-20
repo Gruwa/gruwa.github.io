@@ -43,6 +43,16 @@
 
 .login-input {
   width: 70%;
+  position: relative;
+
+  &__label {
+    position: absolute;
+    color: rgb(255, 0, 18);
+    font-size: 12px;
+    right: 0;
+    top: 5px;
+    text-transform: uppercase;
+  }
 
   &--inut-group {
     width: 100%;

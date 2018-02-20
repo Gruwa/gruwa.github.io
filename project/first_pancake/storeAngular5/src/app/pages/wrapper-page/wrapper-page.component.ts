@@ -27,30 +27,44 @@ export class WrapperPageComponent implements OnInit, OnDestroy, AfterViewChecked
     this.mainService.setLanguage('en');
     this.authService.stateLogin$.subscribe(this.stateLogin.bind(this));
     this.mainService.loader$.subscribe(event => this.loaderChange(event));
-    // this.authService.validToken().subscribe(
-    //   (res) => {
-    //     this.authService.stateLogin$.next({
-    //       eventType: false
-    //     });
-    //   });
   }
 
-  ngAfterViewChecked(){
+  /**
+   * Method for change detection in loader$
+   */
+
+  ngAfterViewChecked() {
     this.changeDetector.detectChanges();
   }
+
+  /**
+   * Method for loader change
+   */
 
   loaderChange(value: boolean) {
     this.loading = value;
   }
+
+  /**
+   * Method for control of steLogin
+   */
 
   stateLogin(eventData: boolean) {
     this.visibleContent = eventData;
     this.visibleLogin = !eventData;
   }
 
+  /**
+   * Method for control visible
+   */
+
   visibleModal(data: boolean) {
     this.visibleLogin = data;
   }
+
+  /**
+   * Method for clean flow
+   */
 
   ngOnDestroy() {
     this.authService.stateLogin$.unsubscribe();

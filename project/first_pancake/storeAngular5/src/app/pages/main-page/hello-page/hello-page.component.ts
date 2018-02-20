@@ -11,18 +11,20 @@ import {MainService} from '../../../shared/services/index';
   styleUrls: ['./hello-page.component.scss']
 })
 export class HelloPageComponent implements OnInit {
-  constructor(
-    public toast: ToastsManager, vcr: ViewContainerRef,
-    public translate: TranslateService,
-    private localStorageService: LocalStorageService,
-    public router: Router,
-    public mainService: MainService
-  ) {
+  constructor(public toast: ToastsManager, vcr: ViewContainerRef,
+              public translate: TranslateService,
+              private localStorageService: LocalStorageService,
+              public router: Router,
+              public mainService: MainService) {
     this.toast.setRootViewContainerRef(vcr);
   }
 
   ngOnInit() {
   }
+
+  /**
+   * Method for button hello Angular
+   */
 
   helloAngular() {
     this.toast.success('Hello Ang');
@@ -31,8 +33,6 @@ export class HelloPageComponent implements OnInit {
     } else {
       this.localStorageService.store('language', 'ru');
     }
-
-    this.mainService.sentGet('/').subscribe();
   }
 
 }

@@ -26,8 +26,12 @@ export class AuthService {
   constructor(public http: HttpClient,
               public localStorageService: LocalStorageService,
               private toast: ToastsManager,
-              public router: Router
-  ) { }
+              public router: Router) {
+  }
+
+  /**
+   * Method for get headers
+   */
 
   getHeaders() {
 
@@ -37,6 +41,10 @@ export class AuthService {
 
     return headers;
   }
+
+  /**
+   * Method for registration admins
+   */
 
   onRegistration(admin: any) {
 
@@ -48,16 +56,20 @@ export class AuthService {
     );
   }
 
+  /**
+   * Method for login admins
+   */
+
   onLoginUser(body: any) {
 
     return this.http.post(AUTHURL + '/signin', body, {headers: this.getHeaders()})
       .map(
-      (response) => {
-        this.localStorageService.store('token', response['token']);
-        this.localStorageService.store('activeUser', response['userId']);
-        this.localStorageService.store('activeUserName', response['admin'].first_name);
-        return response;
-      })
+        (response) => {
+          this.localStorageService.store('token', response['token']);
+          this.localStorageService.store('activeUser', response['userId']);
+          this.localStorageService.store('activeUserName', response['admin'].first_name);
+          return response;
+        })
       .catch(
         (error) => {
           this.toast.error('Login failed');
@@ -66,6 +78,10 @@ export class AuthService {
       );
   }
 
+  /**
+   * Method for log out from system
+   */
+
   onLogOut() {
     this.localStorageService.clear('token');
     this.localStorageService.clear('activeuser');
@@ -73,8 +89,13 @@ export class AuthService {
     this.router.navigate(['/main']);
   }
 
+  /**
+   * Method for create password for admins
+   */
+
   resetPasswordConfirm(body: any) {
-    return this.http.post(AUTHURL + '/reset', body, {headers: this.getHeaders()})
+    console.log(body);
+    return this.http.post(AUTHURL + '/password', body, {headers: this.getHeaders()})
       .map(
         (response) => {
           return response;
@@ -82,14 +103,18 @@ export class AuthService {
       )
       .catch(
         (error) => {
-          this.toast.error('Reset Password failed');
+          this.toast.error('Save Password failed');
           return Observable.throw(false);
         }
       );
   }
 
+  /**
+   * Method for get new password for admins
+   */
+
   forgotPassword(body: any) {
-    return this.http.post(AUTHURL + '/forgot', body, {headers: this.getHeaders()})
+    return this.http.patch(AUTHURL + '/password/reset', body, {headers: this.getHeaders()})
       .map(
         (response) => {
           return response;
@@ -97,11 +122,15 @@ export class AuthService {
       )
       .catch(
         (error) => {
-          this.toast.error('Email no sent');
+          this.toast.error('User not found');
           return Observable.throw(false);
         }
       );
   }
+
+  /**
+   * Method for check valid token
+   */
 
   validToken() {
     const body = {

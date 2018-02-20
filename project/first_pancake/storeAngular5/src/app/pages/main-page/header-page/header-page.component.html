@@ -1,9 +1,9 @@
 <div class="header">
   <div class="header-logo" (click)="click()">
     <img class="header-logo__picture" src="../../../../assets/img/angular.png">
-  <div (click)="closeSideBar()" class="header-sidebar_close">
-    ☰
-  </div>
+    <div (click)="closeSideBar()" class="header-sidebar_close">
+      ☰
+    </div>
   </div>
   <div class="header-right-side">
     <span class="header-lang"
@@ -25,8 +25,15 @@
       <li class="dropdown-content">
         <!--<fullscreen-button></fullscreen-button>-->
       </li>
-      <li class="dropdown-content" (click)="LogOut()">{{'Log Out' | translate}}</li>
+      <li class="dropdown-content"
+          *ngIf="localStorageService.retrieve('token') !== null"
+          (click)="LogOut()">{{'Log Out' | translate}}
+      </li>
+      <li class="dropdown-content"
+          *ngIf="localStorageService.retrieve('token') === null"
+          (click)="LogIn()">{{'Log in' | translate}}
+      </li>
     </ul>
-    <span class="header-avatar__point">&#9662;</span>
+    <!--<span class="header-avatar__point">&#9662;</span>-->
   </div>
 </div>

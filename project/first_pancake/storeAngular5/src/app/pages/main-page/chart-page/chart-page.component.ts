@@ -118,7 +118,7 @@ export class ChartPageComponent implements OnInit {
       'chart': {
         'caption': 'Actual Revenues, Targeted Revenues & Profits',
         'subcaption': 'Last year',
-        'xaxisname': 'Month',
+        'xaxisname': 'Users',
         'yaxisname': 'Amount',
         'numberprefix': '',
         'theme': 'ocean'

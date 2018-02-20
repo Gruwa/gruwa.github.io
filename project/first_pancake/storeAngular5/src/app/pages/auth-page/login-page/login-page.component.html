@@ -4,6 +4,13 @@
                    (visibleChange)="visibleModal($event)">
   <div class="login" [formGroup]="formAdmin">
     <div class="login-input">
+      <div class="login-input__label" *ngIf="formAdmin.get('first_name').touched
+                                          && formAdmin.get('first_name').invalid
+                                          && !formAdminLessSymbolFirstName()">Input more than 1 symbols
+      </div>
+      <div class="login-input__label" *ngIf="formAdmin.get('first_name').dirty
+                                          && formAdminLessSymbolFirstName()">Input less than 15 symbols
+      </div>
       <app-project-input
         *ngIf="showRegister"
         [control]="formAdmin.get('first_name')"
@@ -13,6 +20,13 @@
       </app-project-input>
     </div>
     <div class="login-input">
+      <div class="login-input__label" *ngIf="formAdmin.get('last_name').touched
+                                          && formAdmin.get('last_name').invalid
+                                          && !formAdminLessSymbolLastName()">Input more than 1 symbols
+      </div>
+      <div class="login-input__label" *ngIf="formAdmin.get('last_name').dirty
+                                          && formAdminLessSymbolLastName()">Input less than 15 symbols
+      </div>
       <app-project-input
         *ngIf="showRegister"
         [control]="formAdmin.get('last_name')"
@@ -39,12 +53,12 @@
           [control]="formAdmin.get('emailGroup.confirmEmail')"
           [top]="18"
           [bottom]="18"
-          [label]="'email'">
+          [label]="'confirm email'">
         </app-project-input>
       </div>
     </div>
     <div class="login-input"
-         *ngIf="!showForgot">
+         *ngIf="!showForgot && !showRegister">
       <app-project-input
         [control]="formAdmin.get('password')"
         [top]="18"
@@ -101,14 +115,14 @@
     </div>
 
     <!--<div class="lang-holder">-->
-      <!--<span class="header-lang"-->
-            <!--(click)="changeLanguage('en')"-->
-            <!--*ngIf="translate.currentLang === 'ru'"-->
-            <!--[ngClass]="{'header-en&#45;&#45;active' : translate.currentLang === 'en'}">en</span>-->
-      <!--<span class="header-lang"-->
-            <!--(click)="changeLanguage('ru')"-->
-            <!--*ngIf="translate.currentLang === 'en'"-->
-            <!--[ngClass]="{'header-ru&#45;&#45;active' : translate.currentLang === 'ru'}">ru</span>-->
+    <!--<span class="header-lang"-->
+    <!--(click)="changeLanguage('en')"-->
+    <!--*ngIf="translate.currentLang === 'ru'"-->
+    <!--[ngClass]="{'header-en&#45;&#45;active' : translate.currentLang === 'en'}">en</span>-->
+    <!--<span class="header-lang"-->
+    <!--(click)="changeLanguage('ru')"-->
+    <!--*ngIf="translate.currentLang === 'en'"-->
+    <!--[ngClass]="{'header-ru&#45;&#45;active' : translate.currentLang === 'ru'}">ru</span>-->
     <!--</div>-->
   </div>
 </app-project-modal>

@@ -46,6 +46,10 @@ export class LoginPageComponent implements OnInit {
     this.initForm();
   }
 
+  /**
+   * Method for init form formAdmin
+   */
+
   initForm() {
     this.formAdmin = this.fb.group({
       first_name: ['', [
@@ -58,13 +62,13 @@ export class LoginPageComponent implements OnInit {
       ]],
       password: ['', [
         Validators.required,
-        Validators.minLength(7),
+        Validators.minLength(5),
         Validators.maxLength(15)
       ]],
       emailGroup: this.fb.group({
         email: ['', [
           Validators.required,
-          Validators.pattern('[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+')
+          Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')
         ]],
         confirmEmail: ['', []],
       }, {validator: emailMatcher})
@@ -72,13 +76,25 @@ export class LoginPageComponent implements OnInit {
     this.formAdmin.reset();
   }
 
+  /**
+   * Method for switch registered form
+   */
+
   onRegister() {
     this.showRegister = !this.showRegister;
   }
 
+  /**
+   * Method for cancel action
+   */
+
   onCancel() {
     this.router.navigate(['/main']);
   }
+
+  /**
+   * Method for save user
+   */
 
   onSave() {
     const user: any = {
@@ -100,6 +116,10 @@ export class LoginPageComponent implements OnInit {
       }
     );
   }
+
+  /**
+   * Method for login user
+   */
 
   onLogin() {
     this.mainService.loader$.next(true);
@@ -126,10 +146,18 @@ export class LoginPageComponent implements OnInit {
     );
   }
 
+  /**
+   * Method for visible modal
+   */
+
   visibleModal(data: boolean) {
     this.router.navigate(['/main']);
     this.visibleLogin = data;
   }
+
+  /**
+   * Method for forgot password
+   */
 
   forgotPassword() {
     const user: any = {
@@ -138,8 +166,41 @@ export class LoginPageComponent implements OnInit {
     this.authService.forgotPassword(user).subscribe();
   }
 
+  /**
+   * Method for change language
+   */
+
   changeLanguage(lang: string) {
     this.mainService.setLanguage(lang);
   }
 
+  /**
+   * Method for required field last_name
+   */
+
+  formAdminLessSymbolLastName() {
+    if (this.formAdmin.get('last_name').value != null) {
+      if (this.formAdmin.get('last_name').value.length < 16) {
+        return false;
+      } else {
+        return true;
+      }
+    }
+
+  }
+
+  /**
+   * Method for required field first_name
+   */
+
+  formAdminLessSymbolFirstName() {
+    if (this.formAdmin.get('first_name').value != null) {
+      if (this.formAdmin.get('first_name').value.length < 16) {
+        return false;
+      } else {
+        return true;
+      }
+    }
+
+  }
 }

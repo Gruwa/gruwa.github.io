@@ -1,22 +1,3 @@
 <router-outlet>
-  <!--<div class="wrapper-page" *ngIf="router.url !== '/404' && router.url !== '/auth/login'">-->
-    <!--<div class="wrapper-header">-->
-      <!--<app-header-page></app-header-page>-->
-    <!--</div>-->
-    <!--<div class="wrapper-main">-->
-      <!--<app-sidebar-page></app-sidebar-page>-->
-
-      <!--<div class="wrapper-content" [ngClass]="{'wrapper-content&#45;&#45;close' : mainService.closeSideBar}">-->
-        <!--&lt;!&ndash;<div class="wrapper-line-top"></div>&ndash;&gt;-->
-        <!--&lt;!&ndash;<router-outlet></router-outlet>&ndash;&gt;-->
-        <!--<app-hello-page *ngIf="router.url === '/main'"></app-hello-page>-->
-        <!--<app-form-page *ngIf="router.url === '/main/form'"></app-form-page>-->
-        <!--<app-tab-page *ngIf="router.url === '/main/users'"></app-tab-page>-->
-      <!--</div>-->
-    <!--</div>-->
-  <!--</div>-->
-
-  <!--<app-error *ngIf="router.url === '/404'"></app-error>-->
-
   <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
 </router-outlet>

@@ -20,6 +20,10 @@ export class SidebarPageComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * Method for routing
+   */
+
   onActiveLink(value: string) {
     this.authService.activeLink = value;
     this.router.navigate([value]);

@@ -6,7 +6,7 @@
     <app-sidebar-page></app-sidebar-page>
     <div class="wrapper-content" [ngClass]="{'wrapper-content--close' : mainService.closeSideBar}">
       <router-outlet>
-      <app-hello-page *ngIf="router.url === '/main'"></app-hello-page>
+        <app-hello-page *ngIf="router.url === '/main'"></app-hello-page>
       </router-outlet>
     </div>
   </div>

@@ -13,6 +13,7 @@ var schema = new Schema({
     active: {type: Boolean},
     avatar: {type: String},
     created_date: {type: Date},
+    token_password: {type: String},
     user: [{type: Schema.Types.ObjectId, ref: 'User'}],
     lecturer: [{type: Schema.Types.ObjectId, ref: 'Lecturer'}]
 

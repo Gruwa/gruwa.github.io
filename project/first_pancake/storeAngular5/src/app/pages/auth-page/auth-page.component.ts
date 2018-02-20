@@ -11,7 +11,6 @@ export class AuthPageComponent implements OnInit {
   }
 
   ngOnInit() {
-
   }
 
 }

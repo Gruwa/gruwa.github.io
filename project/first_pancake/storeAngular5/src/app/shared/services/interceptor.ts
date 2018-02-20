@@ -17,7 +17,7 @@ export class ProjectInterceptor implements HttpInterceptor {
               public localStorage: LocalStorageService,
               private toast: ToastsManager) {
 
-}
+  }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
@@ -35,6 +35,7 @@ export class ProjectInterceptor implements HttpInterceptor {
         if (err instanceof HttpErrorResponse) {
           if (err.status === 404) {
             this.toast.error('Bad request!', 'Error 404');
+            this.router.navigate(['/404']);
           }
           if (err.status === 401) {
             this.toast.error('Bad request!', 'Error 401');

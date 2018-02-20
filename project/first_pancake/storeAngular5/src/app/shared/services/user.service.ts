@@ -94,9 +94,9 @@ export class UserService {
     })
       .map(
         (resp) => {
-        console.log(resp['user']);
-        return resp['user'];
-      });
+          console.log(resp['user']);
+          return resp['user'];
+        });
   }
 
   /**
@@ -138,116 +138,5 @@ export class UserService {
     }
 
     this.getUsers(tab);
-  }
-
-  sentUploaderFile(data: any) {
-    // return this.http.post(this.setUrl() + '/bulk-upload/', data, {
-    //     headers: this.getHeaders()
-    // });
-  }
-
-
-  getSessionsFields(tab: string,
-                    value: any,
-                    sort_field?: any) {
-    // const query_params = new URLSearchParams();
-    //
-    // if (sort_field) {
-    //     query_params.set('sort_field', sort_field.sort);
-    //     query_params.set('asc', sort_field.asc + '');
-    // }
-    //
-    // return this.http.get(this.setUrl() + (tab === 'students' ? /students/ : '/lecturers/')
-    //     + value.id + '/sessions/', {
-    //     headers: this.getHeaders(),
-    //     params: query_params
-    // }).map((resp: HttpResponse) => resp.json());
-  }
-
-  getGroupsFields(tab: string,
-                  value: any,
-                  sort_field?: any) {
-    // const query_params = new URLSearchParams();
-    //
-    // if (sort_field) {
-    //     query_params.set('sort_field', sort_field.sort);
-    //     query_params.set('asc', sort_field.asc + '');
-    // }
-    //
-    // return this.http.get(this.setUrl() + (tab === 'students' ? /students/ : '/lecturers/')
-    //     + value.id + '/groups/', {
-    //     headers: this.getHeaders(),
-    //     params: query_params
-    // }).map((resp: HttpResponse) => resp.json());
-  }
-
-  getSessionsResults(params?: any) {
-    // const urlPrams = new URLSearchParams();
-    //
-    // if (params) {
-    //     Object.keys(params).forEach(key => {
-    //         if (params[key]) {
-    //             urlPrams.set(key, '' + params[key]);
-    //         }
-    //     });
-    // }
-    //
-    // return this.http.get(this.setUrl() + '/groups/sessions/', {
-    //     headers: this.getHeaders(), params: urlPrams
-    // }).map((resp: HttpResponse) => resp.json());
-  }
-
-  getGroupsResults(params?: any) {
-
-    // const urlPrams = new URLSearchParams();
-    //
-    // if (params) {
-    //     Object.keys(params).forEach(key => {
-    //         if (params[key]) {
-    //             urlPrams.set(key, '' + params[key]);
-    //         }
-    //     });
-    // }
-    //
-    // return this.http.get(this.setUrl() + '/groups/', {
-    //     headers: this.getHeaders(), params: urlPrams
-    // }).map((resp: HttpResponse) => resp.json());
-  }
-
-  addSessionField(data: any,
-                  tab: any,
-                  session: any) {
-    // if (tab === 'students') {
-    //     return this.http.post(this.setUrl() + '/students/assign-session/', data, {
-    //         headers: this.getHeaders()
-    //     }).map((resp: HttpResponse) => resp.json());
-    // }else if (tab === 'instructors') {
-    //     return this.http.patch(this.setUrl() + '/lecturers/assign-session/' + session.id + '/', data, {
-    //         headers: this.getHeaders()
-    //     }).map((resp: HttpResponse) => resp.json());
-    // }
-  }
-
-  addGroupField(data: any, body: any) {
-    // return this.http.patch(this.setUrl() + '/groups/' + data.id + '/', body, {
-    //     headers: this.getHeaders()
-    // }).map((resp: HttpResponse) => resp.json());
-  }
-
-  onDeleteSession(tab: string, value: any, userActive: any) {
-    // if (tab === 'students') {
-    //
-    //     return this.http.delete(this.setUrl() + '/students/'
-    //         + userActive.id + '/remove-session/' + value.id + '/', {
-    //         headers: this.getHeaders()
-    //     });
-    // } else if (tab === 'instructors') {
-    //     const body: any = {};
-    //
-    //     return this.http.patch(this.setUrl() + '/lecturers/'
-    //         + userActive.id + '/remove-session/' + value.id + '/', body,{
-    //         headers: this.getHeaders()
-    //     });
-    // }
   }
 }

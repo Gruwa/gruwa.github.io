@@ -4,9 +4,14 @@ var express = require('express');
 var router = express.Router();
 var bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
-const nodemailer = require('nodemailer');
-
 var Admins = require('../models/admins');
+var email 	= require("emailjs/email");
+var server 	= email.server.connect({
+    user:    "firstpancakeangularnoda@gmail.com",
+    password:"first-pancake",
+    host:    "smtp.gmail.com",
+    ssl:     true
+});
 
 /* GET all admins */
 
@@ -39,7 +44,6 @@ router.post('/', function (req, res, next) {
     var user = new Admins({
         first_name: req.body.first_name,
         last_name: req.body.first_name,
-        password: bcrypt.hashSync(req.body.password, 13),
         email: req.body.email,
         active: true,
         created_date: new Date()
@@ -52,14 +56,107 @@ router.post('/', function (req, res, next) {
                 error: err
             });
         }
-        res.status(201).json({
-            message: 'User created',
-            obj: result
+
+        var token = jwt.sign({user: user}, 'secret Okey', {expiresIn: '1h'});
+        server.send({
+            text:    "Please go by the Link and set Your password " + "http://localhost:4204/auth/reset_password/" + user._id + "/" + token,
+            from:    "<firstpancakeangularnoda@gmail.com>",
+            to:      "<" + req.body.email + ">",
+            subject: "Link for set Your password"
+        }, function(err, message) { console.log(err || message); });
+        user.token_password = token;
+        user.save(function (err, result) {
+            if (err) {
+                return res.status(500).json({
+                    title: 'An error occurred',
+                    error: err
+                });
+            }
+            res.status(201).json({
+                message: 'User created',
+                obj: result
+            });
         });
     });
 });
 
-// logIn
+/* reset password */
+
+router.patch('/password/reset', function (req, res, next) {
+    Admins.findOne({email: req.body.email}, function (err, user) {
+        user.save(function (err, result) {
+            if (err) {
+                return res.status(500).json({
+                    title: 'An error occurred',
+                    error: err
+                });
+            }
+
+            var token = jwt.sign({user: user}, 'secret Okey', {expiresIn: '1h'});
+            server.send({
+                text:    "Please go by the Link and set Your password " + "http://localhost:4204/auth/reset_password/" + user._id + "/" + token,
+                from:    "<firstpancakeangularnoda@gmail.com>",
+                to:      "<" + req.body.email + ">",
+                subject: "Link for set Your password"
+            }, function(err, message) { console.log(err || message); });
+            user.token_password = token;
+            user.save(function (err, result) {
+                if (err) {
+                    return res.status(500).json({
+                        title: 'An error occurred',
+                        error: err
+                    });
+                }
+                res.status(201).json({
+                    message: 'User created',
+                    obj: result
+                });
+            });
+        });
+    });
+});
+
+/* create password */
+
+router.post('/password', function (req, res, next) {
+   Admins.findOne({_id: req.body.uiid}, function (err, user) {
+       if (err) {
+           return res.status(500).json({
+               title: 'An error occurred',
+               error: err
+           });
+       }
+       if (!user) {
+           return res.status(401).json({
+               title: 'Login failed',
+               error: {message: 'Invalid login credentials'}
+           });
+       }
+       if(req.body.token === user.token_password){
+           user.password = bcrypt.hashSync(req.body.new_password, 13);
+           user.save(function (err, result) {
+               if (err) {
+                   return res.status(500).json({
+                       title: 'An error occurred',
+                       error: err
+                   });
+               }
+               res.status(201).json({
+                   message: 'Password created',
+                   obj: result
+               });
+           });
+       } else {
+           return res.status(401).json({
+               title: 'Login failed',
+               error: {message: 'Invalid login credentials'}
+           });
+       }
+   });
+});
+
+
+/* logIn */
 
 router.post('/signin', function (req, res, next) {
     Admins.findOne({email: req.body.email}, function (err, admin) {
@@ -95,7 +192,7 @@ router.post('/signin', function (req, res, next) {
             token: token,
             userId: admin._id,
             admin: admin
-        })
+        });
     });
 });
 

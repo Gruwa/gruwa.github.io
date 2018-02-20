@@ -1,13 +1,13 @@
 import {
-    Directive,
-    HostBinding
+  Directive,
+  HostBinding
 } from '@angular/core';
 
 @Directive({
-    selector: '[appProjectListStyle]'
+  selector: '[appProjectListStyle]'
 })
 export class ProjectListDirective {
 
-    @HostBinding('class.list-directive') isLabelStyle = true;
+  @HostBinding('class.list-directive') isLabelStyle = true;
 
 }

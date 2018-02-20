@@ -29,7 +29,6 @@ export class TabPageComponent implements OnInit {
   public tab_active: string = '';
   public toggle: boolean = false;
   public title_btn: string = '+ Add students';
-  // public search_user: string = 'Search students';
   public id_user: string = 'Student ID';
 
   constructor(public userService: UserService,
@@ -115,7 +114,7 @@ export class TabPageComponent implements OnInit {
     this.userService.onEditToggleStatusUser(user, this.tab)
       .subscribe(() => {
           this.toggle = true;
-        // this.onGetUsers();
+          // this.onGetUsers();
         }
       );
     $event.stopPropagation();

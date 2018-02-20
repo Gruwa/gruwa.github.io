@@ -46,16 +46,20 @@ export class ResetPasswordComponent implements OnInit {
     });
 
     this.resetGroup = this.fb.group({
-      new_password: ['', [Validators.required]],
+      new_password: ['', [Validators.required, Validators.minLength(7)]],
       password2: ['', [Validators.required, passwordConfirmValidator('new_password')]]
     });
 
   }
 
+  /**
+   * Method for submit reset form
+   */
+
   onSubmit() {
     const resetData = this.resetGroup.value;
     resetData['token'] = this.route.params['value']['uniq2'];
-    resetData['uid'] = this.route.params['value']['uniq'];
+    resetData['uiid'] = this.route.params['value']['uniq'];
 
     this.authService.resetPasswordConfirm(resetData).subscribe(updated => {
       if (updated) {
@@ -64,6 +68,10 @@ export class ResetPasswordComponent implements OnInit {
       }
     });
   }
+
+  /**
+   * Method for change language
+   */
 
   changeLanguage(lang: string) {
     this.mainService.setLanguage(lang);

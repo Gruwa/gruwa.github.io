@@ -3,7 +3,7 @@ import {
 } from '@angular/core';
 
 @Directive({
-    selector: '[appProjectTitleStyle]'
+  selector: '[appProjectTitleStyle]'
 })
 export class ProjectTitleDirective {
 

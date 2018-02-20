@@ -16,7 +16,8 @@
         (click)="onActiveLink('/main/users')"
         [ngClass]="{'wrapper-sidebar__item--active' : router.url === '/main/users'}">
       <div [ngClass]="{'wrapper-sidebar__icon-box' : router.url === '/main/users'}">
-        <img class="wrapper-sidebar__icon" *ngIf="router.url !== '/main/users'" src="../../../../assets/img/icon/users.svg">
+        <img class="wrapper-sidebar__icon" *ngIf="router.url !== '/main/users'"
+             src="../../../../assets/img/icon/users.svg">
         <img class="wrapper-sidebar__icon" *ngIf="router.url === '/main/users'"
              src="../../../../assets/img/icon/users-white.svg">
       </div>
@@ -28,7 +29,8 @@
         (click)="onActiveLink('/main/chart')"
         [ngClass]="{'wrapper-sidebar__item--active' : router.url === '/main/chart'}">
       <div [ngClass]="{'wrapper-sidebar__icon-box' : router.url === '/main/chart'}">
-        <img class="wrapper-sidebar__icon" *ngIf="router.url !== '/main/chart'" src="../../../../assets/img/icon/courses.svg">
+        <img class="wrapper-sidebar__icon" *ngIf="router.url !== '/main/chart'"
+             src="../../../../assets/img/icon/courses.svg">
         <img class="wrapper-sidebar__icon" *ngIf="router.url === '/main/chart'"
              src="../../../../assets/img/icon/courses-white.svg">
       </div>

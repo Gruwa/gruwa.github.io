@@ -18,6 +18,10 @@ export class MainService {
               public http: HttpClient) {
   }
 
+  /**
+   * Method for set language
+   */
+
   setLanguage(lang: string) {
     this.localStorageService.store('vendor_id', 'vendor_id');
     this.localStorageService.store('language', lang);
@@ -31,16 +35,11 @@ export class MainService {
       });
   }
 
+  /**
+   * Method for change side bar
+   */
+
   changePositionSideBar() {
     this.closeSideBar = !this.closeSideBar;
-  }
-
-  sentGet(url) {
-    return this.http.get(this.authUrl).map(
-      (response) => {
-        console.log('FIIRST response', response);
-
-      }
-    );
   }
 }
