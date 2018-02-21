@@ -11,6 +11,7 @@ export class MainService {
   public closeSideBar: boolean = false;
   public authUrl: string = `${environment.apiRoot}`;
   public loader$ = new Subject<any>();
+  public userRole$ = new Subject<any>();
 
 
   constructor(public localStorageService: LocalStorageService,

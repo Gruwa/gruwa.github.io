@@ -1,9 +1,11 @@
-import {Component, OnInit, ViewContainerRef, ViewEncapsulation} from '@angular/core';
+import {AfterViewChecked, ChangeDetectorRef, Component, OnInit, ViewContainerRef, ViewEncapsulation} from '@angular/core';
 import {ToastsManager} from 'ng2-toastr';
 import {UserService} from '../../../shared/services/user.service';
 import {TranslateService} from '@ngx-translate/core';
 import {LocalStorageService} from 'ngx-webstorage';
 import {MainService} from '../../../shared/services/index';
+import * as XLSX from 'xlsx';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-tab-page',
@@ -17,15 +19,11 @@ export class TabPageComponent implements OnInit {
   public userActive: any = {};
   public tab: string = 'students';
   public visibleModal: boolean = false;
-  public filter: string = '';
   public users: any = [];
   public modalType: string = '';
   public showModal = false;
-  public showModalBulk = false;
   public modalTitle = '';
   public addUser = '';
-  public ascType: boolean = true;
-  public sort: string = '';
   public tab_active: string = '';
   public toggle: boolean = false;
   public title_btn: string = '+ Add students';
@@ -48,8 +46,7 @@ export class TabPageComponent implements OnInit {
    * Method for get users
    */
 
-  onGetUsers(sortField?: string) {
-    this.users = [];
+  onGetUsers() {
     this.userService.getUsers(this.tab)
       .subscribe(
         (value: any) => {
@@ -65,7 +62,6 @@ export class TabPageComponent implements OnInit {
           }
         }
       );
-
     this.toggle = false;
     this.mainService.loader$.next(false);
   }
@@ -78,7 +74,6 @@ export class TabPageComponent implements OnInit {
     this.visibleModal = modalStatus;
 
     if (!this.visibleModal) {
-      this.sort = '';
       this.onGetUsers();
     }
   }
@@ -169,9 +164,7 @@ export class TabPageComponent implements OnInit {
     this.tab_active = this.tab;
     this.tab = tab;
     this.title_btn = '+ Add ' + this.tab;
-    // this.search_user = 'Search ' + this.tab;
     this.id_user = this.tab + ' ID';
-    this.sort = '';
     this.onGetUsers();
   }
 
@@ -181,4 +174,23 @@ export class TabPageComponent implements OnInit {
     e.stopImmediatePropagation();
   }
 
+  transformData(data) {
+    return data.map(value => {
+      const report = {};
+      report['First Name'] = value.first_name;
+      report['Last Name'] = value.last_name;
+      report['Email'] = value.email;
+      report['Date of created'] = moment(value.created_date).format('DD.MM.YYYY');
+      report['Company name'] = value.company_name;
+      report['About me'] = value.about_me;
+      return report;
+    });
+  }
+
+  downloadFile(type: string){
+    const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.transformData(this.users));
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    XLSX.writeFile(wb, `completions.xlsx`);
+  }
 }

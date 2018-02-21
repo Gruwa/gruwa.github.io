@@ -30,8 +30,10 @@
   }
 
   &__current-students {
+    //min-height: 400px;
 
     padding-left: 0;
+    @include transition(all, 0.2s, linear);
 
     .filter_list_students {
       //display: flex;
@@ -45,6 +47,7 @@
       color: $nevada;
       font-family: "robotothin", "Trebuchet MS", Arial, Helvetica, sans-serif;
       border-bottom: 1px solid #eef2f5;
+      @include transition(all, 0.2s, linear);
 
       span {
         //display: flex;
@@ -94,6 +97,7 @@
       font-family: "robotothin", "Trebuchet MS", Arial, Helvetica, sans-serif;
       @include transition(all, 0.2s, linear);
 
+
       &:hover {
         border-left: 1px solid rgba(20, 103, 189, 0.51);
         background-color: $catskill__white;
@@ -111,6 +115,7 @@
         overflow: hidden;
         text-overflow: ellipsis;
         font-size: 14px;
+        @include transition(all, 0.2s, linear);
       }
 
       span:nth-child(1) {
@@ -236,7 +241,6 @@
     padding-right: 30px;
     padding-left: 30px;
     margin-left: 20px;
-
   }
 
   &__bulk {

@@ -24,35 +24,49 @@
   <div class="ui-g ui-g-12 ui-g-nopad">
     <div class="users__current-students ui-md-12 ui-lg-12 ui-sm-12 ui-xl-12">
       <div class="filter_list_students ui-g ui-g-12">
-        <span class="ui-g-4" (click)="onGetUsers('name')">{{'Name' | translate}}<span
-          class="arow_down">&#9662;</span></span>
-        <span class="ui-g-2" (click)="onGetUsers('email')">{{'Email' | translate}}<span class="arow_down">&#9662;</span></span>
-        <span class="ui-g-2" (click)="onGetUsers('id')">{{'user ID' | translate}}<span class="arow_down">&#9662;</span></span>
-        <span class="ui-g-2" (click)="onGetUsers('created_date')">{{'Created' | translate}}<span class="arow_down">&#9662;</span></span>
+        <span class="ui-g-4" (click)="onGetUsers('name')">{{'Name' | translate}}
+          <!--<span class="arow_down">&#9662;</span>-->
+        </span>
+        <span class="ui-g-2" (click)="onGetUsers('email')">{{'Email' | translate}}
+          <!--<span class="arow_down">&#9662;</span>-->
+        </span>
+        <span class="ui-g-2" (click)="onGetUsers('id')">{{'user ID' | translate}}
+          <!--<span class="arow_down">&#9662;</span>-->
+        </span>
+        <span class="ui-g-2" (click)="onGetUsers('created_date')">{{'Created' | translate}}
+          <!--<span class="arow_down">&#9662;</span>-->
+        </span>
         <span class="ui-g-1">{{'Activate' | translate}}</span>
         <span class="ui-g-1">{{'Remove' | translate}}</span>
       </div>
       <div *ngFor="let user of users">
         <div class="list-group-item ui-g ui-g-12">
-          <span class="ui-g-4" (click)="onShowModalEditUser(true, user)">{{user.first_name}} {{user.last_name}}</span>
+          <span class="ui-g-4" (click)="onShowModalEditUser(true, user)">{{user.first_name }} {{user.last_name}}</span>
           <span class="ui-g-2" (click)="onShowModalEditUser(true, user)">{{user.email}}</span>
           <span class="ui-g-2" (click)="onShowModalEditUser(true, user)">{{user._id}}</span>
           <span class="ui-g-2" (click)="onShowModalEditUser(true, user)">{{user.created_date | date:'longDate'}}</span>
           <span class="ui-g-1">
-            <div class="users__toggle-status-students" (click)="toggleStudentStatus($event, user)">
-              <input class='toggle'
-                     type="checkbox"
-                     [checked]="user.active"
-                     name='check-3'/>
-            </div>
-          </span>
+        <div class="users__toggle-status-students" (click)="toggleStudentStatus($event, user)">
+          <input class='toggle'
+                 type="checkbox"
+                 [checked]="user.active"
+                 name='check-3'/>
+        </div>
+      </span>
           <span class="users__trash ui-g-1">
-            <img src="../../../../assets/img/icon/courses_trash.svg"
-                 alt="courses_trash"
-                 (click)="removeRecordShowModal($event, 'delete', user)">
-          </span>
+        <img src="../../../../assets/img/icon/courses_trash.svg"
+             alt="courses_trash"
+             (click)="removeRecordShowModal($event, 'delete', user)">
+      </span>
         </div>
       </div>
+    </div>
+    <div class="users__btn-list">
+      <app-project-button (onClickEvent)="downloadFile(true)"
+                          title="Save list"
+                          cancel="true"
+                          [newStyle]="'users__btn'">
+      </app-project-button>
     </div>
   </div>
   <app-project-modal title="{{addUser}} {{this.tab}}"
