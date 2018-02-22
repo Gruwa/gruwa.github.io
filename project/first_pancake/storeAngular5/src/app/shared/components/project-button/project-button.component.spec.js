@@ -1,18 +1,18 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var testing_1 = require("@angular/core/testing");
-var learnster_button_component_1 = require("./learnster-button.component");
-describe('LearnsterButtonComponent', function () {
+var project_button_component_1 = require("./project-button.component");
+describe('ProjectButtonComponent', function () {
     var component;
     var fixture;
     beforeEach(testing_1.async(function () {
         testing_1.TestBed.configureTestingModule({
-            declarations: [learnster_button_component_1.LearnsterButtonComponent]
+            declarations: [project_button_component_1.ProjectButtonComponent]
         })
             .compileComponents();
     }));
     beforeEach(function () {
-        fixture = testing_1.TestBed.createComponent(learnster_button_component_1.LearnsterButtonComponent);
+        fixture = testing_1.TestBed.createComponent(project_button_component_1.ProjectButtonComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });

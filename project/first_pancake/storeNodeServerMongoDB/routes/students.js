@@ -4,7 +4,7 @@ var bcrypt = require('bcryptjs');
 
 var Students = require('../models/students');
 
-//get all student
+/* get all student */
 
 router.get('/', function(req, res, next) {
     Students.find({}, function (err, users) {
@@ -28,7 +28,7 @@ router.get('/', function(req, res, next) {
     });
 });
 
-//registration
+/* registration */
 
 router.post('/', function (req, res, next) {
     console.log(req.body)
@@ -79,7 +79,7 @@ router.post('/', function (req, res, next) {
     });
 });
 
-//user status
+/* user status */
 
 router.post('/status', function (req, res, next) {
     Students.findOne({_id: req.body._id}, function (err, student) {
@@ -111,7 +111,7 @@ router.post('/status', function (req, res, next) {
     });
 });
 
-//user delete
+/* user delete */
 
 router.delete('/delete/:userId', function (req, res, next) {
     Students.findOneAndRemove({_id: req.params['userId']}, function (err, student) {
@@ -134,7 +134,7 @@ router.delete('/delete/:userId', function (req, res, next) {
     });
 });
 
-//check availability student
+/* check availability student */
 
 router.get('/email/:userEmail', function (req, res, next) {
     Students.findOne({email: req.params['userEmail']}, function (err, user) {
@@ -156,7 +156,7 @@ router.get('/email/:userEmail', function (req, res, next) {
     });
 });
 
-//edit student
+/* edit student */
 
 router.patch('/edit/:userEmail', function (req, res, next) {
     Students.findOne({email: req.params['userEmail']}, function (err, user) {

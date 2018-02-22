@@ -196,7 +196,7 @@ router.post('/signin', function (req, res, next) {
     });
 });
 
-//admin status
+/* admin status */
 
 router.post('/status', function (req, res, next) {
     Admins.findOne({_id: req.body._id}, function (err, user) {
@@ -228,7 +228,7 @@ router.post('/status', function (req, res, next) {
     });
 });
 
-//user delete
+/* user delete */
 
 router.delete('/delete/:userId', function (req, res, next) {
     Admins.findOneAndRemove({_id: req.params['userId']}, function (err, user) {
@@ -251,7 +251,7 @@ router.delete('/delete/:userId', function (req, res, next) {
     });
 });
 
-//check availability admin
+/* check availability admin */
 
 router.get('/email/:userEmail', function (req, res, next) {
     Admins.findOne({email: req.params['userEmail']}, function (err, user) {
@@ -273,7 +273,7 @@ router.get('/email/:userEmail', function (req, res, next) {
     });
 });
 
-//edit admin
+/* edit admin */
 
 router.patch('/edit/:userEmail', function (req, res, next) {
     Admins.findOne({email: req.params['userEmail']}, function (err, user) {

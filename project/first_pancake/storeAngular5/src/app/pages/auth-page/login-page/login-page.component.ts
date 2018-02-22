@@ -4,6 +4,7 @@ import {AuthService, MainService} from '../../../shared/services/index';
 import {ToastsManager} from 'ng2-toastr';
 import {Router} from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
+import {LocalStorageService} from 'ngx-webstorage';
 
 function emailMatcher(c: AbstractControl) {
   let emailControl = c.get('email');
@@ -30,19 +31,26 @@ export class LoginPageComponent implements OnInit {
   public visibleLogin: boolean = true;
   public showRegister: boolean = false;
   public formAdmin: FormGroup;
-  public loading = false;
-  public showForgot = false;
+  public loading: boolean = false;
+  public showForgot: boolean = false;
 
   constructor(public fb: FormBuilder,
               public authService: AuthService,
               public router: Router,
               public mainService: MainService,
+              public localStorageService: LocalStorageService,
               private toast: ToastsManager, vcr: ViewContainerRef,
               public translate: TranslateService) {
     this.toast.setRootViewContainerRef(vcr);
   }
 
   ngOnInit() {
+    const language = this.localStorageService.retrieve('language');
+    this.translate.use(language);
+    this.translate.setDefaultLang(language);
+    this.localStorageService.observe('language').subscribe((language) => {
+      this.translate.use(language);
+    });
     this.initForm();
   }
 
@@ -106,10 +114,12 @@ export class LoginPageComponent implements OnInit {
 
     this.authService.onRegistration(user).subscribe(
       (response) => {
-        this.toast.success('Registration success');
+        this.toast.success('Email send success');
         this.showRegister = false;
         this.showForgot = false;
         this.formAdmin.reset();
+        this.authService.checkEmail = user.email;
+        this.router.navigate(['/auth/check']);
       },
       (error) => {
         this.toast.error('Registration error');

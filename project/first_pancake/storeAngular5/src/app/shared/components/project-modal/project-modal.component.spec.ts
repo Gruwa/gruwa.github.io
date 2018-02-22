@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LearnsterModalComponent } from './learnster-modal.component';
+import { ProjectModalComponent } from './project-modal.component';
 
-describe('LearnsterModalComponent', () => {
-  let component: LearnsterModalComponent;
-  let fixture: ComponentFixture<LearnsterModalComponent>;
+describe('ProjectModalComponent', () => {
+  let component: ProjectModalComponent;
+  let fixture: ComponentFixture<ProjectModalComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LearnsterModalComponent ]
+      declarations: [ ProjectModalComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LearnsterModalComponent);
+    fixture = TestBed.createComponent(ProjectModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

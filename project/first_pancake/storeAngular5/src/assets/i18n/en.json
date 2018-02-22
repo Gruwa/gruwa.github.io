@@ -16,6 +16,7 @@
   "Email": "Email",
   "user ID": "user ID",
   "Created": "Created",
+  "Create": "Create",
   "Activate": "Activate",
   "Remove": "Remove",
   "Set Password": "Set Password",
@@ -38,6 +39,17 @@
   "Main page": "Main page",
   "My account": "My account",
   "Log Out": "Log Out",
-  "Save list": "Save list"
+  "Log In": "Log In",
+  "Save list": "Save list",
+  "Check Your Email": "Check Your Email",
+  "Thank You for Your registration": "Thank You for Your registration",
+  "Input less than 15 symbols": "Input less than 15 symbols",
+  "Input more than 1 symbols": "Input more than 1 symbols",
+  "Forgot password?": "Forgot password?",
+  "Register": "Register",
+  "Reset password": "Reset password",
+  "first name": "first name",
+  "last name": "last name",
+  "confirm email": "confirm email"
 
 }

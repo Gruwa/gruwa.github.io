@@ -3,7 +3,7 @@ var router = express.Router();
 
 var Lecturers = require('../models/lecturers');
 
-//get all student
+/* get all student */
 
 router.get('/', function(req, res, next) {
     Lecturers.find({}, function (err, users) {
@@ -27,7 +27,7 @@ router.get('/', function(req, res, next) {
     });
 });
 
-//registration
+/* registration */
 
 router.post('/', function (req, res, next) {
     console.log(req.body)
@@ -79,7 +79,7 @@ router.post('/', function (req, res, next) {
 });
 
 
-//lecturer status
+/* lecturer status */
 
 router.post('/status', function (req, res, next) {
     Lecturers.findOne({_id: req.body._id}, function (err, user) {
@@ -111,7 +111,7 @@ router.post('/status', function (req, res, next) {
     });
 });
 
-//user delete
+/* user delete */
 
 router.delete('/delete/:userId', function (req, res, next) {
     Lecturers.findOneAndRemove({_id: req.params['userId']}, function (err, user) {
@@ -135,7 +135,7 @@ router.delete('/delete/:userId', function (req, res, next) {
 });
 
 
-//check availability lecturer
+/* check availability lecturer */
 
 router.get('/email/:userEmail', function (req, res, next) {
     Lecturers.findOne({email: req.params['userEmail']}, function (err, user) {
@@ -157,7 +157,7 @@ router.get('/email/:userEmail', function (req, res, next) {
     });
 });
 
-//edit lecturer
+/* edit lecturer */
 
 router.patch('/edit/:userEmail', function (req, res, next) {
     Lecturers.findOne({email: req.params['userEmail']}, function (err, user) {

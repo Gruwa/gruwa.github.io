@@ -22,10 +22,10 @@
     <div class="login-input">
       <div class="login-input__label" *ngIf="formAdmin.get('last_name').touched
                                           && formAdmin.get('last_name').invalid
-                                          && !formAdminLessSymbolLastName()">Input more than 1 symbols
+                                          && !formAdminLessSymbolLastName()">{{'Input more than 1 symbols' | translate}}
       </div>
       <div class="login-input__label" *ngIf="formAdmin.get('last_name').dirty
-                                          && formAdminLessSymbolLastName()">Input less than 15 symbols
+                                          && formAdminLessSymbolLastName()">{{'Input less than 15 symbols' | translate}}
       </div>
       <app-project-input
         *ngIf="showRegister"
@@ -43,7 +43,7 @@
           [control]="formAdmin.get('emailGroup.email')"
           [top]="18"
           [bottom]="18"
-          [label]="'email'">
+          [label]="'Email'">
         </app-project-input>
       </div>
       <div class="login-input login-input--inut-group"
@@ -63,20 +63,20 @@
         [control]="formAdmin.get('password')"
         [top]="18"
         [bottom]="18"
-        [label]="'password'"
+        [label]="'Password'"
         [type]="'password'">
       </app-project-input>
     </div>
     <span class="login-forgot"
           (click)="this.showForgot = !this.showForgot"
-          *ngIf="!showRegister && !showForgot">Forgot password?</span>
+          *ngIf="!showRegister && !showForgot">{{'Forgot password?' | translate}}</span>
     <span class="login-forgot"
           (click)="this.showForgot = !this.showForgot"
-          *ngIf="showForgot">Has account?</span>
+          *ngIf="showForgot">{{'Has account?' | translate}}</span>
     <div class="login-btn__position"
          *ngIf="!showRegister && !showForgot">
       <app-project-button
-        [title]="'Login'"
+        [title]="'Log In'"
         [newStyle]="'login-btn'"
         (onClickEvent)="onLogin()"
         [disabled]="!formAdmin.valid">
@@ -97,7 +97,7 @@
         [disabled]="!formAdmin.valid">
       </app-project-button>
       <app-project-button
-        [title]="'Canсel'"
+        [title]="'Cancel'"
         [cancel]="true"
         [newStyle]="'login-btn'"
         (onClickEvent)="onCancel()"

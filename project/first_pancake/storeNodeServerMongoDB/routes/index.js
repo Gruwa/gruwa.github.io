@@ -9,6 +9,7 @@ var Lecturers = require('../models/lecturers');
 var _students, _admins, _lecturers;
 
 /* GET amount of users. */
+
 router.get('/chart', function(req, res, next) {
 
     Students.find({}, function (err, users) {

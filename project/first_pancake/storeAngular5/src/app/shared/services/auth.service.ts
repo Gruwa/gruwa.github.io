@@ -22,6 +22,7 @@ export class AuthService {
 
   public headers: HttpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
   public activeLink: string;
+  public checkEmail: string;
 
   constructor(public http: HttpClient,
               public localStorageService: LocalStorageService,

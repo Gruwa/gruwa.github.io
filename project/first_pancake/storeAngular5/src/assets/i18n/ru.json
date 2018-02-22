@@ -16,6 +16,7 @@
   "Email": "Емейл",
   "user ID": "юзер ID",
   "Created": "Создано",
+  "Create": "Создать",
   "Activate": "Активный",
   "Remove": "Удалить",
   "Set Password": "Установить пароль",
@@ -38,5 +39,16 @@
   "Main page": "Главная",
   "My account": "Мой аккаунт",
   "Log Out": "Выйти",
-  "Save list": "Сохранить список"
+  "Log In": "Войти",
+  "Save list": "Сохранить список",
+  "Check Your Email": "Проверить почту",
+  "Thank You for Your registration": "Спасибо за Вашу регистрацию",
+  "Input less than 15 symbols": "Введите менее 15 знаков",
+  "Input more than 1 symbols": "Введите более 1 знака",
+  "Forgot password?": "Забыли пароль?",
+  "Register": "Регистрация",
+  "Reset password": "Сбросить пароль",
+  "first name": "Имя",
+  "last name": "Фамилия",
+  "confirm email": "Подтверждение емейла"
 }

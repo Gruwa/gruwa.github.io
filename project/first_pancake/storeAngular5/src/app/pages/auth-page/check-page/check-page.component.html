@@ -1,0 +1,16 @@
+<app-project-modal [visible]="true"
+                   [closable]="true"
+                   (visibleChange)="visibleModal($event)">
+  <div class="login">
+
+    <span appProjectText>{{'Thank You for Your registration' | translate}}</span>
+
+    <div class="login-btn__position login-btn__position--reset">
+      <app-project-button
+        [title]="'Check Your Email'"
+        [newStyle]="'login-btn'"
+        (onClickEvent)="checkEmail()">
+      </app-project-button>
+    </div>
+  </div>
+</app-project-modal>
