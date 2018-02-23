@@ -23,7 +23,7 @@ export class HelloPageComponent {
    * Method for button hello Angular
    */
 
-  helloAngular() {
+  helloAngular(): void {
     this.toast.success('Hello Ang');
     if (this.localStorageService.retrieve('language') === 'ru') {
       this.localStorageService.store('language', 'en');

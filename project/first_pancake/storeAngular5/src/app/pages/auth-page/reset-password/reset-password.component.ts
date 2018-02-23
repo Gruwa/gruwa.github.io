@@ -37,7 +37,7 @@ export class ResetPasswordComponent implements OnInit {
     this.toast.setRootViewContainerRef(vcr);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     const language = this.localStorageService.retrieve('language');
     this.translate.use(language);
     this.translate.setDefaultLang(language);
@@ -56,8 +56,8 @@ export class ResetPasswordComponent implements OnInit {
    * Method for submit reset form
    */
 
-  onSubmit() {
-    const resetData = this.resetGroup.value;
+  onSubmit(): void {
+    const resetData: object = this.resetGroup.value;
     resetData['token'] = this.route.params['value']['uniq2'];
     resetData['uiid'] = this.route.params['value']['uniq'];
 
@@ -73,7 +73,7 @@ export class ResetPasswordComponent implements OnInit {
    * Method for change language
    */
 
-  changeLanguage(lang: string) {
+  changeLanguage(lang: string): void {
     this.mainService.setLanguage(lang);
   }
 

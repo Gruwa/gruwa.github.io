@@ -30,7 +30,7 @@ export class AddUserPageComponent implements OnInit {
     this.toast.setRootViewContainerRef(vcr);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.initEmailForm();
     this.initForm();
   }
@@ -39,7 +39,7 @@ export class AddUserPageComponent implements OnInit {
    * Method for cancel add user
    */
 
-  onCancel() {
+  onCancel(): void {
     this.emailGroup.reset();
     this.userGroup.reset();
     this.visible.emit(false);
@@ -49,7 +49,7 @@ export class AddUserPageComponent implements OnInit {
    * Method for init form EmailForm
    */
 
-  initEmailForm() {
+  initEmailForm(): void {
     this.emailGroup = this.fb.group({
       email: ['', [Validators.required, Validators.email]]
     });
@@ -59,7 +59,7 @@ export class AddUserPageComponent implements OnInit {
    * Method for check email
    */
 
-  onSubmitEmailCheck() {
+  onSubmitEmailCheck(): void {
     this.email = this.emailGroup.get('email').value;
     this.userService.getCheckEmail(this.email, this.tab).subscribe(
       (value) => {
@@ -111,7 +111,7 @@ export class AddUserPageComponent implements OnInit {
    * Method for submit new user
    */
 
-  onSubmit() {
+  onSubmit(): void {
     const user: any = {};
     const address: any = {};
 
@@ -133,7 +133,7 @@ export class AddUserPageComponent implements OnInit {
    * Method for save new user
    */
 
-  onSave(value: any) {
+  onSave(value: any): void {
     if (this.userActive._id) {
       this.userService.onEditUser(value, this.tab).subscribe(
         (response) => {

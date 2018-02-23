@@ -35,7 +35,7 @@ export class CheckPageComponent implements OnInit {
               public translate: TranslateService) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     const language = this.localStorageService.retrieve('language');
     this.translate.use(language);
     this.translate.setDefaultLang(language);
@@ -59,7 +59,7 @@ export class CheckPageComponent implements OnInit {
    * Method for close check modal
    */
 
-  visibleModal($event) {
+  visibleModal($event): void {
     this.router.navigate(['/auth']);
   }
 }

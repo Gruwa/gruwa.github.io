@@ -30,32 +30,16 @@ export class UserService {
   private vendor_id: string;
 
   constructor(public http: HttpClient,
-              public storage: LocalStorageService,
-              // private toast: ToastsManager
-  ) {
-  }
-
-  /**
-   * Service method for get Headers
-   */
-
-  getHeaders() {
-    const token = this.storage.retrieve('Token');
-    let headers = new HttpHeaders({'token': `${token}`});
-    headers = new HttpHeaders({'Content-Type': 'application/json'});
-
-    return headers;
+              public storage: LocalStorageService) {
   }
 
   /**
    * Service method for add new user
    */
 
-  onAddNewUser(data: any = {}, tab) {
+  onAddNewUser(data: any = {}, tab: string): Observable<object> {
     if (tabs[tab]) {
-      return this.http.post(BASEURL + `/${tabs[tab]}`, data, {
-        headers: this.getHeaders()
-      });
+      return this.http.post(BASEURL + `/${tabs[tab]}`, data);
     }
 
     this.getUsers(tab);
@@ -65,11 +49,9 @@ export class UserService {
    * Service method for get list of Student, Instructor, Admin
    */
 
-  getUsers(tab: string = 'students') {
+  getUsers(tab: string = 'students'): Observable<object> {
     if (tabs[tab]) {
-      return this.http.get(BASEURL + `/${tabs[tab]}/`, {
-        headers: this.getHeaders()
-      }).map(
+      return this.http.get(BASEURL + `/${tabs[tab]}/`).map(
         (response) => {
           this.storage.store(tab, response.toString());
           return response['users'];
@@ -78,20 +60,16 @@ export class UserService {
     }
   }
 
-  getChartUsers() {
-    return this.http.get(BASEURL + '/chart/', {
-      headers: this.getHeaders()
-    });
+  getChartUsers(): Observable<object> {
+    return this.http.get(BASEURL + '/chart/');
   }
 
   /**
    * Service method for chek email in db
    */
 
-  getCheckEmail(email: any, tab: string) {
-    return this.http.get(BASEURL + '/' + tab + '/email/' + email + '/', {
-      headers: this.getHeaders()
-    })
+  getCheckEmail(email: string, tab: string): Observable<object> {
+    return this.http.get(BASEURL + '/' + tab + '/email/' + email + '/')
       .map(
         (resp) => {
           console.log(resp['user']);
@@ -103,12 +81,9 @@ export class UserService {
    * Service method for change status of Student, Instructor, Admin
    */
 
-  onEditToggleStatusUser(data,
-                         tab: string) {
+  onEditToggleStatusUser(data: object, tab: string): Observable<object> {
     if (tabs[tab]) {
-      return this.http.post(BASEURL + `/${tabs[tab]}/status/`, data, {
-        headers: this.getHeaders()
-      });
+      return this.http.post(BASEURL + `/${tabs[tab]}/status/`, data);
     }
   }
 
@@ -116,11 +91,9 @@ export class UserService {
    * Service method for delete user
    */
 
-  onDeleteUser(user, tab) {
+  onDeleteUser(user: object, tab: string): Observable<object> {
     if (tabs[tab]) {
-      return this.http.delete(BASEURL + `/${tabs[tab]}/delete/` + user._id + '/', {
-        headers: this.getHeaders()
-      });
+      return this.http.delete(BASEURL + `/${tabs[tab]}/delete/` + user['_id'] + '/');
     }
   }
 
@@ -128,15 +101,11 @@ export class UserService {
    * Service method for edit user
    */
 
-  onEditUser(data: any = {}, tab) {
-    console.log(data);
-    const email = data.user.email;
+  onEditUser(data: any = {}, tab: string): Observable<object> {
+    const email: string = data.user.email;
     if (tabs[tab]) {
-      return this.http.patch(BASEURL + `/${tabs[tab]}` + '/edit/' + email, data, {
-        headers: this.getHeaders()
-      });
+      return this.http.patch(BASEURL + `/${tabs[tab]}` + '/edit/' + email, data);
     }
-
     this.getUsers(tab);
   }
 }

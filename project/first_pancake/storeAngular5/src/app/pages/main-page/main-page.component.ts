@@ -23,7 +23,7 @@ export class MainPageComponent implements OnInit {
     this.toast.setRootViewContainerRef(vcr);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     const language = this.localStorageService.retrieve('language');
     this.translate.use(language);
     this.translate.setDefaultLang(language);

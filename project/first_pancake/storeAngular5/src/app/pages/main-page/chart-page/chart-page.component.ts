@@ -30,7 +30,7 @@ export class ChartPageComponent implements OnInit {
     this.toast.setRootViewContainerRef(vcr);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.mainService.loader$.next(true);
     this.onGetUsers();
   }
@@ -39,7 +39,7 @@ export class ChartPageComponent implements OnInit {
    * Method for set amount of users
    */
 
-  initCharts(data: any) {
+  initCharts(data: any): void {
     this.dataSourceFirst = {
       'chart': {
         'caption': 'Users',
@@ -194,7 +194,7 @@ export class ChartPageComponent implements OnInit {
    * Method for get amount of users
    */
 
-  onGetUsers() {
+  onGetUsers(): void {
     this.userService.getChartUsers()
       .subscribe(
         (value: any) => this.initCharts(value),

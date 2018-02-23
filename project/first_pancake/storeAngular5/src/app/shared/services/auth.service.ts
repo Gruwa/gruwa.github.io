@@ -31,25 +31,12 @@ export class AuthService {
   }
 
   /**
-   * Method for get headers
-   */
-
-  getHeaders() {
-
-    let headers = {
-      'Content-Type': 'application/json'
-    };
-
-    return headers;
-  }
-
-  /**
    * Method for registration admins
    */
 
-  onRegistration(admin: any) {
+  onRegistration(admin: object) {
 
-    return this.http.post(AUTHURL, admin, {headers: this.getHeaders()}).catch(
+    return this.http.post(AUTHURL, admin).catch(
       (error) => {
         this.toast.error('Registration failed');
         return Observable.throw(error);
@@ -61,9 +48,9 @@ export class AuthService {
    * Method for login admins
    */
 
-  onLoginUser(body: any) {
+  onLoginUser(body: object): Observable<object> {
 
-    return this.http.post(AUTHURL + '/signin', body, {headers: this.getHeaders()})
+    return this.http.post(AUTHURL + '/signin', body, )
       .map(
         (response) => {
           this.localStorageService.store('token', response['token']);
@@ -83,7 +70,7 @@ export class AuthService {
    * Method for log out from system
    */
 
-  onLogOut() {
+  onLogOut(): void {
     this.localStorageService.clear('token');
     this.localStorageService.clear('activeuser');
     this.localStorageService.clear('activeUserName');
@@ -94,9 +81,8 @@ export class AuthService {
    * Method for create password for admins
    */
 
-  resetPasswordConfirm(body: any) {
-    console.log(body);
-    return this.http.post(AUTHURL + '/password', body, {headers: this.getHeaders()})
+  resetPasswordConfirm(body: object): Observable<object> {
+    return this.http.post(AUTHURL + '/password', body)
       .map(
         (response) => {
           return response;
@@ -114,8 +100,8 @@ export class AuthService {
    * Method for get new password for admins
    */
 
-  forgotPassword(body: any) {
-    return this.http.patch(AUTHURL + '/password/reset', body, {headers: this.getHeaders()})
+  forgotPassword(body: object): Observable<object> {
+    return this.http.patch(AUTHURL + '/password/reset', body)
       .map(
         (response) => {
           return response;
@@ -133,12 +119,12 @@ export class AuthService {
    * Method for check valid token
    */
 
-  validToken() {
-    const body = {
+  validToken(): Observable<object> {
+    const body: object = {
       token: this.localStorageService.retrieve('token'),
       activeUser: this.localStorageService.retrieve('activeUser')
     };
-    return this.http.post(AUTHURL, body, {headers: this.getHeaders()})
+    return this.http.post(AUTHURL, body)
       .catch(
         (error) => {
           this.toast.error('Login failed');

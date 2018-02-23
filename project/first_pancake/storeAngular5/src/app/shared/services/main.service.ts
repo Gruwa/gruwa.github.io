@@ -23,7 +23,7 @@ export class MainService {
    * Method for set language
    */
 
-  setLanguage(lang: string) {
+  setLanguage(lang: string): void {
     this.localStorageService.store('vendor_id', 'vendor_id');
     this.localStorageService.store('language', lang);
     this.translate.setDefaultLang('en');
@@ -40,7 +40,7 @@ export class MainService {
    * Method for change side bar
    */
 
-  changePositionSideBar() {
+  changePositionSideBar(): void {
     this.closeSideBar = !this.closeSideBar;
   }
 }

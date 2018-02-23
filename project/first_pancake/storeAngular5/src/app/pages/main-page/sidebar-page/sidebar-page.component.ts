@@ -21,7 +21,7 @@ export class SidebarPageComponent {
    * Method for routing
    */
 
-  onActiveLink(value: string) {
+  onActiveLink(value: string): void {
     this.authService.activeLink = value;
     this.router.navigate([value]);
   }

@@ -44,7 +44,7 @@ export class LoginPageComponent implements OnInit {
     this.toast.setRootViewContainerRef(vcr);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     const language = this.localStorageService.retrieve('language');
     this.translate.use(language);
     this.translate.setDefaultLang(language);
@@ -58,7 +58,7 @@ export class LoginPageComponent implements OnInit {
    * Method for init form formAdmin
    */
 
-  initForm() {
+  initForm(): void {
     this.formAdmin = this.fb.group({
       first_name: ['', [
         Validators.minLength(2),
@@ -88,7 +88,7 @@ export class LoginPageComponent implements OnInit {
    * Method for switch registered form
    */
 
-  onRegister() {
+  onRegister(): void {
     this.showRegister = !this.showRegister;
   }
 
@@ -96,7 +96,7 @@ export class LoginPageComponent implements OnInit {
    * Method for cancel action
    */
 
-  onCancel() {
+  onCancel(): void {
     this.router.navigate(['/main']);
   }
 
@@ -104,8 +104,8 @@ export class LoginPageComponent implements OnInit {
    * Method for save user
    */
 
-  onSave() {
-    const user: any = {
+  onSave(): void {
+    const user: object = {
       first_name: this.formAdmin.get('first_name').value,
       last_name: this.formAdmin.get('last_name').value,
       password: this.formAdmin.get('password').value,
@@ -118,7 +118,7 @@ export class LoginPageComponent implements OnInit {
         this.showRegister = false;
         this.showForgot = false;
         this.formAdmin.reset();
-        this.authService.checkEmail = user.email;
+        this.authService.checkEmail = user['email'];
         this.router.navigate(['/auth/check']);
       },
       (error) => {
@@ -131,9 +131,9 @@ export class LoginPageComponent implements OnInit {
    * Method for login user
    */
 
-  onLogin() {
+  onLogin(): void {
     this.mainService.loader$.next(true);
-    const user: any = {
+    const user: object = {
       password: this.formAdmin.get('password').value,
       email: this.formAdmin.get('emailGroup.email').value,
     };
@@ -160,7 +160,7 @@ export class LoginPageComponent implements OnInit {
    * Method for visible modal
    */
 
-  visibleModal(data: boolean) {
+  visibleModal(data: boolean): void {
     this.router.navigate(['/main']);
     this.visibleLogin = data;
   }
@@ -169,8 +169,8 @@ export class LoginPageComponent implements OnInit {
    * Method for forgot password
    */
 
-  forgotPassword() {
-    const user: any = {
+  forgotPassword(): void {
+    const user: object = {
       email: this.formAdmin.get('emailGroup.email').value,
     };
     this.authService.forgotPassword(user).subscribe();
@@ -180,7 +180,7 @@ export class LoginPageComponent implements OnInit {
    * Method for change language
    */
 
-  changeLanguage(lang: string) {
+  changeLanguage(lang: string): void {
     this.mainService.setLanguage(lang);
   }
 
@@ -188,7 +188,7 @@ export class LoginPageComponent implements OnInit {
    * Method for required field last_name
    */
 
-  formAdminLessSymbolLastName() {
+  formAdminLessSymbolLastName(): boolean {
     if (this.formAdmin.get('last_name').value != null) {
       if (this.formAdmin.get('last_name').value.length < 16) {
         return false;
@@ -196,14 +196,13 @@ export class LoginPageComponent implements OnInit {
         return true;
       }
     }
-
   }
 
   /**
    * Method for required field first_name
    */
 
-  formAdminLessSymbolFirstName() {
+  formAdminLessSymbolFirstName(): boolean {
     if (this.formAdmin.get('first_name').value != null) {
       if (this.formAdmin.get('first_name').value.length < 16) {
         return false;
@@ -211,6 +210,5 @@ export class LoginPageComponent implements OnInit {
         return true;
       }
     }
-
   }
 }

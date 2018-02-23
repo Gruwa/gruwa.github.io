@@ -23,7 +23,7 @@ export class WrapperPageComponent implements OnInit, OnDestroy, AfterViewChecked
               private changeDetector: ChangeDetectorRef) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.mainService.setLanguage('en');
     this.authService.stateLogin$.subscribe(this.stateLogin.bind(this));
     this.mainService.loader$.subscribe(event => this.loaderChange(event));
@@ -33,7 +33,7 @@ export class WrapperPageComponent implements OnInit, OnDestroy, AfterViewChecked
    * Method for change detection in loader$
    */
 
-  ngAfterViewChecked() {
+  ngAfterViewChecked(): void {
     this.changeDetector.detectChanges();
   }
 
@@ -41,7 +41,7 @@ export class WrapperPageComponent implements OnInit, OnDestroy, AfterViewChecked
    * Method for loader change
    */
 
-  loaderChange(value: boolean) {
+  loaderChange(value: boolean): void {
     this.loading = value;
   }
 
@@ -49,7 +49,7 @@ export class WrapperPageComponent implements OnInit, OnDestroy, AfterViewChecked
    * Method for control of steLogin
    */
 
-  stateLogin(eventData: boolean) {
+  stateLogin(eventData: boolean): void {
     this.visibleContent = eventData;
     this.visibleLogin = !eventData;
   }
@@ -58,7 +58,7 @@ export class WrapperPageComponent implements OnInit, OnDestroy, AfterViewChecked
    * Method for control visible
    */
 
-  visibleModal(data: boolean) {
+  visibleModal(data: boolean): void {
     this.visibleLogin = data;
   }
 
@@ -66,7 +66,7 @@ export class WrapperPageComponent implements OnInit, OnDestroy, AfterViewChecked
    * Method for clean flow
    */
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.authService.stateLogin$.unsubscribe();
     this.mainService.loader$.unsubscribe();
   }

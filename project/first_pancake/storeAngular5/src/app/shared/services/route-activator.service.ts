@@ -9,12 +9,11 @@ export class RouteActivatorService implements CanActivate {
   constructor(private router: Router,
               private localStorge: LocalStorageService,
               private mainService: MainService) {
-
   }
 
-  canActivate(route: ActivatedRouteSnapshot) {
+  canActivate(route: ActivatedRouteSnapshot): boolean {
     this.mainService.loader$.next(true);
-    let eventExists = true;
+    let eventExists: boolean = true;
 
     if (!this.localStorge.retrieve('token') || !this.localStorge.retrieve('activeUser')) {
       eventExists = false;

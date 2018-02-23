@@ -24,7 +24,7 @@ export class HeaderPageComponent {
    * Method click on button
    */
 
-  click() {
+  click(): void {
     this.router.navigate(['/main']);
   }
 
@@ -32,7 +32,7 @@ export class HeaderPageComponent {
    * Method for change language
    */
 
-  changeLanguage(lang: string) {
+  changeLanguage(lang: string): void {
     this.mainService.setLanguage(lang);
   }
 
@@ -40,7 +40,7 @@ export class HeaderPageComponent {
    * Method for close side bar
    */
 
-  closeSideBar() {
+  closeSideBar(): void {
     this.mainService.changePositionSideBar();
   }
 
@@ -48,7 +48,7 @@ export class HeaderPageComponent {
    * Method for log out from system
    */
 
-  LogOut() {
+  LogOut(): void {
     this.authService.onLogOut();
   }
 
@@ -56,7 +56,7 @@ export class HeaderPageComponent {
    * Method for log in system
    */
 
-  LogIn() {
+  LogIn(): void {
     this.router.navigate(['/auth/login']);
   }
 }

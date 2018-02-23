@@ -24,9 +24,11 @@ export class ProjectInterceptor implements HttpInterceptor {
     if (this.localStorage.retrieve('token')) {
       request = request.clone({
         setHeaders: {
-          token: this.localStorage.retrieve('token')
+          token: this.localStorage.retrieve('token'),
+          'Content-Type': 'application/json'
         }
       });
+      console.log(request);
     }
 
     return next.handle(request).do(() => {

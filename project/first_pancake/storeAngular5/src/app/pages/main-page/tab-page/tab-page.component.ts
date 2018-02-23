@@ -37,7 +37,7 @@ export class TabPageComponent implements OnInit {
     this.toast.setRootViewContainerRef(vcr);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.mainService.loader$.next(true);
     this.onGetUsers();
   }
@@ -46,7 +46,7 @@ export class TabPageComponent implements OnInit {
    * Method for get users
    */
 
-  onGetUsers() {
+  onGetUsers(): void {
     this.userService.getUsers(this.tab)
       .subscribe(
         (value: any) => {
@@ -70,7 +70,7 @@ export class TabPageComponent implements OnInit {
    * Method for visible modal
    */
 
-  onVisibleChange(modalStatus: boolean) {
+  onVisibleChange(modalStatus: boolean): void {
     this.visibleModal = modalStatus;
 
     if (!this.visibleModal) {
@@ -82,7 +82,7 @@ export class TabPageComponent implements OnInit {
    * Method for visible modal
    */
 
-  onShowModal(onShow: boolean) {
+  onShowModal(onShow: boolean): void {
     this.addUser = 'Add';
     this.visibleModal = onShow;
     this.userActive = {};
@@ -92,7 +92,7 @@ export class TabPageComponent implements OnInit {
    * Method for visible modal
    */
 
-  onShowModalEditUser(onShow: boolean, user: any) {
+  onShowModalEditUser(onShow: boolean, user: any): void {
     this.addUser = 'Edit';
     this.visibleModal = onShow;
     this.userActive = user;
@@ -102,10 +102,10 @@ export class TabPageComponent implements OnInit {
    * Method for change status of Student, Instructor, Admin
    */
 
-  toggleStudentStatus($event, userActive) {
-    const user: any = {};
-    user.active = $event.target.checked;
-    user._id = userActive._id;
+  toggleStudentStatus($event, userActive): void {
+    const user: object = {};
+    user['active'] = $event.target.checked;
+    user['_id'] = userActive._id;
     this.userService.onEditToggleStatusUser(user, this.tab)
       .subscribe(() => {
           this.toggle = true;
@@ -119,7 +119,7 @@ export class TabPageComponent implements OnInit {
    * Method for show modal of delete
    */
 
-  removeRecordShowModal($event, modalType: string, user) {
+  removeRecordShowModal($event, modalType: string, user): void {
     this.modalType = modalType;
     this.userActive = user;
 
@@ -135,7 +135,7 @@ export class TabPageComponent implements OnInit {
    * Method for show modal of delete
    */
 
-  closeModal(e?) {
+  closeModal(e?): void {
     this.showModal = false;
     this.modalType = '';
     this.modalTitle = '';
@@ -145,7 +145,7 @@ export class TabPageComponent implements OnInit {
    * Method for delete user
    */
 
-  deleteGroup(needDelete: boolean) {
+  deleteGroup(needDelete: boolean): void {
     if (needDelete) {
       this.userService.onDeleteUser(this.userActive, this.tab)
         .subscribe(() => {
@@ -160,7 +160,7 @@ export class TabPageComponent implements OnInit {
    * Method for change tabs
    */
 
-  changeTab(tab: string) {
+  changeTab(tab: string): void {
     this.tabActive = this.tab;
     this.tab = tab;
     this.titleBtn = '+ Add ' + this.tab;
@@ -172,7 +172,7 @@ export class TabPageComponent implements OnInit {
    * Method for shaping file
    */
 
-  transformData(data) {
+  transformData(data): any[] {
     return data.map(value => {
       const report = {};
       report['First Name'] = value.first_name;
@@ -189,7 +189,7 @@ export class TabPageComponent implements OnInit {
    * Method for download file
    */
 
-  downloadFile(type: string) {
+  downloadFile(type: string): void {
     const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.transformData(this.users));
     const wb: XLSX.WorkBook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
