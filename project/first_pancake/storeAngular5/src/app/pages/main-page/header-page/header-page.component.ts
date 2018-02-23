@@ -9,7 +9,7 @@ import {LocalStorageService} from 'ngx-webstorage';
   templateUrl: './header-page.component.html',
   styleUrls: ['./header-page.component.scss']
 })
-export class HeaderPageComponent implements OnInit {
+export class HeaderPageComponent {
 
   public menuFocus: boolean = false;
 
@@ -18,9 +18,6 @@ export class HeaderPageComponent implements OnInit {
               public mainService: MainService,
               public authService: AuthService,
               public localStorageService: LocalStorageService) {
-  }
-
-  ngOnInit() {
   }
 
   /**

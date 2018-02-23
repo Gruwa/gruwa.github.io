@@ -10,16 +10,13 @@ import {MainService} from '../../../shared/services/index';
   templateUrl: './hello-page.component.html',
   styleUrls: ['./hello-page.component.scss']
 })
-export class HelloPageComponent implements OnInit {
+export class HelloPageComponent {
   constructor(public toast: ToastsManager, vcr: ViewContainerRef,
               public translate: TranslateService,
               private localStorageService: LocalStorageService,
               public router: Router,
               public mainService: MainService) {
     this.toast.setRootViewContainerRef(vcr);
-  }
-
-  ngOnInit() {
   }
 
   /**

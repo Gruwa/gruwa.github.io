@@ -6,12 +6,4 @@ import {Router} from '@angular/router';
   templateUrl: './error404.component.html',
   styleUrls: ['./error404.component.scss']
 })
-export class Error404Component implements OnInit {
-
-  constructor(public router: Router) {
-  }
-
-  ngOnInit() {
-  }
-
-}
+export class Error404Component { }

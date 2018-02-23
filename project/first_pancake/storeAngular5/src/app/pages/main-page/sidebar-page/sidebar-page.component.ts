@@ -9,15 +9,12 @@ import {AuthService} from '../../../shared/services';
   templateUrl: './sidebar-page.component.html',
   styleUrls: ['./sidebar-page.component.scss']
 })
-export class SidebarPageComponent implements OnInit {
+export class SidebarPageComponent {
 
   constructor(public router: Router,
               public mainService: MainService,
               public translate: TranslateService,
               public authService: AuthService) {
-  }
-
-  ngOnInit() {
   }
 
   /**

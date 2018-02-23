@@ -24,10 +24,10 @@ export class TabPageComponent implements OnInit {
   public showModal = false;
   public modalTitle = '';
   public addUser = '';
-  public tab_active: string = '';
+  public tabActive: string = '';
   public toggle: boolean = false;
-  public title_btn: string = '+ Add students';
-  public id_user: string = 'Student ID';
+  public titleBtn: string = '+ Add students';
+  public idUser: string = 'Student ID';
 
   constructor(public userService: UserService,
               public translate: TranslateService,
@@ -55,8 +55,8 @@ export class TabPageComponent implements OnInit {
         (error) => {
           if (error.status === 403) {
             this.toast.error('Access is denied');
-            this.tab = this.tab_active;
-            this.title_btn = '+ Add ' + this.tab;
+            this.tab = this.tabActive;
+            this.titleBtn = '+ Add ' + this.tab;
             // this.search_user = 'Search ' + this.tab;
             this.onGetUsers();
           }
@@ -161,18 +161,16 @@ export class TabPageComponent implements OnInit {
    */
 
   changeTab(tab: string) {
-    this.tab_active = this.tab;
+    this.tabActive = this.tab;
     this.tab = tab;
-    this.title_btn = '+ Add ' + this.tab;
-    this.id_user = this.tab + ' ID';
+    this.titleBtn = '+ Add ' + this.tab;
+    this.idUser = this.tab + ' ID';
     this.onGetUsers();
   }
 
-  preventDefaultevent(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    e.stopImmediatePropagation();
-  }
+  /**
+   * Method for shaping file
+   */
 
   transformData(data) {
     return data.map(value => {
@@ -186,6 +184,10 @@ export class TabPageComponent implements OnInit {
       return report;
     });
   }
+
+  /**
+   * Method for download file
+   */
 
   downloadFile(type: string){
     const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.transformData(this.users));
