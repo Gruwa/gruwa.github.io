@@ -4,7 +4,7 @@ For start using command
 
 and open browser on link 
 
-`http://localhost:8000/`
+`http://localhost:4204/`
 
 
 _!!! Do not forget start NodeJs from storeNodeServerMongoDB repository_

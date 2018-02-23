@@ -110,6 +110,9 @@
                                     <a href="../components/ChartPageComponent.html" >ChartPageComponent</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../components/CheckPageComponent.html" >CheckPageComponent</a>
+                                </li>
+                                <li class="link">
                                     <a href="../components/Error404Component.html" >Error404Component</a>
                                 </li>
                                 <li class="link">
@@ -415,6 +418,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../components/ChartPageComponent.html" >ChartPageComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/CheckPageComponent.html" >CheckPageComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/Error404Component.html" >Error404Component</a>
@@ -1029,12 +1035,12 @@
         <pre class="line-numbers"><code class="language-typescript">import {Directive, ElementRef, Renderer, Renderer2} from &#x27;@angular/core&#x27;;
 
 @Directive({
-    selector: &#x27;[focusDirective]&#x27;,
-    host: {
-        &quot;(focus)&quot;: &quot;onFocus()&quot;,
-        &quot;(blur)&quot;: &quot;onBlur()&quot;,
-        &quot;tabindex&quot;: &quot;1&quot;
-    }
+  selector: &#x27;[focusDirective]&#x27;,
+  host: {
+    &#x27;(focus)&#x27;: &#x27;onFocus()&#x27;,
+    &#x27;(blur)&#x27;: &#x27;onBlur()&#x27;,
+    &#x27;tabindex&#x27;: &#x27;1&#x27;
+  }
 })
 /**
  * Focus Directive class, that adds tabindex attribute to an element
@@ -1042,46 +1048,46 @@
  * emits the events  onFocus and onBlur to add or remove &#x27;focused&#x27; class
  * Uses Renderer to set and remove class names on each of the events
  */
-export class FocusDirective{
+export class FocusDirective {
 
+  /**
+   * @param element - required to have an instance of the element
+   * @param renderer - required to use renderer methods
+   */
+  constructor(public element: ElementRef,
+              public renderer: Renderer2) {
     /**
-     * @param element - required to have an instance of the element
-     * @param renderer - required to use renderer methods
+     * Assigns a nativeElement reference of the attached element
+     * get from elementRef.nativeElement
+     * @type {Element}
      */
-    constructor(public element: ElementRef,
-                public renderer: Renderer2) {
-        /**
-         * Assigns a nativeElement reference of the attached element
-         * get from elementRef.nativeElement
-         * @type {Element}
-         */
-        this._nativeElement &#x3D; element.nativeElement;
-    }
+    this._nativeElement &#x3D; element.nativeElement;
+  }
 
-    /**
-     * Property, which is a reference to attached element
-     * @type {HTMLElement}
-     * @protected
-     */
-    protected _nativeElement: HTMLElement;
+  /**
+   * Property, which is a reference to attached element
+   * @type {HTMLElement}
+   * @protected
+   */
+  protected _nativeElement: HTMLElement;
 
-    /**
-     * Method, that is triggered on (focus) event on the attached element
-     * Adds the &#x27;focused&#x27; class to the element using Renderer
-     * @protected
-     */
-    protected onFocus(): void {
-        this.renderer.addClass(this._nativeElement, &#x27;focused&#x27;);
-    }
+  /**
+   * Method, that is triggered on (focus) event on the attached element
+   * Adds the &#x27;focused&#x27; class to the element using Renderer
+   * @protected
+   */
+  protected onFocus(): void {
+    this.renderer.addClass(this._nativeElement, &#x27;focused&#x27;);
+  }
 
-    /**
-     * Method, that is triggered on (blur) event on the attached element
-     * Removes the &#x27;focused&#x27; class to the element using Renderer
-     * @protected
-     */
-    protected onBlur(): void {
-        this.renderer.removeClass(this._nativeElement, &#x27;focused&#x27;);
-    }
+  /**
+   * Method, that is triggered on (blur) event on the attached element
+   * Removes the &#x27;focused&#x27; class to the element using Renderer
+   * @protected
+   */
+  protected onBlur(): void {
+    this.renderer.removeClass(this._nativeElement, &#x27;focused&#x27;);
+  }
 }
 
 </code></pre>

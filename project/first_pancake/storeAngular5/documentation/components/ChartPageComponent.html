@@ -110,6 +110,9 @@
                                     <a href="../components/ChartPageComponent.html"  data-type="entity-link" class="active" >ChartPageComponent</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../components/CheckPageComponent.html" >CheckPageComponent</a>
+                                </li>
+                                <li class="link">
                                     <a href="../components/Error404Component.html" >Error404Component</a>
                                 </li>
                                 <li class="link">
@@ -415,6 +418,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../components/ChartPageComponent.html"  data-type="entity-link" class="active" >ChartPageComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/CheckPageComponent.html" >CheckPageComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/Error404Component.html" >Error404Component</a>
@@ -1732,7 +1738,7 @@ export class ChartPageComponent implements OnInit {
     this.toast.setRootViewContainerRef(vcr);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.mainService.loader$.next(true);
     this.onGetUsers();
   }
@@ -1741,7 +1747,7 @@ export class ChartPageComponent implements OnInit {
    * Method for set amount of users
    */
 
-  initCharts(data: any) {
+  initCharts(data: any): void {
     this.dataSourceFirst &#x3D; {
       &#x27;chart&#x27;: {
         &#x27;caption&#x27;: &#x27;Users&#x27;,
@@ -1820,7 +1826,7 @@ export class ChartPageComponent implements OnInit {
       &#x27;chart&#x27;: {
         &#x27;caption&#x27;: &#x27;Actual Revenues, Targeted Revenues &amp; Profits&#x27;,
         &#x27;subcaption&#x27;: &#x27;Last year&#x27;,
-        &#x27;xaxisname&#x27;: &#x27;Month&#x27;,
+        &#x27;xaxisname&#x27;: &#x27;Users&#x27;,
         &#x27;yaxisname&#x27;: &#x27;Amount&#x27;,
         &#x27;numberprefix&#x27;: &#x27;&#x27;,
         &#x27;theme&#x27;: &#x27;ocean&#x27;
@@ -1896,7 +1902,7 @@ export class ChartPageComponent implements OnInit {
    * Method for get amount of users
    */
 
-  onGetUsers() {
+  onGetUsers(): void {
     this.userService.getChartUsers()
       .subscribe(
         (value: any) &#x3D;&gt; this.initCharts(value),
@@ -1982,7 +1988,7 @@ export class ChartPageComponent implements OnInit {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="chart-list">  <div class="chart-item">    <span appProjectTitleStyle>      {{title | translate}}    </span>    <fusioncharts      [id]="chartFirstId"      [width]="width"      [height]="height"      [type]="chartFirstType"      [dataFormat]="dataFormat"      [dataSource]="dataSourceFirst"    ></fusioncharts>  </div>  <div class="chart-item">    <span appProjectTitleStyle>      {{title | translate}}    </span>    <fusioncharts      [id]="chartSecondId"      [width]="width"      [height]="height"      [type]="chartSecondType"      [dataFormat]="dataFormat"      [dataSource]="dataSourceSecond"    ></fusioncharts>  </div>  <div class="chart-item">    <span appProjectTitleStyle>      {{title | translate}}    </span>    <fusioncharts      [id]="chartThirdId"      [width]="width"      [height]="height"      [type]="chartThirdType"      [dataFormat]="dataFormat"      [dataSource]="dataSourceFirst"    ></fusioncharts>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AddUserPageComponent', 'selector': 'app-add-user-page'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthPageComponent', 'selector': 'app-auth-page'},{'name': 'ChartPageComponent', 'selector': 'app-chart-page'},{'name': 'Error404Component', 'selector': 'app-error'},{'name': 'HeaderPageComponent', 'selector': 'app-header-page'},{'name': 'HelloPageComponent', 'selector': 'app-hello-page'},{'name': 'LoginPageComponent', 'selector': 'app-login-page'},{'name': 'MainPageComponent', 'selector': 'app-main-page'},{'name': 'ProjectBarComponent', 'selector': 'app-project-bar'},{'name': 'ProjectButtonComponent', 'selector': 'app-project-button'},{'name': 'ProjectCheckboxComponent', 'selector': 'app-project-checkbox'},{'name': 'ProjectCircleComponent', 'selector': 'app-project-circle'},{'name': 'ProjectDeleteComponent', 'selector': 'project-delete'},{'name': 'ProjectInputComponent', 'selector': 'app-project-input'},{'name': 'ProjectModalComponent', 'selector': 'app-project-modal'},{'name': 'ProjectSelectComponent', 'selector': 'app-project-select'},{'name': 'ProjectTextareaComponent', 'selector': 'app-project-textarea'},{'name': 'ProjectUploaderComponent', 'selector': 'app-project-uploader'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SidebarPageComponent', 'selector': 'app-sidebar-page'},{'name': 'TabPageComponent', 'selector': 'app-tab-page'},{'name': 'WrapperPageComponent', 'selector': 'app-wrapper-page'}];
+    var COMPONENTS = [{'name': 'AddUserPageComponent', 'selector': 'app-add-user-page'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthPageComponent', 'selector': 'app-auth-page'},{'name': 'ChartPageComponent', 'selector': 'app-chart-page'},{'name': 'CheckPageComponent', 'selector': 'app-check-page'},{'name': 'Error404Component', 'selector': 'app-error'},{'name': 'HeaderPageComponent', 'selector': 'app-header-page'},{'name': 'HelloPageComponent', 'selector': 'app-hello-page'},{'name': 'LoginPageComponent', 'selector': 'app-login-page'},{'name': 'MainPageComponent', 'selector': 'app-main-page'},{'name': 'ProjectBarComponent', 'selector': 'app-project-bar'},{'name': 'ProjectButtonComponent', 'selector': 'app-project-button'},{'name': 'ProjectCheckboxComponent', 'selector': 'app-project-checkbox'},{'name': 'ProjectCircleComponent', 'selector': 'app-project-circle'},{'name': 'ProjectDeleteComponent', 'selector': 'project-delete'},{'name': 'ProjectInputComponent', 'selector': 'app-project-input'},{'name': 'ProjectModalComponent', 'selector': 'app-project-modal'},{'name': 'ProjectSelectComponent', 'selector': 'app-project-select'},{'name': 'ProjectTextareaComponent', 'selector': 'app-project-textarea'},{'name': 'ProjectUploaderComponent', 'selector': 'app-project-uploader'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SidebarPageComponent', 'selector': 'app-sidebar-page'},{'name': 'TabPageComponent', 'selector': 'app-tab-page'},{'name': 'WrapperPageComponent', 'selector': 'app-wrapper-page'}];
     var DIRECTIVES = [{'name': 'FocusDirective', 'selector': '[focusDirective]'},{'name': 'ProjectListDirective', 'selector': '[appProjectListStyle]'},{'name': 'ProjectPointerDirective', 'selector': '[appProjectPointer]'},{'name': 'ProjectTextDirective', 'selector': '[appProjectText]'},{'name': 'ProjectTextEllipsisDirective', 'selector': '[appProjectTextEllipsis]'},{'name': 'ProjectTitleDirective', 'selector': '[appProjectTitleStyle]'},{'name': 'ProjectUploaderDirective', 'selector': '[formUpload]'}];
     var ACTUAL_COMPONENT = {'name': 'ChartPageComponent'};
 </script>

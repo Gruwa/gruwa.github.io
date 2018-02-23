@@ -110,6 +110,9 @@
                                     <a href="../components/ChartPageComponent.html" >ChartPageComponent</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../components/CheckPageComponent.html" >CheckPageComponent</a>
+                                </li>
+                                <li class="link">
                                     <a href="../components/Error404Component.html" >Error404Component</a>
                                 </li>
                                 <li class="link">
@@ -417,6 +420,9 @@
                                            <a href="../components/ChartPageComponent.html" >ChartPageComponent</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../components/CheckPageComponent.html" >CheckPageComponent</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../components/Error404Component.html" >Error404Component</a>
                                        </li>
                                        <li class="link">
@@ -666,12 +672,6 @@
 
 
 
-    <p class="comment">
-        <h3>Implements</h3>
-    </p>
-    <p class="comment">
-                <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
-    </p>
 
 
 <section>
@@ -751,9 +751,6 @@
                 <tr>
                     <td class="col-md-4">
                         <ul class="index-list">
-                            <li>
-                                <a href="#ngOnInit">ngOnInit</a>
-                            </li>
                             <li>
                                 <a href="#onActiveLink">onActiveLink</a>
                             </li>
@@ -855,43 +852,6 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <a name="ngOnInit"></a>
-                            <span class="name">
-                                <b>
-                                ngOnInit
-                                </b>
-                                <a href="#ngOnInit"><span class="fa fa-link"></span></a>
-                            </span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-    <code>ngOnInit()</code>
-                        </td>
-                    </tr>
-    
-    
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/pages/main-page/sidebar-page/sidebar-page.component.ts:20</a></div>
-                                </td>
-                            </tr>
-    
-                    <tr>
-                        <td class="col-md-4">
-    
-                                <div class="io-description">
-                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-    
-                                </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
                             <a name="onActiveLink"></a>
                             <span class="name">
                                 <b>
@@ -910,12 +870,14 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/pages/main-page/sidebar-page/sidebar-page.component.ts:23</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/pages/main-page/sidebar-page/sidebar-page.component.ts:24</a></div>
                                 </td>
                             </tr>
     
                     <tr>
                         <td class="col-md-4">
+                                <div class="io-description"><p>Method for routing</p>
+    </div>
     
                                 <div class="io-description">
                                         <b>Parameters :</b>
@@ -1123,7 +1085,7 @@ import {AuthService} from &#x27;../../../shared/services&#x27;;
   templateUrl: &#x27;./sidebar-page.component.html&#x27;,
   styleUrls: [&#x27;./sidebar-page.component.scss&#x27;]
 })
-export class SidebarPageComponent implements OnInit {
+export class SidebarPageComponent {
 
   constructor(public router: Router,
               public mainService: MainService,
@@ -1131,10 +1093,11 @@ export class SidebarPageComponent implements OnInit {
               public authService: AuthService) {
   }
 
-  ngOnInit() {
-  }
+  /**
+   * Method for routing
+   */
 
-  onActiveLink(value: string) {
+  onActiveLink(value: string): void {
     this.authService.activeLink &#x3D; value;
     this.router.navigate([value]);
   }
@@ -1162,7 +1125,8 @@ export class SidebarPageComponent implements OnInit {
         (click)&#x3D;&quot;onActiveLink(&#x27;/main/users&#x27;)&quot;
         [ngClass]&#x3D;&quot;{&#x27;wrapper-sidebar__item--active&#x27; : router.url &#x3D;&#x3D;&#x3D; &#x27;/main/users&#x27;}&quot;&gt;
       &lt;div [ngClass]&#x3D;&quot;{&#x27;wrapper-sidebar__icon-box&#x27; : router.url &#x3D;&#x3D;&#x3D; &#x27;/main/users&#x27;}&quot;&gt;
-        &lt;img class&#x3D;&quot;wrapper-sidebar__icon&quot; *ngIf&#x3D;&quot;router.url !&#x3D;&#x3D; &#x27;/main/users&#x27;&quot; src&#x3D;&quot;../../../../assets/img/icon/users.svg&quot;&gt;
+        &lt;img class&#x3D;&quot;wrapper-sidebar__icon&quot; *ngIf&#x3D;&quot;router.url !&#x3D;&#x3D; &#x27;/main/users&#x27;&quot;
+             src&#x3D;&quot;../../../../assets/img/icon/users.svg&quot;&gt;
         &lt;img class&#x3D;&quot;wrapper-sidebar__icon&quot; *ngIf&#x3D;&quot;router.url &#x3D;&#x3D;&#x3D; &#x27;/main/users&#x27;&quot;
              src&#x3D;&quot;../../../../assets/img/icon/users-white.svg&quot;&gt;
       &lt;/div&gt;
@@ -1174,7 +1138,8 @@ export class SidebarPageComponent implements OnInit {
         (click)&#x3D;&quot;onActiveLink(&#x27;/main/chart&#x27;)&quot;
         [ngClass]&#x3D;&quot;{&#x27;wrapper-sidebar__item--active&#x27; : router.url &#x3D;&#x3D;&#x3D; &#x27;/main/chart&#x27;}&quot;&gt;
       &lt;div [ngClass]&#x3D;&quot;{&#x27;wrapper-sidebar__icon-box&#x27; : router.url &#x3D;&#x3D;&#x3D; &#x27;/main/chart&#x27;}&quot;&gt;
-        &lt;img class&#x3D;&quot;wrapper-sidebar__icon&quot; *ngIf&#x3D;&quot;router.url !&#x3D;&#x3D; &#x27;/main/chart&#x27;&quot; src&#x3D;&quot;../../../../assets/img/icon/courses.svg&quot;&gt;
+        &lt;img class&#x3D;&quot;wrapper-sidebar__icon&quot; *ngIf&#x3D;&quot;router.url !&#x3D;&#x3D; &#x27;/main/chart&#x27;&quot;
+             src&#x3D;&quot;../../../../assets/img/icon/courses.svg&quot;&gt;
         &lt;img class&#x3D;&quot;wrapper-sidebar__icon&quot; *ngIf&#x3D;&quot;router.url &#x3D;&#x3D;&#x3D; &#x27;/main/chart&#x27;&quot;
              src&#x3D;&quot;../../../../assets/img/icon/courses-white.svg&quot;&gt;
       &lt;/div&gt;
@@ -1280,8 +1245,8 @@ export class SidebarPageComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="wrapper-sidebar" [ngClass]="{\'wrapper-sidebar--close\' : mainService.closeSideBar}">  <ul class="wrapper-sidebar__list">    <li class="wrapper-sidebar__item"        [ngClass]="{\'wrapper-sidebar__item--active\' : router.url === \'/main\'}"        [routerLink]="[\'/main\']">      <div [ngClass]="{\'wrapper-sidebar__icon-box\' : router.url === \'/main\'}">        <img class="wrapper-sidebar__icon" *ngIf="router.url !== \'/main\'" src="../../../../assets/img/icon/forms.svg">        <img class="wrapper-sidebar__icon" *ngIf="router.url === \'/main\'"             src="../../../../assets/img/icon/forms-white.svg">      </div>      <div class="wrapper-sidebar__description"           [ngClass]="{\'wrapper-sidebar__description--active\' : router.url === \'/main\'}">{{\'Dashboard\' | translate}}      </div>    </li>    <li class="wrapper-sidebar__item"        (click)="onActiveLink(\'/main/users\')"        [ngClass]="{\'wrapper-sidebar__item--active\' : router.url === \'/main/users\'}">      <div [ngClass]="{\'wrapper-sidebar__icon-box\' : router.url === \'/main/users\'}">        <img class="wrapper-sidebar__icon" *ngIf="router.url !== \'/main/users\'" src="../../../../assets/img/icon/users.svg">        <img class="wrapper-sidebar__icon" *ngIf="router.url === \'/main/users\'"             src="../../../../assets/img/icon/users-white.svg">      </div>      <div class="wrapper-sidebar__description"           [ngClass]="{\'wrapper-sidebar__description--active\' : router.url === \'/main/users\'}">{{\'Users\' | translate}}      </div>    </li>    <li class="wrapper-sidebar__item"        (click)="onActiveLink(\'/main/chart\')"        [ngClass]="{\'wrapper-sidebar__item--active\' : router.url === \'/main/chart\'}">      <div [ngClass]="{\'wrapper-sidebar__icon-box\' : router.url === \'/main/chart\'}">        <img class="wrapper-sidebar__icon" *ngIf="router.url !== \'/main/chart\'" src="../../../../assets/img/icon/courses.svg">        <img class="wrapper-sidebar__icon" *ngIf="router.url === \'/main/chart\'"             src="../../../../assets/img/icon/courses-white.svg">      </div>      <div class="wrapper-sidebar__description"           [ngClass]="{\'wrapper-sidebar__description--active\' : router.url === \'/main/chart\'}">{{\'Charts\' | translate}}      </div>    </li>    <li class="wrapper-sidebar__item"        [routerLink]="[\'/main/message\']"        [ngClass]="{\'wrapper-sidebar__item--active\' : router.url === \'/main/message\'}">      <div [ngClass]="{\'wrapper-sidebar__icon-box\' : router.url === \'/main/message\'}">        <img class="wrapper-sidebar__icon" *ngIf="router.url !== \'/main/message\'"             src="../../../../assets/img/icon/messages.svg">        <img class="wrapper-sidebar__icon" *ngIf="router.url === \'/main/message\'"             src="../../../../assets/img/icon/messages-white.svg">      </div>      <div class="wrapper-sidebar__description"           [ngClass]="{\'wrapper-sidebar__description--active\' : router.url === \'/main/message\'}">{{\'Messages\' |        translate}}      </div>    </li>    <li class="wrapper-sidebar__item"        [routerLink]="[\'/main/message\']"        [ngClass]="{\'wrapper-sidebar__item--active\' : router.url === \'/main/message\'}">      <div [ngClass]="{\'wrapper-sidebar__icon-box\' : router.url === \'/main/message\'}">        <img class="wrapper-sidebar__icon" *ngIf="router.url !== \'/main/message\'"             src="../../../../assets/img/icon/messages.svg">        <img class="wrapper-sidebar__icon" *ngIf="router.url === \'/main/message\'"             src="../../../../assets/img/icon/messages-white.svg">      </div>      <div class="wrapper-sidebar__description"           [ngClass]="{\'wrapper-sidebar__description--active\' : router.url === \'/main/message\'}">{{\'Messages\' |        translate}}      </div>    </li>    <li class="wrapper-sidebar__item"        [routerLink]="[\'/main/message\']"        [ngClass]="{\'wrapper-sidebar__item--active\' : router.url === \'/main/message\'}">      <div [ngClass]="{\'wrapper-sidebar__icon-box\' : router.url === \'/main/message\'}">        <img class="wrapper-sidebar__icon" *ngIf="router.url !== \'/main/message\'"             src="../../../../assets/img/icon/messages.svg">        <img class="wrapper-sidebar__icon" *ngIf="router.url === \'/main/message\'"             src="../../../../assets/img/icon/messages-white.svg">      </div>      <div class="wrapper-sidebar__description"           [ngClass]="{\'wrapper-sidebar__description--active\' : router.url === \'/main/message\'}">{{\'Messages\' |        translate}}      </div>    </li>    <li class="wrapper-sidebar__item"        [routerLink]="[\'/main/message\']"        [ngClass]="{\'wrapper-sidebar__item--active\' : router.url === \'/main/message\'}">      <div [ngClass]="{\'wrapper-sidebar__icon-box\' : router.url === \'/main/message\'}">        <img class="wrapper-sidebar__icon" *ngIf="router.url !== \'/main/message\'"             src="../../../../assets/img/icon/messages.svg">        <img class="wrapper-sidebar__icon" *ngIf="router.url === \'/main/message\'"             src="../../../../assets/img/icon/messages-white.svg">      </div>      <div class="wrapper-sidebar__description"           [ngClass]="{\'wrapper-sidebar__description--active\' : router.url === \'/main/message\'}">{{\'Messages\' |        translate}}      </div>    </li>    <li class="wrapper-sidebar__item"        [routerLink]="[\'/main/message\']"        [ngClass]="{\'wrapper-sidebar__item--active\' : router.url === \'/main/message\'}">      <div [ngClass]="{\'wrapper-sidebar__icon-box\' : router.url === \'/main/message\'}">        <img class="wrapper-sidebar__icon" *ngIf="router.url !== \'/main/message\'"             src="../../../../assets/img/icon/messages.svg">        <img class="wrapper-sidebar__icon" *ngIf="router.url === \'/main/message\'"             src="../../../../assets/img/icon/messages-white.svg">      </div>      <div class="wrapper-sidebar__description"           [ngClass]="{\'wrapper-sidebar__description--active\' : router.url === \'/main/message\'}">{{\'Messages\' |        translate}}      </div>    </li>  </ul></div></div>'
-    var COMPONENTS = [{'name': 'AddUserPageComponent', 'selector': 'app-add-user-page'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthPageComponent', 'selector': 'app-auth-page'},{'name': 'ChartPageComponent', 'selector': 'app-chart-page'},{'name': 'Error404Component', 'selector': 'app-error'},{'name': 'HeaderPageComponent', 'selector': 'app-header-page'},{'name': 'HelloPageComponent', 'selector': 'app-hello-page'},{'name': 'LoginPageComponent', 'selector': 'app-login-page'},{'name': 'MainPageComponent', 'selector': 'app-main-page'},{'name': 'ProjectBarComponent', 'selector': 'app-project-bar'},{'name': 'ProjectButtonComponent', 'selector': 'app-project-button'},{'name': 'ProjectCheckboxComponent', 'selector': 'app-project-checkbox'},{'name': 'ProjectCircleComponent', 'selector': 'app-project-circle'},{'name': 'ProjectDeleteComponent', 'selector': 'project-delete'},{'name': 'ProjectInputComponent', 'selector': 'app-project-input'},{'name': 'ProjectModalComponent', 'selector': 'app-project-modal'},{'name': 'ProjectSelectComponent', 'selector': 'app-project-select'},{'name': 'ProjectTextareaComponent', 'selector': 'app-project-textarea'},{'name': 'ProjectUploaderComponent', 'selector': 'app-project-uploader'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SidebarPageComponent', 'selector': 'app-sidebar-page'},{'name': 'TabPageComponent', 'selector': 'app-tab-page'},{'name': 'WrapperPageComponent', 'selector': 'app-wrapper-page'}];
+        var COMPONENT_TEMPLATE = '<div><div class="wrapper-sidebar" [ngClass]="{\'wrapper-sidebar--close\' : mainService.closeSideBar}">  <ul class="wrapper-sidebar__list">    <li class="wrapper-sidebar__item"        [ngClass]="{\'wrapper-sidebar__item--active\' : router.url === \'/main\'}"        [routerLink]="[\'/main\']">      <div [ngClass]="{\'wrapper-sidebar__icon-box\' : router.url === \'/main\'}">        <img class="wrapper-sidebar__icon" *ngIf="router.url !== \'/main\'" src="../../../../assets/img/icon/forms.svg">        <img class="wrapper-sidebar__icon" *ngIf="router.url === \'/main\'"             src="../../../../assets/img/icon/forms-white.svg">      </div>      <div class="wrapper-sidebar__description"           [ngClass]="{\'wrapper-sidebar__description--active\' : router.url === \'/main\'}">{{\'Dashboard\' | translate}}      </div>    </li>    <li class="wrapper-sidebar__item"        (click)="onActiveLink(\'/main/users\')"        [ngClass]="{\'wrapper-sidebar__item--active\' : router.url === \'/main/users\'}">      <div [ngClass]="{\'wrapper-sidebar__icon-box\' : router.url === \'/main/users\'}">        <img class="wrapper-sidebar__icon" *ngIf="router.url !== \'/main/users\'"             src="../../../../assets/img/icon/users.svg">        <img class="wrapper-sidebar__icon" *ngIf="router.url === \'/main/users\'"             src="../../../../assets/img/icon/users-white.svg">      </div>      <div class="wrapper-sidebar__description"           [ngClass]="{\'wrapper-sidebar__description--active\' : router.url === \'/main/users\'}">{{\'Users\' | translate}}      </div>    </li>    <li class="wrapper-sidebar__item"        (click)="onActiveLink(\'/main/chart\')"        [ngClass]="{\'wrapper-sidebar__item--active\' : router.url === \'/main/chart\'}">      <div [ngClass]="{\'wrapper-sidebar__icon-box\' : router.url === \'/main/chart\'}">        <img class="wrapper-sidebar__icon" *ngIf="router.url !== \'/main/chart\'"             src="../../../../assets/img/icon/courses.svg">        <img class="wrapper-sidebar__icon" *ngIf="router.url === \'/main/chart\'"             src="../../../../assets/img/icon/courses-white.svg">      </div>      <div class="wrapper-sidebar__description"           [ngClass]="{\'wrapper-sidebar__description--active\' : router.url === \'/main/chart\'}">{{\'Charts\' | translate}}      </div>    </li>    <li class="wrapper-sidebar__item"        [routerLink]="[\'/main/message\']"        [ngClass]="{\'wrapper-sidebar__item--active\' : router.url === \'/main/message\'}">      <div [ngClass]="{\'wrapper-sidebar__icon-box\' : router.url === \'/main/message\'}">        <img class="wrapper-sidebar__icon" *ngIf="router.url !== \'/main/message\'"             src="../../../../assets/img/icon/messages.svg">        <img class="wrapper-sidebar__icon" *ngIf="router.url === \'/main/message\'"             src="../../../../assets/img/icon/messages-white.svg">      </div>      <div class="wrapper-sidebar__description"           [ngClass]="{\'wrapper-sidebar__description--active\' : router.url === \'/main/message\'}">{{\'Messages\' |        translate}}      </div>    </li>    <li class="wrapper-sidebar__item"        [routerLink]="[\'/main/message\']"        [ngClass]="{\'wrapper-sidebar__item--active\' : router.url === \'/main/message\'}">      <div [ngClass]="{\'wrapper-sidebar__icon-box\' : router.url === \'/main/message\'}">        <img class="wrapper-sidebar__icon" *ngIf="router.url !== \'/main/message\'"             src="../../../../assets/img/icon/messages.svg">        <img class="wrapper-sidebar__icon" *ngIf="router.url === \'/main/message\'"             src="../../../../assets/img/icon/messages-white.svg">      </div>      <div class="wrapper-sidebar__description"           [ngClass]="{\'wrapper-sidebar__description--active\' : router.url === \'/main/message\'}">{{\'Messages\' |        translate}}      </div>    </li>    <li class="wrapper-sidebar__item"        [routerLink]="[\'/main/message\']"        [ngClass]="{\'wrapper-sidebar__item--active\' : router.url === \'/main/message\'}">      <div [ngClass]="{\'wrapper-sidebar__icon-box\' : router.url === \'/main/message\'}">        <img class="wrapper-sidebar__icon" *ngIf="router.url !== \'/main/message\'"             src="../../../../assets/img/icon/messages.svg">        <img class="wrapper-sidebar__icon" *ngIf="router.url === \'/main/message\'"             src="../../../../assets/img/icon/messages-white.svg">      </div>      <div class="wrapper-sidebar__description"           [ngClass]="{\'wrapper-sidebar__description--active\' : router.url === \'/main/message\'}">{{\'Messages\' |        translate}}      </div>    </li>    <li class="wrapper-sidebar__item"        [routerLink]="[\'/main/message\']"        [ngClass]="{\'wrapper-sidebar__item--active\' : router.url === \'/main/message\'}">      <div [ngClass]="{\'wrapper-sidebar__icon-box\' : router.url === \'/main/message\'}">        <img class="wrapper-sidebar__icon" *ngIf="router.url !== \'/main/message\'"             src="../../../../assets/img/icon/messages.svg">        <img class="wrapper-sidebar__icon" *ngIf="router.url === \'/main/message\'"             src="../../../../assets/img/icon/messages-white.svg">      </div>      <div class="wrapper-sidebar__description"           [ngClass]="{\'wrapper-sidebar__description--active\' : router.url === \'/main/message\'}">{{\'Messages\' |        translate}}      </div>    </li>    <li class="wrapper-sidebar__item"        [routerLink]="[\'/main/message\']"        [ngClass]="{\'wrapper-sidebar__item--active\' : router.url === \'/main/message\'}">      <div [ngClass]="{\'wrapper-sidebar__icon-box\' : router.url === \'/main/message\'}">        <img class="wrapper-sidebar__icon" *ngIf="router.url !== \'/main/message\'"             src="../../../../assets/img/icon/messages.svg">        <img class="wrapper-sidebar__icon" *ngIf="router.url === \'/main/message\'"             src="../../../../assets/img/icon/messages-white.svg">      </div>      <div class="wrapper-sidebar__description"           [ngClass]="{\'wrapper-sidebar__description--active\' : router.url === \'/main/message\'}">{{\'Messages\' |        translate}}      </div>    </li>  </ul></div></div>'
+    var COMPONENTS = [{'name': 'AddUserPageComponent', 'selector': 'app-add-user-page'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthPageComponent', 'selector': 'app-auth-page'},{'name': 'ChartPageComponent', 'selector': 'app-chart-page'},{'name': 'CheckPageComponent', 'selector': 'app-check-page'},{'name': 'Error404Component', 'selector': 'app-error'},{'name': 'HeaderPageComponent', 'selector': 'app-header-page'},{'name': 'HelloPageComponent', 'selector': 'app-hello-page'},{'name': 'LoginPageComponent', 'selector': 'app-login-page'},{'name': 'MainPageComponent', 'selector': 'app-main-page'},{'name': 'ProjectBarComponent', 'selector': 'app-project-bar'},{'name': 'ProjectButtonComponent', 'selector': 'app-project-button'},{'name': 'ProjectCheckboxComponent', 'selector': 'app-project-checkbox'},{'name': 'ProjectCircleComponent', 'selector': 'app-project-circle'},{'name': 'ProjectDeleteComponent', 'selector': 'project-delete'},{'name': 'ProjectInputComponent', 'selector': 'app-project-input'},{'name': 'ProjectModalComponent', 'selector': 'app-project-modal'},{'name': 'ProjectSelectComponent', 'selector': 'app-project-select'},{'name': 'ProjectTextareaComponent', 'selector': 'app-project-textarea'},{'name': 'ProjectUploaderComponent', 'selector': 'app-project-uploader'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SidebarPageComponent', 'selector': 'app-sidebar-page'},{'name': 'TabPageComponent', 'selector': 'app-tab-page'},{'name': 'WrapperPageComponent', 'selector': 'app-wrapper-page'}];
     var DIRECTIVES = [{'name': 'FocusDirective', 'selector': '[focusDirective]'},{'name': 'ProjectListDirective', 'selector': '[appProjectListStyle]'},{'name': 'ProjectPointerDirective', 'selector': '[appProjectPointer]'},{'name': 'ProjectTextDirective', 'selector': '[appProjectText]'},{'name': 'ProjectTextEllipsisDirective', 'selector': '[appProjectTextEllipsis]'},{'name': 'ProjectTitleDirective', 'selector': '[appProjectTitleStyle]'},{'name': 'ProjectUploaderDirective', 'selector': '[formUpload]'}];
     var ACTUAL_COMPONENT = {'name': 'SidebarPageComponent'};
 </script>

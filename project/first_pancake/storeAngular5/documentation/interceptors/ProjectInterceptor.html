@@ -110,6 +110,9 @@
                                     <a href="../components/ChartPageComponent.html" >ChartPageComponent</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../components/CheckPageComponent.html" >CheckPageComponent</a>
+                                </li>
+                                <li class="link">
                                     <a href="../components/Error404Component.html" >Error404Component</a>
                                 </li>
                                 <li class="link">
@@ -415,6 +418,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../components/ChartPageComponent.html" >ChartPageComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/CheckPageComponent.html" >CheckPageComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/Error404Component.html" >Error404Component</a>
@@ -964,16 +970,18 @@ export class ProjectInterceptor implements HttpInterceptor {
               public localStorage: LocalStorageService,
               private toast: ToastsManager) {
 
-}
+  }
 
   intercept(request: HttpRequest&lt;any&gt;, next: HttpHandler): Observable&lt;HttpEvent&lt;any&gt;&gt; {
 
     if (this.localStorage.retrieve(&#x27;token&#x27;)) {
       request &#x3D; request.clone({
         setHeaders: {
-          token: this.localStorage.retrieve(&#x27;token&#x27;)
+          token: this.localStorage.retrieve(&#x27;token&#x27;),
+          &#x27;Content-Type&#x27;: &#x27;application/json&#x27;
         }
       });
+      console.log(request);
     }
 
     return next.handle(request).do(() &#x3D;&gt; {
@@ -982,6 +990,7 @@ export class ProjectInterceptor implements HttpInterceptor {
         if (err instanceof HttpErrorResponse) {
           if (err.status &#x3D;&#x3D;&#x3D; 404) {
             this.toast.error(&#x27;Bad request!&#x27;, &#x27;Error 404&#x27;);
+            this.router.navigate([&#x27;/404&#x27;]);
           }
           if (err.status &#x3D;&#x3D;&#x3D; 401) {
             this.toast.error(&#x27;Bad request!&#x27;, &#x27;Error 401&#x27;);

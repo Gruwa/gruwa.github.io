@@ -110,6 +110,9 @@
                                     <a href="../components/ChartPageComponent.html" >ChartPageComponent</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../components/CheckPageComponent.html" >CheckPageComponent</a>
+                                </li>
+                                <li class="link">
                                     <a href="../components/Error404Component.html" >Error404Component</a>
                                 </li>
                                 <li class="link">
@@ -415,6 +418,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../components/ChartPageComponent.html" >ChartPageComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/CheckPageComponent.html" >CheckPageComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/Error404Component.html" >Error404Component</a>
@@ -780,7 +786,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/shared/services/route-activator.service.ts:15</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/shared/services/route-activator.service.ts:14</a></div>
                                         </td>
                                     </tr>
             
@@ -847,12 +853,11 @@ export class RouteActivatorService implements CanActivate {
   constructor(private router: Router,
               private localStorge: LocalStorageService,
               private mainService: MainService) {
-
   }
 
-  canActivate(route: ActivatedRouteSnapshot) {
+  canActivate(route: ActivatedRouteSnapshot): boolean {
     this.mainService.loader$.next(true);
-    let eventExists &#x3D; true;
+    let eventExists: boolean &#x3D; true;
 
     if (!this.localStorge.retrieve(&#x27;token&#x27;) || !this.localStorge.retrieve(&#x27;activeUser&#x27;)) {
       eventExists &#x3D; false;

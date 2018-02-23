@@ -110,6 +110,9 @@
                                     <a href="../components/ChartPageComponent.html" >ChartPageComponent</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../components/CheckPageComponent.html" >CheckPageComponent</a>
+                                </li>
+                                <li class="link">
                                     <a href="../components/Error404Component.html" >Error404Component</a>
                                 </li>
                                 <li class="link">
@@ -415,6 +418,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../components/ChartPageComponent.html" >ChartPageComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/CheckPageComponent.html" >CheckPageComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/Error404Component.html" >Error404Component</a>
@@ -909,12 +915,14 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/pages/wrapper-page/wrapper-page.component.ts:42</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/pages/wrapper-page/wrapper-page.component.ts:44</a></div>
                                 </td>
                             </tr>
     
                     <tr>
                         <td class="col-md-4">
+                                <div class="io-description"><p>Method for loader change</p>
+    </div>
     
                                 <div class="io-description">
                                         <b>Parameters :</b>
@@ -980,12 +988,14 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/pages/wrapper-page/wrapper-page.component.ts:38</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/pages/wrapper-page/wrapper-page.component.ts:36</a></div>
                                 </td>
                             </tr>
     
                     <tr>
                         <td class="col-md-4">
+                                <div class="io-description"><p>Method for change detection in loader$</p>
+    </div>
     
                                 <div class="io-description">
                                     <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -1017,12 +1027,14 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/pages/wrapper-page/wrapper-page.component.ts:55</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/app/pages/wrapper-page/wrapper-page.component.ts:69</a></div>
                                 </td>
                             </tr>
     
                     <tr>
                         <td class="col-md-4">
+                                <div class="io-description"><p>Method for clean flow</p>
+    </div>
     
                                 <div class="io-description">
                                     <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -1091,12 +1103,14 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/pages/wrapper-page/wrapper-page.component.ts:46</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/pages/wrapper-page/wrapper-page.component.ts:52</a></div>
                                 </td>
                             </tr>
     
                     <tr>
                         <td class="col-md-4">
+                                <div class="io-description"><p>Method for control of steLogin</p>
+    </div>
     
                                 <div class="io-description">
                                         <b>Parameters :</b>
@@ -1162,12 +1176,14 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/pages/wrapper-page/wrapper-page.component.ts:51</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/app/pages/wrapper-page/wrapper-page.component.ts:61</a></div>
                                 </td>
                             </tr>
     
                     <tr>
                         <td class="col-md-4">
+                                <div class="io-description"><p>Method for control visible</p>
+    </div>
     
                                 <div class="io-description">
                                         <b>Parameters :</b>
@@ -1514,36 +1530,50 @@ export class WrapperPageComponent implements OnInit, OnDestroy, AfterViewChecked
               private changeDetector: ChangeDetectorRef) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.mainService.setLanguage(&#x27;en&#x27;);
     this.authService.stateLogin$.subscribe(this.stateLogin.bind(this));
     this.mainService.loader$.subscribe(event &#x3D;&gt; this.loaderChange(event));
-    // this.authService.validToken().subscribe(
-    //   (res) &#x3D;&gt; {
-    //     this.authService.stateLogin$.next({
-    //       eventType: false
-    //     });
-    //   });
   }
 
-  ngAfterViewChecked(){
+  /**
+   * Method for change detection in loader$
+   */
+
+  ngAfterViewChecked(): void {
     this.changeDetector.detectChanges();
   }
 
-  loaderChange(value: boolean) {
+  /**
+   * Method for loader change
+   */
+
+  loaderChange(value: boolean): void {
     this.loading &#x3D; value;
   }
 
-  stateLogin(eventData: boolean) {
+  /**
+   * Method for control of steLogin
+   */
+
+  stateLogin(eventData: boolean): void {
     this.visibleContent &#x3D; eventData;
     this.visibleLogin &#x3D; !eventData;
   }
 
-  visibleModal(data: boolean) {
+  /**
+   * Method for control visible
+   */
+
+  visibleModal(data: boolean): void {
     this.visibleLogin &#x3D; data;
   }
 
-  ngOnDestroy() {
+  /**
+   * Method for clean flow
+   */
+
+  ngOnDestroy(): void {
     this.authService.stateLogin$.unsubscribe();
     this.mainService.loader$.unsubscribe();
   }
@@ -1554,25 +1584,6 @@ export class WrapperPageComponent implements OnInit, OnDestroy, AfterViewChecked
 
     <div class="tab-pane fade" id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;router-outlet&gt;
-  &lt;!--&lt;div class&#x3D;&quot;wrapper-page&quot; *ngIf&#x3D;&quot;router.url !&#x3D;&#x3D; &#x27;/404&#x27; &amp;&amp; router.url !&#x3D;&#x3D; &#x27;/auth/login&#x27;&quot;&gt;--&gt;
-    &lt;!--&lt;div class&#x3D;&quot;wrapper-header&quot;&gt;--&gt;
-      &lt;!--&lt;app-header-page&gt;&lt;/app-header-page&gt;--&gt;
-    &lt;!--&lt;/div&gt;--&gt;
-    &lt;!--&lt;div class&#x3D;&quot;wrapper-main&quot;&gt;--&gt;
-      &lt;!--&lt;app-sidebar-page&gt;&lt;/app-sidebar-page&gt;--&gt;
-
-      &lt;!--&lt;div class&#x3D;&quot;wrapper-content&quot; [ngClass]&#x3D;&quot;{&#x27;wrapper-content&amp;#45;&amp;#45;close&#x27; : mainService.closeSideBar}&quot;&gt;--&gt;
-        &lt;!--&amp;lt;!&amp;ndash;&lt;div class&#x3D;&quot;wrapper-line-top&quot;&gt;&lt;/div&gt;&amp;ndash;&amp;gt;--&gt;
-        &lt;!--&amp;lt;!&amp;ndash;&lt;router-outlet&gt;&lt;/router-outlet&gt;&amp;ndash;&amp;gt;--&gt;
-        &lt;!--&lt;app-hello-page *ngIf&#x3D;&quot;router.url &#x3D;&#x3D;&#x3D; &#x27;/main&#x27;&quot;&gt;&lt;/app-hello-page&gt;--&gt;
-        &lt;!--&lt;app-form-page *ngIf&#x3D;&quot;router.url &#x3D;&#x3D;&#x3D; &#x27;/main/form&#x27;&quot;&gt;&lt;/app-form-page&gt;--&gt;
-        &lt;!--&lt;app-tab-page *ngIf&#x3D;&quot;router.url &#x3D;&#x3D;&#x3D; &#x27;/main/users&#x27;&quot;&gt;&lt;/app-tab-page&gt;--&gt;
-      &lt;!--&lt;/div&gt;--&gt;
-    &lt;!--&lt;/div&gt;--&gt;
-  &lt;!--&lt;/div&gt;--&gt;
-
-  &lt;!--&lt;app-error *ngIf&#x3D;&quot;router.url &#x3D;&#x3D;&#x3D; &#x27;/404&#x27;&quot;&gt;&lt;/app-error&gt;--&gt;
-
   &lt;ngx-loading [show]&#x3D;&quot;loading&quot; [config]&#x3D;&quot;{ backdropBorderRadius: &#x27;14px&#x27; }&quot;&gt;&lt;/ngx-loading&gt;
 &lt;/router-outlet&gt;
 </code></pre>
@@ -1601,8 +1612,8 @@ export class WrapperPageComponent implements OnInit, OnDestroy, AfterViewChecked
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><router-outlet>  <!--<div class="wrapper-page" *ngIf="router.url !== \'/404\' && router.url !== \'/auth/login\'">-->    <!--<div class="wrapper-header">-->      <!--<app-header-page></app-header-page>-->    <!--</div>-->    <!--<div class="wrapper-main">-->      <!--<app-sidebar-page></app-sidebar-page>-->      <!--<div class="wrapper-content" [ngClass]="{\'wrapper-content&#45;&#45;close\' : mainService.closeSideBar}">-->        <!--&lt;!&ndash;<div class="wrapper-line-top"></div>&ndash;&gt;-->        <!--&lt;!&ndash;<router-outlet></router-outlet>&ndash;&gt;-->        <!--<app-hello-page *ngIf="router.url === \'/main\'"></app-hello-page>-->        <!--<app-form-page *ngIf="router.url === \'/main/form\'"></app-form-page>-->        <!--<app-tab-page *ngIf="router.url === \'/main/users\'"></app-tab-page>-->      <!--</div>-->    <!--</div>-->  <!--</div>-->  <!--<app-error *ngIf="router.url === \'/404\'"></app-error>-->  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: \'14px\' }"></ngx-loading></router-outlet></div>'
-    var COMPONENTS = [{'name': 'AddUserPageComponent', 'selector': 'app-add-user-page'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthPageComponent', 'selector': 'app-auth-page'},{'name': 'ChartPageComponent', 'selector': 'app-chart-page'},{'name': 'Error404Component', 'selector': 'app-error'},{'name': 'HeaderPageComponent', 'selector': 'app-header-page'},{'name': 'HelloPageComponent', 'selector': 'app-hello-page'},{'name': 'LoginPageComponent', 'selector': 'app-login-page'},{'name': 'MainPageComponent', 'selector': 'app-main-page'},{'name': 'ProjectBarComponent', 'selector': 'app-project-bar'},{'name': 'ProjectButtonComponent', 'selector': 'app-project-button'},{'name': 'ProjectCheckboxComponent', 'selector': 'app-project-checkbox'},{'name': 'ProjectCircleComponent', 'selector': 'app-project-circle'},{'name': 'ProjectDeleteComponent', 'selector': 'project-delete'},{'name': 'ProjectInputComponent', 'selector': 'app-project-input'},{'name': 'ProjectModalComponent', 'selector': 'app-project-modal'},{'name': 'ProjectSelectComponent', 'selector': 'app-project-select'},{'name': 'ProjectTextareaComponent', 'selector': 'app-project-textarea'},{'name': 'ProjectUploaderComponent', 'selector': 'app-project-uploader'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SidebarPageComponent', 'selector': 'app-sidebar-page'},{'name': 'TabPageComponent', 'selector': 'app-tab-page'},{'name': 'WrapperPageComponent', 'selector': 'app-wrapper-page'}];
+        var COMPONENT_TEMPLATE = '<div><router-outlet>  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: \'14px\' }"></ngx-loading></router-outlet></div>'
+    var COMPONENTS = [{'name': 'AddUserPageComponent', 'selector': 'app-add-user-page'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthPageComponent', 'selector': 'app-auth-page'},{'name': 'ChartPageComponent', 'selector': 'app-chart-page'},{'name': 'CheckPageComponent', 'selector': 'app-check-page'},{'name': 'Error404Component', 'selector': 'app-error'},{'name': 'HeaderPageComponent', 'selector': 'app-header-page'},{'name': 'HelloPageComponent', 'selector': 'app-hello-page'},{'name': 'LoginPageComponent', 'selector': 'app-login-page'},{'name': 'MainPageComponent', 'selector': 'app-main-page'},{'name': 'ProjectBarComponent', 'selector': 'app-project-bar'},{'name': 'ProjectButtonComponent', 'selector': 'app-project-button'},{'name': 'ProjectCheckboxComponent', 'selector': 'app-project-checkbox'},{'name': 'ProjectCircleComponent', 'selector': 'app-project-circle'},{'name': 'ProjectDeleteComponent', 'selector': 'project-delete'},{'name': 'ProjectInputComponent', 'selector': 'app-project-input'},{'name': 'ProjectModalComponent', 'selector': 'app-project-modal'},{'name': 'ProjectSelectComponent', 'selector': 'app-project-select'},{'name': 'ProjectTextareaComponent', 'selector': 'app-project-textarea'},{'name': 'ProjectUploaderComponent', 'selector': 'app-project-uploader'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SidebarPageComponent', 'selector': 'app-sidebar-page'},{'name': 'TabPageComponent', 'selector': 'app-tab-page'},{'name': 'WrapperPageComponent', 'selector': 'app-wrapper-page'}];
     var DIRECTIVES = [{'name': 'FocusDirective', 'selector': '[focusDirective]'},{'name': 'ProjectListDirective', 'selector': '[appProjectListStyle]'},{'name': 'ProjectPointerDirective', 'selector': '[appProjectPointer]'},{'name': 'ProjectTextDirective', 'selector': '[appProjectText]'},{'name': 'ProjectTextEllipsisDirective', 'selector': '[appProjectTextEllipsis]'},{'name': 'ProjectTitleDirective', 'selector': '[appProjectTitleStyle]'},{'name': 'ProjectUploaderDirective', 'selector': '[formUpload]'}];
     var ACTUAL_COMPONENT = {'name': 'WrapperPageComponent'};
 </script>

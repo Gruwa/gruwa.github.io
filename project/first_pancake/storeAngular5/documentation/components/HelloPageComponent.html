@@ -110,6 +110,9 @@
                                     <a href="../components/ChartPageComponent.html" >ChartPageComponent</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../components/CheckPageComponent.html" >CheckPageComponent</a>
+                                </li>
+                                <li class="link">
                                     <a href="../components/Error404Component.html" >Error404Component</a>
                                 </li>
                                 <li class="link">
@@ -417,6 +420,9 @@
                                            <a href="../components/ChartPageComponent.html" >ChartPageComponent</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../components/CheckPageComponent.html" >CheckPageComponent</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../components/Error404Component.html" >Error404Component</a>
                                        </li>
                                        <li class="link">
@@ -666,12 +672,6 @@
 
 
 
-    <p class="comment">
-        <h3>Implements</h3>
-    </p>
-    <p class="comment">
-                <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
-    </p>
 
 
 <section>
@@ -753,9 +753,6 @@
                         <ul class="index-list">
                             <li>
                                 <a href="#helloAngular">helloAngular</a>
-                            </li>
-                            <li>
-                                <a href="#ngOnInit">ngOnInit</a>
                             </li>
                         </ul>
                     </td>
@@ -893,49 +890,14 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/pages/main-page/hello-page/hello-page.component.ts:27</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/pages/main-page/hello-page/hello-page.component.ts:26</a></div>
                                 </td>
                             </tr>
     
                     <tr>
                         <td class="col-md-4">
-    
-                                <div class="io-description">
-                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-    
-                                </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <a name="ngOnInit"></a>
-                            <span class="name">
-                                <b>
-                                ngOnInit
-                                </b>
-                                <a href="#ngOnInit"><span class="fa fa-link"></span></a>
-                            </span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-    <code>ngOnInit()</code>
-                        </td>
-                    </tr>
-    
-    
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/pages/main-page/hello-page/hello-page.component.ts:24</a></div>
-                                </td>
-                            </tr>
-    
-                    <tr>
-                        <td class="col-md-4">
+                                <div class="io-description"><p>Method for button hello Angular</p>
+    </div>
     
                                 <div class="io-description">
                                     <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -980,7 +942,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/pages/main-page/hello-page/hello-page.component.ts:19</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/pages/main-page/hello-page/hello-page.component.ts:18</a></div>
                                 </td>
                             </tr>
     
@@ -1015,7 +977,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/pages/main-page/hello-page/hello-page.component.ts:18</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/pages/main-page/hello-page/hello-page.component.ts:17</a></div>
                                 </td>
                             </tr>
     
@@ -1050,7 +1012,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/pages/main-page/hello-page/hello-page.component.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/pages/main-page/hello-page/hello-page.component.ts:14</a></div>
                                 </td>
                             </tr>
     
@@ -1085,7 +1047,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/pages/main-page/hello-page/hello-page.component.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/pages/main-page/hello-page/hello-page.component.ts:15</a></div>
                                 </td>
                             </tr>
     
@@ -1110,29 +1072,26 @@ import {MainService} from &#x27;../../../shared/services/index&#x27;;
   templateUrl: &#x27;./hello-page.component.html&#x27;,
   styleUrls: [&#x27;./hello-page.component.scss&#x27;]
 })
-export class HelloPageComponent implements OnInit {
-  constructor(
-    public toast: ToastsManager, vcr: ViewContainerRef,
-    public translate: TranslateService,
-    private localStorageService: LocalStorageService,
-    public router: Router,
-    public mainService: MainService
-  ) {
+export class HelloPageComponent {
+  constructor(public toast: ToastsManager, vcr: ViewContainerRef,
+              public translate: TranslateService,
+              private localStorageService: LocalStorageService,
+              public router: Router,
+              public mainService: MainService) {
     this.toast.setRootViewContainerRef(vcr);
   }
 
-  ngOnInit() {
-  }
+  /**
+   * Method for button hello Angular
+   */
 
-  helloAngular() {
+  helloAngular(): void {
     this.toast.success(&#x27;Hello Ang&#x27;);
     if (this.localStorageService.retrieve(&#x27;language&#x27;) &#x3D;&#x3D;&#x3D; &#x27;ru&#x27;) {
       this.localStorageService.store(&#x27;language&#x27;, &#x27;en&#x27;);
     } else {
       this.localStorageService.store(&#x27;language&#x27;, &#x27;ru&#x27;);
     }
-
-    this.mainService.sentGet(&#x27;/&#x27;).subscribe();
   }
 
 }
@@ -1145,9 +1104,9 @@ export class HelloPageComponent implements OnInit {
 
   &lt;img class&#x3D;&quot;hello-page-logo&quot; src&#x3D;&quot;../../../../assets/img/angular.png&quot;&gt;
 
-  &lt;app-project-button (onClickEvent)&#x3D;&quot;helloAngular()&quot; title&#x3D;&quot;{{&#x27;Click&#x27; | translate}}&quot;&gt;
+  &lt;!--&lt;app-project-button (onClickEvent)&#x3D;&quot;helloAngular()&quot; title&#x3D;&quot;{{&#x27;Click&#x27; | translate}}&quot;&gt;--&gt;
 
-  &lt;/app-project-button&gt;
+  &lt;!--&lt;/app-project-button&gt;--&gt;
   &lt;br/&gt;
   &lt;div&gt;
     &lt;img src&#x3D;&quot;../../../../assets/img/svg/partners__airplane.svg&quot;&gt;
@@ -1165,10 +1124,12 @@ export class HelloPageComponent implements OnInit {
     &lt;h2 appProjectTitleStyle&gt;{{&#x27;Here are some links to help you start:&#x27; | translate}}&lt;/h2&gt;
     &lt;ul&gt;
       &lt;li appProjectListStyle&gt;
-        &lt;h2&gt;&lt;a target&#x3D;&quot;_blank&quot; rel&#x3D;&quot;noopener&quot; href&#x3D;&quot;https://angular.io/tutorial&quot;&gt;{{&#x27;Tour of Heroes&#x27; | translate}}&lt;/a&gt;&lt;/h2&gt;
+        &lt;h2&gt;&lt;a target&#x3D;&quot;_blank&quot; rel&#x3D;&quot;noopener&quot; href&#x3D;&quot;https://angular.io/tutorial&quot;&gt;{{&#x27;Tour of Heroes&#x27; | translate}}&lt;/a&gt;
+        &lt;/h2&gt;
       &lt;/li&gt;
       &lt;li appProjectListStyle&gt;
-        &lt;h2&gt;&lt;a target&#x3D;&quot;_blank&quot; rel&#x3D;&quot;noopener&quot; href&#x3D;&quot;https://github.com/angular/angular-cli/wiki&quot;&gt;{{&#x27;CLI Documentation&#x27; | translate}}&lt;/a&gt;&lt;/h2&gt;
+        &lt;h2&gt;&lt;a target&#x3D;&quot;_blank&quot; rel&#x3D;&quot;noopener&quot; href&#x3D;&quot;https://github.com/angular/angular-cli/wiki&quot;&gt;{{&#x27;CLI Documentation&#x27; |
+          translate}}&lt;/a&gt;&lt;/h2&gt;
       &lt;/li&gt;
       &lt;li appProjectListStyle&gt;
         &lt;h2&gt;&lt;a target&#x3D;&quot;_blank&quot; rel&#x3D;&quot;noopener&quot; href&#x3D;&quot;https://blog.angular.io/&quot;&gt;{{&#x27;Angular blog&#x27; | translate}}&lt;/a&gt;&lt;/h2&gt;
@@ -1202,8 +1163,8 @@ export class HelloPageComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><main class="hello-page">  <h1 appProjectTitleStyle>{{\'Hello from Angular 5 App CLI\' | translate}}</h1>  <img class="hello-page-logo" src="../../../../assets/img/angular.png">  <app-project-button (onClickEvent)="helloAngular()" title="{{\'Click\' | translate}}">  </app-project-button>  <br/>  <div>    <img src="../../../../assets/img/svg/partners__airplane.svg">    <img src="../../../../assets/img/svg/partners__cup.svg">    <img src="../../../../assets/img/svg/partners__flask.svg">    <img src="../../../../assets/img/svg/partners__tv.svg">  </div>  <br/>  <div>    <div class="div"></div>    <div class="div--img"></div>  </div>  <br/>  <div>    <h2 appProjectTitleStyle>{{\'Here are some links to help you start:\' | translate}}</h2>    <ul>      <li appProjectListStyle>        <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">{{\'Tour of Heroes\' | translate}}</a></h2>      </li>      <li appProjectListStyle>        <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">{{\'CLI Documentation\' | translate}}</a></h2>      </li>      <li appProjectListStyle>        <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">{{\'Angular blog\' | translate}}</a></h2>      </li>    </ul>  </div></main></div>'
-    var COMPONENTS = [{'name': 'AddUserPageComponent', 'selector': 'app-add-user-page'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthPageComponent', 'selector': 'app-auth-page'},{'name': 'ChartPageComponent', 'selector': 'app-chart-page'},{'name': 'Error404Component', 'selector': 'app-error'},{'name': 'HeaderPageComponent', 'selector': 'app-header-page'},{'name': 'HelloPageComponent', 'selector': 'app-hello-page'},{'name': 'LoginPageComponent', 'selector': 'app-login-page'},{'name': 'MainPageComponent', 'selector': 'app-main-page'},{'name': 'ProjectBarComponent', 'selector': 'app-project-bar'},{'name': 'ProjectButtonComponent', 'selector': 'app-project-button'},{'name': 'ProjectCheckboxComponent', 'selector': 'app-project-checkbox'},{'name': 'ProjectCircleComponent', 'selector': 'app-project-circle'},{'name': 'ProjectDeleteComponent', 'selector': 'project-delete'},{'name': 'ProjectInputComponent', 'selector': 'app-project-input'},{'name': 'ProjectModalComponent', 'selector': 'app-project-modal'},{'name': 'ProjectSelectComponent', 'selector': 'app-project-select'},{'name': 'ProjectTextareaComponent', 'selector': 'app-project-textarea'},{'name': 'ProjectUploaderComponent', 'selector': 'app-project-uploader'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SidebarPageComponent', 'selector': 'app-sidebar-page'},{'name': 'TabPageComponent', 'selector': 'app-tab-page'},{'name': 'WrapperPageComponent', 'selector': 'app-wrapper-page'}];
+        var COMPONENT_TEMPLATE = '<div><main class="hello-page">  <h1 appProjectTitleStyle>{{\'Hello from Angular 5 App CLI\' | translate}}</h1>  <img class="hello-page-logo" src="../../../../assets/img/angular.png">  <!--<app-project-button (onClickEvent)="helloAngular()" title="{{\'Click\' | translate}}">-->  <!--</app-project-button>-->  <br/>  <div>    <img src="../../../../assets/img/svg/partners__airplane.svg">    <img src="../../../../assets/img/svg/partners__cup.svg">    <img src="../../../../assets/img/svg/partners__flask.svg">    <img src="../../../../assets/img/svg/partners__tv.svg">  </div>  <br/>  <div>    <div class="div"></div>    <div class="div--img"></div>  </div>  <br/>  <div>    <h2 appProjectTitleStyle>{{\'Here are some links to help you start:\' | translate}}</h2>    <ul>      <li appProjectListStyle>        <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">{{\'Tour of Heroes\' | translate}}</a>        </h2>      </li>      <li appProjectListStyle>        <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">{{\'CLI Documentation\' |          translate}}</a></h2>      </li>      <li appProjectListStyle>        <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">{{\'Angular blog\' | translate}}</a></h2>      </li>    </ul>  </div></main></div>'
+    var COMPONENTS = [{'name': 'AddUserPageComponent', 'selector': 'app-add-user-page'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthPageComponent', 'selector': 'app-auth-page'},{'name': 'ChartPageComponent', 'selector': 'app-chart-page'},{'name': 'CheckPageComponent', 'selector': 'app-check-page'},{'name': 'Error404Component', 'selector': 'app-error'},{'name': 'HeaderPageComponent', 'selector': 'app-header-page'},{'name': 'HelloPageComponent', 'selector': 'app-hello-page'},{'name': 'LoginPageComponent', 'selector': 'app-login-page'},{'name': 'MainPageComponent', 'selector': 'app-main-page'},{'name': 'ProjectBarComponent', 'selector': 'app-project-bar'},{'name': 'ProjectButtonComponent', 'selector': 'app-project-button'},{'name': 'ProjectCheckboxComponent', 'selector': 'app-project-checkbox'},{'name': 'ProjectCircleComponent', 'selector': 'app-project-circle'},{'name': 'ProjectDeleteComponent', 'selector': 'project-delete'},{'name': 'ProjectInputComponent', 'selector': 'app-project-input'},{'name': 'ProjectModalComponent', 'selector': 'app-project-modal'},{'name': 'ProjectSelectComponent', 'selector': 'app-project-select'},{'name': 'ProjectTextareaComponent', 'selector': 'app-project-textarea'},{'name': 'ProjectUploaderComponent', 'selector': 'app-project-uploader'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SidebarPageComponent', 'selector': 'app-sidebar-page'},{'name': 'TabPageComponent', 'selector': 'app-tab-page'},{'name': 'WrapperPageComponent', 'selector': 'app-wrapper-page'}];
     var DIRECTIVES = [{'name': 'FocusDirective', 'selector': '[focusDirective]'},{'name': 'ProjectListDirective', 'selector': '[appProjectListStyle]'},{'name': 'ProjectPointerDirective', 'selector': '[appProjectPointer]'},{'name': 'ProjectTextDirective', 'selector': '[appProjectText]'},{'name': 'ProjectTextEllipsisDirective', 'selector': '[appProjectTextEllipsis]'},{'name': 'ProjectTitleDirective', 'selector': '[appProjectTitleStyle]'},{'name': 'ProjectUploaderDirective', 'selector': '[formUpload]'}];
     var ACTUAL_COMPONENT = {'name': 'HelloPageComponent'};
 </script>
