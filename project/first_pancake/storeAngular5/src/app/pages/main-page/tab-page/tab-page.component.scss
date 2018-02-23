@@ -30,14 +30,10 @@
   }
 
   &__current-students {
-    //min-height: 400px;
-
     padding-left: 0;
     @include transition(all, 0.2s, linear);
 
     .filter_list_students {
-      //display: flex;
-      //justify-content: space-between;
       align-items: center;
       padding: 15px 30px 15px 30px;
       border-top-left-radius: 10px;
@@ -50,7 +46,6 @@
       @include transition(all, 0.2s, linear);
 
       span {
-        //display: flex;
         text-transform: capitalize;
         cursor: pointer;
         text-align: center;
@@ -70,8 +65,6 @@
       }
 
       span:nth-child(1) {
-        //width: 20%;
-        //justify-content: flex-start;
         padding: 0 0 0 15px;
         text-align: left;
         text-transform: capitalize;
@@ -84,7 +77,6 @@
     }
 
     .list-group-item {
-      //display: flex;
       align-items: center;
       background-color: rgba(255, 255, 255, 1);
       margin: 0 0 1px 0;
@@ -359,6 +351,10 @@
       width: 100% !important;
     }
   }
+
+  &__project-delete {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 839px) {
@@ -369,6 +365,3 @@
 
 }
 
-project-delete {
-  width: 100%;
-}

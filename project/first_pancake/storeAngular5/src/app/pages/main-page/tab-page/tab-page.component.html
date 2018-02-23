@@ -83,6 +83,7 @@
   <app-project-modal [visible]="showModal"
                      (visibleChange)="closeModal($event)">
     <project-delete *ngIf="modalType === 'delete'"
+                    class="users__project-delete"
                     [entityName]="userActive.first_name + ' ' + userActive.last_name + '?'"
                     (onDelete)="deleteGroup($event)">
     </project-delete>

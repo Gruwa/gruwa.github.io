@@ -1,10 +1,10 @@
-<div class="wrapper-page">
-  <div class="wrapper-header">
+<div class="page">
+  <div class="page__header">
     <app-header-page></app-header-page>
   </div>
-  <div class="wrapper-main">
+  <div class="page__main">
     <app-sidebar-page></app-sidebar-page>
-    <div class="wrapper-content" [ngClass]="{'wrapper-content--close' : mainService.closeSideBar}">
+    <div class="page__content" [ngClass]="{'page__content--close' : mainService.closeSideBar}">
       <router-outlet>
         <app-hello-page *ngIf="router.url === '/main'"></app-hello-page>
       </router-outlet>

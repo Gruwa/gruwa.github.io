@@ -189,7 +189,7 @@ export class TabPageComponent implements OnInit {
    * Method for download file
    */
 
-  downloadFile(type: string){
+  downloadFile(type: string) {
     const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.transformData(this.users));
     const wb: XLSX.WorkBook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
