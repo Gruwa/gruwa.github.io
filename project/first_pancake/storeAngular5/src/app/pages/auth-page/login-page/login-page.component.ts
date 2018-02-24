@@ -34,21 +34,23 @@ export class LoginPageComponent implements OnInit {
   public loading: boolean = false;
   public showForgot: boolean = false;
 
-  constructor(public fb: FormBuilder,
-              public authService: AuthService,
-              public router: Router,
-              public mainService: MainService,
-              public localStorageService: LocalStorageService,
-              private toast: ToastsManager, vcr: ViewContainerRef,
-              public translate: TranslateService) {
+  constructor(
+    public fb: FormBuilder,
+    public authService: AuthService,
+    public router: Router,
+    public mainService: MainService,
+    public localStorageService: LocalStorageService,
+    private toast: ToastsManager, vcr: ViewContainerRef,
+    public translate: TranslateService
+  ) {
     this.toast.setRootViewContainerRef(vcr);
   }
 
   ngOnInit(): void {
-    const language = this.localStorageService.retrieve('language');
+    const language: string = this.localStorageService.retrieve('language');
     this.translate.use(language);
     this.translate.setDefaultLang(language);
-    this.localStorageService.observe('language').subscribe((language) => {
+    this.localStorageService.observe('language').subscribe((language: string):void => {
       this.translate.use(language);
     });
     this.initForm();

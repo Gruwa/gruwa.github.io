@@ -15,19 +15,22 @@ import {MainService} from '../../shared/services';
   styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent implements OnInit {
-  constructor(public toast: ToastsManager, vcr: ViewContainerRef,
-              public translate: TranslateService,
-              private localStorageService: LocalStorageService,
-              public router: Router,
-              public mainService: MainService) {
+  
+  constructor(
+    public toast: ToastsManager, vcr: ViewContainerRef,
+    public translate: TranslateService,
+    private localStorageService: LocalStorageService,
+    public router: Router,
+    public mainService: MainService
+  ) {
     this.toast.setRootViewContainerRef(vcr);
   }
 
   ngOnInit(): void {
-    const language = this.localStorageService.retrieve('language');
+    const language: string = this.localStorageService.retrieve('language');
     this.translate.use(language);
     this.translate.setDefaultLang(language);
-    this.localStorageService.observe('language').subscribe((language) => {
+    this.localStorageService.observe('language').subscribe((language: string): void => {
       this.translate.use(language);
     });
   }

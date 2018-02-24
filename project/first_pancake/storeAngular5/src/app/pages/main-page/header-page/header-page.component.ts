@@ -13,12 +13,13 @@ export class HeaderPageComponent {
 
   public menuFocus: boolean = false;
 
-  constructor(private router: Router,
-              public translate: TranslateService,
-              public mainService: MainService,
-              public authService: AuthService,
-              public localStorageService: LocalStorageService) {
-  }
+  constructor(
+    private router: Router,
+    public translate: TranslateService,
+    public mainService: MainService,
+    public authService: AuthService,
+    public localStorageService: LocalStorageService
+  ) { }
 
   /**
    * Method click on button

@@ -1,6 +1,4 @@
 import {Injectable, ViewContainerRef} from '@angular/core';
-// import {Http, Response, Headers, URLSearchParams} from '@angular/http';
-
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/catch';
@@ -23,11 +21,6 @@ const BASEURL = `${environment.apiRoot}`;
 
 @Injectable()
 export class UserService {
-  private baseUrl: string = `${environment.apiRoot}vendor/`;
-  private vendorParams: {
-    vendor_uuid: string
-  };
-  private vendor_id: string;
 
   constructor(public http: HttpClient,
               public storage: LocalStorageService) {

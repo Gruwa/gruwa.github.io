@@ -24,9 +24,11 @@ export class ChartPageComponent implements OnInit {
   public title = 'Sample of analytics chart';
   public countInit: number = 0;
 
-  constructor(public userService: UserService,
-              public toast: ToastsManager, vcr: ViewContainerRef,
-              public mainService: MainService) {
+  constructor(
+    public userService: UserService,
+    public toast: ToastsManager, vcr: ViewContainerRef,
+    public mainService: MainService
+  ) {
     this.toast.setRootViewContainerRef(vcr);
   }
 

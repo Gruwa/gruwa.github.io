@@ -11,11 +11,12 @@ import {AuthService} from '../../../shared/services';
 })
 export class SidebarPageComponent {
 
-  constructor(public router: Router,
-              public mainService: MainService,
-              public translate: TranslateService,
-              public authService: AuthService) {
-  }
+  constructor(
+    public router: Router,
+    public mainService: MainService,
+    public translate: TranslateService,
+    public authService: AuthService
+  ) { }
 
   /**
    * Method for routing

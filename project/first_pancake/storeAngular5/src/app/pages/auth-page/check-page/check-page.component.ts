@@ -28,18 +28,18 @@ function emailMatcher(c: AbstractControl) {
 })
 export class CheckPageComponent implements OnInit {
 
-
-  constructor(public authService: AuthService,
-              public router: Router,
-              public localStorageService: LocalStorageService,
-              public translate: TranslateService) {
-  }
+  constructor(
+    public authService: AuthService,
+    public router: Router,
+    public localStorageService: LocalStorageService,
+    public translate: TranslateService
+  ) { }
 
   ngOnInit(): void {
-    const language = this.localStorageService.retrieve('language');
+    const language: string = this.localStorageService.retrieve('language');
     this.translate.use(language);
     this.translate.setDefaultLang(language);
-    this.localStorageService.observe('language').subscribe((language) => {
+    this.localStorageService.observe('language').subscribe((language: string):void => {
       this.translate.use(language);
     });
   }
@@ -49,7 +49,7 @@ export class CheckPageComponent implements OnInit {
    */
 
   checkEmail(): void {
-    let domen = this.authService.checkEmail;
+    let domen: string = this.authService.checkEmail;
     window.open('https://' + domen.substring(domen.indexOf('@')+1));
     this.router.navigate(['/auth']);
   }

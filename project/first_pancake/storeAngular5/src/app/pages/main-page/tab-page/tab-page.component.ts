@@ -6,6 +6,7 @@ import {LocalStorageService} from 'ngx-webstorage';
 import {MainService} from '../../../shared/services/index';
 import * as XLSX from 'xlsx';
 import * as moment from 'moment';
+import {UserInterface} from '../../../shared/interfaces/user.interface';
 
 @Component({
   selector: 'app-tab-page',
@@ -19,7 +20,7 @@ export class TabPageComponent implements OnInit {
   public userActive: any = {};
   public tab: string = 'students';
   public visibleModal: boolean = false;
-  public users: any = [];
+  public users: UserInterface[];
   public modalType: string = '';
   public showModal = false;
   public modalTitle = '';
@@ -29,11 +30,13 @@ export class TabPageComponent implements OnInit {
   public titleBtn: string = '+ Add students';
   public idUser: string = 'Student ID';
 
-  constructor(public userService: UserService,
-              public translate: TranslateService,
-              public toast: ToastsManager, vcr: ViewContainerRef,
-              private storage: LocalStorageService,
-              public mainService: MainService) {
+  constructor(
+    public userService: UserService,
+    public translate: TranslateService,
+    public toast: ToastsManager, vcr: ViewContainerRef,
+    private storage: LocalStorageService,
+    public mainService: MainService
+  ) {
     this.toast.setRootViewContainerRef(vcr);
   }
 
@@ -92,7 +95,7 @@ export class TabPageComponent implements OnInit {
    * Method for visible modal
    */
 
-  onShowModalEditUser(onShow: boolean, user: any): void {
+  onShowModalEditUser(onShow: boolean, user: UserInterface): void {
     this.addUser = 'Edit';
     this.visibleModal = onShow;
     this.userActive = user;
@@ -102,7 +105,7 @@ export class TabPageComponent implements OnInit {
    * Method for change status of Student, Instructor, Admin
    */
 
-  toggleStudentStatus($event, userActive): void {
+  toggleStudentStatus($event, userActive: UserInterface): void {
     const user: object = {};
     user['active'] = $event.target.checked;
     user['_id'] = userActive._id;
@@ -119,7 +122,7 @@ export class TabPageComponent implements OnInit {
    * Method for show modal of delete
    */
 
-  removeRecordShowModal($event, modalType: string, user): void {
+  removeRecordShowModal($event, modalType: string, user: UserInterface): void {
     this.modalType = modalType;
     this.userActive = user;
 
@@ -189,10 +192,10 @@ export class TabPageComponent implements OnInit {
    * Method for download file
    */
 
-  downloadFile(type: string): void {
+  downloadFile(type: string = 'xlsx'): void {
     const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.transformData(this.users));
     const wb: XLSX.WorkBook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-    XLSX.writeFile(wb, `completions.xlsx`);
+    XLSX.writeFile(wb, `completions.${type}`);
   }
 }

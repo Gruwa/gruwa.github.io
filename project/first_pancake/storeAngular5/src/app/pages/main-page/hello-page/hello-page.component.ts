@@ -11,11 +11,13 @@ import {MainService} from '../../../shared/services/index';
   styleUrls: ['./hello-page.component.scss']
 })
 export class HelloPageComponent {
-  constructor(public toast: ToastsManager, vcr: ViewContainerRef,
-              public translate: TranslateService,
-              private localStorageService: LocalStorageService,
-              public router: Router,
-              public mainService: MainService) {
+  constructor(
+    public toast: ToastsManager, vcr: ViewContainerRef,
+    public translate: TranslateService,
+    private localStorageService: LocalStorageService,
+    public router: Router,
+    public mainService: MainService
+  ) {
     this.toast.setRootViewContainerRef(vcr);
   }
 

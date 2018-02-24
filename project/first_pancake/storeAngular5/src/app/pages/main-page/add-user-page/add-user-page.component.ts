@@ -3,6 +3,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../../../shared/services';
 import {ToastsManager} from 'ng2-toastr';
 import {LocalStorageService} from 'ngx-webstorage';
+import {UserInterface} from '../../../shared/interfaces/user.interface';
+import {IAddress} from '../../../shared/interfaces/adress.interface';
 
 @Component({
   selector: 'app-add-user-page',
@@ -14,19 +16,22 @@ export class AddUserPageComponent implements OnInit {
 
   public emailGroup: FormGroup;
   public userGroup: FormGroup;
-  public email: any;
+  public email: string;
   public userGroupVisible: boolean = false;
   public onGetFields: boolean = true;
   public user: any = {};
+  public userNew: UserInterface;
 
   @Input() userActive;
   @Input() tab;
   @Output('onModalClose') visible: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor(private fb: FormBuilder,
-              public userService: UserService,
-              private storage: LocalStorageService,
-              public toast: ToastsManager, vcr: ViewContainerRef,) {
+  constructor(
+    private fb: FormBuilder,
+    public userService: UserService,
+    private storage: LocalStorageService,
+    public toast: ToastsManager, vcr: ViewContainerRef
+  ) {
     this.toast.setRootViewContainerRef(vcr);
   }
 
@@ -63,7 +68,6 @@ export class AddUserPageComponent implements OnInit {
     this.email = this.emailGroup.get('email').value;
     this.userService.getCheckEmail(this.email, this.tab).subscribe(
       (value) => {
-        console.log(value);
         this.toast.error('Try another email', 'Email was found');
       },
       (error) => {
@@ -112,20 +116,19 @@ export class AddUserPageComponent implements OnInit {
    */
 
   onSubmit(): void {
-    const user: any = {};
-    const address: any = {};
+    const address: IAddress = {
+      city: this.userGroup.get('city').value,
+      country: this.userGroup.get('country').value || 'Ukraine'
+    };
 
-    address.city = this.userGroup.get('city').value;
-    address.country = this.userGroup.get('country').value || 'Ukraine';
-    user.first_name = this.userGroup.get('first_name').value;
-    user.last_name = this.userGroup.get('last_name').value;
-    user.email = this.userGroup.get('email').value;
-    user.address = address;
-    user.title = this.userGroup.get('title').value;
-    user.company_name = this.userGroup.get('company').value;
-    user.about_me = this.userGroup.get('about_me').value;
-
-    this.user.user = user;
+    this.userNew.first_name = this.userGroup.get('first_name').value;
+    this.userNew.last_name = this.userGroup.get('last_name').value;
+    this.userNew.email = this.userGroup.get('email').value;
+    this.userNew.address = address;
+    this.userNew.title = this.userGroup.get('title').value;
+    this.userNew.company_name = this.userGroup.get('company').value;
+    this.userNew.about_me = this.userGroup.get('about_me').value;
+    this.user.user = this.userNew;
     this.onSave(this.user);
   }
 
