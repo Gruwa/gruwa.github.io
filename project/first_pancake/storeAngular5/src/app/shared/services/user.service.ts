@@ -10,6 +10,7 @@ import {LocalStorageService} from 'ngx-webstorage';
 import {environment} from '../../../environments/environment';
 import {HttpClient, HttpClientModule, HttpHeaders, HttpParams, HttpResponse} from '@angular/common/http';
 import {ToastsManager} from 'ng2-toastr';
+import {IUserService} from '../interfaces/user.sevice.interface';
 
 const tabs = {
   instructors: 'lecturers',
@@ -20,10 +21,11 @@ const tabs = {
 const BASEURL = `${environment.apiRoot}`;
 
 @Injectable()
-export class UserService {
+export class UserService implements IUserService{
 
-  constructor(public http: HttpClient,
-              public storage: LocalStorageService) {
+  constructor(
+    public http: HttpClient,
+    public storage: LocalStorageService) {
   }
 
   /**
@@ -52,6 +54,10 @@ export class UserService {
       );
     }
   }
+
+  /**
+   * Service method for get chart of Student, Instructor, Admin
+   */
 
   getChartUsers(): Observable<object> {
     return this.http.get(BASEURL + '/chart/');

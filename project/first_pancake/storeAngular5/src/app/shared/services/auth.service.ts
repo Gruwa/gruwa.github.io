@@ -12,11 +12,12 @@ import {Subject} from 'rxjs/Subject';
 import {LocalStorageService} from 'ngx-webstorage';
 import {ToastsManager} from 'ng2-toastr';
 import {Router} from '@angular/router';
+import {IAuthService} from '../interfaces/auth.service.interface';
 
 const AUTHURL = `${environment.apiRoot}/admins`;
 
 @Injectable()
-export class AuthService {
+export class AuthService implements IAuthService {
 
   public stateLogin$ = new Subject<any>();
 
@@ -24,17 +25,18 @@ export class AuthService {
   public activeLink: string;
   public checkEmail: string;
 
-  constructor(public http: HttpClient,
-              public localStorageService: LocalStorageService,
-              private toast: ToastsManager,
-              public router: Router) {
-  }
+  constructor(
+    public http: HttpClient,
+    public localStorageService: LocalStorageService,
+    private toast: ToastsManager,
+    public router: Router
+  ) { }
 
   /**
    * Method for registration admins
    */
 
-  onRegistration(admin: object) {
+  onRegistration(admin: object): Observable<object> {
 
     return this.http.post(AUTHURL, admin).catch(
       (error) => {
