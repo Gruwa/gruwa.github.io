@@ -20,7 +20,7 @@ export class TabPageComponent implements OnInit {
   public userActive: any = {};
   public tab: string = 'students';
   public visibleModal: boolean = false;
-  public users: UserInterface[];
+  public users: Array<UserInterface>;
   public modalType: string = '';
   public showModal = false;
   public modalTitle = '';

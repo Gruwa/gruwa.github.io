@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 
 import {Observable} from 'rxjs/Observable';
@@ -16,12 +16,11 @@ import {IAuthService} from '../interfaces/auth.service.interface';
 
 const AUTHURL = `${environment.apiRoot}/admins`;
 
+
 @Injectable()
 export class AuthService implements IAuthService {
 
   public stateLogin$ = new Subject<any>();
-
-  public headers: HttpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
   public activeLink: string;
   public checkEmail: string;
 

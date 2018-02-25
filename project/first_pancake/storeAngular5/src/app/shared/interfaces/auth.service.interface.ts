@@ -1,11 +1,11 @@
 import {Observable} from 'rxjs/Observable';
 
 export interface IAuthService {
-  
+
   /**
    * Method for registration admins
    */
-  
+
   onRegistration: (value: object) => Observable<object>;
 
   /**
