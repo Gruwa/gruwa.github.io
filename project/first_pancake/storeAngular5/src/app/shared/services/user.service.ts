@@ -18,6 +18,8 @@ const tabs = {
   admins: 'admins'
 };
 
+type tabTypes = "students" | "admins" | "instructors";
+
 const BASEURL = `${environment.apiRoot}`;
 
 @Injectable()
@@ -32,7 +34,7 @@ export class UserService implements IUserService{
    * Service method for add new user
    */
 
-  onAddNewUser(data: any = {}, tab: string): Observable<object> {
+  onAddNewUser(data: any = {}, tab: tabTypes): Observable<object> {
     if (tabs[tab]) {
       return this.http.post(BASEURL + `/${tabs[tab]}`, data);
     }
@@ -44,7 +46,7 @@ export class UserService implements IUserService{
    * Service method for get list of Student, Instructor, Admin
    */
 
-  getUsers(tab: string = 'students'): Observable<object> {
+  getUsers(tab: tabTypes = 'students'): Observable<object> {
     if (tabs[tab]) {
       return this.http.get(BASEURL + `/${tabs[tab]}/`).map(
         (response) => {
@@ -67,7 +69,7 @@ export class UserService implements IUserService{
    * Service method for chek email in db
    */
 
-  getCheckEmail(email: string, tab: string): Observable<object> {
+  getCheckEmail(email: string, tab: tabTypes): Observable<object> {
     return this.http.get(BASEURL + '/' + tab + '/email/' + email + '/')
       .map(
         (resp) => {
@@ -80,7 +82,7 @@ export class UserService implements IUserService{
    * Service method for change status of Student, Instructor, Admin
    */
 
-  onEditToggleStatusUser(data: object, tab: string): Observable<object> {
+  onEditToggleStatusUser(data: object, tab: tabTypes): Observable<object> {
     if (tabs[tab]) {
       return this.http.post(BASEURL + `/${tabs[tab]}/status/`, data);
     }
@@ -90,7 +92,7 @@ export class UserService implements IUserService{
    * Service method for delete user
    */
 
-  onDeleteUser(user: object, tab: string): Observable<object> {
+  onDeleteUser(user: object, tab: tabTypes): Observable<object> {
     if (tabs[tab]) {
       return this.http.delete(BASEURL + `/${tabs[tab]}/delete/` + user['_id'] + '/');
     }
@@ -100,7 +102,7 @@ export class UserService implements IUserService{
    * Service method for edit user
    */
 
-  onEditUser(data: any = {}, tab: string): Observable<object> {
+  onEditUser(data: any = {}, tab: tabTypes): Observable<object> {
     const email: string = data.user.email;
     if (tabs[tab]) {
       return this.http.patch(BASEURL + `/${tabs[tab]}` + '/edit/' + email, data);

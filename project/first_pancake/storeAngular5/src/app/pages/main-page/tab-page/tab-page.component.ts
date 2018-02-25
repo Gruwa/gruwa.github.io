@@ -8,7 +8,8 @@ import * as XLSX from 'xlsx';
 import * as moment from 'moment';
 import {UserInterface} from '../../../shared/interfaces/user.interface';
 
-type tabType = "students" | "admins" | "instructors";
+type tabTypes = "students" | "admins" | "instructors";
+type addUser = "Add" | "Edit";
 
 @Component({
   selector: 'app-tab-page',
@@ -20,14 +21,14 @@ type tabType = "students" | "admins" | "instructors";
 export class TabPageComponent implements OnInit{
 
   public userActive: any = {};
-  public tab: tabType = 'students';
+  public tab: tabTypes = 'students';
   public visibleModal: boolean = false;
   public users: Array<UserInterface>;
   public modalType: string = '';
-  public showModal = false;
-  public modalTitle = '';
-  public addUser = '';
-  public tabActive: tabType;
+  public showModal: boolean = false;
+  public modalTitle: string = '';
+  public addUser: addUser;
+  public tabActive: tabTypes;
   public toggle: boolean = false;
   public titleBtn: string = '+ Add students';
   public idUser: string = 'Student ID';
@@ -165,7 +166,7 @@ export class TabPageComponent implements OnInit{
    * Method for change tabs
    */
 
-  changeTab(tab: tabType): void {
+  changeTab(tab: tabTypes): void {
     this.tabActive = this.tab;
     this.tab = tab;
     this.titleBtn = '+ Add ' + this.tab;
