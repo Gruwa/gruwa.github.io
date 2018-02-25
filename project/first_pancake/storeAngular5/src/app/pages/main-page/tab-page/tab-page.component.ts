@@ -1,4 +1,4 @@
-import {AfterViewChecked, ChangeDetectorRef, Component, OnInit, ViewContainerRef, ViewEncapsulation} from '@angular/core';
+import {Component, OnInit, ViewContainerRef, ViewEncapsulation} from '@angular/core';
 import {ToastsManager} from 'ng2-toastr';
 import {UserService} from '../../../shared/services/user.service';
 import {TranslateService} from '@ngx-translate/core';
@@ -8,6 +8,8 @@ import * as XLSX from 'xlsx';
 import * as moment from 'moment';
 import {UserInterface} from '../../../shared/interfaces/user.interface';
 
+type tabType = "students" | "admins" | "instructors";
+
 @Component({
   selector: 'app-tab-page',
   templateUrl: './tab-page.component.html',
@@ -15,17 +17,17 @@ import {UserInterface} from '../../../shared/interfaces/user.interface';
   providers: [UserService],
   encapsulation: ViewEncapsulation.None
 })
-export class TabPageComponent implements OnInit {
+export class TabPageComponent implements OnInit{
 
   public userActive: any = {};
-  public tab: string = 'students';
+  public tab: tabType = 'students';
   public visibleModal: boolean = false;
   public users: Array<UserInterface>;
   public modalType: string = '';
   public showModal = false;
   public modalTitle = '';
   public addUser = '';
-  public tabActive: string = '';
+  public tabActive: tabType;
   public toggle: boolean = false;
   public titleBtn: string = '+ Add students';
   public idUser: string = 'Student ID';
@@ -163,7 +165,7 @@ export class TabPageComponent implements OnInit {
    * Method for change tabs
    */
 
-  changeTab(tab: string): void {
+  changeTab(tab: tabType): void {
     this.tabActive = this.tab;
     this.tab = tab;
     this.titleBtn = '+ Add ' + this.tab;
