@@ -23,7 +23,7 @@
 
 FROM node:latest
 
-MAINTAINER Dan Wahlin
+MAINTAINER Aleksey Zolotarenko
 
 ENV NODE_ENV=development 
 ENV PORT=4334
