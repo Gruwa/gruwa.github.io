@@ -221,6 +221,9 @@
                                 <li class="link">
                                     <a href="../classes/AppPage.html" >AppPage</a>
                                 </li>
+                                <li class="link">
+                                    <a href="../classes/CreateObject.html" >CreateObject</a>
+                                </li>
                         </ul>
                     </li>
             
@@ -282,7 +285,31 @@
                                 id="xs-interfaces-links"
                             >
                                 <li class="link">
+                                    <a href="../interfaces/IAddress.html" >IAddress</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../interfaces/IAdmin.html" >IAdmin</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../interfaces/IAuthService.html" >IAuthService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../interfaces/ILecturer.html" >ILecturer</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../interfaces/IMainService.html" >IMainService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../interfaces/IStudent.html" >IStudent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../interfaces/IUserService.html" >IUserService</a>
+                                </li>
+                                <li class="link">
                                     <a href="../interfaces/SelectOption.html" >SelectOption</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../interfaces/UserInterface.html" >UserInterface</a>
                                 </li>
                         </ul>
                     </li>
@@ -301,6 +328,9 @@
                             >
                                 <li class="link">
                                   <a href="../miscellaneous/functions.html" data-type="entity-link" >Functions</a>
+                                </li>
+                                <li class="link">
+                                  <a href="../miscellaneous/typealiases.html" data-type="entity-link" >Type aliases</a>
                                 </li>
                                 <li class="link">
                                   <a href="../miscellaneous/variables.html" data-type="entity-link" >Variables</a>
@@ -531,6 +561,9 @@
                                        <li class="link">
                                            <a href="../classes/AppPage.html" >AppPage</a>
                                        </li>
+                                       <li class="link">
+                                           <a href="../classes/CreateObject.html" >CreateObject</a>
+                                       </li>
                                </ul>
                            </li>
                    
@@ -592,7 +625,31 @@
                                        id="interfaces-links"
                    >
                                        <li class="link">
+                                           <a href="../interfaces/IAddress.html" >IAddress</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../interfaces/IAdmin.html" >IAdmin</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../interfaces/IAuthService.html" >IAuthService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../interfaces/ILecturer.html" >ILecturer</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../interfaces/IMainService.html" >IMainService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../interfaces/IStudent.html" >IStudent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../interfaces/IUserService.html" >IUserService</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../interfaces/SelectOption.html" >SelectOption</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../interfaces/UserInterface.html" >UserInterface</a>
                                        </li>
                                </ul>
                            </li>
@@ -611,6 +668,9 @@
                    >
                                        <li class="link">
                                          <a href="../miscellaneous/functions.html" data-type="entity-link" >Functions</a>
+                                       </li>
+                                       <li class="link">
+                                         <a href="../miscellaneous/typealiases.html" data-type="entity-link" >Type aliases</a>
                                        </li>
                                        <li class="link">
                                          <a href="../miscellaneous/variables.html" data-type="entity-link" >Variables</a>
@@ -1195,18 +1255,18 @@ function emailMatcher(c: AbstractControl) {
 })
 export class CheckPageComponent implements OnInit {
 
-
-  constructor(public authService: AuthService,
-              public router: Router,
-              public localStorageService: LocalStorageService,
-              public translate: TranslateService) {
-  }
+  constructor(
+    public authService: AuthService,
+    public router: Router,
+    public localStorageService: LocalStorageService,
+    public translate: TranslateService
+  ) { }
 
   ngOnInit(): void {
-    const language &#x3D; this.localStorageService.retrieve(&#x27;language&#x27;);
+    const language: string &#x3D; this.localStorageService.retrieve(&#x27;language&#x27;);
     this.translate.use(language);
     this.translate.setDefaultLang(language);
-    this.localStorageService.observe(&#x27;language&#x27;).subscribe((language) &#x3D;&gt; {
+    this.localStorageService.observe(&#x27;language&#x27;).subscribe((language: string):void &#x3D;&gt; {
       this.translate.use(language);
     });
   }
@@ -1216,7 +1276,7 @@ export class CheckPageComponent implements OnInit {
    */
 
   checkEmail(): void {
-    let domen &#x3D; this.authService.checkEmail;
+    let domen: string &#x3D; this.authService.checkEmail;
     window.open(&#x27;https://&#x27; + domen.substring(domen.indexOf(&#x27;@&#x27;)+1));
     this.router.navigate([&#x27;/auth&#x27;]);
   }

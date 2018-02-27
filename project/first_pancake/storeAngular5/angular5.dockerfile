@@ -11,8 +11,8 @@ ENV PORT=4204
 COPY      . /var/www
 WORKDIR   /var/www
 
-RUN       npm install
-RUN       npm i --save node-sass@4.7.2
+RUN       yarn install
+#RUN       npm i --save node-sass@4.7.2
 #RUN       npm rebuild node-sass --force
 
 EXPOSE $PORT
