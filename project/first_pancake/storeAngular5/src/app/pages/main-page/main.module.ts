@@ -29,6 +29,7 @@ import {FusionChartsModule} from 'angular4-fusioncharts';
 import * as FusionCharts from 'fusioncharts';
 import * as FintTheme from 'fusioncharts/themes/fusioncharts.theme.fint';
 import * as Charts from 'fusioncharts/fusioncharts.charts';
+import {UserResolverService} from '../../shared/services';
 
 FusionChartsModule.fcRoot(FusionCharts, Charts, FintTheme);
 
@@ -46,7 +47,7 @@ export const routes: Routes = [
         path: 'users',
         canActivate: [RouteActivatorService],
         component: TabPageComponent,
-        // resolve: [UserResolverService]
+        resolve:{users: UserResolverService}
       },
     ]
   },

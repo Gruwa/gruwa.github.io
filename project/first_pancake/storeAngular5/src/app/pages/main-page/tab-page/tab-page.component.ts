@@ -7,6 +7,7 @@ import {MainService} from '../../../shared/services/index';
 import * as XLSX from 'xlsx';
 import * as moment from 'moment';
 import {UserInterface} from '../../../shared/interfaces/user.interface';
+import {ActivatedRoute, Router} from '@angular/router';
 
 type tabTypes = "students" | "admins" | "instructors";
 type addUser = "Add" | "Edit";
@@ -38,6 +39,8 @@ export class TabPageComponent implements OnInit{
     public translate: TranslateService,
     public toast: ToastsManager, vcr: ViewContainerRef,
     private storage: LocalStorageService,
+    private router: Router,
+    private route: ActivatedRoute,
     public mainService: MainService
   ) {
     this.toast.setRootViewContainerRef(vcr);
@@ -53,21 +56,39 @@ export class TabPageComponent implements OnInit{
    */
 
   onGetUsers(): void {
-    this.userService.getUsers(this.tab)
-      .subscribe(
-        (value: any) => {
-          this.users = value;
-        },
-        (error) => {
-          if (error.status === 403) {
-            this.toast.error('Access is denied');
-            this.tab = this.tabActive;
-            this.titleBtn = '+ Add ' + this.tab;
-            // this.search_user = 'Search ' + this.tab;
-            this.onGetUsers();
+    if (this.tab === 'students') {
+      this.route.data
+        .subscribe(
+          (value: any) => {
+            this.users = value['users'];
+          },
+          (error) => {
+            if (error.status === 403) {
+              this.toast.error('Access is denied');
+              this.tab = this.tabActive;
+              this.titleBtn = '+ Add ' + this.tab;
+              // this.search_user = 'Search ' + this.tab;
+              this.onGetUsers();
+            }
           }
-        }
-      );
+        );
+    } else {
+      this.userService.getUsers(this.tab)
+        .subscribe(
+          (value: any) => {
+            this.users = value;
+          },
+          (error) => {
+            if (error.status === 403) {
+              this.toast.error('Access is denied');
+              this.tab = this.tabActive;
+              this.titleBtn = '+ Add ' + this.tab;
+              // this.search_user = 'Search ' + this.tab;
+              this.onGetUsers();
+            }
+          }
+        );
+    }
     this.toggle = false;
     this.mainService.loader$.next(false);
   }

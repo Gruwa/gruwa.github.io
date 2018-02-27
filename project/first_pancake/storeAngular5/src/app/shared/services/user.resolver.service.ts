@@ -1,18 +1,17 @@
 import {Injectable} from '@angular/core';
-import {Resolve} from '@angular/router';
+import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/router';
 import {UserService} from './user.service';
 import {MainService} from './main.service';
+import {LocalStorageService} from 'ngx-webstorage';
 
 @Injectable()
 export class UserResolverService implements Resolve<any> {
 
   constructor(private userService: UserService,
-              public mainService: MainService) {
-    this.mainService.loader$.next(true);
+              public storage: LocalStorageService) {
   }
 
-  resolve() {
-    this.mainService.loader$.next(false);
-    return this.userService.getUsers();
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    return this.userService.getUsers(this.storage.retrieve('tab'));
   }
 }

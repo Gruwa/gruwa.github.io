@@ -15,11 +15,11 @@ import {MainService} from '../../shared/services';
   styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent implements OnInit {
-  
+
   constructor(
     public toast: ToastsManager, vcr: ViewContainerRef,
     public translate: TranslateService,
-    private localStorageService: LocalStorageService,
+    private storage: LocalStorageService,
     public router: Router,
     public mainService: MainService
   ) {
@@ -27,11 +27,12 @@ export class MainPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const language: string = this.localStorageService.retrieve('language');
+    const language: string = this.storage.retrieve('language');
     this.translate.use(language);
     this.translate.setDefaultLang(language);
-    this.localStorageService.observe('language').subscribe((language: string): void => {
+    this.storage.observe('language').subscribe((language: string): void => {
       this.translate.use(language);
     });
+    this.storage.store('tab', 'students');
   }
 }
