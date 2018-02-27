@@ -7,7 +7,7 @@ services:
       context: .
       dockerfile: angular5.dockerfile
     ports:
-     - "8000:8000"
+     - "4204:4204"
     networks:
       - angular-network
 

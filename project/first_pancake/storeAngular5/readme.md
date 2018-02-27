@@ -1,6 +1,8 @@
 For start using command 
 
-`docker-compose up --build`
+`npm i`
+
+`npm run start`
 
 and open browser on link 
 
