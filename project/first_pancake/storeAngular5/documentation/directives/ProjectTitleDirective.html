@@ -221,9 +221,6 @@
                                 <li class="link">
                                     <a href="../classes/AppPage.html" >AppPage</a>
                                 </li>
-                                <li class="link">
-                                    <a href="../classes/CreateObject.html" >CreateObject</a>
-                                </li>
                         </ul>
                     </li>
             
@@ -561,9 +558,6 @@
                                        <li class="link">
                                            <a href="../classes/AppPage.html" >AppPage</a>
                                        </li>
-                                       <li class="link">
-                                           <a href="../classes/CreateObject.html" >CreateObject</a>
-                                       </li>
                                </ul>
                            </li>
                    
@@ -756,12 +750,14 @@
                             </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/shared/directives/project-title.directive.ts:8</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/shared/directives/project-title.directive.ts:12</a></div>
                                         </td>
                                     </tr>
             
                             <tr>
                                 <td class="col-md-4">
+                                        <div class="io-description"><p>Creates an instance of ProjectTitleDirective.</p>
+            </div>
                                         <div>
                                                 <b>Parameters :</b>
                                                 <table class="params">
@@ -811,7 +807,17 @@
 @Directive({
   selector: &#x27;[appProjectTitleStyle]&#x27;
 })
+/**
+ * Project Title Directive class, that adds font size, color,
+ * margin bottom and display property
+ */
 export class ProjectTitleDirective {
+
+  /**
+   * Creates an instance of ProjectTitleDirective.
+   * @param {ElementRef} el
+   * @memberof ProjectTitleDirective
+   */
 
   constructor(el: ElementRef) {
     el.nativeElement.style.fontSize &#x3D; &#x27;40px&#x27;;

@@ -16,7 +16,7 @@
           [ngClass]="{'header-ru--active' : translate.currentLang === 'ru'}">ru</span>
     <span class="header-avatar" focusDirective>
       <div class="user_logo">
-        <span class="user-logo__name">{{localStorageService.retrieve('activeUserName') ? localStorageService.retrieve('activeUserName')[0] : 'u' }}</span>
+        <span class="user-logo__name">{{storage.retrieve('activeUserName') ? storage.retrieve('activeUserName')[0] : 'u' }}</span>
       </div>
     </span>
     <ul class="dropdown-block">
@@ -26,11 +26,11 @@
         <!--<fullscreen-button></fullscreen-button>-->
       </li>
       <li class="dropdown-content"
-          *ngIf="localStorageService.retrieve('token') !== null"
+          *ngIf="storage.retrieve('token') !== null"
           (click)="LogOut()">{{'Log Out' | translate}}
       </li>
       <li class="dropdown-content"
-          *ngIf="localStorageService.retrieve('token') === null"
+          *ngIf="storage.retrieve('token') === null"
           (click)="LogIn()">{{'Log in' | translate}}
       </li>
     </ul>

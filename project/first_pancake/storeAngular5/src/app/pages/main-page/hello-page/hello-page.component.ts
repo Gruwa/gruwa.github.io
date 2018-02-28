@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewContainerRef} from '@angular/core';
+import {Component, ViewContainerRef} from '@angular/core';
 import {ToastsManager} from 'ng2-toastr';
 import {TranslateService} from '@ngx-translate/core';
 import {LocalStorageService} from 'ngx-webstorage';
@@ -11,10 +11,22 @@ import {MainService} from '../../../shared/services/index';
   styleUrls: ['./hello-page.component.scss']
 })
 export class HelloPageComponent {
+
+  /**
+   * Creates an instance of HelloPageComponent.
+   * @param {TranslateService} translate
+   * @param {Router} router
+   * @param {LocalStorageService} storage
+   * @param {MainService} mainService
+   * @param {ToastsManager} toast
+   * @param {ViewContainerRef} vcr
+   * @memberof HelloPageComponent
+   */
+
   constructor(
     public toast: ToastsManager, vcr: ViewContainerRef,
     public translate: TranslateService,
-    private localStorageService: LocalStorageService,
+    private storage: LocalStorageService,
     public router: Router,
     public mainService: MainService
   ) {
@@ -23,14 +35,16 @@ export class HelloPageComponent {
 
   /**
    * Method for button hello Angular
+   * @returns {void}
+   * @memberof HelloPageComponent
    */
 
   helloAngular(): void {
     this.toast.success('Hello Ang');
-    if (this.localStorageService.retrieve('language') === 'ru') {
-      this.localStorageService.store('language', 'en');
+    if (this.storage.retrieve('language') === 'ru') {
+      this.storage.store('language', 'en');
     } else {
-      this.localStorageService.store('language', 'ru');
+      this.storage.store('language', 'ru');
     }
   }
 

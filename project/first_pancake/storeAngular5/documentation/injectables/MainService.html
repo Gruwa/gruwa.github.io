@@ -221,9 +221,6 @@
                                 <li class="link">
                                     <a href="../classes/AppPage.html" >AppPage</a>
                                 </li>
-                                <li class="link">
-                                    <a href="../classes/CreateObject.html" >CreateObject</a>
-                                </li>
                         </ul>
                     </li>
             
@@ -561,9 +558,6 @@
                                        <li class="link">
                                            <a href="../classes/AppPage.html" >AppPage</a>
                                        </li>
-                                       <li class="link">
-                                           <a href="../classes/CreateObject.html" >CreateObject</a>
-                                       </li>
                                </ul>
                            </li>
                    
@@ -727,6 +721,13 @@
             <code>src/app/shared/services/main.service.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Injectable for LocalStorageService</p>
+
+            </p>
 
 
             <section>
@@ -743,10 +744,6 @@
                                 <ul class="index-list">
                                     <li>
                                             <span class="modifier">Public</span>
-                                        <a href="#authUrl">authUrl</a>
-                                    </li>
-                                    <li>
-                                            <span class="modifier">Public</span>
                                         <a href="#closeSideBar">closeSideBar</a>
                                     </li>
                                     <li>
@@ -759,15 +756,11 @@
                                     </li>
                                     <li>
                                             <span class="modifier">Public</span>
-                                        <a href="#localStorageService">localStorageService</a>
+                                        <a href="#storage">storage</a>
                                     </li>
                                     <li>
                                             <span class="modifier">Public</span>
                                         <a href="#translate">translate</a>
-                                    </li>
-                                    <li>
-                                            <span class="modifier">Public</span>
-                                        <a href="#userRole$">userRole$</a>
                                     </li>
                                 </ul>
                             </td>
@@ -799,17 +792,19 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-            <code>constructor(localStorageService: LocalStorageService, translate: TranslateService, http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>)</code>
+            <code>constructor(storage: LocalStorageService, translate: TranslateService, http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>)</code>
                                 </td>
                             </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/shared/services/main.service.ts:15</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/shared/services/main.service.ts:30</a></div>
                                         </td>
                                     </tr>
             
                             <tr>
                                 <td class="col-md-4">
+                                        <div class="io-description"><p>Creates an instance of MainService.</p>
+            </div>
                                         <div>
                                                 <b>Parameters :</b>
                                                 <table class="params">
@@ -823,7 +818,7 @@
                                                     </thead>
                                                     <tbody>
                                                             <tr>
-                                                              <td>localStorageService</td>
+                                                              <td>storage</td>
                                                               <td>
                                                                         <code>LocalStorageService</code>
                                                               </td>
@@ -888,7 +883,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/shared/services/main.service.ts:44</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">src/app/shared/services/main.service.ts:70</a></div>
                                         </td>
                                     </tr>
             
@@ -927,7 +922,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/shared/services/main.service.ts:27</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/shared/services/main.service.ts:52</a></div>
                                         </td>
                                     </tr>
             
@@ -960,7 +955,10 @@
                                                               <td>
                                                                   <code></code>
                                                               </td>
-                                                              <td></td>
+                                                              <td><ul>
+            <li>active language</li>
+            </ul>
+            </td>
                                                             </tr>
                                                     </tbody>
                                                 </table>
@@ -985,46 +983,6 @@
                     <h3 id="inputs">
                         Properties
                     </h3>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <a name="authUrl"></a>
-                                    <span class="name">
-                                        <b>
-                                            <span class="modifier">Public</span>
-                                        authUrl
-                                        </b>
-                                        <a href="#authUrl"><span class="fa fa-link"></span></a>
-                                    </span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <span class="modifier-icon fa fa-reset"></span><code>authUrl:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-            </code>
-                                </td>
-                            </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-            
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <i>Default value : </i><code>&#x60;${environment.apiRoot}&#x60;</code>
-                                    </td>
-                                </tr>
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/shared/services/main.service.ts:13</a></div>
-                                        </td>
-                                    </tr>
-            
-            
-                        </tbody>
-                    </table>
                     <table class="table table-sm table-bordered">
                         <tbody>
                             <tr>
@@ -1058,10 +1016,16 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/shared/services/main.service.ts:12</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/shared/services/main.service.ts:22</a></div>
                                         </td>
                                     </tr>
             
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Variable for close side bar</p>
+            </div>
+                                </td>
+                            </tr>
             
                         </tbody>
                     </table>
@@ -1093,7 +1057,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/shared/services/main.service.ts:20</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/shared/services/main.service.ts:43</a></div>
                                         </td>
                                     </tr>
             
@@ -1127,10 +1091,16 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/shared/services/main.service.ts:14</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/shared/services/main.service.ts:30</a></div>
                                         </td>
                                     </tr>
             
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Variable for loader</p>
+            </div>
+                                </td>
+                            </tr>
             
                         </tbody>
                     </table>
@@ -1138,19 +1108,19 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <a name="localStorageService"></a>
+                                    <a name="storage"></a>
                                     <span class="name">
                                         <b>
                                             <span class="modifier">Public</span>
-                                        localStorageService
+                                        storage
                                         </b>
-                                        <a href="#localStorageService"><span class="fa fa-link"></span></a>
+                                        <a href="#storage"><span class="fa fa-link"></span></a>
                                     </span>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <span class="modifier-icon fa fa-reset"></span><code>localStorageService:     <code>LocalStorageService</code>
+                                    <span class="modifier-icon fa fa-reset"></span><code>storage:     <code>LocalStorageService</code>
             </code>
                                 </td>
                             </tr>
@@ -1162,7 +1132,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/shared/services/main.service.ts:18</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/shared/services/main.service.ts:41</a></div>
                                         </td>
                                     </tr>
             
@@ -1197,41 +1167,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/shared/services/main.service.ts:19</a></div>
-                                        </td>
-                                    </tr>
-            
-            
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <a name="userRole$"></a>
-                                    <span class="name">
-                                        <b>
-                                            <span class="modifier">Public</span>
-                                        userRole$
-                                        </b>
-                                        <a href="#userRole$"><span class="fa fa-link"></span></a>
-                                    </span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <span class="modifier-icon fa fa-reset"></span><code>userRole$:     <code></code>
-            </code>
-                                </td>
-                            </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <i>Default value : </i><code>new Subject&lt;any&gt;()</code>
-                                    </td>
-                                </tr>
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/shared/services/main.service.ts:15</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/shared/services/main.service.ts:42</a></div>
                                         </td>
                                     </tr>
             
@@ -1252,31 +1188,56 @@ import {environment} from &#x27;../../../environments/environment&#x27;;
 import {Subject} from &#x27;rxjs/Subject&#x27;;
 import {IMainService} from &#x27;../interfaces/main.service.interface&#x27;;
 
+/**
+ * Injectable for LocalStorageService
+ */
+
 @Injectable()
 export class MainService implements IMainService {
 
+  /**
+   * Variable for close side bar
+   * @type {boolean}
+   * @memberof MainService
+   */
+
   public closeSideBar: boolean &#x3D; false;
-  public authUrl: string &#x3D; &#x60;${environment.apiRoot}&#x60;;
+
+  /**
+   * Variable for loader
+   * @type {Subject&lt;any&gt;}
+   * @memberof MainService
+   */
+
   public loader$ &#x3D; new Subject&lt;any&gt;();
-  public userRole$ &#x3D; new Subject&lt;any&gt;();
+
+  /**
+   * Creates an instance of MainService.
+   * @param {TranslateService} translate
+   * @param {LocalStorageService} storage
+   * @param {HttpClient} http
+   * @memberof MainService
+   */
 
   constructor(
-    public localStorageService: LocalStorageService,
+    public storage: LocalStorageService,
     public translate: TranslateService,
     public http: HttpClient) {
   }
 
   /**
    * Method for set language
+   * @param {string} lang - active language
+   * @memberof MainService
    */
 
   setLanguage(lang: string): void {
-    this.localStorageService.store(&#x27;vendor_id&#x27;, &#x27;vendor_id&#x27;);
-    this.localStorageService.store(&#x27;language&#x27;, lang);
+    this.storage.store(&#x27;vendor_id&#x27;, &#x27;vendor_id&#x27;);
+    this.storage.store(&#x27;language&#x27;, lang);
     this.translate.setDefaultLang(&#x27;en&#x27;);
     this.translate.use(lang);
 
-    this.localStorageService
+    this.storage
       .observe(&#x27;language&#x27;)
       .subscribe((language) &#x3D;&gt; {
         this.translate.use(language);
@@ -1285,6 +1246,7 @@ export class MainService implements IMainService {
 
   /**
    * Method for change side bar
+   * @memberof MainService
    */
 
   changePositionSideBar(): void {

@@ -6,6 +6,8 @@ import {LocalStorageService} from 'ngx-webstorage';
 import {UserInterface} from '../../../shared/interfaces/user.interface';
 import {IAddress} from '../../../shared/interfaces/adress.interface';
 
+type tabTypes = "students" | "admins" | "instructors";
+
 @Component({
   selector: 'app-add-user-page',
   templateUrl: './add-user-page.component.html',
@@ -14,26 +16,111 @@ import {IAddress} from '../../../shared/interfaces/adress.interface';
 })
 export class AddUserPageComponent implements OnInit {
 
+  /**
+   * Variable emailGroup
+   * @type {FormGroup}
+   * @memberof AddUserPageComponent
+   */
+
   public emailGroup: FormGroup;
+
+  /**
+   * Variable userGroup
+   * @type {FormGroup}
+   * @memberof AddUserPageComponent
+   */
+
   public userGroup: FormGroup;
+
+  /**
+   * Variable email
+   * @type {string}
+   * @memberof AddUserPageComponent
+   */
+
   public email: string;
+
+  /**
+   * Variable userGroupVisible
+   * @type {boolean}
+   * @memberof AddUserPageComponent
+   */
+
   public userGroupVisible: boolean = false;
+
+  /**
+   * Variable onGetFields
+   * @type {boolean}
+   * @memberof AddUserPageComponent
+   */
+
   public onGetFields: boolean = true;
+
+  /**
+   * Variable user
+   * @type {any}
+   * @memberof AddUserPageComponent
+   */
+
   public user: any = {};
+
+  /**
+   * Variable userNew
+   * @type {UserInterface}
+   * @memberof AddUserPageComponent
+   */
+
   public userNew: UserInterface;
 
-  @Input() userActive;
-  @Input() tab;
+  /**
+   * Variable userActive
+   * @type {any}
+   * @memberof AddUserPageComponent
+   */
+
+  @Input() userActive: any;
+
+  /**
+   * Variable tab
+   * @type {tabTypes}
+   * @memberof AddUserPageComponent
+   */
+
+  @Input() tab: tabTypes;
+
+  /**
+   * Variable for emit visible
+   * @type {EventEmitter<any>}
+   * @memberof AddUserPageComponent
+   */
+
   @Output('onModalClose') visible: EventEmitter<any> = new EventEmitter<any>();
+
+  /**
+   * Creates an instance of LoginPageComponent.
+   * @param {FormBuilder} fb
+   * @param {UserService} userService
+   * @param {LocalStorageService} storage
+   * @param {ToastsManager} toast
+   * @param {ViewContainerRef} vcr
+   * @memberof LoginPageComponent
+   */
 
   constructor(
     private fb: FormBuilder,
     public userService: UserService,
     private storage: LocalStorageService,
-    public toast: ToastsManager, vcr: ViewContainerRef
+    private toast: ToastsManager, 
+    private vcr: ViewContainerRef
   ) {
     this.toast.setRootViewContainerRef(vcr);
   }
+
+  /**
+   * Method ngOnInit
+   * @returns {void}
+   * @memberof AddUserPageComponent
+   */
 
   ngOnInit(): void {
     this.initEmailForm();
@@ -42,6 +129,8 @@ export class AddUserPageComponent implements OnInit {
 
   /**
    * Method for cancel add user
+   * @returns {void}
+   * @memberof AddUserPageComponent
    */
 
   onCancel(): void {
@@ -52,6 +141,8 @@ export class AddUserPageComponent implements OnInit {
 
   /**
    * Method for init form EmailForm
+   * @returns {void}
+   * @memberof AddUserPageComponent
    */
 
   initEmailForm(): void {
@@ -62,6 +153,8 @@ export class AddUserPageComponent implements OnInit {
 
   /**
    * Method for check email
+   * @returns {void}
+   * @memberof AddUserPageComponent
    */
 
   onSubmitEmailCheck(): void {
@@ -82,6 +175,8 @@ export class AddUserPageComponent implements OnInit {
 
   /**
    * Method for init form userGroup
+   * @returns {void}
+   * @memberof AddUserPageComponent
    */
 
   initForm(): void {
@@ -113,6 +208,8 @@ export class AddUserPageComponent implements OnInit {
 
   /**
    * Method for submit new user
+   * @returns {void}
+   * @memberof AddUserPageComponent
    */
 
   onSubmit(): void {
@@ -134,6 +231,9 @@ export class AddUserPageComponent implements OnInit {
 
   /**
    * Method for save new user
+   * @param {any} value
+   * @returns {void}
+   * @memberof AddUserPageComponent
    */
 
   onSave(value: any): void {

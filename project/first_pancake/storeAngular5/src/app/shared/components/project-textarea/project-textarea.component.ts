@@ -19,11 +19,59 @@ import { FormControl } from '@angular/forms';
 })
 export class ProjectTextareaComponent {
 
+  /**
+   * Variable for input label
+   * @type {string}
+   * @memberof ProjectTextareaComponent
+   */
+
   @Input() label: string = '';
+
+  /**
+   * Variable for input placeholder
+   * @type {string}
+   * @memberof ProjectTextareaComponent
+   */
+
   @Input() placeholder: string = '';
+
+  /**
+   * Variable for input compulsory
+   * @type {boolean}
+   * @memberof ProjectTextareaComponent
+   */
+
   @Input() compulsory: boolean = false;
+
+  /**
+   * Variable for input withBorder
+   * @type {boolean}
+   * @memberof ProjectTextareaComponent
+   */
+
   @Input() withBorder: boolean = false;
+
+  /**
+   * Variable for input newClass
+   * @type {string}
+   * @memberof ProjectTextareaComponent
+   */
+
   @Input() newClass: string = '';
+
+  /**
+   * Variable for input rows
+   * @type {number}
+   * @memberof ProjectTextareaComponent
+   */
+
   @Input() rows: number = 3;
+
+  /**
+   * Variable for input control
+   * @type {FormControl}
+   * @memberof ProjectTextareaComponent
+   */
+
   @Input() control: FormControl = new FormControl('', []);
 }

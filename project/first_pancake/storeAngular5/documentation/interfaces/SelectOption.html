@@ -221,9 +221,6 @@
                                 <li class="link">
                                     <a href="../classes/AppPage.html" >AppPage</a>
                                 </li>
-                                <li class="link">
-                                    <a href="../classes/CreateObject.html" >CreateObject</a>
-                                </li>
                         </ul>
                     </li>
             
@@ -561,9 +558,6 @@
                                        <li class="link">
                                            <a href="../classes/AppPage.html" >AppPage</a>
                                        </li>
-                                       <li class="link">
-                                           <a href="../classes/CreateObject.html" >CreateObject</a>
-                                       </li>
                                </ul>
                            </li>
                    
@@ -731,6 +725,13 @@
             <code>src/app/shared/components/project-select/project-select.component.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Interface for selecting options</p>
+
+            </p>
 
 
         <section>
@@ -790,10 +791,16 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">src/app/shared/components/project-select/project-select.component.ts:5</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/shared/components/project-select/project-select.component.ts:16</a></div>
                                         </td>
                                     </tr>
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Variable contain name</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -824,10 +831,16 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/app/shared/components/project-select/project-select.component.ts:6</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/shared/components/project-select/project-select.component.ts:24</a></div>
                                         </td>
                                     </tr>
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Variable contain value</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -838,8 +851,26 @@
         <pre class="line-numbers"><code class="language-typescript">import {Component, Input} from &#x27;@angular/core&#x27;;
 import {FormControl} from &#x27;@angular/forms&#x27;;
 
+/**
+ * Interface for selecting options
+ */
+
 export interface SelectOption {
+
+  /**
+   * Variable contain name
+   * @type {string}
+   * @memberof SelectOption
+   */
+
   name: string;
+
+  /**
+   * Variable contain value
+   * @type {any}
+   * @memberof SelectOption
+   */
+
   value: any;
 }
 
@@ -863,10 +894,44 @@ export interface SelectOption {
 })
 export class ProjectSelectComponent {
 
+  /**
+   * Variable for input label
+   * @type {string}
+   * @memberof ProjectSelectComponent
+   */
+
   @Input() label: string &#x3D; &#x27;&#x27;;
+
+  /**
+   * Variable for input placeholder
+   * @type {string}
+   * @memberof ProjectSelectComponent
+   */
+
   @Input() placeholder: string &#x3D; &#x27;&#x27;;
+
+  /**
+   * Variable for input compulsory
+   * @type {boolean}
+   * @memberof ProjectSelectComponent
+   */
+
   @Input() compulsory: boolean &#x3D; true;
+
+  /**
+   * Variable for input control
+   * @type {FormControl}
+   * @memberof ProjectSelectComponent
+   */
+
   @Input() control: FormControl &#x3D; new FormControl(&#x27;&#x27;, []);
+
+  /**
+   * Variable for input options
+   * @type {Array&lt;SelectOption&gt;}
+   * @memberof ProjectSelectComponent
+   */
+
   @Input() options: Array&lt;SelectOption&gt;;
 }
 </code></pre>

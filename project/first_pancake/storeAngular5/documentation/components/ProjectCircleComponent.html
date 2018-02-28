@@ -221,9 +221,6 @@
                                 <li class="link">
                                     <a href="../classes/AppPage.html" >AppPage</a>
                                 </li>
-                                <li class="link">
-                                    <a href="../classes/CreateObject.html" >CreateObject</a>
-                                </li>
                         </ul>
                     </li>
             
@@ -561,9 +558,6 @@
                                        <li class="link">
                                            <a href="../classes/AppPage.html" >AppPage</a>
                                        </li>
-                                       <li class="link">
-                                           <a href="../classes/CreateObject.html" >CreateObject</a>
-                                       </li>
                                </ul>
                            </li>
                    
@@ -732,12 +726,6 @@
 
 
 
-    <p class="comment">
-        <h3>Implements</h3>
-    </p>
-    <p class="comment">
-                <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
-    </p>
 
 
 <section>
@@ -784,20 +772,6 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <h6><b>Methods</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                <a href="#ngOnInit">ngOnInit</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
                         <h6><b>Inputs</b></h6>
                     </td>
                 </tr>
@@ -814,24 +788,6 @@
         </table>
     </section>
 
-    <section>
-        <h3 id="constructor">Constructor</h3>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-    <code>constructor()</code>
-                        </td>
-                    </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/shared/components/project-circle/project-circle.component.ts:10</a></div>
-                                </td>
-                            </tr>
-    
-                </tbody>
-            </table>
-    </section>
 
     <section>
         <h3 id="inputs">Inputs</h3>
@@ -843,6 +799,8 @@
                             <code>progress</code>
                         </td>
                         <td class="col-md-10">
+                            <div><p>Variable for input progress</p>
+</div>
                               <p>
                                 <em>Type:</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
 
@@ -854,7 +812,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/shared/components/project-circle/project-circle.component.ts:10</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/shared/components/project-circle/project-circle.component.ts:16</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -864,70 +822,28 @@
 
 
 
-    <section>
-        
-            <h3 id="methods">
-                Methods
-            </h3>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <a name="ngOnInit"></a>
-                            <span class="name">
-                                <b>
-                                ngOnInit
-                                </b>
-                                <a href="#ngOnInit"><span class="fa fa-link"></span></a>
-                            </span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-    <code>ngOnInit()</code>
-                        </td>
-                    </tr>
-    
-    
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/shared/components/project-circle/project-circle.component.ts:13</a></div>
-                                </td>
-                            </tr>
-    
-                    <tr>
-                        <td class="col-md-4">
-    
-                                <div class="io-description">
-                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-    
-                                </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-    </section>
 
 
 </div>
 
 
     <div class="tab-pane fade tab-source-code" id="c-source">
-        <pre class="line-numbers"><code class="language-typescript">import { Component, OnInit, Input } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers"><code class="language-typescript">import { Component, Input } from &#x27;@angular/core&#x27;;
 
 @Component({
   selector: &#x27;app-project-circle&#x27;,
   templateUrl: &#x27;./project-circle.component.html&#x27;,
   styleUrls: [&#x27;./project-circle.component.scss&#x27;]
 })
-export class ProjectCircleComponent implements OnInit {
+export class ProjectCircleComponent {
+
+  /**
+   * Variable for input progress
+   * @type {number}
+   * @memberof ProjectCircleComponent
+   */
 
   @Input() progress: number &#x3D; 0;
-  constructor() { }
-
-  ngOnInit() {
-  }
-
 }
 </code></pre>
     </div>

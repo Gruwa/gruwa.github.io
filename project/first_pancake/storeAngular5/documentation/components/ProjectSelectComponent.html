@@ -221,9 +221,6 @@
                                 <li class="link">
                                     <a href="../classes/AppPage.html" >AppPage</a>
                                 </li>
-                                <li class="link">
-                                    <a href="../classes/CreateObject.html" >CreateObject</a>
-                                </li>
                         </ul>
                     </li>
             
@@ -561,9 +558,6 @@
                                        <li class="link">
                                            <a href="../classes/AppPage.html" >AppPage</a>
                                        </li>
-                                       <li class="link">
-                                           <a href="../classes/CreateObject.html" >CreateObject</a>
-                                       </li>
                                </ul>
                            </li>
                    
@@ -826,6 +820,8 @@
                             <code>compulsory</code>
                         </td>
                         <td class="col-md-10">
+                            <div><p>Variable for input compulsory</p>
+</div>
                               <p>
                                 <em>Type:</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
@@ -837,7 +833,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/shared/components/project-select/project-select.component.ts:31</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/app/shared/components/project-select/project-select.component.ts:69</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -850,6 +846,8 @@
                             <code>control</code>
                         </td>
                         <td class="col-md-10">
+                            <div><p>Variable for input control</p>
+</div>
                               <p>
                                 <em>Type:</em>    <code><a href="https://angular.io/api/forms/FormControl" target="_blank" >FormControl</a></code>
 
@@ -861,7 +859,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/shared/components/project-select/project-select.component.ts:32</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">src/app/shared/components/project-select/project-select.component.ts:77</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -874,6 +872,8 @@
                             <code>label</code>
                         </td>
                         <td class="col-md-10">
+                            <div><p>Variable for input label</p>
+</div>
                               <p>
                                 <em>Type:</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
@@ -885,7 +885,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/shared/components/project-select/project-select.component.ts:29</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/shared/components/project-select/project-select.component.ts:53</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -898,6 +898,8 @@
                             <code>options</code>
                         </td>
                         <td class="col-md-10">
+                            <div><p>Variable for input options</p>
+</div>
                               <p>
                                 <em>Type:</em>    <code><a href="../interfaces/SelectOption.html" target="_self" >Array&lt;SelectOption&gt;</a></code>
 
@@ -906,7 +908,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/shared/components/project-select/project-select.component.ts:33</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="85" class="link-to-prism">src/app/shared/components/project-select/project-select.component.ts:85</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -919,6 +921,8 @@
                             <code>placeholder</code>
                         </td>
                         <td class="col-md-10">
+                            <div><p>Variable for input placeholder</p>
+</div>
                               <p>
                                 <em>Type:</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
@@ -930,7 +934,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/shared/components/project-select/project-select.component.ts:30</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/app/shared/components/project-select/project-select.component.ts:61</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -949,8 +953,26 @@
         <pre class="line-numbers"><code class="language-typescript">import {Component, Input} from &#x27;@angular/core&#x27;;
 import {FormControl} from &#x27;@angular/forms&#x27;;
 
+/**
+ * Interface for selecting options
+ */
+
 export interface SelectOption {
+
+  /**
+   * Variable contain name
+   * @type {string}
+   * @memberof SelectOption
+   */
+
   name: string;
+
+  /**
+   * Variable contain value
+   * @type {any}
+   * @memberof SelectOption
+   */
+
   value: any;
 }
 
@@ -974,10 +996,44 @@ export interface SelectOption {
 })
 export class ProjectSelectComponent {
 
+  /**
+   * Variable for input label
+   * @type {string}
+   * @memberof ProjectSelectComponent
+   */
+
   @Input() label: string &#x3D; &#x27;&#x27;;
+
+  /**
+   * Variable for input placeholder
+   * @type {string}
+   * @memberof ProjectSelectComponent
+   */
+
   @Input() placeholder: string &#x3D; &#x27;&#x27;;
+
+  /**
+   * Variable for input compulsory
+   * @type {boolean}
+   * @memberof ProjectSelectComponent
+   */
+
   @Input() compulsory: boolean &#x3D; true;
+
+  /**
+   * Variable for input control
+   * @type {FormControl}
+   * @memberof ProjectSelectComponent
+   */
+
   @Input() control: FormControl &#x3D; new FormControl(&#x27;&#x27;, []);
+
+  /**
+   * Variable for input options
+   * @type {Array&lt;SelectOption&gt;}
+   * @memberof ProjectSelectComponent
+   */
+
   @Input() options: Array&lt;SelectOption&gt;;
 }
 </code></pre>

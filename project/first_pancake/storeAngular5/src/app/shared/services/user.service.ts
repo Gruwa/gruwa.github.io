@@ -12,18 +12,37 @@ import {HttpClient, HttpClientModule, HttpHeaders, HttpParams, HttpResponse} fro
 import {ToastsManager} from 'ng2-toastr';
 import {IUserService} from '../interfaces/user.sevice.interface';
 
+type tabTypes = "students" | "admins" | "instructors";
+
+/**
+ * Variable for navigate tabs
+ */
+
 const tabs = {
   instructors: 'lecturers',
   students: 'students',
   admins: 'admins'
 };
 
-type tabTypes = "students" | "admins" | "instructors";
+/**
+ * BASEURL for api
+ */
 
 const BASEURL = `${environment.apiRoot}`;
 
+/**
+ * Injectable for LocalStorageService
+ */
+
 @Injectable()
 export class UserService implements IUserService{
+
+  /**
+   * Creates an instance of UserService.
+   * @param {HttpClient} http
+   * @param {LocalStorageService} storage
+   * @memberof UserService
+   */
 
   constructor(
     public http: HttpClient,
@@ -32,6 +51,10 @@ export class UserService implements IUserService{
 
   /**
    * Service method for add new user
+   * @param data - data of new user
+   * @param tab - types of users
+   * @returns {Observable<object>}
+   * @memberof UserService
    */
 
   onAddNewUser(data: any = {}, tab: tabTypes): Observable<object> {
@@ -44,6 +67,9 @@ export class UserService implements IUserService{
 
   /**
    * Service method for get list of Student, Instructor, Admin
+   * @param tab - types of users
+   * @returns {Observable<object>}
+   * @memberof UserService
    */
 
   getUsers(tab: tabTypes = 'students'): Observable<object> {
@@ -59,6 +85,8 @@ export class UserService implements IUserService{
 
   /**
    * Service method for get chart of Student, Instructor, Admin
+   * @returns {Observable<object>}
+   * @memberof UserService
    */
 
   getChartUsers(): Observable<object> {
@@ -67,6 +95,10 @@ export class UserService implements IUserService{
 
   /**
    * Service method for chek email in db
+   * @param email - email of user
+   * @param tab - types of users
+   * @returns {Observable<object>}
+   * @memberof UserService
    */
 
   getCheckEmail(email: string, tab: tabTypes): Observable<object> {
@@ -80,6 +112,10 @@ export class UserService implements IUserService{
 
   /**
    * Service method for change status of Student, Instructor, Admin
+   * @param data - data of status of user
+   * @param tab - types of users
+   * @returns {Observable<object>}
+   * @memberof UserService
    */
 
   onEditToggleStatusUser(data: object, tab: tabTypes): Observable<object> {
@@ -90,6 +126,10 @@ export class UserService implements IUserService{
 
   /**
    * Service method for delete user
+   * @param user - data of user
+   * @param tab - types of users
+   * @returns {Observable<object>}
+   * @memberof UserService
    */
 
   onDeleteUser(user: object, tab: tabTypes): Observable<object> {
@@ -100,6 +140,10 @@ export class UserService implements IUserService{
 
   /**
    * Service method for edit user
+   * @param data - data of user
+   * @param tab - types of users
+   * @returns {Observable<object>}
+   * @memberof UserService
    */
 
   onEditUser(data: any = {}, tab: tabTypes): Observable<object> {

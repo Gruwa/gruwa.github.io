@@ -221,9 +221,6 @@
                                 <li class="link">
                                     <a href="../classes/AppPage.html" >AppPage</a>
                                 </li>
-                                <li class="link">
-                                    <a href="../classes/CreateObject.html" >CreateObject</a>
-                                </li>
                         </ul>
                     </li>
             
@@ -561,9 +558,6 @@
                                        <li class="link">
                                            <a href="../classes/AppPage.html" >AppPage</a>
                                        </li>
-                                       <li class="link">
-                                           <a href="../classes/CreateObject.html" >CreateObject</a>
-                                       </li>
                                </ul>
                            </li>
                    
@@ -827,7 +821,7 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-    <code>constructor(toast: ToastsManager, vcr: <a href="https://angular.io/api/core/ViewContainerRef" target="_blank">ViewContainerRef</a>, translate: TranslateService, localStorageService: LocalStorageService, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, mainService: <a href="../injectables/MainService.html">MainService</a>)</code>
+    <code>constructor(toast: ToastsManager, vcr: <a href="https://angular.io/api/core/ViewContainerRef" target="_blank">ViewContainerRef</a>, translate: TranslateService, storage: LocalStorageService, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, mainService: <a href="../injectables/MainService.html">MainService</a>)</code>
                         </td>
                     </tr>
                             <tr>
@@ -838,6 +832,8 @@
     
                     <tr>
                         <td class="col-md-4">
+                                <div class="io-description"><p>Creates an instance of HelloPageComponent.</p>
+    </div>
                                 <div>
                                         <b>Parameters :</b>
                                         <table class="params">
@@ -881,7 +877,7 @@
                                                       <td></td>
                                                     </tr>
                                                     <tr>
-                                                      <td>localStorageService</td>
+                                                      <td>storage</td>
                                                       <td>
                                                                 <code>LocalStorageService</code>
                                                       </td>
@@ -950,7 +946,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/pages/main-page/hello-page/hello-page.component.ts:28</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/pages/main-page/hello-page/hello-page.component.ts:42</a></div>
                                 </td>
                             </tr>
     
@@ -959,10 +955,15 @@
                                 <div class="io-description"><p>Method for button hello Angular</p>
     </div>
     
+                                <div>
+                                </div>
                                 <div class="io-description">
                                     <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
     
                                 </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
                         </td>
                     </tr>
                 </tbody>
@@ -1002,7 +1003,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/pages/main-page/hello-page/hello-page.component.ts:19</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/pages/main-page/hello-page/hello-page.component.ts:31</a></div>
                                 </td>
                             </tr>
     
@@ -1037,7 +1038,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/pages/main-page/hello-page/hello-page.component.ts:18</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/pages/main-page/hello-page/hello-page.component.ts:30</a></div>
                                 </td>
                             </tr>
     
@@ -1072,7 +1073,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/pages/main-page/hello-page/hello-page.component.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/pages/main-page/hello-page/hello-page.component.ts:27</a></div>
                                 </td>
                             </tr>
     
@@ -1107,7 +1108,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/pages/main-page/hello-page/hello-page.component.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/pages/main-page/hello-page/hello-page.component.ts:28</a></div>
                                 </td>
                             </tr>
     
@@ -1120,7 +1121,7 @@
 
 
     <div class="tab-pane fade tab-source-code" id="c-source">
-        <pre class="line-numbers"><code class="language-typescript">import {Component, OnInit, ViewContainerRef} from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers"><code class="language-typescript">import {Component, ViewContainerRef} from &#x27;@angular/core&#x27;;
 import {ToastsManager} from &#x27;ng2-toastr&#x27;;
 import {TranslateService} from &#x27;@ngx-translate/core&#x27;;
 import {LocalStorageService} from &#x27;ngx-webstorage&#x27;;
@@ -1133,10 +1134,22 @@ import {MainService} from &#x27;../../../shared/services/index&#x27;;
   styleUrls: [&#x27;./hello-page.component.scss&#x27;]
 })
 export class HelloPageComponent {
+
+  /**
+   * Creates an instance of HelloPageComponent.
+   * @param {TranslateService} translate
+   * @param {Router} router
+   * @param {LocalStorageService} storage
+   * @param {MainService} mainService
+   * @param {ToastsManager} toast
+   * @param {ViewContainerRef} vcr
+   * @memberof HelloPageComponent
+   */
+
   constructor(
     public toast: ToastsManager, vcr: ViewContainerRef,
     public translate: TranslateService,
-    private localStorageService: LocalStorageService,
+    private storage: LocalStorageService,
     public router: Router,
     public mainService: MainService
   ) {
@@ -1145,14 +1158,16 @@ export class HelloPageComponent {
 
   /**
    * Method for button hello Angular
+   * @returns {void}
+   * @memberof HelloPageComponent
    */
 
   helloAngular(): void {
     this.toast.success(&#x27;Hello Ang&#x27;);
-    if (this.localStorageService.retrieve(&#x27;language&#x27;) &#x3D;&#x3D;&#x3D; &#x27;ru&#x27;) {
-      this.localStorageService.store(&#x27;language&#x27;, &#x27;en&#x27;);
+    if (this.storage.retrieve(&#x27;language&#x27;) &#x3D;&#x3D;&#x3D; &#x27;ru&#x27;) {
+      this.storage.store(&#x27;language&#x27;, &#x27;en&#x27;);
     } else {
-      this.localStorageService.store(&#x27;language&#x27;, &#x27;ru&#x27;);
+      this.storage.store(&#x27;language&#x27;, &#x27;ru&#x27;);
     }
   }
 

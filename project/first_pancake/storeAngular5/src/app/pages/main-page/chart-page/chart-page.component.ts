@@ -9,28 +9,141 @@ import {ToastsManager} from 'ng2-toastr';
 })
 export class ChartPageComponent implements OnInit {
 
-  public chartFirstId = 'chartFirst';
-  public chartSecondId = 'chartSecond';
-  public chartThirdId = 'chartThird';
-  public width = 600;
-  public height = 400;
-  public chartFirstType = 'column2d';
-  public chartSecondType = 'pie3d';
-  public chartThirdType = 'mscombi2d';
-  public dataFormat = 'json';
+  /**
+   * Variable chartFirstId
+   * @type {string}
+   * @memberof ChartPageComponent
+   */
+
+  public chartFirstId: string = 'chartFirst';
+
+  /**
+   * Variable chartSecondId
+   * @type {string}
+   * @memberof ChartPageComponent
+   */
+
+  public chartSecondId: string = 'chartSecond';
+
+  /**
+   * Variable chartThirdId
+   * @type {string}
+   * @memberof ChartPageComponent
+   */
+
+  public chartThirdId: string = 'chartThird';
+
+  /**
+   * Variable width
+   * @type {number}
+   * @memberof ChartPageComponent
+   */
+
+  public width: number = 600;
+
+  /**
+   * Variable height
+   * @type {number}
+   * @memberof ChartPageComponent
+   */
+
+  public height: number = 400;
+
+  /**
+   * Variable chartFirstType
+   * @type {string}
+   * @memberof ChartPageComponent
+   */
+
+  public chartFirstType: string = 'column2d';
+
+  /**
+   * Variable chartSecondType
+   * @type {string}
+   * @memberof ChartPageComponent
+   */
+
+  public chartSecondType: string = 'pie3d';
+
+  /**
+   * Variable chartThirdType
+   * @type {string}
+   * @memberof ChartPageComponent
+   */
+
+  public chartThirdType: string = 'mscombi2d';
+
+  /**
+   * Variable dataFormat
+   * @type {string}
+   * @memberof ChartPageComponent
+   */
+
+  public dataFormat: string = 'json';
+
+  /**
+   * Variable dataSourceFirst
+   * @type {string}
+   * @memberof ChartPageComponent
+   */
+
   public dataSourceFirst;
+
+  /**
+   * Variable dataSourceSecond
+   * @type {string}
+   * @memberof ChartPageComponent
+   */
+
   public dataSourceSecond;
+
+  /**
+   * Variable dataSourceThird
+   * @type {string}
+   * @memberof ChartPageComponent
+   */
+
   public dataSourceThird;
-  public title = 'Sample of analytics chart';
+
+  /**
+   * Variable title
+   * @type {string}
+   * @memberof ChartPageComponent
+   */
+
+  public title: string = 'Sample of analytics chart';
+
+  /**
+   * Variable countInit
+   * @type {number}
+   * @memberof ChartPageComponent
+   */
+
   public countInit: number = 0;
+
+  /**
+   * Creates an instance of ChartPageComponent.
+   * @param {UserService} userService
+   * @param {MainService} mainService
+   * @param {ToastsManager} toast
+   * @param {ViewContainerRef} vcr
+   * @memberof ChartPageComponent
+   */
 
   constructor(
     public userService: UserService,
-    public toast: ToastsManager, vcr: ViewContainerRef,
+    private toast: ToastsManager,
+    private vcr: ViewContainerRef,
     public mainService: MainService
   ) {
     this.toast.setRootViewContainerRef(vcr);
   }
+
+  /**
+   * Method ngOnInit
+   * @returns {void}
+   * @memberof ChartPageComponent
+   */
 
   ngOnInit(): void {
     this.mainService.loader$.next(true);
@@ -39,31 +152,12 @@ export class ChartPageComponent implements OnInit {
 
   /**
    * Method for set amount of users
+   * @param {any} data
+   * @returns {void}
+   * @memberof ChartPageComponent
    */
 
   initCharts(data: any): void {
-    this.dataSourceFirst = {
-      'chart': {
-        'caption': 'Users',
-        'subCaption': 'Users by group',
-        'numberprefix': '',
-        'theme': 'fint'
-      },
-      'data': [
-        {
-          'label': 'Students',
-          'value': data.students
-        },
-        {
-          'label': 'Instructors',
-          'value': data.lecturers
-        },
-        {
-          'label': 'Admins',
-          'value': data.admins
-        }
-      ]
-    };
     this.dataSourceSecond = {
       'chart': {
         'caption': 'Bakersfield Central - Total footfalls',
@@ -194,6 +288,8 @@ export class ChartPageComponent implements OnInit {
 
   /**
    * Method for get amount of users
+   * @returns {void}
+   * @memberof ChartPageComponent
    */
 
   onGetUsers(): void {

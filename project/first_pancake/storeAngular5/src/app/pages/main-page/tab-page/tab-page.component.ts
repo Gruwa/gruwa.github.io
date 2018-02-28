@@ -21,23 +21,120 @@ type addUser = "Add" | "Edit";
 })
 export class TabPageComponent implements OnInit{
 
+  /**
+   * Variable userActive
+   * @type {any}
+   * @memberof TabPageComponent
+   */
+
   public userActive: any = {};
+
+  /**
+   * Variable tab
+   * @type {tabTypes}
+   * @memberof TabPageComponent
+   */
+
   public tab: tabTypes = 'students';
+
+  /**
+   * Variable visibleModal
+   * @type {boolean}
+   * @memberof TabPageComponent
+   */
+
   public visibleModal: boolean = false;
+
+  /**
+   * Variable users
+   * @type {Array<UserInterface>}
+   * @memberof TabPageComponent
+   */
+
   public users: Array<UserInterface>;
+
+  /**
+   * Variable modalType
+   * @type {string}
+   * @memberof TabPageComponent
+   */
+
   public modalType: string = '';
+
+  /**
+   * Variable showModal
+   * @type {boolean}
+   * @memberof TabPageComponent
+   */
+
   public showModal: boolean = false;
+
+  /**
+   * Variable modalTitle
+   * @type {string}
+   * @memberof TabPageComponent
+   */
+
   public modalTitle: string = '';
+
+  /**
+   * Variable addUser
+   * @type {addUser}
+   * @memberof TabPageComponent
+   */
+
   public addUser: addUser;
+
+  /**
+   * Variable tabActive
+   * @type {tabTypes}
+   * @memberof TabPageComponent
+   */
+
   public tabActive: tabTypes;
+
+  /**
+   * Variable toggle
+   * @type {boolean}
+   * @memberof TabPageComponent
+   */
+
   public toggle: boolean = false;
+
+  /**
+   * Variable titleBtn
+   * @type {string}
+   * @memberof TabPageComponent
+   */
+
   public titleBtn: string = '+ Add students';
+
+  /**
+   * Variable idUser
+   * @type {string}
+   * @memberof TabPageComponent
+   */
+
   public idUser: string = 'Student ID';
+
+  /**
+   * Creates an instance of TabPageComponent.
+   * @param {TranslateService} translate
+   * @param {Router} router
+   * @param {UserService} userService
+   * @param {LocalStorageService} storage
+   * @param {MainService} mainService
+   * @param {ToastsManager} toast
+   * @param {ViewContainerRef} vcr
+   * @param {ActivatedRoute} route
+   * @memberof TabPageComponent
+   */
 
   constructor(
     public userService: UserService,
     public translate: TranslateService,
-    public toast: ToastsManager, vcr: ViewContainerRef,
+    private toast: ToastsManager,
+    private vcr: ViewContainerRef,
     private storage: LocalStorageService,
     private router: Router,
     private route: ActivatedRoute,
@@ -46,6 +143,12 @@ export class TabPageComponent implements OnInit{
     this.toast.setRootViewContainerRef(vcr);
   }
 
+  /**
+   * Method ngOnInit
+   * @returns {void}
+   * @memberof TabPageComponent
+   */
+
   ngOnInit(): void {
     this.mainService.loader$.next(true);
     this.onGetUsers();
@@ -53,6 +156,8 @@ export class TabPageComponent implements OnInit{
 
   /**
    * Method for get users
+   * @returns {void}
+   * @memberof TabPageComponent
    */
 
   onGetUsers(): void {
@@ -95,6 +200,9 @@ export class TabPageComponent implements OnInit{
 
   /**
    * Method for visible modal
+   * @param {boolean} modalStatus
+   * @returns {void}
+   * @memberof TabPageComponent
    */
 
   onVisibleChange(modalStatus: boolean): void {
@@ -107,6 +215,9 @@ export class TabPageComponent implements OnInit{
 
   /**
    * Method for visible modal
+   * @param {boolean} onShow
+   * @returns {void}
+   * @memberof TabPageComponent
    */
 
   onShowModal(onShow: boolean): void {
@@ -117,6 +228,10 @@ export class TabPageComponent implements OnInit{
 
   /**
    * Method for visible modal
+   * @param {boolean} onShow
+   * @param {UserInterface} user
+   * @returns {void}
+   * @memberof TabPageComponent
    */
 
   onShowModalEditUser(onShow: boolean, user: UserInterface): void {
@@ -127,6 +242,10 @@ export class TabPageComponent implements OnInit{
 
   /**
    * Method for change status of Student, Instructor, Admin
+   * @param $event
+   * @param {UserInterface} userActive
+   * @returns {void}
+   * @memberof TabPageComponent
    */
 
   toggleStudentStatus($event, userActive: UserInterface): void {
@@ -144,6 +263,11 @@ export class TabPageComponent implements OnInit{
 
   /**
    * Method for show modal of delete
+   * @param $event
+   * @param {string} modalType
+   * @param {UserInterface} user
+   * @returns {void}
+   * @memberof TabPageComponent
    */
 
   removeRecordShowModal($event, modalType: string, user: UserInterface): void {
@@ -160,9 +284,12 @@ export class TabPageComponent implements OnInit{
 
   /**
    * Method for show modal of delete
+   * @param $event
+   * @returns {void}
+   * @memberof TabPageComponent
    */
 
-  closeModal(e?): void {
+  closeModal($event?): void {
     this.showModal = false;
     this.modalType = '';
     this.modalTitle = '';
@@ -170,6 +297,9 @@ export class TabPageComponent implements OnInit{
 
   /**
    * Method for delete user
+   * @param {boolean} needDelete
+   * @returns {void}
+   * @memberof TabPageComponent
    */
 
   deleteGroup(needDelete: boolean): void {
@@ -185,6 +315,9 @@ export class TabPageComponent implements OnInit{
 
   /**
    * Method for change tabs
+   * @param {tabTypes} tab
+   * @returns {void}
+   * @memberof TabPageComponent
    */
 
   changeTab(tab: tabTypes): void {
@@ -197,9 +330,12 @@ export class TabPageComponent implements OnInit{
 
   /**
    * Method for shaping file
+   * @param {any} data
+   * @returns {any[]}
+   * @memberof TabPageComponent
    */
 
-  transformData(data): any[] {
+  transformData(data: any): any[] {
     return data.map(value => {
       const report = {};
       report['First Name'] = value.first_name;
@@ -214,6 +350,9 @@ export class TabPageComponent implements OnInit{
 
   /**
    * Method for download file
+   * @param {string} type
+   * @returns {void}
+   * @memberof TabPageComponent
    */
 
   downloadFile(type: string = 'xlsx'): void {

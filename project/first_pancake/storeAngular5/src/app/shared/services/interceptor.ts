@@ -11,20 +11,41 @@ import {Router} from '@angular/router';
 import {ToastsManager} from 'ng2-toastr';
 import {LocalStorageService} from 'ngx-webstorage';
 
+/**
+ * Injectable
+ */
+
 @Injectable()
 export class ProjectInterceptor implements HttpInterceptor {
+
+  /**
+   * Creates an instance of ProjectInterceptor.
+   * @param {Router} router
+   * @param {LocalStorageService} storage
+   * @param {ToastsManager} toast
+   * @memberof ProjectInterceptor
+   */
+
   constructor(public router: Router,
-              public localStorage: LocalStorageService,
+              public storage: LocalStorageService,
               private toast: ToastsManager) {
 
   }
 
+  /**
+   * Method Intercept
+   * @param {HttpRequest<any>} request
+   * @param {HttpHandler} next
+   * @returns {Observable<HttpEvent<any>>}
+   * @memberof ProjectInterceptor
+   */
+
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-    if (this.localStorage.retrieve('token')) {
+    if (this.storage.retrieve('token')) {
       request = request.clone({
         setHeaders: {
-          token: this.localStorage.retrieve('token'),
+          token: this.storage.retrieve('token'),
           'Content-Type': 'application/json'
         }
       });

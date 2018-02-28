@@ -6,9 +6,16 @@ import {Router} from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
 import {LocalStorageService} from 'ngx-webstorage';
 
-function emailMatcher(c: AbstractControl) {
-  let emailControl = c.get('email');
-  let confirmControl = c.get('confirmEmail');
+/**
+ * Method emailMatcher
+ * @params {AbstractControl} value
+ * @returns {object}
+ * @memberof ProjectDeleteComponent
+ */
+
+function emailMatcher(value: AbstractControl): object {
+  let emailControl = value.get('email');
+  let confirmControl = value.get('confirmEmail');
 
   if (emailControl.pristine || confirmControl.pristine) {
     return null;
@@ -28,29 +35,83 @@ function emailMatcher(c: AbstractControl) {
 })
 export class LoginPageComponent implements OnInit {
 
+  /**
+   * Variable for visibleLogin
+   * @type {boolean}
+   * @memberof LoginPageComponent
+   */
+
   public visibleLogin: boolean = true;
+
+  /**
+   * Variable for showRegister
+   * @type {boolean}
+   * @memberof LoginPageComponent
+   */
+
   public showRegister: boolean = false;
+
+  /**
+   * Variable for formAdmin
+   * @type {FormGroup}
+   * @memberof LoginPageComponent
+   */
+
   public formAdmin: FormGroup;
+
+  /**
+   * Variable for loading
+   * @type {boolean}
+   * @memberof LoginPageComponent
+   */
+
   public loading: boolean = false;
+
+  /**
+   * Variable for showForgot
+   * @type {boolean}
+   * @memberof LoginPageComponent
+   */
+
   public showForgot: boolean = false;
+
+  /**
+   * Creates an instance of LoginPageComponent.
+   * @param {TranslateService} translate
+   * @param {FormBuilder} fb
+   * @param {Router} router
+   * @param {AuthService} authService
+   * @param {LocalStorageService} storage
+   * @param {MainService} mainService
+   * @param {ToastsManager} toast
+   * @param {ViewContainerRef} vcr
+   * @memberof LoginPageComponent
+   */
 
   constructor(
     public fb: FormBuilder,
     public authService: AuthService,
     public router: Router,
     public mainService: MainService,
-    public localStorageService: LocalStorageService,
-    private toast: ToastsManager, vcr: ViewContainerRef,
+    public storage: LocalStorageService,
+    private toast: ToastsManager,
+    private vcr: ViewContainerRef,
     public translate: TranslateService
   ) {
     this.toast.setRootViewContainerRef(vcr);
   }
 
+  /**
+   * Method ngOnInit
+   * @returns {void}
+   * @memberof LoginPageComponent
+   */
+
   ngOnInit(): void {
-    const language: string = this.localStorageService.retrieve('language');
+    const language: string = this.storage.retrieve('language');
     this.translate.use(language);
     this.translate.setDefaultLang(language);
-    this.localStorageService.observe('language').subscribe((language: string):void => {
+    this.storage.observe('language').subscribe((language: string):void => {
       this.translate.use(language);
     });
     this.initForm();
@@ -58,6 +119,8 @@ export class LoginPageComponent implements OnInit {
 
   /**
    * Method for init form formAdmin
+   * @returns {void}
+   * @memberof LoginPageComponent
    */
 
   initForm(): void {
@@ -88,6 +151,8 @@ export class LoginPageComponent implements OnInit {
 
   /**
    * Method for switch registered form
+   * @returns {void}
+   * @memberof LoginPageComponent
    */
 
   onRegister(): void {
@@ -96,6 +161,8 @@ export class LoginPageComponent implements OnInit {
 
   /**
    * Method for cancel action
+   * @returns {void}
+   * @memberof LoginPageComponent
    */
 
   onCancel(): void {
@@ -104,6 +171,8 @@ export class LoginPageComponent implements OnInit {
 
   /**
    * Method for save user
+   * @returns {void}
+   * @memberof LoginPageComponent
    */
 
   onSave(): void {
@@ -131,6 +200,8 @@ export class LoginPageComponent implements OnInit {
 
   /**
    * Method for login user
+   * @returns {void}
+   * @memberof LoginPageComponent
    */
 
   onLogin(): void {
@@ -160,6 +231,9 @@ export class LoginPageComponent implements OnInit {
 
   /**
    * Method for visible modal
+   * @param {boolean} data
+   * @returns {void}
+   * @memberof LoginPageComponent
    */
 
   visibleModal(data: boolean): void {
@@ -169,6 +243,8 @@ export class LoginPageComponent implements OnInit {
 
   /**
    * Method for forgot password
+   * @returns {void}
+   * @memberof LoginPageComponent
    */
 
   forgotPassword(): void {
@@ -180,6 +256,9 @@ export class LoginPageComponent implements OnInit {
 
   /**
    * Method for change language
+   * @param {string} lang
+   * @returns {void}
+   * @memberof LoginPageComponent
    */
 
   changeLanguage(lang: string): void {
@@ -188,6 +267,8 @@ export class LoginPageComponent implements OnInit {
 
   /**
    * Method for required field last_name
+   * @returns {boolean}
+   * @memberof LoginPageComponent
    */
 
   formAdminLessSymbolLastName(): boolean {
@@ -202,6 +283,8 @@ export class LoginPageComponent implements OnInit {
 
   /**
    * Method for required field first_name
+   * @returns {boolean}
+   * @memberof LoginPageComponent
    */
 
   formAdminLessSymbolFirstName(): boolean {

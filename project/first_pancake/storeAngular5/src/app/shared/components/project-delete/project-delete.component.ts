@@ -2,7 +2,6 @@ import {
   Component,
   EventEmitter,
   Input,
-  OnInit,
   Output,
   ViewEncapsulation
 } from '@angular/core';
@@ -14,18 +13,40 @@ import {TranslateService} from '@ngx-translate/core';
   styleUrls: ['./project-delete.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class ProjectDeleteComponent implements OnInit {
+export class ProjectDeleteComponent {
+
+  /**
+   * Variable for input entityName
+   * @type {string}
+   * @memberof ProjectDeleteComponent
+   */
 
   @Input() entityName: string = 'user';
+
+  /**
+   * Variable for emit value
+   * @type {EventEmitter<any>}
+   * @memberof ProjectDeleteComponent
+   */
+
   @Output() onDelete: EventEmitter<any> = new EventEmitter();
 
-  constructor(public translate: TranslateService) {
-  }
+  /**
+   * Creates an instance of ProjectDeleteComponent.
+   * @param {TranslateService} translate
+   * @memberof ProjectDeleteComponent
+   */
 
-  ngOnInit() {
-  }
+  constructor(public translate: TranslateService) { }
 
-  onDeleteClick(needDelete: boolean = false) {
+  /**
+   * Method for delete
+   * @params {boolean} needDelete
+   * @returns {void}
+   * @memberof ProjectDeleteComponent
+   */
+
+  onDeleteClick(needDelete: boolean = false): void {
     this.onDelete.emit(needDelete);
   }
 }

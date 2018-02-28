@@ -221,9 +221,6 @@
                                 <li class="link">
                                     <a href="../classes/AppPage.html" >AppPage</a>
                                 </li>
-                                <li class="link">
-                                    <a href="../classes/CreateObject.html" >CreateObject</a>
-                                </li>
                         </ul>
                     </li>
             
@@ -561,9 +558,6 @@
                                        <li class="link">
                                            <a href="../classes/AppPage.html" >AppPage</a>
                                        </li>
-                                       <li class="link">
-                                           <a href="../classes/CreateObject.html" >CreateObject</a>
-                                       </li>
                                </ul>
                            </li>
                    
@@ -838,6 +832,8 @@
     
                     <tr>
                         <td class="col-md-4">
+                                <div class="io-description"><p>Creates an instance of SidebarPageComponent.</p>
+    </div>
                                 <div>
                                         <b>Parameters :</b>
                                         <table class="params">
@@ -930,7 +926,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/pages/main-page/sidebar-page/sidebar-page.component.ts:25</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/pages/main-page/sidebar-page/sidebar-page.component.ts:37</a></div>
                                 </td>
                             </tr>
     
@@ -1016,7 +1012,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/pages/main-page/sidebar-page/sidebar-page.component.ts:18</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/pages/main-page/sidebar-page/sidebar-page.component.ts:27</a></div>
                                 </td>
                             </tr>
     
@@ -1051,7 +1047,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/pages/main-page/sidebar-page/sidebar-page.component.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/pages/main-page/sidebar-page/sidebar-page.component.ts:25</a></div>
                                 </td>
                             </tr>
     
@@ -1086,7 +1082,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/pages/main-page/sidebar-page/sidebar-page.component.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/pages/main-page/sidebar-page/sidebar-page.component.ts:24</a></div>
                                 </td>
                             </tr>
     
@@ -1121,7 +1117,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/pages/main-page/sidebar-page/sidebar-page.component.ts:17</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/pages/main-page/sidebar-page/sidebar-page.component.ts:26</a></div>
                                 </td>
                             </tr>
     
@@ -1134,7 +1130,7 @@
 
 
     <div class="tab-pane fade tab-source-code" id="c-source">
-        <pre class="line-numbers"><code class="language-typescript">import {Component, OnInit} from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers"><code class="language-typescript">import {Component} from &#x27;@angular/core&#x27;;
 import {Router} from &#x27;@angular/router&#x27;;
 import {TranslateService} from &#x27;@ngx-translate/core&#x27;;
 import {MainService} from &#x27;../../../shared/services/main.service&#x27;;
@@ -1147,6 +1143,15 @@ import {AuthService} from &#x27;../../../shared/services&#x27;;
 })
 export class SidebarPageComponent {
 
+  /**
+   * Creates an instance of SidebarPageComponent.
+   * @param {TranslateService} translate
+   * @param {Router} router
+   * @param {AuthService} authService
+   * @param {MainService} mainService
+   * @memberof SidebarPageComponent
+   */
+
   constructor(
     public router: Router,
     public mainService: MainService,
@@ -1156,6 +1161,9 @@ export class SidebarPageComponent {
 
   /**
    * Method for routing
+   * @param {string} value
+   * @returns {void}
+   * @memberof LoginPageComponent
    */
 
   onActiveLink(value: string): void {

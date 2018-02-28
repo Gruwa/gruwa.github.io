@@ -7,6 +7,12 @@ import {LocalStorageService} from 'ngx-webstorage';
 import {MainService} from '../../../shared/services';
 import {ToastsManager} from 'ng2-toastr';
 
+/**
+ * Method for confirm password validator
+ * @params {any} param
+ * @returns {ValidatorFn}
+ * @memberof ResetPasswordComponent
+ */
 
 export function passwordConfirmValidator(param: any): ValidatorFn {
   return (c: AbstractControl): { [key: string]: boolean } | null => {
@@ -24,24 +30,51 @@ export function passwordConfirmValidator(param: any): ValidatorFn {
 })
 export class ResetPasswordComponent implements OnInit {
 
+  /**
+   * Variable for create reset group
+   * @type {FormGroup}
+   * @memberof ResetPasswordComponent
+   */
+
   public resetGroup: FormGroup;
+
+  /**
+   * Creates an instance of ResetPasswordComponent.
+   * @param {TranslateService} translate
+   * @param {FormBuilder} fb
+   * @param {Router} router
+   * @param {ActivatedRoute} route
+   * @param {AuthService} authService
+   * @param {LocalStorageService} storage
+   * @param {MainService} mainService
+   * @param {ToastsManager} toast
+   * @param {ViewContainerRef} vcr
+   * @memberof ResetPasswordComponent
+   */
 
   constructor(private fb: FormBuilder,
               private router: Router,
               private route: ActivatedRoute,
               private authService: AuthService,
               public translate: TranslateService,
-              private localStorageService: LocalStorageService,
+              private storage: LocalStorageService,
               public mainService: MainService,
-              public toast: ToastsManager, vcr: ViewContainerRef,) {
+              private toast: ToastsManager,
+              private vcr: ViewContainerRef,) {
     this.toast.setRootViewContainerRef(vcr);
   }
 
+  /**
+   * Method ngOnInit
+   * @returns {void}
+   * @memberof ResetPasswordComponent
+   */
+
   ngOnInit(): void {
-    const language = this.localStorageService.retrieve('language');
+    const language = this.storage.retrieve('language');
     this.translate.use(language);
     this.translate.setDefaultLang(language);
-    this.localStorageService.observe('language').subscribe((language) => {
+    this.storage.observe('language').subscribe((language) => {
       this.translate.use(language);
     });
 
@@ -54,6 +87,8 @@ export class ResetPasswordComponent implements OnInit {
 
   /**
    * Method for submit reset form
+   * @returns {void}
+   * @memberof ResetPasswordComponent
    */
 
   onSubmit(): void {
@@ -71,6 +106,9 @@ export class ResetPasswordComponent implements OnInit {
 
   /**
    * Method for change language
+   * @params {string} lang
+   * @returns {void}
+   * @memberof ResetPasswordComponent
    */
 
   changeLanguage(lang: string): void {

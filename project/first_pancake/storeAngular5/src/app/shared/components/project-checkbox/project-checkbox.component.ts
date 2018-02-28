@@ -1,5 +1,5 @@
 import {
-  Component, EventEmitter, ViewEncapsulation, Input, Output, OnInit
+  Component, ViewEncapsulation, Input
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
@@ -16,9 +16,34 @@ import { FormControl } from '@angular/forms';
 })
 export class ProjectCheckboxComponent {
 
+  /**
+   * Variable for input label
+   * @type {string}
+   * @memberof ProjectCheckboxComponent
+   */
+
   @Input() label: string = '';
+
+  /**
+   * Variable for input control
+   * @type {FormControl}
+   * @memberof ProjectCheckboxComponent
+   */
+
   @Input() control: FormControl = new FormControl(false, []);
-  public time;
+
+  /**
+   * Variable for input time
+   * @type {any}
+   * @memberof ProjectCheckboxComponent
+   */
+
+  public time: any;
+
+  /**
+   * Creates an instance of ProjectCheckboxComponent.
+   * @memberof ProjectCheckboxComponent
+   */
 
   constructor() {
     this.time = +new Date() + (Math.random() * 100 - 1);

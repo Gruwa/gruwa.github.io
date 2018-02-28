@@ -221,9 +221,6 @@
                                 <li class="link">
                                     <a href="../classes/AppPage.html" >AppPage</a>
                                 </li>
-                                <li class="link">
-                                    <a href="../classes/CreateObject.html" >CreateObject</a>
-                                </li>
                         </ul>
                     </li>
             
@@ -561,9 +558,6 @@
                                        <li class="link">
                                            <a href="../classes/AppPage.html" >AppPage</a>
                                        </li>
-                                       <li class="link">
-                                           <a href="../classes/CreateObject.html" >CreateObject</a>
-                                       </li>
                                </ul>
                            </li>
                    
@@ -744,66 +738,59 @@
             </table>
         </section>
 
-            <section>
-                <h3 id="index">Index</h3>
-                <table class="table table-sm table-bordered index-table">
-                    <tbody>
-                        <tr>
-                            <td class="col-md-4">
-                                <h6><b>HostBindings</b></h6>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <ul class="index-list">
-                                    <li>
-                                        <a href="#class.list-directive">class.list-directive</a>
-                                    </li>
-                                </ul>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
-
-
-
 
             <section>
-                <h3>HostBindings</h3>        <table class="table table-sm table-bordered">
+                <h3 id="constructor">Constructor</h3>
+                    <table class="table table-sm table-bordered">
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <a name="class.list-directive"></a>
-                                    <span class="name">
-                                        <b>
-                                        class.list-directive
-                                        </b>
-                                        <a href="#class.list-directive"><span class="fa fa-link"></span></a>
-                                    </span>
+            <code>constructor(el: <a href="https://angular.io/api/core/ElementRef" target="_blank">ElementRef</a>)</code>
                                 </td>
                             </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <code>class.list-directive:     <code></code>
-            </code>
-                                </td>
-                            </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <i>Default value : </i><code>true</code>
-                                    </td>
-                                </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/shared/directives/project-list.directive.ts:11</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/shared/directives/project-list.directive.ts:12</a></div>
                                         </td>
                                     </tr>
             
-            
+                            <tr>
+                                <td class="col-md-4">
+                                        <div class="io-description"><p>Creates an instance of ProjectListDirective.</p>
+            </div>
+                                        <div>
+                                                <b>Parameters :</b>
+                                                <table class="params">
+                                                    <thead>
+                                                        <tr>
+                                                            <td>Name</td>
+                                                            <td>Type</td>
+                                                            <td>Optional</td>
+                                                            <td>Description</td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                            <tr>
+                                                              <td>el</td>
+                                                              <td>
+                                                                        <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+                                                              </td>
+                                                              <td>
+                                                                    no
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                    </tbody>
+                                                </table>
+                                        </div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
+
+
+
 
 
 
@@ -814,16 +801,27 @@
 
     <div class="tab-pane fade tab-source-code" id="c-source">
         <pre class="line-numbers"><code class="language-typescript">import {
-  Directive,
+  Directive, ElementRef,
   HostBinding
 } from &#x27;@angular/core&#x27;;
 
 @Directive({
   selector: &#x27;[appProjectListStyle]&#x27;
 })
+/**
+ * Project List Directive class, that adds margin property
+ */
 export class ProjectListDirective {
 
-  @HostBinding(&#x27;class.list-directive&#x27;) isLabelStyle &#x3D; true;
+  /**
+   * Creates an instance of ProjectListDirective.
+   * @param {ElementRef} el
+   * @memberof ProjectListDirective
+   */
+
+  constructor(el: ElementRef) {
+    el.nativeElement.style.margin &#x3D; &#x27;10px 0&#x27;;
+  }
 
 }
 </code></pre>

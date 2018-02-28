@@ -1,6 +1,6 @@
 import {
   Component,
-  Inject, OnInit,
+  OnInit,
   ViewContainerRef
 } from '@angular/core';
 import {ToastsManager} from 'ng2-toastr/ng2-toastr';
@@ -16,8 +16,20 @@ import {MainService} from '../../shared/services';
 })
 export class MainPageComponent implements OnInit {
 
+  /**
+   * Creates an instance of MainPageComponent.
+   * @param {TranslateService} translate
+   * @param {Router} router
+   * @param {LocalStorageService} storage
+   * @param {MainService} mainService
+   * @param {ToastsManager} toast
+   * @param {ViewContainerRef} vcr
+   * @memberof MainPageComponent
+   */
+
   constructor(
-    public toast: ToastsManager, vcr: ViewContainerRef,
+    private toast: ToastsManager,
+    private vcr: ViewContainerRef,
     public translate: TranslateService,
     private storage: LocalStorageService,
     public router: Router,
@@ -25,6 +37,12 @@ export class MainPageComponent implements OnInit {
   ) {
     this.toast.setRootViewContainerRef(vcr);
   }
+
+  /**
+   * Method ngOnInit
+   * @returns {void}
+   * @memberof MainPageComponent
+   */
 
   ngOnInit(): void {
     const language: string = this.storage.retrieve('language');

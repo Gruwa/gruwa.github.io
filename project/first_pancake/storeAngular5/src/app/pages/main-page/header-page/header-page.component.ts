@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
 import {AuthService, MainService} from '../../../shared/services/index';
@@ -11,18 +11,28 @@ import {LocalStorageService} from 'ngx-webstorage';
 })
 export class HeaderPageComponent {
 
-  public menuFocus: boolean = false;
+  /**
+   * Creates an instance of HeaderPageComponent.
+   * @param {TranslateService} translate
+   * @param {Router} router
+   * @param {AuthService} authService
+   * @param {MainService} mainService
+   * @param {LocalStorageService} storage
+   * @memberof HeaderPageComponent
+   */
 
   constructor(
     private router: Router,
     public translate: TranslateService,
     public mainService: MainService,
     public authService: AuthService,
-    public localStorageService: LocalStorageService
+    public storage: LocalStorageService
   ) { }
 
   /**
    * Method click on button
+   * @returns {void}
+   * @memberof HeaderPageComponent
    */
 
   click(): void {
@@ -31,6 +41,9 @@ export class HeaderPageComponent {
 
   /**
    * Method for change language
+   * @param {string} lang
+   * @returns {void}
+   * @memberof HeaderPageComponent
    */
 
   changeLanguage(lang: string): void {
@@ -39,6 +52,8 @@ export class HeaderPageComponent {
 
   /**
    * Method for close side bar
+   * @returns {void}
+   * @memberof HeaderPageComponent
    */
 
   closeSideBar(): void {
@@ -47,6 +62,8 @@ export class HeaderPageComponent {
 
   /**
    * Method for log out from system
+   * @returns {void}
+   * @memberof HeaderPageComponent
    */
 
   LogOut(): void {
@@ -55,6 +72,8 @@ export class HeaderPageComponent {
 
   /**
    * Method for log in system
+   * @returns {void}
+   * @memberof HeaderPageComponent
    */
 
   LogIn(): void {

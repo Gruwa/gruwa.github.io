@@ -221,9 +221,6 @@
                                 <li class="link">
                                     <a href="../classes/AppPage.html" >AppPage</a>
                                 </li>
-                                <li class="link">
-                                    <a href="../classes/CreateObject.html" >CreateObject</a>
-                                </li>
                         </ul>
                     </li>
             
@@ -561,9 +558,6 @@
                                        <li class="link">
                                            <a href="../classes/AppPage.html" >AppPage</a>
                                        </li>
-                                       <li class="link">
-                                           <a href="../classes/CreateObject.html" >CreateObject</a>
-                                       </li>
                                </ul>
                            </li>
                    
@@ -800,11 +794,11 @@
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#localStorageService">localStorageService</a>
+                                <a href="#router">router</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#router">router</a>
+                                <a href="#storage">storage</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -843,17 +837,19 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-    <code>constructor(authService: <a href="../injectables/AuthService.html">AuthService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, localStorageService: LocalStorageService, translate: TranslateService)</code>
+    <code>constructor(authService: <a href="../injectables/AuthService.html">AuthService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, storage: LocalStorageService, translate: TranslateService)</code>
                         </td>
                     </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/pages/auth-page/check-page/check-page.component.ts:29</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/pages/auth-page/check-page/check-page.component.ts:14</a></div>
                                 </td>
                             </tr>
     
                     <tr>
                         <td class="col-md-4">
+                                <div class="io-description"><p>Creates an instance of CheckPageComponent.</p>
+    </div>
                                 <div>
                                         <b>Parameters :</b>
                                         <table class="params">
@@ -887,7 +883,7 @@
                                                       <td></td>
                                                     </tr>
                                                     <tr>
-                                                      <td>localStorageService</td>
+                                                      <td>storage</td>
                                                       <td>
                                                                 <code>LocalStorageService</code>
                                                       </td>
@@ -946,7 +942,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/pages/auth-page/check-page/check-page.component.ts:51</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/pages/auth-page/check-page/check-page.component.ts:53</a></div>
                                 </td>
                             </tr>
     
@@ -955,10 +951,15 @@
                                 <div class="io-description"><p>Method for check email</p>
     </div>
     
+                                <div>
+                                </div>
                                 <div class="io-description">
                                     <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
     
                                 </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
                         </td>
                     </tr>
                 </tbody>
@@ -991,11 +992,18 @@
     
                     <tr>
                         <td class="col-md-4">
+                                <div class="io-description"><p>Method ngOnInit</p>
+    </div>
     
+                                <div>
+                                </div>
                                 <div class="io-description">
                                     <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
     
                                 </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
                         </td>
                     </tr>
                 </tbody>
@@ -1022,7 +1030,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/app/pages/auth-page/check-page/check-page.component.ts:62</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/app/pages/auth-page/check-page/check-page.component.ts:65</a></div>
                                 </td>
                             </tr>
     
@@ -1107,42 +1115,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/pages/auth-page/check-page/check-page.component.ts:32</a></div>
-                                </td>
-                            </tr>
-    
-    
-                </tbody>
-            </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <a name="localStorageService"></a>
-                            <span class="name">
-                                <b>
-                                    <span class="modifier">Public</span>
-                                localStorageService
-                                </b>
-                                <a href="#localStorageService"><span class="fa fa-link"></span></a>
-                            </span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <span class="modifier-icon fa fa-reset"></span><code>localStorageService:     <code>LocalStorageService</code>
-    </code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <i>Type : </i>    <code>LocalStorageService</code>
-    
-                            </td>
-                        </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/pages/auth-page/check-page/check-page.component.ts:34</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/pages/auth-page/check-page/check-page.component.ts:26</a></div>
                                 </td>
                             </tr>
     
@@ -1177,7 +1150,42 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/pages/auth-page/check-page/check-page.component.ts:33</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/pages/auth-page/check-page/check-page.component.ts:27</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="storage"></a>
+                            <span class="name">
+                                <b>
+                                    <span class="modifier">Public</span>
+                                storage
+                                </b>
+                                <a href="#storage"><span class="fa fa-link"></span></a>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-reset"></span><code>storage:     <code>LocalStorageService</code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Type : </i>    <code>LocalStorageService</code>
+    
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/pages/auth-page/check-page/check-page.component.ts:28</a></div>
                                 </td>
                             </tr>
     
@@ -1212,7 +1220,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/pages/auth-page/check-page/check-page.component.ts:35</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/pages/auth-page/check-page/check-page.component.ts:29</a></div>
                                 </td>
                             </tr>
     
@@ -1225,27 +1233,12 @@
 
 
     <div class="tab-pane fade tab-source-code" id="c-source">
-        <pre class="line-numbers"><code class="language-typescript">import {Component, OnInit, ViewContainerRef, ViewEncapsulation} from &#x27;@angular/core&#x27;;
-import {FormGroup, FormBuilder, Validators, AbstractControl} from &#x27;@angular/forms&#x27;;
+        <pre class="line-numbers"><code class="language-typescript">import {Component, OnInit, ViewEncapsulation} from &#x27;@angular/core&#x27;;
 import {AuthService, MainService} from &#x27;../../../shared/services/index&#x27;;
 import {ToastsManager} from &#x27;ng2-toastr&#x27;;
 import {Router} from &#x27;@angular/router&#x27;;
 import {TranslateService} from &#x27;@ngx-translate/core&#x27;;
 import {LocalStorageService} from &#x27;ngx-webstorage&#x27;;
-
-function emailMatcher(c: AbstractControl) {
-  let emailControl &#x3D; c.get(&#x27;email&#x27;);
-  let confirmControl &#x3D; c.get(&#x27;confirmEmail&#x27;);
-
-  if (emailControl.pristine || confirmControl.pristine) {
-    return null;
-  }
-  if (emailControl.value &#x3D;&#x3D;&#x3D; confirmControl.value) {
-    return null;
-  }
-
-  return {&#x27;match&#x27;: true};
-}
 
 @Component({
   selector: &#x27;app-check-page&#x27;,
@@ -1255,24 +1248,41 @@ function emailMatcher(c: AbstractControl) {
 })
 export class CheckPageComponent implements OnInit {
 
+  /**
+   * Creates an instance of CheckPageComponent.
+   * @param {TranslateService} translate
+   * @param {Router} router
+   * @param {AuthService} authService
+   * @param {LocalStorageService} storage
+   * @memberof CheckPageComponent
+   */
+  
   constructor(
     public authService: AuthService,
     public router: Router,
-    public localStorageService: LocalStorageService,
+    public storage: LocalStorageService,
     public translate: TranslateService
   ) { }
 
+  /**
+   * Method ngOnInit
+   * @returns {void}
+   * @memberof CheckPageComponent
+   */
+
   ngOnInit(): void {
-    const language: string &#x3D; this.localStorageService.retrieve(&#x27;language&#x27;);
+    const language: string &#x3D; this.storage.retrieve(&#x27;language&#x27;);
     this.translate.use(language);
     this.translate.setDefaultLang(language);
-    this.localStorageService.observe(&#x27;language&#x27;).subscribe((language: string):void &#x3D;&gt; {
+    this.storage.observe(&#x27;language&#x27;).subscribe((language: string):void &#x3D;&gt; {
       this.translate.use(language);
     });
   }
 
   /**
    * Method for check email
+   * @returns {void}
+   * @memberof CheckPageComponent
    */
 
   checkEmail(): void {
@@ -1281,9 +1291,10 @@ export class CheckPageComponent implements OnInit {
     this.router.navigate([&#x27;/auth&#x27;]);
   }
 
-
   /**
    * Method for close check modal
+   * @returns {void}
+   * @memberof CheckPageComponent
    */
 
   visibleModal($event): void {

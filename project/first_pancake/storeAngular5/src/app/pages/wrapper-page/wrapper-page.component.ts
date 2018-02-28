@@ -11,10 +11,39 @@ import {AuthService} from '../../shared/services';
 })
 export class WrapperPageComponent implements OnInit, OnDestroy, AfterViewChecked {
 
+  /**
+   * Variable for visibleLogin
+   * @type {boolean}
+   * @memberof WrapperPageComponent
+   */
+
   public visibleLogin: boolean = true;
-  public visibleRegister: boolean = false;
+
+  /**
+   * Variable for visibleContent
+   * @type {boolean}
+   * @memberof WrapperPageComponent
+   */
+
   public visibleContent: boolean = false;
+
+  /**
+   * Variable for loading
+   * @type {boolean}
+   * @memberof WrapperPageComponent
+   */
+
   public loading: boolean = false;
+
+  /**
+   * Creates an instance of WrapperPageComponent.
+   * @param {TranslateService} translate
+   * @param {Router} router
+   * @param {AuthService} authService
+   * @param {MainService} mainService
+   * @param {ChangeDetectorRef} changeDetector
+   * @memberof WrapperPageComponent
+   */
 
   constructor(public router: Router,
               public mainService: MainService,
@@ -22,6 +51,12 @@ export class WrapperPageComponent implements OnInit, OnDestroy, AfterViewChecked
               private authService: AuthService,
               private changeDetector: ChangeDetectorRef) {
   }
+
+  /**
+   * Method ngOnInit
+   * @returns {void}
+   * @memberof WrapperPageComponent
+   */
 
   ngOnInit(): void {
     this.mainService.setLanguage('en');
@@ -31,6 +66,8 @@ export class WrapperPageComponent implements OnInit, OnDestroy, AfterViewChecked
 
   /**
    * Method for change detection in loader$
+   * @returns {void}
+   * @memberof WrapperPageComponent
    */
 
   ngAfterViewChecked(): void {
@@ -39,6 +76,9 @@ export class WrapperPageComponent implements OnInit, OnDestroy, AfterViewChecked
 
   /**
    * Method for loader change
+   * @param {boolean} value
+   * @returns {void}
+   * @memberof WrapperPageComponent
    */
 
   loaderChange(value: boolean): void {
@@ -47,6 +87,9 @@ export class WrapperPageComponent implements OnInit, OnDestroy, AfterViewChecked
 
   /**
    * Method for control of steLogin
+   * @param {boolean} eventData
+   * @returns {void}
+   * @memberof WrapperPageComponent
    */
 
   stateLogin(eventData: boolean): void {
@@ -56,6 +99,9 @@ export class WrapperPageComponent implements OnInit, OnDestroy, AfterViewChecked
 
   /**
    * Method for control visible
+   * @param {boolean} data
+   * @returns {void}
+   * @memberof WrapperPageComponent
    */
 
   visibleModal(data: boolean): void {
@@ -64,6 +110,8 @@ export class WrapperPageComponent implements OnInit, OnDestroy, AfterViewChecked
 
   /**
    * Method for clean flow
+   * @returns {void}
+   * @memberof WrapperPageComponent
    */
 
   ngOnDestroy(): void {
