@@ -99,8 +99,6 @@ describe('Test HelloPageComponent', () => {
     let element = title.nativeElement;
 
     translate.use('ru');
-    console.log(element.textContent);
-
     component.detectChanges();
     expect(element.textContent).toContain('Привет от Angular 5 App CLI');
   }));
