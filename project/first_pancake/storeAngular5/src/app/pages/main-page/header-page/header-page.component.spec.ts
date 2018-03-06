@@ -5,14 +5,18 @@ import {Observable} from 'rxjs/Observable';
 import {Component, Injector} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 
-import {SidebarPageComponent} from './sidebar-page.component';
-import {AuthService, MainService, UserResolverService} from '../../../shared/services';
+import {HeaderPageComponent} from './header-page.component';
+import {
+  AuthService,
+  MainService
+} from '../../../shared/services';
 import {
   TranslateLoader,
   TranslateModule,
   TranslateService
 } from '@ngx-translate/core';
 import {RouteActivatorService} from '../../../shared/services/route-activator.service';
+import {LocalStorageService} from 'ngx-webstorage';
 
 
 let translationsEn: object = {
@@ -45,26 +49,16 @@ class FakeLoader implements TranslateLoader {
 class MainSkyComponent {
 }
 
-@Component({
-  template: 'ChartSkyComponent'
-})
-class ChartSkyComponent {
-}
-
-@Component({
-  template: 'TabSkyComponent'
-})
-class TabSkyComponent {
-}
-
 describe('Test SidebarPageComponent', () => {
 
+  let fakeLocalStorageService: any;
   let mainService: any;
   let fakeMainService: any;
   let authService: any;
   let fakeAuthService: any;
   let translate: TranslateService;
   let injector:  Injector;
+  let storage: LocalStorageService;
 
   beforeEach(() => {
 
@@ -76,15 +70,18 @@ describe('Test SidebarPageComponent', () => {
       activeLink: ''
     };
 
+    fakeLocalStorageService = {
+      activeUserName: 'Garry'
+    };
+
     TestBed.configureTestingModule({
       declarations: [
-        SidebarPageComponent,
-        MainSkyComponent,
-        ChartSkyComponent,
-        TabSkyComponent
+        HeaderPageComponent,
+        MainSkyComponent
       ],
       providers: [
         TranslateService,
+        LocalStorageService,
         {
           provide: MainService,
           useValue: fakeMainService
@@ -100,14 +97,6 @@ describe('Test SidebarPageComponent', () => {
           {
             path: 'main',
             component: MainSkyComponent
-          },
-          {
-            path: 'main/chart',
-            component: ChartSkyComponent
-          },
-          {
-            path: 'main/users',
-            component: TabSkyComponent
           }
         ]),
         TranslateModule.forRoot({
@@ -120,21 +109,40 @@ describe('Test SidebarPageComponent', () => {
     });
 
     injector = getTestBed();
+
+    /**
+     * translate from the root injector
+     */
+
     translate = injector.get(TranslateService);
 
     /**
      * mainService from the root injector
      */
+
     mainService = TestBed.get(MainService);
 
     /**
      * authService from the root injector
      */
+
     authService = TestBed.get(AuthService);
+
+    /**
+     * localStorageService from the root injector
+     */
+
+    storage = TestBed.get(LocalStorageService);
+
+    /**
+     * Set in  storage value of activeUserName
+     */
+
+    storage.store('activeUserName', fakeLocalStorageService.activeUserName);
   });
 
   it('Should create the app', async(() => {
-    let fixture = TestBed.createComponent(SidebarPageComponent);
+    let fixture = TestBed.createComponent(HeaderPageComponent);
     let component = fixture.debugElement.componentInstance;
 
     fixture.detectChanges();
@@ -142,33 +150,33 @@ describe('Test SidebarPageComponent', () => {
   }));
 
   it('Should have a description', async(() => {
-    let fixture = TestBed.createComponent(SidebarPageComponent);
-    let component = fixture.debugElement.query(By.css('div.wrapper-sidebar__description'));
+    let fixture = TestBed.createComponent(HeaderPageComponent);
+    let component = fixture.debugElement.query(By.css('span.user-logo__name'));
     let element = component.nativeElement;
 
     fixture.detectChanges();
-    expect(element.textContent).toContain('Dashboard' || 'Users' || 'Charts' || 'Messages');
+    expect(element.textContent).toContain('G');
   }));
-
-  it('Should have a translate of description', async(() => {
-    let fixture = TestBed.createComponent(SidebarPageComponent);
-    let title = fixture.debugElement.query(By.css('div.wrapper-sidebar__description'));
-    let element = title.nativeElement;
-
-    translate.use('ru');
-    fixture.detectChanges();
-    expect(element.textContent).toContain('Доска' || 'Пользователи' || 'Пароль' || 'Сообщения');
-  }));
-
-  it('Should test links of route', async(() => {
-    let fixture = TestBed.createComponent(SidebarPageComponent);
-    let routerLink = fixture.debugElement.query(By.css('li.wrapper-sidebar__item'));
-
-    fixture.detectChanges();
-    setTimeout(function () {
-      let element = routerLink.nativeElement.getAttribute('ng-reflect-router-link');
-      expect(element).toEqual('/main' || '/main/users' || '/main/chart' || '/main/message' );
-    }, 500);
-  }));
+  //
+  // it('Should have a translate of description', async(() => {
+  //   let fixture = TestBed.createComponent(SidebarPageComponent);
+  //   let title = fixture.debugElement.query(By.css('div.wrapper-sidebar__description'));
+  //   let element = title.nativeElement;
+  //
+  //   translate.use('ru');
+  //   fixture.detectChanges();
+  //   expect(element.textContent).toContain('Доска' || 'Пользователи' || 'Пароль' || 'Сообщения');
+  // }));
+  //
+  // it('Should test links of route', async(() => {
+  //   let fixture = TestBed.createComponent(SidebarPageComponent);
+  //   let routerLink = fixture.debugElement.query(By.css('li.wrapper-sidebar__item'));
+  //
+  //   fixture.detectChanges();
+  //   setTimeout(function () {
+  //     let element = routerLink.nativeElement.getAttribute('ng-reflect-router-link');
+  //     expect(element).toEqual('/main' || '/main/users' || '/main/chart' || '/main/message' );
+  //   }, 500);
+  // }));
 
 });
