@@ -1,8 +1,8 @@
-import {async, TestBed, getTestBed} from '@angular/core/testing';
+import {async, TestBed, getTestBed, ComponentFixture} from '@angular/core/testing';
 import {RouterTestingModule} from '@angular/router/testing';
 import {By} from '@angular/platform-browser';
 import {Observable} from 'rxjs/Observable';
-import {Component, Injector} from '@angular/core';
+import {Component, DebugElement, Injector} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 
 import {HeaderPageComponent} from './header-page.component';
@@ -17,20 +17,18 @@ import {
 } from '@ngx-translate/core';
 import {RouteActivatorService} from '../../../shared/services/route-activator.service';
 import {LocalStorageService} from 'ngx-webstorage';
+import {ToastModule} from 'ng2-toastr';
+import {HelloPageComponent} from '../hello-page/hello-page.component';
 
 
 let translationsEn: object = {
-  "Dashboard": "Dashboard",
-  "Charts": "Charts",
-  "Users": "Users",
-  "Messages": "Messages",
+  "Main page": "Main page",
+  "My account": "My account",
 };
 
 let translationsRu: object = {
-  "Users": "Пользователи",
-  "Messages": "Сообщения",
-  "Password": "Пароль",
-  "Dashboard": "Доска",
+  "Main page": "Главная",
+  "My account": "Мой аккаунт",
 };
 
 class FakeLoader implements TranslateLoader {
@@ -49,8 +47,11 @@ class FakeLoader implements TranslateLoader {
 class MainSkyComponent {
 }
 
-describe('Test SidebarPageComponent', () => {
+describe('Test HeaderPageComponent', () => {
 
+  let fixture: ComponentFixture<HeaderPageComponent>;
+  let debugElement: DebugElement;
+  let htmlElement: HTMLElement;
   let fakeLocalStorageService: any;
   let mainService: any;
   let fakeMainService: any;
@@ -93,6 +94,7 @@ describe('Test SidebarPageComponent', () => {
       ],
       imports: [
         HttpClientModule,
+        ToastModule.forRoot(),
         RouterTestingModule.withRoutes([
           {
             path: 'main',
@@ -142,41 +144,40 @@ describe('Test SidebarPageComponent', () => {
   });
 
   it('Should create the app', async(() => {
-    let fixture = TestBed.createComponent(HeaderPageComponent);
-    let component = fixture.debugElement.componentInstance;
+    fixture = TestBed.createComponent(HeaderPageComponent);
+    debugElement = fixture.debugElement.componentInstance;
 
     fixture.detectChanges();
-    expect(component).toBeTruthy();
+    expect(debugElement).toBeTruthy();
   }));
 
   it('Should have a description', async(() => {
-    let fixture = TestBed.createComponent(HeaderPageComponent);
-    let component = fixture.debugElement.query(By.css('span.user-logo__name'));
-    let element = component.nativeElement;
+    fixture = TestBed.createComponent(HeaderPageComponent);
+    debugElement = fixture.debugElement.query(By.css('span.user-logo__name'));
+    htmlElement = debugElement.nativeElement;
 
     fixture.detectChanges();
-    expect(element.textContent).toContain('G');
+    expect(htmlElement.textContent).toContain('G');
   }));
-  //
-  // it('Should have a translate of description', async(() => {
-  //   let fixture = TestBed.createComponent(SidebarPageComponent);
-  //   let title = fixture.debugElement.query(By.css('div.wrapper-sidebar__description'));
-  //   let element = title.nativeElement;
-  //
-  //   translate.use('ru');
-  //   fixture.detectChanges();
-  //   expect(element.textContent).toContain('Доска' || 'Пользователи' || 'Пароль' || 'Сообщения');
-  // }));
-  //
-  // it('Should test links of route', async(() => {
-  //   let fixture = TestBed.createComponent(SidebarPageComponent);
-  //   let routerLink = fixture.debugElement.query(By.css('li.wrapper-sidebar__item'));
-  //
-  //   fixture.detectChanges();
-  //   setTimeout(function () {
-  //     let element = routerLink.nativeElement.getAttribute('ng-reflect-router-link');
-  //     expect(element).toEqual('/main' || '/main/users' || '/main/chart' || '/main/message' );
-  //   }, 500);
-  // }));
 
+  it('Should have a translate of description', async(() => {
+    fixture = TestBed.createComponent(HeaderPageComponent);
+    debugElement = fixture.debugElement.query(By.css('li.dropdown-content'));
+    htmlElement = debugElement.nativeElement;
+    translate.use('ru');
+
+    fixture.detectChanges();
+    expect(htmlElement.textContent).toContain('Главная' || 'Мой аккаунт');
+  }));
+
+  it('Should test links of route', async(() => {
+    fixture = TestBed.createComponent(HeaderPageComponent);
+    debugElement = fixture.debugElement.query(By.css('li.dropdown-content'));
+
+    fixture.whenStable().then(() => {
+      fixture.detectChanges();
+      let link = debugElement.nativeElement.getAttribute('ng-reflect-router-link');
+      expect(link).toEqual('[\'/main\']' );
+    });
+  }));
 });

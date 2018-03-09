@@ -2,7 +2,7 @@
   <div class="ui-g-12 ui-g-nopad" *ngIf="!userGroupVisible && !userActive._id">
     <form (onSubmit)="onSubmit()" [formGroup]="emailGroup">
       <div class="ui-g-12">
-        <app-project-input [label]="'Email'" [control]="emailGroup.get('email')">
+        <app-project-input id="add-user-input-email-id" [label]="'Email'" [control]="emailGroup.get('email')">
         </app-project-input>
       </div>
       <div class="ui-g-12 add-user__btn-group">

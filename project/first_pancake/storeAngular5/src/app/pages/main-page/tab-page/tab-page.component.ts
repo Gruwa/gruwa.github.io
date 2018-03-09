@@ -8,9 +8,7 @@ import * as XLSX from 'xlsx';
 import * as moment from 'moment';
 import {UserInterface} from '../../../shared/interfaces/user.interface';
 import {ActivatedRoute, Router} from '@angular/router';
-
-type tabTypes = "students" | "admins" | "instructors";
-type addUser = "Add" | "Edit";
+import * as Types from '../../../shared/interfaces/tab.interface';
 
 @Component({
   selector: 'app-tab-page',
@@ -31,11 +29,11 @@ export class TabPageComponent implements OnInit{
 
   /**
    * Variable tab
-   * @type {tabTypes}
+   * @type {Types.tabTypes}
    * @memberof TabPageComponent
    */
 
-  public tab: tabTypes = 'students';
+  public tab: Types.tabTypes = 'students';
 
   /**
    * Variable visibleModal
@@ -79,19 +77,19 @@ export class TabPageComponent implements OnInit{
 
   /**
    * Variable addUser
-   * @type {addUser}
+   * @type {Types.addUser}
    * @memberof TabPageComponent
    */
 
-  public addUser: addUser;
+  public addUser: Types.addUser;
 
   /**
    * Variable tabActive
-   * @type {tabTypes}
+   * @type {Types.tabTypes}
    * @memberof TabPageComponent
    */
 
-  public tabActive: tabTypes;
+  public tabActive: Types.tabTypes;
 
   /**
    * Variable toggle
@@ -315,12 +313,12 @@ export class TabPageComponent implements OnInit{
 
   /**
    * Method for change tabs
-   * @param {tabTypes} tab
+   * @param {Types.tabTypes} tab
    * @returns {void}
    * @memberof TabPageComponent
    */
 
-  changeTab(tab: tabTypes): void {
+  changeTab(tab: Types.tabTypes): void {
     this.tabActive = this.tab;
     this.tab = tab;
     this.titleBtn = '+ Add ' + this.tab;

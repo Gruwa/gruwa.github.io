@@ -1,8 +1,8 @@
-import {async, TestBed, getTestBed} from '@angular/core/testing';
+import {async, TestBed, getTestBed, ComponentFixture} from '@angular/core/testing';
 import {RouterTestingModule} from '@angular/router/testing';
 import {By} from '@angular/platform-browser';
 import {Observable} from 'rxjs/Observable';
-import {Component, Injector} from '@angular/core';
+import {Component, DebugElement, Injector} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 
 import {SidebarPageComponent} from './sidebar-page.component';
@@ -13,6 +13,7 @@ import {
   TranslateService
 } from '@ngx-translate/core';
 import {RouteActivatorService} from '../../../shared/services/route-activator.service';
+import {HeaderPageComponent} from '../header-page/header-page.component';
 
 
 let translationsEn: object = {
@@ -59,6 +60,9 @@ class TabSkyComponent {
 
 describe('Test SidebarPageComponent', () => {
 
+  let fixture: ComponentFixture<SidebarPageComponent>;
+  let debugElement: DebugElement;
+  let htmlElement: HTMLElement;
   let mainService: any;
   let fakeMainService: any;
   let authService: any;
@@ -134,41 +138,40 @@ describe('Test SidebarPageComponent', () => {
   });
 
   it('Should create the app', async(() => {
-    let fixture = TestBed.createComponent(SidebarPageComponent);
-    let component = fixture.debugElement.componentInstance;
+    fixture = TestBed.createComponent(SidebarPageComponent);
+    debugElement = fixture.debugElement.componentInstance;
 
     fixture.detectChanges();
-    expect(component).toBeTruthy();
+    expect(debugElement).toBeTruthy();
   }));
 
   it('Should have a description', async(() => {
-    let fixture = TestBed.createComponent(SidebarPageComponent);
-    let component = fixture.debugElement.query(By.css('div.wrapper-sidebar__description'));
-    let element = component.nativeElement;
+    fixture = TestBed.createComponent(SidebarPageComponent);
+    debugElement = fixture.debugElement.query(By.css('div.wrapper-sidebar__description'));
+    htmlElement = debugElement.nativeElement;
 
     fixture.detectChanges();
-    expect(element.textContent).toContain('Dashboard' || 'Users' || 'Charts' || 'Messages');
+    expect(htmlElement.textContent).toContain('Dashboard' || 'Users' || 'Charts' || 'Messages');
   }));
 
   it('Should have a translate of description', async(() => {
-    let fixture = TestBed.createComponent(SidebarPageComponent);
-    let title = fixture.debugElement.query(By.css('div.wrapper-sidebar__description'));
-    let element = title.nativeElement;
-
+    fixture = TestBed.createComponent(SidebarPageComponent);
+    debugElement = fixture.debugElement.query(By.css('div.wrapper-sidebar__description'));
+    htmlElement = debugElement.nativeElement;
     translate.use('ru');
+
     fixture.detectChanges();
-    expect(element.textContent).toContain('Доска' || 'Пользователи' || 'Пароль' || 'Сообщения');
+    expect(htmlElement.textContent).toContain('Доска' || 'Пользователи' || 'Пароль' || 'Сообщения');
   }));
 
   it('Should test links of route', async(() => {
-    let fixture = TestBed.createComponent(SidebarPageComponent);
-    let routerLink = fixture.debugElement.query(By.css('li.wrapper-sidebar__item'));
+    fixture = TestBed.createComponent(SidebarPageComponent);
+    debugElement = fixture.debugElement.query(By.css('li.wrapper-sidebar__item'));
 
-    fixture.detectChanges();
-    setTimeout(function () {
-      let element = routerLink.nativeElement.getAttribute('ng-reflect-router-link');
-      expect(element).toEqual('/main' || '/main/users' || '/main/chart' || '/main/message' );
-    }, 500);
+    fixture.whenStable().then(() => {
+      fixture.detectChanges();
+      let link = debugElement.nativeElement.getAttribute('ng-reflect-router-link');
+      expect(link).toEqual('/main' || '/main/users' || '/main/chart' || '/main/message' );
+    });
   }));
-
 });

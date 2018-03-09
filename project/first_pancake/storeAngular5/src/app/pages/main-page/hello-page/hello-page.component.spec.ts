@@ -1,4 +1,4 @@
-import {async, TestBed, getTestBed} from '@angular/core/testing';
+import {async, TestBed, getTestBed, ComponentFixture} from '@angular/core/testing';
 import {HelloPageComponent} from './hello-page.component';
 import {MainService} from '../../../shared/services';
 import {
@@ -15,7 +15,7 @@ import {
 } from '../../../shared/directives';
 import {By} from '@angular/platform-browser';
 import {Observable} from 'rxjs/Observable';
-import {Injector} from '@angular/core';
+import {DebugElement, Injector} from '@angular/core';
 
 let translationsRu: object = {
   "Here are some links to help you start:": "Тут находятся ссылки, которые могут тебе помочь:",
@@ -45,6 +45,9 @@ class FakeLoader implements TranslateLoader {
 
 describe('Test HelloPageComponent', () => {
 
+  let fixture: ComponentFixture<HelloPageComponent>;
+  let debugElement: DebugElement;
+  let htmlElement: HTMLElement;
   let translate: TranslateService;
   let injector:  Injector;
 
@@ -77,29 +80,29 @@ describe('Test HelloPageComponent', () => {
   });
 
   it('Should create the app', async(() => {
-    let component = TestBed.createComponent(HelloPageComponent);
-    let hello = component.debugElement.componentInstance;
+    fixture = TestBed.createComponent(HelloPageComponent);
+    debugElement = fixture.debugElement.componentInstance;
 
-    component.detectChanges();
-    expect(hello).toBeTruthy();
+    fixture.detectChanges();
+    expect(debugElement).toBeTruthy();
   }));
 
   it('Should have a title', async(() => {
-    let component = TestBed.createComponent(HelloPageComponent);
-    let title = component.debugElement.query(By.css('h1.hello-page__title'));
-    let element = title.nativeElement;
+    fixture = TestBed.createComponent(HelloPageComponent);
+    debugElement = fixture.debugElement.query(By.css('h1.hello-page__title'));
+    htmlElement = debugElement.nativeElement;
 
-    component.detectChanges();
-    expect(element.textContent).toContain('Hello from Angular 5 App CLI');
+    fixture.detectChanges();
+    expect(htmlElement.textContent).toContain('Hello from Angular 5 App CLI');
   }));
 
   it('Should have a translate of title', async(() => {
-    let component = TestBed.createComponent(HelloPageComponent);
-    let title = component.debugElement.query(By.css('h1.hello-page__title'));
-    let element = title.nativeElement;
-
+    fixture = TestBed.createComponent(HelloPageComponent);
+    debugElement = fixture.debugElement.query(By.css('h1.hello-page__title'));
+    htmlElement = debugElement.nativeElement;
     translate.use('ru');
-    component.detectChanges();
-    expect(element.textContent).toContain('Привет от Angular 5 App CLI');
+
+    fixture.detectChanges();
+    expect(htmlElement.textContent).toContain('Привет от Angular 5 App CLI');
   }));
 });

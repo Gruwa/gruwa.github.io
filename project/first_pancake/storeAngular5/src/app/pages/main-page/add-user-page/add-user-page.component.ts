@@ -5,8 +5,7 @@ import {ToastsManager} from 'ng2-toastr';
 import {LocalStorageService} from 'ngx-webstorage';
 import {UserInterface} from '../../../shared/interfaces/user.interface';
 import {IAddress} from '../../../shared/interfaces/adress.interface';
-
-type tabTypes = "students" | "admins" | "instructors";
+import * as Types from '../../../shared/interfaces/tab.interface';
 
 @Component({
   selector: 'app-add-user-page',
@@ -78,7 +77,7 @@ export class AddUserPageComponent implements OnInit {
    * @memberof AddUserPageComponent
    */
 
-  @Input() userActive: any;
+  @Input() userActive: any = {};
 
   /**
    * Variable tab
@@ -86,7 +85,7 @@ export class AddUserPageComponent implements OnInit {
    * @memberof AddUserPageComponent
    */
 
-  @Input() tab: tabTypes;
+  @Input() tab: Types.tabTypes;
 
   /**
    * Variable for emit visible
@@ -110,7 +109,7 @@ export class AddUserPageComponent implements OnInit {
     private fb: FormBuilder,
     public userService: UserService,
     private storage: LocalStorageService,
-    private toast: ToastsManager, 
+    private toast: ToastsManager,
     private vcr: ViewContainerRef
   ) {
     this.toast.setRootViewContainerRef(vcr);
