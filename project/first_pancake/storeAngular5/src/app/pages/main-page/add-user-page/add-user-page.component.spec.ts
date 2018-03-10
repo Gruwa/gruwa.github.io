@@ -152,30 +152,6 @@ describe('Test ProjectInputComponent for input-output', () => {
   }));
 
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(ProjectInputComponent);
-    console.log()
-    component = fixture.componentInstance;
-    // component.control.setValue("emailGroup.get('email')");
 
-  });
-
-  // it('Should create the app', async(() => {
-  //   debugElement = fixture.debugElement.componentInstance;
-  //
-  //   fixture.detectChanges();
-  //
-  //   expect(debugElement).toBeTruthy();
-  // }));
-
-  // it('Should create set input', async(() => {
-  //   fixture.whenStable().then( () => {
-  //     fixture.detectChanges();
-  //     debugElement = fixture.debugElement.query(By.css('div.ui-g-12 app-project-input'));
-  //     htmlElement = debugElement.nativeElement;
-  //     let value = htmlElement.getAttribute('ng-reflect-label');
-  //     expect(value).toBeTruthy('Email');
-  //   });
-  // }));
 
 });
