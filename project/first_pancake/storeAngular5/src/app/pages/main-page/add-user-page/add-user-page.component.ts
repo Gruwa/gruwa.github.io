@@ -230,14 +230,14 @@ export class AddUserPageComponent implements OnInit {
 
   /**
    * Method for save new user
-   * @param {any} value
+   * @param {any} user
    * @returns {void}
    * @memberof AddUserPageComponent
    */
 
-  onSave(value: any): void {
+  onSave(user: any): void {
     if (this.userActive._id) {
-      this.userService.onEditUser(value, this.tab).subscribe(
+      this.userService.onEditUser(user, this.tab).subscribe(
         (response) => {
           this.onCancel();
           this.toast.success('Save success', 'Success');
@@ -247,7 +247,7 @@ export class AddUserPageComponent implements OnInit {
         }
       );
     } else {
-      this.userService.onAddNewUser(value, this.tab).subscribe(
+      this.userService.onAddNewUser(user, this.tab).subscribe(
         (response) => {
           this.onCancel();
           this.toast.success('Save success', 'Success');

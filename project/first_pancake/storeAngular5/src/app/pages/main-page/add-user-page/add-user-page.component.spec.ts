@@ -13,6 +13,7 @@ import {LocalStorageService} from 'ngx-webstorage';
 import {ToastModule} from 'ng2-toastr';
 import * as Types from '../../../shared/interfaces/tab.interface';
 import {By} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 let translationsEn: object = {
   "Sample of analytics chart": "Sample of analytics chart",
@@ -31,7 +32,6 @@ class FakeLoader implements TranslateLoader {
     }
   }
 }
-
 describe('Test AddUserPageComponent', () => {
 
   let translate: TranslateService;
@@ -58,6 +58,7 @@ describe('Test AddUserPageComponent', () => {
       ],
       imports: [
         ReactiveFormsModule,
+        BrowserAnimationsModule,
         HttpClientModule,
         ToastModule.forRoot(),
         TranslateModule.forRoot({
@@ -78,7 +79,6 @@ describe('Test AddUserPageComponent', () => {
     translate = injector.get(TranslateService);
 
   }));
-
 
   beforeEach(() => {
     fixture = TestBed.createComponent(AddUserPageComponent);
@@ -96,62 +96,68 @@ describe('Test AddUserPageComponent', () => {
   it('Should create set input', async(() => {
     fixture.whenStable().then( () => {
       fixture.detectChanges();
-      debugElement = fixture.debugElement.query(By.css('#add-user-input-email-id'));
+      debugElement = fixture.debugElement.query(By.css('div.ui-g-12 app-project-input'));
       htmlElement = debugElement.nativeElement;
       let value = htmlElement.getAttribute('ng-reflect-label');
-      expect(value).toBeTruthy('Email');
+      expect(value).toBe('Email');
     });
+  }));
+
+  it('Should create content of the email input', async(() => {
+    let value: string = 'pizza@pizza.fg';
+
+    fixture.detectChanges();
+    component.emailGroup.get('email').patchValue(value);
+    component.onSubmitEmailCheck();
+    expect(value).toEqual(component.email);
+    component.initForm();
+    expect(value).toEqual(component.userGroup.get('email').value);
+  }));
+
+  it('Should create content of the first_name input', async(() => {
+    let value: string = 'firstName';
+
+    fixture.detectChanges();
+    component.initForm();
+    component.userGroup.get('first_name').patchValue(value);
+    expect(value).toEqual(component.userGroup.get('first_name').value);
+  }));
+
+  it('Should create content of the last_name input', async(() => {
+    let value: string = 'lastName';
+
+    fixture.detectChanges();
+    component.initForm();
+    component.userGroup.get('last_name').patchValue(value);
+    expect(value).toEqual(component.userGroup.get('last_name').value);
+  }));
+
+  it('Should create content of the title input', async(() => {
+    let value: string = 'title';
+
+    fixture.detectChanges();
+    component.initForm();
+    component.userGroup.get('title').patchValue(value);
+    expect(value).toEqual(component.userGroup.get('title').value);
+  }));
+
+  it('Should create content of the company input', async(() => {
+    let value: string = 'company';
+
+    fixture.detectChanges();
+    component.initForm();
+    component.userGroup.get('company').patchValue(value);
+    expect(value).toEqual(component.userGroup.get('company').value);
+  }));
+
+  it('Should create content of the about_me input', async(() => {
+    let value: string = 'aboutMe';
+
+    fixture.detectChanges();
+    component.initForm();
+    component.userGroup.get('about_me').patchValue(value);
+    expect(value).toEqual(component.userGroup.get('about_me').value);
   }));
 
 });
 
-describe('Test ProjectInputComponent for input-output', () => {
-
-  let translate: TranslateService;
-  let injector:  Injector;
-  let component: ProjectInputComponent;
-  let fixture: ComponentFixture<ProjectInputComponent>;
-  let htmlElement: HTMLElement;
-  let debugElement: DebugElement;
-
-  beforeEach( async(() => {
-
-    TestBed.configureTestingModule({
-      declarations: [
-        AddUserPageComponent,
-        ProjectInputComponent,
-        ProjectTextareaComponent,
-        ProjectButtonComponent
-      ],
-      providers: [
-        TranslateService,
-        UserService,
-        LocalStorageService
-      ],
-      imports: [
-        ReactiveFormsModule,
-        HttpClientModule,
-        ToastModule.forRoot(),
-        TranslateModule.forRoot({
-          loader: {
-            provide: TranslateLoader,
-            useClass: FakeLoader
-          }
-        })
-      ]
-    });
-
-    injector = getTestBed();
-
-    /**
-     * translate from the root injector
-     */
-
-    translate = injector.get(TranslateService);
-
-  }));
-
-
-
-
-});
