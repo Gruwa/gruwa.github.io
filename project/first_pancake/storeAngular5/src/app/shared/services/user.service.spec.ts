@@ -59,25 +59,23 @@ describe('UserService', () => {
       }
     ];
 
-    it('should make a GET request', async(() => {
-      userService.getUsers().subscribe();
-
-      let k = JSON.stringify(dummyUsers);
-      console.log(dummyUsers);
-      let req = httpMock.expectOne(dummyUsers);
-      expect(req.request.method).toBe('GET');
-      req.flush([]);
-    }));
+    // it('should make a GET request', async(() => {
+    //   userService.getUsers().subscribe();
+    //
+    //   let k = JSON.stringify(dummyUsers);
+    //   console.log(dummyUsers);
+    //   let req = httpMock.expectOne(dummyUsers);
+    //   expect(req.request.method).toBe('GET');
+    //   req.flush([]);
+    // }));
 
     it('should return an Observable<User[]>', () => {
 
-
-      // const tabs['tab'] = 'students';
-      // userService.getUsers().subscribe(users => {
-      //   console.log(users);
-        // expect(users.length).toBe(4);
-        // expect(users).toEqual(dummyUsers);
-      // });
+      userService.getUsers().subscribe(users => {
+        console.log(users);
+      //   expect(users.length).toBe(4);
+      //   expect(users).toEqual(dummyUsers);
+      });
 
       // const req = httpMock.expectOne({method: 'GET', url: 'http://localhost:4334/student'});
 

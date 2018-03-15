@@ -115,6 +115,8 @@ export class TabPageComponent implements OnInit{
 
   public idUser: string = 'Student ID';
 
+  private resolve: boolean = false;
+
   /**
    * Creates an instance of TabPageComponent.
    * @param {TranslateService} translate
@@ -159,11 +161,33 @@ export class TabPageComponent implements OnInit{
    */
 
   onGetUsers(): void {
-    if (this.tab === 'students') {
+    if (this.tab === 'students' && !this.resolve) {
+      console.log(this.route.data)
+      this.resolve = true;
       this.route.data
         .subscribe(
           (value: any) => {
+            console.log('next', value['users'])
+
             this.users = value['users'];
+          },
+          (error) => {
+            if (error.status === 403) {
+              console.log('error')
+
+              this.toast.error('Access is denied');
+              this.tab = this.tabActive;
+              this.titleBtn = '+ Add ' + this.tab;
+              // this.search_user = 'Search ' + this.tab;
+              this.onGetUsers();
+            }
+          }
+        );
+    } if (this.tab === 'students') {
+      this.userService.getUsers(this.tab)
+        .subscribe(
+          (value: any) => {
+            this.users = value;
           },
           (error) => {
             if (error.status === 403) {

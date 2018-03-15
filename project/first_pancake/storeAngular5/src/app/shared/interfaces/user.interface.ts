@@ -20,7 +20,7 @@ export interface UserInterface {
    * @memberof UserInterface
    */
 
-  first_name: string;
+  first_name?: string;
 
   /**
    * Required variable contain last name
@@ -28,7 +28,7 @@ export interface UserInterface {
    * @memberof UserInterface
    */
 
-  last_name: string;
+  last_name?: string;
 
   /**
    * Required variable contain email
@@ -36,7 +36,7 @@ export interface UserInterface {
    * @memberof UserInterface
    */
 
-  email: string;
+  email?: string;
 
   /**
    * Variable contain title

@@ -6,6 +6,7 @@ import {LocalStorageService} from 'ngx-webstorage';
 import {UserInterface} from '../../../shared/interfaces/user.interface';
 import {IAddress} from '../../../shared/interfaces/adress.interface';
 import * as Types from '../../../shared/interfaces/tab.interface';
+import {User} from '../../../shared/models/user';
 
 @Component({
   selector: 'app-add-user-page',
@@ -69,7 +70,7 @@ export class AddUserPageComponent implements OnInit {
    * @memberof AddUserPageComponent
    */
 
-  public userNew: UserInterface;
+  public userNew: UserInterface = new User();
 
   /**
    * Variable userActive

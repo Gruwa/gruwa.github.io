@@ -73,7 +73,8 @@ export class UserService implements IUserService{
    */
 
   getUsers(tab: tabTypes = 'students'): Observable<object> {
-    if (tabs[tab]) {
+    if ('tabs[tab]') {
+      console.log(tabs[tab]);
       return this.http.get(BASEURL + `/${tabs[tab]}/`).map(
         (response) => {
           this.storage.store(tab, response.toString());
