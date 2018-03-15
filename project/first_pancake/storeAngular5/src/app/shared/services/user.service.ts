@@ -77,6 +77,7 @@ export class UserService implements IUserService{
       return this.http.get(BASEURL + `/${tabs[tab]}/`).map(
         (response) => {
           this.storage.store(tab, response.toString());
+          console.log(response['users']);
           return response['users'];
         }
       );
