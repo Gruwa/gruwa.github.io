@@ -6,7 +6,7 @@ import {LocalStorageService} from 'ngx-webstorage';
 import {UserInterface} from '../../../shared/interfaces/user.interface';
 import {IAddress} from '../../../shared/interfaces/adress.interface';
 import * as Types from '../../../shared/interfaces/tab.interface';
-import {User} from '../../../shared/models/user';
+import {UserModel} from '../../../shared/models/user';
 
 @Component({
   selector: 'app-add-user-page',
@@ -15,6 +15,86 @@ import {User} from '../../../shared/models/user';
   encapsulation: ViewEncapsulation.None
 })
 export class AddUserPageComponent implements OnInit {
+
+  /**
+   * Variable first_name
+   * @type {string}
+   * @memberof AddUserPageComponent
+   */
+
+  public first_name: string;
+
+  /**
+   * Variable last_name
+   * @type {string}
+   * @memberof AddUserPageComponent
+   */
+
+  public last_name: string;
+
+  /**
+   * Variable title
+   * @type {string}
+   * @memberof AddUserPageComponent
+   */
+
+  public title: string;
+
+  /**
+   * Variable company_name
+   * @type {string}
+   * @memberof AddUserPageComponent
+   */
+
+  public company_name: string;
+
+  /**
+   * Variable about_me
+   * @type {string}
+   * @memberof AddUserPageComponent
+   */
+
+  public about_me: string;
+
+  /**
+   * Variable address
+   * @type {IAddress}
+   * @memberof AddUserPageComponent
+   */
+
+  public address: IAddress;
+
+  /**
+   * Variable avatar
+   * @type {string}
+   * @memberof AddUserPageComponent
+   */
+
+  public avatar: string;
+
+  /**
+   * Variable created_date
+   * @type {any}
+   * @memberof AddUserPageComponent
+   */
+
+  public created_date: any;
+
+  /**
+   * Variable active
+   * @type {boolean}
+   * @memberof AddUserPageComponent
+   */
+
+  public active: boolean;
+
+  /**
+   * Variable state
+   * @type {Types.tabTypes}
+   * @memberof AddUserPageComponent
+   */
+
+  public state: Types.tabTypes;
 
   /**
    * Variable emailGroup
@@ -70,7 +150,19 @@ export class AddUserPageComponent implements OnInit {
    * @memberof AddUserPageComponent
    */
 
-  public userNew: UserInterface = new User();
+  public userNew: UserInterface = new UserModel(
+    this.first_name,
+    this.last_name,
+    this.email = '',
+    this.title,
+    this.company_name,
+    this.about_me,
+    this.address,
+    this.created_date,
+    this.avatar,
+    this.active,
+    this.state
+  );
 
   /**
    * Variable userActive

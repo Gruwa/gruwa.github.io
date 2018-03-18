@@ -71,11 +71,11 @@ describe('UserService', () => {
 
     it('should return an Observable<User[]>', () => {
 
-      userService.getUsers().subscribe(users => {
-        console.log(users);
-      //   expect(users.length).toBe(4);
-      //   expect(users).toEqual(dummyUsers);
-      });
+      // userService.getUsers().subscribe(users => {
+      //   console.log(users);
+      // //   expect(users.length).toBe(4);
+      // //   expect(users).toEqual(dummyUsers);
+      // });
 
       // const req = httpMock.expectOne({method: 'GET', url: 'http://localhost:4334/student'});
 

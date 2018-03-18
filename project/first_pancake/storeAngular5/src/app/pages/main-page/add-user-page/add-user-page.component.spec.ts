@@ -1,6 +1,6 @@
 import {AddUserPageComponent} from './add-user-page.component';
-import {async, ComponentFixture, getTestBed, TestBed} from '@angular/core/testing';
-import {ReactiveFormsModule} from '@angular/forms';
+import {async, ComponentFixture, fakeAsync, getTestBed, TestBed} from '@angular/core/testing';
+import {ReactiveFormsModule, Validators} from '@angular/forms';
 import {ProjectInputComponent} from '../../../shared/components/project-input/project-input.component';
 import {ProjectTextareaComponent} from '../../../shared/components/project-textarea/project-textarea.component';
 import {ProjectButtonComponent} from '../../../shared/components/project-button/project-button.component';
@@ -14,6 +14,7 @@ import {ToastModule} from 'ng2-toastr';
 import * as Types from '../../../shared/interfaces/tab.interface';
 import {By} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import * as faker from 'faker';
 
 let translationsEn: object = {
   "Sample of analytics chart": "Sample of analytics chart",
@@ -68,7 +69,7 @@ describe('Test AddUserPageComponent', () => {
           }
         })
       ]
-    });
+    }).compileComponents();
 
     injector = getTestBed();
 
@@ -85,6 +86,19 @@ describe('Test AddUserPageComponent', () => {
     component = fixture.componentInstance;
     component.tab = tab;
   });
+
+  function fillTheForm(first_name, last_name, email, title, company, about_me,
+                       city, country) {
+    component.userGroup.controls['first_name'].setValue(first_name);
+    component.userGroup.controls['last_name'].setValue(last_name);
+    component.userGroup.controls['email'].setValue(email);
+    component.userGroup.controls['title'].setValue(title);
+    component.userGroup.controls['company'].setValue(company);
+    component.userGroup.controls['about_me'].setValue(about_me);
+    component.userGroup.controls['city'].setValue(city);
+    component.userGroup.controls['country'].setValue(country);
+
+  }
 
   it('Should create the app', async(() => {
     debugElement = fixture.debugElement.componentInstance;
@@ -158,6 +172,56 @@ describe('Test AddUserPageComponent', () => {
     component.userGroup.get('about_me').patchValue(value);
     expect(value).toEqual(component.userGroup.get('about_me').value);
   }));
+
+  it('Should have blank fields in emailGroup reactive form', () => {
+    fixture.detectChanges();
+    expect(component.emailGroup.value).toEqual({
+      email: ''
+    })
+  });
+
+  it('Should have blank fields in userGroup reactive form', () => {
+    fixture.detectChanges();
+    expect(component.userGroup.value).toEqual({
+      first_name: '',
+      last_name: '',
+      email: '',
+      title: '',
+      company: '',
+      about_me: '',
+      city: '',
+      country: ''
+    })
+  });
+
+  // it('Should have submit button for userGroup if required fields are not filled in', fakeAsync(() => {
+  //
+  //   fixture.whenStable().then( () => {
+  //     fixture.detectChanges();
+  //     console.log(fixture);
+  //     let spy = spyOn(component, 'onSubmit');
+  //     debugElement = fixture.debugElement.query(By.css('#userGroupSubmit'));
+  //     console.log('debugElement', debugElement);
+  //
+  //     let button = fixture.nativeElement.querySelector('.userGroupSubmit');
+  //     console.log(button);
+  //     fillTheForm(
+  //       '',
+  //       '',
+  //       faker.internet.email(),
+  //       faker.lorem.sentence(),
+  //       faker.company.companyName(),
+  //       faker.lorem.sentences(),
+  //       faker.address.city(),
+  //       faker.address.country()
+  //     );
+  //
+  //     // debugElement.dispatchEvent(new Event('click'));
+  //     expect(spy).not.toHaveBeenCalled();
+  //
+  //   });
+  //
+  // }));
 
 });
 

@@ -224,6 +224,9 @@
                                 <li class="link">
                                     <a href="../classes/CreateObject.html"  data-type="entity-link" class="active" >CreateObject</a>
                                 </li>
+                                <li class="link">
+                                    <a href="../classes/UserModel.html" >UserModel</a>
+                                </li>
                         </ul>
                     </li>
             
@@ -564,6 +567,9 @@
                                        <li class="link">
                                            <a href="../classes/CreateObject.html"  data-type="entity-link" class="active" >CreateObject</a>
                                        </li>
+                                       <li class="link">
+                                           <a href="../classes/UserModel.html" >UserModel</a>
+                                       </li>
                                </ul>
                            </li>
                    
@@ -747,7 +753,7 @@
                             <td class="col-md-4">
                                 <ul class="index-list">
                                     <li>
-                                        <a href="#create">create</a>
+                                        <a href="#patch">patch</a>
                                     </li>
                                 </ul>
                             </td>
@@ -766,18 +772,18 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <a name="create"></a>
+                                    <a name="patch"></a>
                                     <span class="name">
                                         <b>
-                                        create
+                                        patch
                                         </b>
-                                        <a href="#create"><span class="fa fa-link"></span></a>
+                                        <a href="#patch"><span class="fa fa-link"></span></a>
                                     </span>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="col-md-4">
-            <code>create(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+            <code>patch(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
                                 </td>
                             </tr>
             
@@ -842,7 +848,7 @@
 
     <div class="tab-pane fade tab-source-code" id="c-source">
         <pre class="line-numbers"><code class="language-typescript">export class CreateObject {
-  create(data: any): void {
+  patch(data: any): void {
     Object.keys(data).forEach((key: string) &#x3D;&gt; {
       if (key in this) {
         this[key]&#x3D;data[key];

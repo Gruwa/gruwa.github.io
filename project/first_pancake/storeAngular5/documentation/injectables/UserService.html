@@ -221,6 +221,12 @@
                                 <li class="link">
                                     <a href="../classes/AppPage.html" >AppPage</a>
                                 </li>
+                                <li class="link">
+                                    <a href="../classes/CreateObject.html" >CreateObject</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/UserModel.html" >UserModel</a>
+                                </li>
                         </ul>
                     </li>
             
@@ -558,6 +564,12 @@
                                        <li class="link">
                                            <a href="../classes/AppPage.html" >AppPage</a>
                                        </li>
+                                       <li class="link">
+                                           <a href="../classes/CreateObject.html" >CreateObject</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/UserModel.html" >UserModel</a>
+                                       </li>
                                </ul>
                            </li>
                    
@@ -876,7 +888,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">src/app/shared/services/user.service.ts:92</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="94" class="link-to-prism">src/app/shared/services/user.service.ts:94</a></div>
                                         </td>
                                     </tr>
             
@@ -920,7 +932,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="104" class="link-to-prism">src/app/shared/services/user.service.ts:104</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="106" class="link-to-prism">src/app/shared/services/user.service.ts:106</a></div>
                                         </td>
                                     </tr>
             
@@ -1180,7 +1192,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="135" class="link-to-prism">src/app/shared/services/user.service.ts:135</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="137" class="link-to-prism">src/app/shared/services/user.service.ts:137</a></div>
                                         </td>
                                     </tr>
             
@@ -1272,7 +1284,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="121" class="link-to-prism">src/app/shared/services/user.service.ts:121</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="123" class="link-to-prism">src/app/shared/services/user.service.ts:123</a></div>
                                         </td>
                                     </tr>
             
@@ -1364,7 +1376,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="149" class="link-to-prism">src/app/shared/services/user.service.ts:149</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="151" class="link-to-prism">src/app/shared/services/user.service.ts:151</a></div>
                                         </td>
                                     </tr>
             
@@ -1592,10 +1604,12 @@ export class UserService implements IUserService{
    */
 
   getUsers(tab: tabTypes &#x3D; &#x27;students&#x27;): Observable&lt;object&gt; {
-    if (tabs[tab]) {
+    if (&#x27;tabs[tab]&#x27;) {
+      console.log(tabs[tab]);
       return this.http.get(BASEURL + &#x60;/${tabs[tab]}/&#x60;).map(
         (response) &#x3D;&gt; {
           this.storage.store(tab, response.toString());
+          console.log(response[&#x27;users&#x27;]);
           return response[&#x27;users&#x27;];
         }
       );

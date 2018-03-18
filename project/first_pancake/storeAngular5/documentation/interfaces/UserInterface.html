@@ -221,6 +221,12 @@
                                 <li class="link">
                                     <a href="../classes/AppPage.html" >AppPage</a>
                                 </li>
+                                <li class="link">
+                                    <a href="../classes/CreateObject.html" >CreateObject</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/UserModel.html" >UserModel</a>
+                                </li>
                         </ul>
                     </li>
             
@@ -557,6 +563,12 @@
                    >
                                        <li class="link">
                                            <a href="../classes/AppPage.html" >AppPage</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/CreateObject.html" >CreateObject</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/UserModel.html" >UserModel</a>
                                        </li>
                                </ul>
                            </li>
@@ -1128,6 +1140,11 @@
                                         </td>
                                     </tr>
 
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
 
 
 
@@ -1168,6 +1185,11 @@
                                         </td>
                                     </tr>
 
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
 
 
 
@@ -1208,6 +1230,11 @@
                                         </td>
                                     </tr>
 
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
 
 
 
@@ -1297,7 +1324,7 @@ export interface UserInterface {
    * @memberof UserInterface
    */
 
-  first_name: string;
+  first_name?: string;
 
   /**
    * Required variable contain last name
@@ -1305,7 +1332,7 @@ export interface UserInterface {
    * @memberof UserInterface
    */
 
-  last_name: string;
+  last_name?: string;
 
   /**
    * Required variable contain email
@@ -1313,7 +1340,7 @@ export interface UserInterface {
    * @memberof UserInterface
    */
 
-  email: string;
+  email?: string;
 
   /**
    * Variable contain title

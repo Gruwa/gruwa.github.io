@@ -67,7 +67,7 @@
                            [control]="userGroup.get('city')">
         </app-project-input>
       </div>
-      <div class="ui-g-12 add-user__btn-group">
+      <div class="ui-g-12 add-user__btn-group" id="userGroupSubmit">
         <app-project-button ripple [disabled]="!userGroup.valid"
                             title="Save"
                             (onClickEvent)="onSubmit()"
