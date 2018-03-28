@@ -1,0 +1,37 @@
+﻿<div class="login-block-wrap">
+    <div class="login-header">
+        <div class="rmdl-navheader__brand">
+            <img src="Content/images/SWLogo.svg" alt="" />
+        </div>
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="dc-login-form">
+            <mat-card>
+                <mat-card-content>
+                    <mat-input-container [class.error-input-block]="loginForm.get('username').hasError('required') && loginForm.get('username').touched">
+                        <input matInput placeholder="Login" formControlName="username" required>
+                    </mat-input-container>
+                    <div class="alert alert-danger" *ngIf="loginForm.get('username').hasError('required') && loginForm.get('username').touched">
+                        Login field is required.
+                    </div>
+
+                    <mat-input-container [class.error-input-block]="loginForm.get('password').hasError('required') && loginForm.get('password').touched">
+                        <input matInput type="password" placeholder="Password" formControlName="password" required>
+                    </mat-input-container>
+                    <div class="alert alert-danger" *ngIf="loginForm.get('password').hasError('required') && loginForm.get('password').touched">
+                        Password field is required.
+                    </div>
+                    <div class="alert alert-danger" *ngIf="errorMessage">
+                        {{errorMessage}}
+                    </div>
+                    <div>
+                        <mat-checkbox formControlName="remember">Remember me</mat-checkbox>
+                        <button id="login-sunbmit-btn" type="submit" mat-fab [disabled]="loginForm.invalid">
+                            <mat-icon class="mat-icon material-icons">arrow_forward</mat-icon>
+                        </button>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </form>
+</div>

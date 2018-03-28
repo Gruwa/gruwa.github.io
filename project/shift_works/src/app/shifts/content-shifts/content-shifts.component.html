@@ -1,0 +1,14 @@
+<div class="content-shifts">
+    <div *ngFor="let shifts of sortShifts" class="content-shifts__wrapper">
+        <span>{{shifts.dateFormated}}</span>
+        <div *ngFor="let shift of shifts.shifts" class="content-shifts__content">
+            <app-shift-block [shift]="shift"
+                             [routerLink]="['/shifts', shift.ID]">
+
+            </app-shift-block>
+        </div>
+    </div>
+    <button class=" Rounded_Rectangle_53" (click)="addNewMyRequest()">
+        <i class="material-icons">add</i>
+    </button>
+</div>
