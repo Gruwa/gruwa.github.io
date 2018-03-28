@@ -2,16 +2,16 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {ShiftsService} from '../../shared/services/shifts.service';
 import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
-import * as Types from '../../shared/interfaces/types.interface';
 import {HttpService} from '../../shared/services/http.service';
 import {FakeService} from '../../shared/services/fake.service';
 import {LocalStorageService} from 'ngx-webstorage';
 import {Router} from '@angular/router';
 import 'rxjs/add/observable/merge';
-import {IShift} from '../../shared/interfaces/types.interface';
-import {Subject} from 'rxjs/Subject';
+import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/takeUntil';
+import {Subject} from 'rxjs/Subject';
+import {ITabTypes} from '../../shared/interfaces/types.interface';
+import {IShiftsSorted} from '../../shared/interfaces/shift.interface';
 
 
 @Component({
@@ -23,19 +23,25 @@ export class ContentShiftsComponent implements OnInit, OnDestroy {
 
     /**
      * Variable of tab
-     * @type {Types.ITabTypes}
+     * @type {ITabTypes}
      * @memberof ContentShiftsComponent
      */
 
-    public tab: Types.ITabTypes = 'upcoming';
+    public tab: ITabTypes = 'upcoming';
 
     /**
      * Variable of sortShifts
-     * @type {Array<Types.IShiftsSorted>}
+     * @type {Array<IShiftsSorted>}
      * @memberof ContentShiftsComponent
      */
 
-    public sortShifts: Array<Types.IShiftsSorted>;
+    public sortShifts: Array<IShiftsSorted>;
+
+    /**
+     * Variable of ngUnsubscribe
+     * @type {Subject<void>}
+     * @memberof ContentShiftsComponent
+     */
 
     private ngUnsubscribe: Subject<void> = new Subject<void>();
 
@@ -46,6 +52,7 @@ export class ContentShiftsComponent implements OnInit, OnDestroy {
      * @param {HttpService} httpService
      * @param {FakeService} fakeService
      * @param {LocalStorageService} localStorage
+     * @param {Router} router
      * @memberof ContentShiftsComponent
      */
 
@@ -92,11 +99,10 @@ export class ContentShiftsComponent implements OnInit, OnDestroy {
      * @memberof ContentShiftsComponent
      */
 
-    dataFlowObserver(eventData: Types.ITabTypes): void {
+    dataFlowObserver(eventData: ITabTypes): void {
         console.log('dataTab$', eventData);
         this.tab = eventData;
         this.localStorage.store('tab', this.tab);
-        // this.getShifts();
     }
 
     /**
@@ -107,16 +113,6 @@ export class ContentShiftsComponent implements OnInit, OnDestroy {
 
     getShifts() {
         this.sortShifts = this.shiftsService.sortShifts(this.httpService.dataOfShifts$['array']);
-
-        // this.httpService.getShifts(this.tab).subscribe(
-        //     (value: any) => {
-        //         this.sortShifts = this.shiftsService.sortShifts(value);
-        //     },
-        //     (error) => {
-        //         this.sortShifts = this.shiftsService.sortShifts(this.fakeService.shiftsDataFake);
-        //         console.log('getShifts', this.sortShifts);
-        //     }
-        // );
     }
 
     /**

@@ -1,13 +1,15 @@
 import {Injectable} from '@angular/core';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/map';
-import * as Types from '../interfaces/types.interface';
 import {Subject} from 'rxjs/Subject';
 import {Router} from '@angular/router';
 import {HttpService} from './http.service';
 import {FakeService} from './fake.service';
-import {IShiftsSorted} from '../interfaces/types.interface';
 import {LocalStorageService} from 'ngx-webstorage';
+import {
+    IShift,
+    IShiftsSorted
+} from '../interfaces/shift.interface';
 
 
 @Injectable()
@@ -18,7 +20,7 @@ export class ShiftsService {
      * @memberof ShiftsService
      */
 
-    public shifts: Array<Types.IShift>;
+    public shifts: Array<IShift>;
 
     /**
      * Created flow of tabs
@@ -47,7 +49,7 @@ export class ShiftsService {
      * @memberof ShiftsService
      */
 
-    sortShifts(value: Array<Types.IShift>): Array<Types.IShiftsSorted> {
+    sortShifts(value: Array<IShift>): Array<IShiftsSorted> {
 
         this.shifts = value;
 
@@ -65,7 +67,7 @@ export class ShiftsService {
          * @memberof ShiftsService
          */
 
-        const result: Array<Types.IShiftsSorted> = [];
+        const result: Array<IShiftsSorted> = [];
 
         /**
          * Method for formating date of shifts
@@ -183,7 +185,7 @@ export class ShiftsService {
      * @memberof ShiftsService
      */
 
-    sortFunction(a: Types.IShiftsSorted, b: Types.IShiftsSorted): number {
+    sortFunction(a: IShiftsSorted, b: IShiftsSorted): number {
         const dateA = new Date(a.dateFrom).getTime();
         const dateB = new Date(b.dateFrom).getTime();
 
@@ -197,10 +199,10 @@ export class ShiftsService {
      * @memberof ShiftsService
      */
 
-    getshiftById(id: string): Types.IShift {
+    getshiftById(id: string): IShift {
         if (this.shifts) {
 
-            return this.shifts.find(item => item.ID === id);
+            return this.shifts.find(item => item.id === id);
         } else {
 
             // console.log('dsdsd')

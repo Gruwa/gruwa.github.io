@@ -1,14 +1,22 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ShiftsService} from '../../shared/services/shifts.service';
-import {IForm, IShift} from '../../shared/interfaces/types.interface';
 import {LocalStorageService} from 'ngx-webstorage';
-import * as Types from '../../shared/interfaces/types.interface';
 import {HttpService} from '../../shared/services/http.service';
 import {FakeService} from '../../shared/services/fake.service';
 import {Subject} from 'rxjs/Subject';
+import {IShift} from '../../shared/interfaces/shift.interface';
+import {IForm} from '../../shared/interfaces/form.interface';
+import {IFooterRequest} from '../../shared/interfaces/types.interface';
+import {ITabTypes} from '../../shared/interfaces/types.interface';
 
-const FOOTER_REQUESTS: Array<Types.IFooterRequest> = [
+/**
+ * Variable FOOTER_REQUESTS
+ * @type {Array<IFooterRequest>}
+ * @memberof DetailsShiftsComponent
+ */
+
+const FOOTER_REQUESTS: Array<IFooterRequest> = [
     'request drop',
     'cancel drop request',
     'cancel request',
@@ -41,7 +49,7 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
 
     /**
      * Variable shiftActive
-     * @type {string}
+     * @type {IShift}
      * @memberof DetailsShiftsComponent
      */
 
@@ -57,19 +65,19 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
 
     /**
      * Variable of tab
-     * @type {Types.ITabTypes}
+     * @type {ITabTypes}
      * @memberof DetailsShiftsComponent
      */
 
-    public tab: Types.ITabTypes = 'upcoming';
+    public tab: ITabTypes = 'upcoming';
 
     /**
      * Variable of footerDescription
-     * @type {Types.IFooterRequest}
+     * @type {IFooterRequest}
      * @memberof DetailsShiftsComponent
      */
 
-    public footerDescription: Types.IFooterRequest;
+    public footerDescription: IFooterRequest;
 
     /**
      * Variable of footerActive
@@ -78,6 +86,12 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
      */
 
     public footerActive: boolean = true;
+
+    /**
+     * Variable of ngUnsubscribe
+     * @type {Subject<void>}
+     * @memberof DetailsShiftsComponent
+     */
 
     private ngUnsubscribe: Subject<void> = new Subject<void>();
 
@@ -120,6 +134,7 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
         if (this.shiftActiveId === 'new') {
             console.log('new', this.shiftActiveId);
             this.initForm();
+            this.initNewForm();
             this.headerDescription = 'New request';
         } else {
             console.log('this.shiftActive else');
@@ -168,6 +183,10 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
         };
     }
 
+    initNewForm() {
+
+    }
+
     /**
      * Method getDataShift
      * @returns {void}
@@ -176,31 +195,12 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
 
     getShifts(): void {
         this.shiftActive = this.httpService.dataOfShifts$['array'].find(item => item.ID === this.shiftActiveId);
-
+console.log(this.shiftActive)
         if (this.shiftActive !== undefined) {
-            this.headerDescription = this.shiftActive.Job; // TODO It's shiftTitle: from getDataShift() method - need replace
+            this.headerDescription = this.shiftActive.job; // TODO It's shiftTitle: from getDataShift() method - need replace
         }
 
         this.setDataForm();
-
-        // this.httpService.getShifts(this.localStorage.retrieve('tab')).subscribe(
-        //     (value: any) => {
-        //         console.log(value);
-        //         this.shiftActive = value.find(item => item.ID === this.shiftActiveId);
-        //         if(this.shiftActive !== undefined) {
-        //             this.headerDescription = this.shiftActive.Job; // TODO It's shiftTitle: from getDataShift() method - need replace
-        //         }
-        //         this.setDataForm();
-        //     },
-        //     (error) => {
-        //         console.log('sdfdfsdfsdfsdfsd');
-        //         this.shiftActive = this.fakeService.shiftsDataFake.find(item => item.ID === this.shiftActiveId);
-        //         if(this.shiftActive !== undefined) {
-        //             this.headerDescription = this.shiftActive.Job; // TODO It's shiftTitle: from getDataShift() method - need replace
-        //         }
-        //         this.setDataForm();
-        //     }
-        // );
     }
 
     /**
@@ -215,9 +215,12 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
             date: this.shiftActive.dateFrom,
             startTime: this.shiftActive.dateFrom,
             endTime: this.shiftActive.dateTo,
-            location: 'what???',
-            station: this.shiftActive.Station,
-            jobTitle: this.shiftActive.Job,
+            location: this.shiftActive.location,
+            station: this.shiftActive.station,
+            jobTitle: this.shiftActive.job,
+            locationGroup: this.shiftActive.locationGroup,
+            stationGroup: this.shiftActive.stationGroup,
+            jobTitleGroup: this.shiftActive.jobTitleGroup, // TODO - don't show
             status: 'what???',
             shiftTitleDescription: 'shift title',
             dateDescription: 'date',
@@ -228,6 +231,7 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
             jobTitleDescription: 'job title',
             statusDescription: 'status'
         };
+        console.log('form', this.shiftForm)
     }
 
     /**

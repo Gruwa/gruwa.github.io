@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {IForm} from '../../interfaces/types.interface';
-import * as Types from '../../interfaces/types.interface';
+import {ITabTypes} from '../../interfaces/types.interface';
+import {Router} from '@angular/router';
+import {IForm} from '../../interfaces/form.interface';
 
 @Component({
   selector: 'app-form',
@@ -31,9 +32,9 @@ export class FormComponent implements OnInit {
      * @memberof FormComponent
      */
 
-    @Input() tab: Types.ITabTypes;
+    @Input() tab: ITabTypes;
 
-  constructor() { }
+  constructor(public router: Router) { }
 
     /**
      * Method ngOnInit

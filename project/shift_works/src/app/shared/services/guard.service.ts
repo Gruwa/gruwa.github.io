@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/map';
 import * as Types from '../interfaces/types.interface';
+import {IShift} from '../interfaces/shift.interface';
 
 @Injectable()
 export class GuardService {
@@ -12,7 +13,7 @@ export class GuardService {
      * @memberof ShiftsService
      */
 
-    guardShifts(value: Array<Types.IShift>): Array<Types.IShift> {
+    guardShifts(value): Array<IShift> {
 
         /**
          * Variable of shifts
@@ -20,20 +21,24 @@ export class GuardService {
          * @memberof ShiftsService
          */
 
-        const shifts: Array<Types.IShift> = [];
+        const shifts: Array<IShift> = [];
 
         for (let i = 0; i > value.length; i++) {
-            const obj: Types.IShift = {
-                'ID': value[i].ID,
-                'IsDropRequest': value[i].IsDropRequest,
-                'IsPickupRequest': value[i].IsPickupRequest,
-                'IsVolunteers': value[i].IsVolunteers,
-                'Job': value[i].Job,
-                'JobID': value[i].JobID,
-                'Station': value[i].Station,
-                'StationID': value[i].StationID,
+            const obj: IShift = {
+                'id': value[i].ID,
+                'isDropRequest': value[i].IsDropRequest,
+                'isPickupRequest': value[i].IsPickupRequest,
+                'isVolunteers': value[i].IsVolunteers,
+                'job': value[i].Job,
+                'jobTitleGroup': value[i].jobTitleGroup,
+                'stationGroup': value[i].stationGroup,
+                'locationGroup': value[i].locationGroup,
+                'jobID': value[i].JobID,
+                'station': value[i].Station,
+                'stationID': value[i].StationID,
                 'dateFrom': value[i].dateFrom,
-                'dateTo': value[i].dateTo
+                'dateTo': value[i].dateTo,
+                'location': value[i].Location,
             };
 
             shifts.push(obj);

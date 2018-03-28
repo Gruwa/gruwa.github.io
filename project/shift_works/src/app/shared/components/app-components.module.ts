@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {
     MatTabsModule,
     MatListModule,
-    MatDividerModule, MatButtonModule
+    MatDividerModule, MatButtonModule, MatSelectModule
 } from '@angular/material';
 import {TabComponent} from './tab.component/tab.component';
 import {ShiftBlockComponent} from './shift-block/shift-block.component';
@@ -17,7 +17,8 @@ import {MatInputModule} from '@angular/material/input';
         MatDividerModule,
         MatListModule,
         MatInputModule,
-        MatButtonModule
+        MatButtonModule,
+        MatSelectModule
     ],
     declarations: [
         TabComponent,
