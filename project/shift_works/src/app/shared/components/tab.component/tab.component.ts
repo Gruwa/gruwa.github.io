@@ -78,7 +78,7 @@ export class TabComponent implements OnInit {
 
     selectedTabChange(value: any): void {
         console.log(TABS[value.index]);
-        this.localStorage.store('tab', TABS[value.index]);
+        // this.localStorage.store('tab', TABS[value.index]);
         this.shiftsService.dataTab$.next(TABS[value.index]);
     }
 
