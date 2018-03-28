@@ -17,11 +17,11 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import * as faker from 'faker';
 
 let translationsEn: object = {
-  "Sample of analytics chart": "Sample of analytics chart",
+  'Sample of analytics chart': 'Sample of analytics chart',
 };
 
 let translationsRu: object = {
-  "Sample of analytics chart": "Пример аналитических диаграмм"
+  'Sample of analytics chart': 'Пример аналитических диаграмм'
 };
 
 class FakeLoader implements TranslateLoader {
@@ -33,17 +33,18 @@ class FakeLoader implements TranslateLoader {
     }
   }
 }
+
 describe('Test AddUserPageComponent', () => {
 
   let translate: TranslateService;
-  let injector:  Injector;
+  let injector: Injector;
   let component: AddUserPageComponent;
   let fixture: ComponentFixture<AddUserPageComponent>;
   let htmlElement: HTMLElement;
   let debugElement: DebugElement;
   let tab: Types.tabTypes = 'admins';
 
-  beforeEach( async(() => {
+  beforeEach(async(() => {
 
     TestBed.configureTestingModule({
       declarations: [
@@ -108,7 +109,7 @@ describe('Test AddUserPageComponent', () => {
   }));
 
   it('Should create set input', async(() => {
-    fixture.whenStable().then( () => {
+    fixture.whenStable().then(() => {
       fixture.detectChanges();
       debugElement = fixture.debugElement.query(By.css('div.ui-g-12 app-project-input'));
       htmlElement = debugElement.nativeElement;
@@ -177,7 +178,7 @@ describe('Test AddUserPageComponent', () => {
     fixture.detectChanges();
     expect(component.emailGroup.value).toEqual({
       email: ''
-    })
+    });
   });
 
   it('Should have blank fields in userGroup reactive form', () => {
@@ -191,35 +192,90 @@ describe('Test AddUserPageComponent', () => {
       about_me: '',
       city: '',
       country: ''
-    })
+    });
   });
 
-  // it('Should have submit button for userGroup if required fields are not filled in', fakeAsync(() => {
+  it('Should have submit button for userGroup if required fields are not filled in', fakeAsync(() => {
+    let spy = spyOn(component, 'onSubmit');
+
+    component.userGroupVisible = true;
+    component.userActive._id = 'id';
+
+    fixture.detectChanges();
+
+    let htmlElement = fixture.nativeElement.querySelector('.userGroupSubmit button');
+
+    fillTheForm(
+      '',
+      '',
+      faker.internet.email(),
+      faker.lorem.sentence(),
+      faker.company.companyName(),
+      faker.lorem.sentences(),
+      faker.address.city(),
+      faker.address.country()
+    );
+
+    console.log(htmlElement);
+    fixture.detectChanges();
+
+    htmlElement.dispatchEvent(new Event('click'));
+    console.log(fixture.debugElement);
+
+    // expect(component.userGroup.value).not.toEqual({
+    //     first_name: '',
+    //     last_name: '',
+    //     email: '',
+    //     title: '',
+    //     company: '',
+    //     about_me: '',
+    //     city: '',
+    //     country: ''
+    //   });
+
+    expect(spy).not.toHaveBeenCalled();
+    // expect(htmlElement.hasAttribute('disabled')).toBe(true);
+  }));
+
+  // it('Should have submit enabled if required fields are filled in', fakeAsync(() => {
+  //   let spy = spyOn(component, 'onSubmit');
   //
-  //   fixture.whenStable().then( () => {
-  //     fixture.detectChanges();
-  //     console.log(fixture);
-  //     let spy = spyOn(component, 'onSubmit');
-  //     debugElement = fixture.debugElement.query(By.css('#userGroupSubmit'));
-  //     console.log('debugElement', debugElement);
+  //   component.userGroupVisible = true;
+  //   component.userActive._id = 'id';
   //
-  //     let button = fixture.nativeElement.querySelector('.userGroupSubmit');
-  //     console.log(button);
-  //     fillTheForm(
-  //       '',
-  //       '',
-  //       faker.internet.email(),
-  //       faker.lorem.sentence(),
-  //       faker.company.companyName(),
-  //       faker.lorem.sentences(),
-  //       faker.address.city(),
-  //       faker.address.country()
-  //     );
+  //   fixture.detectChanges();
   //
-  //     // debugElement.dispatchEvent(new Event('click'));
-  //     expect(spy).not.toHaveBeenCalled();
+  //   // let htmlElement = fixture.debugElement.query(By.css('.userGroupSubmit')).nativeElement;
   //
-  //   });
+  //   let htmlElement = fixture.nativeElement.querySelector('.userGroupSubmit');
+  //
+  //   console.log(htmlElement);
+  //   fillTheForm(
+  //     faker.name.firstName(),
+  //     faker.name.lastName(),
+  //     faker.internet.email(),
+  //     faker.lorem.sentence(),
+  //     faker.company.companyName(),
+  //     faker.lorem.sentences(),
+  //     faker.address.city(),
+  //     faker.address.country()
+  //   );
+  //   // htmlElement.click();
+  //   htmlElement.dispatchEvent(new Event('click'));
+  // expect(component.userGroup.value).not.toEqual({
+  //   first_name: '',
+  //   last_name: '',
+  //   email: '',
+  //   title: '',
+  //   company: '',
+  //   about_me: '',
+  //   city: '',
+  //   country: ''
+  // });
+  //   expect(spy).toHaveBeenCalled();
+  //
+  //
+  //
   //
   // }));
 
