@@ -8,7 +8,9 @@
             </app-shift-block>
         </div>
     </div>
-    <button class=" Rounded_Rectangle_53" (click)="addNewMyRequest()">
+    <button class=" Rounded_Rectangle_53"
+            (click)="addNewMyRequest()"
+            *ngIf="tab === 'my requests'">
         <i class="material-icons">add</i>
     </button>
 </div>

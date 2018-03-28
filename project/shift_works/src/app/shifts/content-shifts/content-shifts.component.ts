@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {ShiftsService} from '../../shared/services/shifts.service';
 import {Observable} from 'rxjs/Observable';
@@ -10,6 +10,8 @@ import {LocalStorageService} from 'ngx-webstorage';
 import {Router} from '@angular/router';
 import 'rxjs/add/observable/merge';
 import {IShift} from '../../shared/interfaces/types.interface';
+import {Subject} from 'rxjs/Subject';
+import 'rxjs/add/operator/takeUntil';
 
 
 @Component({
@@ -17,7 +19,7 @@ import {IShift} from '../../shared/interfaces/types.interface';
     templateUrl: './content-shifts.component.html',
     styleUrls: ['./content-shifts.component.scss']
 })
-export class ContentShiftsComponent implements OnInit {
+export class ContentShiftsComponent implements OnInit, OnDestroy {
 
     /**
      * Variable of tab
@@ -35,6 +37,8 @@ export class ContentShiftsComponent implements OnInit {
 
     public sortShifts: Array<Types.IShiftsSorted>;
 
+    private ngUnsubscribe: Subject<void> = new Subject<void>();
+
     /**
      * Creates an instance of ContentShiftsComponent
      * @param {HttpClient} http
@@ -50,7 +54,7 @@ export class ContentShiftsComponent implements OnInit {
                 public httpService: HttpService,
                 public fakeService: FakeService,
                 public router: Router,
-                public localStorage: LocalStorageService,) {
+                public localStorage: LocalStorageService) {
     }
 
     /**
@@ -60,15 +64,26 @@ export class ContentShiftsComponent implements OnInit {
      */
 
     ngOnInit(): void {
-            this.shiftsService.dataTab$.subscribe(this.dataFlowObserver.bind(this));
-            // this.localStorage.store('tab', this.tab);
-        // if(this.localStorage.retrieve('tab') === '') {
-        // }
+        this.shiftsService.dataTab$.takeUntil(this.ngUnsubscribe).subscribe(this.dataFlowObserver.bind(this));
+        this.tab = this.localStorage.retrieve('tab');
 
-        // this.getFakeShifts();
+        if (this.httpService.dataOfShifts$ === undefined) {
+            this.httpService.getShifts(this.tab);
+        }
+
+        this.httpService.dataOfShifts$.takeUntil(this.ngUnsubscribe).subscribe();
         this.getShifts();
-        // this.httpService.dataOfShifts$.subscribe();
-        // this.httpService.getShifts(this.tab);
+    }
+
+    /**
+     * Method ngOnDestroy
+     * @returns {void}
+     * @memberof ContentShiftsComponent
+     */
+
+    ngOnDestroy(): void {
+        this.ngUnsubscribe.next();
+        this.ngUnsubscribe.complete();
     }
 
     /**
@@ -81,7 +96,7 @@ export class ContentShiftsComponent implements OnInit {
         console.log('dataTab$', eventData);
         this.tab = eventData;
         this.localStorage.store('tab', this.tab);
-        this.getShifts();
+        // this.getShifts();
     }
 
     /**
@@ -91,18 +106,18 @@ export class ContentShiftsComponent implements OnInit {
      */
 
     getShifts() {
-        this.httpService.getShifts(this.tab).subscribe(
-            (value: any) => {
-                this.sortShifts = this.shiftsService.sortShifts(value);
-            },
-            (error) => {
-                this.sortShifts = this.shiftsService.sortShifts(this.fakeService.shiftsDataFake);
-                console.log('getShifts', this.sortShifts);
-            }
-        );
+        this.sortShifts = this.shiftsService.sortShifts(this.httpService.dataOfShifts$['array']);
+
+        // this.httpService.getShifts(this.tab).subscribe(
+        //     (value: any) => {
+        //         this.sortShifts = this.shiftsService.sortShifts(value);
+        //     },
+        //     (error) => {
+        //         this.sortShifts = this.shiftsService.sortShifts(this.fakeService.shiftsDataFake);
+        //         console.log('getShifts', this.sortShifts);
+        //     }
+        // );
     }
-
-
 
     /**
      * Method for add new request

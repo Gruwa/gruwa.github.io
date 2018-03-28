@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ShiftsService} from '../../shared/services/shifts.service';
 import {IForm, IShift} from '../../shared/interfaces/types.interface';
@@ -6,6 +6,7 @@ import {LocalStorageService} from 'ngx-webstorage';
 import * as Types from '../../shared/interfaces/types.interface';
 import {HttpService} from '../../shared/services/http.service';
 import {FakeService} from '../../shared/services/fake.service';
+import {Subject} from 'rxjs/Subject';
 
 const FOOTER_REQUESTS: Array<Types.IFooterRequest> = [
     'request drop',
@@ -20,7 +21,7 @@ const FOOTER_REQUESTS: Array<Types.IFooterRequest> = [
     templateUrl: './details-shifts.component.html',
     styleUrls: ['./details-shifts.component.scss']
 })
-export class DetailsShiftsComponent implements OnInit {
+export class DetailsShiftsComponent implements OnInit, OnDestroy {
 
     /**
      * Variable headerDescription
@@ -78,6 +79,8 @@ export class DetailsShiftsComponent implements OnInit {
 
     public footerActive: boolean = true;
 
+    private ngUnsubscribe: Subject<void> = new Subject<void>();
+
     /**
      * Creates an instance of DetailsShiftsComponent
      * @param {ActivatedRoute} route
@@ -107,15 +110,35 @@ export class DetailsShiftsComponent implements OnInit {
         this.tab = this.localStorage.retrieve('tab');
         this.shiftActiveId = this.route.snapshot.params['id'];
 
-        if (this.shiftActive === undefined) {
+        if (this.httpService.dataOfShifts$ === undefined) {
+            this.httpService.getShifts(this.tab);
+            this.httpService.dataOfShifts$.takeUntil(this.ngUnsubscribe).subscribe();
+        }
+
+        console.log(this.shiftActiveId);
+
+        if (this.shiftActiveId === 'new') {
+            console.log('new', this.shiftActiveId);
+            this.initForm();
+            this.headerDescription = 'New request';
+        } else {
+            console.log('this.shiftActive else');
             this.initForm();
             this.getShifts();
-        } else {
-            this.initForm();
-            this.headerDescription = this.shiftActive.Job; // TODO It's shiftTitle: from getDataShift() method - need replace
         }
 
         this.setFooterRequest();
+    }
+
+    /**
+     * Method ngOnDestroy
+     * @returns {void}
+     * @memberof ContentShiftsComponent
+     */
+
+    ngOnDestroy(): void {
+        this.ngUnsubscribe.next();
+        this.ngUnsubscribe.complete();
     }
 
     /**
@@ -134,14 +157,14 @@ export class DetailsShiftsComponent implements OnInit {
             station: '',
             jobTitle: '',
             status: '',
-            shiftTitleDescription: '',
-            dateDescription: '',
-            startTimeDescription: '',
-            endTimeDescription: '',
-            locationDescription: '',
-            stationDescription: '',
-            jobTitleDescription: '',
-            statusDescription: '',
+            shiftTitleDescription: 'shift title',
+            dateDescription: 'date',
+            startTimeDescription: 'start time',
+            endTimeDescription: 'end time',
+            locationDescription: 'location',
+            stationDescription: 'station',
+            jobTitleDescription: 'job title',
+            statusDescription: 'status'
         };
     }
 
@@ -152,24 +175,32 @@ export class DetailsShiftsComponent implements OnInit {
      */
 
     getShifts(): void {
-        this.httpService.getShifts(this.localStorage.retrieve('tab')).subscribe(
-            (value: any) => {
-                console.log(value);
-                this.shiftActive = value.find(item => item.ID === this.shiftActiveId);
-                if(this.shiftActive !== undefined) {
-                    this.headerDescription = this.shiftActive.Job; // TODO It's shiftTitle: from getDataShift() method - need replace
-                }
-                this.setDataForm();
-            },
-            (error) => {
-                console.log('sdfdfsdfsdfsdfsd');
-                this.shiftActive = this.fakeService.shiftsDataFake.find(item => item.ID === this.shiftActiveId);
-                if(this.shiftActive !== undefined) {
-                    this.headerDescription = this.shiftActive.Job; // TODO It's shiftTitle: from getDataShift() method - need replace
-                }
-                this.setDataForm();
-            }
-        );
+        this.shiftActive = this.httpService.dataOfShifts$['array'].find(item => item.ID === this.shiftActiveId);
+
+        if (this.shiftActive !== undefined) {
+            this.headerDescription = this.shiftActive.Job; // TODO It's shiftTitle: from getDataShift() method - need replace
+        }
+
+        this.setDataForm();
+
+        // this.httpService.getShifts(this.localStorage.retrieve('tab')).subscribe(
+        //     (value: any) => {
+        //         console.log(value);
+        //         this.shiftActive = value.find(item => item.ID === this.shiftActiveId);
+        //         if(this.shiftActive !== undefined) {
+        //             this.headerDescription = this.shiftActive.Job; // TODO It's shiftTitle: from getDataShift() method - need replace
+        //         }
+        //         this.setDataForm();
+        //     },
+        //     (error) => {
+        //         console.log('sdfdfsdfsdfsdfsd');
+        //         this.shiftActive = this.fakeService.shiftsDataFake.find(item => item.ID === this.shiftActiveId);
+        //         if(this.shiftActive !== undefined) {
+        //             this.headerDescription = this.shiftActive.Job; // TODO It's shiftTitle: from getDataShift() method - need replace
+        //         }
+        //         this.setDataForm();
+        //     }
+        // );
     }
 
     /**
@@ -195,7 +226,7 @@ export class DetailsShiftsComponent implements OnInit {
             locationDescription: 'location',
             stationDescription: 'station',
             jobTitleDescription: 'job title',
-            statusDescription: 'status',
+            statusDescription: 'status'
         };
     }
 

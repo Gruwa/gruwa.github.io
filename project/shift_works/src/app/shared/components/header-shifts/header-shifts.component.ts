@@ -1,5 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {Router} from '@angular/router';
+import {LocalStorageService} from 'ngx-webstorage';
+import {ShiftsService} from '../../services/shifts.service';
 
 @Component({
     selector: 'app-header-shifts',
@@ -46,7 +48,9 @@ export class HeaderShiftsComponent {
      * @memberof HeaderShiftsComponent
      */
 
-    constructor(public router: Router) { }
+    constructor(public router: Router,
+                public localStorage: LocalStorageService,
+                public shiftsService: ShiftsService) { }
 
     /**
      * Method closeOurPage for router on shifts page

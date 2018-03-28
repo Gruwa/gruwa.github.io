@@ -43,6 +43,7 @@ export class HttpService {
      */
 
     public dataOfShifts$: Observable<object>;
+    public dataOfShiftsFAke$;
 
     /**
      * Creates an instance of HttpService
@@ -52,10 +53,9 @@ export class HttpService {
      */
 
 
-    constructor(
-        public http: HttpClient,
-        public guardService: GuardService,
-        public fakeService: FakeService) {
+    constructor(public http: HttpClient,
+                public guardService: GuardService,
+                public fakeService: FakeService) {
     }
 
     /**
@@ -66,13 +66,16 @@ export class HttpService {
      */
 
     getShifts(tab: Types.ITabTypes = 'upcoming') {
-        if (TABS[tab]) {
-            return this.http.get(BASEURL + `/${TABS[tab]}/` + '/our/api/link').map(
-                (resp) => {
-                    return this.guardService.guardShifts(resp['items']);
-                }
-            );
-        }
+        // if (TABS[tab]) {
+        // TODO - activate for real api request
+        //     this.dataOfShifts$ = this.http.get(BASEURL + `/${TABS[tab]}/` + '/our/api/link').map(
+        //         (resp) => {
+        //             return this.guardService.guardShifts(resp['items']);
+        //         }
+        //     ).publishReplay(1).refCount();
+        this.dataOfShifts$ = Observable.from(this.fakeService.dataResp['items']);
+        console.log('!!!!!htttpService!!!!!');
+        // }
     }
 
 }
