@@ -84,7 +84,7 @@ export class ContentShiftsComponent implements OnInit, OnDestroy {
 
     /**
      * Method ngOnDestroy
-     * @returns {void}
+     * @returns {void}Утпдшыр
      * @memberof ContentShiftsComponent
      */
 

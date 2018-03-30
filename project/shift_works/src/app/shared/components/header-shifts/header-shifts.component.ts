@@ -50,7 +50,8 @@ export class HeaderShiftsComponent {
 
     constructor(public router: Router,
                 public localStorage: LocalStorageService,
-                public shiftsService: ShiftsService) { }
+                public shiftsService: ShiftsService) {
+    }
 
     /**
      * Method closeOurPage for router on shifts page
@@ -58,8 +59,18 @@ export class HeaderShiftsComponent {
      * @memberof HeaderShiftsComponent
      */
 
-    closeOurPage() {
+    closeOurPage(): void {
         this.router.navigate(['/shifts']);
+    }
+
+    /**
+     * Method showSideBar for show menu
+     * @returns {void}
+     * @memberof HeaderShiftsComponent
+     */
+
+    showSideBar(): void {
+
     }
 
 }
