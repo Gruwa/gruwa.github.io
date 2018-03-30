@@ -1,0 +1,17 @@
+<div class="header-shifts">
+    <div class="header-shifts__container">
+        <div (click)="showSideBar()"
+             [ngClass]="{'header-shifts__element-display' : sideBar}"
+             class="header-shifts__sidebar">
+            <i class="material-icons">menu</i>
+        </div>
+        <div (click)="closeOurPage()"
+             [ngClass]="{'header-shifts__element-display' : closePage}"
+             class="header-shifts__sidebar">
+            <i class="material-icons">close</i>
+        </div>
+        <span class="header-shifts__description">{{headerDescription}}</span>
+    </div>
+    <app-tab class="header-shifts__tabs"
+             [ngClass]="{'header-shifts__element-display' : tabsPage}"></app-tab>
+</div>

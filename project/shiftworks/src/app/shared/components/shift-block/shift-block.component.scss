@@ -1,0 +1,19 @@
+.shift-block {
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__wrapper {
+
+  }
+}
+
+.mat-list-item-content {
+  height: 50px;
+}
+
+.mat-list .mat-list-item {
+  height: 64px;
+}

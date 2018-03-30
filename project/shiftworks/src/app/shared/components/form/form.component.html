@@ -1,0 +1,74 @@
+<form class="form-component">
+    <mat-form-field class="example-full-width">
+        <input matInput
+               readonly={{availbleInput}}
+               placeholder={{form.shiftTitleDescription}}
+               value= {{form.shiftTitle}}>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input matInput
+               readonly={{availbleInput}}
+               placeholder={{form.dateDescription}}
+               value= {{form.date}}>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input matInput
+               readonly={{availbleInput}}
+               placeholder={{form.startTimeDescription}}
+               value= {{form.startTime}}>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input matInput
+               readonly={{availbleInput}}
+               placeholder={{form.endTimeDescription}}
+               value= {{form.endTime}}>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" *ngIf="router.url == '/shifts/new'">
+        <input matInput
+               readonly={{availbleInput}}
+               placeholder={{form.locationDescription}}
+               value= {{form.location}}>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" *ngIf="router.url == '/shifts/new'">
+        <input matInput
+               readonly={{availbleInput}}
+               placeholder={{form.stationDescription}}
+               value= {{form.station}}>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" *ngIf="router.url == '/shifts/new'">
+        <input matInput
+               readonly={{availbleInput}}
+               placeholder={{form.jobTitleDescription}}
+               value= {{form.jobTitle}}>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" *ngIf="router.url != '/shifts/new'">
+        <mat-select placeholder={{form.locationDescription}}
+                    disableRipple={{availbleInput}}>
+            <mat-option *ngFor="let location of form.locationsGroup" [value]="location.name">
+                {{ location.name }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" *ngIf="router.url != '/shifts/new'">
+        <mat-select placeholder={{form.stationDescription}}
+                    disableRipple={{availbleInput}}>
+            <mat-option *ngFor="let station of form.stationsGroup" [value]="station.name">
+                {{ station.name }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" *ngIf="router.url != '/shifts/new'">
+        <mat-select placeholder={{form.jobTitleDescription}}
+                    disabled={{availbleInput}}>
+            <mat-option *ngFor="let jobTitle of form.jobsTitleGroup" [value]="jobTitle.name">
+                {{ jobTitle.name }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input matInput
+               readonly=true
+               placeholder={{form.statusDescription}}
+               value= {{form.status}}>
+    </mat-form-field>
+</form>
