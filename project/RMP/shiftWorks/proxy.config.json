@@ -1,6 +1,18 @@
-﻿{
-  "/api": {
-    "target": "http://localhost:5000",
-    "secure": false
+﻿[
+  {
+    "context": [
+      "/api",
+      "/media",
+      "/static"
+    ],
+    "target": {
+      "host": "localhost",
+      "protocol": "http:",
+      "port": 4334
+    },
+    "secure": false,
+    "pathRewrite": {
+      "^/api": "/"
+    }
   }
-}
+]

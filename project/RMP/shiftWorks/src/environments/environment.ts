@@ -4,6 +4,6 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-    apiRoot: '/our/api/root',
-    production: false
+  apiRoot: '/api',
+  production: false
 };

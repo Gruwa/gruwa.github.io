@@ -59,7 +59,10 @@ export class AuthInterceptor implements HttpInterceptor {
     // }
 
     return next.handle(request).do(
-      () => {
+      (resp) => {
+        console.log('resp', resp);
+        this.localStorage.store('token', resp['Token']);
+        return resp;
       },
       (err: any) => {
         if (err instanceof HttpErrorResponse) {
