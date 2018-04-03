@@ -1,75 +1,86 @@
 import {Component, Input} from '@angular/core';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {LocalStorageService} from 'ngx-webstorage';
 
 
 @Component({
-    selector: 'app-header-shifts',
-    templateUrl: './header-shifts.component.html',
-    styleUrls: ['./header-shifts.component.scss']
+  selector: 'app-header-shifts',
+  templateUrl: './header-shifts.component.html',
+  styleUrls: ['./header-shifts.component.scss']
 })
 export class HeaderShiftsComponent {
 
-    /**
-     * Input variable headerDescription
-     * @type {string}
-     * @memberof HeaderShiftsComponent
-     */
+  /**
+   * Input variable headerDescription
+   * @type {string}
+   * @memberof HeaderShiftsComponent
+   */
 
-    @Input() headerDescription: string;
+  @Input() headerDescription: string;
 
-    /**
-     * Input variable sideBar
-     * @type {boolean}
-     * @memberof HeaderShiftsComponent
-     */
+  /**
+   * Input variable sideBar
+   * @type {boolean}
+   * @memberof HeaderShiftsComponent
+   */
 
-    @Input() sideBar: boolean = false;
+  @Input() sideBar: boolean = false;
 
-    /**
-     * Input variable close Page
-     * @type {boolean}
-     * @memberof HeaderShiftsComponent
-     */
+  /**
+   * Input variable close Page
+   * @type {boolean}
+   * @memberof HeaderShiftsComponent
+   */
 
-    @Input() closePage: boolean = false;
+  @Input() closePage: boolean = false;
 
-    /**
-     * Input variable tabsPage for show tab
-     * @type {boolean}
-     * @memberof HeaderShiftsComponent
-     */
+  /**
+   * Input variable delete for show tab
+   * @type {boolean}
+   * @memberof HeaderShiftsComponent
+   */
 
-    @Input() tabsPage: boolean = false;
+  @Input() delete: boolean = false;
 
-    /**
-     * Creates an instance of HeaderShiftsComponent
-     * @param {Router} router
-     * @memberof HeaderShiftsComponent
-     */
+  /**
+   * Input variable save for show tab
+   * @type {boolean}
+   * @memberof HeaderShiftsComponent
+   */
 
-    constructor(public router: Router,
-                public localStorage: LocalStorageService) {
-    }
+  @Input() save: boolean = false;
 
-    /**
-     * Method closeOurPage for router on shifts page
-     * @returns {void}
-     * @memberof HeaderShiftsComponent
-     */
+  /**
+   * Creates an instance of DetailsShiftsComponent
+   * @param {ActivatedRoute} route
+   * @param {LocalStorageService} localStorage
+   * @param {Router} router
+   * @memberof HeaderShiftsComponent
+   */
 
-    closeOurPage(): void {
-        this.router.navigate(['/shifts']);
-    }
+  constructor(public router: Router,
+              public localStorage: LocalStorageService,
+              public route: ActivatedRoute) {
+  }
 
-    /**
-     * Method showSideBar for show menu
-     * @returns {void}
-     * @memberof HeaderShiftsComponent
-     */
+  /**
+   * Method closeOurPage for router on shifts page
+   * @returns {void}
+   * @memberof HeaderShiftsComponent
+   */
 
-    showSideBar(): void {
+  closeOurPage(): void {
+    this.router.navigate(['/' + this.route.snapshot.params['group'], 'shifts']);
+  }
 
-    }
+  /**
+   * Method showSideBar for show menu
+   * @returns {void}
+   * @memberof HeaderShiftsComponent
+   */
+
+  showSideBar(): void {
+
+  }
 
 }
