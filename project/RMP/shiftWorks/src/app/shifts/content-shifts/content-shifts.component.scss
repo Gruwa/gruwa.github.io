@@ -1,15 +1,23 @@
 
 .content-shifts {
+  //max-width: 360px;
   width: 100%;
   padding: 10px;
   position: relative;
+  background-color: #f2f4f7;
+  box-sizing: border-box;
+
+  &__title {
+    margin-bottom: 16px;
+  }
 
   &__wrapper {
+    padding: 16px;
 
   }
 
   &__content {
-    height: 100px;
+
   }
 }
 

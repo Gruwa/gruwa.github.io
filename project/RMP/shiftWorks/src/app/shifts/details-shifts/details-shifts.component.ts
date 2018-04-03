@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {ShiftsService} from '../../shared/services/shifts.service';
+import {ShiftsService} from '../Services/shifts.service';
 import {LocalStorageService} from 'ngx-webstorage';
 import {HttpService} from '../../shared/services/http.service';
 import {FakeService} from '../../shared/services/fake.service';
@@ -9,6 +9,7 @@ import {IShift} from '../../shared/interfaces/shift.interface';
 import {IForm} from '../../shared/interfaces/form.interface';
 import {IFooterRequest} from '../../shared/interfaces/types.interface';
 import {ITabTypes} from '../../shared/interfaces/types.interface';
+import {DataService} from '../../shared/services/data.service';
 
 /**
  * Variable FOOTER_REQUESTS
@@ -111,6 +112,7 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
                 public localStorage: LocalStorageService,
                 public httpService: HttpService,
                 public fakeService: FakeService,
+                public dataService: DataService,
                 public router: Router) {
     }
 
@@ -124,9 +126,9 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
         this.tab = this.localStorage.retrieve('tab');
         this.shiftActiveId = this.route.snapshot.params['id'];
 
-        if (this.httpService.dataOfShifts$ === undefined) {
-            this.httpService.getShifts(this.tab);
-            this.httpService.dataOfShifts$.takeUntil(this.ngUnsubscribe).subscribe();
+        if (this.dataService.dataShifts$ === undefined) {
+            this.httpService.getShifts();
+            this.dataService.dataShifts$.takeUntil(this.ngUnsubscribe).subscribe();
         }
 
         console.log(this.shiftActiveId);
@@ -194,7 +196,7 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
      */
 
     getShifts(): void {
-        this.shiftActive = this.httpService.dataOfShifts$['array'].find(item => item.ID === this.shiftActiveId);
+        this.shiftActive = this.dataService.dataShifts$['array'].find(item => item.ID === this.shiftActiveId);
 console.log(this.shiftActive)
         if (this.shiftActive !== undefined) {
             this.headerDescription = this.shiftActive.job; // TODO It's shiftTitle: from getDataShift() method - need replace

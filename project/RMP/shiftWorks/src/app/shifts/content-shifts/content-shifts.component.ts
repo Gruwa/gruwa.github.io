@@ -1,17 +1,18 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {ShiftsService} from '../../shared/services/shifts.service';
+import {ShiftsService} from '../Services/shifts.service';
 import {Observable} from 'rxjs/Observable';
 import {HttpService} from '../../shared/services/http.service';
 import {FakeService} from '../../shared/services/fake.service';
 import {LocalStorageService} from 'ngx-webstorage';
-import {Router} from '@angular/router';
+import {ActivatedRoute, ActivatedRouteSnapshot, Router} from '@angular/router';
 import 'rxjs/add/observable/merge';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/takeUntil';
 import {Subject} from 'rxjs/Subject';
 import {ITabTypes} from '../../shared/interfaces/types.interface';
 import {IShiftsSorted} from '../../shared/interfaces/shift.interface';
+import {DataService} from '../../shared/services/data.service';
 
 
 @Component({
@@ -49,6 +50,7 @@ export class ContentShiftsComponent implements OnInit, OnDestroy {
      * Creates an instance of ContentShiftsComponent
      * @param {HttpClient} http
      * @param {ShiftsService} shiftsService
+     * @param {DataService} dataService
      * @param {HttpService} httpService
      * @param {FakeService} fakeService
      * @param {LocalStorageService} localStorage
@@ -57,11 +59,13 @@ export class ContentShiftsComponent implements OnInit, OnDestroy {
      */
 
     constructor(public http: HttpClient,
+                public dataService: DataService,
                 public shiftsService: ShiftsService,
                 public httpService: HttpService,
                 public fakeService: FakeService,
                 public router: Router,
-                public localStorage: LocalStorageService) {
+                public localStorage: LocalStorageService,
+                public route: ActivatedRoute) {
     }
 
     /**
@@ -71,14 +75,16 @@ export class ContentShiftsComponent implements OnInit, OnDestroy {
      */
 
     ngOnInit(): void {
-        this.shiftsService.dataTab$.takeUntil(this.ngUnsubscribe).subscribe(this.dataFlowObserver.bind(this));
+        this.dataService.dataTab$.takeUntil(this.ngUnsubscribe).subscribe(this.dataFlowObserver.bind(this));
         this.tab = this.localStorage.retrieve('tab');
 
-        if (this.httpService.dataOfShifts$ === undefined) {
-            this.httpService.getShifts(this.tab);
+        if (this.dataService.dataShifts$ === undefined) {
+            this.httpService.getShifts();
         }
 
-        this.httpService.dataOfShifts$.takeUntil(this.ngUnsubscribe).subscribe();
+      console.log('/app/' + this.route.snapshot.params['group'] + '/shifts');
+
+      this.dataService.dataShifts$.takeUntil(this.ngUnsubscribe).subscribe();
         this.getShifts();
     }
 
@@ -112,7 +118,7 @@ export class ContentShiftsComponent implements OnInit, OnDestroy {
      */
 
     getShifts() {
-        this.sortShifts = this.shiftsService.sortShifts(this.httpService.dataOfShifts$['array']);
+        this.sortShifts = this.shiftsService.sortShifts(this.dataService.dataShifts$['array']);
     }
 
     /**

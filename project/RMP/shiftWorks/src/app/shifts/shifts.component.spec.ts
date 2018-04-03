@@ -10,7 +10,7 @@ import {ContentShiftsComponent} from './content-shifts/content-shifts.component'
 import {TabComponent} from '../shared/components/tab.component/tab.component';
 import {ShiftBlockComponent} from '../shared/components/shift-block/shift-block.component';
 import {HttpClientModule} from '@angular/common/http';
-import {ShiftsService} from '../shared/services/shifts.service';
+import {ShiftsService} from './Services/shifts.service';
 import {HttpService} from '../shared/services/http.service';
 import {FakeService} from '../shared/services/fake.service';
 

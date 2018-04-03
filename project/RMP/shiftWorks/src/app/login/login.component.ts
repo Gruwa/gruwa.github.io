@@ -5,6 +5,7 @@ import {HttpService} from '../shared/services/http.service';
 import {Subject} from 'rxjs/Subject';
 import 'rxjs/add/operator/takeUntil';
 import {LoginModel} from './login.model';
+import {DataService} from '../shared/services/data.service';
 //import { AuthService } from "../shared/services/auth.service";
 //import { LoaderService } from "../shared/services/loader.service";
 
@@ -31,6 +32,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   constructor(private router: Router,
               private route: ActivatedRoute,
               public httpService: HttpService,
+              public dataService: DataService
               //private authService: AuthService,
               //private loaderService: LoaderService,
               //private pageService: PageService
@@ -41,6 +43,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
+    this.httpService.addAllObject().subscribe();
     this.route.params.subscribe(params => {
       this.returnURL = params['returnTo'];
     });
@@ -65,7 +68,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     };
     this.httpService.onLogin(valueOfLogin);
-    this.httpService.dataOfLogin$.takeUntil(this.ngUnsubscribe).subscribe();
+    this.dataService.dataLogin$.takeUntil(this.ngUnsubscribe).subscribe();
 
 
     // this.loaderService.show();

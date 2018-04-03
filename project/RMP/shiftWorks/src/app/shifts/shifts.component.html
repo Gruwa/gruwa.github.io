@@ -1,11 +1,20 @@
 <div class="shifts">
-    <div class="shifts__app-header">
-        <app-header-shifts [headerDescription]="headerDescription"
-                           [tabsPage]="true"
-                           [sideBar]="true">
-        </app-header-shifts>
-    </div>
-    <div class="shifts__content">
-        <app-content-shifts></app-content-shifts>
-    </div>
+  <div class="shifts__app-header">
+    <app-header-shifts [headerDescription]="headerDescription"
+                       [tabsPage]="true"
+                       [sideBar]="true">
+    </app-header-shifts>
+  </div>
+  <div class="shifts__content">
+    <mat-tab-group (selectChange)="selectedTabChange($event)"
+                   [selectedIndex]=tabIndex>
+      <div *ngFor="let tab of tabsTitle">
+        <mat-tab label={{tab}}
+                 position=0
+                 class="mat-tab-label">
+          <app-content-shifts></app-content-shifts>
+        </mat-tab>
+      </div>
+    </mat-tab-group>
+  </div>
 </div>

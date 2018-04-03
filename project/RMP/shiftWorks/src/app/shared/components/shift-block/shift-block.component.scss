@@ -1,19 +1,28 @@
 .shift-block {
+  width: 100%;
 
   &__content {
     display: flex;
     flex-direction: column;
+    align-items: left;
   }
 
   &__wrapper {
-
+    //width: 328px;
+    height: 176px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
-}
 
-.mat-list-item-content {
-  height: 50px;
-}
+  &__point {
+    font-size: 8px;
+    margin-right: 10px;
+  }
 
-.mat-list .mat-list-item {
-  height: 64px;
+  &__icons-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }

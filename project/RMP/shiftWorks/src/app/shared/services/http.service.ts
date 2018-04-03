@@ -8,6 +8,7 @@ import 'rxjs/add/operator/publishReplay';
 import {Subject} from 'rxjs/Subject';
 import {FakeService} from './fake.service';
 import 'rxjs/add/observable/from';
+import {DataService} from './data.service';
 
 /**
  * BASEURL of api
@@ -37,19 +38,19 @@ export class HttpService {
   public tab: Types.ITabTypes = 'upcoming';
 
 
-  /**
-   * Created flow of tabs
-   * @memberof ShiftsService
-   */
+  // /**
+  //  * Created flow of tabs
+  //  * @memberof ShiftsService
+  //  */
+  //
+  // public dataOfShifts$: Observable<object>;
 
-  public dataOfShifts$: Observable<object>;
-
-  /**
-   * Created flow of login
-   * @memberof ShiftsService
-   */
-
-  public dataOfLogin$: Observable<object>;
+  // /**
+  //  * Created flow of login
+  //  * @memberof ShiftsService
+  //  */
+  //
+  // public dataOfLogin$: Observable<object>;
 
   public dataOfShiftsFAke$;
 
@@ -63,7 +64,8 @@ export class HttpService {
 
   constructor(public http: HttpClient,
               public guardService: GuardService,
-              public fakeService: FakeService) {
+              public fakeService: FakeService,
+              public dataService: DataService) {
   }
 
   /**
@@ -73,7 +75,7 @@ export class HttpService {
    */
 
   onLogin(body: object) {
-    this.dataOfLogin$ = this.http.post(BASEURL + '/login', body).map(
+    this.dataService.dataLogin$ = this.http.post(BASEURL + '/login', body).map(
       (resp) => {
         console.log(resp);
         return this.guardService.guardShifts(resp['items']);
@@ -90,17 +92,23 @@ export class HttpService {
    * @memberof HttpService
    */
 
-  getShifts(tab: Types.ITabTypes = 'upcoming') {
-    // if (TABS[tab]) {
+  getShifts() {
+
     // TODO - activate for real api request
-    //     this.dataOfShifts$ = this.http.get(BASEURL + `/${TABS[tab]}/` + '/our/api/link').map(
+    //     this.dataService.dataShifts$ = this.http.get(BASEURL + '/shifts').map(
     //         (resp) => {
     //             return this.guardService.guardShifts(resp['items']);
     //         }
     //     ).publishReplay(1).refCount();
-    this.dataOfShifts$ = Observable.from(this.fakeService.dataResp['items']);
-    console.log('!!!!!htttpService!!!!!');
-    // }
+    this.dataService.dataShifts$ = Observable.from(this.fakeService.dataResp['items']);
+    console.log('!!!!!getShifts htttpService!!!!!');
+
+  }
+
+  addAllObject() {
+    // TODO - delete for real api request
+    console.log('!!!!!htttp addAllObject!!!!!');
+        return this.http.get(BASEURL + '');
   }
 
 }

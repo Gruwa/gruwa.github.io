@@ -10,42 +10,46 @@ import {PageNotFoundComponent} from './not-found.component';
 
 import {LowerCaseUrlSerializer} from './shared/url-serializer.service';
 import {AppComponentsModule} from './shared/components/app-components.module';
-import {ShiftsService} from './shared/services/shifts.service';
+import {ShiftsService} from './shifts/Services/shifts.service';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {HttpService} from './shared/services/http.service';
 import {AuthInterceptor} from './shared/services/interceptor';
 import {Ng2Webstorage} from 'ngx-webstorage';
 import {FakeService} from './shared/services/fake.service';
 import {GuardService} from './shared/services/guard.service';
+import {DataService} from './shared/services/data.service';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        AppRoutingModule,
-        AppComponentsModule,
-        HttpClientModule,
-        Ng2Webstorage,
-    ],
-    declarations: [
-        AppComponent,
-        PageNotFoundComponent
-    ],
-    providers: [
-        {
-            provide: UrlSerializer,
-            useClass: LowerCaseUrlSerializer},
-        {
-            provide: HTTP_INTERCEPTORS,
-            useClass: AuthInterceptor,
-            multi: true
-        },
-        ShiftsService,
-        HttpService,
-        FakeService,
-        GuardService
-    ],
-    bootstrap: [AppComponent]
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    AppComponentsModule,
+    HttpClientModule,
+    Ng2Webstorage,
+    FlexLayoutModule
+  ],
+  declarations: [
+    AppComponent,
+    PageNotFoundComponent
+  ],
+  providers: [
+    {
+      provide: UrlSerializer,
+      useClass: LowerCaseUrlSerializer
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
+    HttpService,
+    FakeService,
+    GuardService,
+    DataService
+  ],
+  bootstrap: [AppComponent]
 })
 export class AppModule {
 }

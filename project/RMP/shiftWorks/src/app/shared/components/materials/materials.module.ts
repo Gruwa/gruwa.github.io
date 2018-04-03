@@ -23,7 +23,8 @@ import {
     MatSelectModule,
     MatCardModule,
     MatCheckboxModule,
-    MatIconModule
+    MatIconModule,
+    MatTabsModule
   ],
   exports: [
     MatTabsModule,
@@ -34,7 +35,8 @@ import {
     MatSelectModule,
     MatCardModule,
     MatCheckboxModule,
-    MatIconModule
+    MatIconModule,
+    MatTabsModule
   ]
 })
 export class MaterialsModule {

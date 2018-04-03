@@ -65,16 +65,16 @@ export class AuthInterceptor implements HttpInterceptor {
         return resp;
       },
       (err: any) => {
-        if (err instanceof HttpErrorResponse) {
-          if (err.status === 404) {
-            console.log('error 404');
-            this.router.navigate(['/app/404']);
-          }
-          if (err.status === 401) {
-            console.log('error 401');
-            this.router.navigate(['/app/login']);
-          }
-        }
+        // if (err instanceof HttpErrorResponse) {
+        //   if (err.status === 404) {
+        //     console.log('error 404');
+        //     this.router.navigate(['/app/404']);
+        //   }
+        //   if (err.status === 401) {
+        //     console.log('error 401');
+        //     this.router.navigate(['/app/login']);
+        //   }
+        // }
       }
     );
   }

@@ -7,8 +7,15 @@ import {HeaderShiftsComponent} from '../shared/components/header-shifts/header-s
 import {ContentShiftsComponent} from './content-shifts/content-shifts.component';
 import {HttpClientModule} from '@angular/common/http';
 import {DetailsShiftsComponent} from './details-shifts/details-shifts.component';
+import {ShiftsService} from './Services/shifts.service';
+import {MaterialsModule} from '../shared/components/materials/materials.module';
 
 export const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'shifts',
+    pathMatch: 'full'
+  },
   {
     path: 'shifts',
     component: ShiftsComponent,
@@ -16,16 +23,11 @@ export const routes: Routes = [
   },
   {
     path: 'shifts/:id',
-    component: DetailsShiftsComponent,
-  },
-  {
-    path: '',
-    redirectTo: '/404',
-    pathMatch: 'full'
+    component: DetailsShiftsComponent
   },
   {
     path: '**',
-    redirectTo: '/404'
+    component: ShiftsComponent
   }
 ];
 
@@ -33,7 +35,8 @@ export const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    AppComponentsModule
+    AppComponentsModule,
+    MaterialsModule
   ],
   declarations: [
     ShiftsComponent,
@@ -41,7 +44,9 @@ export const routes: Routes = [
     ContentShiftsComponent,
     DetailsShiftsComponent
   ],
-  providers: []
+  providers: [
+    ShiftsService
+  ]
 })
 export class ShiftsModule {
 }

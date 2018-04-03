@@ -4,7 +4,7 @@ import {HeaderShiftsComponent} from './header-shifts.component';
 import {TabComponent} from '../tab.component/tab.component';
 import {MatTabsModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {ShiftsService} from '../../services/shifts.service';
+import {ShiftsService} from '../../../shifts/Services/shifts.service';
 import {By} from '@angular/platform-browser';
 import {DebugElement} from '@angular/core';
 

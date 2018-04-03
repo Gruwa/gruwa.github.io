@@ -1,10 +1,8 @@
 import {Component, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
 import * as Types from '../../interfaces/types.interface';
-import {HttpService} from '../../services/http.service';
-import {FakeService} from '../../services/fake.service';
-import {ShiftsService} from '../../services/shifts.service';
-import {HttpClient} from '@angular/common/http';
+import {ShiftsService} from '../../../shifts/Services/shifts.service';
 import {LocalStorageService} from 'ngx-webstorage';
+import {DataService} from '../../services/data.service';
 
 /**
  * TABS for navigate
@@ -51,12 +49,12 @@ export class TabComponent implements OnInit {
 
     /**
      * Creates an instance of TabComponent
-     * @param {ShiftsService} shiftsService
+     * @param {LocalStorageService} dataService
      * @param {LocalStorageService} localStorage
      * @memberof TabComponent
      */
 
-    constructor(public shiftsService: ShiftsService,
+    constructor(public dataService: DataService,
                 public localStorage: LocalStorageService) {
     }
 
@@ -79,7 +77,7 @@ export class TabComponent implements OnInit {
     selectedTabChange(value: any): void {
         console.log(TABS[value.index]);
         // this.localStorage.store('tab', TABS[value.index]);
-        this.shiftsService.dataTab$.next(TABS[value.index]);
+        this.dataService.dataTab$.next(TABS[value.index]);
     }
 
 }

@@ -3,7 +3,7 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {TabComponent} from './tab.component';
 import {CommonModule} from '@angular/common';
 import {MatDividerModule, MatListModule, MatTabsModule} from '@angular/material';
-import {ShiftsService} from '../../services/shifts.service';
+import {ShiftsService} from '../../../shifts/Services/shifts.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {DebugElement} from '@angular/core';
 import {By} from '@angular/platform-browser';
