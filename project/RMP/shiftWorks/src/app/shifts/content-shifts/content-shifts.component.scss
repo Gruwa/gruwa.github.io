@@ -1,9 +1,15 @@
+.app-shift-block {
+  height: 100%;
+}
 
 .content-shifts {
   //max-width: 360px;
   width: 100%;
   padding: 10px;
-  position: relative;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
   background-color: #f2f4f7;
   box-sizing: border-box;
 
@@ -13,6 +19,7 @@
 
   &__wrapper {
     padding: 16px;
+
 
   }
 

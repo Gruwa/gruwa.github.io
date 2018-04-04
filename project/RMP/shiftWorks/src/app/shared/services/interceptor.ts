@@ -42,25 +42,22 @@ export class AuthInterceptor implements HttpInterceptor {
    */
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-
-    console.log('Interceptor');
     // TODO -	correct when work with real api
     // if (this.localStorage.retrieve('token')) {
     request = request.clone({
       setHeaders: {
-        token: this.localStorage.retrieve('token'),
+        // token: this.localStorage.retrieve('token'),
         'Content-Type': 'application/json',
         group: this.localStorage.retrieve('group')
       }
     });
-    console.log(request);
     // } else {
-    //     this.router.navigate(['/app/login']);
+    //     this.router.navigate(['/login']);
     // }
 
     return next.handle(request).do(
       (resp) => {
-        console.log('resp', resp);
+        console.log('intercept resp', resp);
         this.localStorage.store('token', resp['Token']);
         return resp;
       },
@@ -68,11 +65,11 @@ export class AuthInterceptor implements HttpInterceptor {
         // if (err instanceof HttpErrorResponse) {
         //   if (err.status === 404) {
         //     console.log('error 404');
-        //     this.router.navigate(['/app/404']);
+        //     this.router.navigate(['/404']);
         //   }
         //   if (err.status === 401) {
         //     console.log('error 401');
-        //     this.router.navigate(['/app/login']);
+        //     this.router.navigate(['/login']);
         //   }
         // }
       }

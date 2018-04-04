@@ -23,8 +23,7 @@ export class AuthGuardService {
 
     const GuardObj: Array<IGroupRestaurant> = [];
 
-
-    for (let i = 0; i > value.length; i++) {
+    for (let i = 0; i < value.length; i++) {
 
       /**
        * Variable of obj
@@ -36,7 +35,6 @@ export class AuthGuardService {
         'id': value[i].ID,
         'description': value[i].Description
       };
-
       GuardObj.push(obj);
     }
 

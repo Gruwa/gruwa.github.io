@@ -195,7 +195,7 @@ export class ShiftsService {
   getshiftById(id: string): IShift {
     if (this.shifts) {
 
-      return this.shifts.find(item => item.id === id);
+      return this.shifts.find(item => item.shiftID === id);
     } else {
 
       // console.log('dsdsd')

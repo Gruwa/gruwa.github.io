@@ -1,15 +1,15 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {HttpService} from '../shared/services/http.service';
-import * as Types from '../shared/interfaces/types.interface';
 import {DataService} from '../shared/services/data.service';
 import {LocalStorageService} from 'ngx-webstorage';
 import {ActivatedRoute, Router} from '@angular/router';
+import {ITabTypes} from '../shared/interfaces/types.interface';
 
 /**
  * TABS for navigate
  */
 
-const TABS: Array<Types.ITabTypes> = [
+const TABS: Array<ITabTypes> = [
   'upcoming',
   'my requests',
   'available'
@@ -19,6 +19,7 @@ const TABS: Array<Types.ITabTypes> = [
   selector: 'app-shifts',
   templateUrl: './shifts.component.html',
   styleUrls: ['./shifts.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ShiftsComponent implements OnInit {
 
@@ -36,7 +37,7 @@ export class ShiftsComponent implements OnInit {
    * @memberof TabComponent
    */
 
-  tabsTitle: Array<Types.ITabTypes> = ['upcoming', 'my requests', 'available'];
+  tabsTitle: Array<ITabTypes> = ['upcoming', 'my requests', 'available'];
 
   /**
    * Variable of tab
@@ -44,7 +45,7 @@ export class ShiftsComponent implements OnInit {
    * @memberof ContentShiftsComponent
    */
 
-  public tab: Types.ITabTypes = 'upcoming';
+  public tab: ITabTypes = 'upcoming';
 
   /**
    * Variable of tabIndex
@@ -53,6 +54,14 @@ export class ShiftsComponent implements OnInit {
    */
 
   public tabIndex: number;
+
+  /**
+   * Variable of tabActive
+   * @type {string}
+   * @memberof ContentShiftsComponent
+   */
+
+  public tabActive: ITabTypes = 'upcoming';
 
   /**
    * Creates an instance of TabComponent
@@ -76,8 +85,13 @@ export class ShiftsComponent implements OnInit {
    */
 
   ngOnInit() {
-    this.httpService.getShifts();
+    if (this.localStorage.retrieve('tab') !== undefined) {
+      this.tabActive = this.localStorage.retrieve('tab');
+    } else {
+      this.localStorage.store('tab', this.tabActive);
+    }
     this.tabIndex = TABS.indexOf(this.localStorage.retrieve('tab'));
+
   }
 
   /**
@@ -87,9 +101,8 @@ export class ShiftsComponent implements OnInit {
    */
 
   selectedTabChange(value: any): void {
-    console.log(TABS[value.index]);
-    // this.localStorage.store('tab', TABS[value.index]);
-    this.dataService.dataTab$.next(TABS[value.index]);
+    this.tabActive = TABS[value.index];
+    this.localStorage.store('tab', TABS[value.index]);
   }
 
 

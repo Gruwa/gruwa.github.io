@@ -1,98 +1,96 @@
-import {IJobTitle, ILocation, IStation} from './form.interface';
-
 /**
  * Export interface IShift
  */
 
-export interface IShift extends IStation, IJobTitle, ILocation {
+export interface IShift {
 
-    /**
-     * Variable contain id
-     * @type {string}
-     * @memberof IShift
-     */
+  /**
+   * Variable contain shiftID
+   * @type {string}
+   * @memberof IShift
+   */
 
-    id: string;
+  shiftID: string;
 
-    /**
-     * Variable contain IsDropRequest
-     * @type {boolean}
-     * @memberof IShift
-     */
+  /**
+   * Variable contain IsDropRequest
+   * @type {boolean}
+   * @memberof IShift
+   */
 
-    isDropRequest: boolean;
+  isDropRequest: boolean;
 
-    /**
-     * Variable contain IsPickupRequest
-     * @type {boolean}
-     * @memberof IShift
-     */
+  /**
+   * Variable contain IsPickupRequest
+   * @type {boolean}
+   * @memberof IShift
+   */
 
-    isPickupRequest: boolean;
+  isPickupRequest: boolean;
 
-    /**
-     * Variable contain IsVolunteers
-     * @type {boolean}
-     * @memberof IShift
-     */
+  /**
+   * Variable contain IsVolunteers
+   * @type {string}
+   * @memberof IShift
+   */
 
-    isVolunteers: boolean;
+  job: string;
 
-    /**
-     * Variable contain Job
-     * @type {any}
-     * @memberof IShift
-     */
+  /**
+   * Variable contain JobID
+   * @type {string}
+   * @memberof IShift
+   */
 
-    job: any;
+  jobID: string;
 
-    /**
-     * Variable contain JobID
-     * @type {any}
-     * @memberof IShift
-     */
+  /**
+   * Variable contain Station
+   * @type {string}
+   * @memberof IShift
+   */
 
-    jobID: any;
+  station: string;
 
-    /**
-     * Variable contain Station
-     * @type {any}
-     * @memberof IShift
-     */
+  /**
+   * Variable contain StationID
+   * @type {string}
+   * @memberof IShift
+   */
 
-    station: any;
+  stationID: string;
 
-    /**
-     * Variable contain StationID
-     * @type {any}
-     * @memberof IShift
-     */
+  /**
+   * Variable contain dateFrom
+   * @type {any}
+   * @memberof IShift
+   */
 
-    stationID: any;
+  dateFrom: any;
 
-    /**
-     * Variable contain dateFrom
-     * @type {any}
-     * @memberof IShift
-     */
+  /**
+   * Variable contain dateTo
+   * @type {any}
+   * @memberof IShift
+   */
 
-    dateFrom: any;
+  dateTo: any;
 
-    /**
-     * Variable contain dateTo
-     * @type {any}
-     * @memberof IShift
-     */
+  /**
+   * Variable contain location
+   * @type {string}
+   * @memberof IShift
+   */
 
-    dateTo: any;
+  location: string;
 
-    /**
-     * Variable contain location
-     * @type {any}
-     * @memberof IShift
-     */
+  /**
+   * Variable contain locationID
+   * @type {string}
+   * @memberof IShift
+   */
 
-    location: any;
+  locationID: string;
 }
 
 /**
@@ -101,27 +99,27 @@ export interface IShift extends IStation, IJobTitle, ILocation {
 
 export interface IShiftsSorted {
 
-    /**
-     * Variable contain dateFormated. Formating date for title
-     * @type {any}
-     * @memberof IShiftsSorted
-     */
+  /**
+   * Variable contain dateFormated. Formating date for title
+   * @type {any}
+   * @memberof IShiftsSorted
+   */
 
-    dateFormated: any;
+  dateFormated: any;
 
-    /**
-     * Variable contain dateForm. Date of start shifts
-     * @type {any}
-     * @memberof IShiftsSorted
-     */
+  /**
+   * Variable contain dateForm. Date of start shifts
+   * @type {any}
+   * @memberof IShiftsSorted
+   */
 
-    dateFrom: any;
+  dateFrom: any;
 
-    /**
-     * Variable contain shifts of same date
-     * @type {Array<IShift>}
-     * @memberof IShiftsSorted
-     */
+  /**
+   * Variable contain shifts of same date
+   * @type {Array<IShift>}
+   * @memberof IShiftsSorted
+   */
 
-    shifts: Array<IShift>;
+  shifts: Array<IShift>;
 }

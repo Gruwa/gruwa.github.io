@@ -13,7 +13,7 @@ export class AppComponent implements OnInit{
 
   }
   ngOnInit() {
-    this.localStorage.store('group', '');
-    this.localStorage.store('token', '');
+    this.localStorage.store('group', ' ');
+    this.localStorage.store('token', ' ');
   }
 }

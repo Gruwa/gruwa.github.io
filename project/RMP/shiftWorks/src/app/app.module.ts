@@ -16,7 +16,7 @@ import {HttpService} from './shared/services/http.service';
 import {AuthInterceptor} from './shared/services/interceptor';
 import {Ng2Webstorage} from 'ngx-webstorage';
 import {FakeService} from './shared/services/fake.service';
-import {GuardService} from './shared/services/guard.service';
+import {HttpGuardService} from './shared/services/http-guard.service';
 import {DataService} from './shared/services/data.service';
 import {FlexLayoutModule} from '@angular/flex-layout';
 
@@ -46,7 +46,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     },
     HttpService,
     FakeService,
-    GuardService,
+    HttpGuardService,
     DataService
   ],
   bootstrap: [AppComponent]

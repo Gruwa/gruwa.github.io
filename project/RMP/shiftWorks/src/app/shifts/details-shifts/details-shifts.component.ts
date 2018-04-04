@@ -126,9 +126,9 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
         this.tab = this.localStorage.retrieve('tab');
         this.shiftActiveId = this.route.snapshot.params['id'];
 
-        if (this.dataService.dataShifts$ === undefined) {
-            this.httpService.getShifts();
-            this.dataService.dataShifts$.takeUntil(this.ngUnsubscribe).subscribe();
+        if (this.dataService.dataShiftsUpcoming$ === undefined) {
+            this.httpService.getShifts(this.tab);
+            this.dataService.dataShiftsUpcoming$.takeUntil(this.ngUnsubscribe).subscribe();
         }
 
         console.log(this.shiftActiveId);
@@ -196,7 +196,7 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
      */
 
     getShifts(): void {
-        this.shiftActive = this.dataService.dataShifts$['array'].find(item => item.ID === this.shiftActiveId);
+        this.shiftActive = this.dataService.dataShiftsUpcoming$['array'].find(item => item.ID === this.shiftActiveId);
 console.log(this.shiftActive)
         if (this.shiftActive !== undefined) {
             this.headerDescription = this.shiftActive.job; // TODO It's shiftTitle: from getDataShift() method - need replace
@@ -220,9 +220,6 @@ console.log(this.shiftActive)
             location: this.shiftActive.location,
             station: this.shiftActive.station,
             jobTitle: this.shiftActive.job,
-            locationGroup: this.shiftActive.locationGroup,
-            stationGroup: this.shiftActive.stationGroup,
-            jobTitleGroup: this.shiftActive.jobTitleGroup, // TODO - don't show
             status: 'what???',
             shiftTitleDescription: 'shift title',
             dateDescription: 'date',

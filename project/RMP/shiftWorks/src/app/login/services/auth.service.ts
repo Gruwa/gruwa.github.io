@@ -7,6 +7,7 @@ import 'rxjs/add/observable/from';
 import {ITabTypes} from '../../shared/interfaces/types.interface';
 import {AuthGuardService} from './auth.guard.service';
 import {ILogin} from '../../shared/interfaces/login.interface';
+import {DataService} from '../../shared/services/data.service';
 
 /**
  * BASEURL of api
@@ -26,21 +27,16 @@ export class AuthService {
   public tab: ITabTypes = 'upcoming';
 
   /**
-   * Created flow of login
-   * @memberof AuthService
-   */
-
-  public dataOfLogin$: Observable<object>;
-
-  /**
    * Creates an instance of HttpService
    * @param {HttpClient} http
    * @param {AuthGuardService} authGuardService
+   * @param {DataService} dataServer
    * @memberof AuthService
    */
 
   constructor(public http: HttpClient,
-              public authGuardService: AuthGuardService) {
+              public authGuardService: AuthGuardService,
+              public dataServer: DataService) {
   }
 
   /**
@@ -49,7 +45,7 @@ export class AuthService {
    */
 
   onLogin(body: object) {
-    this.dataOfLogin$ = this.http.post(BASEURL + '/login', body).map(
+    this.dataServer.dataLogin$ = this.http.post(BASEURL + '/login', body).map(
       (resp: ILogin) => {
         console.log(resp);
         return this.authGuardService.guardLogin(resp['Items']);

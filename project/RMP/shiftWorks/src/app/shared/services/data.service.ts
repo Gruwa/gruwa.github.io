@@ -25,23 +25,41 @@ export class DataService {
 
   /**
    * Created flow of login
+   * @type {Observable<object>}
    * @memberof ShiftsService
    */
 
   public dataLogin$: Observable<object>;
 
   /**
-   * Created flow of tabs
-   * @type {Subject<any>}
+   * Created flow of ShiftsUpcoming$
+   * @type {Observable<object>}
    * @memberof DataService
    */
 
-  public dataShifts$: Observable<object>;
+  public dataShiftsUpcoming$: Observable<object>;
+
+  /**
+   * Created flow of dataShiftsMyReq$
+   * @type {Observable<object>}
+   * @memberof DataService
+   */
+
+  public dataShiftsMyReq$: Observable<object>;
+
+  /**
+   * Created flow of dataShiftsAvailable$
+   * @type {Observable<object>}
+   * @memberof DataService
+   */
+
+  public dataShiftsAvailable$: Observable<object>;
 
   /**
    * Creates an instance of dataGroupRestaurant$
    * @memberof DataService
    */
+
 
   public dataGroupRestaurant$: Observable<object>;
 

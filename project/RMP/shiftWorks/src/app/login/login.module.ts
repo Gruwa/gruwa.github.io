@@ -6,7 +6,6 @@ import {LogoutComponent} from './logout.component';
 import {RouterModule, Routes} from '@angular/router';
 import {AppComponentsModule} from '../shared/components/app-components.module';
 import {MaterialsModule} from '../shared/components/materials/materials.module';
-import {GuardService} from '../shared/services/guard.service';
 import {AuthService} from './services/auth.service';
 import {AuthGuardService} from './services/auth.guard.service';
 
