@@ -1,158 +1,98 @@
+import {ILocation} from './location.interface';
+import {IJob} from './job.interface';
+import {IStation} from './station.interface';
+
 /**
  * Export interface IForm
  */
 
-export interface IForm extends IStation, IJobTitle, ILocation {
+export interface IForm {
 
-    /**
-     * Variable shiftTitle
-     * @type {string}
-     * @memberof IForm
-     */
+  /**
+   * Variable shiftTitle
+   * @type {string}
+   * @memberof IForm
+   */
 
-    shiftTitle: string;
+  shiftTitle: string;
 
-    /**
-     * Variable date
-     * @type {any}
-     * @memberof IForm
-     */
+  /**
+   * Variable date
+   * @type {any}
+   * @memberof IForm
+   */
 
-    date: any;
+  date: any;
 
-    /**
-     * Variable startTime
-     * @type {any}
-     * @memberof IForm
-     */
+  /**
+   * Variable startTime
+   * @type {any}
+   * @memberof IForm
+   */
 
-    startTime: any;
+  startTime: any;
 
-    /**
-     * Variable endTime
-     * @type {any}
-     * @memberof IForm
-     */
+  /**
+   * Variable endTime
+   * @type {any}
+   * @memberof IForm
+   */
 
-    endTime: any;
+  endTime: any;
 
-    /**
-     * Variable location
-     * @type {Array<ILocation>}
-     * @memberof IForm
-     */
+  /**
+   * Variable location
+   * @type {Array<ILocation>}
+   * @memberof IForm
+   */
 
-    location: string;
+  location: string;
 
-    /**
-     * Variable station
-     * @type {IStation}
-     * @memberof IForm
-     */
+  /**
+   * Variable station
+   * @type {IStation}
+   * @memberof IForm
+   */
 
-    station: string;
+  station: string;
 
-    /**
-     * Variable jobTitle
-     * @type {string}
-     * @memberof IForm
-     */
+  /**
+   * Variable job
+   * @type {string}
+   * @memberof IForm
+   */
 
-    jobTitle: string;
+  job: string;
 
-    /**
-     * Variable status
-     * @type {string}
-     * @memberof IForm
-     */
+  /**
+   * Variable status
+   * @type {string}
+   * @memberof IForm
+   */
 
-    status: string;
+  status: string;
 
-    /**
-     * Variable shiftTitle
-     * @type {string}
-     * @memberof IForm
-     */
+  /**
+   * Variable locationList
+   * @type {ILocation}
+   * @memberof IForm
+   */
 
-    shiftTitleDescription: string;
+  locationList?: ILocation;
 
-    /**
-     * Variable date
-     * @type {any}
-     * @memberof IForm
-     */
+  /**
+   * Variable jobList
+   * @type {IJob}
+   * @memberof IForm
+   */
 
-    dateDescription: string;
+  jobList?: IJob;
 
-    /**
-     * Variable startTime
-     * @type {any}
-     * @memberof IForm
-     */
+  /**
+   * Variable stationList
+   * @type {IStation}
+   * @memberof IForm
+   */
 
-    startTimeDescription: string;
-
-    /**
-     * Variable endTime
-     * @type {any}
-     * @memberof IForm
-     */
-
-    endTimeDescription: string;
-
-    /**
-     * Variable location
-     * @type {string}
-     * @memberof IForm
-     */
-
-    locationDescription: string;
-
-    /**
-     * Variable station
-     * @type {string}
-     * @memberof IForm
-     */
-
-    stationDescription: string;
-
-    /**
-     * Variable jobTitle
-     * @type {string}
-     * @memberof IForm
-     */
-
-    jobTitleDescription: string;
-
-    /**
-     * Variable status
-     * @type {string}
-     * @memberof IForm
-     */
-
-    statusDescription: string;
-}
-
-/**
- * Export interface ILocation
- */
-
-export interface ILocation {
-    locationGroup?: Array<string>;
-}
-
-/**
- * Export interface IStation
- */
-
-export interface IStation {
-    stationGroup?: Array<string>;
-}
-
-/**
- * Export interface IJobTitle
- */
-
-export interface IJobTitle {
-    jobTitleGroup?: Array<string>;
+  stationList?: IStation;
 }

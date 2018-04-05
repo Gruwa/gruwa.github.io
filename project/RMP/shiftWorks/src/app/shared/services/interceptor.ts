@@ -30,6 +30,7 @@ export class AuthInterceptor implements HttpInterceptor {
    */
 
   constructor(public router: Router,
+              public route: ActivatedRoute,
               public localStorage: LocalStorageService) {
   }
 
@@ -42,24 +43,46 @@ export class AuthInterceptor implements HttpInterceptor {
    */
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    // TODO -	correct when work with real api
-    // if (this.localStorage.retrieve('token')) {
-    request = request.clone({
-      setHeaders: {
-        // token: this.localStorage.retrieve('token'),
-        'Content-Type': 'application/json',
-        group: this.localStorage.retrieve('group')
-      }
-    });
-    // } else {
-    //     this.router.navigate(['/login']);
-    // }
+    if (this.localStorage.retrieve('token')
+      && this.route.snapshot.children[0].params['group']
+      && this.route.snapshot.children[0].children[0].params['id']) {
+      request = request.clone({
+        setHeaders: {
+          token: this.localStorage.retrieve('token'),
+          'Content-Type': 'application/json',
+          group: this.route.snapshot.children[0].params['group'],
+          id: this.route.snapshot.children[0].children[0].params['id']
+        }
+      });
+    }
+    if (this.localStorage.retrieve('token')
+      && this.route.snapshot.children[0].params['group']) {
+      request = request.clone({
+        setHeaders: {
+          token: this.localStorage.retrieve('token'),
+          'Content-Type': 'application/json',
+          group: this.route.snapshot.children[0].params['group']
+        }
+      });
+    } else {
+      request = request.clone({
+        setHeaders: {
+          token: '',
+          'Content-Type': 'application/json',
+          group: ''
+        }
+      });
+    }
 
-    return next.handle(request).do(
+    return next.handle(request).map(
       (resp) => {
-        console.log('intercept resp', resp);
-        this.localStorage.store('token', resp['Token']);
+        if (resp.type !== 0) {
+          const token = <object>resp;
+          this.localStorage.store('token', token['body']['Token']);
+        }
         return resp;
+      }
+    ).do(() => {
       },
       (err: any) => {
         // if (err instanceof HttpErrorResponse) {

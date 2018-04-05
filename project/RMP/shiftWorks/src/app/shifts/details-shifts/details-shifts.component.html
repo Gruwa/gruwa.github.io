@@ -1,13 +1,12 @@
 <div class="details-shifts">
-  <div class="details-shifts__app-header">
-    <app-header-shifts [headerDescription]="headerDescription"
-                       [closePage]="true">
-    </app-header-shifts>
-  </div>
+  <app-header-shifts [headerDescription]="headerDescription"
+                     class="details-shifts__app-header"
+                     [closePage]="true">
+  </app-header-shifts>
   <div class="details-shifts__content">
-      <app-form [form]="shiftForm" [tab]="tab"></app-form>
+    <app-form [form]="shiftForm" [tab]="tab"></app-form>
   </div>
   <div class="details-shifts__footer" (click)="clickFooter()">
-      {{footerDescription}}
+    {{footerDescription}}
   </div>
 </div>

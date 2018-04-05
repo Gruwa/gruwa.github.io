@@ -1,15 +1,18 @@
 .shift-block {
   width: 100%;
+  line-height: 20px;
 
   &__content {
     display: flex;
     flex-direction: column;
     align-items: left;
+    width: 200px;
+    overflow: hidden;
   }
 
   &__wrapper {
     //width: 328px;
-    height: 176px;
+    height: 88px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -18,11 +21,33 @@
   &__point {
     font-size: 8px;
     margin-right: 10px;
+    color: #4c97ff;
+    display: none;
   }
 
   &__icons-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  &__job {
+    font-size: 16px;
+    font-family: Lato, Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    color: #141f33;
+    text-transform: capitalize;
+  }
+
+  &__date-from {
+    font-size: 14px;
+    font-family: Lato, Helvetica, Arial, sans-serif;
+    font-weight: lighter;
+    color: #6c7380;
+
+  }
+
+  &__display-true {
+    display: block;
   }
 }

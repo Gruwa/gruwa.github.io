@@ -76,26 +76,22 @@ export class HttpService {
               public localStorage: LocalStorageService) {
   }
 
-  /**
-   * Method for get getGroupHeadersObject
-   * @returns {IAnyObject}
-   * @memberof HttpService
-   */
-
-  getGroupHeadersObject(): IAnyObject {
-    const headersObject = {};
-    const group = this.route.snapshot.params['group'];
-    const token = this.localStorage.retrieve('token');
-
-    if (group) {
-      headersObject['group'] = group;
-    }
-    if (token) {
-      headersObject['token'] = token;
-    }
-
-    return headersObject;
-  }
+  // /**
+  //  * Method for get getGroupHeadersObject
+  //  * @returns {IAnyObject}
+  //  * @memberof HttpService
+  //  */
+  //
+  // getGroupHeadersObject(): IAnyObject {
+  //   const headersObject = {};
+  //   const id = this.route.snapshot.children[0].children[0].params['id'];
+  //   console.log(this.route.snapshot);
+  //   if (id) {
+  //     headersObject['id'] = id;
+  //   }
+  //
+  //   return headersObject;
+  // }
 
   /**
    * Method for get shifts
@@ -106,14 +102,31 @@ export class HttpService {
   getShifts(tab: ITabTypes = 'upcoming') {
 
     if (TABS[tab]) {
-        this.dataService[`${FLOW[tab]}`] = this.http.get(BASEURL + '/shifts/' + TABS[tab], {
-          headers: this.getGroupHeadersObject()
-        }).map(
-          (resp) => {
-            console.log('httpService getShifts', resp); // TODO - Delete when ready
-            return this.httpGuardService.guardShifts(resp);
-          }
-        ).publishReplay(1).refCount();
+      this.dataService[`${FLOW[tab]}`] = this.http.get(BASEURL + '/shifts/' + TABS[tab]).map(
+        (resp) => {
+          console.log('httpService getShifts', resp); // TODO - Delete when ready
+          return this.httpGuardService.guardShifts(resp);
+        }
+      ).publishReplay(1).refCount();
+    }
+    console.log('!!!!!getShifts htttpService!!!!!');
+  }
+
+  /**
+   * Method for patch shifts
+   * @param {ITabTypes} tab
+   * @memberof HttpService
+   */
+
+  patchShifts(tab: ITabTypes = 'upcoming') {
+
+    if (TABS[tab]) {
+      this.http.get(BASEURL + '/shifts/' + TABS[tab]).map(
+        (resp) => {
+          console.log('httpService getShifts', resp); // TODO - Delete when ready
+          return this.httpGuardService.guardShifts(resp);
+        }
+      );
     }
     console.log('!!!!!getShifts htttpService!!!!!');
   }

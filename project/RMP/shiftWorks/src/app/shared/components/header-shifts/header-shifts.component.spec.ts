@@ -19,6 +19,7 @@ describe('HeaderShiftsComponent', () => {
   let fixture: ComponentFixture<HeaderShiftsComponent>;
   let debugElement: DebugElement;
   let htmlElement: HTMLElement;
+  let incrementSpy;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -67,23 +68,10 @@ describe('HeaderShiftsComponent', () => {
     expect(htmlElement.textContent).toContain('shifts');
   }));
 
-  // it('should show Description', () => {
-  //   console.log(htmlElement.querySelector('.header-shifts__description'));
-  //   const description = htmlElement.querySelector('span.header-shifts__description');
-  //
-  //   expect(description).toEqual(component.headerDescription);
-  // });
+  it('should show Description', () => {
+    debugElement = fixture.debugElement.query(By.css('span.header-shifts__description'));
+    htmlElement = debugElement.nativeElement;
 
-  // it ('should invoke function', fakeAsync( () => {
-  //   debugElement = fixture.debugElement.query(By.css('i.ttt'));
-  //   htmlElement = debugElement.nativeElement;
-  //   console.log(htmlElement);
-  //   let spy = spyOn(component, 'closeOurPage');
-  //   htmlElement.dispatchEvent(new Event('click'));
-  //
-  //   fixture.detectChanges();
-  //   tick();
-  //
-  //   expect(spy).toHaveBeenCalled();
-  // }));
+    expect(htmlElement.innerHTML).toEqual(component.headerDescription);
+  });
 });

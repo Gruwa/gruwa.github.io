@@ -3,7 +3,6 @@
 }
 
 .content-shifts {
-  //max-width: 360px;
   width: 100%;
   padding: 10px;
   height: 100%;
@@ -15,32 +14,32 @@
 
   &__title {
     margin-bottom: 16px;
+    color: #6c7380;
   }
 
   &__wrapper {
     padding: 16px;
-
-
   }
 
   &__content {
 
   }
-}
 
-.Rounded_Rectangle_53 {
-  border-radius: 50%;
-  background-color: rgb(33, 148, 81);
-  box-shadow: 0px 2px 6px 0px rgba(108, 115, 128, 0.5);
-  position: absolute;
-  right: 24px;
-  bottom: 24px;
-  width: 64px;
-  height: 64px;
-  z-index: 797;
+  &__button {
+    border-radius: 50%;
+    background-color: rgb(33, 148, 81);
+    box-shadow: 0px 2px 6px 0px rgba(108, 115, 128, 0.5);
+    position: absolute;
+    right: 24px;
+    bottom: 64px;
+    width: 64px;
+    height: 64px;
+    z-index: 797;
+    cursor: pointer;
 
-  &:focus {
-    outline: none;
+    &:focus {
+      outline: none;
+    }
   }
 }
 

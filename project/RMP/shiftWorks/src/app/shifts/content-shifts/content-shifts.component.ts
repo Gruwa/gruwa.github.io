@@ -130,6 +130,7 @@ export class ContentShiftsComponent implements OnInit, OnDestroy {
 
   getShifts(value: Array<IShift>) {
     this.sortShifts = this.shiftsService.sortShifts(value);
+    console.log('sortShifts', this.sortShifts);
   }
 
   /**

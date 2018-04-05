@@ -58,7 +58,7 @@ export class HttpGuardService {
 
     for (let i = 0; i < value['Items'].length; i++) {
       const obj: IShift = {
-        'shiftID': value['Items'][i].ID,
+        'shiftID': value['Items'][i].ShiftID,
         'isDropRequest': value['Items'][i].IsDropRequest,
         'isPickupRequest': value['Items'][i].IsPickupRequest,
         'job': value['Items'][i].Job,

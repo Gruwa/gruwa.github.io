@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import * as faker from 'faker';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/map';
-import {IJobTitle, ILocation, IStation} from '../interfaces/form.interface';
 
 @Injectable()
 export class FakeService {
