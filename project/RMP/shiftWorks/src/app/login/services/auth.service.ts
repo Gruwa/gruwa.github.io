@@ -15,6 +15,10 @@ import {DataService} from '../../shared/services/data.service';
 
 const BASEURL = `${environment.apiRoot}`;
 
+/**
+ * Auth Service
+ */
+
 @Injectable()
 export class AuthService {
 
@@ -41,16 +45,17 @@ export class AuthService {
 
   /**
    * Method for get shifts
+   * @param {object} body
    * @memberof AuthService
    */
 
   onLogin(body: object) {
     this.dataServer.dataLogin$ = this.http.post(BASEURL + '/login', body).map(
       (resp: ILogin) => {
-        console.log(resp);
+        console.log(resp); // TODO - DELETE when will be ready auth
         return this.authGuardService.guardLogin(resp['Items']);
       }
     ).publishReplay(1).refCount();
-    console.log('!!!!!AuthService - GET LOGIN!!!!!'); //TODO - DELETE when will be ready auth
+    console.log('!!!!!AuthService - GET LOGIN!!!!!'); // TODO - DELETE when will be ready auth
   }
 }

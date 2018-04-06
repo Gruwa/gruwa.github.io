@@ -4,6 +4,10 @@ import 'rxjs/add/operator/map';
 import {ILogin} from '../../shared/interfaces/login.interface';
 import {IGroupRestaurant} from '../../shared/interfaces/group-restaurant.interface';
 
+/**
+ * Auth Service
+ */
+
 @Injectable()
 export class AuthGuardService {
 

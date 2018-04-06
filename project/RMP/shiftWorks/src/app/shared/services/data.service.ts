@@ -24,6 +24,14 @@ export class DataService {
   public dataTab$ = new Subject<any>();
 
   /**
+   * Created flow of SideBar
+   * @type {Subject<any>}
+   * @memberof DataService
+   */
+
+  public dataSideBar$ = new Subject<any>();
+
+  /**
    * Created flow of login
    * @type {Observable<object>}
    * @memberof ShiftsService

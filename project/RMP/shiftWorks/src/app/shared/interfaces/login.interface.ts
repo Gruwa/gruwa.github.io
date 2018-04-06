@@ -1,12 +1,47 @@
-
 /**
  * Export interface ILogin
  */
 
 export interface ILogin {
+
+  /**
+   * Variable contain id
+   * @type {string}
+   * @memberof ILogin
+   */
+
   id: string;
+
+  /**
+   * Variable contain token
+   * @type {string}
+   * @memberof ILogin
+   */
+
   token: string;
+
+  /**
+   * Variable contain success
+   * @type {string}
+   * @memberof ILogin
+   */
+
   success: string;
+
+  /**
+   * Variable contain message
+   * @type {string}
+   * @memberof ILogin
+   */
+
   message: string;
-  items: Array<any>; // TODO - when ready IGroup add type
+
+  /**
+   * Variable contain items
+   * @type {Array<any>}
+   * @memberof ILogin
+   */
+
+  // TODO - when will be ready IGroup add type
+  items: Array<any>;
 }

@@ -1,19 +1,18 @@
 ﻿import {Component, OnInit, OnDestroy} from '@angular/core';
-import {Router, ActivatedRoute} from '@angular/router';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {HttpService} from '../shared/services/http.service';
+import {Router} from '@angular/router';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Subject} from 'rxjs/Subject';
 import 'rxjs/add/operator/takeUntil';
-import {LoginModel} from './login.model';
 import {DataService} from '../shared/services/data.service';
 import {AuthService} from './services/auth.service';
-//import { AuthService } from "../shared/services/auth.service";
-//import { LoaderService } from "../shared/services/loader.service";
 
-//import { PageService } from '../shared/services/page.service';
+/**
+ * Directive Component
+ * @memberof LoginComponent
+ */
 
 @Component({
-  selector: 'dc-login',
+  selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
@@ -22,82 +21,80 @@ export class LoginComponent implements OnInit, OnDestroy {
   /**
    * Variable of ngUnsubscribe
    * @type {Subject<void>}
-   * @memberof ContentShiftsComponent
+   * @memberof LoginComponent
    */
 
   private ngUnsubscribe: Subject<void> = new Subject<void>();
 
-  loginForm: FormGroup;
-  errorMessage: string;
+  /**
+   * Variable loginForm
+   * @type {FormGroup}
+   * @memberof LoginComponent
+   */
+
+  public loginForm: FormGroup;
+
+  /**
+   * Creates an instance of LoginComponent
+   * @param {AuthService} authService
+   * @param {DataService} dataService
+   * @param {FormBuilder} fb
+   * @param {Router} router
+   * @memberof LoginComponent
+   */
 
   constructor(private router: Router,
-              private route: ActivatedRoute,
               public authService: AuthService,
               public dataService: DataService,
-              public httpService: HttpService
-              //private authService: AuthService,
-              //private loaderService: LoaderService,
-              //private pageService: PageService
-  ) {
+              private fb: FormBuilder) {
   }
 
-  private returnURL: string;
+  /**
+   * Method ngOnInit
+   * @returns {void}
+   * @memberof LoginComponent
+   */
 
-  ngOnInit() {
-
-    // this.httpService.addAllObject().subscribe(); //TODO ADD data
-    this.route.params.subscribe(params => {
-      this.returnURL = params['returnTo'];
-    });
-
-    //this.authService.logout();
-
-    Promise.resolve(null).then(() => {
-      //this.pageService.showPageMenu.emit(false);
-    });
-    this.loginForm = new FormGroup({
-      username: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required),
-      remember: new FormControl(false)
-    });
-
+  ngOnInit(): void {
+    this.initForm();
+    // TODO ADD data to the fake server
+    // this.httpService.addAllObject().subscribe();
   }
+
+  /**
+   * Method initForm
+   * @returns {void}
+   * @memberof LoginComponent
+   */
+
+  initForm(): void {
+    this.loginForm = this.fb.group({
+      login: ['', [Validators.required]],
+      password: ['', [Validators.required]],
+      remember: [false, []]
+    });
+  }
+
+  /**
+   * Method onSubmit
+   * @returns {void}
+   * @memberof LoginComponent
+   */
 
   onSubmit() {
     const valueOfLogin: object = {
-      login: this.loginForm.get('username').value,
-      password: this.loginForm.get('password').value
-
+      login: this.loginForm.get('login').value,
+      password: this.loginForm.get('password').value,
+      remember: this.loginForm.get('remember').value
     };
+
     this.authService.onLogin(valueOfLogin);
     this.dataService.dataLogin$.takeUntil(this.ngUnsubscribe).subscribe(
       (resp) => {
-        console.log(resp);
+        this.dataService.dataSideBar$.next(true);
+        this.router.navigate(['/', `${resp[0].description}`, 'shifts']);
       }
     );
-
-
-
-    // this.loaderService.show();
-    //   let model = this.loginForm.value as LoginModel;
-
-    this.errorMessage = null;
-    //this.authService.login(model).subscribe((response: boolean) => {
-    //    if (response) {
-    //        localStorage.setItem('currentUser', model.username);
-    //        this.router.navigate([this.returnURL || this.authService.getRedirectUrl() || ''], { replaceUrl: true });
-    //        this.loaderService.hide();
-    //        this.pageService.showPageMenu.emit(true);
-    //    }
-    //    else {
-    //        this.errorMessage = this.authService.errorMessage;
-    //        this.loaderService.hide();
-    //    }
-    //},
-    //    error => {
-    //        this.errorMessage = error.errorMessage;
-    //        this.loaderService.hide();
-    //    });
   }
 
   /**
@@ -111,7 +108,4 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.ngUnsubscribe.complete();
   }
 
-  // ngOnDestroy() {
-  //this.pageService.showPageMenu.emit(true);
-  // }
 }
