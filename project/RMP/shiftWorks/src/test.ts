@@ -12,8 +12,21 @@ import {
   platformBrowserDynamicTesting
 } from '@angular/platform-browser-dynamic/testing';
 
+/**
+ * Variable of __karma__
+ * @type {any}
+ * @memberof test
+ */
+
 // Unfortunately there's no typing for the `__karma__` variable. Just declare it as any.
 declare const __karma__: any;
+
+/**
+ * Variable of require
+ * @type {any}
+ * @memberof test
+ */
+
 declare const require: any;
 
 // Prevent Karma from running prematurely.
@@ -24,6 +37,13 @@ getTestBed().initTestEnvironment(
   BrowserDynamicTestingModule,
   platformBrowserDynamicTesting()
 );
+
+/**
+ * Variable of context
+ * @type {any}
+ * @memberof test
+ */
+
 // Then we find all the tests.
 const context = require.context('./', true, /\.spec\.ts$/);
 // And load the modules.

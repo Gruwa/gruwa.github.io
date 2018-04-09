@@ -2,7 +2,6 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {HttpService} from '../shared/services/http.service';
 import {DataService} from '../shared/services/data.service';
 import {LocalStorageService} from 'ngx-webstorage';
-import {ActivatedRoute, Router} from '@angular/router';
 import {ITabTypes} from '../shared/interfaces/types.interface';
 
 /**
@@ -14,6 +13,10 @@ const TABS: Array<ITabTypes> = [
   'my requests',
   'available'
 ];
+
+/**
+ * Shifts Component
+ */
 
 @Component({
   selector: 'app-shifts',
@@ -33,16 +36,16 @@ export class ShiftsComponent implements OnInit {
 
   /**
    * Variable tabsTitle
-   * @type {Array<Types.tabTypes>}
-   * @memberof TabComponent
+   * @type {Array<ITabTypes>}
+   * @memberof ShiftsComponent
    */
 
-  tabsTitle: Array<ITabTypes> = ['upcoming', 'my requests', 'available'];
+  public tabsTitle: Array<ITabTypes> = ['upcoming', 'my requests', 'available'];
 
   /**
    * Variable of tab
-   * @type {Types.ITabTypes}
-   * @memberof ContentShiftsComponent
+   * @type {ITabTypes}
+   * @memberof ShiftsComponent
    */
 
   public tab: ITabTypes = 'upcoming';
@@ -50,7 +53,7 @@ export class ShiftsComponent implements OnInit {
   /**
    * Variable of tabIndex
    * @type {number}
-   * @memberof ContentShiftsComponent
+   * @memberof ShiftsComponent
    */
 
   public tabIndex: number;
@@ -58,33 +61,31 @@ export class ShiftsComponent implements OnInit {
   /**
    * Variable of tabActive
    * @type {string}
-   * @memberof ContentShiftsComponent
+   * @memberof ShiftsComponent
    */
 
   public tabActive: ITabTypes = 'upcoming';
 
   /**
-   * Creates an instance of TabComponent
+   * Creates an instance of ShiftsComponent
    * @param {LocalStorageService} dataService
    * @param {LocalStorageService} localStorage
    * @param {HttpService} httpService
-   * @memberof TabComponent
+   * @memberof ShiftsComponent
    */
 
   constructor(public httpService: HttpService,
               public dataService: DataService,
-              public localStorage: LocalStorageService,
-              public route: ActivatedRoute,
-              public router: Router) {
+              public localStorage: LocalStorageService) {
   }
 
   /**
    * Method ngOnInit
    * @returns {void}
-   * @memberof TabComponent
+   * @memberof ShiftsComponent
    */
 
-  ngOnInit() {
+  ngOnInit(): void {
     if (this.localStorage.retrieve('tab') !== undefined) {
       this.tabActive = this.localStorage.retrieve('tab');
     } else {
@@ -97,7 +98,7 @@ export class ShiftsComponent implements OnInit {
   /**
    * Method for get changes on tab selectedTabChange
    * @returns {void}
-   * @memberof TabComponent
+   * @memberof ShiftsComponent
    */
 
   selectedTabChange(value: any): void {

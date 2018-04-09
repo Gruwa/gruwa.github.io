@@ -33,6 +33,10 @@ const TABS: Array<ITabTypes> = [
   'available'
 ];
 
+/**
+ * Content Shifts Component
+ */
+
 @Component({
   selector: 'app-content-shifts',
   templateUrl: './content-shifts.component.html',
@@ -64,8 +68,13 @@ export class ContentShiftsComponent implements OnInit, OnDestroy {
 
   private ngUnsubscribe: Subject<void> = new Subject<void>();
 
+  /**
+   * Input variable tabActive
+   * @type {any}
+   * @memberof ContentShiftsComponent
+   */
+
   @Input() tabActive;
-  @Input() tabIndex;
 
   /**
    * Creates an instance of ContentShiftsComponent
@@ -140,7 +149,6 @@ export class ContentShiftsComponent implements OnInit, OnDestroy {
    */
 
   addNewMyRequest() {
-    console.log('ALL SAVE');
-    this.router.navigate(['/shifts', 'new']);
+    this.router.navigate(['/' + this.route.snapshot.params['group'], 'shifts', 'new']);
   }
 }

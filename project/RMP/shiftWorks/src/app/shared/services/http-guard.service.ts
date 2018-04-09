@@ -6,6 +6,10 @@ import {ILocation} from '../interfaces/location.interface';
 import {IStation} from '../interfaces/station.interface';
 import {IJob} from '../interfaces/job.interface';
 
+/**
+ * Http Guard Service
+ */
+
 @Injectable()
 export class HttpGuardService {
 

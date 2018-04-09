@@ -1,15 +1,11 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
-import {Observable} from 'rxjs/Observable';
 import {HttpGuardService} from './http-guard.service';
 import 'rxjs/add/operator/publishReplay';
-import {Subject} from 'rxjs/Subject';
-import {FakeService} from './fake.service';
 import 'rxjs/add/observable/from';
 import {DataService} from './data.service';
 import {ActivatedRoute} from '@angular/router';
-import {IAnyObject} from '../interfaces/any-object.interface';
 import {ITabTypes} from '../interfaces/types.interface';
 import {LocalStorageService} from 'ngx-webstorage';
 
@@ -39,6 +35,10 @@ const FLOW = {
   available: 'dataShiftsAvailable$'
 };
 
+/**
+ * Http Service
+ */
+
 @Injectable()
 export class HttpService {
 
@@ -61,7 +61,7 @@ export class HttpService {
   /**
    * Creates an instance of HttpService
    * @param {HttpClient} http
-   * @param {GuardService} guardService
+   * @param {HttpGuardService} httpGuardService
    * @param {DataService} dataService
    * @param {ActivatedRoute} route
    * @memberof HttpService
@@ -70,7 +70,6 @@ export class HttpService {
 
   constructor(public http: HttpClient,
               public httpGuardService: HttpGuardService,
-              public fakeService: FakeService,
               public dataService: DataService,
               public route: ActivatedRoute,
               public localStorage: LocalStorageService) {
@@ -130,6 +129,11 @@ export class HttpService {
     }
     console.log('!!!!!getShifts htttpService!!!!!');
   }
+
+  /**
+   * Method add all object to db
+   * @memberof HttpService
+   */
 
   addAllObject() {
     // TODO - delete for real api request

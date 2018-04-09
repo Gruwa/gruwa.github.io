@@ -7,7 +7,7 @@ import {ShiftsService} from '../../../shifts/Services/shifts.service';
 import {By} from '@angular/platform-browser';
 import {DebugElement} from '@angular/core';
 import {AppRoutingModule} from '../../../app-routing.module';
-import {PageNotFoundComponent} from '../../../not-found.component';
+import {PageNotFoundComponent} from '../not-found/not-found.component';
 import {APP_BASE_HREF} from '@angular/common';
 import {Ng2Webstorage} from 'ngx-webstorage';
 
@@ -52,7 +52,6 @@ describe('HeaderShiftsComponent', () => {
     fixture = TestBed.createComponent(HeaderShiftsComponent);
     component = fixture.componentInstance;
     component.headerDescription = 'shifts';
-    // console.log(component);
 
     fixture.detectChanges();
   });

@@ -12,6 +12,10 @@ import {
 } from '../interfaces/shift.interface';
 import {Observable} from 'rxjs/Observable';
 
+/**
+ * Data Service
+ */
+
 @Injectable()
 export class DataService {
 

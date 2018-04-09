@@ -7,8 +7,7 @@ import {DataService} from '../shared/services/data.service';
 import {AuthService} from './services/auth.service';
 
 /**
- * Directive Component
- * @memberof LoginComponent
+ * Login Component
  */
 
 @Component({

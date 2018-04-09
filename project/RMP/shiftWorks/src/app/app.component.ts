@@ -1,5 +1,8 @@
-﻿import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {LocalStorageService} from 'ngx-webstorage';
+﻿import {Component, ViewEncapsulation} from '@angular/core';
+
+/**
+ * App Component
+ */
 
 @Component({
     selector: 'app-root',
@@ -7,13 +10,4 @@ import {LocalStorageService} from 'ngx-webstorage';
     styleUrls: ['./app.component.scss'],
     encapsulation: ViewEncapsulation.None,
 })
-export class AppComponent implements OnInit{
-
-  constructor( private localStorage: LocalStorageService) {
-
-  }
-  ngOnInit() {
-    // this.localStorage.store('group', ' ');
-    // this.localStorage.store('token', ' ');
-  }
-}
+export class AppComponent { }

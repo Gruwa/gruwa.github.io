@@ -1,16 +1,16 @@
 import {Injectable} from '@angular/core';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/map';
-import {Subject} from 'rxjs/Subject';
 import {Router} from '@angular/router';
-import {LocalStorageService} from 'ngx-webstorage';
 import {
   IShift,
   IShiftsSorted
 } from '../../shared/interfaces/shift.interface';
 import {HttpService} from '../../shared/services/http.service';
-import {FakeService} from '../../shared/services/fake.service';
 
+/**
+ * Auth Guard Service
+ */
 
 @Injectable()
 export class ShiftsService {
@@ -30,15 +30,13 @@ export class ShiftsService {
    */
 
   constructor(public router: Router,
-              public httpService: HttpService,
-              public fakeService: FakeService,
-              public localStorage: LocalStorageService) {
+              public httpService: HttpService) {
   }
 
   /**
    * Method for creating and sorting array of shifts
-   * @param {Array<Types.IShift>} value - raw array of shifts
-   * @returns {Array<Types.IShiftsSorted>}
+   * @param {Array<IShift>} value - raw array of shifts
+   * @returns {Array<IShiftsSorted>}
    * @memberof ShiftsService
    */
 
@@ -172,8 +170,8 @@ export class ShiftsService {
 
   /**
    * Method of sorting
-   * @param {Types.IShiftsSorted} a - sorted shift
-   * @param {Types.IShiftsSorted} b - sorted shift
+   * @param {IShiftsSorted} a - sorted shift
+   * @param {IShiftsSorted} b - sorted shift
    * @returns {number}
    * @memberof ShiftsService
    */
@@ -186,9 +184,9 @@ export class ShiftsService {
   }
 
   /**
-   * Method for getting the informaton of shift on id
+   * Method for getting the information of shift on id
    * @param {string} id - id shift
-   * @returns {Types.IShift | boolean}
+   * @returns {IShift}
    * @memberof ShiftsService
    */
 

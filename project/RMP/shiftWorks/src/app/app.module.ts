@@ -2,15 +2,10 @@
 import {NgModule} from '@angular/core';
 import {Router, UrlSerializer} from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
 import {AppRoutingModule} from './app-routing.module';
-
 import {AppComponent} from './app.component';
-import {PageNotFoundComponent} from './not-found.component';
-
 import {LowerCaseUrlSerializer} from './shared/url-serializer.service';
 import {AppComponentsModule} from './shared/components/app-components.module';
-import {ShiftsService} from './shifts/Services/shifts.service';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {HttpService} from './shared/services/http.service';
 import {AuthInterceptor} from './shared/services/interceptor';
@@ -31,8 +26,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     FlexLayoutModule
   ],
   declarations: [
-    AppComponent,
-    PageNotFoundComponent
+    AppComponent
   ],
   providers: [
     {

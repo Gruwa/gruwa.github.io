@@ -4,6 +4,7 @@ import {TabComponent} from './tab.component/tab.component';
 import {ShiftBlockComponent} from './shift-block/shift-block.component';
 import {FormComponent} from './form/form.component';
 import {MaterialsModule} from './materials/materials.module';
+import {PageNotFoundComponent} from './not-found/not-found.component';
 
 @NgModule({
   imports: [
@@ -13,12 +14,14 @@ import {MaterialsModule} from './materials/materials.module';
   declarations: [
     TabComponent,
     ShiftBlockComponent,
-    FormComponent
+    FormComponent,
+    PageNotFoundComponent
   ],
   exports: [
     TabComponent,
     ShiftBlockComponent,
-    FormComponent
+    FormComponent,
+    PageNotFoundComponent
   ]
 })
 export class AppComponentsModule {

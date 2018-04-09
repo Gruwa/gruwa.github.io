@@ -5,7 +5,7 @@ import {ILogin} from '../../shared/interfaces/login.interface';
 import {IGroupRestaurant} from '../../shared/interfaces/group-restaurant.interface';
 
 /**
- * Auth Service
+ * Auth Guard Service
  */
 
 @Injectable()
