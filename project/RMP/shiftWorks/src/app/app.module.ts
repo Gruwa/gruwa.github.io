@@ -14,6 +14,8 @@ import {FakeService} from './shared/services/fake.service';
 import {HttpGuardService} from './shared/services/http-guard.service';
 import {DataService} from './shared/services/data.service';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {SpinnerComponent} from './shared/components/spinner/spinner.component';
+import {MaterialsModule} from './shared/components/materials/materials.module';
 
 @NgModule({
   imports: [
@@ -23,10 +25,12 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     AppComponentsModule,
     HttpClientModule,
     Ng2Webstorage,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MaterialsModule
   ],
   declarations: [
-    AppComponent
+    AppComponent,
+    SpinnerComponent
   ],
   providers: [
     {

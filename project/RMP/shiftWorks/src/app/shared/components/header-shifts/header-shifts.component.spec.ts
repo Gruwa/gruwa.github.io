@@ -10,8 +10,12 @@ import {AppRoutingModule} from '../../../app-routing.module';
 import {PageNotFoundComponent} from '../not-found/not-found.component';
 import {APP_BASE_HREF} from '@angular/common';
 import {Ng2Webstorage} from 'ngx-webstorage';
+import {DataService} from '../../services/data.service';
 
 class FakeShiftsService {
+}
+
+class FakeDataService {
 }
 
 describe('HeaderShiftsComponent', () => {
@@ -19,7 +23,6 @@ describe('HeaderShiftsComponent', () => {
   let fixture: ComponentFixture<HeaderShiftsComponent>;
   let debugElement: DebugElement;
   let htmlElement: HTMLElement;
-  let incrementSpy;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -38,6 +41,10 @@ describe('HeaderShiftsComponent', () => {
         {
           provide: ShiftsService,
           useClass: FakeShiftsService
+        },
+        {
+          provide: DataService,
+          useClass: FakeDataService
         },
         {
           provide: APP_BASE_HREF,

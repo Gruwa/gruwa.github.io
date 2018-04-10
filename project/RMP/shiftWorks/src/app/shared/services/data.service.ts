@@ -36,6 +36,22 @@ export class DataService {
   public dataSideBar$ = new Subject<any>();
 
   /**
+   * Created flow of save
+   * @type {Subject<any>}
+   * @memberof DataService
+   */
+
+  public dataSave$ = new Subject<any>();
+
+  /**
+   * Created flow of show spinner
+   * @type {Subject<any>}
+   * @memberof DataService
+   */
+
+  public dataSpinner$ = new Subject<any>();
+
+  /**
    * Created flow of login
    * @type {Observable<object>}
    * @memberof ShiftsService

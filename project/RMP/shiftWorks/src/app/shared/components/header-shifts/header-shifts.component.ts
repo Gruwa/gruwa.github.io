@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {LocalStorageService} from 'ngx-webstorage';
+import {DataService} from '../../services/data.service';
 
 
 @Component({
@@ -51,6 +52,14 @@ export class HeaderShiftsComponent {
   @Input() save: boolean = false;
 
   /**
+   * Input variable tab
+   * @type {string}
+   * @memberof HeaderShiftsComponent
+   */
+
+  @Input() tab: string = '';
+
+  /**
    * Creates an instance of DetailsShiftsComponent
    * @param {ActivatedRoute} route
    * @param {LocalStorageService} localStorage
@@ -60,7 +69,8 @@ export class HeaderShiftsComponent {
 
   constructor(public router: Router,
               public localStorage: LocalStorageService,
-              public route: ActivatedRoute) {
+              public route: ActivatedRoute,
+              public dataService: DataService) {
   }
 
   /**
@@ -81,6 +91,16 @@ export class HeaderShiftsComponent {
 
   showSideBar(): void {
 
+  }
+
+  /**
+   * Method onSave for save shift
+   * @returns {void}
+   * @memberof HeaderShiftsComponent
+   */
+
+  onSave(): void {
+    this.dataService.dataSave$.next(true);
   }
 
 }

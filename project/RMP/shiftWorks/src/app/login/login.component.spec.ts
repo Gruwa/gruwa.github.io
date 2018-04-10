@@ -83,12 +83,14 @@ describe('LoginComponent', () => {
   it('should have not submit form if required fields are not filled in', fakeAsync(() => {
     const spy = spyOn(component, 'onSubmit');
     fillTheForm( faker.internet.email(), '', true);
+
     expect(spy).not.toHaveBeenCalled();
   }));
 
   it('should have not show button if required fields are not filled in', fakeAsync(() => {
     fillTheForm( faker.internet.email(), '', true);
     const button = htmlElement.querySelector('#login-submit-btn');
+
     expect(button.hasAttribute('disabled')).toBe(true);
   }));
 
@@ -98,6 +100,25 @@ describe('LoginComponent', () => {
     fixture.detectChanges();
     const button = fixture.debugElement.query(By.css('button')).nativeElement;
     button.click();
+
     expect(spy).toHaveBeenCalled();
+  }));
+
+  it('Should create content of the login input', async(() => {
+    const value: string = 'login';
+    component.initForm();
+    console.log(component.loginForm);
+    component.loginForm.get('login').patchValue(value);
+
+    expect(value).toEqual(component.loginForm.get('login').value);
+  }));
+
+  it('Should create content of the password input', async(() => {
+    const value: string = 'password';
+    component.initForm();
+    console.log(component.loginForm);
+    component.loginForm.get('password').patchValue(value);
+
+    expect(value).toEqual(component.loginForm.get('password').value);
   }));
 });

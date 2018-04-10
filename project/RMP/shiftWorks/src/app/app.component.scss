@@ -6,6 +6,10 @@ app-root {
   display: block;
 }
 
+app-spinner {
+  display: none;
+}
+
 app-details-shifts {
   height: 100%;
   display: block;
@@ -19,6 +23,13 @@ body {
   background-color: #222a51 !important;
   margin: 0;
   height: 100%;
+}
+
+.app {
+
+  &__spinner-display {
+    display: block;
+  }
 }
 
 /* inputs */
@@ -123,8 +134,4 @@ body {
   }
 }
 
-.app-component {
-  //display: flex;
-  //justify-content: center;
-  //align-content: center;
-}
+

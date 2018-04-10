@@ -14,6 +14,7 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/do';
 import {ActivatedRoute, Router} from '@angular/router';
 import {LocalStorageService} from 'ngx-webstorage';
+import {DataService} from './data.service';
 
 /**
  * Injectable
@@ -26,12 +27,15 @@ export class AuthInterceptor implements HttpInterceptor {
    * Creates an instance of ProjectInterceptor.
    * @param {Router} router
    * @param {LocalStorageService} localStorage,
+   * @param {ActivatedRoute} route
+   * @param {DataService} dataService
    * @memberof AuthInterceptor
    */
 
   constructor(public router: Router,
               public route: ActivatedRoute,
-              public localStorage: LocalStorageService) {
+              public localStorage: LocalStorageService,
+              public dataService: DataService) {
   }
 
   /**
@@ -43,6 +47,7 @@ export class AuthInterceptor implements HttpInterceptor {
    */
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    this.dataService.dataSpinner$.next(true);
     if (this.localStorage.retrieve('token')
       && this.route.snapshot.children[0].params['group']
       && this.route.snapshot.children[0].children[0].params['id']) {

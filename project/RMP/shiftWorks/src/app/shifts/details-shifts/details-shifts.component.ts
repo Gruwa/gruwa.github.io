@@ -175,7 +175,7 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
    */
 
   ngOnInit(): void {
-    console.log(this.route.snapshot.params['id']);
+    this.dataService.dataSave$.subscribe(this.saveShift.bind(this));
     this.tab = this.localStorage.retrieve('tab');
     this.shiftActiveId = this.route.snapshot.params['id'];
     this.headerDescription = this.tab;
@@ -289,24 +289,6 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
         this.footerActive = false;
       }
     }
-    // if (this.tab === 'available') {
-    //   if (this.shiftActive['item'].isDropRequest && this.shiftActive['item'].isPickupRequest) {
-    //     this.status = STATUS['drop request'];
-    //     this.footerActive = false;
-    //   }
-    //   if (!this.shiftActive['item'].isDropRequest && this.shiftActive['item'].isPickupRequest) {
-    //     this.status = STATUS['pickup request'];
-    //     this.footerActive = false;
-    //   }
-    //   if (!this.shiftActive['item'].isDropRequest && !this.shiftActive['item'].isPickupRequest) {
-    //     this.status = STATUS['scheduled'];
-    //     this.footerActive = true;
-    //   }
-    //   if (this.shiftActive['item'].isDropRequest && !this.shiftActive['item'].isPickupRequest) {
-    //     this.status = STATUS['drop request'];
-    //     this.footerActive = false;
-    //   }
-    // }
     if (this.tab === 'my requests') {
 
       // TODO - WHat about status?
@@ -377,7 +359,6 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
         this.router.navigate(['/' + this.route.snapshot.params['group'], 'shifts']);
       } else {
         this.deleteShift();
-        this.router.navigate(['/' + this.route.snapshot.params['group'], 'shifts']);
       }
     }
 
@@ -392,6 +373,7 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
 
   deleteShift(): void {
     console.log('DELETE');
+    this.router.navigate(['/' + this.route.snapshot.params['group'], 'shifts']);
     // TODO - method for delete shift
   }
 
@@ -401,8 +383,9 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
    * @memberof DetailsShiftsComponent
    */
 
-  saveShift(): void {
+  saveShift(e: boolean): void {
     console.log('SAVE');
+    this.router.navigate(['/' + this.route.snapshot.params['group'], 'shifts']);
     // TODO - method for save shift
   }
 }

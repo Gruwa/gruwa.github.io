@@ -1,4 +1,4 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {AfterViewInit, Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {ShiftsService} from '../Services/shifts.service';
 import {HttpService} from '../../shared/services/http.service';
@@ -42,7 +42,7 @@ const TABS: Array<ITabTypes> = [
   templateUrl: './content-shifts.component.html',
   styleUrls: ['./content-shifts.component.scss']
 })
-export class ContentShiftsComponent implements OnInit, OnDestroy {
+export class ContentShiftsComponent implements OnInit, OnDestroy, AfterViewInit {
 
   /**
    * Variable of tab
@@ -129,6 +129,10 @@ export class ContentShiftsComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();
+  }
+
+  ngAfterViewInit() {
+    this.dataService.dataSpinner$.next(false);
   }
 
   /**

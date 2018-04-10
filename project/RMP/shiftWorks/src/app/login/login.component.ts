@@ -90,7 +90,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.authService.onLogin(valueOfLogin);
     this.dataService.dataLogin$.takeUntil(this.ngUnsubscribe).subscribe(
       (resp) => {
-        this.dataService.dataSideBar$.next(true);
+
         this.router.navigate(['/', `${resp[0].description}`, 'shifts']);
       }
     );
@@ -98,7 +98,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   /**
    * Method ngOnDestroy
-   * @returns {void}Утпдшыр
+   * @returns {void}
    * @memberof ContentShiftsComponent
    */
 
