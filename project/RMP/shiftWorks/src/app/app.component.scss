@@ -25,6 +25,16 @@ body {
   height: 100%;
 }
 
+app-login {
+  height: 100%;
+  display: block;
+}
+
+app-schedule-login {
+  height: 100%;
+  display: block;
+}
+
 .app {
 
   &__spinner-display {

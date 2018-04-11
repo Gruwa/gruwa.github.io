@@ -24,7 +24,7 @@
                *ngIf="loginForm.get('password').hasError('required') && loginForm.get('password').touched">
             Password field is required.
           </div>
-          <div>
+          <div class="login-block-wrap__footer-wrap">
             <mat-checkbox formControlName="remember">Remember me</mat-checkbox>
             <button id="login-submit-btn" type="submit" mat-fab [disabled]="loginForm.invalid">
               <mat-icon class="mat-icon material-icons">arrow_forward</mat-icon>

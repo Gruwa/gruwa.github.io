@@ -36,6 +36,14 @@ export class HeaderShiftsComponent {
   @Input() closePage: boolean = false;
 
   /**
+   * Input variable arrowBack
+   * @type {boolean}
+   * @memberof HeaderShiftsComponent
+   */
+
+  @Input() arrowBack: boolean = false;
+
+  /**
    * Input variable delete for show tab
    * @type {boolean}
    * @memberof HeaderShiftsComponent
@@ -101,6 +109,17 @@ export class HeaderShiftsComponent {
 
   onSave(): void {
     this.dataService.dataSave$.next(true);
+  }
+
+  /**
+   * Method goBackLogin for go back to login page
+   * @returns {void}
+   * @memberof HeaderShiftsComponent
+   */
+
+  goBackLogin(): void {
+    this.localStorage.clear('token');
+    this.router.navigate(['/login']);
   }
 
 }

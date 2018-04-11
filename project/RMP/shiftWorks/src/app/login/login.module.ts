@@ -7,11 +7,17 @@ import {AppComponentsModule} from '../shared/components/app-components.module';
 import {MaterialsModule} from '../shared/components/materials/materials.module';
 import {AuthService} from './services/auth.service';
 import {AuthGuardService} from './services/auth.guard.service';
+import {ScheduleLoginComponent} from './schedule-login/schedule-login.component';
 
 export const routes: Routes = [
   {
     path: '',
     component: LoginComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'schedule',
+    component: ScheduleLoginComponent,
     pathMatch: 'full'
   },
   {
@@ -29,7 +35,8 @@ export const routes: Routes = [
     MaterialsModule
   ],
   declarations: [
-    LoginComponent
+    LoginComponent,
+    ScheduleLoginComponent
   ],
   providers: [
     AuthGuardService,
@@ -37,4 +44,5 @@ export const routes: Routes = [
   ]
 })
 
-export class LoginModule { }
+export class LoginModule {
+}

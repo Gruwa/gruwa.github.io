@@ -92,7 +92,6 @@ export class ShiftsComponent implements OnInit {
       this.localStorage.store('tab', this.tabActive);
     }
     this.tabIndex = TABS.indexOf(this.localStorage.retrieve('tab'));
-
   }
 
   /**
