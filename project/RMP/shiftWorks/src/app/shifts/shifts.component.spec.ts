@@ -3,11 +3,9 @@ import {async, ComponentFixture, getTestBed, TestBed} from '@angular/core/testin
 import {ShiftsComponent} from './shifts.component';
 import {MatDividerModule, MatListModule, MatTabsModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {By} from '@angular/platform-browser';
 import {DebugElement, Injector} from '@angular/core';
 import {HeaderShiftsComponent} from '../shared/components/header-shifts/header-shifts.component';
 import {ContentShiftsComponent} from './content-shifts/content-shifts.component';
-import {TabComponent} from '../shared/components/tab.component/tab.component';
 import {ShiftBlockComponent} from '../shared/components/shift-block/shift-block.component';
 import {HttpClientModule} from '@angular/common/http';
 import {ShiftsService} from './Services/shifts.service';
@@ -46,7 +44,6 @@ describe('ShiftsComponent', () => {
                 ShiftsComponent,
                 HeaderShiftsComponent,
                 ContentShiftsComponent,
-                TabComponent,
                 ShiftBlockComponent
             ],
             providers: [

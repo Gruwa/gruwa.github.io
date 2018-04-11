@@ -85,6 +85,7 @@ export class ContentShiftsComponent implements OnInit, OnDestroy, AfterViewInit 
    * @param {FakeService} fakeService
    * @param {LocalStorageService} localStorage
    * @param {Router} router
+   * @param {ActivatedRoute} route
    * @memberof ContentShiftsComponent
    */
 
@@ -122,7 +123,7 @@ export class ContentShiftsComponent implements OnInit, OnDestroy, AfterViewInit 
 
   /**
    * Method ngOnDestroy
-   * @returns {void}Утпдшыр
+   * @returns {void}
    * @memberof ContentShiftsComponent
    */
 
@@ -131,8 +132,16 @@ export class ContentShiftsComponent implements OnInit, OnDestroy, AfterViewInit 
     this.ngUnsubscribe.complete();
   }
 
-  ngAfterViewInit() {
-    this.dataService.dataSpinner$.next(false);
+  /**
+   * Method ngAfterViewInit
+   * @returns {void}
+   * @memberof ContentShiftsComponent
+   */
+
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.dataService.dataSpinner$.next(false);
+    });
   }
 
   /**

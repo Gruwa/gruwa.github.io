@@ -154,81 +154,81 @@ var UserList = [
 var ShiftList = [
     {
         'ShiftID': 'ba348365-08f6-4c0c-959d-9a1acbb46b09',
-        'IsDropRequest': false,
+        'IsDropRequest': true,
         'IsPickupRequest': false,
-        'JobID': 'job1',
-        'Job': JobList,
-        'Station': StationList,
-        'StationID': 'station1',
-        'Location': LocationList,
-        'LocationID': 'location1',
+        'JobID': JobList[0].ID,
+        'Job': JobList[0].Description,
+        'StationID': StationList[0].ID,
+        'Station': StationList[0].Description,
+        'LocationID': LocationList[0].ID,
+        'Location': LocationList[0].Description,
         'DateFrom': '8/31/2017 8:29:00 AM',
         'DateTo': '8/31/2017 3:00:00 PM'
     },
     {
         'ShiftID': '14f7d015-c105-40cc-8bb6-b7d19ac1dd58',
         'IsDropRequest': false,
-        'IsPickupRequest': false,
-        'JobID': 'job1',
-        'Job': JobList,
-        'Station': StationList,
-        'StationID': 'station1',
-        'Location': LocationList,
-        'LocationID': 'location1',
-        'dateFrom': '8/31/2017 7:40:00 AM',
-        'dateTo': '8/31/2017 3:00:00 PM'
+        'IsPickupRequest': true,
+        'JobID': JobList[0].ID,
+        'Job': JobList[0].Description,
+        'StationID': StationList[1].ID,
+        'Station': StationList[1].Description,
+        'LocationID': LocationList[2].ID,
+        'Location': LocationList[2].Description,
+        'DateFrom': '8/31/2017 7:40:00 AM',
+        'DateTo': '8/31/2017 3:00:00 PM'
     },
     {
         'ShiftID': '22f7d015-c105-40cc-8bb6-b7d19ac1dd58',
         'IsDropRequest': false,
         'IsPickupRequest': false,
-        'JobID': 'job1',
-        'Job': JobList,
-        'Station': StationList,
-        'StationID': 'station1',
-        'Location': LocationList,
-        'LocationID': 'location1',
-        'dateFrom': '3/31/2016 8:00:00 AM',
-        'dateTo': '3/31/2016 3:00:00 PM'
+        'JobID': JobList[1].ID,
+        'Job': JobList[1].Description,
+        'StationID': StationList[3].ID,
+        'Station': StationList[3].Description,
+        'LocationID': LocationList[4].ID,
+        'Location': LocationList[4].Description,
+        'DateFrom': '3/31/2016 8:00:00 AM',
+        'DateTo': '3/31/2016 3:00:00 PM'
     },
     {
         'ShiftID': '33f7d015-c105-40cc-8bb6-b7d19ac1dd58',
-        'IsDropRequest': false,
-        'IsPickupRequest': false,
-        'JobID': 'job1',
-        'Job': JobList,
-        'Station': StationList,
-        'StationID': 'station1',
-        'Location': LocationList,
-        'LocationID': 'location1',
-        'dateFrom': '2/31/2017 8:00:00 AM',
-        'dateTo': '2/31/2017 3:00:00 PM'
+        'IsDropRequest': true,
+        'IsPickupRequest': true,
+        'JobID': JobList[4].ID,
+        'Job': JobList[4].Description,
+        'StationID': StationList[2].ID,
+        'Station': StationList[2].Description,
+        'LocationID': LocationList[3].ID,
+        'Location': LocationList[3].Description,
+        'DateFrom': '2/31/2017 8:00:00 AM',
+        'DateTo': '2/31/2017 3:00:00 PM'
     },
     {
         'ShiftID': '44f7d015-c105-40cc-8bb6-b7d19ac1dd58',
         'IsDropRequest': false,
         'IsPickupRequest': false,
-        'JobID': 'job1',
-        'Job': JobList,
-        'Station': StationList,
-        'StationID': 'station1',
-        'Location': LocationList,
-        'LocationID': 'location1',
-        'dateFrom': '3/31/2017 8:00:00 AM',
-        'dateTo': '3/31/2017 3:00:00 PM'
+        'JobID': JobList[3].ID,
+        'Job': JobList[3].Description,
+        'StationID': StationList[1].ID,
+        'Station': StationList[1].Description,
+        'LocationID': LocationList[2].ID,
+        'Location': LocationList[2].Description,
+        'DateFrom': '3/31/2017 8:00:00 AM',
+        'DateTo': '3/31/2017 3:00:00 PM'
     },
     {
         'ShiftID': '55f7d015-c105-40cc-8bb6-b7d19ac1dd58',
         'IsDropRequest': false,
         'IsPickupRequest': false,
-        'JobID': 'job1',
-        'Job': JobList,
-        'Station': StationList,
-        'StationID': 'station1',
-        'Location': LocationList,
-        'LocationID': 'location1',
-        'dateFrom': '8/31/2017 8:15:00 AM',
-        'dateTo': '8/31/2017 3:15:00 PM'
+        'JobID': JobList[4].ID,
+        'Job': JobList[4].Description,
+        'StationID': StationList[2].ID,
+        'Station': StationList[2].Description,
+        'LocationID': LocationList[1].ID,
+        'Location': LocationList[1].Description,
+        'DateFrom': '8/31/2017 8:15:00 AM',
+        'DateTo': '8/31/2017 3:15:00 PM'
     }
 ];
 
@@ -311,47 +311,148 @@ router.get('/', function (req, res, next) {
 
 });
 
+/* Get shifts upcoming*/
+
+router.get('/shifts/upcoming', function (req, res, next) {
+    var upcoming = [
+        ShiftList[0], ShiftList[3], ShiftList[5], ShiftList[1]
+    ];
+
+    var locationList = [
+        LocationList[0], LocationList[2], LocationList[3]
+    ];
+
+    var stationList = [
+        StationList[0], StationList[1]
+    ];
+
+    var jobList = [
+        JobList[0], JobList[1], JobList[2], JobList[3]
+    ];
+
+    res.status(201).json({
+        Token: faker.random.uuid(),
+        Saccess: 'We are live!',
+        Message: "All upcoming",
+        Items: upcoming,
+        LocationList: locationList,
+        StationList: stationList,
+        JobList: jobList
+    });
+});
+
+/* Get shifts available*/
+
+router.get('/shifts/available', function (req, res, next) {
+    var available = [
+        ShiftList[1], ShiftList[2], ShiftList[5]
+    ];
+
+    var locationList = [
+        LocationList[1], LocationList[4], LocationList[3]
+    ];
+
+    var stationList = [
+        StationList[0], StationList[1], StationList[2], StationList[3]
+    ];
+
+    var jobList = [
+        JobList[0], JobList[1], JobList[2], JobList[3]
+    ];
+
+    res.status(201).json({
+        Token: faker.random.uuid(),
+        Saccess: 'We are live!',
+        Message: "All available",
+        Items: available,
+        LocationList: locationList,
+        StationList: stationList,
+        JobList: jobList
+    });
+});
+
+/* Get shifts myrequests*/
+
+router.get('/shifts/myrequests', function (req, res, next) {
+    var myrequests = [
+        ShiftList[1], ShiftList[4], ShiftList[5], ShiftList[2]
+    ];
+
+    var locationList = [
+        LocationList[1], LocationList[0], LocationList[2]
+    ];
+
+    var stationList = [
+        StationList[0], StationList[1], StationList[2], StationList[3]
+    ];
+
+    var jobList = [
+        JobList[0], JobList[1], JobList[2], JobList[3]
+    ];
+
+    res.status(201).json({
+        Token: faker.random.uuid(),
+        Saccess: 'We are live!',
+        Message: "All available",
+        Items: myrequests,
+        LocationList: locationList,
+        StationList: stationList,
+        JobList: jobList
+    });
+});
+
 /* logIn */
 
 router.post('/login', function (req, res, next) {
 
     if (req.body.login === 'test@test.test') {
         var token = ',zsnfgv,nb,nb,xcnbz,cnbknbkznbkldzgkndbnklgbdnlkfnklmvz';
-        res.status(201).json({
-            Token: token,
-            Success: 'true',
-            message: 'Login success',
-            Items: Login.Items,
-            LocationList: Login.LocationList,
-            StationList: Login.StationList,
-            JobList: Login.JobList
-        });
+
+        setTimeout(function () {
+            res.status(201).json({
+                Token: token,
+                Success: 'true',
+                message: 'Login success',
+                Items: Login.Items,
+                LocationList: Login.LocationList,
+                StationList: Login.StationList,
+                JobList: Login.JobList
+            });
+        }, 5500);
     }
 
     if (req.body.login === 'test1@test.test') {
         var token = ',zsnfdfhfmgdj,k.jl.fmdghnsnmjkhiylflugdlykfjhknlkfnklmvz';
-        res.status(201).json({
-            Token: token,
-            Success: 'true',
-            message: 'Login success',
-            Items: Login.Items,
-            LocationList: Login.LocationList,
-            StationList: Login.StationList,
-            JobList: Login.JobList
-        });
+
+        setTimeout(function () {
+            res.status(201).json({
+                Token: token,
+                Success: 'true',
+                message: 'Login success',
+                Items: Login.Items,
+                LocationList: Login.LocationList,
+                StationList: Login.StationList,
+                JobList: Login.JobList
+            });
+        }, 5500);
+
     }
 
     if (req.body.login === 'test2@test.test') {
         var token = ',zsnfgccdccecsddsdsfdgxfnfukuo;ipkjfgukujhryjtyjhthryjynlkfnklmvz';
-        res.status(201).json({
-            Token: token,
-            Success: 'true',
-            message: 'Login success',
-            Items: Login.Items,
-            LocationList: Login.LocationList,
-            StationList: Login.StationList,
-            JobList: Login.JobList
-        });
+
+        setTimeout(function () {
+            res.status(201).json({
+                Token: token,
+                Success: 'true',
+                message: 'Login success',
+                Items: Login.Items,
+                LocationList: Login.LocationList,
+                StationList: Login.StationList,
+                JobList: Login.JobList
+            });
+        }, 5500);
+
     }
 });
 

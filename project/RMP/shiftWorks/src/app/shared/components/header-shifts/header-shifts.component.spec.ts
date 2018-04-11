@@ -1,6 +1,5 @@
 import {async, ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
 import {HeaderShiftsComponent} from './header-shifts.component';
-import {TabComponent} from '../tab.component/tab.component';
 import {MatTabsModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ShiftsService} from '../../../shifts/Services/shifts.service';
@@ -34,7 +33,6 @@ describe('HeaderShiftsComponent', () => {
       ],
       declarations: [
         HeaderShiftsComponent,
-        TabComponent,
         PageNotFoundComponent
       ],
       providers: [

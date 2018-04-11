@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ShiftsService} from '../Services/shifts.service';
 import {LocalStorageService} from 'ngx-webstorage';
@@ -74,7 +74,7 @@ const SHIFT_REQUEST = {
   templateUrl: './details-shifts.component.html',
   styleUrls: ['./details-shifts.component.scss']
 })
-export class DetailsShiftsComponent implements OnInit, OnDestroy {
+export class DetailsShiftsComponent implements OnInit, OnDestroy, AfterViewInit {
 
   /**
    * Variable headerDescription
@@ -156,6 +156,7 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
    * @param {Router} router
    * @param {HttpService} httpService
    * @param {FakeService} fakeService
+   * @param {DataService} dataService
    * @memberof DetailsShiftsComponent
    */
 
@@ -299,6 +300,9 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
 
     console.log(this.status);
 
+    let t = new Date(this.shiftActive['item'].dateFrom).getDate();
+    console.log('Date', t);
+
     this.shiftForm = {
       shiftTitle: this.localStorage.retrieve('tab'),
       date: this.shiftActive['item'].dateFrom,
@@ -387,5 +391,17 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
     console.log('SAVE');
     this.router.navigate(['/' + this.route.snapshot.params['group'], 'shifts']);
     // TODO - method for save shift
+  }
+
+  /**
+   * Method ngAfterViewInit
+   * @returns {void}
+   * @memberof ContentShiftsComponent
+   */
+
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.dataService.dataSpinner$.next(false);
+    });
   }
 }

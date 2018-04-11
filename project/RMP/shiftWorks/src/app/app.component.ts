@@ -59,8 +59,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
   spinnerShow(event: boolean): void {
     this.spinner = event;
-    console.log(event);
-    console.log('SPPPPIIINNNERR');
   }
 
   /**

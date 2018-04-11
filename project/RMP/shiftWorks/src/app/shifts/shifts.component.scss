@@ -2,6 +2,15 @@ app-shifts {
   height: 100%;
   display: block;
 }
+* {
+
+}
+.mat-tab-group.mat-primary .mat-tab-label:not(.mat-tab-disabled):focus,
+.mat-tab-group.mat-primary .mat-tab-link:not(.mat-tab-disabled):focus,
+.mat-tab-nav-bar.mat-primary .mat-tab-label:not(.mat-tab-disabled):focus,
+.mat-tab-nav-bar.mat-primary .mat-tab-link:not(.mat-tab-disabled):focus {
+  background-color: transparent;
+}
 
 .shifts {
   width: 100%;
@@ -30,6 +39,7 @@ app-shifts {
 
     .mat-tab-group {
       height: 100%;
+      -webkit-tap-highlight-color: transparent;
 
       .mat-tab-label .mat-ripple .ng-star-inserted {
         padding: 0;

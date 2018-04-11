@@ -19,11 +19,27 @@ export class ScheduleLoginComponent implements OnInit, AfterViewInit {
 
   public headerDescription: string = 'Choose schedule';
 
+  /**
+   * Variable groups
+   * @type {Array<IGroupRestaurant>}
+   * @memberof ScheduleLoginComponent
+   */
+
   public groups: Array<IGroupRestaurant>;
 
-  constructor(public dataService: DataService) {
+  /**
+   * Creates an instance of ScheduleLoginComponent
+   * @param {DataService} dataService
+   * @memberof ScheduleLoginComponent
+   */
 
-  }
+  constructor(public dataService: DataService) { }
+
+  /**
+   * Method ngOnInit
+   * @returns {void}
+   * @memberof ScheduleLoginComponent
+   */
 
   ngOnInit() {
     this.dataService.dataLogin$.subscribe((res: Array<IGroupRestaurant>) => {
@@ -31,6 +47,12 @@ export class ScheduleLoginComponent implements OnInit, AfterViewInit {
       this.groups = res;
     });
   }
+
+  /**
+   * Method ngAfterViewInit
+   * @returns {void}
+   * @memberof ScheduleLoginComponent
+   */
 
   ngAfterViewInit() {
     setTimeout(() => {

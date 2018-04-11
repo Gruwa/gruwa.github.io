@@ -105,5 +105,4 @@ export class ShiftsComponent implements OnInit {
     this.localStorage.store('tab', TABS[value.index]);
   }
 
-
 }
