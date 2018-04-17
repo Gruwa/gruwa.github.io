@@ -1,0 +1,14 @@
+<div class="page">
+  <div class="page__header">
+    <app-header-page></app-header-page>
+  </div>
+  <div class="page__main">
+    <app-sidebar-page></app-sidebar-page>
+    <div class="page__content" [ngClass]="{'page__content--close' : mainService.closeSideBar}">
+      <router-outlet>
+        <app-hello-page *ngIf="router.url === '/main'"></app-hello-page>
+      </router-outlet>
+    </div>
+  </div>
+</div>
+

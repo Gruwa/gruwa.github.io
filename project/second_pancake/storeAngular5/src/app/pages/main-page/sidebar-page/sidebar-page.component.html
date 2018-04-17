@@ -1,0 +1,112 @@
+<div class="wrapper-sidebar" [ngClass]="{'wrapper-sidebar--close' : mainService.closeSideBar}">
+  <ul class="wrapper-sidebar__list">
+    <li class="wrapper-sidebar__item"
+        [ngClass]="{'wrapper-sidebar__item--active' : router.url === '/main'}"
+        [routerLink]="['/main']">
+      <div [ngClass]="{'wrapper-sidebar__icon-box' : router.url === '/main'}">
+        <img class="wrapper-sidebar__icon" *ngIf="router.url !== '/main'" src="../../../../assets/img/icon/forms.svg">
+        <img class="wrapper-sidebar__icon" *ngIf="router.url === '/main'"
+             src="../../../../assets/img/icon/forms-white.svg">
+      </div>
+      <div class="wrapper-sidebar__description dashboard"
+           [ngClass]="{'wrapper-sidebar__description--active' : router.url === '/main'}">{{'Dashboard' | translate}}
+      </div>
+    </li>
+    <li class="wrapper-sidebar__item"
+        (click)="onActiveLink('/main/users')"
+        [ngClass]="{'wrapper-sidebar__item--active' : router.url === '/main/users'}">
+      <div [ngClass]="{'wrapper-sidebar__icon-box' : router.url === '/main/users'}">
+        <img class="wrapper-sidebar__icon" *ngIf="router.url !== '/main/users'"
+             src="../../../../assets/img/icon/users.svg">
+        <img class="wrapper-sidebar__icon" *ngIf="router.url === '/main/users'"
+             src="../../../../assets/img/icon/users-white.svg">
+      </div>
+      <div class="wrapper-sidebar__description"
+           [ngClass]="{'wrapper-sidebar__description--active' : router.url === '/main/users'}">{{'Users' | translate}}
+      </div>
+    </li>
+    <li class="wrapper-sidebar__item"
+        (click)="onActiveLink('/main/chart')"
+        [ngClass]="{'wrapper-sidebar__item--active' : router.url === '/main/chart'}">
+      <div [ngClass]="{'wrapper-sidebar__icon-box' : router.url === '/main/chart'}">
+        <img class="wrapper-sidebar__icon" *ngIf="router.url !== '/main/chart'"
+             src="../../../../assets/img/icon/courses.svg">
+        <img class="wrapper-sidebar__icon" *ngIf="router.url === '/main/chart'"
+             src="../../../../assets/img/icon/courses-white.svg">
+      </div>
+      <div class="wrapper-sidebar__description"
+           [ngClass]="{'wrapper-sidebar__description--active' : router.url === '/main/chart'}">{{'Charts' | translate}}
+      </div>
+    </li>
+    <li class="wrapper-sidebar__item"
+        [routerLink]="['/main/message']"
+        [ngClass]="{'wrapper-sidebar__item--active' : router.url === '/main/message'}">
+      <div [ngClass]="{'wrapper-sidebar__icon-box' : router.url === '/main/message'}">
+        <img class="wrapper-sidebar__icon" *ngIf="router.url !== '/main/message'"
+             src="../../../../assets/img/icon/messages.svg">
+        <img class="wrapper-sidebar__icon" *ngIf="router.url === '/main/message'"
+             src="../../../../assets/img/icon/messages-white.svg">
+      </div>
+      <div class="wrapper-sidebar__description"
+           [ngClass]="{'wrapper-sidebar__description--active' : router.url === '/main/message'}">{{'Messages' |
+        translate}}
+      </div>
+    </li>
+    <li class="wrapper-sidebar__item"
+        [routerLink]="['/main/message']"
+        [ngClass]="{'wrapper-sidebar__item--active' : router.url === '/main/message'}">
+      <div [ngClass]="{'wrapper-sidebar__icon-box' : router.url === '/main/message'}">
+        <img class="wrapper-sidebar__icon" *ngIf="router.url !== '/main/message'"
+             src="../../../../assets/img/icon/messages.svg">
+        <img class="wrapper-sidebar__icon" *ngIf="router.url === '/main/message'"
+             src="../../../../assets/img/icon/messages-white.svg">
+      </div>
+      <div class="wrapper-sidebar__description"
+           [ngClass]="{'wrapper-sidebar__description--active' : router.url === '/main/message'}">{{'Messages' |
+        translate}}
+      </div>
+    </li>
+    <li class="wrapper-sidebar__item"
+        [routerLink]="['/main/message']"
+        [ngClass]="{'wrapper-sidebar__item--active' : router.url === '/main/message'}">
+      <div [ngClass]="{'wrapper-sidebar__icon-box' : router.url === '/main/message'}">
+        <img class="wrapper-sidebar__icon" *ngIf="router.url !== '/main/message'"
+             src="../../../../assets/img/icon/messages.svg">
+        <img class="wrapper-sidebar__icon" *ngIf="router.url === '/main/message'"
+             src="../../../../assets/img/icon/messages-white.svg">
+      </div>
+      <div class="wrapper-sidebar__description"
+           [ngClass]="{'wrapper-sidebar__description--active' : router.url === '/main/message'}">{{'Messages' |
+        translate}}
+      </div>
+    </li>
+    <li class="wrapper-sidebar__item"
+        [routerLink]="['/main/message']"
+        [ngClass]="{'wrapper-sidebar__item--active' : router.url === '/main/message'}">
+      <div [ngClass]="{'wrapper-sidebar__icon-box' : router.url === '/main/message'}">
+        <img class="wrapper-sidebar__icon" *ngIf="router.url !== '/main/message'"
+             src="../../../../assets/img/icon/messages.svg">
+        <img class="wrapper-sidebar__icon" *ngIf="router.url === '/main/message'"
+             src="../../../../assets/img/icon/messages-white.svg">
+      </div>
+      <div class="wrapper-sidebar__description"
+           [ngClass]="{'wrapper-sidebar__description--active' : router.url === '/main/message'}">{{'Messages' |
+        translate}}
+      </div>
+    </li>
+    <li class="wrapper-sidebar__item"
+        [routerLink]="['/main/message']"
+        [ngClass]="{'wrapper-sidebar__item--active' : router.url === '/main/message'}">
+      <div [ngClass]="{'wrapper-sidebar__icon-box' : router.url === '/main/message'}">
+        <img class="wrapper-sidebar__icon" *ngIf="router.url !== '/main/message'"
+             src="../../../../assets/img/icon/messages.svg">
+        <img class="wrapper-sidebar__icon" *ngIf="router.url === '/main/message'"
+             src="../../../../assets/img/icon/messages-white.svg">
+      </div>
+      <div class="wrapper-sidebar__description"
+           [ngClass]="{'wrapper-sidebar__description--active' : router.url === '/main/message'}">{{'Messages' |
+        translate}}
+      </div>
+    </li>
+  </ul>
+</div>

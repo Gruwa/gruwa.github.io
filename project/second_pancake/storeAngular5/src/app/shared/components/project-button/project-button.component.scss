@@ -1,0 +1,31 @@
+@import '../../style/custom';
+
+button[disabled]{
+  background-color: rgba(20, 103, 189, 0.51)!important;
+}
+
+.project-btn {
+  padding: 10px 30px 10px 30px;
+  border-radius: 50px;
+  border: none;
+  -webkit-appearance: none!important;
+  font-family: 'Nunito Sans', sans-serif!important;
+  font-weight: 700;
+  cursor: pointer;
+  outline: 100px;
+  background-color: rgb(20, 103, 189);
+  color: $white;
+  @include transition(box-shadow, 0.3s, linear);
+
+  &:hover {
+    @include box_shadow(1);
+  }
+
+  &--cancel {
+    background-color: $white;
+    border: 1px solid rgb(20, 103, 189);
+    color: rgb(20, 103, 189);
+
+  }
+}
+

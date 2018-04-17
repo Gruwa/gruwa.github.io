@@ -1,0 +1,128 @@
+<app-project-modal [visible]="true"
+                   *ngIf="router.url === '/auth/login'"
+                   [closable]="true"
+                   (visibleChange)="visibleModal($event)">
+  <div class="login" [formGroup]="formAdmin">
+    <div class="login-input">
+      <div class="login-input__label" *ngIf="formAdmin.get('first_name').touched
+                                          && formAdmin.get('first_name').invalid
+                                          && !formAdminLessSymbolFirstName()">Input more than 1 symbols
+      </div>
+      <div class="login-input__label" *ngIf="formAdmin.get('first_name').dirty
+                                          && formAdminLessSymbolFirstName()">Input less than 15 symbols
+      </div>
+      <app-project-input
+        *ngIf="showRegister"
+        [control]="formAdmin.get('first_name')"
+        [top]="18"
+        [bottom]="18"
+        [label]="'first name'">
+      </app-project-input>
+    </div>
+    <div class="login-input">
+      <div class="login-input__label" *ngIf="formAdmin.get('last_name').touched
+                                          && formAdmin.get('last_name').invalid
+                                          && !formAdminLessSymbolLastName()">{{'Input more than 1 symbols' | translate}}
+      </div>
+      <div class="login-input__label" *ngIf="formAdmin.get('last_name').dirty
+                                          && formAdminLessSymbolLastName()">{{'Input less than 15 symbols' | translate}}
+      </div>
+      <app-project-input
+        *ngIf="showRegister"
+        [control]="formAdmin.get('last_name')"
+        [top]="18"
+        [bottom]="18"
+        [label]="'last name'">
+      </app-project-input>
+    </div>
+    <div class="input-group"
+         formGroupName="emailGroup">
+      <div class="login-input login-input--inut-group">
+        <app-project-input
+          [type]="'email'"
+          [control]="formAdmin.get('emailGroup.email')"
+          [top]="18"
+          [bottom]="18"
+          [label]="'Email'">
+        </app-project-input>
+      </div>
+      <div class="login-input login-input--inut-group"
+           *ngIf="showRegister">
+        <app-project-input
+          [type]="'confirmEmail'"
+          [control]="formAdmin.get('emailGroup.confirmEmail')"
+          [top]="18"
+          [bottom]="18"
+          [label]="'confirm email'">
+        </app-project-input>
+      </div>
+    </div>
+    <div class="login-input"
+         *ngIf="!showForgot && !showRegister">
+      <app-project-input
+        [control]="formAdmin.get('password')"
+        [top]="18"
+        [bottom]="18"
+        [label]="'Password'"
+        [type]="'password'">
+      </app-project-input>
+    </div>
+    <span class="login-forgot"
+          (click)="this.showForgot = !this.showForgot"
+          *ngIf="!showRegister && !showForgot">{{'Forgot password?' | translate}}</span>
+    <span class="login-forgot"
+          (click)="this.showForgot = !this.showForgot"
+          *ngIf="showForgot">{{'Has account?' | translate}}</span>
+    <div class="login-btn__position"
+         *ngIf="!showRegister && !showForgot">
+      <app-project-button
+        [title]="'Log In'"
+        [newStyle]="'login-btn'"
+        (onClickEvent)="onLogin()"
+        [disabled]="!formAdmin.valid">
+      </app-project-button>
+      <app-project-button
+        [title]="'Register'"
+        [newStyle]="'login-btn'"
+        (onClickEvent)="onRegister()"
+        [disabled]="false">
+      </app-project-button>
+    </div>
+    <div class="login-btn__position"
+         *ngIf="showRegister">
+      <app-project-button
+        [title]="'Create'"
+        [newStyle]="'login-btn'"
+        (onClickEvent)="onSave()"
+        [disabled]="!formAdmin.valid">
+      </app-project-button>
+      <app-project-button
+        [title]="'Cancel'"
+        [cancel]="true"
+        [newStyle]="'login-btn'"
+        (onClickEvent)="onCancel()"
+        [disabled]="false">
+      </app-project-button>
+    </div>
+    <div class="login-btn__position login-btn__position--reset"
+         *ngIf="showForgot">
+      <app-project-button
+        [title]="'Reset password'"
+        [newStyle]="'login-btn'"
+        (onClickEvent)="forgotPassword()"
+        [disabled]="!formAdmin.valid">
+      </app-project-button>
+    </div>
+
+    <!--<div class="lang-holder">-->
+    <!--<span class="header-lang"-->
+    <!--(click)="changeLanguage('en')"-->
+    <!--*ngIf="translate.currentLang === 'ru'"-->
+    <!--[ngClass]="{'header-en&#45;&#45;active' : translate.currentLang === 'en'}">en</span>-->
+    <!--<span class="header-lang"-->
+    <!--(click)="changeLanguage('ru')"-->
+    <!--*ngIf="translate.currentLang === 'en'"-->
+    <!--[ngClass]="{'header-ru&#45;&#45;active' : translate.currentLang === 'ru'}">ru</span>-->
+    <!--</div>-->
+  </div>
+</app-project-modal>

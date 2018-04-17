@@ -1,0 +1,39 @@
+<div class="header">
+  <div class="header-logo" (click)="click()">
+    <img class="header-logo__picture" src="../../../../assets/img/angular.png">
+    <div (click)="closeSideBar()" class="header-sidebar_close">
+      &equiv;
+    </div>
+  </div>
+  <div class="header-right-side">
+    <span class="header-lang"
+          (click)="changeLanguage('en')"
+          *ngIf="translate.currentLang === 'ru'"
+          [ngClass]="{'header-en--active' : translate.currentLang === 'en'}">en</span>
+    <span class="header-lang"
+          (click)="changeLanguage('ru')"
+          *ngIf="translate.currentLang === 'en'"
+          [ngClass]="{'header-ru--active' : translate.currentLang === 'ru'}">ru</span>
+    <span class="header-avatar" focusDirective>
+      <div class="user_logo">
+        <span class="user-logo__name">{{storage.retrieve('activeUserName') ? storage.retrieve('activeUserName')[0] : 'u' }}</span>
+      </div>
+    </span>
+    <ul class="dropdown-block">
+      <li class="dropdown-content" routerLink="['/main']">{{'Main page' | translate}}</li>
+      <li class="dropdown-content">{{'My account' | translate}}</li>
+      <li class="dropdown-content">
+        <!--<fullscreen-button></fullscreen-button>-->
+      </li>
+      <li class="dropdown-content"
+          *ngIf="storage.retrieve('token') !== null"
+          (click)="LogOut()">{{'Log Out' | translate}}
+      </li>
+      <li class="dropdown-content"
+          *ngIf="storage.retrieve('token') === null"
+          (click)="LogIn()">{{'Log in' | translate}}
+      </li>
+    </ul>
+    <!--<span class="header-avatar__point">&#9662;</span>-->
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="23" viewBox="0 0 18 23">
+    <defs>
+        <rect id="a" width="18" height="17" y="6" rx="5"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <rect width="8.5" height="9.5" x="4.75" y=".75" stroke="#D8D8D8" stroke-width="1.5" rx="3"/>
+        <use fill="#FFF" xlink:href="#a"/>
+        <rect width="16.5" height="15.5" x=".75" y="6.75" stroke="#D8D8D8" stroke-width="1.5" rx="5"/>
+        <ellipse cx="9" cy="14.5" fill="#D8D8D8" rx="2" ry="2.5"/>
+    </g>
+</svg>

@@ -2,11 +2,12 @@
   <div class="shift-block__wrapper">
     <div class="shift-block__content">
       <span class="shift-block__job">{{shift.job}}</span>
-      <span class="shift-block__date-from">{{shift.dateFrom}}</span>
+      <span class="shift-block__date-from">{{shift.dateFrom | realDate:"LT"}} - {{shift.dateTo | realDate:"LT"}}</span>
       <span class="shift-block__date-from">{{shift.location}}</span>
     </div>
     <div class="shift-block__icons-wrapper">
-      <i class="material-icons shift-block__point" [ngClass]="{'shift-block__display-true' : shift.isDropRequest === true || shift.isPickupRequest === true}">lens</i>
+      <i class="material-icons shift-block__point"
+         [ngClass]="{'shift-block__display-true' : shift.isDropRequest === true || shift.isPickupRequest === true}">lens</i>
       <i class="material-icons">keyboard_arrow_right</i>
     </div>
   </div>

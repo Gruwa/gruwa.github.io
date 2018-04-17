@@ -1,0 +1,42 @@
+@import '../../shared/style/custom';
+
+.page {
+
+  &__main {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding-top: 107px;
+  }
+
+  &__header {
+    height: 107px;
+    background-color: rgba(255, 255, 255, 1);
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 10;
+  }
+
+  &__content {
+    width: 100%;
+    margin-left: 180px;
+    transition: margin-left 1.3s ease-in-out;
+    padding: 40px 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  .page__content {
+    margin-left: 0;
+    transition: margin-left 1.3s ease-in-out;
+
+    &--close {
+      margin-left: 180px;
+      transition: margin-left 1.3s ease-in-out;
+    }
+  }
+}

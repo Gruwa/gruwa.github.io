@@ -349,17 +349,22 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
    */
 
   clickFooter(): void {
-    // debugger
     this.footerActive = !this.footerActive;
 
-    if (this.tab === ('upcoming' || 'available')) {
+    if (this.tab === 'upcoming' || this.tab === 'available') {
       if (!this.footerActive) {
         this.shiftActive['item'][`${SHIFT_ACTIVE[this.tab]}`] = true;
-        this.setDataForm();
+        if (this.tab === 'upcoming') {
+          this.status = STATUS['drop request'];
+        }
+        if (this.tab === 'available') {
+          this.status = STATUS['pickup request'];
+        }
       } else {
         this.shiftActive['item'].isDropRequest = false;
         this.shiftActive['item'].isPickupRequest = false;
-        this.setDataForm();
+        this.status = STATUS['scheduled'];
+        // this.setDataForm();
       }
     }
     if (this.tab === 'my requests') {

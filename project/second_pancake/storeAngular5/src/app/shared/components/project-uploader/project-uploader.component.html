@@ -1,0 +1,9 @@
+<div class="{{classUploader}} uploader">
+    <input type="file"
+           #inputElement
+           accept="{{ attribute }}"
+           (formUpload)="onFileUpload($event)"
+           id="file" class="inputfile"
+           alt="{{ label }}"/>
+    <label  for="file" title="{{ title }}" class="loader {{ classLabel }}">{{ label }}</label>
+</div>

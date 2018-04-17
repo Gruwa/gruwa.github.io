@@ -1,0 +1,50 @@
+@import '../../style/custom';
+
+.dialog {
+  z-index: 1001;
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  min-height: 200px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 520px;
+  background-color: #fff;
+  padding: 0;
+  display: flex;
+}
+
+@media (min-width: 768px) {
+  .dialog {
+    top: 40px;
+  }
+}
+
+.dialog__close-btn {
+  border: 0;
+  background: none;
+  color: #80919A;
+  cursor: pointer;
+  position: absolute;
+  top: 4px;
+  right: 10px;
+  font-size: 1.3em;
+  font-weight: 600;
+  @include transition(all, 0.2s, linear);
+  &:hover{
+    color: #f47a21;
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(128, 145, 154, 0.6);
+  z-index: 1000;
+}

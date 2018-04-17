@@ -1,0 +1,42 @@
+<div class="chart-list">
+  <div class="chart-item">
+    <span appProjectTitleStyle>
+      {{title | translate}}
+    </span>
+    <fusioncharts
+      [id]="chartFirstId"
+      [width]="width"
+      [height]="height"
+      [type]="chartFirstType"
+      [dataFormat]="dataFormat"
+      [dataSource]="dataSourceFirst"
+    ></fusioncharts>
+  </div>
+  <div class="chart-item">
+    <span appProjectTitleStyle>
+      {{title | translate}}
+    </span>
+    <fusioncharts
+      [id]="chartSecondId"
+      [width]="width"
+      [height]="height"
+      [type]="chartSecondType"
+      [dataFormat]="dataFormat"
+      [dataSource]="dataSourceSecond"
+    ></fusioncharts>
+  </div>
+  <div class="chart-item">
+    <span appProjectTitleStyle>
+      {{title | translate}}
+    </span>
+    <fusioncharts
+      [id]="chartThirdId"
+      [width]="width"
+      [height]="height"
+      [type]="chartThirdType"
+      [dataFormat]="dataFormat"
+      [dataSource]="dataSourceFirst"
+    ></fusioncharts>
+  </div>
+</div>
+

@@ -4,6 +4,10 @@ import {DataService} from '../shared/services/data.service';
 import {LocalStorageService} from 'ngx-webstorage';
 import {ITabTypes} from '../shared/interfaces/types.interface';
 import {Subject} from 'rxjs/Subject';
+import {interval} from 'rxjs/observable/interval';
+import 'rxjs/operator/throttle';
+import 'rxjs/add/operator/throttleTime';
+import 'rxjs/add/operator/debounceTime';
 
 /**
  * TABS for navigate
@@ -103,7 +107,9 @@ export class ShiftsComponent implements OnInit, OnDestroy {
    */
 
   ngOnInit(): void {
-    this.dataService.dataSmallSpinner$.takeUntil(this.ngUnsubscribe).subscribe(this.spinnerShow.bind(this));
+    this.dataService.dataSmallSpinner$.takeUntil(this.ngUnsubscribe)
+      .debounceTime(500)
+      .subscribe(this.spinnerShow.bind(this));
     this.dataService.dataSmallSpinner$.next(true);
     if (this.localStorage.retrieve('tab') !== undefined) {
       this.tabActive = this.localStorage.retrieve('tab');
@@ -133,6 +139,7 @@ export class ShiftsComponent implements OnInit, OnDestroy {
    */
 
   spinnerShow(event: boolean): void {
+    console.log('spinnerShow');
     this.spinner = event;
   }
 

@@ -1,0 +1,19 @@
+<div class="ui-md-12 title-modal">
+    <h1>{{'Delete Confirmation' | translate}}</h1>
+    <hr>
+</div>
+<div class="project_delete_wrapper">
+    <h4>{{'Are you sure you want to delete this ' | translate}} {{entityName}}</h4>
+    <p>{{'This action can not be undone!' | translate}}</p>
+    <div class="button-container ui-g-12">
+        <app-project-button ripple (onClickEvent)="onDeleteClick(true)"
+                              title="Delete"
+                              newClass="project-delete__btn">
+        </app-project-button>
+        <app-project-button ripple (onClickEvent)="onDeleteClick(false)"
+                              title="Cancel"
+                              cancel="true"
+                              newClass="project-delete__btn project-delete__btn--cancel">
+        </app-project-button>
+    </div>
+</div>

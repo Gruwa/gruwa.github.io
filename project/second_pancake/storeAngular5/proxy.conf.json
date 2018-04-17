@@ -1,0 +1,18 @@
+[
+  {
+    "context": [
+      "/api",
+      "/media",
+      "/static"
+    ],
+    "target": {
+      "host": "localhost",
+      "protocol": "http:",
+      "port": 4334
+    },
+    "secure": false,
+    "pathRewrite": {
+      "^/api": "/"
+    }
+  }
+]
