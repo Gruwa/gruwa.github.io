@@ -20,6 +20,9 @@ app-shifts {
   align-items: center;
   overflow: hidden;
 
+  &__small-spinner {
+    display: none;
+  }
 
   &__app-header {
     width: 100%;
@@ -29,6 +32,10 @@ app-shifts {
     align-items: center;
     height: 48px;
     flex-shrink: 0;
+  }
+
+  &__small-spinner-display {
+    display: block;
   }
 
   &__content {
@@ -52,6 +59,10 @@ app-shifts {
         width: 33.33%;
         padding: 0 !important;
         min-width: auto;
+      }
+
+      .mat-tab {
+        position: relative;
       }
 
       .mat-tab-header {

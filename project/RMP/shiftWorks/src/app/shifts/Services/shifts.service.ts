@@ -7,6 +7,60 @@ import {
   IShiftsSorted
 } from '../../shared/interfaces/shift.interface';
 import {HttpService} from '../../shared/services/http.service';
+import {DataService} from '../../shared/services/data.service';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/observable/combineLatest';
+import {LocalStorageService} from 'ngx-webstorage';
+
+/**
+ * Variable of month
+ * @type {Array<string>}
+ * @memberof ShiftsService
+ */
+
+const MONTH: Array<string> =
+  [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+  ];
+
+/**
+ * Variable of day
+ * @type {Array<string>}
+ * @memberof ShiftsService
+ */
+
+const DAY: Array<string> =
+  [
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+    'Sunday'
+  ];
+
+
+/**
+ * FLOW for api link
+ */
+
+const FLOW = {
+  upcoming: 'dataShiftsUpcoming$',
+  'my requests': 'dataShiftsMyReq$',
+  available: 'dataShiftsAvailable$'
+};
 
 /**
  * Auth Guard Service
@@ -26,11 +80,14 @@ export class ShiftsService {
    * Creates an instance of ShiftsService
    * @param {Router} router
    * @param {HttpService} httpService
+   * @param {DataService} dataService
    * @memberof ShiftsService
    */
 
   constructor(public router: Router,
-              public httpService: HttpService) {
+              public httpService: HttpService,
+              public dataService: DataService,
+              public localService: LocalStorageService) {
   }
 
   /**
@@ -70,45 +127,6 @@ export class ShiftsService {
     function getFormatedDate(dateStr: any): string {
 
       /**
-       * Variable of month
-       * @type {Array<string>}
-       * @memberof ShiftsService
-       */
-
-      const month: Array<string> =
-        [
-          'January',
-          'February',
-          'March',
-          'April',
-          'May',
-          'June',
-          'July',
-          'August',
-          'September',
-          'October',
-          'November',
-          'December'
-        ];
-
-      /**
-       * Variable of day
-       * @type {Array<string>}
-       * @memberof ShiftsService
-       */
-
-      const day: Array<string> =
-        [
-          'Monday',
-          'Tuesday',
-          'Wednesday',
-          'Thursday',
-          'Friday',
-          'Saturday',
-          'Sunday'
-        ];
-
-      /**
        * Variable of date
        * @type {any}
        * @memberof ShiftsService
@@ -116,7 +134,7 @@ export class ShiftsService {
 
       const date: any = new Date(dateStr);
 
-      return day[date.getDay()] + ',' + ' ' + month[date.getMonth()] + ' ' + date.getDate();
+      return DAY[date.getDay()] + ',' + ' ' + MONTH[date.getMonth()] + ' ' + date.getDate();
     }
 
     /**
@@ -165,6 +183,8 @@ export class ShiftsService {
       result.push(newObjectOfShifts[i]);
     }
 
+    this.dataService.dataSpinner$.next(false);
+    this.dataService.dataSmallSpinner$.next(false);
     return result.sort(this.sortFunction);
   }
 
@@ -183,52 +203,88 @@ export class ShiftsService {
     return dateA > dateB ? 1 : -1;
   }
 
-  /**
-   * Method for getting the information of shift on id
-   * @param {string} id - id shift
-   * @returns {IShift}
-   * @memberof ShiftsService
-   */
-
-  getshiftById(id: string): IShift {
-    if (this.shifts) {
-
-      return this.shifts.find(item => item.shiftID === id);
-    } else {
-
-      // console.log('dsdsd')
-      // let k;
-      // console.log(this.localStorage.retrieve('tab'))
-      // k = this.getShiftsFromApi(this.localStorage.retrieve('tab'));
-      //
-      // console.log('k', k)
-      // return k.find(item => item.ID === id);
-    }
-  }
-
-
-  // getShiftsFromApi(tab) {
+  // /**
+  //  * Method for getting date for details shifts
+  //  * @param {IShift} shift
+  //  * @returns {Array<object>}
+  //  * @memberof ShiftsService
+  //  */
   //
-  //    this.httpService.getShifts(tab).subscribe(
-  //         (value: any) => {
+  // getDate(shift: IShift): Array<object> {
   //
-  //             console.log('next', value);
-  //             let  l = [];
-  //                 for (const i in value) {
-  //                 l.push(value[i]);
-  //             }
-  //             return l;
-  //             // this.shifts.sortShifts(value);
-  //         },
-  //         (error) => {
-  //             // console.log(this.shiftsDataFAke);
-  //             console.log('value');
-  //             let  l = [];
-  //                 for (const i in this.fakeService.shiftsDataFake) {
-  //                 l.push(this.fakeService.shiftsDataFake[i]);
-  //             }
-  //             return l;
-  //         }
-  //     );
+  //   let t = new Date(shift.dateFrom).getMonth();
+  //   console.log('Date', t);
+  //
+  //   let date: Array<object>;
+  //
+  //   return date;
   // }
+
+  // /**
+  //  * Method for getting the information of shift on id
+  //  * @param {string} id - id shift
+  //  * @returns {IShift}
+  //  * @memberof ShiftsService
+  //  */
+  //
+  // getshiftById(id: string): IShift {
+  //   let array = [];
+  //
+  //   this.dataService[FLOW[this.localService.retrieve('tab')]].subscribe((resp) => {
+  //     console.log(this.localService.retrieve('tab'));
+  //     console.log(resp);
+  //     for (const key in resp) {
+  //       if (key === 'items') {
+  //         array = array.concat(resp[key]);
+  //         console.log(array);
+  //       }
+  //     }
+  //   });
+  //         return array.find(item => item.shiftID === id);
+  //
+  //
+  //   // if (array === []) {
+  //   // console.log('else');
+  //   // this.httpService.getShifts(this.localService.retrieve('tab'));
+  //   // this.getshiftById(id);
+  //   //
+  //   // }
+  //
+  //
+  //   // if (this.shifts) {
+  //   //
+  //   //   console.log(this.shifts.find(item => item.shiftID === id));
+  //   //
+  //   //
+  //   // } else {
+  //
+  //   // }
+  //
+  // }
+  //
+  //
+  // // getShiftsFromApi(tab) {
+  // //
+  // //    this.httpService.getShifts(tab).subscribe(
+  // //         (value: any) => {
+  // //
+  // //             console.log('next', value);
+  // //             let  l = [];
+  // //                 for (const i in value) {
+  // //                 l.push(value[i]);
+  // //             }
+  // //             return l;
+  // //             // this.shifts.sortShifts(value);
+  // //         },
+  // //         (error) => {
+  // //             // console.log(this.shiftsDataFAke);
+  // //             console.log('value');
+  // //             let  l = [];
+  // //                 for (const i in this.fakeService.shiftsDataFake) {
+  // //                 l.push(this.fakeService.shiftsDataFake[i]);
+  // //             }
+  // //             return l;
+  // //         }
+  // //     );
+  // // }
 }

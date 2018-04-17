@@ -71,6 +71,7 @@ export class HeaderShiftsComponent {
    * Creates an instance of DetailsShiftsComponent
    * @param {ActivatedRoute} route
    * @param {LocalStorageService} localStorage
+   * @param {DataService} dataService
    * @param {Router} router
    * @memberof HeaderShiftsComponent
    */

@@ -138,7 +138,7 @@ export class HttpService {
   addAllObject() {
     // TODO - delete for real api request
     console.log('!!!!!htttp addAllObject!!!!!');
-    // return this.http.get(BASEURL + '');
+    return this.http.get(BASEURL + '');
   }
 
 }

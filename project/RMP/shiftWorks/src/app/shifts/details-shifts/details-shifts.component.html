@@ -6,7 +6,8 @@
                      [closePage]="true">
   </app-header-shifts>
   <div class="details-shifts__content">
-    <app-form [form]="shiftForm" [tab]="tab"></app-form>
+    <!--<app-form [form]="shiftForm" [tab]="tab"></app-form>-->
+    <app-list-fields [shiftActive]="shiftActive" [status]="status"></app-list-fields>
   </div>
   <div class="details-shifts__footer" (click)="clickFooter()">
     {{footerDescription}}

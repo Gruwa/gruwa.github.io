@@ -1,4 +1,8 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, ViewEncapsulation} from '@angular/core';
+
+/**
+ * Spinner Component
+ */
 
 @Component({
   selector: 'app-spinner',
@@ -6,14 +10,4 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
   styleUrls: ['./spinner.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class SpinnerComponent implements OnInit {
-
-  public color: string = 'red';
-
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
-
-}
+export class SpinnerComponent { }

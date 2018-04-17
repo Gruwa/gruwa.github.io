@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {ITabTypes} from '../../interfaces/types.interface';
 import {Router} from '@angular/router';
 import {IForm} from '../../interfaces/form.interface';
+import {DatePipe} from '@angular/common';
 
 @Component({
   selector: 'app-form',
@@ -10,40 +11,41 @@ import {IForm} from '../../interfaces/form.interface';
 })
 export class FormComponent implements OnInit {
 
-    /**
-     * Variable availbleInput
-     * @type {boolean}
-     * @memberof FormComponent
-     */
+  /**
+   * Variable availbleInput
+   * @type {boolean}
+   * @memberof FormComponent
+   */
 
-    public availbleInput: boolean;
+  public availbleInput: boolean;
 
-    /**
-     * Variable status
-     * @type {string}
-     * @memberof FormComponent
-     */
+  /**
+   * Variable status
+   * @type {string}
+   * @memberof FormComponent
+   */
 
-    @Input() form: IForm;
+  @Input() form: IForm;
 
-    /**
-     * Variable status
-     * @type {string}
-     * @memberof FormComponent
-     */
+  /**
+   * Variable status
+   * @type {string}
+   * @memberof FormComponent
+   */
 
-    @Input() tab: ITabTypes;
+  @Input() tab: ITabTypes;
 
-  constructor(public router: Router) { }
+  constructor(public router: Router) {
+  }
 
-    /**
-     * Method ngOnInit
-     * @returns {void}
-     * @memberof FormComponent
-     */
+  /**
+   * Method ngOnInit
+   * @returns {void}
+   * @memberof FormComponent
+   */
 
   ngOnInit(): void {
-        this.tab === 'my requests' ? this.availbleInput = false : this.availbleInput = true;
+    this.tab === 'my requests' ? this.availbleInput = false : this.availbleInput = true;
   }
 
 }

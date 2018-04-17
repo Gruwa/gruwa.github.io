@@ -34,13 +34,13 @@ export class AuthService {
    * Creates an instance of HttpService
    * @param {HttpClient} http
    * @param {AuthGuardService} authGuardService
-   * @param {DataService} dataServer
+   * @param {DataService} dataService
    * @memberof AuthService
    */
 
   constructor(public http: HttpClient,
               public authGuardService: AuthGuardService,
-              public dataServer: DataService) {
+              public dataService: DataService) {
   }
 
   /**
@@ -50,7 +50,7 @@ export class AuthService {
    */
 
   onLogin(body: object) {
-    this.dataServer.dataLogin$ = this.http.post(BASEURL + '/login', body).map(
+    this.dataService.dataLogin$ = this.http.post(BASEURL + '/login', body).map(
       (resp: ILogin) => {
         console.log(resp); // TODO - DELETE when will be ready auth
         return this.authGuardService.guardLogin(resp['Items']);

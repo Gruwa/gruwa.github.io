@@ -6,10 +6,6 @@ app-root {
   display: block;
 }
 
-app-spinner {
-  display: none;
-}
-
 app-details-shifts {
   height: 100%;
   display: block;
@@ -36,6 +32,10 @@ app-schedule-login {
 }
 
 .app {
+
+  &__spinner {
+    display: none;
+  }
 
   &__spinner-display {
     display: block;

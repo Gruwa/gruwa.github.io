@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, Output} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ShiftsService} from '../Services/shifts.service';
 import {LocalStorageService} from 'ngx-webstorage';
@@ -11,6 +11,7 @@ import {IFooterRequest, IStatus} from '../../shared/interfaces/types.interface';
 import {ITabTypes} from '../../shared/interfaces/types.interface';
 import {DataService} from '../../shared/services/data.service';
 import {ContentShiftsComponent} from '../content-shifts/content-shifts.component';
+import 'rxjs/add/operator/takeUntil';
 
 /**
  * Variable FOOTER_REQUESTS
@@ -74,7 +75,7 @@ const SHIFT_REQUEST = {
   templateUrl: './details-shifts.component.html',
   styleUrls: ['./details-shifts.component.scss']
 })
-export class DetailsShiftsComponent implements OnInit, OnDestroy, AfterViewInit {
+export class DetailsShiftsComponent implements OnInit, OnDestroy {
 
   /**
    * Variable headerDescription
@@ -182,6 +183,7 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy, AfterViewInit 
     this.headerDescription = this.tab;
 
     if (this.dataService[`${FLOW[this.tab]}`] === undefined) {
+      console.log(this.tab);
       this.httpService.getShifts(this.tab);
       this.dataService[`${FLOW[this.tab]}`].takeUntil(this.ngUnsubscribe).subscribe();
     }
@@ -192,9 +194,11 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy, AfterViewInit 
       this.headerDescription = 'new request';
     }
 
-    this.initForm();
+    if (this.tab === 'my requests') {
+      this.initForm();
+    }
     this.getShifts();
-    this.setFooterRequest();
+    // this.setFooterRequest();
   }
 
   /**
@@ -236,6 +240,13 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy, AfterViewInit 
   getShifts(): void {
     this.dataService[`${FLOW[this.tab]}`].subscribe(
       (value) => {
+
+        for (const i in FLOW) {
+          if (this.dataService[`${FLOW[i]}`] === undefined) {
+            this.httpService.getShifts(<ITabTypes>i);
+          }
+        }
+
         let item: any = {};
 
         if (this.route.snapshot.params['id'] !== 'new') {
@@ -251,9 +262,35 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy, AfterViewInit 
 
         console.log(this.shiftActive);
 
+        if (this.tab === 'upcoming' || this.tab === 'available') {
+          if (this.shiftActive['item'].isDropRequest && this.shiftActive['item'].isPickupRequest) {
+            this.status = STATUS[`${SHIFT_REQUEST[this.tab]}`];
+            this.footerActive = false;
+          }
+          if (!this.shiftActive['item'].isDropRequest && this.shiftActive['item'].isPickupRequest) {
+            this.status = STATUS['pickup request'];
+            this.footerActive = false;
+          }
+          if (!this.shiftActive['item'].isDropRequest && !this.shiftActive['item'].isPickupRequest) {
+            this.status = STATUS['scheduled'];
+            this.footerActive = true;
+          }
+          if (this.shiftActive['item'].isDropRequest && !this.shiftActive['item'].isPickupRequest) {
+            this.status = STATUS['drop request'];
+            this.footerActive = false;
+          }
+        }
+        if (this.tab === 'my requests') {
+
+          // TODO - WHat about status?
+          this.status = 'What????';
+        }
+
         if (this.route.snapshot.params['id'] !== 'new') {
           this.setDataForm();
         }
+
+        this.setFooterRequest();
       }
     );
 
@@ -271,38 +308,6 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy, AfterViewInit 
    */
 
   setDataForm(): void {
-    // debugger
-    if (this.tab === ('upcoming' || 'available')) {
-      if (this.shiftActive['item'].isDropRequest && this.shiftActive['item'].isPickupRequest) {
-        this.status = STATUS[`${SHIFT_REQUEST[this.tab]}`];
-        this.footerActive = false;
-      }
-      if (!this.shiftActive['item'].isDropRequest && this.shiftActive['item'].isPickupRequest) {
-        this.status = STATUS['pickup request'];
-        this.footerActive = false;
-      }
-      if (!this.shiftActive['item'].isDropRequest && !this.shiftActive['item'].isPickupRequest) {
-        this.status = STATUS['scheduled'];
-        this.footerActive = true;
-      }
-      if (this.shiftActive['item'].isDropRequest && !this.shiftActive['item'].isPickupRequest) {
-        this.status = STATUS['drop request'];
-        this.footerActive = false;
-      }
-    }
-    if (this.tab === 'my requests') {
-
-      // TODO - WHat about status?
-      this.status = 'What????';
-    }
-
-    this.setFooterRequest();
-
-    console.log(this.status);
-
-    let t = new Date(this.shiftActive['item'].dateFrom).getDate();
-    console.log('Date', t);
-
     this.shiftForm = {
       shiftTitle: this.localStorage.retrieve('tab'),
       date: this.shiftActive['item'].dateFrom,
@@ -326,7 +331,6 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy, AfterViewInit 
    */
 
   setFooterRequest(): void {
-    // debugger
     if (this.tab === 'upcoming') {
       this.footerActive ? this.footerDescription = FOOTER_REQUESTS[0] : this.footerDescription = FOOTER_REQUESTS[1];
     }
@@ -391,17 +395,5 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy, AfterViewInit 
     console.log('SAVE');
     this.router.navigate(['/' + this.route.snapshot.params['group'], 'shifts']);
     // TODO - method for save shift
-  }
-
-  /**
-   * Method ngAfterViewInit
-   * @returns {void}
-   * @memberof ContentShiftsComponent
-   */
-
-  ngAfterViewInit(): void {
-    setTimeout(() => {
-      this.dataService.dataSpinner$.next(false);
-    });
   }
 }

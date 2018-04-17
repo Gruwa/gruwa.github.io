@@ -47,7 +47,6 @@ export class AuthInterceptor implements HttpInterceptor {
    */
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    this.dataService.dataSpinner$.next(true);
     if (this.localStorage.retrieve('token')
       && this.route.snapshot.children[0].params['group']
       && this.route.snapshot.children[0].children[0].params['id']) {

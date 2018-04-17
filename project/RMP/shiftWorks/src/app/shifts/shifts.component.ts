@@ -1,8 +1,9 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
 import {HttpService} from '../shared/services/http.service';
 import {DataService} from '../shared/services/data.service';
 import {LocalStorageService} from 'ngx-webstorage';
 import {ITabTypes} from '../shared/interfaces/types.interface';
+import {Subject} from 'rxjs/Subject';
 
 /**
  * TABS for navigate
@@ -24,7 +25,7 @@ const TABS: Array<ITabTypes> = [
   styleUrls: ['./shifts.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class ShiftsComponent implements OnInit {
+export class ShiftsComponent implements OnInit, OnDestroy {
 
   /**
    * Variable headerDescription
@@ -59,12 +60,28 @@ export class ShiftsComponent implements OnInit {
   public tabIndex: number;
 
   /**
+   * Variable spinner
+   * @type {boolean}
+   * @memberof ShiftsComponent
+   */
+
+  public spinner: boolean = false;
+
+  /**
    * Variable of tabActive
    * @type {string}
    * @memberof ShiftsComponent
    */
 
   public tabActive: ITabTypes = 'upcoming';
+
+  /**
+   * Variable of ngUnsubscribe
+   * @type {Subject<void>}
+   * @memberof ShiftsComponent
+   */
+
+  private ngUnsubscribe: Subject<void> = new Subject<void>();
 
   /**
    * Creates an instance of ShiftsComponent
@@ -86,6 +103,8 @@ export class ShiftsComponent implements OnInit {
    */
 
   ngOnInit(): void {
+    this.dataService.dataSmallSpinner$.takeUntil(this.ngUnsubscribe).subscribe(this.spinnerShow.bind(this));
+    this.dataService.dataSmallSpinner$.next(true);
     if (this.localStorage.retrieve('tab') !== undefined) {
       this.tabActive = this.localStorage.retrieve('tab');
     } else {
@@ -103,6 +122,29 @@ export class ShiftsComponent implements OnInit {
   selectedTabChange(value: any): void {
     this.tabActive = TABS[value.index];
     this.localStorage.store('tab', TABS[value.index]);
+    console.log(this.localStorage.retrieve('tab'));
+  }
+
+  /**
+   * Method fo show spinner
+   * @returns {void}
+   * @param {boolean} event
+   * @memberof ShiftsComponent
+   */
+
+  spinnerShow(event: boolean): void {
+    this.spinner = event;
+  }
+
+  /**
+   * Method ngOnDestroy
+   * @returns {void}
+   * @memberof ShiftsComponent
+   */
+
+  ngOnDestroy(): void {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
   }
 
 }

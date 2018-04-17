@@ -5,6 +5,7 @@ import {Subject} from 'rxjs/Subject';
 import 'rxjs/add/operator/takeUntil';
 import {DataService} from '../shared/services/data.service';
 import {AuthService} from './services/auth.service';
+import {HttpService} from '../shared/services/http.service';
 
 /**
  * Login Component
@@ -45,7 +46,8 @@ export class LoginComponent implements OnInit, OnDestroy {
   constructor(private router: Router,
               public authService: AuthService,
               public dataService: DataService,
-              private fb: FormBuilder) {
+              private fb: FormBuilder,
+              public httpService: HttpService) {
   }
 
   /**
@@ -81,6 +83,7 @@ export class LoginComponent implements OnInit, OnDestroy {
    */
 
   onSubmit() {
+    this.dataService.dataSpinner$.next(true);
     const valueOfLogin: object = {
       login: this.loginForm.get('login').value,
       password: this.loginForm.get('password').value,

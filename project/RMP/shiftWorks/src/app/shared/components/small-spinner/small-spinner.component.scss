@@ -1,10 +1,10 @@
-.spinner {
+.small-spinner {
   position: absolute;
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
-  background-color: #2e4099;
+  background-color: white;
   z-index: 1000;
   display: flex;
   flex-direction: row;
@@ -12,20 +12,15 @@
 
   &__wrapper {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-  }
-
-  &__logo {
-    width: 196px;
-    margin-bottom: 128px;
   }
 
   .spinner-progress {
 
     circle {
-      stroke: #fff;
+      stroke: #222a51;
     }
   }
 }

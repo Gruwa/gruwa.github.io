@@ -44,6 +44,14 @@ export class DataService {
   public dataSave$ = new Subject<any>();
 
   /**
+   * Created flow of data small spinner
+   * @type {Subject<any>}
+   * @memberof DataService
+   */
+
+  public dataSmallSpinner$ = new Subject<any>();
+
+  /**
    * Created flow of show spinner
    * @type {Subject<any>}
    * @memberof DataService
@@ -90,13 +98,5 @@ export class DataService {
 
 
   public dataGroupRestaurant$: Observable<object>;
-
-  /**
-   * Creates an instance of DataService
-   * @memberof DataService
-   */
-
-  constructor() {
-  }
 
 }

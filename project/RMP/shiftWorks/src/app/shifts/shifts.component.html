@@ -5,13 +5,15 @@
   </app-header-shifts>
   <div class="shifts__content">
     <mat-tab-group (selectChange)="selectedTabChange($event)"
-
                    [selectedIndex]=tabIndex>
       <div *ngFor="let tab of tabsTitle; let l = index">
         <mat-tab label={{tab}}
                  position=0
                  class="mat-tab-label">
           <app-content-shifts [tabActive]="l"></app-content-shifts>
+          <app-small-spinner [ngClass]="{'shifts__small-spinner-display' : spinner}"
+                             class="shifts__small-spinner">
+          </app-small-spinner>
         </mat-tab>
       </div>
     </mat-tab-group>

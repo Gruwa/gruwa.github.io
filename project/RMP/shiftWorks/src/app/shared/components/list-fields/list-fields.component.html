@@ -1,0 +1,34 @@
+<div class="list-fields">
+  <div class="list-fields__field">
+    <span class="list-fields__label">shift title</span>
+    <span class="list-fields__value">{{shift?.location}}</span>
+  </div>
+  <div class="list-fields__field">
+    <span class="list-fields__label">date</span>
+    <span class="list-fields__value">{{shift?.dateFrom | realDate: "L"}}</span>
+  </div>
+  <div class="list-fields__field">
+    <span class="list-fields__label">start time</span>
+    <span class="list-fields__value">{{shift?.dateFrom | date:"shortTime"}}</span>
+  </div>
+  <div class="list-fields__field">
+    <span class="list-fields__label">end time</span>
+    <span class="list-fields__value">{{shift?.dateTo | date:"shortTime"}}</span>
+  </div>
+  <div class="list-fields__field">
+    <span class="list-fields__label">location</span>
+    <span class="list-fields__value">{{shift?.location}}</span>
+  </div>
+  <div class="list-fields__field">
+    <span class="list-fields__label">station</span>
+    <span class="list-fields__value">{{shift?.station}}</span>
+  </div>
+  <div class="list-fields__field">
+    <span class="list-fields__label">job title</span>
+    <span class="list-fields__value">{{shift?.job}}</span>
+  </div>
+  <div class="list-fields__field">
+    <span class="list-fields__label">status</span>
+    <span class="list-fields__value">{{status}}</span>
+  </div>
+</div>

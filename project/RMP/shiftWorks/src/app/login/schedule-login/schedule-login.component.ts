@@ -1,6 +1,7 @@
 import {AfterViewInit, Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {DataService} from '../../shared/services/data.service';
 import {IGroupRestaurant} from '../../shared/interfaces/group-restaurant.interface';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-schedule-login',
@@ -30,10 +31,13 @@ export class ScheduleLoginComponent implements OnInit, AfterViewInit {
   /**
    * Creates an instance of ScheduleLoginComponent
    * @param {DataService} dataService
+   * @param {Router} router
    * @memberof ScheduleLoginComponent
    */
 
-  constructor(public dataService: DataService) { }
+  constructor(public dataService: DataService,
+              public router: Router) {
+  }
 
   /**
    * Method ngOnInit
@@ -42,10 +46,13 @@ export class ScheduleLoginComponent implements OnInit, AfterViewInit {
    */
 
   ngOnInit() {
-    this.dataService.dataLogin$.subscribe((res: Array<IGroupRestaurant>) => {
-      console.log(res);
-      this.groups = res;
-    });
+    if (this.dataService.dataLogin$ !== undefined) {
+      this.dataService.dataLogin$.subscribe((res: Array<IGroupRestaurant>) => {
+        this.groups = res;
+      });
+    } else {
+      this.router.navigate(['/login']);
+    }
   }
 
   /**
@@ -58,6 +65,16 @@ export class ScheduleLoginComponent implements OnInit, AfterViewInit {
     setTimeout(() => {
       this.dataService.dataSpinner$.next(false);
     });
+  }
+
+  /**
+   * Method showShifts
+   * @returns {void}
+   * @memberof ScheduleLoginComponent
+   */
+
+  showShifts(): void {
+    this.dataService.dataSpinner$.next('true');
   }
 
 }

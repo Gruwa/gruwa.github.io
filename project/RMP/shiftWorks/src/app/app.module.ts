@@ -17,6 +17,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {SpinnerComponent} from './shared/components/spinner/spinner.component';
 import {MaterialsModule} from './shared/components/materials/materials.module';
 
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -29,8 +30,7 @@ import {MaterialsModule} from './shared/components/materials/materials.module';
     MaterialsModule
   ],
   declarations: [
-    AppComponent,
-    SpinnerComponent
+    AppComponent
   ],
   providers: [
     {

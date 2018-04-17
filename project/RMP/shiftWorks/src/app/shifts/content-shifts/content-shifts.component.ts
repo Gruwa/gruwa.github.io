@@ -42,7 +42,7 @@ const TABS: Array<ITabTypes> = [
   templateUrl: './content-shifts.component.html',
   styleUrls: ['./content-shifts.component.scss']
 })
-export class ContentShiftsComponent implements OnInit, OnDestroy, AfterViewInit {
+export class ContentShiftsComponent implements OnInit, OnDestroy {
 
   /**
    * Variable of tab
@@ -114,6 +114,8 @@ export class ContentShiftsComponent implements OnInit, OnDestroy, AfterViewInit 
       }
     }
 
+    this.dataService.dataSmallSpinner$.next(true);
+
     this.dataService[`${FLOW[this.tab]}`].takeUntil(this.ngUnsubscribe).subscribe(
       (value) => {
         this.getShifts(value['items']);
@@ -130,18 +132,6 @@ export class ContentShiftsComponent implements OnInit, OnDestroy, AfterViewInit 
   ngOnDestroy(): void {
     this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();
-  }
-
-  /**
-   * Method ngAfterViewInit
-   * @returns {void}
-   * @memberof ContentShiftsComponent
-   */
-
-  ngAfterViewInit(): void {
-    setTimeout(() => {
-      this.dataService.dataSpinner$.next(false);
-    });
   }
 
   /**
