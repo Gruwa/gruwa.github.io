@@ -8,7 +8,7 @@
     "target": {
       "host": "localhost",
       "protocol": "http:",
-      "port": 4334
+      "port": 4335
     },
     "secure": false,
     "pathRewrite": {

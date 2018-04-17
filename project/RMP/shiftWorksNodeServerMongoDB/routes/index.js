@@ -162,8 +162,8 @@ var ShiftList = [
         'Station': StationList[0].Description,
         'LocationID': LocationList[0].ID,
         'Location': LocationList[0].Description,
-        'DateFrom': '8/31/2017 8:29:00 AM',
-        'DateTo': '8/31/2017 3:00:00 PM'
+        'DateFrom': faker.date.future(),
+        'DateTo': faker.date.future()
     },
     {
         'ShiftID': '14f7d015-c105-40cc-8bb6-b7d19ac1dd58',
@@ -176,7 +176,7 @@ var ShiftList = [
         'LocationID': LocationList[2].ID,
         'Location': LocationList[2].Description,
         'DateFrom': '8/31/2017 7:40:00 AM',
-        'DateTo': '8/31/2017 3:00:00 PM'
+        'DateTo': faker.date.future()
     },
     {
         'ShiftID': '22f7d015-c105-40cc-8bb6-b7d19ac1dd58',
@@ -188,8 +188,8 @@ var ShiftList = [
         'Station': StationList[3].Description,
         'LocationID': LocationList[4].ID,
         'Location': LocationList[4].Description,
-        'DateFrom': '3/31/2016 8:00:00 AM',
-        'DateTo': '3/31/2016 3:00:00 PM'
+        'DateFrom': faker.date.future(),
+        'DateTo': faker.date.future()
     },
     {
         'ShiftID': '33f7d015-c105-40cc-8bb6-b7d19ac1dd58',
@@ -202,7 +202,7 @@ var ShiftList = [
         'LocationID': LocationList[3].ID,
         'Location': LocationList[3].Description,
         'DateFrom': '2/31/2017 8:00:00 AM',
-        'DateTo': '2/31/2017 3:00:00 PM'
+        'DateTo': '2018-12-17T23:50:16.446Z'
     },
     {
         'ShiftID': '44f7d015-c105-40cc-8bb6-b7d19ac1dd58',
@@ -214,8 +214,8 @@ var ShiftList = [
         'Station': StationList[1].Description,
         'LocationID': LocationList[2].ID,
         'Location': LocationList[2].Description,
-        'DateFrom': '3/31/2017 8:00:00 AM',
-        'DateTo': '3/31/2017 3:00:00 PM'
+        'DateFrom': faker.date.future(),
+        'DateTo': faker.date.future()
     },
     {
         'ShiftID': '55f7d015-c105-40cc-8bb6-b7d19ac1dd58',
@@ -228,7 +228,7 @@ var ShiftList = [
         'LocationID': LocationList[1].ID,
         'Location': LocationList[1].Description,
         'DateFrom': '8/31/2017 8:15:00 AM',
-        'DateTo': '8/31/2017 3:15:00 PM'
+        'DateTo': faker.date.future()
     }
 ];
 
@@ -329,16 +329,18 @@ router.get('/shifts/upcoming', function (req, res, next) {
     var jobList = [
         JobList[0], JobList[1], JobList[2], JobList[3]
     ];
+    setTimeout(function () {
+        res.status(201).json({
+            Token: faker.random.uuid(),
+            Saccess: 'We are live!',
+            Message: "All upcoming",
+            Items: upcoming,
+            LocationList: locationList,
+            StationList: stationList,
+            JobList: jobList
+        });
+    }, 1500);
 
-    res.status(201).json({
-        Token: faker.random.uuid(),
-        Saccess: 'We are live!',
-        Message: "All upcoming",
-        Items: upcoming,
-        LocationList: locationList,
-        StationList: stationList,
-        JobList: jobList
-    });
 });
 
 /* Get shifts available*/
@@ -360,15 +362,18 @@ router.get('/shifts/available', function (req, res, next) {
         JobList[0], JobList[1], JobList[2], JobList[3]
     ];
 
-    res.status(201).json({
-        Token: faker.random.uuid(),
-        Saccess: 'We are live!',
-        Message: "All available",
-        Items: available,
-        LocationList: locationList,
-        StationList: stationList,
-        JobList: jobList
-    });
+    setTimeout(function () {
+        res.status(201).json({
+            Token: faker.random.uuid(),
+            Saccess: 'We are live!',
+            Message: "All available",
+            Items: available,
+            LocationList: locationList,
+            StationList: stationList,
+            JobList: jobList
+        });
+    }, 1500);
+
 });
 
 /* Get shifts myrequests*/
@@ -390,15 +395,18 @@ router.get('/shifts/myrequests', function (req, res, next) {
         JobList[0], JobList[1], JobList[2], JobList[3]
     ];
 
-    res.status(201).json({
-        Token: faker.random.uuid(),
-        Saccess: 'We are live!',
-        Message: "All available",
-        Items: myrequests,
-        LocationList: locationList,
-        StationList: stationList,
-        JobList: jobList
-    });
+    setTimeout(function () {
+        res.status(201).json({
+            Token: faker.random.uuid(),
+            Saccess: 'We are live!',
+            Message: "All available",
+            Items: myrequests,
+            LocationList: locationList,
+            StationList: stationList,
+            JobList: jobList
+        });
+    }, 1500);
+
 });
 
 /* logIn */
@@ -418,7 +426,7 @@ router.post('/login', function (req, res, next) {
                 StationList: Login.StationList,
                 JobList: Login.JobList
             });
-        }, 5500);
+        }, 1500);
     }
 
     if (req.body.login === 'test1@test.test') {
@@ -434,7 +442,7 @@ router.post('/login', function (req, res, next) {
                 StationList: Login.StationList,
                 JobList: Login.JobList
             });
-        }, 5500);
+        }, 1500);
 
     }
 
@@ -451,7 +459,7 @@ router.post('/login', function (req, res, next) {
                 StationList: Login.StationList,
                 JobList: Login.JobList
             });
-        }, 5500);
+        }, 1500);
 
     }
 });

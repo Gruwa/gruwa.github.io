@@ -26,7 +26,7 @@ FROM node:latest
 MAINTAINER Aleksey Zolotarenko
 
 ENV NODE_ENV=development 
-ENV PORT=4334
+ENV PORT=4335
 
 COPY      . /var/www
 WORKDIR   /var/www

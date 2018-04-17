@@ -7,7 +7,7 @@ services:
       context: .
       dockerfile: node.dockerfile
     ports:
-     - "4334:4334"
+     - "4335:4335"
     networks:
       - nodeapp-network
       
