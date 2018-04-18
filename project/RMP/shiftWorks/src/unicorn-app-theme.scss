@@ -1,8 +1,44 @@
+@import "./assets/styles/reset";
+@import "./assets/styles/start.scss";
 @import "./assets/styles/variables.scss";
-
 @import '~@angular/material/theming';
 @include mat-core();
 
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(assets/material-icons/MaterialIcons-Regular.eot);
+  src: local('Material Icons'),
+  local('MaterialIcons-Regular'),
+  url(assets/material-icons/MaterialIcons-Regular.woff2) format('woff2'),
+  url(assets/material-icons/MaterialIcons-Regular.woff) format('woff'),
+  url(assets/material-icons/MaterialIcons-Regular.ttf) format('truetype')
+}
+
+@font-face {
+  font-family: Lato;
+  src: url(assets/fonts/Lato/Lato-Regular.ttf);
+  font-weight: 400
+}
+
+@font-face {
+  font-family: Lato;
+  src: url(assets/fonts/Lato/Lato-Medium.ttf);
+  font-weight: 500
+}
+
+@font-face {
+  font-family: Lato;
+  src: url(assets/fonts/Lato/Lato-Bold.ttf);
+  font-weight: 600
+}
+
+@font-face {
+  font-family: Lato;
+  src: url(assets/fonts/Lato/Lato-Italic.ttf);
+  font-style: italic
+}
 
 $dcportal-app-primary: mat-palette($mat-indigo);
 $dcportal-app-accent: mat-palette($mat-blue);

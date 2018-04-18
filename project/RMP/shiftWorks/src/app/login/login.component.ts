@@ -46,8 +46,8 @@ export class LoginComponent implements OnInit, OnDestroy {
   constructor(private router: Router,
               public authService: AuthService,
               public dataService: DataService,
-              private fb: FormBuilder,
-              public httpService: HttpService) {
+              // public httpService: HttpService, // TODO - delete when will be ready real api
+              private fb: FormBuilder) {
   }
 
   /**
@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.initForm();
     // TODO ADD data to the fake server
-    // this.httpService.addAllObject().subscribe();
+    // this.httpService.addAllObject().subscribe(); // TODO - delete when will be ready real api
   }
 
   /**
@@ -82,7 +82,7 @@ export class LoginComponent implements OnInit, OnDestroy {
    * @memberof LoginComponent
    */
 
-  onSubmit() {
+  onSubmit(): void {
     this.dataService.dataSpinner$.next(true);
     const valueOfLogin: object = {
       login: this.loginForm.get('login').value,

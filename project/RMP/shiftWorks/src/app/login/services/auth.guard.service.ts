@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/map';
-import {ILogin} from '../../shared/interfaces/login.interface';
 import {IGroupRestaurant} from '../../shared/interfaces/group-restaurant.interface';
 
 /**
@@ -12,12 +11,12 @@ import {IGroupRestaurant} from '../../shared/interfaces/group-restaurant.interfa
 export class AuthGuardService {
 
   /**
-   * Method for guard shifts
-   * @returns {ILogin}
+   * Method for guard groups of restaurant
+   * @returns {Array<IGroupRestaurant>}
    * @memberof AuthGuardService
    */
 
-  guardLogin(value) {
+  guardLogin(value): Array<IGroupRestaurant> {
 
     /**
      * Variable of GuardObj

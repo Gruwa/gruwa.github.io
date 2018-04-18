@@ -3,7 +3,6 @@ import {ActivatedRoute} from '@angular/router';
 import 'rxjs/add/operator/pluck';
 import 'rxjs/add/operator/switchMap';
 import {IShift} from '../../interfaces/shift.interface';
-import {ShiftsService} from '../../../shifts/Services/shifts.service';
 import {LocalStorageService} from 'ngx-webstorage';
 import {DataService} from '../../services/data.service';
 
@@ -17,6 +16,11 @@ const FLOW = {
   available: 'dataShiftsAvailable$'
 };
 
+/**
+ * List Fields Component
+ * for showing some fields of shifts
+ */
+
 @Component({
   selector: 'app-list-fields',
   templateUrl: './list-fields.component.html',
@@ -24,21 +28,52 @@ const FLOW = {
 })
 export class ListFieldsComponent implements OnInit {
 
+  /**
+   * Variable shift
+   * @type {IShift}
+   * @memberof ListFieldsComponent
+   */
+
   public shift: IShift;
 
-  @Input() shiftActive;
+  /**
+   * Input variable shiftActive
+   * @type {object}
+   * @memberof ListFieldsComponent
+   */
 
-  @Input() status;
+  @Input() shiftActive: object;
+
+  /**
+   * Input variable status
+   * @type {string}
+   * @memberof ListFieldsComponent
+   */
+
+  @Input() status: string;
+
+  /**
+   * Creates an instance of ListFieldsComponent
+   * @param {ActivatedRoute} route
+   * @param {LocalStorageService} localStorage
+   * @param {DataService} dataService
+   * @memberof ListFieldsComponent
+   */
 
   constructor(public route: ActivatedRoute,
-              public shiftsService: ShiftsService,
-              public localService: LocalStorageService,
+              public localStorage: LocalStorageService,
               public dataService: DataService) {
   }
 
-  ngOnInit() {
+  /**
+   * Method ngOnInit
+   * @returns {void}
+   * @memberof ListFieldsComponent
+   */
+
+  ngOnInit(): void {
     if (this.shiftActive === undefined) {
-      this.dataService[FLOW[this.localService.retrieve('tab')]].subscribe((resp) => {
+      this.dataService[FLOW[this.localStorage.retrieve('tab')]].subscribe((resp) => {
         let array = [];
 
         for (const key in resp) {

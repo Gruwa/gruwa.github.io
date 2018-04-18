@@ -75,23 +75,6 @@ export class HttpService {
               public localStorage: LocalStorageService) {
   }
 
-  // /**
-  //  * Method for get getGroupHeadersObject
-  //  * @returns {IAnyObject}
-  //  * @memberof HttpService
-  //  */
-  //
-  // getGroupHeadersObject(): IAnyObject {
-  //   const headersObject = {};
-  //   const id = this.route.snapshot.children[0].children[0].params['id'];
-  //   console.log(this.route.snapshot);
-  //   if (id) {
-  //     headersObject['id'] = id;
-  //   }
-  //
-  //   return headersObject;
-  // }
-
   /**
    * Method for get shifts
    * @param {ITabTypes} tab

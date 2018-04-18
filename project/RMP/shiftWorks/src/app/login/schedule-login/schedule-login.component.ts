@@ -3,6 +3,10 @@ import {DataService} from '../../shared/services/data.service';
 import {IGroupRestaurant} from '../../shared/interfaces/group-restaurant.interface';
 import {Router} from '@angular/router';
 
+/**
+ * Schedule Login Component
+ */
+
 @Component({
   selector: 'app-schedule-login',
   templateUrl: './schedule-login.component.html',
@@ -45,7 +49,7 @@ export class ScheduleLoginComponent implements OnInit, AfterViewInit {
    * @memberof ScheduleLoginComponent
    */
 
-  ngOnInit() {
+  ngOnInit(): void {
     if (this.dataService.dataLogin$ !== undefined) {
       this.dataService.dataLogin$.subscribe((res: Array<IGroupRestaurant>) => {
         this.groups = res;
@@ -61,7 +65,7 @@ export class ScheduleLoginComponent implements OnInit, AfterViewInit {
    * @memberof ScheduleLoginComponent
    */
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     setTimeout(() => {
       this.dataService.dataSpinner$.next(false);
     });
