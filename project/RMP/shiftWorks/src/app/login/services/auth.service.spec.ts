@@ -12,6 +12,7 @@ class FakeAuthGuardService {
 }
 
 class FakeDataService {
+
   /**
    * Created flow of login
    * @type {Observable<object>}
