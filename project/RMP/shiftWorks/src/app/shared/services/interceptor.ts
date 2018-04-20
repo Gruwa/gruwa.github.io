@@ -92,10 +92,12 @@ export class AuthInterceptor implements HttpInterceptor {
         if (err instanceof HttpErrorResponse) {
           if (err.status === 404) {
             console.log('error 404');
+            this.dataService.dataSpinner$.next(false);
             this.router.navigate(['/404']);
           }
           if (err.status === 401) {
             console.log('error 401');
+            this.dataService.dataSpinner$.next(false);
             this.router.navigate(['/login']);
           }
         }

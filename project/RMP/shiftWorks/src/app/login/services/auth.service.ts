@@ -44,18 +44,28 @@ export class AuthService {
   }
 
   /**
-   * Method for get shifts
+   * Method for put shifts in flow
    * @param {object} body
    * @memberof AuthService
    */
 
   onLogin(body: object) {
-    this.dataService.dataLogin$ = this.http.post(BASEURL + '/login', body).map(
+    this.dataService.dataLogin$ = this.onLoginRequest(body).map(
       (resp: ILogin) => {
         console.log(resp); // TODO - DELETE when will be ready auth
         return this.authGuardService.guardLogin(resp['Items']);
       }
     ).publishReplay(1).refCount();
     console.log('!!!!!AuthService - GET LOGIN!!!!!'); // TODO - DELETE when will be ready auth
+  }
+
+  /**
+   * Method for get shifts
+   * @param {object} body
+   * @memberof AuthService
+   */
+
+  onLoginRequest(body: object) {
+    return this.http.post(BASEURL + '/login', body);
   }
 }
