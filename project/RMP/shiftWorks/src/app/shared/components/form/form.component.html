@@ -4,7 +4,7 @@
       [class.error-input-block]="shiftGroup.get('shiftTitle').hasError('required') && shiftGroup.get('shiftTitle').touched">
       <input matInput
              placeholder="Request title"
-             [formControl]="shiftGroup.get('shiftTitle')">
+             [formControl]="shiftGroup.get('shiftTitle')" required>
     </mat-input-container>
     <div class="alert form-component__alert-danger"
          [ngClass]="{'form-component__display': shiftGroup.get('shiftTitle').hasError('required') && shiftGroup.get('shiftTitle').touched}">
@@ -32,12 +32,12 @@
              [formControl]="shiftGroup.get('endTime')">
     </mat-form-field>
   </div>
-  <div class="list-fields__field">
-    <span>End time</span>
-    <input atp-time-picker
-           placeholder="End time"
-           [formControl]="shiftGroup.get('endTime')">
-  </div>
+  <!--<div class="list-fields__field">-->
+  <!--<span>End time</span>-->
+  <!--<input atp-time-picker-->
+  <!--placeholder="End time"-->
+  <!--[formControl]="shiftGroup.get('endTime')">-->
+  <!--</div>-->
   <div class="form-component__input-group">
     <mat-form-field class="example-full-width">
       <mat-select placeholder="Location" [(value)]="shiftGroup.get('locationID').value">
@@ -65,46 +65,11 @@
       </mat-select>
     </mat-form-field>
   </div>
-  <!--<mat-form-field class="example-full-width" *ngIf="router.url == '/shifts/new'">-->
-  <!--<input matInput-->
-  <!--readonly={{availbleInput}}-->
-  <!--placeholder="Station"-->
-  <!--value={{shiftForm.station}}>-->
-  <!--</mat-form-field>-->
-  <!--<mat-form-field class="example-full-width" *ngIf="router.url == '/shifts/new'">-->
-  <!--<input matInput-->
-  <!--readonly={{availbleInput}}-->
-  <!--placeholder="Job title"-->
-  <!--value={{shiftForm.jobTitle}}>-->
-  <!--</mat-form-field>-->
-  <!--<mat-form-field class="example-full-width" *ngIf="router.url != '/shifts/new'">-->
-  <!--<mat-select placeholder={{shiftForm.locationDescription}}-->
-  <!--disableRipple={{availbleInput}}>-->
-  <!--<mat-option *ngFor="let location of shiftForm.locationsGroup" [value]="location.name">-->
-  <!--{{ location.name }}-->
-  <!--</mat-option>-->
-  <!--</mat-select>-->
-  <!--</mat-form-field>-->
-  <!--<mat-form-field class="example-full-width" *ngIf="router.url != '/shifts/new'">-->
-  <!--<mat-select placeholder={{shiftForm.stationDescription}}-->
-  <!--disableRipple={{availbleInput}}>-->
-  <!--<mat-option *ngFor="let station of shiftForm.stationsGroup" [value]="station.name">-->
-  <!--{{ station.name }}-->
-  <!--</mat-option>-->
-  <!--</mat-select>-->
-  <!--</mat-form-field>-->
-  <!--<mat-form-field class="example-full-width" *ngIf="router.url != '/shifts/new'">-->
-  <!--<mat-select placeholder={{shiftForm.jobTitleDescription}}-->
-  <!--disabled={{availbleInput}}>-->
-  <!--<mat-option *ngFor="let jobTitle of shiftForm.jobsTitleGroup" [value]="jobTitle.name">-->
-  <!--{{ jobTitle.name }}-->
-  <!--</mat-option>-->
-  <!--</mat-select>-->
-  <!--</mat-form-field>-->
-  <!--<mat-form-field class="example-full-width">-->
-  <!--<input matInput-->
-  <!--readonly=true-->
-  <!--placeholder={{shiftForm.statusDescription}}-->
-  <!--value={{shiftForm.status}}>-->
-  <!--</mat-form-field>-->
+  <div class="form-component__input-group">
+    <mat-form-field class="example-full-width">
+      <input matInput
+             placeholder="Status"
+             [formControl]="shiftGroup.get('status')">
+    </mat-form-field>
+  </div>
 </form>

@@ -10,7 +10,7 @@
         <mat-card-content>
           <mat-input-container
             [class.error-input-block]="loginForm.get('login').hasError('required') && loginForm.get('login').touched">
-            <input matInput placeholder="Login" formControlName="login" required>
+            <input matInput placeholder="Login" formControlName="login">
           </mat-input-container>
           <div class="alert alert-danger"
                [ngClass]="{'login-block-wrap__display': loginForm.get('login').hasError('required') && loginForm.get('login').touched}">
@@ -18,7 +18,7 @@
           </div>
           <mat-input-container
             [class.error-input-block]="loginForm.get('password').hasError('required') && loginForm.get('password').touched">
-            <input matInput type="password" placeholder="Password" formControlName="password" required>
+            <input matInput type="password" placeholder="Password" formControlName="password">
           </mat-input-container>
           <div class="alert alert-danger"
                [ngClass]="{'login-block-wrap__display': loginForm.get('password').hasError('required') && loginForm.get('password').touched}">

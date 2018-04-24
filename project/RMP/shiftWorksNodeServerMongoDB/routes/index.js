@@ -186,8 +186,8 @@ var ShiftList = [
         'Job': JobList[1].Description,
         'StationID': StationList[3].ID,
         'Station': StationList[3].Description,
-        'LocationID': LocationList[4].ID,
-        'Location': LocationList[4].Description,
+        'LocationID': LocationList[0].ID,
+        'Location': LocationList[0].Description,
         'DateFrom': faker.date.future(),
         'DateTo': faker.date.future()
     },
@@ -330,9 +330,9 @@ router.get('/shifts/upcoming', function (req, res, next) {
         JobList[0], JobList[1], JobList[2], JobList[3]
     ];
     setTimeout(function () {
-        res.status(201).json({
+        res.status(200).json({
             Token: faker.random.uuid(),
-            Saccess: 'We are live!',
+            Success: 'We are live!',
             Message: "All upcoming",
             Items: upcoming,
             LocationList: locationList,
@@ -363,9 +363,9 @@ router.get('/shifts/available', function (req, res, next) {
     ];
 
     setTimeout(function () {
-        res.status(201).json({
+        res.status(200).json({
             Token: faker.random.uuid(),
-            Saccess: 'We are live!',
+            Success: 'We are live!',
             Message: "All available",
             Items: available,
             LocationList: locationList,
@@ -396,9 +396,9 @@ router.get('/shifts/myrequests', function (req, res, next) {
     ];
 
     setTimeout(function () {
-        res.status(201).json({
+        res.status(200).json({
             Token: faker.random.uuid(),
-            Saccess: 'We are live!',
+            Success: 'We are live!',
             Message: "All available",
             Items: myrequests,
             LocationList: locationList,
@@ -417,7 +417,7 @@ router.post('/login', function (req, res, next) {
         var token = ',zsnfgv,nb,nb,xcnbz,cnbknbkznbkldzgkndbnklgbdnlkfnklmvz';
 
         setTimeout(function () {
-            res.status(201).json({
+            res.status(200).json({
                 Token: token,
                 Success: 'true',
                 message: 'Login success',
@@ -429,38 +429,45 @@ router.post('/login', function (req, res, next) {
         }, 1500);
     }
 
-    if (req.body.login === 'test1@test.test') {
-        var token = ',zsnfdfhfmgdj,k.jl.fmdghnsnmjkhiylflugdlykfjhknlkfnklmvz';
+    // if (req.body.login === 'test1@test.test') {
+    //     var token = ',zsnfdfhfmgdj,k.jl.fmdghnsnmjkhiylflugdlykfjhknlkfnklmvz';
+    //
+    //     setTimeout(function () {
+    //         res.status(201).json({
+    //             Token: token,
+    //             Success: 'true',
+    //             message: 'Login success',
+    //             Items: Login.Items,
+    //             LocationList: Login.LocationList,
+    //             StationList: Login.StationList,
+    //             JobList: Login.JobList
+    //         });
+    //     }, 1500);
+    //
+    // }
+    //
+    // if (req.body.login === 'test2@test.test') {
+    //     var token = ',zsnfgccdccecsddsdsfdgxfnfukuo;ipkjfgukujhryjtyjhthryjynlkfnklmvz';
+    //
+    //     setTimeout(function () {
+    //         res.status(201).json({
+    //             Token: token,
+    //             Success: 'true',
+    //             message: 'Login success',
+    //             Items: Login.Items,
+    //             LocationList: Login.LocationList,
+    //             StationList: Login.StationList,
+    //             JobList: Login.JobList
+    //         });
+    //     }, 1500);
+    //
+    // }
 
-        setTimeout(function () {
-            res.status(201).json({
-                Token: token,
-                Success: 'true',
-                message: 'Login success',
-                Items: Login.Items,
-                LocationList: Login.LocationList,
-                StationList: Login.StationList,
-                JobList: Login.JobList
-            });
-        }, 1500);
-
-    }
-
-    if (req.body.login === 'test2@test.test') {
-        var token = ',zsnfgccdccecsddsdsfdgxfnfukuo;ipkjfgukujhryjtyjhthryjynlkfnklmvz';
-
-        setTimeout(function () {
-            res.status(201).json({
-                Token: token,
-                Success: 'true',
-                message: 'Login success',
-                Items: Login.Items,
-                LocationList: Login.LocationList,
-                StationList: Login.StationList,
-                JobList: Login.JobList
-            });
-        }, 1500);
-
+    if (req.body.login  !== 'test@test.test') {
+        return res.status(401).json({
+            statusText: 'Unauthorized',
+            error: {message: 'Invalid login credentials'}
+        });
     }
 });
 

@@ -50,8 +50,6 @@ export class FormComponent implements OnInit {
 
   public shiftGroup: FormGroup;
 
-  selected: string;
-
   /**
    * Input variable shiftActive
    * @type {object}
@@ -61,8 +59,8 @@ export class FormComponent implements OnInit {
   @Input() shiftActive: object;
 
   /**
-   * Variable status
-   * @type {string}
+   * Variable tab
+   * @type {ITabTypes}
    * @memberof FormComponent
    */
 
@@ -82,14 +80,7 @@ export class FormComponent implements OnInit {
 
   ngOnInit(): void {
     this.tab === 'my requests' ? this.availbleInput = false : this.availbleInput = true;
-
-    if (this.route.snapshot.params['id'] !== 'new') {
-      this.initForm();
-      this.setDataForm();
-    } else {
-      this.initForm();
-    }
-
+    this.initForm();
   }
 
   /**
@@ -109,6 +100,10 @@ export class FormComponent implements OnInit {
       job: ['', [Validators.required]],
       status: ['', [Validators.required]]
     });
+
+    if (this.route.snapshot.params['id'] !== 'new') {
+      this.setDataForm();
+    }
   }
 
   /**
@@ -119,23 +114,20 @@ export class FormComponent implements OnInit {
 
   setDataForm(): void {
 
+    // if ( ) {
+    //   this.shiftActive[item]
+    // }
+
     console.log(this.shiftActive);
-    this.selected = this.shiftActive['item'].locationID;
     this.shiftGroup = this.fb.group({
       shiftTitle: this.localStorage.retrieve('tab'),
       date: moment(this.shiftActive['item'].dateFrom),
       startTime: this.shiftActive['item'].dateFrom,
       endTime: this.shiftActive['item'].dateTo,
-      // location: this.shiftActive['item'].location,
       locationID: this.shiftActive['item'].locationID,
       stationID: this.shiftActive['item'].stationID,
       jobID: this.shiftActive['item'].jobID,
-      // station: this.shiftActive['item'].station,
-      // job: this.shiftActive['item'].job,
-      status: 'this.status',
-      // locationList: this.shiftActive['locationList'],
-      // stationList: this.shiftActive['stationList'],
-      // jobList: this.shiftActive['jobList']
+      status: 'this.status'
     });
     console.log('form', this.shiftGroup);
     console.log(this.shiftGroup.get('locationID').value);
