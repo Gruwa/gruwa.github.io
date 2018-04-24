@@ -11,39 +11,60 @@
       Title field is required.
     </div>
   </div>
-  <mat-form-field class="example-full-width">
-    <input matInput
-           placeholder="Date"
-           [formControl]="shiftGroup.get('date')">
-  </mat-form-field>
-  <mat-form-field class="form-component__group example-full-width">
-    <input matInput
-           placeholder="Start time"
-           [formControl]="shiftGroup.get('startTime')">
-  </mat-form-field>
-  <mat-form-field class="list-fields__field">
-    <input matInput
-           placeholder="End time"
-           [formControl]="shiftGroup.get('endTime')">
-  </mat-form-field>
-
+  <div class="form-component__input-group">
+    <mat-form-field class="example-full-width">
+      <input matInput
+             placeholder="Date"
+             [formControl]="shiftGroup.get('date')">
+    </mat-form-field>
+  </div>
+  <div class="form-component__input-group">
+    <mat-form-field class="form-component__group example-full-width">
+      <input matInput
+             placeholder="Start time"
+             [formControl]="shiftGroup.get('startTime')">
+    </mat-form-field>
+  </div>
+  <div class="form-component__input-group">
+    <mat-form-field class="list-fields__field">
+      <input matInput
+             placeholder="End time"
+             [formControl]="shiftGroup.get('endTime')">
+    </mat-form-field>
+  </div>
   <div class="list-fields__field">
     <span>End time</span>
     <input atp-time-picker
            placeholder="End time"
            [formControl]="shiftGroup.get('endTime')">
   </div>
-
-  <mat-form-field class="example-full-width">
-    <mat-select placeholder="Location" [formControl]="shiftGroup.get('locationID')">
-      <mat-option *ngFor="let location of shiftActive['locationList']" value="location.id">
-        {{ location.description }}
-      </mat-option>
-    </mat-select>
-    <!--<input matInput-->
-           <!--placeholder="Location"-->
-           <!--[formControl]="shiftGroup.get('location')">-->
-  </mat-form-field>
+  <div class="form-component__input-group">
+    <mat-form-field class="example-full-width">
+      <mat-select placeholder="Location" [(value)]="shiftGroup.get('locationID').value">
+        <mat-option *ngFor="let location of shiftActive['locationList']" [value]="location.id">
+          {{ location.description }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="form-component__input-group">
+    <mat-form-field class="example-full-width">
+      <mat-select placeholder="Station" [(value)]="shiftGroup.get('stationID').value">
+        <mat-option *ngFor="let station of shiftActive['stationList']" [value]="station.id">
+          {{ station.description }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="form-component__input-group">
+    <mat-form-field class="example-full-width">
+      <mat-select placeholder="Job title" [(value)]="shiftGroup.get('jobID').value">
+        <mat-option *ngFor="let job of shiftActive['jobList']" [value]="job.id">
+          {{ job.description }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
   <!--<mat-form-field class="example-full-width" *ngIf="router.url == '/shifts/new'">-->
   <!--<input matInput-->
   <!--readonly={{availbleInput}}-->
