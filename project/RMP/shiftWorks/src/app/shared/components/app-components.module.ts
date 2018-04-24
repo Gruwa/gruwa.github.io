@@ -9,12 +9,14 @@ import {SpinnerComponent} from './spinner/spinner.component';
 import {SmallSpinnerComponent} from './small-spinner/small-spinner.component';
 import {ListFieldsComponent} from './list-fields/list-fields.component';
 import {PipeModule} from '../pipes/pipe.module';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     MaterialsModule,
-    PipeModule.forRoot()
+    PipeModule.forRoot(),
+    ReactiveFormsModule
   ],
   declarations: [
     ShiftBlockComponent,

@@ -5,7 +5,7 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/publishReplay';
 import 'rxjs/add/observable/from';
 import {ITabTypes} from '../../shared/interfaces/types.interface';
-import {AuthGuardService} from './auth.guard.service';
+import {AuthGuardService} from './auth-guard.service';
 import {ILogin} from '../../shared/interfaces/login.interface';
 import {DataService} from '../../shared/services/data.service';
 

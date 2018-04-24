@@ -6,7 +6,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {AppComponentsModule} from '../shared/components/app-components.module';
 import {MaterialsModule} from '../shared/components/materials/materials.module';
 import {AuthService} from './services/auth.service';
-import {AuthGuardService} from './services/auth.guard.service';
+import {AuthGuardService} from './services/auth-guard.service';
 import {ScheduleLoginComponent} from './schedule-login/schedule-login.component';
 
 export const routes: Routes = [

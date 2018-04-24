@@ -10,18 +10,6 @@
   display: none !important;
 }
 
-.login-block-wrap {
-  flex-grow: 1;
-  background-color: #fafbfc;
-  height: 100%;
-
-  &__footer-wrap {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-  }
-}
-
 .login-header {
   background: #1f2e4d;
   height: 310px;
@@ -114,10 +102,28 @@ form {
   margin: -24px 0 10px;
   font-size: 90%;
   color: $cRed;
-  display: block;
+  display: none;
   min-height: 25px;
   line-height: 30px;
+  margin-bottom: -6px;
 }
+
+.login-block-wrap {
+  flex-grow: 1;
+  background-color: #fafbfc;
+  height: 100%;
+
+  &__display {
+    display: block;
+  }
+
+  &__footer-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+
 
 input {
   border-radius: 0;

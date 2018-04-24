@@ -10,8 +10,10 @@ import {
   MatListModule,
   MatSelectModule,
   MatTabsModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatDatepickerModule,
 } from '@angular/material';
+import {AmazingTimePickerModule} from 'amazing-time-picker';
 
 @NgModule({
   imports: [
@@ -26,7 +28,9 @@ import {
     MatCheckboxModule,
     MatIconModule,
     MatTabsModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    AmazingTimePickerModule,
+    MatDatepickerModule
   ],
   exports: [
     MatTabsModule,
@@ -39,7 +43,9 @@ import {
     MatCheckboxModule,
     MatIconModule,
     MatTabsModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    AmazingTimePickerModule,
+    MatDatepickerModule
   ]
 })
 export class MaterialsModule {

@@ -101,13 +101,13 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
 
   public shiftActive: object;
 
-  /**
-   * Variable shiftForm
-   * @type {IForm}
-   * @memberof DetailsShiftsComponent
-   */
-
-  public shiftForm: IForm;
+  // /**
+  //  * Variable shiftForm
+  //  * @type {IForm}
+  //  * @memberof DetailsShiftsComponent
+  //  */
+  //
+  // public shiftForm: IForm;
 
   /**
    * Variable of tab
@@ -194,9 +194,10 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
       this.headerDescription = 'new request';
     }
 
-    if (this.tab === 'my requests') {
-      this.initForm();
-    }
+    // if (this.tab === 'my requests') {
+    //   this.initForm();
+    // }
+
     this.getShifts();
     // this.setFooterRequest();
   }
@@ -212,24 +213,24 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
     this.ngUnsubscribe.complete();
   }
 
-  /**
-   * Method for init form
-   * @returns {void}
-   * @memberof DetailsShiftsComponent
-   */
-
-  initForm(): void {
-    this.shiftForm = {
-      shiftTitle: '',
-      date: '',
-      startTime: '',
-      endTime: '',
-      location: '',
-      station: '',
-      job: '',
-      status: ''
-    };
-  }
+  // /**
+  //  * Method for init form
+  //  * @returns {void}
+  //  * @memberof DetailsShiftsComponent
+  //  */
+  //
+  // initForm(): void {
+  //   this.shiftForm = {
+  //     shiftTitle: '',
+  //     date: '',
+  //     startTime: '',
+  //     endTime: '',
+  //     location: '',
+  //     station: '',
+  //     job: '',
+  //     status: ''
+  //   };
+  // }
 
   /**
    * Method getDataShift
@@ -285,10 +286,10 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
           // TODO - WHat about status?
           this.status = 'What????';
         }
-
-        if (this.route.snapshot.params['id'] !== 'new') {
-          this.setDataForm();
-        }
+        //
+        // if (this.route.snapshot.params['id'] !== 'new') {
+        //   this.setDataForm();
+        // }
 
         this.setFooterRequest();
       }
@@ -301,28 +302,28 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
 
   }
 
-  /**
-   * Method for set data in form
-   * @returns {void}
-   * @memberof DetailsShiftsComponent
-   */
-
-  setDataForm(): void {
-    this.shiftForm = {
-      shiftTitle: this.localStorage.retrieve('tab'),
-      date: this.shiftActive['item'].dateFrom,
-      startTime: this.shiftActive['item'].dateFrom,
-      endTime: this.shiftActive['item'].dateTo,
-      location: this.shiftActive['item'].location,
-      station: this.shiftActive['item'].station,
-      job: this.shiftActive['item'].job,
-      status: this.status,
-      locationList: this.shiftActive['locationList'],
-      stationList: this.shiftActive['stationList'],
-      jobList: this.shiftActive['jobList']
-    };
-    console.log('form', this.shiftForm);
-  }
+  // /**
+  //  * Method for set data in form
+  //  * @returns {void}
+  //  * @memberof DetailsShiftsComponent
+  //  */
+  //
+  // setDataForm(): void {
+  //   this.shiftForm = {
+  //     shiftTitle: this.localStorage.retrieve('tab'),
+  //     date: this.shiftActive['item'].dateFrom,
+  //     startTime: this.shiftActive['item'].dateFrom,
+  //     endTime: this.shiftActive['item'].dateTo,
+  //     location: this.shiftActive['item'].location,
+  //     station: this.shiftActive['item'].station,
+  //     job: this.shiftActive['item'].job,
+  //     status: this.status,
+  //     locationList: this.shiftActive['locationList'],
+  //     stationList: this.shiftActive['stationList'],
+  //     jobList: this.shiftActive['jobList']
+  //   };
+  //   console.log('form', this.shiftForm);
+  // }
 
   /**
    * Method for set description for FooterRequest
@@ -364,7 +365,6 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
         this.shiftActive['item'].isDropRequest = false;
         this.shiftActive['item'].isPickupRequest = false;
         this.status = STATUS['scheduled'];
-        // this.setDataForm();
       }
     }
     if (this.tab === 'my requests') {

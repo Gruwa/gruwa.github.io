@@ -5,9 +5,7 @@ import {HttpGuardService} from './http-guard.service';
 import 'rxjs/add/operator/publishReplay';
 import 'rxjs/add/observable/from';
 import {DataService} from './data.service';
-import {ActivatedRoute} from '@angular/router';
 import {ITabTypes} from '../interfaces/types.interface';
-import {LocalStorageService} from 'ngx-webstorage';
 
 /**
  * BASEURL of api
@@ -63,16 +61,13 @@ export class HttpService {
    * @param {HttpClient} http
    * @param {HttpGuardService} httpGuardService
    * @param {DataService} dataService
-   * @param {ActivatedRoute} route
    * @memberof HttpService
    */
 
 
   constructor(public http: HttpClient,
               public httpGuardService: HttpGuardService,
-              public dataService: DataService,
-              public route: ActivatedRoute,
-              public localStorage: LocalStorageService) {
+              public dataService: DataService) {
   }
 
   /**
@@ -84,7 +79,7 @@ export class HttpService {
   getShifts(tab: ITabTypes = 'upcoming') {
 
     if (TABS[tab]) {
-      this.dataService[`${FLOW[tab]}`] = this.http.get(BASEURL + '/shifts/' + TABS[tab]).map(
+      this.dataService[`${FLOW[tab]}`] = this.getShiftsRequest(tab).map(
         (resp) => {
           console.log('httpService getShifts', resp); // TODO - Delete when ready
           return this.httpGuardService.guardShifts(resp);
@@ -95,22 +90,32 @@ export class HttpService {
   }
 
   /**
+   * Method for get request with shifts
+   * @param {ITabTypes} tab
+   * @memberof HttpService
+   */
+
+  getShiftsRequest(tab: ITabTypes = 'upcoming') {
+    return this.http.get(BASEURL + '/shifts/' + TABS[tab]);
+  }
+
+  /**
    * Method for patch shifts
    * @param {ITabTypes} tab
    * @memberof HttpService
    */
 
-  patchShifts(tab: ITabTypes = 'upcoming') {
+  patchShifts(tab: ITabTypes = 'upcoming', body: object) {
 
     if (TABS[tab]) {
-      this.http.get(BASEURL + '/shifts/' + TABS[tab]).map(
+      this.http.patch(BASEURL + '/shifts/' + 'id', body).map(
         (resp) => {
           console.log('httpService getShifts', resp); // TODO - Delete when ready
           return this.httpGuardService.guardShifts(resp);
         }
       );
     }
-    console.log('!!!!!getShifts htttpService!!!!!');
+    console.log('!!!!!patch upcoming Shifts htttpService!!!!!');
   }
 
   /**

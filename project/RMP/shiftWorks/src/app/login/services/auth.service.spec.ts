@@ -1,21 +1,11 @@
-import {TestBed, inject, getTestBed, ComponentFixture, async} from '@angular/core/testing';
+import {TestBed, inject, getTestBed, async} from '@angular/core/testing';
 import {AuthService} from './auth.service';
 import {HttpClient, HttpClientModule, HttpRequest, HttpParams} from '@angular/common/http';
-import {AuthGuardService} from './auth.guard.service';
+import {AuthGuardService} from './auth-guard.service';
 import {DataService} from '../../shared/services/data.service';
-import {defer} from 'rxjs/observable/defer';
-import {Observable} from 'rxjs/Observable';
 import {Injector} from '@angular/core';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 import {environment} from '../../../environments/environment';
-
-/** Create async observable that emits-once and completes
- *  after a JS engine turn
- * */
-
-export function asyncData<T>(data: T) {
-  return defer(() => Promise.resolve(data));
-}
 
 const BODY = {
   login: 'login',
@@ -60,6 +50,17 @@ describe('AuthService', () => {
     backend.verify();
   }));
 
+  it('should be created', async(
+    inject([HttpClient, HttpTestingController], (http: HttpClient, backend: HttpTestingController) => {
+      http.post(BASEURL + '/login', BODY).subscribe();
+
+      backend.expectOne({
+        url: BASEURL + '/login',
+        method: 'POST'
+      });
+    })
+  ));
+
   it(`should send an expected login request`, async(
     inject([HttpTestingController, AuthService], (backend: HttpTestingController, service: AuthService) => {
       service.onLoginRequest(BODY).subscribe();
@@ -72,26 +73,16 @@ describe('AuthService', () => {
           && req.body['login'] === 'login'
           && req.body['password'] === 'password';
       }, `POST to 'api/login' with form-encoded user and password`);
-    })));
+    })
+  ));
 
   it(`should emit 'true' for 200 Ok`, async(inject([AuthService, HttpTestingController],
     (service: AuthService, backend: HttpTestingController) => {
       service.onLoginRequest({login: 'test@test.test', password: 'password'}).subscribe((next) => {
-        console.log(next);
         expect(next).toBe(null);
       });
 
-      backend.expectOne(BASEURL + '/login').flush(null, { status: 200, statusText: 'OK' });
-    })));
-
-  it('should be created', async(
-    inject([HttpClient, HttpTestingController], (http: HttpClient, backend: HttpTestingController) => {
-      http.post(BASEURL + '/login', BODY).subscribe();
-
-      backend.expectOne({
-        url: BASEURL + '/login',
-        method: 'POST'
-      });
+      backend.expectOne(BASEURL + '/login').flush(null, {status: 200, statusText: 'OK'});
     })
   ));
 });

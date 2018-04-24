@@ -13,7 +13,7 @@
             <input matInput placeholder="Login" formControlName="login" required>
           </mat-input-container>
           <div class="alert alert-danger"
-               *ngIf="loginForm.get('login').hasError('required') && loginForm.get('login').touched">
+               [ngClass]="{'login-block-wrap__display': loginForm.get('login').hasError('required') && loginForm.get('login').touched}">
             Login field is required.
           </div>
           <mat-input-container
@@ -21,7 +21,7 @@
             <input matInput type="password" placeholder="Password" formControlName="password" required>
           </mat-input-container>
           <div class="alert alert-danger"
-               *ngIf="loginForm.get('password').hasError('required') && loginForm.get('password').touched">
+               [ngClass]="{'login-block-wrap__display': loginForm.get('password').hasError('required') && loginForm.get('password').touched}">
             Password field is required.
           </div>
           <div class="login-block-wrap__footer-wrap">
