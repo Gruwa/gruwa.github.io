@@ -109,7 +109,7 @@ export class HeaderShiftsComponent {
    */
 
   onSave(): void {
-    this.dataService.dataSave$.next(true);
+    this.dataService.dataSave$.next('save');
   }
 
   /**

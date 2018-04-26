@@ -19,6 +19,37 @@ export class HttpGuardService {
    * @memberof ShiftsService
    */
 
+  guardReFreshShift(value): Array<any> {
+
+    const resp: Array<any> = [];
+    resp['items'] = [];
+
+    const obj: IShift = {
+      'shiftTitle': value['Items'].ShiftTitle,
+      'shiftID': value['Items'].ShiftID,
+      'isDropRequest': value['Items'].IsDropRequest,
+      'isPickupRequest': value['Items'].IsPickupRequest,
+      'job': value['Items'].Job,
+      'jobID': value['Items'].JobID,
+      'station': value['Items'].Station,
+      'stationID': value['Items'].StationID,
+      'dateFrom': value['Items'].DateFrom,
+      'dateTo': value['Items'].DateTo,
+      'location': value['Items'].Location,
+      'locationID': value['Items'].LocationID
+    };
+
+    resp['items'].push(obj);
+
+    return resp;
+  }
+
+  /**
+   * Method for guard shifts
+   * @returns {Array<any>}
+   * @memberof ShiftsService
+   */
+
   guardShifts(value): Array<any> {
 
     /**
@@ -41,7 +72,6 @@ export class HttpGuardService {
 
       resp['locationList'].push(obj);
     }
-
     for (let i = 0; i < value['StationList'].length; i++) {
       const obj: IStation = {
         'id': value['StationList'][i].ID,
@@ -50,7 +80,6 @@ export class HttpGuardService {
 
       resp['stationList'].push(obj);
     }
-
     for (let i = 0; i < value['JobList'].length; i++) {
       const obj: IJob = {
         'id': value['JobList'][i].ID,
@@ -59,9 +88,9 @@ export class HttpGuardService {
 
       resp['jobList'].push(obj);
     }
-
     for (let i = 0; i < value['Items'].length; i++) {
       const obj: IShift = {
+        'shiftTitle': value['Items'][i].ShiftTitle,
         'shiftID': value['Items'][i].ShiftID,
         'isDropRequest': value['Items'][i].IsDropRequest,
         'isPickupRequest': value['Items'][i].IsPickupRequest,

@@ -111,7 +111,8 @@ export class ShiftsComponent implements OnInit, OnDestroy {
       .debounceTime(500)
       .subscribe(this.spinnerShow.bind(this));
     this.dataService.dataSmallSpinner$.next(true);
-    if (this.localStorage.retrieve('tab') !== undefined) {
+
+    if (this.localStorage.retrieve('tab') !== null) {
       this.tabActive = this.localStorage.retrieve('tab');
     } else {
       this.localStorage.store('tab', this.tabActive);

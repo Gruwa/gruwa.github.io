@@ -396,8 +396,12 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
    * @memberof DetailsShiftsComponent
    */
 
-  saveShift(e: boolean): void {
-    console.log('SAVE');
+  saveShift(value: string): void {
+    console.log(value);
+    if (value === 'pull') {
+      // this.httpService.patchShifts(this.tab, )
+
+    }
     this.router.navigate(['/' + this.route.snapshot.params['group'], 'shifts']);
     // TODO - method for save shift
   }

@@ -7,6 +7,7 @@ import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/
 import {MomentDateAdapter} from '@angular/material-moment-adapter';
 import * as moment from 'moment';
 import {LocalStorageService} from 'ngx-webstorage';
+import {DataService} from '../../services/data.service';
 // import {default as _rollupMoment} from 'moment';
 
 // const moment = _rollupMoment || _moment;
@@ -69,6 +70,7 @@ export class FormComponent implements OnInit {
   constructor(public router: Router,
               public route: ActivatedRoute,
               public localStorage: LocalStorageService,
+              public dataService: DataService,
               private fb: FormBuilder) {
   }
 
@@ -79,6 +81,7 @@ export class FormComponent implements OnInit {
    */
 
   ngOnInit(): void {
+    this.dataService.dataSave$.subscribe(this.setBody.bind(this));
     this.tab === 'my requests' ? this.availbleInput = false : this.availbleInput = true;
     this.initForm();
   }
@@ -127,10 +130,48 @@ export class FormComponent implements OnInit {
       locationID: this.shiftActive['item'].locationID,
       stationID: this.shiftActive['item'].stationID,
       jobID: this.shiftActive['item'].jobID,
-      status: 'this.status'
+      status: ''
     });
     console.log('form', this.shiftGroup);
     console.log(this.shiftGroup.get('locationID').value);
+  }
+
+  /**
+   * Method for set data in form
+   * @returns {void}
+   * @memberof FormComponent
+   */
+
+  setNewData(): void {
+
+  }
+
+  /**
+   * Method for get body
+   * @returns {void}
+   * @memberof DetailsShiftsComponent
+   */
+
+  setBody(value: string): void {
+    console.log(value);
+    if (value === 'save') {
+      const body = {
+        'shiftID': value['Items'].ShiftID,
+        'isDropRequest': value['Items'].IsDropRequest,
+        'isPickupRequest': value['Items'].IsPickupRequest,
+        'job': value['Items'].Job,
+        'jobID': value['Items'].JobID,
+        'station': value['Items'].Station,
+        'stationID': value['Items'].StationID,
+        'dateFrom': value['Items'].DateFrom,
+        'dateTo': value['Items'].DateTo,
+        'location': value['Items'].Location,
+        'locationID': value['Items'].LocationID
+      };
+      this.dataService.dataSave$.next(body);
+    }
+    this.router.navigate(['/' + this.route.snapshot.params['group'], 'shifts']);
+    // TODO - method for save shift
   }
 
 }

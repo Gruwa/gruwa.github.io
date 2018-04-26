@@ -5,6 +5,14 @@
 export interface IShift {
 
   /**
+   * Variable contain shiftTitle
+   * @type {string}
+   * @memberof IShift
+   */
+
+  shiftTitle: string;
+
+  /**
    * Variable contain shiftID
    * @type {string}
    * @memberof IShift

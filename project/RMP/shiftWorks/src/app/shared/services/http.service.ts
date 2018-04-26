@@ -110,8 +110,8 @@ export class HttpService {
     if (TABS[tab]) {
       this.http.patch(BASEURL + '/shifts/' + 'id', body).map(
         (resp) => {
-          console.log('httpService getShifts', resp); // TODO - Delete when ready
-          return this.httpGuardService.guardShifts(resp);
+          console.log('httpService patchShifts', resp); // TODO - Delete when ready
+          return this.httpGuardService.guardReFreshShift(resp);
         }
       );
     }
