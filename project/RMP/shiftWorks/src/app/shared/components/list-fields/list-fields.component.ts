@@ -1,10 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import 'rxjs/add/operator/pluck';
-import 'rxjs/add/operator/switchMap';
 import {IShift} from '../../interfaces/shift.interface';
 import {LocalStorageService} from 'ngx-webstorage';
 import {DataService} from '../../services/data.service';
+import 'rxjs/add/operator/takeUntil';
 
 /**
  * FLOW for api link
@@ -89,4 +88,5 @@ export class ListFieldsComponent implements OnInit {
       this.shift = this.shiftActive['item'];
     }
   }
+
 }

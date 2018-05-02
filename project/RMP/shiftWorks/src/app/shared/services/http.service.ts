@@ -101,21 +101,19 @@ export class HttpService {
 
   /**
    * Method for patch shifts
-   * @param {ITabTypes} tab
+   * @param {string} id
+   * @param {object} body
    * @memberof HttpService
    */
 
-  patchShifts(tab: ITabTypes = 'upcoming', body: object) {
-
-    if (TABS[tab]) {
-      this.http.patch(BASEURL + '/shifts/' + 'id', body).map(
-        (resp) => {
-          console.log('httpService patchShifts', resp); // TODO - Delete when ready
-          return this.httpGuardService.guardReFreshShift(resp);
-        }
-      );
-    }
+  patchShifts(id: string, body: object): any {
     console.log('!!!!!patch upcoming Shifts htttpService!!!!!');
+    return this.http.patch(BASEURL + '/shifts/' + id, body).map(
+      (resp) => {
+        console.log('httpService patchShifts', resp); // TODO - Delete when ready
+        return this.httpGuardService.guardReFreshShift(resp);
+      }
+    );
   }
 
   /**

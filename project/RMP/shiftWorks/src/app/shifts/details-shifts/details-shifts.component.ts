@@ -5,12 +5,9 @@ import {LocalStorageService} from 'ngx-webstorage';
 import {HttpService} from '../../shared/services/http.service';
 import {FakeService} from '../../shared/services/fake.service';
 import {Subject} from 'rxjs/Subject';
-import {IShift} from '../../shared/interfaces/shift.interface';
-import {IForm} from '../../shared/interfaces/form.interface';
-import {IFooterRequest, IStatus} from '../../shared/interfaces/types.interface';
+import {IFooterRequest} from '../../shared/interfaces/types.interface';
 import {ITabTypes} from '../../shared/interfaces/types.interface';
 import {DataService} from '../../shared/services/data.service';
-import {ContentShiftsComponent} from '../content-shifts/content-shifts.component';
 import 'rxjs/add/operator/takeUntil';
 
 /**
@@ -177,18 +174,16 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
    */
 
   ngOnInit(): void {
-    this.dataService.dataSave$.subscribe(this.saveShift.bind(this));
+    this.dataService.dataSave$.takeUntil(this.ngUnsubscribe).subscribe(this.saveShift.bind(this));
     this.tab = this.localStorage.retrieve('tab');
     this.shiftActiveId = this.route.snapshot.params['id'];
-    this.headerDescription = this.tab;
+    // this.headerDescription = this.tab;
 
     if (this.dataService[`${FLOW[this.tab]}`] === undefined) {
       console.log(this.tab);
       this.httpService.getShifts(this.tab);
       this.dataService[`${FLOW[this.tab]}`].takeUntil(this.ngUnsubscribe).subscribe();
     }
-
-    console.log(this.shiftActiveId);
 
     if (this.shiftActiveId === 'new') {
       this.headerDescription = 'new request';
@@ -253,45 +248,50 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
         if (this.route.snapshot.params['id'] !== 'new') {
           item = value['items'].find(result => result.shiftID === this.shiftActiveId);
         }
-
         this.shiftActive = {
           item: item,
           locationList: value.locationList,
           stationList: value.stationList,
           jobList: value.jobList
         };
-
-        console.log(this.shiftActive);
-
-        if (this.tab === 'upcoming' || this.tab === 'available') {
-          if (this.shiftActive['item'].isDropRequest && this.shiftActive['item'].isPickupRequest) {
-            this.status = STATUS[`${SHIFT_REQUEST[this.tab]}`];
-            this.footerActive = false;
+        if (this.shiftActive['item'] === undefined) {
+          console.log('sdfsdf');
+          this.router.navigate(['/' + this.route.snapshot.params['group'], 'shifts']);
+        } else {
+          this.headerDescription = this.shiftActive['item'].shiftTitle;
+          if (this.tab === 'upcoming' || this.tab === 'available') {
+            if (this.shiftActive['item'].isDropRequest && this.shiftActive['item'].isPickupRequest) {
+              this.status = STATUS[`${SHIFT_REQUEST[this.tab]}`];
+              this.footerActive = false;
+            }
+            if (!this.shiftActive['item'].isDropRequest && this.shiftActive['item'].isPickupRequest) {
+              this.status = STATUS['pickup request'];
+              this.footerActive = false;
+            }
+            if (!this.shiftActive['item'].isDropRequest && !this.shiftActive['item'].isPickupRequest) {
+              this.status = STATUS['scheduled'];
+              this.footerActive = true;
+            }
+            if (this.shiftActive['item'].isDropRequest && !this.shiftActive['item'].isPickupRequest) {
+              this.status = STATUS['drop request'];
+              this.footerActive = false;
+            }
           }
-          if (!this.shiftActive['item'].isDropRequest && this.shiftActive['item'].isPickupRequest) {
-            this.status = STATUS['pickup request'];
-            this.footerActive = false;
+          if (this.tab === 'my requests') {
+            console.log('shiftActive details', this.shiftActive);
+            if (!this.shiftActive['item'].isDropRequest && !this.shiftActive['item'].isPickupRequest) {
+              this.status = STATUS['scheduled'];
+            } else {
+              this.status = ' ';
+            }
           }
-          if (!this.shiftActive['item'].isDropRequest && !this.shiftActive['item'].isPickupRequest) {
-            this.status = STATUS['scheduled'];
-            this.footerActive = true;
-          }
-          if (this.shiftActive['item'].isDropRequest && !this.shiftActive['item'].isPickupRequest) {
-            this.status = STATUS['drop request'];
-            this.footerActive = false;
-          }
+          //
+          // if (this.route.snapshot.params['id'] !== 'new') {
+          //   this.setDataForm();
+          // }
+          this.setFooterRequest();
         }
-        if (this.tab === 'my requests') {
 
-          // TODO - WHat about status?
-          this.status = 'What????';
-        }
-        //
-        // if (this.route.snapshot.params['id'] !== 'new') {
-        //   this.setDataForm();
-        // }
-
-        this.setFooterRequest();
       }
     );
 
@@ -391,18 +391,23 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Method for save shift
+   * Method for save shift- method work only if we receive object
    * @returns {void}
+   * @param {string | object} value
    * @memberof DetailsShiftsComponent
    */
 
-  saveShift(value: string): void {
+  saveShift(value: string | object): void {
     console.log(value);
-    if (value === 'pull') {
-      // this.httpService.patchShifts(this.tab, )
+    if (typeof value === 'object') {
 
+      console.log(value);
+      this.httpService.patchShifts(this.route.snapshot.params['id'], <object>value).subscribe((value) => {
+
+      });
+
+      // this.router.navigate(['/' + this.route.snapshot.params['group'], 'shifts']);
     }
-    this.router.navigate(['/' + this.route.snapshot.params['group'], 'shifts']);
     // TODO - method for save shift
   }
 }

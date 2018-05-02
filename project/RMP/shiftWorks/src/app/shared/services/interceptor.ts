@@ -100,6 +100,25 @@ export class AuthInterceptor implements HttpInterceptor {
             this.dataService.dataSpinner$.next(false);
             this.router.navigate(['/login']);
           }
+          if (err.status === 550) {
+            console.log('error 550');
+            this.dataService.dataSmallSpinner$.next(false);
+          }
+          if (err.status === 551) {
+            console.log('error 551');
+            console.log(this.route.snapshot);
+            console.log(this.route.snapshot.children[0].params['group']);
+            console.log(this.route.snapshot.children[0].children[0].params['id']);
+            this.dataService.dataSmallSpinner$.next(false);
+            window.location.href = '/' +
+              this.route.snapshot.children[0].params['group'] + '/' +
+              'shifts' + '/' +
+              this.route.snapshot.children[0].children[0].params['id'];
+            // this.router.navigate(['/',
+            //   this.route.snapshot.children[0].params['group'],
+            //   'shifts',
+            //   this.route.snapshot.children[0].children[0].params['id']]);
+          }
         }
       }
     );

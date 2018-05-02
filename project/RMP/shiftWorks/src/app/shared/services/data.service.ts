@@ -20,14 +20,6 @@ import {Observable} from 'rxjs/Observable';
 export class DataService {
 
   /**
-   * Created flow of tabs
-   * @type {Subject<any>}
-   * @memberof DataService
-   */
-
-  public dataTab$ = new Subject<any>();
-
-  /**
    * Created flow of SideBar
    * @type {Subject<any>}
    * @memberof DataService
@@ -58,6 +50,14 @@ export class DataService {
    */
 
   public dataSpinner$ = new Subject<any>();
+
+  /**
+   * Created flow of active shift
+   * @type {Subject<any>}
+   * @memberof DataService
+   */
+
+  public dataActiveShift$: Observable<object>;
 
   /**
    * Created flow of login
