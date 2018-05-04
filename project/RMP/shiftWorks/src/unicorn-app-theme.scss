@@ -1319,3 +1319,14 @@ dc-right-menu {
     }
   }
 }
+
+.global {
+
+  &__small-spinner {
+    display: none;
+  }
+
+  &__small-spinner-display {
+    display: block;
+  }
+}

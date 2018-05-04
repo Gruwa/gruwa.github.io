@@ -108,10 +108,27 @@ export class HttpService {
 
   patchShifts(id: string, body: object): any {
     console.log('!!!!!patch upcoming Shifts htttpService!!!!!');
-    return this.http.patch(BASEURL + '/shifts/' + id, body).map(
+    return this.http.patch(BASEURL + '/shifts/' + 'error551', body).map(
       (resp) => {
         console.log('httpService patchShifts', resp); // TODO - Delete when ready
         return this.httpGuardService.guardReFreshShift(resp);
+      }
+    );
+  }
+
+  /**
+   * Method for delete shifts
+   * @param {string} id
+   * @param {object} body
+   * @memberof HttpService
+   */
+
+  deleteShifts(id: string): any {
+    console.log('!!!!!patch upcoming Shifts htttpService!!!!!');
+    return this.http.delete(BASEURL + '/shifts/' + id).map(
+      (resp) => {
+        console.log('httpService DELETEShifts', resp); // TODO - Delete when ready
+        return resp
       }
     );
   }

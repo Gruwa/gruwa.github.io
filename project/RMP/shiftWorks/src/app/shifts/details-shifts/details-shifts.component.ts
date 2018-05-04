@@ -9,6 +9,7 @@ import {IFooterRequest} from '../../shared/interfaces/types.interface';
 import {ITabTypes} from '../../shared/interfaces/types.interface';
 import {DataService} from '../../shared/services/data.service';
 import 'rxjs/add/operator/takeUntil';
+import {ToastrService} from 'ngx-toastr';
 
 /**
  * Variable FOOTER_REQUESTS
@@ -83,6 +84,14 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
   public headerDescription: string = 'New request';
 
   /**
+   * Variable spinner
+   * @type {boolean}
+   * @memberof DetailsShiftsComponent
+   */
+
+  public spinner: boolean = false;
+
+  /**
    * Variable shiftActiveId
    * @type {string}
    * @memberof DetailsShiftsComponent
@@ -97,14 +106,6 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
    */
 
   public shiftActive: object;
-
-  // /**
-  //  * Variable shiftForm
-  //  * @type {IForm}
-  //  * @memberof DetailsShiftsComponent
-  //  */
-  //
-  // public shiftForm: IForm;
 
   /**
    * Variable of tab
@@ -164,7 +165,8 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
               public httpService: HttpService,
               public fakeService: FakeService,
               public dataService: DataService,
-              public router: Router) {
+              public router: Router,
+              private toastr: ToastrService) {
   }
 
   /**
@@ -174,10 +176,12 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
    */
 
   ngOnInit(): void {
+    this.dataService.dataSmallSpinner$.takeUntil(this.ngUnsubscribe)
+      .subscribe(this.spinnerShow.bind(this));
+    this.dataService.dataSmallSpinner$.next(true);
     this.dataService.dataSave$.takeUntil(this.ngUnsubscribe).subscribe(this.saveShift.bind(this));
     this.tab = this.localStorage.retrieve('tab');
     this.shiftActiveId = this.route.snapshot.params['id'];
-    // this.headerDescription = this.tab;
 
     if (this.dataService[`${FLOW[this.tab]}`] === undefined) {
       console.log(this.tab);
@@ -207,25 +211,6 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
     this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();
   }
-
-  // /**
-  //  * Method for init form
-  //  * @returns {void}
-  //  * @memberof DetailsShiftsComponent
-  //  */
-  //
-  // initForm(): void {
-  //   this.shiftForm = {
-  //     shiftTitle: '',
-  //     date: '',
-  //     startTime: '',
-  //     endTime: '',
-  //     location: '',
-  //     station: '',
-  //     job: '',
-  //     status: ''
-  //   };
-  // }
 
   /**
    * Method getDataShift
@@ -302,29 +287,6 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
 
   }
 
-  // /**
-  //  * Method for set data in form
-  //  * @returns {void}
-  //  * @memberof DetailsShiftsComponent
-  //  */
-  //
-  // setDataForm(): void {
-  //   this.shiftForm = {
-  //     shiftTitle: this.localStorage.retrieve('tab'),
-  //     date: this.shiftActive['item'].dateFrom,
-  //     startTime: this.shiftActive['item'].dateFrom,
-  //     endTime: this.shiftActive['item'].dateTo,
-  //     location: this.shiftActive['item'].location,
-  //     station: this.shiftActive['item'].station,
-  //     job: this.shiftActive['item'].job,
-  //     status: this.status,
-  //     locationList: this.shiftActive['locationList'],
-  //     stationList: this.shiftActive['stationList'],
-  //     jobList: this.shiftActive['jobList']
-  //   };
-  //   console.log('form', this.shiftForm);
-  // }
-
   /**
    * Method for set description for FooterRequest
    * @returns {void}
@@ -341,6 +303,7 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
     if (this.tab === 'available') {
       this.footerActive ? this.footerDescription = FOOTER_REQUESTS[2] : this.footerDescription = FOOTER_REQUESTS[3];
     }
+    this.dataService.dataSmallSpinner$.next(false);
   }
 
   /**
@@ -386,6 +349,7 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
 
   deleteShift(): void {
     console.log('DELETE');
+    this.httpService.deleteShifts(this.route.snapshot.params['id']).subscribe();
     this.router.navigate(['/' + this.route.snapshot.params['group'], 'shifts']);
     // TODO - method for delete shift
   }
@@ -398,16 +362,31 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
    */
 
   saveShift(value: string | object): void {
-    console.log(value);
     if (typeof value === 'object') {
-
-      console.log(value);
-      this.httpService.patchShifts(this.route.snapshot.params['id'], <object>value).subscribe((value) => {
-
+      this.httpService.patchShifts(this.route.snapshot.params['id'], <object>value).subscribe((resp) => {
+        this.toastr.success('Save success', 'Success');
+        this.dataService[`${FLOW[this.tab]}`].subscribe((data) => {
+          for (const key in data['items']) {
+            if (data['items'][key].shiftID === resp.items[0].shiftID) {
+              data['items'][key] = resp.items[0];
+            }
+          }
+        });
+        this.router.navigate(['/' + this.route.snapshot.params['group'], 'shifts']);
       });
-
-      // this.router.navigate(['/' + this.route.snapshot.params['group'], 'shifts']);
     }
     // TODO - method for save shift
+  }
+
+  /**
+   * Method fo show spinner
+   * @returns {void}
+   * @param {boolean} event
+   * @memberof DetailsShiftsComponent
+   */
+
+  spinnerShow(event: boolean): void {
+    console.log('spinnerShow');
+    this.spinner = event;
   }
 }

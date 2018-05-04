@@ -21,7 +21,8 @@
       "prefix": "app",
       "styles": [
         "styles.scss",
-        "unicorn-app-theme.scss"
+        "unicorn-app-theme.scss",
+        "../node_modules/ngx-toastr/toastr.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

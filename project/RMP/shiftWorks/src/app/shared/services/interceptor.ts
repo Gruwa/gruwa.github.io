@@ -15,6 +15,7 @@ import 'rxjs/add/operator/do';
 import {ActivatedRoute, Router} from '@angular/router';
 import {LocalStorageService} from 'ngx-webstorage';
 import {DataService} from './data.service';
+import {ToastrService} from 'ngx-toastr';
 
 /**
  * Injectable
@@ -35,7 +36,8 @@ export class AuthInterceptor implements HttpInterceptor {
   constructor(public router: Router,
               public route: ActivatedRoute,
               public localStorage: LocalStorageService,
-              public dataService: DataService) {
+              public dataService: DataService,
+              private toastr: ToastrService) {
   }
 
   /**
@@ -106,18 +108,11 @@ export class AuthInterceptor implements HttpInterceptor {
           }
           if (err.status === 551) {
             console.log('error 551');
-            console.log(this.route.snapshot);
-            console.log(this.route.snapshot.children[0].params['group']);
-            console.log(this.route.snapshot.children[0].children[0].params['id']);
             this.dataService.dataSmallSpinner$.next(false);
             window.location.href = '/' +
               this.route.snapshot.children[0].params['group'] + '/' +
               'shifts' + '/' +
               this.route.snapshot.children[0].children[0].params['id'];
-            // this.router.navigate(['/',
-            //   this.route.snapshot.children[0].params['group'],
-            //   'shifts',
-            //   this.route.snapshot.children[0].children[0].params['id']]);
           }
         }
       }

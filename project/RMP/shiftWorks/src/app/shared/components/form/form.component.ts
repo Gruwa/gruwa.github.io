@@ -144,7 +144,6 @@ export class FormComponent implements OnInit, OnDestroy {
       jobID: ['', [Validators.required]],
       status: ['', [Validators.required]]
     });
-
     this.shift = {
       item: {},
       locationList: [],
@@ -221,7 +220,6 @@ export class FormComponent implements OnInit, OnDestroy {
    */
 
   setBody(value: string): void {
-    console.log(value);
     if (value === 'save') {
       const body = {
         'ShiftTitle': this.shiftGroup.get('shiftTitle').value,
@@ -230,13 +228,15 @@ export class FormComponent implements OnInit, OnDestroy {
         'DateFrom': this.shiftGroup.get('startTime').value,
         'DateTo': this.shiftGroup.get('endTime').value,
         'LocationID': this.shiftGroup.get('locationID').value,
+        'ShiftID': this.shift['item'].shiftID,
+        'IsDropRequest': this.shift['item'].isDropRequest,
+        'IsPickupRequest': this.shift['item'].isPickupRequest,
+        'Job': this.shift['jobList'].find(job => job.id === this.shiftGroup.get('jobID').value)['description'],
+        'Station': this.shift['stationList'].find(station => station.id === this.shiftGroup.get('stationID').value)['description'],
+        'Location': this.shift['locationList'].find(location => location.id === this.shiftGroup.get('locationID').value)['description'],
       };
-      console.log('body', body);
       this.dataService.dataSave$.next(body);
-
     }
-    // this.router.navigate(['/' + this.route.snapshot.params['group'], 'shifts']);
-    // TODO - method for save shift
   }
 
   /**

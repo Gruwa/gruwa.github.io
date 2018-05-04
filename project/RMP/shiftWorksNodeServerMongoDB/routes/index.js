@@ -154,6 +154,7 @@ var UserList = [
 var ShiftList = [
     {
         'ShiftID': 'ba348365-08f6-4c0c-959d-9a1acbb46b09',
+        'ShiftTitle': faker.lorem.words(),
         'IsDropRequest': true,
         'IsPickupRequest': false,
         'JobID': JobList[0].ID,
@@ -167,6 +168,7 @@ var ShiftList = [
     },
     {
         'ShiftID': '14f7d015-c105-40cc-8bb6-b7d19ac1dd58',
+        'ShiftTitle': faker.lorem.words(),
         'IsDropRequest': false,
         'IsPickupRequest': true,
         'JobID': JobList[0].ID,
@@ -180,6 +182,7 @@ var ShiftList = [
     },
     {
         'ShiftID': '22f7d015-c105-40cc-8bb6-b7d19ac1dd58',
+        'ShiftTitle': faker.lorem.words(),
         'IsDropRequest': false,
         'IsPickupRequest': false,
         'JobID': JobList[1].ID,
@@ -193,10 +196,11 @@ var ShiftList = [
     },
     {
         'ShiftID': '33f7d015-c105-40cc-8bb6-b7d19ac1dd58',
+        'ShiftTitle': faker.lorem.words(),
         'IsDropRequest': true,
         'IsPickupRequest': true,
-        'JobID': JobList[4].ID,
-        'Job': JobList[4].Description,
+        'JobID': JobList[2].ID,
+        'Job': JobList[2].Description,
         'StationID': StationList[2].ID,
         'Station': StationList[2].Description,
         'LocationID': LocationList[3].ID,
@@ -205,7 +209,8 @@ var ShiftList = [
         'DateTo': '2018-12-17T23:50:16.446Z'
     },
     {
-        'ShiftID': '44f7d015-c105-40cc-8bb6-b7d19ac1dd58',
+        'ShiftID': faker.random.uuid(),
+        'ShiftTitle': 'Autocomplete overview',
         'IsDropRequest': false,
         'IsPickupRequest': false,
         'JobID': JobList[3].ID,
@@ -219,10 +224,11 @@ var ShiftList = [
     },
     {
         'ShiftID': '55f7d015-c105-40cc-8bb6-b7d19ac1dd58',
+        'ShiftTitle': faker.lorem.words(),
         'IsDropRequest': false,
         'IsPickupRequest': false,
-        'JobID': JobList[4].ID,
-        'Job': JobList[4].Description,
+        'JobID': JobList[2].ID,
+        'Job': JobList[2].Description,
         'StationID': StationList[2].ID,
         'Station': StationList[2].Description,
         'LocationID': LocationList[1].ID,
@@ -463,12 +469,96 @@ router.post('/login', function (req, res, next) {
     //
     // }
 
-    if (req.body.login  !== 'test@test.test') {
+    if (req.body.login !== 'test@test.test') {
         return res.status(401).json({
             statusText: 'Unauthorized',
             error: {message: 'Invalid login credentials'}
         });
     }
+});
+
+/* Save shift */
+
+router.patch('/shifts/:shiftId', function (req, res, next) {
+
+    if (req.params['shiftId'] === 'error550') {
+
+        setTimeout(function () {
+            return res.status(550).json({
+                statusText: 'Update required',
+                error: {message: 'Update required'}
+            });
+        })
+    }
+
+    if (req.params['shiftId'] === 'error551') {
+
+        setTimeout(function () {
+            return res.status(551).json({
+                statusText: 'Save error',
+                error: {message: 'Save error'}
+            });
+        })
+    }
+    if (req.params['shiftId'] !== 'error550' && req.params['shiftId'] !== 'error551') {
+
+        console.log(req.params['shiftId']);
+        Shifts.findOne({ShiftID: req.params['shiftId']}, function (err, shift) {
+            setTimeout(function () {
+                console.log(shift);
+                    shift.ShiftID = req.body.ShiftID;
+                    shift.ShiftTitle = req.body.ShiftTitle;
+                    shift.IsDropRequest = req.body.IsDropRequest;
+                    shift.IsPickupRequest = req.body.IsPickupRequest;
+                    shift.JobID = req.body.JobID;
+                    shift.Job = req.body.Job;
+                    shift.StationID = req.body.StationID;
+                    shift.Station = req.body.Station;
+                    shift.LocationID = req.body.LocationID;
+                    shift.Location = req.body.Location;
+                    shift.DateFrom = req.body.DateFrom;
+                    shift.DateTo = req.body.DateTo;
+
+                shift.save(function (err, result) {
+                    if (err) {
+                        return res.status(500).json({
+                            title: 'An error occurred',
+                            error: err
+                        });
+                    }
+                    res.status(201).json({
+                        Items: shift,
+                        Token: faker.random.uuid(),
+                        Success: true,
+                        Message: "All available"
+                    });
+                });
+            }, 1500);
+        });
+
+    }
+});
+
+/* user delete */
+
+router.delete('/shifts/delete/:shiftId', function (req, res, next) {
+    Shifts.findOneAndRemove({ShiftID: req.params['shiftId']}, function (err, shift) {
+        if (err) {
+            return res.status(500).json({
+                title: 'An error occurred',
+                error: err
+            });
+        }
+        if (!shift) {
+            return res.status(401).json({
+                title: 'Student failed',
+                error: {message: 'Invalid login credentials'}
+            });
+        }
+        res.status(201).json({
+            message: 'Shift was delete'
+        });
+    });
 });
 
 module.exports = router;

@@ -18,10 +18,6 @@ app-shifts {
   align-items: center;
   overflow: hidden;
 
-  &__small-spinner {
-    display: none;
-  }
-
   &__app-header {
     width: 100%;
     background-color: #222a51;
@@ -30,10 +26,6 @@ app-shifts {
     align-items: center;
     height: 48px;
     flex-shrink: 0;
-  }
-
-  &__small-spinner-display {
-    display: block;
   }
 
   &__content {

@@ -16,6 +16,7 @@ import {DataService} from './shared/services/data.service';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {SpinnerComponent} from './shared/components/spinner/spinner.component';
 import {MaterialsModule} from './shared/components/materials/materials.module';
+import {ToastrModule} from 'ngx-toastr';
 
 
 @NgModule({
@@ -27,7 +28,10 @@ import {MaterialsModule} from './shared/components/materials/materials.module';
     HttpClientModule,
     Ng2Webstorage,
     FlexLayoutModule,
-    MaterialsModule
+    MaterialsModule,
+    ToastrModule.forRoot({
+      timeOut: 1500,
+    }),
   ],
   declarations: [
     AppComponent
