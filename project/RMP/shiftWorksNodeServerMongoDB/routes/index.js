@@ -177,7 +177,7 @@ var ShiftList = [
         'Station': StationList[1].Description,
         'LocationID': LocationList[2].ID,
         'Location': LocationList[2].Description,
-        'DateFrom': '8/31/2017 7:40:00 AM',
+        'DateFrom': faker.date.future(),
         'DateTo': faker.date.future()
     },
     {
@@ -205,8 +205,8 @@ var ShiftList = [
         'Station': StationList[2].Description,
         'LocationID': LocationList[3].ID,
         'Location': LocationList[3].Description,
-        'DateFrom': '2/31/2017 8:00:00 AM',
-        'DateTo': '2018-12-17T23:50:16.446Z'
+        'DateFrom': faker.date.future(),
+        'DateTo': faker.date.future()
     },
     {
         'ShiftID': faker.random.uuid(),
@@ -233,7 +233,7 @@ var ShiftList = [
         'Station': StationList[2].Description,
         'LocationID': LocationList[1].ID,
         'Location': LocationList[1].Description,
-        'DateFrom': '8/31/2017 8:15:00 AM',
+        'DateFrom': faker.date.future(),
         'DateTo': faker.date.future()
     }
 ];
@@ -503,38 +503,15 @@ router.patch('/shifts/:shiftId', function (req, res, next) {
     if (req.params['shiftId'] !== 'error550' && req.params['shiftId'] !== 'error551') {
 
         console.log(req.params['shiftId']);
-        Shifts.findOne({ShiftID: req.params['shiftId']}, function (err, shift) {
-            setTimeout(function () {
-                console.log(shift);
-                    shift.ShiftID = req.body.ShiftID;
-                    shift.ShiftTitle = req.body.ShiftTitle;
-                    shift.IsDropRequest = req.body.IsDropRequest;
-                    shift.IsPickupRequest = req.body.IsPickupRequest;
-                    shift.JobID = req.body.JobID;
-                    shift.Job = req.body.Job;
-                    shift.StationID = req.body.StationID;
-                    shift.Station = req.body.Station;
-                    shift.LocationID = req.body.LocationID;
-                    shift.Location = req.body.Location;
-                    shift.DateFrom = req.body.DateFrom;
-                    shift.DateTo = req.body.DateTo;
 
-                shift.save(function (err, result) {
-                    if (err) {
-                        return res.status(500).json({
-                            title: 'An error occurred',
-                            error: err
-                        });
-                    }
-                    res.status(201).json({
-                        Items: shift,
-                        Token: faker.random.uuid(),
-                        Success: true,
-                        Message: "All available"
-                    });
-                });
-            }, 1500);
-        });
+        setTimeout(function () {
+            res.status(200).json({
+                Items: req.body,
+                Token: faker.random.uuid(),
+                Success: true,
+                Message: "All available"
+            });
+        }, 1500);
 
     }
 });
@@ -545,17 +522,18 @@ router.delete('/shifts/delete/:shiftId', function (req, res, next) {
     Shifts.findOneAndRemove({ShiftID: req.params['shiftId']}, function (err, shift) {
         if (err) {
             return res.status(500).json({
+
                 title: 'An error occurred',
                 error: err
             });
         }
-        if (!shift) {
-            return res.status(401).json({
-                title: 'Student failed',
-                error: {message: 'Invalid login credentials'}
-            });
-        }
-        res.status(201).json({
+        // if (!shift) {
+        //     return res.status(401).json({
+        //         title: 'Student failed',
+        //         error: {message: 'Invalid login credentials'}
+        //     });
+        // }
+        res.status(200).json({
             message: 'Shift was delete'
         });
     });
