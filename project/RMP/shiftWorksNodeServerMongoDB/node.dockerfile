@@ -27,6 +27,7 @@ MAINTAINER Aleksey Zolotarenko
 
 ENV NODE_ENV=development 
 ENV PORT=4334
+ENV HOST=10.30.30.90
 
 COPY      . /var/www
 WORKDIR   /var/www
