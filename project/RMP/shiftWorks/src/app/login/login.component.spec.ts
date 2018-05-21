@@ -104,7 +104,7 @@ describe('LoginComponent', () => {
     expect(spy).toHaveBeenCalled();
   }));
 
-  it('Should create content of the login input', async(() => {
+  it('Should create content of the login form-input', async(() => {
     const value: string = 'login';
     component.initForm();
     console.log(component.loginForm);
@@ -113,7 +113,7 @@ describe('LoginComponent', () => {
     expect(value).toEqual(component.loginForm.get('login').value);
   }));
 
-  it('Should create content of the password input', async(() => {
+  it('Should create content of the password form-input', async(() => {
     const value: string = 'password';
     component.initForm();
     console.log(component.loginForm);

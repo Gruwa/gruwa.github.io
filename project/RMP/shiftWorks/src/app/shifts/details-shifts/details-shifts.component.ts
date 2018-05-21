@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit, Output} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {ShiftsService} from '../Services/shifts.service';
+import {ShiftsService} from '../services/shifts.service';
 import {LocalStorageService} from 'ngx-webstorage';
 import {HttpService} from '../../shared/services/http.service';
 import {FakeService} from '../../shared/services/fake.service';
@@ -240,7 +240,6 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
           jobList: value.jobList
         };
         if (this.shiftActive['item'] === undefined) {
-          console.log('sdfsdf');
           this.router.navigate(['/' + this.route.snapshot.params['group'], 'shifts']);
         } else {
           this.headerDescription = this.shiftActive['item'].shiftTitle;

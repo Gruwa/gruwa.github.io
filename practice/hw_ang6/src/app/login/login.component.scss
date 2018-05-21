@@ -1,0 +1,339 @@
+﻿@import "../../assets/styles/variables.scss";
+
+::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+:host(.mat-toolbar) {
+  display: none !important;
+}
+
+.login-header {
+  background: #1f2e4d;
+  height: 310px;
+  display: flex;
+  padding: 0 0 70px;
+  box-sizing: border-box;
+}
+
+form {
+  max-width: 1024px;
+  margin: auto;
+  position: relative;
+}
+
+.mat-input-container {
+  width: 100%;
+  margin: 5px 0;
+}
+
+.mat-card {
+  padding: 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.11);
+}
+
+.mat-card-content {
+  padding: 64px 72px 72px;
+}
+
+.rmdl-navheader__brand {
+  width: 86%;
+  max-width: 455px;
+  margin: auto;
+  box-sizing: border-box;
+  display: flex;
+  text-align: center;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+
+  & > img {
+    max-width: 260px;
+    margin: auto;
+  }
+}
+
+.dc-login-form {
+  width: 100%;
+  max-width: 512px;
+  margin: 0 auto;
+  position: relative;
+  top: -70px;
+}
+
+#login-sunbmit-btn {
+  float: right;
+  top: 5px;
+  z-index: 11;
+  background: #1c9f53;
+  background: -moz-linear-gradient(top, $cGreen1 0%, $cGreen2 100%);
+  background: -webkit-linear-gradient(top, $cGreen1 0%, $cGreen2 100%);
+  background: linear-gradient(to bottom, $cGreen1 0%, $cGreen2 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$cGreen1', endColorstr='$cGreen2', GradientType=0);
+  cursor: pointer;
+
+  &[disabled] {
+    background: #888e9a;
+    background: -moz-linear-gradient(top, $cGrayLight1 0%, $cGray2 100%);
+    background: -webkit-linear-gradient(top, $cGrayLight1 0%, $cGray2 100%);
+    background: linear-gradient(to bottom, $cGrayLight1 0%, $cGray2 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$cGrayLight1', endColorstr='$cGray2', GradientType=0);
+    cursor: default;
+    color: $cWhite;
+  }
+}
+
+.mat-checkbox {
+  display: inline-block;
+  margin-top: 20px;
+  color: $cGray3;
+  font-size: 110%;
+}
+
+:host(dc-login) {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.alert-danger {
+  margin: -24px 0 10px;
+  font-size: 90%;
+  color: $cRed;
+  display: none;
+  min-height: 25px;
+  line-height: 30px;
+  margin-bottom: -6px;
+}
+
+.login-block-wrap {
+  flex-grow: 1;
+  background-color: #fafbfc;
+  height: 100%;
+
+  &__display {
+    display: block;
+  }
+
+  &__footer-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+
+
+input {
+  border-radius: 0;
+
+  &:-webkit-autofill {
+    position: relative;
+    z-index: 2;
+    box-shadow: inset 0 0 0 50px $cWhite !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .login-block-wrap {
+    background-color: $cWhite;
+  }
+
+  .login-header {
+    height: 200px;
+    padding: 0;
+  }
+
+  .dc-login-page {
+    .mdl-layout__content {
+      background-color: $cWhite;
+    }
+  }
+
+  .dc-login-form {
+    top: 0;
+    margin-top: 0;
+  }
+
+  .mat-card {
+    box-shadow: none !important;
+  }
+
+  .mat-card-content {
+    padding: 40px 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-header {
+    height: 160px;
+  }
+
+  .mat-card-content {
+    padding: 40px 45px;
+  }
+}
+
+@media (max-width: 320px) {
+  .login-header {
+    height: 112px;
+  }
+
+  .mat-card-content {
+    padding: 40px 35px !important;
+  }
+}
+
+@media (max-height: 200px) {
+  .login-block-wrap {
+    background-color: $cWhite;
+  }
+
+  .login-header {
+    height: 0 !important;
+    opacity: 0;
+  }
+
+  .mat-card {
+    box-shadow: none;
+  }
+
+  .dc-login-form {
+    top: 0;
+    margin-top: 0;
+  }
+
+  .mat-card-content {
+    padding: 30px 60px 30px 30px !important;
+  }
+}
+
+@media (max-height: 200px) and (max-width: 570px) {
+  #login-sunbmit-btn {
+    position: fixed;
+    bottom: 24px;
+    top: inherit;
+    right: 24px;
+  }
+}
+
+@media (max-height: 200px) and (min-width: 570px) {
+  #login-sunbmit-btn {
+    position: fixed;
+    bottom: 24px;
+    top: inherit;
+    right: 50%;
+    margin-right: -280px;
+  }
+}
+
+@media (max-height: 380px) {
+  .login-header {
+    height: 105px;
+  }
+
+  .rmdl-navheader__brand {
+    width: 240px;
+    margin: 0;
+    padding: 0 20px;
+
+    & > img {
+      width: 200px;
+    }
+  }
+
+  .mat-card-content {
+    padding: 50px 60px;
+  }
+
+  form {
+    height: 260px;
+  }
+}
+
+@media (max-height: 380px) and (max-width: 830px) {
+  .login-block-wrap {
+    background-color: $cWhite;
+  }
+
+  .dc-login-page {
+    .mdl-layout__content {
+      background-color: $cWhite;
+    }
+  }
+
+  .login-header {
+    height: 60px;
+    padding: 0;
+  }
+
+  .rmdl-navheader__brand {
+    margin: auto;
+    padding: 10px 20px;
+
+    & > img {
+      margin: 0;
+    }
+  }
+
+  .dc-login-form {
+    top: 0;
+    margin-top: 0;
+  }
+
+  .mat-card {
+    box-shadow: none !important;
+  }
+
+  .mat-card-content {
+    padding: 40px 60px;
+  }
+}
+
+@media (max-height: 414px) and (max-width: 736px) {
+  .login-block-wrap {
+    background-color: $cWhite;
+  }
+
+  .dc-login-page {
+    .mdl-layout__content {
+      background-color: $cWhite;
+    }
+  }
+
+  .login-header {
+    height: 60px;
+    padding: 0;
+  }
+
+  .rmdl-navheader__brand {
+    margin: 0 auto;
+    width: 240px;
+
+    & > img {
+      margin: 0;
+    }
+  }
+
+  .dc-login-form {
+    top: 0;
+    margin-top: 0;
+  }
+
+  .mat-card {
+    box-shadow: none;
+  }
+
+  .mat-card-content {
+    padding: 40px 60px;
+  }
+}
+
+@media (max-height: 732px) and (max-width: 480px) {
+  .dc-login-page {
+    .mdl-layout__content {
+      background-color: $cWhite;
+    }
+  }
+}

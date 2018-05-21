@@ -6,8 +6,15 @@
                      [closePage]="true">
   </app-header-shifts>
   <div class="details-shifts__content">
-    <app-form [shiftActive]="shiftActive" [status]="status" [tab]="tab" *ngIf="tab === 'my requests'"></app-form>
-    <app-list-fields [shiftActive]="shiftActive" [status]="status" *ngIf="tab !== 'my requests'"></app-list-fields>
+    <app-form [shiftActive]="shiftActive"
+              [status]="status"
+              [tab]="tab"
+              *ngIf="tab === 'my requests'">
+    </app-form>
+    <app-list-fields [shiftActive]="shiftActive"
+                     [status]="status"
+                     *ngIf="tab !== 'my requests'">
+    </app-list-fields>
     <app-small-spinner [ngClass]="{'global__small-spinner-display' : spinner}"
                        class="global__small-spinner">
     </app-small-spinner>

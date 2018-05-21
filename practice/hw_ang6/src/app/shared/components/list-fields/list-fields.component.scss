@@ -1,0 +1,39 @@
+.list-fields {
+  font-family: "Lato";
+
+  &__group {
+    display: flex;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 22px;
+    border-bottom: 2px solid rgba(108, 115, 127, 0.502);
+  }
+
+  &__group &__field {
+    width: 49%;
+  }
+
+  &__group &__field:last-child {
+    margin-left: 7.5%;
+  }
+
+  &__label {
+    margin-top: 2px;
+    margin-bottom: 4px;
+    font-size: 14px;
+    color: rgb(108, 115, 127);
+    line-height: 1.286;
+  }
+
+  &__value {
+    margin-bottom: 14px;
+    font-size: 18px;
+    color: rgb(20, 31, 51);
+    font-weight: bold;
+    line-height: 1;
+  }
+
+}

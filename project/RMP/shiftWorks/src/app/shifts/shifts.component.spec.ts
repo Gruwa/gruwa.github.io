@@ -8,7 +8,7 @@ import {HeaderShiftsComponent} from '../shared/components/header-shifts/header-s
 import {ContentShiftsComponent} from './content-shifts/content-shifts.component';
 import {ShiftBlockComponent} from '../shared/components/shift-block/shift-block.component';
 import {HttpClientModule} from '@angular/common/http';
-import {ShiftsService} from './Services/shifts.service';
+import {ShiftsService} from './services/shifts.service';
 import {HttpService} from '../shared/services/http.service';
 import {FakeService} from '../shared/services/fake.service';
 

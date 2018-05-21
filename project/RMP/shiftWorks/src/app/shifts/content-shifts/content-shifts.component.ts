@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {ShiftsService} from '../Services/shifts.service';
+import {ShiftsService} from '../services/shifts.service';
 import {HttpService} from '../../shared/services/http.service';
 import {FakeService} from '../../shared/services/fake.service';
 import {LocalStorageService} from 'ngx-webstorage';

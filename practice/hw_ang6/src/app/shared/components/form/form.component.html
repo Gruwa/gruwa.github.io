@@ -1,0 +1,70 @@
+<form class="form-component" [formGroup]="shiftGroup">
+  <!--<div class="form-component__input-group">-->
+    <!--<mat-input-container-->
+      <!--[class.error-input-block]="shiftGroup.get('shiftTitle').hasError('required') && shiftGroup.get('shiftTitle').touched">-->
+      <!--<input matInput-->
+             <!--placeholder="Request title"-->
+             <!--[formControl]="shiftGroup.get('shiftTitle')" required>-->
+    <!--</mat-input-container>-->
+    <!--<div class="alert form-component__alert-danger"-->
+         <!--[ngClass]="{'form-component__display': shiftGroup.get('shiftTitle').hasError('required') && shiftGroup.get('shiftTitle').touched}">-->
+      <!--Title field is required.-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--<div class="form-component__input-group">-->
+    <!--<mat-input-container class="example-full-width">-->
+      <!--<input matInput-->
+             <!--placeholder="Date"-->
+             <!--[formControl]="shiftGroup.get('date')">-->
+    <!--</mat-input-container>-->
+  <!--</div>-->
+  <!--<div class="form-component__input-group">-->
+    <!--<mat-input-container class="form-component__group example-full-width">-->
+      <!--<input matInput-->
+             <!--placeholder="Start time"-->
+             <!--[formControl]="shiftGroup.get('startTime')">-->
+    <!--</mat-input-container>-->
+  <!--</div>-->
+  <!--<div class="form-component__input-group">-->
+    <!--<mat-input-container class="list-fields__field">-->
+      <!--<input matInput-->
+             <!--placeholder="End time"-->
+             <!--[formControl]="shiftGroup.get('endTime')">-->
+    <!--</mat-input-container>-->
+  <!--</div>-->
+  <!--<div class="form-component__input-group">-->
+    <!--<mat-input-container class="example-full-width">-->
+      <!--<mat-select placeholder="Location" [(value)]="shiftGroup.get('locationID').value">-->
+        <!--<mat-option *ngFor="let location of shift['locationList']" [value]="location.id">-->
+          <!--{{ location.description }}-->
+        <!--</mat-option>-->
+      <!--</mat-select>-->
+    <!--</mat-input-container>-->
+  <!--</div>-->
+  <!--<div class="form-component__input-group">-->
+    <!--<mat-input-container class="example-full-width">-->
+      <!--<mat-select placeholder="Station" [(value)]="shiftGroup.get('stationID').value">-->
+        <!--<mat-option *ngFor="let station of shift['stationList']" [value]="station.id">-->
+          <!--{{ station.description }}-->
+        <!--</mat-option>-->
+      <!--</mat-select>-->
+    <!--</mat-input-container>-->
+  <!--</div>-->
+  <!--<div class="form-component__input-group">-->
+    <!--<mat-input-container class="example-full-width">-->
+      <!--<mat-select placeholder="Job title" [(value)]="shiftGroup.get('jobID').value">-->
+        <!--<mat-option *ngFor="let job of shift['jobList']" [value]="job.id">-->
+          <!--{{ job.description }}-->
+        <!--</mat-option>-->
+      <!--</mat-select>-->
+    <!--</mat-input-container>-->
+  <!--</div>-->
+  <!--<div class="form-component__input-group">-->
+    <!--<mat-input-container class="example-full-width">-->
+      <!--<input matInput-->
+             <!--readonly=true-->
+             <!--placeholder="Status"-->
+             <!--[formControl]="shiftGroup.get('status')">-->
+    <!--</mat-input-container>-->
+  <!--</div>-->
+</form>

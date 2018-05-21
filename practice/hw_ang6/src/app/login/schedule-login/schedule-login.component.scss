@@ -1,0 +1,52 @@
+.login-schedule {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__app-header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 48px;
+    flex-shrink: 0;
+  }
+
+  &__content-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    max-width: 360px;
+    background-color: white;
+    overflow: auto;
+    flex-grow: 1;
+  }
+
+  .mat-button-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .mat-raised-button {
+    width: 100%;
+    height: 56px;
+    box-shadow: none !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  &__group {
+    font-size: 16px;
+    font-family: Lato, Helvetica, Arial, sans-serif;
+    color: #39404c;
+    text-transform: capitalize;
+  }
+
+  &__icon {
+    color: #39404c;
+  }
+}

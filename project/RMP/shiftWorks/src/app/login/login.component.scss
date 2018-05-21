@@ -68,10 +68,10 @@ form {
   top: 5px;
   z-index: 11;
   background: #1c9f53;
-  background: -moz-linear-gradient(top, $cGreen1 0%, $cGreen2 100%);
-  background: -webkit-linear-gradient(top, $cGreen1 0%, $cGreen2 100%);
-  background: linear-gradient(to bottom, $cGreen1 0%, $cGreen2 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$cGreen1', endColorstr='$cGreen2', GradientType=0);
+  background: -moz-linear-gradient(top, $jungleGreen 0%, $jewel 100%);
+  background: -webkit-linear-gradient(top, $jungleGreen 0%, $jewel 100%);
+  background: linear-gradient(to bottom, $jungleGreen 0%, $jewel 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$jungleGreen', endColorstr='$jewel', GradientType=0);
   cursor: pointer;
 
   &[disabled] {

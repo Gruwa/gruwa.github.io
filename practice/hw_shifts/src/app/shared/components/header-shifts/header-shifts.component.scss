@@ -1,0 +1,43 @@
+.header-shifts {
+  display: flex;
+  max-width: 360px;
+  width: 100%;
+  height: 56px;
+  color: white;
+  position: relative;
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 27px;
+    flex-grow: 1;
+  }
+
+  &__container-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &__description {
+    margin-left: 20px;
+    font-size: 18px;
+    text-transform: capitalize;
+  }
+
+  &__element-save {
+    text-transform: uppercase;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  &__element-display-none {
+    display: none;
+  }
+
+  &__element-display {
+    display: block;
+  }
+}

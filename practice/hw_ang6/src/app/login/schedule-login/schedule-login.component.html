@@ -1,0 +1,17 @@
+<div class="login-schedule">
+  <app-header-shifts [headerDescription]="headerDescription"
+                     class="login-schedule__app-header"
+                     [arrowBack]="true">
+  </app-header-shifts>
+  <div class="login-schedule__content-wrapper">
+    <div *ngFor="let group of groups">
+      <button mat-raised-button
+              class="login-schedule__button"
+              [routerLink]="['/', group.description, 'shifts']"
+              (click)="showShifts()">
+        <span class="login-schedule__group">{{group.description}}</span>
+        <i class="login-schedule__icon material-icons">keyboard_arrow_right</i>
+      </button>
+    </div>
+  </div>
+</div>

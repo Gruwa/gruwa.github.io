@@ -2,7 +2,7 @@ import {async, ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/t
 import {HeaderShiftsComponent} from './header-shifts.component';
 import {MatTabsModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {ShiftsService} from '../../../shifts/Services/shifts.service';
+import {ShiftsService} from '../../../shifts/services/shifts.service';
 import {By} from '@angular/platform-browser';
 import {DebugElement} from '@angular/core';
 import {AppRoutingModule} from '../../../app-routing.module';

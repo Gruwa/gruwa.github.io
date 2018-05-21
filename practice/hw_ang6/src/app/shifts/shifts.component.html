@@ -1,0 +1,21 @@
+<div class="shifts">
+  <app-header-shifts [headerDescription]="headerDescription"
+                     class="shifts__app-header"
+                     [sideBar]="true">
+  </app-header-shifts>
+  <div class="shifts__content">
+    <mat-tab-group (selectChange)="selectedTabChange($event)"
+                   [selectedIndex]=tabIndex>
+      <div *ngFor="let tab of tabsTitle; let l = index">
+        <mat-tab label={{tab}}
+                 position=0
+                 class="mat-tab-label">
+          <app-content-shifts [tabActive]="l"></app-content-shifts>
+          <app-small-spinner [ngClass]="{'global__small-spinner-display' : spinner}"
+                             class="global__small-spinner">
+          </app-small-spinner>
+        </mat-tab>
+      </div>
+    </mat-tab-group>
+  </div>
+</div>
