@@ -1,7 +1,7 @@
 import {async, ComponentFixture, fakeAsync, inject, tick, TestBed} from '@angular/core/testing';
 
 import {ScheduleLoginComponent} from './schedule-login.component';
-import {DataService} from '../../shared/services/data.service';
+import {FlowService} from '../../shared/services/flow.service';
 import {APP_BASE_HREF, Location} from '@angular/common';
 import {ReactiveFormsModule} from '@angular/forms';
 import {LocalStorageService} from 'ngx-webstorage';
@@ -10,7 +10,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {Component, DebugElement, NO_ERRORS_SCHEMA} from '@angular/core';
 import {AppComponentsModule} from '../../shared/components/app-components.module';
 
-class FakeDataService {
+class FakeFlowService {
 }
 
 class FakeLocalStorageService {
@@ -68,8 +68,8 @@ describe('ScheduleLoginComponent', () => {
           useValue: '/app'
         },
         {
-          provide: DataService,
-          useClass: FakeDataService
+          provide: FlowService,
+          useClass: FakeFlowService
         },
         {
           provide: LocalStorageService,

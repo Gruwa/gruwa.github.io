@@ -2,10 +2,10 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 import 'rxjs/add/operator/publishReplay';
-import 'rxjs/add/operator/map';
 import {ITabTypes} from '../../shared/interfaces/types.interface';
 import {AuthGuardService} from './auth-guard.service';
 import {ILogin} from '../../shared/interfaces/login.interface';
+import {FlowService} from '../../shared/services/flow.service';
 import {DataService} from '../../shared/services/data.service';
 
 /**
@@ -33,13 +33,15 @@ export class AuthService {
    * Creates an instance of HttpService
    * @param {HttpClient} http
    * @param {AuthGuardService} authGuardService
+   * @param {FlowService} flowService
    * @param {DataService} dataService
    * @memberof AuthService
    */
 
-  constructor(public http: HttpClient,
-              public authGuardService: AuthGuardService,
-              public dataService: DataService) {
+  constructor(private http: HttpClient,
+              private authGuardService: AuthGuardService,
+              private flowService: FlowService,
+              private dataService: DataService) {
   }
 
   /**
@@ -49,7 +51,7 @@ export class AuthService {
    */
 
   onLogin(body: object) {
-    this.dataService.dataLogin$ = this.onLoginRequest(body).map(
+    this.flowService.dataLogin$ = this.onLoginRequest(body).map(
       (resp: ILogin) => {
         console.log(resp); // TODO - DELETE when will be ready auth
         return this.authGuardService.guardLogin(resp['Items']);
@@ -65,6 +67,6 @@ export class AuthService {
    */
 
   onLoginRequest(body: object) {
-    return this.http.post(BASEURL + '/login', body);
+    return this.http.post(this.dataService.BASEURL + '/login', body);
   }
 }

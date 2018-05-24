@@ -5,8 +5,8 @@ import {
   IShiftsSorted
 } from '../../shared/interfaces/shift.interface';
 import {HttpService} from '../../shared/services/http.service';
-import {DataService} from '../../shared/services/data.service';
-import {LocalStorageService} from 'ngx-webstorage';
+import {FlowService} from '../../shared/services/flow.service';
+import * as moment from 'moment';
 
 /**
  * Variable of month
@@ -47,17 +47,6 @@ const DAY: Array<string> =
     'Sunday'
   ];
 
-
-/**
- * FLOW for api link
- */
-
-const FLOW = {
-  upcoming: 'dataShiftsUpcoming$',
-  'my requests': 'dataShiftsMyReq$',
-  available: 'dataShiftsAvailable$'
-};
-
 /**
  * Auth Guard Service
  */
@@ -76,14 +65,13 @@ export class ShiftsService {
    * Creates an instance of ShiftsService
    * @param {Router} router
    * @param {HttpService} httpService
-   * @param {DataService} dataService
+   * @param {FlowService} flowService
    * @memberof ShiftsService
    */
 
   constructor(public router: Router,
               public httpService: HttpService,
-              public dataService: DataService,
-              public localService: LocalStorageService) {
+              public flowService: FlowService) {
   }
 
   /**
@@ -179,8 +167,8 @@ export class ShiftsService {
       result.push(newObjectOfShifts[i]);
     }
 
-    this.dataService.dataSpinner$.next(false);
-    this.dataService.dataSmallSpinner$.next(false);
+    this.flowService.dataSpinner$.next(false);
+    this.flowService.dataSmallSpinner$.next(false);
     return result.sort(this.sortFunction);
   }
 
@@ -197,6 +185,32 @@ export class ShiftsService {
     const dateB = new Date(b.dateFrom).getTime();
 
     return dateA > dateB ? 1 : -1;
+  }
+
+  /**
+   * Method of create dateFrom and dateTo for save request
+   * @param {string} timeFrom
+   * @param {string} timeTo
+   * @param {string} date
+   * @returns {Array}
+   * @memberof ShiftsService
+   */
+
+  createDate(date: string, timeFrom: string, timeTo: string) {
+    if ((timeFrom.substring(0, 2) > timeTo.substring(0, 2)) ||
+      (timeFrom.substring(0, 2) === timeTo.substring(0, 2) && timeFrom.substring(3, 5) > timeTo.substring(3, 5))) {
+
+      return [
+        moment(new Date(date)).format('YYYY-MM-DD') + 'T' + timeFrom + ':00.000Z',
+        moment(new Date(date)).add(1, 'days').format('YYYY-MM-DD') + 'T' + timeTo + ':00.000Z'
+      ];
+    } else {
+
+      return [
+        moment(new Date(date)).format('YYYY-MM-DD') + 'T' + timeFrom + ':00.000Z',
+        moment(new Date(date)).format('YYYY-MM-DD') + 'T' + timeTo + ':00.000Z'
+      ];
+    }
   }
 
 }

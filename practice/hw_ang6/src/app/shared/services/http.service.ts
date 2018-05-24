@@ -1,38 +1,10 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {environment} from '../../../environments/environment';
 import {HttpGuardService} from './http-guard.service';
 import 'rxjs/add/operator/publishReplay';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/observable/from';
-import {DataService} from './data.service';
+import {FlowService} from './flow.service';
 import {ITabTypes} from '../interfaces/types.interface';
-
-/**
- * BASEURL of api
- */
-
-const BASEURL = `${environment.apiRoot}`;
-
-/**
- * TABS for api link
- */
-
-const TABS = {
-  upcoming: 'upcoming',
-  'my requests': 'myrequests',
-  available: 'available'
-};
-
-/**
- * FLOW for api link
- */
-
-const FLOW = {
-  upcoming: 'dataShiftsUpcoming$',
-  'my requests': 'dataShiftsMyReq$',
-  available: 'dataShiftsAvailable$'
-};
+import {DataService} from './data.service';
 
 /**
  * Http Service
@@ -61,14 +33,15 @@ export class HttpService {
    * Creates an instance of HttpService
    * @param {HttpClient} http
    * @param {HttpGuardService} httpGuardService
+   * @param {FlowService} flowService,
    * @param {DataService} dataService
    * @memberof HttpService
    */
 
-
-  constructor(public http: HttpClient,
-              public httpGuardService: HttpGuardService,
-              public dataService: DataService) {
+  constructor(private http: HttpClient,
+              private httpGuardService: HttpGuardService,
+              private flowService: FlowService,
+              private dataService: DataService) {
   }
 
   /**
@@ -79,8 +52,8 @@ export class HttpService {
 
   getShifts(tab: ITabTypes = 'upcoming') {
 
-    if (TABS[tab]) {
-      this.dataService[`${FLOW[tab]}`] = this.getShiftsRequest(tab).map(
+    if (this.dataService.TABS[tab]) {
+      this.flowService[`${this.dataService.FLOW[tab]}`] = this.getShiftsRequest(tab).map(
         (resp) => {
           console.log('httpService getShifts', resp); // TODO - Delete when ready
           return this.httpGuardService.guardShifts(resp);
@@ -97,7 +70,23 @@ export class HttpService {
    */
 
   getShiftsRequest(tab: ITabTypes = 'upcoming') {
-    return this.http.get(BASEURL + '/shifts/' + TABS[tab]);
+    return this.http.get(this.dataService.BASEURL + '/shifts/' + this.dataService.TABS[tab]);
+  }
+
+  /**
+   * Method for delete shifts
+   * @param {string} id
+   * @memberof HttpService
+   */
+
+  deleteShifts(id: string): any {
+    console.log('!!!!!patch upcoming Shifts htttpService!!!!!');
+    return this.http.delete(this.dataService.BASEURL + '/shifts/delete/' + id).map(
+      (resp) => {
+        console.log('httpService DELETEShifts', resp); // TODO - Delete when ready
+        return resp;
+      }
+    );
   }
 
   /**
@@ -109,7 +98,7 @@ export class HttpService {
 
   patchShifts(id: string, body: object): any {
     console.log('!!!!!patch upcoming Shifts htttpService!!!!!');
-    return this.http.patch(BASEURL + '/shifts/' + id, body).map(
+    return this.patchShiftsRequest(id, body).map(
       (resp) => {
         console.log('httpService patchShifts', resp); // TODO - Delete when ready
         return this.httpGuardService.guardReFreshShift(resp);
@@ -118,21 +107,16 @@ export class HttpService {
   }
 
   /**
-   * Method for delete shifts
+   * Method for patch request with editing shift
    * @param {string} id
    * @param {object} body
    * @memberof HttpService
    */
 
-  deleteShifts(id: string): any {
-    console.log('!!!!!patch upcoming Shifts htttpService!!!!!');
-    return this.http.delete(BASEURL + '/shifts/' + id).map(
-      (resp) => {
-        console.log('httpService DELETEShifts', resp); // TODO - Delete when ready
-        return resp;
-      }
-    );
+  patchShiftsRequest(id: string, body: object) {
+    return this.http.patch(this.dataService.BASEURL + '/shifts/' + id, body);
   }
+
 
   /**
    * Method add all object to db
@@ -142,7 +126,7 @@ export class HttpService {
   addAllObject() {
     // TODO - delete for real api request
     console.log('!!!!!htttp addAllObject!!!!!');
-    return this.http.get(BASEURL + '');
+    return this.http.get(this.dataService.BASEURL + '');
   }
 
 }

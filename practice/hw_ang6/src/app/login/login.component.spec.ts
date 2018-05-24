@@ -4,7 +4,7 @@ import {AppRoutingModule} from '../app-routing.module';
 import {APP_BASE_HREF} from '@angular/common';
 import {AppComponentsModule} from '../shared/components/app-components.module';
 import {AuthService} from './services/auth.service';
-import {DataService} from '../shared/services/data.service';
+import {FlowService} from '../shared/services/flow.service';
 import {ReactiveFormsModule} from '@angular/forms';
 import {DebugElement} from '@angular/core';
 import {MaterialsModule} from '../shared/components/materials/materials.module';
@@ -16,7 +16,7 @@ class FakeAuthService {
 
 }
 
-class FakeDataService {
+class FakeFlowService {
 
 }
 
@@ -48,8 +48,8 @@ describe('LoginComponent', () => {
           useClass: FakeAuthService
         },
         {
-          provide: DataService,
-          useClass: FakeDataService
+          provide: FlowService,
+          useClass: FakeFlowService
         },
       ]
     }).compileComponents();
@@ -104,7 +104,7 @@ describe('LoginComponent', () => {
     expect(spy).toHaveBeenCalled();
   }));
 
-  it('Should create content of the login input', async(() => {
+  it('Should create content of the login form-input', async(() => {
     const value: string = 'login';
     component.initForm();
     console.log(component.loginForm);
@@ -113,7 +113,7 @@ describe('LoginComponent', () => {
     expect(value).toEqual(component.loginForm.get('login').value);
   }));
 
-  it('Should create content of the password input', async(() => {
+  it('Should create content of the password form-input', async(() => {
     const value: string = 'password';
     component.initForm();
     console.log(component.loginForm);

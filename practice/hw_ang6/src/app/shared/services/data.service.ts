@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
-import {Subject, Observable} from 'rxjs';
+import {environment} from '../../../environments/environment';
+import {IFooterRequest, ITabTypes} from '../interfaces/types.interface';
 
 /**
  * Data Service
@@ -9,83 +10,121 @@ import {Subject, Observable} from 'rxjs';
 export class DataService {
 
   /**
-   * Created flow of SideBar
-   * @type {Subject<any>}
+   * variable for HttpErrorResponse
+   * @param {object} value - description of errors
    * @memberof DataService
    */
 
-  public dataSideBar$ = new Subject<any>();
+  public httpErrorResponse = {
+    '404': 'Page not found',
+    '401': 'Authorisation error',
+    '500': 'Global error',
+    '550': 'Try again later',
+    '551': 'Please refresh your data',
+    '552': 'Error ID Group'
+  };
 
   /**
-   * Created flow of save
-   * @type {Subject<any>}
+   * variable for HttpSuccessResponse
+   * @param {object} value - description of success
    * @memberof DataService
    */
 
-  public dataSave$ = new Subject<any>();
+  public httpSuccessResponse = {
+    'save': 'Save success',
+    'delete': 'Delete success'
+  };
 
   /**
-   * Created flow of data small spinner
-   * @type {Subject<any>}
+   * variable for TABS
+   * @param {object} value - object of tabs
    * @memberof DataService
    */
 
-  public dataSmallSpinner$ = new Subject<any>();
+  public TABS = {
+    upcoming: 'upcoming',
+    'my requests': 'myrequests',
+    available: 'available'
+  };
 
   /**
-   * Created flow of show spinner
-   * @type {Subject<any>}
+   * variable for TABS
+   * @param {Array<ITabTypes>} value - array of tabs for index
    * @memberof DataService
    */
 
-  public dataSpinner$ = new Subject<any>();
+  public indexTABS: Array<ITabTypes> = [
+    'upcoming',
+    'my requests',
+    'available'
+  ];
 
   /**
-   * Created flow of active shift
-   * @type {Subject<any>}
+   * variable for FLOW
+   * @param {object} value - FLOW for api link
    * @memberof DataService
    */
 
-  public dataActiveShift$: Observable<object>;
+  public FLOW = {
+    upcoming: 'dataShiftsUpcoming$',
+    'my requests': 'dataShiftsMyReq$',
+    available: 'dataShiftsAvailable$'
+  };
 
   /**
-   * Created flow of login
-   * @type {Observable<object>}
-   * @memberof ShiftsService
-   */
-
-  public dataLogin$: Observable<object>;
-
-  /**
-   * Created flow of ShiftsUpcoming$
-   * @type {Observable<object>}
+   * variable for BASEURL
+   * @param {string} value - base url for api link
    * @memberof DataService
    */
 
-  public dataShiftsUpcoming$: Observable<object>;
+  public BASEURL = `${environment.apiRoot}`;
 
   /**
-   * Created flow of dataShiftsMyReq$
-   * @type {Observable<object>}
+   * Variable FOOTER_REQUESTS
+   * @type {Array<IFooterRequest>} - requests for shifts
    * @memberof DataService
    */
 
-  public dataShiftsMyReq$: Observable<object>;
+  public FOOTER_REQUESTS: Array<IFooterRequest> = [
+    'request drop',
+    'cancel drop request',
+    'request pickup',
+    'cancel request pickup',
+    'cancel request'
+  ];
 
   /**
-   * Created flow of dataShiftsAvailable$
-   * @type {Observable<object>}
+   * Variable STATUS
+   * @type {object} - status of shifts
    * @memberof DataService
    */
 
-  public dataShiftsAvailable$: Observable<object>;
+  public STATUS = {
+    scheduled: 'scheduled',
+    'drop request': 'drop request',
+    'pickup request': 'pickup request',
+    'cancel request': 'cancel request'
+  };
 
   /**
-   * Creates an instance of dataGroupRestaurant$
+   * Variable SHIFT_ACTIVE
+   * @type {object}
    * @memberof DataService
    */
 
+  public SHIFT_ACTIVE = {
+    upcoming: 'isDropRequest',
+    available: 'isPickupRequest'
+  };
 
-  public dataGroupRestaurant$: Observable<object>;
+  /**
+   * Variable SHIFT_REQUEST
+   * @type {object}
+   * @memberof DataService
+   */
 
+  public SHIFT_REQUEST = {
+    upcoming: 'pickup request',
+    available: 'drop request'
+  };
 }

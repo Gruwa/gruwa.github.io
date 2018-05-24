@@ -1,20 +1,12 @@
 import {Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
 import {HttpService} from '../shared/services/http.service';
-import {DataService} from '../shared/services/data.service';
+import {FlowService} from '../shared/services/flow.service';
 import {LocalStorageService} from 'ngx-webstorage';
 import {ITabTypes} from '../shared/interfaces/types.interface';
-import {Subject} from 'rxjs';
-import {debounceTime, takeUntil} from 'rxjs/operators';
-
-/**
- * TABS for navigate
- */
-
-const TABS: Array<ITabTypes> = [
-  'upcoming',
-  'my requests',
-  'available'
-];
+import {Subject} from 'rxjs/Subject';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/takeUntil';
+import {DataService} from '../shared/services/data.service';
 
 /**
  * Shifts Component
@@ -35,14 +27,6 @@ export class ShiftsComponent implements OnInit, OnDestroy {
    */
 
   public headerDescription: string = 'Shifts';
-
-  /**
-   * Variable tabsTitle
-   * @type {Array<ITabTypes>}
-   * @memberof ShiftsComponent
-   */
-
-  public tabsTitle: Array<ITabTypes> = ['upcoming', 'my requests', 'available'];
 
   /**
    * Variable of tab
@@ -86,15 +70,17 @@ export class ShiftsComponent implements OnInit, OnDestroy {
 
   /**
    * Creates an instance of ShiftsComponent
-   * @param {LocalStorageService} dataService
+   * @param {FlowService} flowService
    * @param {LocalStorageService} localStorage
    * @param {HttpService} httpService
+   * @param {DataService} dataService
    * @memberof ShiftsComponent
    */
 
-  constructor(public httpService: HttpService,
-              public dataService: DataService,
-              public localStorage: LocalStorageService) {
+  constructor(private httpService: HttpService,
+              private flowService: FlowService,
+              private localStorage: LocalStorageService,
+              public dataService: DataService) {
   }
 
   /**
@@ -104,16 +90,17 @@ export class ShiftsComponent implements OnInit, OnDestroy {
    */
 
   ngOnInit(): void {
-    this.dataService.dataSmallSpinner$.pipe(takeUntil(this.ngUnsubscribe), debounceTime(500))
+    this.flowService.dataSmallSpinner$.takeUntil(this.ngUnsubscribe)
+      .debounceTime(500)
       .subscribe(this.spinnerShow.bind(this));
-    this.dataService.dataSmallSpinner$.next(true);
+    this.flowService.dataSmallSpinner$.next(true);
 
     if (this.localStorage.retrieve('tab') !== null) {
       this.tabActive = this.localStorage.retrieve('tab');
     } else {
       this.localStorage.store('tab', this.tabActive);
     }
-    this.tabIndex = TABS.indexOf(this.localStorage.retrieve('tab'));
+    this.tabIndex = this.dataService.indexTABS.indexOf(this.localStorage.retrieve('tab'));
   }
 
   /**
@@ -123,9 +110,8 @@ export class ShiftsComponent implements OnInit, OnDestroy {
    */
 
   selectedTabChange(value: any): void {
-    console.log(value);
-    this.tabActive = TABS[value.index];
-    this.localStorage.store('tab', TABS[value.index]);
+    this.tabActive = this.dataService.indexTABS[value.index];
+    this.localStorage.store('tab', this.dataService.indexTABS[value.index]);
     console.log(this.localStorage.retrieve('tab'));
   }
 

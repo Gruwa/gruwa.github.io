@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {LocalStorageService} from 'ngx-webstorage';
-import {DataService} from '../../services/data.service';
+import {FlowService} from '../../services/flow.service';
 
 
 @Component({
@@ -71,7 +71,7 @@ export class HeaderShiftsComponent {
    * Creates an instance of DetailsShiftsComponent
    * @param {ActivatedRoute} route
    * @param {LocalStorageService} localStorage
-   * @param {DataService} dataService
+   * @param {FlowService} flowService
    * @param {Router} router
    * @memberof HeaderShiftsComponent
    */
@@ -79,7 +79,7 @@ export class HeaderShiftsComponent {
   constructor(public router: Router,
               public localStorage: LocalStorageService,
               public route: ActivatedRoute,
-              public dataService: DataService) {
+              public flowService: FlowService) {
   }
 
   /**
@@ -109,7 +109,7 @@ export class HeaderShiftsComponent {
    */
 
   onSave(): void {
-    this.dataService.dataSave$.next('save');
+    this.flowService.dataSave$.next('save');
   }
 
   /**

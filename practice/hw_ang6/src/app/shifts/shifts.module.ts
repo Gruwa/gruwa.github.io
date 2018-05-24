@@ -5,8 +5,10 @@ import {RouterModule, Routes} from '@angular/router';
 import {AppComponentsModule} from '../shared/components/app-components.module';
 import {ContentShiftsComponent} from './content-shifts/content-shifts.component';
 import {DetailsShiftsComponent} from './details-shifts/details-shifts.component';
-import {ShiftsService} from './Services/shifts.service';
+import {ShiftsService} from './services/shifts.service';
 import {MaterialsModule} from '../shared/components/materials/materials.module';
+import {FormComponent} from './details-shifts/form/form.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 export const routes: Routes = [
   {
@@ -34,12 +36,14 @@ export const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     AppComponentsModule,
-    MaterialsModule
+    MaterialsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     ShiftsComponent,
     ContentShiftsComponent,
-    DetailsShiftsComponent
+    DetailsShiftsComponent,
+    FormComponent
   ],
   providers: [
     ShiftsService

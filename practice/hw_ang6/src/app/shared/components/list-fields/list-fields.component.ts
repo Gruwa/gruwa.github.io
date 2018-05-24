@@ -2,7 +2,8 @@ import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {IShift} from '../../interfaces/shift.interface';
 import {LocalStorageService} from 'ngx-webstorage';
-import {DataService} from '../../services/data.service';
+import {FlowService} from '../../services/flow.service';
+import 'rxjs/add/operator/takeUntil';
 
 /**
  * FLOW for api link
@@ -54,13 +55,13 @@ export class ListFieldsComponent implements OnInit {
    * Creates an instance of ListFieldsComponent
    * @param {ActivatedRoute} route
    * @param {LocalStorageService} localStorage
-   * @param {DataService} dataService
+   * @param {FlowService} flowService
    * @memberof ListFieldsComponent
    */
 
   constructor(public route: ActivatedRoute,
               public localStorage: LocalStorageService,
-              public dataService: DataService) {
+              public flowService: FlowService) {
   }
 
   /**
@@ -71,7 +72,7 @@ export class ListFieldsComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.shiftActive === undefined) {
-      this.dataService[FLOW[this.localStorage.retrieve('tab')]].subscribe((resp) => {
+      this.flowService[FLOW[this.localStorage.retrieve('tab')]].subscribe((resp) => {
         let array = [];
 
         for (const key in resp) {

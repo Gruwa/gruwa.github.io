@@ -10,12 +10,13 @@ import {
   HttpResponse,
   HttpErrorResponse
 } from '@angular/common/http';
-import {tap, map} from 'rxjs/operators';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/operator/do';
 import {ActivatedRoute, Router} from '@angular/router';
 import {LocalStorageService} from 'ngx-webstorage';
-import {DataService} from './data.service';
+import {FlowService} from './flow.service';
 import {ToastrService} from 'ngx-toastr';
-import {Observable} from 'rxjs';
+import {DataService} from './data.service';
 
 /**
  * Injectable
@@ -29,15 +30,18 @@ export class AuthInterceptor implements HttpInterceptor {
    * @param {Router} router
    * @param {LocalStorageService} localStorage,
    * @param {ActivatedRoute} route
+   * @param {FlowService} flowService
+   * @param {ToastrService} toastr
    * @param {DataService} dataService
    * @memberof AuthInterceptor
    */
 
-  constructor(public router: Router,
-              public route: ActivatedRoute,
-              public localStorage: LocalStorageService,
-              public dataService: DataService,
-              private toastr: ToastrService) {
+  constructor(private router: Router,
+              private route: ActivatedRoute,
+              private localStorage: LocalStorageService,
+              private flowService: FlowService,
+              private toastr: ToastrService,
+              private dataService: DataService) {
   }
 
   /**
@@ -80,7 +84,7 @@ export class AuthInterceptor implements HttpInterceptor {
       });
     }
 
-    return next.handle(request).pipe(map(
+    return next.handle(request).map(
       (resp) => {
         if (resp.type !== 0) {
           const token = <object>resp;
@@ -88,34 +92,50 @@ export class AuthInterceptor implements HttpInterceptor {
         }
         return resp;
       }
-    ), tap(() => {
+    ).do(() => {
       },
       (err: any) => {
         if (err instanceof HttpErrorResponse) {
           if (err.status === 404) {
             console.log('error 404');
-            this.dataService.dataSpinner$.next(false);
+            this.toastr.error(this.dataService.httpErrorResponse['404']);
+            this.flowService.dataSpinner$.next(false);
             this.router.navigate(['/404']);
           }
           if (err.status === 401) {
             console.log('error 401');
-            this.dataService.dataSpinner$.next(false);
+            this.toastr.error(this.dataService.httpErrorResponse['401']);
+            this.flowService.dataSpinner$.next(false);
             this.router.navigate(['/login']);
           }
+          if (err.status === 500) {
+            console.log('error 500'); // other error on backend part
+            this.toastr.error(this.dataService.httpErrorResponse['500']);
+            this.flowService.dataSmallSpinner$.next(false);
+          }
           if (err.status === 550) {
-            console.log('error 550');
-            this.dataService.dataSmallSpinner$.next(false);
+            console.log('error 550'); // other error on backend part
+            this.toastr.error(this.dataService.httpErrorResponse['550']);
+            this.flowService.dataSmallSpinner$.next(false);
           }
           if (err.status === 551) {
-            console.log('error 551');
-            this.dataService.dataSmallSpinner$.next(false);
-            window.location.href = '/' +
-              this.route.snapshot.children[0].params['group'] + '/' +
-              'shifts' + '/' +
-              this.route.snapshot.children[0].children[0].params['id'];
+            console.log('error 551'); // if data on mobile is old
+            this.toastr.error(this.dataService.httpErrorResponse['551']);
+            this.flowService.dataSmallSpinner$.next(false);
+            setTimeout(() => {
+              window.location.href = '/' +
+                this.route.snapshot.children[0].params['group'] + '/' +
+                'shifts' + '/' +
+                this.route.snapshot.children[0].children[0].params['id'];
+            }, 1200);
+          }
+          if (err.status === 552) {
+            console.log('error 552'); // other error on backend part
+            this.toastr.error(this.dataService.httpErrorResponse['552']);
+            this.flowService.dataSmallSpinner$.next(false);
           }
         }
       }
-    ));
+    );
   }
 }

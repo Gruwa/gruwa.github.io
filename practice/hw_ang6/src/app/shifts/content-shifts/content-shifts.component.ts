@@ -1,34 +1,17 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {AfterViewInit, Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {ShiftsService} from '../Services/shifts.service';
+import {ShiftsService} from '../services/shifts.service';
 import {HttpService} from '../../shared/services/http.service';
 import {LocalStorageService} from 'ngx-webstorage';
-import {ActivatedRoute, Router} from '@angular/router';
-import {Subject} from 'rxjs';
-import {takeUntil} from 'rxjs/operators';
+import {ActivatedRoute, ActivatedRouteSnapshot, Router} from '@angular/router';
+import 'rxjs/add/observable/merge';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/takeUntil';
+import {Subject} from 'rxjs/Subject';
 import {ITabTypes} from '../../shared/interfaces/types.interface';
 import {IShift, IShiftsSorted} from '../../shared/interfaces/shift.interface';
+import {FlowService} from '../../shared/services/flow.service';
 import {DataService} from '../../shared/services/data.service';
-
-/**
- * FLOW for api link
- */
-
-const FLOW = {
-  upcoming: 'dataShiftsUpcoming$',
-  'my requests': 'dataShiftsMyReq$',
-  available: 'dataShiftsAvailable$'
-};
-
-/**
- * TABS for navigate
- */
-
-const TABS: Array<ITabTypes> = [
-  'upcoming',
-  'my requests',
-  'available'
-];
 
 /**
  * Content Shifts Component
@@ -77,21 +60,23 @@ export class ContentShiftsComponent implements OnInit, OnDestroy {
    * Creates an instance of ContentShiftsComponent
    * @param {HttpClient} http
    * @param {ShiftsService} shiftsService
-   * @param {DataService} dataService
+   * @param {FlowService} flowService
    * @param {HttpService} httpService
    * @param {LocalStorageService} localStorage
    * @param {Router} router
    * @param {ActivatedRoute} route
+   * @param {DataService} dataService
    * @memberof ContentShiftsComponent
    */
 
-  constructor(public http: HttpClient,
-              public dataService: DataService,
-              public shiftsService: ShiftsService,
-              public httpService: HttpService,
-              public router: Router,
-              public localStorage: LocalStorageService,
-              public route: ActivatedRoute) {
+  constructor(private http: HttpClient,
+              private flowService: FlowService,
+              private shiftsService: ShiftsService,
+              private httpService: HttpService,
+              private router: Router,
+              private localStorage: LocalStorageService,
+              private route: ActivatedRoute,
+              private dataService: DataService) {
   }
 
   /**
@@ -101,17 +86,16 @@ export class ContentShiftsComponent implements OnInit, OnDestroy {
    */
 
   ngOnInit(): void {
-    this.tab = TABS[this.tabActive];
+    this.tab = this.dataService.indexTABS[this.tabActive];
 
-    for (const i in FLOW) {
-      if (this.dataService[`${FLOW[i]}`] === undefined) {
+    for (const i in this.dataService.FLOW) {
+      if (this.flowService[`${this.dataService.FLOW[i]}`] === undefined) {
         this.httpService.getShifts(<ITabTypes>i);
       }
     }
 
-    this.dataService.dataSmallSpinner$.next(true);
-
-    this.dataService[`${FLOW[this.tab]}`].pipe(takeUntil(this.ngUnsubscribe)).subscribe(
+    this.flowService.dataSmallSpinner$.next(true);
+    this.flowService[`${this.dataService.FLOW[this.tab]}`].takeUntil(this.ngUnsubscribe).subscribe(
       (value) => {
         this.getShifts(value['items']);
       }

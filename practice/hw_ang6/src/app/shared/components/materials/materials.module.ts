@@ -12,6 +12,8 @@ import {
   MatTabsModule,
   MatProgressSpinnerModule,
   MatDatepickerModule,
+  MatNativeDateModule,
+  MatFormFieldModule,
 } from '@angular/material';
 import {AmazingTimePickerModule} from 'amazing-time-picker';
 
@@ -30,7 +32,10 @@ import {AmazingTimePickerModule} from 'amazing-time-picker';
     MatTabsModule,
     MatProgressSpinnerModule,
     AmazingTimePickerModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule
   ],
   exports: [
     MatTabsModule,
@@ -45,7 +50,10 @@ import {AmazingTimePickerModule} from 'amazing-time-picker';
     MatTabsModule,
     MatProgressSpinnerModule,
     AmazingTimePickerModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule
   ]
 })
 export class MaterialsModule {

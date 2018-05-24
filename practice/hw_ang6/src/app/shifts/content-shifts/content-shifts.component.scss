@@ -4,9 +4,9 @@
 
 .content-shifts {
   width: 100%;
-  padding: 10px;
+  padding: 8px;
   height: 100%;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
 
   background-color: #f2f4f7;
@@ -18,11 +18,17 @@
   }
 
   &__wrapper {
+    max-width: 976px;
     padding: 16px;
+    margin: auto;
   }
 
   &__content {
 
+  }
+
+  &__buttons {
+    min-height: 90px;
   }
 
   &__button {
@@ -31,7 +37,7 @@
     box-shadow: 0px 2px 6px 0px rgba(108, 115, 128, 0.5);
     position: absolute;
     right: 24px;
-    bottom: 64px;
+    bottom: 24px;
     width: 64px;
     height: 64px;
     z-index: 797;
@@ -46,4 +52,11 @@
 .material-icons {
   color: white;
   font-size: 28px;
+}
+
+@media (min-width: 1024px) {
+  .content-shifts__button {
+    right: 50%;
+    margin-right: -490px;
+  }
 }

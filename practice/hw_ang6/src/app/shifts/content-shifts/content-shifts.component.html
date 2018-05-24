@@ -8,9 +8,10 @@
       </app-shift-block>
     </div>
   </div>
-  <button mat-fab class="content-shifts__button"
-          (click)="addNewMyRequest()"
-          *ngIf="tab === 'my requests'">
-    <i class="material-icons">add</i>
-  </button>
+  <div *ngIf="tab === 'my requests'" class="content-shifts__buttons">
+    <button mat-fab class="content-shifts__button"
+            (click)="addNewMyRequest()">
+        <i class="material-icons">add</i>
+    </button>
+  </div>
 </div>

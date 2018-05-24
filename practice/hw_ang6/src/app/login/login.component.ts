@@ -1,10 +1,11 @@
 ﻿import {Component, OnInit, OnDestroy} from '@angular/core';
 import {Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Subject} from 'rxjs';
-import {takeUntil} from 'rxjs/operators';
-import {DataService} from '../shared/services/data.service';
+import {Subject} from 'rxjs/Subject';
+import 'rxjs/add/operator/takeUntil';
+import {FlowService} from '../shared/services/flow.service';
 import {AuthService} from './services/auth.service';
+import {HttpService} from '../shared/services/http.service';
 
 /**
  * Login Component
@@ -36,7 +37,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   /**
    * Creates an instance of LoginComponent
    * @param {AuthService} authService
-   * @param {DataService} dataService
+   * @param {FlowService} flowService
    * @param {FormBuilder} fb
    * @param {Router} router
    * @memberof LoginComponent
@@ -44,7 +45,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   constructor(private router: Router,
               public authService: AuthService,
-              public dataService: DataService,
+              public flowService: FlowService,
               // public httpService: HttpService, // TODO - delete when will be ready real api
               private fb: FormBuilder) {
   }
@@ -82,7 +83,7 @@ export class LoginComponent implements OnInit, OnDestroy {
    */
 
   onSubmit(): void {
-    this.dataService.dataSpinner$.next(true);
+    this.flowService.dataSpinner$.next(true);
     const valueOfLogin: object = {
       login: this.loginForm.get('login').value,
       password: this.loginForm.get('password').value,
@@ -90,7 +91,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     };
 
     this.authService.onLogin(valueOfLogin);
-    this.dataService.dataLogin$.pipe(takeUntil(this.ngUnsubscribe)).subscribe(
+    this.flowService.dataLogin$.takeUntil(this.ngUnsubscribe).subscribe(
       (resp) => {
         this.router.navigate(['/login/schedule']);
       }

@@ -1,8 +1,7 @@
 ﻿import {Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
-import {DataService} from './shared/services/data.service';
-import {Subject} from 'rxjs';
-import {takeUntil} from 'rxjs/operators';
-
+import {FlowService} from './shared/services/flow.service';
+import {Subject} from 'rxjs/Subject';
+import 'rxjs/add/operator/takeUntil';
 
 /**
  * App Component
@@ -34,11 +33,11 @@ export class AppComponent implements OnInit, OnDestroy {
 
   /**
    * Creates an instance of AppComponent
-   * @param {DataService} dataService
+   * @param {FlowService} flowService
    * @memberof AppComponent
    */
 
-  constructor(public dataService: DataService) {
+  constructor(public flowService: FlowService) {
   }
 
   /**
@@ -48,7 +47,7 @@ export class AppComponent implements OnInit, OnDestroy {
    */
 
   ngOnInit(): void {
-    this.dataService.dataSpinner$.pipe(takeUntil(this.ngUnsubscribe)).subscribe(this.spinnerShow.bind(this));
+    this.flowService.dataSpinner$.takeUntil(this.ngUnsubscribe).subscribe(this.spinnerShow.bind(this));
   }
 
   /**

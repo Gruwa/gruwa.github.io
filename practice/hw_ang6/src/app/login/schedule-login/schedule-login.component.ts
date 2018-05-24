@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {DataService} from '../../shared/services/data.service';
+import {FlowService} from '../../shared/services/flow.service';
 import {IGroupRestaurant} from '../../shared/interfaces/group-restaurant.interface';
 import {Router} from '@angular/router';
 
@@ -34,12 +34,12 @@ export class ScheduleLoginComponent implements OnInit, AfterViewInit {
 
   /**
    * Creates an instance of ScheduleLoginComponent
-   * @param {DataService} dataService
+   * @param {FlowService} flowService
    * @param {Router} router
    * @memberof ScheduleLoginComponent
    */
 
-  constructor(public dataService: DataService,
+  constructor(public flowService: FlowService,
               public router: Router) {
   }
 
@@ -50,8 +50,8 @@ export class ScheduleLoginComponent implements OnInit, AfterViewInit {
    */
 
   ngOnInit(): void {
-    if (this.dataService.dataLogin$ !== undefined) {
-      this.dataService.dataLogin$.subscribe((res: Array<IGroupRestaurant>) => {
+    if (this.flowService.dataLogin$) {
+      this.flowService.dataLogin$.subscribe((res: Array<IGroupRestaurant>) => {
         this.groups = res;
       });
     } else {
@@ -67,7 +67,7 @@ export class ScheduleLoginComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     setTimeout(() => {
-      this.dataService.dataSpinner$.next(false);
+      this.flowService.dataSpinner$.next(false);
     });
   }
 
@@ -78,7 +78,7 @@ export class ScheduleLoginComponent implements OnInit, AfterViewInit {
    */
 
   showShifts(): void {
-    this.dataService.dataSpinner$.next('true');
+    this.flowService.dataSpinner$.next('true');
   }
 
 }

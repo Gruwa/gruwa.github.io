@@ -2,10 +2,15 @@ import {TestBed, inject, getTestBed, async} from '@angular/core/testing';
 import {AuthService} from './auth.service';
 import {HttpClient, HttpClientModule, HttpRequest, HttpParams} from '@angular/common/http';
 import {AuthGuardService} from './auth-guard.service';
-import {DataService} from '../../shared/services/data.service';
+import {FlowService} from '../../shared/services/flow.service';
 import {Injector} from '@angular/core';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 import {environment} from '../../../environments/environment';
+import {DataService} from '../../shared/services/data.service';
+
+/**
+ * BODY of api
+ */
 
 const BODY = {
   login: 'login',
@@ -23,7 +28,7 @@ const BASEURL = `${environment.apiRoot}`;
 describe('AuthService', () => {
 
   let injector: Injector;
-  let dataService: DataService;
+  let flowService: FlowService;
   let authGuardService: AuthGuardService;
 
   beforeEach(() => {
@@ -35,13 +40,14 @@ describe('AuthService', () => {
       providers: [
         AuthService,
         DataService,
+        FlowService,
         AuthGuardService
       ],
     });
 
     injector = getTestBed();
 
-    dataService = injector.get(DataService);
+    flowService = injector.get(FlowService);
 
     authGuardService = injector.get(AuthGuardService);
   });
@@ -78,7 +84,7 @@ describe('AuthService', () => {
 
   it(`should emit 'true' for 200 Ok`, async(inject([AuthService, HttpTestingController],
     (service: AuthService, backend: HttpTestingController) => {
-      service.onLoginRequest({login: 'test@test.test', password: 'password'}).subscribe((next) => {
+      service.onLoginRequest(BODY).subscribe((next) => {
         expect(next).toBe(null);
       });
 

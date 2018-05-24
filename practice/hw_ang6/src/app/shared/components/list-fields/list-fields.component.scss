@@ -1,5 +1,8 @@
 .list-fields {
-  font-family: "Lato";
+  width: 100%;
+  max-width: 312px;
+  margin: auto;
+  font-family: Lato, Helvetica, Arial, sans-serif;
 
   &__group {
     display: flex;
@@ -9,7 +12,7 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 22px;
-    border-bottom: 2px solid rgba(108, 115, 127, 0.502);
+    border-bottom: 2px solid rgba(#6c737f, 0.502);
   }
 
   &__group &__field {
@@ -24,14 +27,14 @@
     margin-top: 2px;
     margin-bottom: 4px;
     font-size: 14px;
-    color: rgb(108, 115, 127);
+    color: #6c737f;
     line-height: 1.286;
   }
 
   &__value {
-    margin-bottom: 14px;
+    margin-bottom: 7px;
     font-size: 18px;
-    color: rgb(20, 31, 51);
+    color: #141f33;
     font-weight: bold;
     line-height: 1;
   }

@@ -6,7 +6,7 @@
   <div class="shifts__content">
     <mat-tab-group (selectChange)="selectedTabChange($event)"
                    [selectedIndex]=tabIndex>
-      <div *ngFor="let tab of tabsTitle; let l = index">
+      <div *ngFor="let tab of dataService.indexTABS; let l = index">
         <mat-tab label={{tab}}
                  position=0
                  class="mat-tab-label">

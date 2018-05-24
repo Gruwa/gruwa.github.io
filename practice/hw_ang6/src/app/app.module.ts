@@ -11,11 +11,12 @@ import {HttpService} from './shared/services/http.service';
 import {AuthInterceptor} from './shared/services/interceptor';
 import {Ng2Webstorage} from 'ngx-webstorage';
 import {HttpGuardService} from './shared/services/http-guard.service';
-import {DataService} from './shared/services/data.service';
-// import {FlexLayoutModule} from '@angular/flex-layout';
+import {FlowService} from './shared/services/flow.service';
+import {FlexLayoutModule} from '@angular/flex-layout';
 import {SpinnerComponent} from './shared/components/spinner/spinner.component';
 import {MaterialsModule} from './shared/components/materials/materials.module';
 import {ToastrModule} from 'ngx-toastr';
+import {DataService} from './shared/services/data.service';
 
 
 @NgModule({
@@ -26,7 +27,7 @@ import {ToastrModule} from 'ngx-toastr';
     AppComponentsModule,
     HttpClientModule,
     Ng2Webstorage,
-    // FlexLayoutModule,
+    FlexLayoutModule,
     MaterialsModule,
     ToastrModule.forRoot({
       timeOut: 1500,
@@ -47,6 +48,7 @@ import {ToastrModule} from 'ngx-toastr';
     },
     HttpService,
     HttpGuardService,
+    FlowService,
     DataService
   ],
   bootstrap: [AppComponent]

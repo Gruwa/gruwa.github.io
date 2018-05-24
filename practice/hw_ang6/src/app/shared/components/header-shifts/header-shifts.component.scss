@@ -1,7 +1,7 @@
 .header-shifts {
   display: flex;
-  max-width: 360px;
   width: 100%;
+  max-width: 1024px;
   height: 56px;
   color: white;
   position: relative;
@@ -11,7 +11,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 0 27px;
+    padding: 0 24px;
     flex-grow: 1;
   }
 
@@ -19,17 +19,25 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+
+    .material-icons {
+      cursor: pointer;
+    }
   }
 
   &__description {
-    margin-left: 20px;
+    margin-left: 16px;
     font-size: 18px;
     text-transform: capitalize;
+    font-weight: 500;
+    margin-top: 2px;
   }
 
   &__element-save {
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 3px;
     cursor: pointer;
   }
 

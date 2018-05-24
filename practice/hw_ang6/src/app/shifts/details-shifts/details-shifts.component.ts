@@ -1,67 +1,15 @@
 import {Component, OnDestroy, OnInit, Output} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {ShiftsService} from '../Services/shifts.service';
+import {ShiftsService} from '../services/shifts.service';
 import {LocalStorageService} from 'ngx-webstorage';
 import {HttpService} from '../../shared/services/http.service';
-import {Subject} from 'rxjs';
-import {takeUntil} from 'rxjs/operators';
+import {Subject} from 'rxjs/Subject';
 import {IFooterRequest} from '../../shared/interfaces/types.interface';
 import {ITabTypes} from '../../shared/interfaces/types.interface';
-import {DataService} from '../../shared/services/data.service';
+import {FlowService} from '../../shared/services/flow.service';
+import 'rxjs/add/operator/takeUntil';
 import {ToastrService} from 'ngx-toastr';
-
-/**
- * Variable FOOTER_REQUESTS
- * @type {Array<IFooterRequest>}
- * @memberof DetailsShiftsComponent
- */
-
-const FOOTER_REQUESTS: Array<IFooterRequest> = [
-  'request drop',
-  'cancel drop request',
-  'request pickup',
-  'cancel request pickup',
-  'cancel request'
-];
-
-/**
- * FLOW for api link
- */
-
-const FLOW = {
-  upcoming: 'dataShiftsUpcoming$',
-  'my requests': 'dataShiftsMyReq$',
-  available: 'dataShiftsAvailable$'
-};
-
-/**
- * Shift status
- */
-
-const STATUS = {
-  scheduled: 'scheduled',
-  'drop request': 'drop request',
-  'pickup request': 'pickup request',
-  'cancel request': 'cancel request'
-};
-
-/**
- * Shift active
- */
-
-const SHIFT_ACTIVE = {
-  upcoming: 'isDropRequest',
-  available: 'isPickupRequest'
-};
-
-/**
- * Shift request
- */
-
-const SHIFT_REQUEST = {
-  upcoming: 'pickup request',
-  available: 'drop request'
-};
+import {DataService} from '../../shared/services/data.service';
 
 /**
  * Details Shifts Component
@@ -153,17 +101,20 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
    * @param {LocalStorageService} localStorage
    * @param {Router} router
    * @param {HttpService} httpService
+   * @param {FlowService} flowService
+   * @param {ToastrService} toastr
    * @param {DataService} dataService
    * @memberof DetailsShiftsComponent
    */
 
-  constructor(public route: ActivatedRoute,
-              public shiftsService: ShiftsService,
-              public localStorage: LocalStorageService,
-              public httpService: HttpService,
-              public dataService: DataService,
-              public router: Router,
-              private toastr: ToastrService) {
+  constructor(private route: ActivatedRoute,
+              private shiftsService: ShiftsService,
+              private localStorage: LocalStorageService,
+              private httpService: HttpService,
+              private flowService: FlowService,
+              private router: Router,
+              private toastr: ToastrService,
+              private dataService: DataService) {
   }
 
   /**
@@ -173,17 +124,17 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
    */
 
   ngOnInit(): void {
-    this.dataService.dataSmallSpinner$.pipe(takeUntil(this.ngUnsubscribe))
+    this.flowService.dataSmallSpinner$.takeUntil(this.ngUnsubscribe)
       .subscribe(this.spinnerShow.bind(this));
-    this.dataService.dataSmallSpinner$.next(true);
-    this.dataService.dataSave$.pipe(takeUntil(this.ngUnsubscribe)).subscribe(this.saveShift.bind(this));
+    this.flowService.dataSmallSpinner$.next(true);
+    this.flowService.dataSave$.takeUntil(this.ngUnsubscribe).subscribe(this.saveShift.bind(this));
     this.tab = this.localStorage.retrieve('tab');
     this.shiftActiveId = this.route.snapshot.params['id'];
 
-    if (this.dataService[`${FLOW[this.tab]}`] === undefined) {
+    if (this.flowService[`${this.dataService.FLOW[this.tab]}`] === undefined) {
       console.log(this.tab);
       this.httpService.getShifts(this.tab);
-      this.dataService[`${FLOW[this.tab]}`].pipe(takeUntil(this.ngUnsubscribe)).subscribe();
+      this.flowService[`${this.dataService.FLOW[this.tab]}`].takeUntil(this.ngUnsubscribe).subscribe();
     }
 
     if (this.shiftActiveId === 'new') {
@@ -201,7 +152,7 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
   /**
    * Method ngOnDestroy
    * @returns {void}
-   * @memberof ContentShiftsComponent
+   * @memberof DetailsShiftsComponent
    */
 
   ngOnDestroy(): void {
@@ -216,11 +167,11 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
    */
 
   getShifts(): void {
-    this.dataService[`${FLOW[this.tab]}`].subscribe(
+    this.flowService[`${this.dataService.FLOW[this.tab]}`].subscribe(
       (value) => {
 
-        for (const i in FLOW) {
-          if (this.dataService[`${FLOW[i]}`] === undefined) {
+        for (const i in this.dataService.FLOW) {
+          if (this.flowService[`${this.dataService.FLOW[i]}`] === undefined) {
             this.httpService.getShifts(<ITabTypes>i);
           }
         }
@@ -237,32 +188,31 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
           jobList: value.jobList
         };
         if (this.shiftActive['item'] === undefined) {
-          console.log('sdfsdf');
           this.router.navigate(['/' + this.route.snapshot.params['group'], 'shifts']);
         } else {
           this.headerDescription = this.shiftActive['item'].shiftTitle;
           if (this.tab === 'upcoming' || this.tab === 'available') {
             if (this.shiftActive['item'].isDropRequest && this.shiftActive['item'].isPickupRequest) {
-              this.status = STATUS[`${SHIFT_REQUEST[this.tab]}`];
+              this.status = this.dataService.STATUS[`${this.dataService.SHIFT_REQUEST[this.tab]}`];
               this.footerActive = false;
             }
             if (!this.shiftActive['item'].isDropRequest && this.shiftActive['item'].isPickupRequest) {
-              this.status = STATUS['pickup request'];
+              this.status = this.dataService.STATUS['pickup request'];
               this.footerActive = false;
             }
             if (!this.shiftActive['item'].isDropRequest && !this.shiftActive['item'].isPickupRequest) {
-              this.status = STATUS['scheduled'];
+              this.status = this.dataService.STATUS['scheduled'];
               this.footerActive = true;
             }
             if (this.shiftActive['item'].isDropRequest && !this.shiftActive['item'].isPickupRequest) {
-              this.status = STATUS['drop request'];
+              this.status = this.dataService.STATUS['drop request'];
               this.footerActive = false;
             }
           }
           if (this.tab === 'my requests') {
             console.log('shiftActive details', this.shiftActive);
             if (!this.shiftActive['item'].isDropRequest && !this.shiftActive['item'].isPickupRequest) {
-              this.status = STATUS['scheduled'];
+              this.status = this.dataService.STATUS['scheduled'];
             } else {
               this.status = ' ';
             }
@@ -292,15 +242,17 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
 
   setFooterRequest(): void {
     if (this.tab === 'upcoming') {
-      this.footerActive ? this.footerDescription = FOOTER_REQUESTS[0] : this.footerDescription = FOOTER_REQUESTS[1];
+      this.footerActive ? this.footerDescription = this.dataService.FOOTER_REQUESTS[0]
+        : this.footerDescription = this.dataService.FOOTER_REQUESTS[1];
     }
     if (this.tab === 'my requests') {
-      this.footerDescription = FOOTER_REQUESTS[4];
+      this.footerDescription = this.dataService.FOOTER_REQUESTS[4];
     }
     if (this.tab === 'available') {
-      this.footerActive ? this.footerDescription = FOOTER_REQUESTS[2] : this.footerDescription = FOOTER_REQUESTS[3];
+      this.footerActive ? this.footerDescription = this.dataService.FOOTER_REQUESTS[2]
+        : this.footerDescription = this.dataService.FOOTER_REQUESTS[3];
     }
-    this.dataService.dataSmallSpinner$.next(false);
+    this.flowService.dataSmallSpinner$.next(false);
   }
 
   /**
@@ -314,17 +266,17 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
 
     if (this.tab === 'upcoming' || this.tab === 'available') {
       if (!this.footerActive) {
-        this.shiftActive['item'][`${SHIFT_ACTIVE[this.tab]}`] = true;
+        this.shiftActive['item'][`${this.dataService.SHIFT_ACTIVE[this.tab]}`] = true;
         if (this.tab === 'upcoming') {
-          this.status = STATUS['drop request'];
+          this.status = this.dataService.STATUS['drop request'];
         }
         if (this.tab === 'available') {
-          this.status = STATUS['pickup request'];
+          this.status = this.dataService.STATUS['pickup request'];
         }
       } else {
         this.shiftActive['item'].isDropRequest = false;
         this.shiftActive['item'].isPickupRequest = false;
-        this.status = STATUS['scheduled'];
+        this.status = this.dataService.STATUS['scheduled'];
       }
     }
     if (this.tab === 'my requests') {
@@ -346,8 +298,19 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
 
   deleteShift(): void {
     console.log('DELETE');
-    this.httpService.deleteShifts(this.route.snapshot.params['id']).subscribe();
-    this.router.navigate(['/' + this.route.snapshot.params['group'], 'shifts']);
+    this.httpService.deleteShifts(this.route.snapshot.params['id']).subscribe(() => {
+      this.toastr.success(this.dataService.httpSuccessResponse['delete']);
+      this.flowService[`${this.dataService.FLOW[this.tab]}`].subscribe((data) => {
+        for (const key in data['items']) {
+
+          if (data['items'][key].shiftID === this.route.snapshot.params['id']) {
+            console.log(key);
+            data['items'].splice(key, 1);
+          }
+        }
+      });
+      this.router.navigate(['/' + this.route.snapshot.params['group'], 'shifts']);
+    });
     // TODO - method for delete shift
   }
 
@@ -361,8 +324,8 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
   saveShift(value: string | object): void {
     if (typeof value === 'object') {
       this.httpService.patchShifts(this.route.snapshot.params['id'], <object>value).subscribe((resp) => {
-        this.toastr.success('Save success', 'Success');
-        this.dataService[`${FLOW[this.tab]}`].subscribe((data) => {
+        this.toastr.success(this.dataService.httpSuccessResponse['save']);
+        this.flowService[`${this.dataService.FLOW[this.tab]}`].subscribe((data) => {
           for (const key in data['items']) {
             if (data['items'][key].shiftID === resp.items[0].shiftID) {
               data['items'][key] = resp.items[0];
