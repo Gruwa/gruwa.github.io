@@ -1,9 +1,6 @@
 /**
  * Export interface IShift
  */
-import {ILocation} from './location.interface';
-import {IStation} from './station.interface';
-import {IJob} from './job.interface';
 
 export interface IShift {
 
@@ -102,31 +99,6 @@ export interface IShift {
    */
 
   locationID: string;
-
-  /**
-   * Variable contain locationList
-   * @type {ILocation}
-   * @memberof IShift
-   */
-
-  locationList?: ILocation;
-
-  /**
-   * Variable contain stationList
-   * @type {IStation}
-   * @memberof IShift
-   */
-
-  stationList?: IStation;
-
-  /**
-   * Variable contain jobList
-   * @type {IJob}
-   * @memberof IShift
-   */
-
-  jobList?: IJob;
-
 }
 
 /**

@@ -1,7 +1,14 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {
+  HttpClient,
+  HttpHeaders
+} from '@angular/common/http';
 import {HttpGuardService} from './http-guard.service';
-import 'rxjs/add/operator/publishReplay';
+import {
+  map,
+  publishReplay,
+  refCount
+} from 'rxjs/operators';
 import {FlowService} from './flow.service';
 import {ITabTypes} from '../interfaces/types.interface';
 import {DataService} from './data.service';
@@ -10,7 +17,7 @@ import {DataService} from './data.service';
  * Http Service
  */
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class HttpService {
 
   /**
@@ -53,12 +60,16 @@ export class HttpService {
   getShifts(tab: ITabTypes = 'upcoming') {
 
     if (this.dataService.TABS[tab]) {
-      this.flowService[`${this.dataService.FLOW[tab]}`] = this.getShiftsRequest(tab).map(
-        (resp) => {
-          console.log('httpService getShifts', resp); // TODO - Delete when ready
-          return this.httpGuardService.guardShifts(resp);
-        }
-      ).publishReplay(1).refCount();
+      this.flowService[`${this.dataService.FLOW[tab]}`] = this.getShiftsRequest(tab).pipe(
+        map(
+          (resp) => {
+            console.log('httpService getShifts', resp); // TODO - Delete when ready
+            return this.httpGuardService.guardShifts(resp);
+          }
+        ),
+        publishReplay(1),
+        refCount()
+      );
     }
     console.log('!!!!!getShifts htttpService!!!!!');
   }
@@ -81,11 +92,13 @@ export class HttpService {
 
   deleteShifts(id: string): any {
     console.log('!!!!!patch upcoming Shifts htttpService!!!!!');
-    return this.http.delete(this.dataService.BASEURL + '/shifts/delete/' + id).map(
-      (resp) => {
-        console.log('httpService DELETEShifts', resp); // TODO - Delete when ready
-        return resp;
-      }
+    return this.http.delete(this.dataService.BASEURL + '/shifts/delete/' + id).pipe(
+      map(
+        (resp) => {
+          console.log('httpService DELETEShifts', resp); // TODO - Delete when ready
+          return resp;
+        }
+      )
     );
   }
 
@@ -98,11 +111,13 @@ export class HttpService {
 
   patchShifts(id: string, body: object): any {
     console.log('!!!!!patch upcoming Shifts htttpService!!!!!');
-    return this.patchShiftsRequest(id, body).map(
-      (resp) => {
-        console.log('httpService patchShifts', resp); // TODO - Delete when ready
-        return this.httpGuardService.guardReFreshShift(resp);
-      }
+    return this.patchShiftsRequest(id, body).pipe(
+      map(
+        (resp) => {
+          console.log('httpService patchShifts', resp); // TODO - Delete when ready
+          return this.httpGuardService.guardReFreshShift(resp);
+        }
+      )
     );
   }
 
@@ -116,7 +131,6 @@ export class HttpService {
   patchShiftsRequest(id: string, body: object) {
     return this.http.patch(this.dataService.BASEURL + '/shifts/' + id, body);
   }
-
 
   /**
    * Method add all object to db

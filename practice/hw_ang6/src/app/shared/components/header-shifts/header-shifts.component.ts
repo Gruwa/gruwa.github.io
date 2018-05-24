@@ -1,5 +1,11 @@
-import {Component, Input} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import {
+  Component,
+  Input
+} from '@angular/core';
+import {
+  ActivatedRoute,
+  Router
+} from '@angular/router';
 import {LocalStorageService} from 'ngx-webstorage';
 import {FlowService} from '../../services/flow.service';
 

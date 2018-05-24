@@ -1,4 +1,7 @@
-import {Component, ViewEncapsulation} from '@angular/core';
+import {
+  Component,
+  ViewEncapsulation
+} from '@angular/core';
 
 /**
  * Spinner Component
@@ -10,4 +13,5 @@ import {Component, ViewEncapsulation} from '@angular/core';
   styleUrls: ['./spinner.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class SpinnerComponent { }
+export class SpinnerComponent {
+}

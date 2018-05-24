@@ -1,21 +1,14 @@
 import {Injectable} from '@angular/core';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/map';
-import {Subject} from 'rxjs/Subject';
-import {Router} from '@angular/router';
-import {HttpService} from './http.service';
-import {LocalStorageService} from 'ngx-webstorage';
 import {
-  IShift,
-  IShiftsSorted
-} from '../interfaces/shift.interface';
-import {Observable} from 'rxjs/Observable';
+  Subject,
+  Observable
+} from 'rxjs';
 
 /**
  * Data Service
  */
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class FlowService {
 
   /**
@@ -49,14 +42,6 @@ export class FlowService {
    */
 
   public dataSpinner$ = new Subject<any>();
-
-  /**
-   * Created flow of active shift
-   * @type {Subject<any>}
-   * @memberof DataService
-   */
-
-  public dataActiveShift$: Observable<object>;
 
   /**
    * Created flow of login
@@ -95,7 +80,14 @@ export class FlowService {
    * @memberof DataService
    */
 
-
   public dataGroupRestaurant$: Observable<object>;
+
+  /**
+   * Created flow of active shift
+   * @type {Subject<any>}
+   * @memberof DataService
+   */
+
+  public dataActiveShift$: Observable<object>;
 
 }

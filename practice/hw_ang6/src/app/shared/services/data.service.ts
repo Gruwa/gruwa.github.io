@@ -1,12 +1,15 @@
 import {Injectable} from '@angular/core';
 import {environment} from '../../../environments/environment';
-import {IFooterRequest, ITabTypes} from '../interfaces/types.interface';
+import {
+  IFooterRequest,
+  ITabTypes
+} from '../interfaces/types.interface';
 
 /**
  * Data Service
  */
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class DataService {
 
   /**

@@ -1,4 +1,9 @@
-import {AfterViewInit, Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  OnInit,
+  ViewEncapsulation
+} from '@angular/core';
 import {FlowService} from '../../shared/services/flow.service';
 import {IGroupRestaurant} from '../../shared/interfaces/group-restaurant.interface';
 import {Router} from '@angular/router';

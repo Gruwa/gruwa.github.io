@@ -1,11 +1,19 @@
-﻿import {Component, OnInit, OnDestroy} from '@angular/core';
+﻿import {
+  Component,
+  OnInit,
+  OnDestroy
+} from '@angular/core';
 import {Router} from '@angular/router';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Subject} from 'rxjs/Subject';
-import 'rxjs/add/operator/takeUntil';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators
+} from '@angular/forms';
+import {Subject} from 'rxjs';
+import {takeUntil} from 'rxjs/operators';
 import {FlowService} from '../shared/services/flow.service';
 import {AuthService} from './services/auth.service';
-import {HttpService} from '../shared/services/http.service';
+
 
 /**
  * Login Component
@@ -91,7 +99,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     };
 
     this.authService.onLogin(valueOfLogin);
-    this.flowService.dataLogin$.takeUntil(this.ngUnsubscribe).subscribe(
+    this.flowService.dataLogin$.pipe(takeUntil(this.ngUnsubscribe)).subscribe(
       (resp) => {
         this.router.navigate(['/login/schedule']);
       }

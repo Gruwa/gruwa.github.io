@@ -8,7 +8,7 @@ import {IJob} from '../interfaces/job.interface';
  * Http Guard Service
  */
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class HttpGuardService {
 
   /**

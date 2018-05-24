@@ -1,18 +1,15 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {environment} from '../../../environments/environment';
-import 'rxjs/add/operator/publishReplay';
+import {
+  map,
+  publishReplay,
+  refCount
+} from 'rxjs/operators';
 import {ITabTypes} from '../../shared/interfaces/types.interface';
 import {AuthGuardService} from './auth-guard.service';
 import {ILogin} from '../../shared/interfaces/login.interface';
 import {FlowService} from '../../shared/services/flow.service';
 import {DataService} from '../../shared/services/data.service';
-
-/**
- * BASEURL of api
- */
-
-const BASEURL = `${environment.apiRoot}`;
 
 /**
  * Auth Service
@@ -51,12 +48,16 @@ export class AuthService {
    */
 
   onLogin(body: object) {
-    this.flowService.dataLogin$ = this.onLoginRequest(body).map(
-      (resp: ILogin) => {
-        console.log(resp); // TODO - DELETE when will be ready auth
-        return this.authGuardService.guardLogin(resp['Items']);
-      }
-    ).publishReplay(1).refCount();
+    this.flowService.dataLogin$ = this.onLoginRequest(body).pipe(
+      map(
+        (resp: ILogin) => {
+          console.log(resp); // TODO - DELETE when will be ready auth
+          return this.authGuardService.guardLogin(resp['Items']);
+        }
+      ),
+      publishReplay(1),
+      refCount()
+    );
     console.log('!!!!!AuthService - GET LOGIN!!!!!'); // TODO - DELETE when will be ready auth
   }
 

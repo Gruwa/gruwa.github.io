@@ -1,13 +1,16 @@
-import {Component, Input} from '@angular/core';
+import {
+  Component,
+  Input
+} from '@angular/core';
 
 /**
  * Shift Block Component
  */
 
 @Component({
-    selector: 'app-shift-block',
-    templateUrl: './shift-block.component.html',
-    styleUrls: ['./shift-block.component.scss']
+  selector: 'app-shift-block',
+  templateUrl: './shift-block.component.html',
+  styleUrls: ['./shift-block.component.scss']
 })
 export class ShiftBlockComponent {
 
@@ -17,5 +20,5 @@ export class ShiftBlockComponent {
    * @memberof ShiftBlockComponent
    */
 
-    @Input() shift;
+  @Input() shift;
 }

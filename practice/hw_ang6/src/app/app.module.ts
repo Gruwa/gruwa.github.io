@@ -1,23 +1,20 @@
 ﻿import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {Router, UrlSerializer} from '@angular/router';
+import {UrlSerializer} from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {LowerCaseUrlSerializer} from './shared/url-serializer.service';
 import {AppComponentsModule} from './shared/components/app-components.module';
-import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import {HttpService} from './shared/services/http.service';
+import {
+  HTTP_INTERCEPTORS,
+  HttpClientModule
+} from '@angular/common/http';
 import {AuthInterceptor} from './shared/services/interceptor';
 import {Ng2Webstorage} from 'ngx-webstorage';
-import {HttpGuardService} from './shared/services/http-guard.service';
-import {FlowService} from './shared/services/flow.service';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import {SpinnerComponent} from './shared/components/spinner/spinner.component';
 import {MaterialsModule} from './shared/components/materials/materials.module';
 import {ToastrModule} from 'ngx-toastr';
-import {DataService} from './shared/services/data.service';
-
 
 @NgModule({
   imports: [
@@ -45,11 +42,7 @@ import {DataService} from './shared/services/data.service';
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
-    },
-    HttpService,
-    HttpGuardService,
-    FlowService,
-    DataService
+    }
   ],
   bootstrap: [AppComponent]
 })
