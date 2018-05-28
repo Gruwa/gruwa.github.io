@@ -1,13 +1,17 @@
-import {Component, OnDestroy, OnInit, Output} from '@angular/core';
+import {
+  Component,
+  OnDestroy,
+  OnInit
+} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ShiftsService} from '../services/shifts.service';
 import {LocalStorageService} from 'ngx-webstorage';
 import {HttpService} from '../../shared/services/http.service';
-import {Subject} from 'rxjs/Subject';
 import {IFooterRequest} from '../../shared/interfaces/types.interface';
 import {ITabTypes} from '../../shared/interfaces/types.interface';
 import {FlowService} from '../../shared/services/flow.service';
-import 'rxjs/add/operator/takeUntil';
+import {Subject} from 'rxjs';
+import {takeUntil} from 'rxjs/operators';
 import {ToastrService} from 'ngx-toastr';
 import {DataService} from '../../shared/services/data.service';
 
@@ -124,17 +128,22 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
    */
 
   ngOnInit(): void {
-    this.flowService.dataSmallSpinner$.takeUntil(this.ngUnsubscribe)
-      .subscribe(this.spinnerShow.bind(this));
+    this.flowService.dataSmallSpinner$.pipe(
+      takeUntil(this.ngUnsubscribe)
+    ).subscribe(this.spinnerShow.bind(this));
     this.flowService.dataSmallSpinner$.next(true);
-    this.flowService.dataSave$.takeUntil(this.ngUnsubscribe).subscribe(this.saveShift.bind(this));
+    this.flowService.dataSave$.pipe(
+      takeUntil(this.ngUnsubscribe)
+    ).subscribe(this.saveShift.bind(this));
     this.tab = this.localStorage.retrieve('tab');
     this.shiftActiveId = this.route.snapshot.params['id'];
 
     if (this.flowService[`${this.dataService.FLOW[this.tab]}`] === undefined) {
       console.log(this.tab);
       this.httpService.getShifts(this.tab);
-      this.flowService[`${this.dataService.FLOW[this.tab]}`].takeUntil(this.ngUnsubscribe).subscribe();
+      this.flowService[`${this.dataService.FLOW[this.tab]}`].pipe(
+        takeUntil(this.ngUnsubscribe)
+      ).subscribe();
     }
 
     if (this.shiftActiveId === 'new') {

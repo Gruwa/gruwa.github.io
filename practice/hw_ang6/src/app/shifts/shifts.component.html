@@ -4,7 +4,7 @@
                      [sideBar]="true">
   </app-header-shifts>
   <div class="shifts__content">
-    <mat-tab-group (selectChange)="selectedTabChange($event)"
+    <mat-tab-group (selectedTabChange)="selectedTabChange($event)"
                    [selectedIndex]=tabIndex>
       <div *ngFor="let tab of dataService.indexTABS; let l = index">
         <mat-tab label={{tab}}

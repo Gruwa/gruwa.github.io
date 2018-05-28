@@ -1,11 +1,18 @@
-import {Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
+import {
+  Component,
+  OnDestroy,
+  OnInit,
+  ViewEncapsulation
+} from '@angular/core';
 import {HttpService} from '../shared/services/http.service';
 import {FlowService} from '../shared/services/flow.service';
 import {LocalStorageService} from 'ngx-webstorage';
 import {ITabTypes} from '../shared/interfaces/types.interface';
-import {Subject} from 'rxjs/Subject';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/takeUntil';
+import {Subject} from 'rxjs';
+import {
+  debounceTime,
+  takeUntil
+} from 'rxjs/operators';
 import {DataService} from '../shared/services/data.service';
 
 /**
@@ -90,16 +97,20 @@ export class ShiftsComponent implements OnInit, OnDestroy {
    */
 
   ngOnInit(): void {
-    this.flowService.dataSmallSpinner$.takeUntil(this.ngUnsubscribe)
-      .debounceTime(500)
-      .subscribe(this.spinnerShow.bind(this));
+    this.flowService.dataSmallSpinner$
+      .pipe(
+        takeUntil(this.ngUnsubscribe),
+        debounceTime(500)
+      ).subscribe(this.spinnerShow.bind(this));
     this.flowService.dataSmallSpinner$.next(true);
 
     if (this.localStorage.retrieve('tab') !== null) {
+      console.log(this.localStorage.retrieve('tab'));
       this.tabActive = this.localStorage.retrieve('tab');
     } else {
       this.localStorage.store('tab', this.tabActive);
     }
+
     this.tabIndex = this.dataService.indexTABS.indexOf(this.localStorage.retrieve('tab'));
   }
 
@@ -112,7 +123,6 @@ export class ShiftsComponent implements OnInit, OnDestroy {
   selectedTabChange(value: any): void {
     this.tabActive = this.dataService.indexTABS[value.index];
     this.localStorage.store('tab', this.dataService.indexTABS[value.index]);
-    console.log(this.localStorage.retrieve('tab'));
   }
 
   /**

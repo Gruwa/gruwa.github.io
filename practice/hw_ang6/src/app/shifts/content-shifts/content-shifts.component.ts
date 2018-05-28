@@ -1,15 +1,24 @@
-import {AfterViewInit, Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {
+  Component,
+  Input,
+  OnDestroy,
+  OnInit
+} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {ShiftsService} from '../services/shifts.service';
 import {HttpService} from '../../shared/services/http.service';
 import {LocalStorageService} from 'ngx-webstorage';
-import {ActivatedRoute, ActivatedRouteSnapshot, Router} from '@angular/router';
-import 'rxjs/add/observable/merge';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/takeUntil';
-import {Subject} from 'rxjs/Subject';
+import {
+  ActivatedRoute,
+  Router
+} from '@angular/router';
+import {takeUntil} from 'rxjs/operators';
+import {Subject} from 'rxjs';
 import {ITabTypes} from '../../shared/interfaces/types.interface';
-import {IShift, IShiftsSorted} from '../../shared/interfaces/shift.interface';
+import {
+  IShift,
+  IShiftsSorted
+} from '../../shared/interfaces/shift.interface';
 import {FlowService} from '../../shared/services/flow.service';
 import {DataService} from '../../shared/services/data.service';
 
@@ -95,7 +104,9 @@ export class ContentShiftsComponent implements OnInit, OnDestroy {
     }
 
     this.flowService.dataSmallSpinner$.next(true);
-    this.flowService[`${this.dataService.FLOW[this.tab]}`].takeUntil(this.ngUnsubscribe).subscribe(
+    this.flowService[`${this.dataService.FLOW[this.tab]}`].pipe(
+      takeUntil(this.ngUnsubscribe)
+    ).subscribe(
       (value) => {
         this.getShifts(value['items']);
       }

@@ -1,13 +1,23 @@
-import { Component, Input, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
+import {
+  Component,
+  Input,
+  OnDestroy,
+  OnInit,
+  ViewEncapsulation
+} from '@angular/core';
 import {ITabTypes} from '../../../shared/interfaces/types.interface';
 import {ActivatedRoute, Router} from '@angular/router';
 import {IForm} from '../../../shared/interfaces/form.interface';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators
+} from '@angular/forms';
 import * as moment from 'moment';
 import {LocalStorageService} from 'ngx-webstorage';
 import {FlowService} from '../../../shared/services/flow.service';
-import {Subject} from 'rxjs/Subject';
-import 'rxjs/add/operator/takeUntil';
+import {Subject} from 'rxjs';
+import {takeUntil} from 'rxjs/operators';
 import {IShift} from '../../../shared/interfaces/shift.interface';
 import {DataService} from '../../../shared/services/data.service';
 import {ShiftsService} from '../../services/shifts.service';
@@ -108,7 +118,9 @@ export class FormComponent implements OnInit, OnDestroy {
    */
 
   ngOnInit(): void {
-    this.flowService.dataSave$.takeUntil(this.ngUnsubscribe).subscribe(this.setBody.bind(this));
+    this.flowService.dataSave$.pipe(
+      takeUntil(this.ngUnsubscribe)
+    ).subscribe(this.setBody.bind(this));
     // this.tab === 'my requests' ? this.availbleInput = false : this.availbleInput = true;
 
     // console.log('shiftActive details', this.shiftActive);
