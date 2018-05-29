@@ -1,0 +1,36 @@
+<div class="list-fields">
+  <div class="list-fields__field">
+    <span class="list-fields__label">{{dataService.LIST_FIELDS['title'] | capitalizeFirst}}</span>
+    <span class="list-fields__value">{{shift?.location | capitalizeFirst}}</span>
+  </div>
+  <div class="list-fields__field">
+    <span class="list-fields__label">{{dataService.LIST_FIELDS['date'] | capitalizeFirst}}</span>
+    <span class="list-fields__value">{{shift?.dateFrom | realDate: "L"}}</span>
+  </div>
+  <div class="list-fields__group">
+    <div class="list-fields__field">
+      <span class="list-fields__label">{{dataService.LIST_FIELDS['startTime'] | capitalizeFirst}}</span>
+      <span class="list-fields__value">{{shift?.dateFrom | date:"shortTime"}}</span>
+    </div>
+    <div class="list-fields__field">
+      <span class="list-fields__label">{{dataService.LIST_FIELDS['endTime'] | capitalizeFirst}}</span>
+      <span class="list-fields__value">{{shift?.dateTo | date:"shortTime"}}</span>
+    </div>
+  </div>
+  <div class="list-fields__field">
+    <span class="list-fields__label">{{dataService.LIST_FIELDS['location'] | capitalizeFirst}}</span>
+    <span class="list-fields__value">{{shift?.location | capitalizeFirst}}</span>
+  </div>
+  <div class="list-fields__field">
+    <span class="list-fields__label">{{dataService.LIST_FIELDS['station'] | capitalizeFirst}}</span>
+    <span class="list-fields__value">{{shift?.station | capitalizeFirst}}</span>
+  </div>
+  <div class="list-fields__field">
+    <span class="list-fields__label">{{dataService.LIST_FIELDS['jobTitle'] | capitalizeFirst}}</span>
+    <span class="list-fields__value">{{shift?.job | capitalizeFirst}}</span>
+  </div>
+  <div class="list-fields__field">
+    <span class="list-fields__label">{{dataService.LIST_FIELDS['status'] | capitalizeFirst}}</span>
+    <span class="list-fields__value list-fields">{{status | capitalizeFirst}}</span>
+  </div>
+</div>

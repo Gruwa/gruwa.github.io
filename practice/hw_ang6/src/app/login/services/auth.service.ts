@@ -5,7 +5,7 @@ import {
   publishReplay,
   refCount
 } from 'rxjs/operators';
-import {ITabTypes} from '../../shared/interfaces/types.interface';
+import {ITabTypesShifts} from '../../shared/interfaces/types.interface';
 import {AuthGuardService} from './auth-guard.service';
 import {ILogin} from '../../shared/interfaces/login.interface';
 import {FlowService} from '../../shared/services/flow.service';
@@ -20,11 +20,11 @@ export class AuthService {
 
   /**
    * Variable of tab
-   * @type {ITabTypes}
+   * @type {ITabTypesShifts}
    * @memberof AuthService
    */
 
-  public tab: ITabTypes = 'upcoming';
+  public tab: ITabTypesShifts = 'upcoming';
 
   /**
    * Creates an instance of HttpService

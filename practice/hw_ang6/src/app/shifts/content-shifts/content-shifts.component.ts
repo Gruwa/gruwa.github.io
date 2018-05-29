@@ -14,7 +14,7 @@ import {
 } from '@angular/router';
 import {takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
-import {ITabTypes} from '../../shared/interfaces/types.interface';
+import {ITabTypesShifts} from '../../shared/interfaces/types.interface';
 import {
   IShift,
   IShiftsSorted
@@ -35,11 +35,11 @@ export class ContentShiftsComponent implements OnInit, OnDestroy {
 
   /**
    * Variable of tab
-   * @type {ITabTypes}
+   * @type {ITabTypesShifts}
    * @memberof ContentShiftsComponent
    */
 
-  public tab: ITabTypes;
+  public tab: ITabTypesShifts;
 
   /**
    * Variable of sortShifts
@@ -84,7 +84,7 @@ export class ContentShiftsComponent implements OnInit, OnDestroy {
               private httpService: HttpService,
               private router: Router,
               private localStorage: LocalStorageService,
-              private route: ActivatedRoute,
+              public route: ActivatedRoute,
               private dataService: DataService) {
   }
 
@@ -96,14 +96,8 @@ export class ContentShiftsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.tab = this.dataService.indexTABS[this.tabActive];
-
-    for (const i in this.dataService.FLOW) {
-      if (this.flowService[`${this.dataService.FLOW[i]}`] === undefined) {
-        this.httpService.getShifts(<ITabTypes>i);
-      }
-    }
-
     this.flowService.dataSmallSpinner$.next(true);
+
     this.flowService[`${this.dataService.FLOW[this.tab]}`].pipe(
       takeUntil(this.ngUnsubscribe)
     ).subscribe(
@@ -135,13 +129,14 @@ export class ContentShiftsComponent implements OnInit, OnDestroy {
     console.log('sortShifts', this.sortShifts);
   }
 
-  /**
-   * Method for add new request
-   * @returns {void}
-   * @memberof ContentShiftsComponent
-   */
-
-  addNewMyRequest() {
-    this.router.navigate(['/' + this.route.snapshot.params['group'], 'shifts', 'new']);
-  }
+  // TODO - method for side bar
+  // /**
+  //  * Method for add new request
+  //  * @returns {void}
+  //  * @memberof ContentShiftsComponent
+  //  */
+  //
+  // addNewMyRequest() {
+  //   this.router.navigate(['/' + this.route.snapshot.params['group'], 'shifts', 'new']);
+  // }
 }

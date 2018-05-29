@@ -10,10 +10,13 @@
         <mat-tab label={{tab}}
                  position=0
                  class="mat-tab-label">
-          <app-content-shifts [tabActive]="l"></app-content-shifts>
-          <app-small-spinner [ngClass]="{'global__small-spinner-display' : spinner}"
-                             class="global__small-spinner">
-          </app-small-spinner>
+          <ng-template matTabContent>
+
+            <app-content-shifts [tabActive]="l"></app-content-shifts>
+            <app-small-spinner [ngClass]="{'global__small-spinner-display' : spinner}"
+                               class="global__small-spinner">
+            </app-small-spinner>
+          </ng-template>
         </mat-tab>
       </div>
     </mat-tab-group>

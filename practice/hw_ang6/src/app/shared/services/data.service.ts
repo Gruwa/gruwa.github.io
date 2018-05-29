@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {environment} from '../../../environments/environment';
 import {
   IFooterRequest,
-  ITabTypes
+  ITabTypesShifts
 } from '../interfaces/types.interface';
 
 /**
@@ -52,13 +52,13 @@ export class DataService {
 
   /**
    * variable for TABS
-   * @param {Array<ITabTypes>} value - array of tabs for index
+   * @param {Array<ITabTypesShifts>} value - array of tabs for index
    * @memberof DataService
    */
 
-  public indexTABS: Array<ITabTypes> = [
+  public indexTABS: Array<ITabTypesShifts> = [
     'upcoming',
-    'my requests',
+
     'available'
   ];
 
@@ -70,7 +70,7 @@ export class DataService {
 
   public FLOW = {
     upcoming: 'dataShiftsUpcoming$',
-    'my requests': 'dataShiftsMyReq$',
+
     available: 'dataShiftsAvailable$'
   };
 
@@ -129,5 +129,22 @@ export class DataService {
   public SHIFT_REQUEST = {
     upcoming: 'pickup request',
     available: 'drop request'
+  };
+
+  /**
+   * Variable LIST_FIELDS
+   * @type {object}
+   * @memberof DataService
+   */
+
+  public LIST_FIELDS = {
+    title: 'request title',
+    date: 'sate',
+    startTime: 'start time',
+    endTime: 'end time',
+    location: 'location',
+    station: 'station',
+    jobTitle: 'job title',
+    status: 'status'
   };
 }

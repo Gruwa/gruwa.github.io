@@ -7,8 +7,9 @@ import {ContentShiftsComponent} from './content-shifts/content-shifts.component'
 import {DetailsShiftsComponent} from './details-shifts/details-shifts.component';
 import {ShiftsService} from './services/shifts.service';
 import {MaterialsModule} from '../shared/components/materials/materials.module';
-import {FormComponent} from './details-shifts/form/form.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {ListFieldsComponent} from './details-shifts/list-fields/list-fields.component';
+import {PipeModule} from '../shared/pipes/pipe.module';
 
 export const routes: Routes = [
   {
@@ -37,13 +38,14 @@ export const routes: Routes = [
     RouterModule.forChild(routes),
     AppComponentsModule,
     MaterialsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PipeModule.forRoot()
   ],
   declarations: [
     ShiftsComponent,
     ContentShiftsComponent,
     DetailsShiftsComponent,
-    FormComponent
+    ListFieldsComponent
   ],
   providers: [
     ShiftsService

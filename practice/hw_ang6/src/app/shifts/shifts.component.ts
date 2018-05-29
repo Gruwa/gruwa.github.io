@@ -7,7 +7,7 @@ import {
 import {HttpService} from '../shared/services/http.service';
 import {FlowService} from '../shared/services/flow.service';
 import {LocalStorageService} from 'ngx-webstorage';
-import {ITabTypes} from '../shared/interfaces/types.interface';
+import {ITabTypesShifts} from '../shared/interfaces/types.interface';
 import {Subject} from 'rxjs';
 import {
   debounceTime,
@@ -37,11 +37,11 @@ export class ShiftsComponent implements OnInit, OnDestroy {
 
   /**
    * Variable of tab
-   * @type {ITabTypes}
+   * @type {ITabTypesShifts}
    * @memberof ShiftsComponent
    */
 
-  public tab: ITabTypes = 'upcoming';
+  public tab: ITabTypesShifts = 'upcoming';
 
   /**
    * Variable of tabIndex
@@ -61,11 +61,11 @@ export class ShiftsComponent implements OnInit, OnDestroy {
 
   /**
    * Variable of tabActive
-   * @type {string}
+   * @type {ITabTypesShifts}
    * @memberof ShiftsComponent
    */
 
-  public tabActive: ITabTypes = 'upcoming';
+  public tabActive: ITabTypesShifts = 'upcoming';
 
   /**
    * Variable of ngUnsubscribe
@@ -74,6 +74,8 @@ export class ShiftsComponent implements OnInit, OnDestroy {
    */
 
   private ngUnsubscribe: Subject<void> = new Subject<void>();
+
+  public zzz: any;
 
   /**
    * Creates an instance of ShiftsComponent
@@ -103,6 +105,12 @@ export class ShiftsComponent implements OnInit, OnDestroy {
         debounceTime(500)
       ).subscribe(this.spinnerShow.bind(this));
     this.flowService.dataSmallSpinner$.next(true);
+
+    for (const i in this.dataService.FLOW) {
+      if (this.flowService[`${this.dataService.FLOW[i]}`] === undefined) {
+        this.httpService.getShifts(<ITabTypesShifts>i);
+      }
+    }
 
     if (this.localStorage.retrieve('tab') !== null) {
       console.log(this.localStorage.retrieve('tab'));

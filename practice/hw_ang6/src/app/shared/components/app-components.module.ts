@@ -6,7 +6,6 @@ import {PageNotFoundComponent} from './not-found/not-found.component';
 import {HeaderShiftsComponent} from './header-shifts/header-shifts.component';
 import {SpinnerComponent} from './spinner/spinner.component';
 import {SmallSpinnerComponent} from './small-spinner/small-spinner.component';
-import {ListFieldsComponent} from './list-fields/list-fields.component';
 import {PipeModule} from '../pipes/pipe.module';
 import {ReactiveFormsModule} from '@angular/forms';
 import {FormInputComponent} from './app-foms/form-input/form-input.component';
@@ -27,7 +26,6 @@ import { FormTimeComponent } from './app-foms/form-time/form-time.component';
     HeaderShiftsComponent,
     SpinnerComponent,
     SmallSpinnerComponent,
-    ListFieldsComponent,
     FormInputComponent,
     FormDateComponent,
     FormSelectComponent,
@@ -39,7 +37,6 @@ import { FormTimeComponent } from './app-foms/form-time/form-time.component';
     HeaderShiftsComponent,
     SpinnerComponent,
     SmallSpinnerComponent,
-    ListFieldsComponent,
     FormInputComponent,
     FormDateComponent,
     FormSelectComponent,

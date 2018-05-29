@@ -10,7 +10,7 @@ import {
   refCount
 } from 'rxjs/operators';
 import {FlowService} from './flow.service';
-import {ITabTypes} from '../interfaces/types.interface';
+import {ITabTypesShifts} from '../interfaces/types.interface';
 import {DataService} from './data.service';
 
 /**
@@ -22,11 +22,11 @@ export class HttpService {
 
   /**
    * Variable of tab
-   * @type {ITabTypes}
+   * @type {ITabTypesShifts}
    * @memberof HttpService
    */
 
-  public tab: ITabTypes;
+  public tab: ITabTypesShifts;
 
   /**
    * Variable of headers
@@ -53,11 +53,11 @@ export class HttpService {
 
   /**
    * Method for get shifts
-   * @param {ITabTypes} tab
+   * @param {ITabTypesShifts} tab
    * @memberof HttpService
    */
 
-  getShifts(tab: ITabTypes = 'upcoming') {
+  getShifts(tab: ITabTypesShifts = 'upcoming') {
 
     if (this.dataService.TABS[tab]) {
       this.flowService[`${this.dataService.FLOW[tab]}`] = this.getShiftsRequest(tab).pipe(
@@ -76,11 +76,11 @@ export class HttpService {
 
   /**
    * Method for get request with shifts
-   * @param {ITabTypes} tab
+   * @param {ITabTypesShifts} tab
    * @memberof HttpService
    */
 
-  getShiftsRequest(tab: ITabTypes = 'upcoming') {
+  getShiftsRequest(tab: ITabTypesShifts = 'upcoming') {
     return this.http.get(this.dataService.BASEURL + '/shifts/' + this.dataService.TABS[tab]);
   }
 

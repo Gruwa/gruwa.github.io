@@ -4,10 +4,10 @@ import {
   OnInit
 } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {IShift} from '../../interfaces/shift.interface';
+import {IShift} from '../../../shared/interfaces/shift.interface';
 import {LocalStorageService} from 'ngx-webstorage';
-import {FlowService} from '../../services/flow.service';
-import {DataService} from '../../services/data.service';
+import {FlowService} from '../../../shared/services/flow.service';
+import {DataService} from '../../../shared/services/data.service';
 
 /**
  * List Fields Component

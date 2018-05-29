@@ -8,7 +8,7 @@ import {ShiftsService} from '../services/shifts.service';
 import {LocalStorageService} from 'ngx-webstorage';
 import {HttpService} from '../../shared/services/http.service';
 import {IFooterRequest} from '../../shared/interfaces/types.interface';
-import {ITabTypes} from '../../shared/interfaces/types.interface';
+import {ITabTypesShifts} from '../../shared/interfaces/types.interface';
 import {FlowService} from '../../shared/services/flow.service';
 import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
@@ -60,11 +60,11 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
 
   /**
    * Variable of tab
-   * @type {ITabTypes}
+   * @type {ITabTypesShifts}
    * @memberof DetailsShiftsComponent
    */
 
-  public tab: ITabTypes = 'upcoming';
+  public tab: ITabTypesShifts = 'upcoming';
 
   /**
    * Variable of footerDescription
@@ -150,12 +150,7 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
       this.headerDescription = 'new request';
     }
 
-    // if (this.tab === 'my requests') {
-    //   this.initForm();
-    // }
-
     this.getShifts();
-    // this.setFooterRequest();
   }
 
   /**
@@ -181,7 +176,7 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
 
         for (const i in this.dataService.FLOW) {
           if (this.flowService[`${this.dataService.FLOW[i]}`] === undefined) {
-            this.httpService.getShifts(<ITabTypes>i);
+            this.httpService.getShifts(<ITabTypesShifts>i);
           }
         }
 
@@ -226,21 +221,11 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
               this.status = ' ';
             }
           }
-          //
-          // if (this.route.snapshot.params['id'] !== 'new') {
-          //   this.setDataForm();
-          // }
           this.setFooterRequest();
         }
 
       }
     );
-
-    // this.shiftActive = this.dataService[`${FLOW[this.tab]}`].find(item => item.ID === this.shiftActiveId);
-    // if (this.shiftActive !== undefined) {
-    //     this.headerDescription = this.shiftActive.job; // TODO It's shiftTitle: from getDataShift() method - need replace
-    // }
-
   }
 
   /**

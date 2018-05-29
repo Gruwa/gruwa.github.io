@@ -2,7 +2,7 @@
  * Export type for tab
  */
 
-export type ITabTypes = 'upcoming' | 'my requests' | 'available';
+export type ITabTypesShifts = 'upcoming' | 'my requests' | 'available';
 
 /**
  * Export type for footer requests

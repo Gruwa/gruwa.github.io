@@ -5,9 +5,9 @@ import {
   OnInit,
   ViewEncapsulation
 } from '@angular/core';
-import {ITabTypes} from '../../../shared/interfaces/types.interface';
+import {ITabTypesShifts} from '../../interfaces/types.interface';
 import {ActivatedRoute, Router} from '@angular/router';
-import {IForm} from '../../../shared/interfaces/form.interface';
+import {IForm} from '../../interfaces/form.interface';
 import {
   FormBuilder,
   FormGroup,
@@ -15,12 +15,12 @@ import {
 } from '@angular/forms';
 import * as moment from 'moment';
 import {LocalStorageService} from 'ngx-webstorage';
-import {FlowService} from '../../../shared/services/flow.service';
+import {FlowService} from '../../services/flow.service';
 import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
-import {IShift} from '../../../shared/interfaces/shift.interface';
-import {DataService} from '../../../shared/services/data.service';
-import {ShiftsService} from '../../services/shifts.service';
+import {IShift} from '../../interfaces/shift.interface';
+import {DataService} from '../../services/data.service';
+import {ShiftsService} from '../../../shifts/services/shifts.service';
 
 /**
  * Content Form Component
@@ -84,11 +84,11 @@ export class FormComponent implements OnInit, OnDestroy {
 
   /**
    * Variable tab
-   * @type {ITabTypes}
+   * @type {ITabTypesShifts}
    * @memberof FormComponent
    */
 
-  @Input() tab: ITabTypes;
+  @Input() tab: ITabTypesShifts;
 
   /**
    * Creates an instance of FormComponent
