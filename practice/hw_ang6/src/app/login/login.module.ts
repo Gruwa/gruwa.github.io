@@ -8,6 +8,7 @@ import {MaterialsModule} from '../shared/components/materials/materials.module';
 import {AuthService} from './services/auth.service';
 import {AuthGuardService} from './services/auth-guard.service';
 import {ScheduleLoginComponent} from './schedule-login/schedule-login.component';
+import {FakeService} from '../shared/services/fake.service';
 
 export const routes: Routes = [
   {
@@ -40,7 +41,8 @@ export const routes: Routes = [
   ],
   providers: [
     AuthGuardService,
-    AuthService
+    AuthService,
+    FakeService
   ]
 })
 

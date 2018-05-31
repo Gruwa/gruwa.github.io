@@ -1,8 +1,8 @@
-// import { RealDatePipe } from './multi-pipe.pipe';
-//
-// describe('RealDatePipe', () => {
-//   it('create an instance', () => {
-//     const pipe = new RealDatePipe();
-//     expect(pipe).toBeTruthy();
-//   });
-// });
+import {CapitalizeFirstPipe} from './capitalize-first.pipe';
+
+describe('CapitalizeFirstPipe', () => {
+  it('create an instance', () => {
+    const pipe = new CapitalizeFirstPipe();
+    expect(pipe).toBeTruthy();
+  });
+});
