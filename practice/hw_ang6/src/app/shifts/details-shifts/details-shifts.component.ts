@@ -133,14 +133,10 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
       takeUntil(this.ngUnsubscribe)
     ).subscribe(this.spinnerShow.bind(this));
     this.flowService.dataSmallSpinner$.next(true);
-    // this.flowService.dataSave$.pipe(
-    //   takeUntil(this.ngUnsubscribe)
-    // ).subscribe(this.saveShift.bind(this));
     this.tab = this.localStorage.retrieve('tab');
     this.shiftActiveId = this.route.snapshot.params['id'];
 
     if (this.flowService[`${this.dataService.FLOW[this.tab]}`] === undefined) {
-      console.log(this.tab);
       this.httpService.getShifts(this.tab);
       this.flowService[`${this.dataService.FLOW[this.tab]}`].pipe(
         takeUntil(this.ngUnsubscribe)
@@ -181,11 +177,8 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
           }
         }
 
-        let item: any = {};
+        const item: any = value['items'].find(result => result.shiftID === this.shiftActiveId);
 
-        // if (this.route.snapshot.params['id'] !== 'new') {
-        item = value['items'].find(result => result.shiftID === this.shiftActiveId);
-        // }
         this.shiftActive = {
           item: item,
           locationList: value.locationList,
@@ -213,15 +206,6 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
             this.status = this.dataService.STATUS['drop request'];
             this.footerActive = false;
           }
-          // }
-          // if (this.tab === 'my requests') {
-          //   console.log('shiftActive details', this.shiftActive);
-          //   if (!this.shiftActive['item'].isDropRequest && !this.shiftActive['item'].isPickupRequest) {
-          //     this.status = this.dataService.STATUS['scheduled'];
-          //   } else {
-          //     this.status = ' ';
-          //   }
-          // }
           this.setFooterRequest();
         }
 
@@ -240,9 +224,6 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
       this.footerActive ? this.footerDescription = this.dataService.FOOTER_REQUESTS[0]
         : this.footerDescription = this.dataService.FOOTER_REQUESTS[1];
     }
-    // if (this.tab === 'my requests') {
-    //   this.footerDescription = this.dataService.FOOTER_REQUESTS[4];
-    // }
     if (this.tab === 'available') {
       this.footerActive ? this.footerDescription = this.dataService.FOOTER_REQUESTS[2]
         : this.footerDescription = this.dataService.FOOTER_REQUESTS[3];
@@ -259,7 +240,6 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
   clickFooter(): void {
     this.footerActive = !this.footerActive;
 
-    // if (this.tab === 'upcoming' || this.tab === 'available') {
     if (!this.footerActive) {
       this.shiftActive['item'][`${this.dataService.SHIFT_ACTIVE[this.tab]}`] = true;
       if (this.tab === 'upcoming') {
@@ -274,47 +254,12 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
       this.status = this.dataService.STATUS['scheduled'];
     }
 
-    if (this.shiftActive) {
-
-    }
-    // this.flowService.dataHttpRequest$.subscribe((data) => {
-    //   if (data.patchMarkState) {
-    //     console.log('eeeeeeeeeeeeeeeeeee');
-    //   }
-    // });
-
-    // this.flowService.dataHttpRequest$.next({
-    //   patchMarkState: {
-    //     id: this.route.snapshot.params['id'],
-    //     data: {
-    //       'isDropRequest': this.shiftActive['item'].isDropRequest,
-    //       'isPickupRequest': this.shiftActive['item'].isPickupRequest
-    //     }
-    //   }
-    // });
-    // this.flowService.dataHttpResponse$.pipe(
-    //   takeUntil(this.ngUnsubscribe)
-    // ).subscribe((resp) => {
-    //   if (resp.patchMarkState) {
-    //     this.toastr.success(this.dataService.httpSuccessResponse['save']);
-    //     this.flowService[`${this.dataService.FLOW[this.tab]}`].subscribe((data) => {
-    //       for (const key in data['items']) {
-    //         if (data['items'][key].shiftID === resp.patchMarkState.items[0].shiftID) {
-    //           data['items'][key] = resp.patchMarkState.items[0];
-    //         }
-    //       }
-    //     });
-    //   }
-    // });
-
-    console.log(this.shiftActive['item']);
     const markState: object = {
       'isDropRequest': this.shiftActive['item'].isDropRequest,
       'isPickupRequest': this.shiftActive['item'].isPickupRequest
     };
-    console.log(markState);
+
     this.httpService.patchMarkState(this.route.snapshot.params['id'], markState).subscribe((resp) => {
-      console.log('go save markState');
       this.toastr.success(this.dataService.httpSuccessResponse['save']);
       this.flowService[`${this.dataService.FLOW[this.tab]}`].subscribe((data) => {
         for (const key in data['items']) {
@@ -327,54 +272,6 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
     this.setFooterRequest();
   }
 
-  // /**
-  //  * Method for delete shift
-  //  * @returns {void}
-  //  * @memberof DetailsShiftsComponent
-  //  */
-  //
-  // deleteShift(): void {
-  //   console.log('DELETE');
-  //   this.httpService.deleteShifts(this.route.snapshot.params['id']).subscribe(() => {
-  //     this.toastr.success(this.dataService.httpSuccessResponse['delete']);
-  //     this.flowService[`${this.dataService.FLOW[this.tab]}`].subscribe((data) => {
-  //       for (const key in data['items']) {
-  //
-  //         if (data['items'][key].shiftID === this.route.snapshot.params['id']) {
-  //           console.log(key);
-  //           data['items'].splice(key, 1);
-  //         }
-  //       }
-  //     });
-  //     this.router.navigate(['/' + this.route.snapshot.params['group'], 'shifts']);
-  //   });
-  //   // TODO - method for delete shift
-  // }
-
-  // /**
-  //  * Method for save shift- method work only if we receive object
-  //  * @returns {void}
-  //  * @param {string | object} value
-  //  * @memberof DetailsShiftsComponent
-  //  */
-  //
-  // saveShift(value: string | object): void {
-  //   if (typeof value === 'object') {
-  //     this.httpService.patchShifts(this.route.snapshot.params['id'], <object>value).subscribe((resp) => {
-  //       this.toastr.success(this.dataService.httpSuccessResponse['save']);
-  //       this.flowService[`${this.dataService.FLOW[this.tab]}`].subscribe((data) => {
-  //         for (const key in data['items']) {
-  //           if (data['items'][key].shiftID === resp.items[0].shiftID) {
-  //             data['items'][key] = resp.items[0];
-  //           }
-  //         }
-  //       });
-  //       this.router.navigate(['/' + this.route.snapshot.params['group'], 'shifts']);
-  //     });
-  //   }
-  //   // TODO - method for save shift
-  // }
-
   /**
    * Method fo show spinner
    * @returns {void}
@@ -383,7 +280,6 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
    */
 
   spinnerShow(event: boolean): void {
-    console.log('spinnerShow');
     this.spinner = event;
   }
 }

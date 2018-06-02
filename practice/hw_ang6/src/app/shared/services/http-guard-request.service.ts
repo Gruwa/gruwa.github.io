@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-import {IShiftMArkState} from '../interfaces/mark-state-shift.interface';
 
 /**
  * Http Guard Request Service

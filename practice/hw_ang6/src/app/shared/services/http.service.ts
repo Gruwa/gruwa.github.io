@@ -1,24 +1,20 @@
 import {
-  Injectable,
-  OnDestroy
+  Injectable
 } from '@angular/core';
 import {
   HttpClient,
   HttpHeaders
 } from '@angular/common/http';
 import {HttpGuardService} from './http-guard.service';
-import {Subject} from 'rxjs';
 import {
   map,
   publishReplay,
-  refCount,
-  takeUntil
+  refCount
 } from 'rxjs/operators';
 import {FlowService} from './flow.service';
 import {ITabTypesShifts} from '../interfaces/types.interface';
 import {DataService} from './data.service';
 import {HttpGuardRequestService} from './http-guard-request.service';
-import {ActivatedRoute} from '@angular/router';
 
 /**
  * Http Service
@@ -27,7 +23,7 @@ import {ActivatedRoute} from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-export class HttpService implements OnDestroy {
+export class HttpService {
 
   /**
    * Variable of tab
@@ -46,14 +42,6 @@ export class HttpService implements OnDestroy {
   public headers: HttpHeaders = new HttpHeaders();
 
   /**
-   * Variable of ngUnsubscribe
-   * @type {Subject<void>}
-   * @memberof DetailsShiftsComponent
-   */
-
-  private ngUnsubscribe: Subject<void> = new Subject<void>();
-
-  /**
    * Creates an instance of HttpService
    * @param {HttpClient} http
    * @param {HttpGuardService} httpGuardService
@@ -67,26 +55,7 @@ export class HttpService implements OnDestroy {
               private httpGuardService: HttpGuardService,
               private httpGuardRequestService: HttpGuardRequestService,
               private flowService: FlowService,
-              private dataService: DataService,
-              private route: ActivatedRoute) {
-
-    this.flowService.dataHttpRequest$.pipe(
-      takeUntil(this.ngUnsubscribe),
-      map((data) => {
-        return this.dataHttpRequestGuard(data);
-      })
-    ).subscribe(this.dataHttpRequest.bind(this));
-  }
-
-  /**
-   * Method ngOnDestroy
-   * @returns {void}
-   * @memberof DetailsShiftsComponent
-   */
-
-  ngOnDestroy(): void {
-    this.ngUnsubscribe.next();
-    this.ngUnsubscribe.complete();
+              private dataService: DataService) {
   }
 
   /**
@@ -120,79 +89,6 @@ export class HttpService implements OnDestroy {
 
   getShiftsRequest(tab: ITabTypesShifts = 'upcoming') {
     return this.http.get(this.dataService.BASEURL + '/shifts/' + this.dataService.TABS[tab]);
-  }
-
-  /**
-   * Method for delete shifts
-   * @param {string} id
-   * @memberof HttpService
-   */
-
-  deleteShifts(id: string): any {
-    console.log('!!!!!patch upcoming Shifts htttpService!!!!!');
-    return this.http.delete(this.dataService.BASEURL + '/shifts/delete/' + id).pipe(
-      map(
-        (resp) => {
-          console.log('httpService DELETEShifts', resp); // TODO - Delete when ready
-          return resp;
-        }
-      )
-    );
-  }
-
-  /**
-   * Method for patch shifts
-   * @param {string} id
-   * @param {object} body
-   * @memberof HttpService
-   */
-
-  patchShifts(id: string, body: object): any {
-    console.log('!!!!!patch upcoming Shifts htttpService!!!!!');
-    return this.patchShiftsRequest(id, body).pipe(
-      map(
-        (resp) => {
-          console.log('httpService patchShifts', resp); // TODO - Delete when ready
-          return this.httpGuardService.guardReFreshShift(resp);
-        }
-      )
-    );
-  }
-
-  /**
-   * Method for patch request with editing shift
-   * @param {string} id
-   * @param {object} body
-   * @memberof HttpService
-   */
-
-  patchShiftsRequest(id: string, body: object) {
-    return this.http.patch(this.dataService.BASEURL + '/shifts/' + id, body);
-  }
-
-
-  dataHttpRequestGuard(data: any) {
-    if (data.patchMarkState) {
-      data.patchMarkState.data = this.httpGuardRequestService.guardMarkState(data.patchMarkState.data);
-      return data;
-    }
-  }
-
-  dataHttpRequest(data: any) {
-    if (data.patchMarkState) {
-      this.patchMarkStateRequest(data.patchMarkState.id, data.patchMarkState.data).pipe(
-        map(
-          (resp) => {
-            console.log('httpService patchMarkState', resp); // TODO - Delete when ready
-            return this.httpGuardService.guardMarkState(resp);
-          }
-        )
-      ).subscribe((resp) => {
-        this.flowService.dataHttpResponse$.next({
-
-        });
-      });
-    }
   }
 
   /**
