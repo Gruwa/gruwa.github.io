@@ -33,9 +33,7 @@ import {NgxsModule} from '@ngxs/store';
       timeOut: 1500
     }),
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
-    NgxsModule.forRoot([
-      this.ZooState
-    ])
+    NgxsModule.forRoot([ ])
   ],
   declarations: [
     AppComponent
