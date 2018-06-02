@@ -3,13 +3,37 @@ import {IShift} from '../interfaces/shift.interface';
 import {ILocation} from '../interfaces/location.interface';
 import {IStation} from '../interfaces/station.interface';
 import {IJob} from '../interfaces/job.interface';
+import {IShiftMArkState} from '../interfaces/mark-state-shift.interface';
 
 /**
  * Http Guard Service
  */
 
-@Injectable({providedIn: 'root'})
+@Injectable({
+  providedIn: 'root'
+})
 export class HttpGuardService {
+
+  /**
+   * Method for guard mark state
+   * @returns {Array<any>}
+   * @memberof ShiftsService
+   */
+
+  guardMarkState(value): Array<any> {
+
+    const resp: Array<any> = [];
+    resp['items'] = [];
+
+    const obj: object = {
+      'isDropRequest': value['Items'].IsDropRequest,
+      'isPickupRequest': value['Items'].IsPickupRequest
+    };
+
+    resp['items'].push(obj);
+
+    return resp;
+  }
 
   /**
    * Method for guard shifts

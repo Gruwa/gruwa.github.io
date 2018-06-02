@@ -44,6 +44,22 @@ export class FlowService {
   public dataSpinner$ = new Subject<any>();
 
   /**
+   * Created flow of request http
+   * @type {Subject<any>}
+   * @memberof DataService
+   */
+
+  public dataHttpRequest$ = new Subject<any>();
+
+  /**
+   * Created flow of response http
+   * @type {Subject<any>}
+   * @memberof DataService
+   */
+
+  public dataHttpResponse$ = new Subject<any>();
+
+  /**
    * Created flow of login
    * @type {Observable<object>}
    * @memberof ShiftsService
