@@ -1,0 +1,18 @@
+<mat-form-field
+  [class.app-forms__error-input-block]="control.hasError('required')"
+  [class.app-forms__success-input-block]="!control.hasError('required')">
+  <input matInput
+         [matDatepicker]="dp"
+         [placeholder]="placeholder"
+         [type]="type"
+         [formControl]="control"
+         [readonly]="readonly"
+         [required]="required">
+  <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+  <mat-datepicker #dp></mat-datepicker>
+</mat-form-field>
+
+<div class="app-forms__input-component__alert-danger"
+     [ngClass]="{'app-forms__input-component__display': control.hasError('required') && control.touched}">
+  {{'Title field is required'}}
+</div>

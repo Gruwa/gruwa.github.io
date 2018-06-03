@@ -1,0 +1,43 @@
+<form class="form-component" [formGroup]="shiftGroup">
+  <app-form-input class="form-component__input-group"
+                  placeholder="Request title"
+                  [control]="shiftGroup.get('shiftTitle')">
+  </app-form-input>
+  <app-form-date class="form-component__input-group"
+                 placeholder="Date"
+                 readonly="true"
+                 type="'date"
+                 [control]="shiftGroup.get('date')">
+  </app-form-date>
+  <app-form-time class="form-component__input-group"
+                 type="time"
+                 placeholder="Start time"
+                 [control]="shiftGroup.get('startTime')">
+  </app-form-time>
+  <app-form-time class="form-component__input-group"
+                 type="time"
+                 placeholder="End time"
+                 [control]="shiftGroup.get('endTime')">
+  </app-form-time>
+  <app-form-select class="form-component__input-group"
+                   placeholder="Location"
+                   [elements]="shift['locationList']"
+                   [control]="shiftGroup.get('locationID')">
+  </app-form-select>
+  <app-form-select class="form-component__input-group"
+                   placeholder="Station"
+                   [elements]="shift['stationList']"
+                   [control]="shiftGroup.get('stationID')">
+  </app-form-select>
+  <app-form-select class="form-component__input-group"
+                   placeholder="Job title"
+                   [elements]="shift['jobList']"
+                   [control]="shiftGroup.get('jobID')">
+  </app-form-select>
+  <app-form-input class="form-component__input-group"
+                  placeholder="Status"
+                  readonly="true"
+                  required="false"
+                  [control]="shiftGroup.get('status')">
+  </app-form-input>
+</form>

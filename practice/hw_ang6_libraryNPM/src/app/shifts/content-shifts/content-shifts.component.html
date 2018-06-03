@@ -1,0 +1,18 @@
+<div class="content-shifts">
+  <div *ngFor="let shifts of sortShifts" class="content-shifts__wrapper">
+    <div class="content-shifts__title">{{shifts.dateFormated}}</div>
+    <div *ngFor="let shift of shifts.shifts" class="content-shifts__content">
+      <app-shift-block [shift]="shift"
+                       class="app-shift-block"
+                       [routerLink]="['/', this.route.snapshot.params['group'], 'shifts', shift.shiftID]">
+      </app-shift-block>
+    </div>
+  </div>
+  <!--TODO - part of side bar-->
+  <!--<div *ngIf="tab === 'my requests'" class="content-shifts__buttons">-->
+    <!--<button mat-fab class="content-shifts__button"-->
+            <!--(click)="addNewMyRequest()">-->
+        <!--<i class="material-icons">add</i>-->
+    <!--</button>-->
+  <!--</div>-->
+</div>

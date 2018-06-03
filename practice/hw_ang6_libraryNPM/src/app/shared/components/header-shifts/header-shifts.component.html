@@ -1,0 +1,23 @@
+<div class="header-shifts">
+  <div class="header-shifts__container">
+    <div class="header-shifts__container-group">
+      <i class="material-icons header-shifts__element-display-none"
+         (click)="showSideBar()"
+         [ngClass]="{'header-shifts__element-display' : sideBar}">menu</i>
+      <i class="material-icons header-shifts__element-display-none"
+         (click)="closeOurPage()"
+         [ngClass]="{'header-shifts__element-display' : closePage}">close</i>
+      <i class="material-icons header-shifts__element-display-none"
+         (click)="goBackLogin()"
+         [ngClass]="{'header-shifts__element-display' : arrowBack}">arrow_back</i>
+      <span class="header-shifts__description">{{headerDescription}}</span>
+    </div>
+    <div class="header-shifts__container-group">
+      <i class="material-icons header-shifts__element-display-none"
+         [ngClass]="{'header-shifts__element-display' : delete}">delete</i>
+      <span class="header-shifts__element-save header-shifts__element-display-none"
+            (click)="onSave()"
+            [ngClass]="{'header-shifts__element-display' : save && tab === 'my requests'}">save</span>
+    </div>
+  </div>
+</div>

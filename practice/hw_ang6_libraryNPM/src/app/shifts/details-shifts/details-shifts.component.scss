@@ -1,0 +1,43 @@
+.details-shifts {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__app-header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    align-items: center;
+    background-color: #222a51;
+  }
+
+  &__content {
+    width: 100%;
+    height: 100%;
+    padding: 24px;
+    background-color: white;
+    box-sizing: border-box;
+    overflow: auto;
+    position: relative;
+  }
+
+  &__footer {
+    width: 100%;
+    height: 56px;
+    background-color: #4c97ff;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+}
+
