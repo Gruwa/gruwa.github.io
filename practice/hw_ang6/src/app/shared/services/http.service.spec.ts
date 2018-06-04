@@ -37,6 +37,13 @@ const BODYRESP = {
   }
 };
 
+const BODYRESP_MARKSTATE = {
+  Items: {
+    'IsDropRequest': 'IsDropRequest',
+    'IsPickupRequest': 'IsPickupRequest'
+  }
+};
+
 describe('HttpService', () => {
 
   beforeEach(() => {
@@ -58,7 +65,7 @@ describe('HttpService', () => {
     backend.verify();
   }));
 
-  describe('GET request', () => {
+  describe('GET request of shifts', () => {
 
     it('should be created', async(
       inject([HttpClient, HttpTestingController], (http: HttpClient, backend: HttpTestingController) => {
@@ -95,51 +102,90 @@ describe('HttpService', () => {
     ));
   });
 
-  describe('DELETE request', () => {
+  // describe('DELETE request of shifts', () => {
+  //
+  //   it('should be deleted', async(
+  //     inject([HttpClient, HttpTestingController], (http: HttpClient, backend: HttpTestingController) => {
+  //       http.delete(BASEURL + '/shifts/delete' + 'id').subscribe();
+  //
+  //       backend.expectOne({
+  //         url: BASEURL + '/shifts/delete' + 'id',
+  //         method: 'DELETE'
+  //       });
+  //     })
+  //   ));
+  //
+  //   it(`should delete shift`, async(
+  //     inject([HttpTestingController, HttpService], (backend: HttpTestingController, service: HttpService) => {
+  //       service.deleteShifts('upcoming').subscribe();
+  //
+  //       backend.expectOne((req: HttpRequest<any>) => {
+  //
+  //         return req.url === BASEURL + '/shifts/delete/' + 'upcoming'
+  //           && req.method === 'DELETE'
+  //           && req.responseType === 'json';
+  //       }, `DELETE shift`);
+  //     })
+  //   ));
+  //
+  //   it(`should emit 'true' for 200 Ok`, async(inject([HttpService, HttpTestingController],
+  //     (service: HttpService, backend: HttpTestingController) => {
+  //       service.deleteShifts('upcoming').subscribe((next) => {
+  //         expect(next).toBe(null);
+  //       });
+  //
+  //       backend.expectOne(BASEURL + '/shifts/delete/' + 'upcoming').flush(null, {status: 200, statusText: 'OK'});
+  //     })
+  //   ));
+  // });
+  //
+  // describe('PATCH request of renewal shifts', () => {
+  //
+  //   it('should be edited', async(
+  //     inject([HttpClient, HttpTestingController], (http: HttpClient, backend: HttpTestingController) => {
+  //       http.patch(BASEURL + '/shifts/' + 'id', BODY).subscribe();
+  //
+  //       backend.expectOne({
+  //         url: BASEURL + '/shifts/' + 'id',
+  //         method: 'PATCH'
+  //       });
+  //     })
+  //   ));
+  //
+  //   it(`should edit shift`, async(
+  //     inject([HttpTestingController, HttpService], (backend: HttpTestingController, service: HttpService) => {
+  //       service.patchShiftsRequest('upcoming', BODY).subscribe();
+  //
+  //       backend.expectOne((req: HttpRequest<any>) => {
+  //
+  //         return req.url === BASEURL + '/shifts/' + 'upcoming'
+  //           && req.method === 'PATCH'
+  //           && req.responseType === 'json'
+  //           && req.body['field1'] === 'field1'
+  //           && req.body['field2'] === 'field2';
+  //       }, `PATCH to 'api/shifts/id' with form-encoded fields`);
+  //     })
+  //   ));
+  //
+  //   it(`should emit 'true' for 200 Ok`, async(inject([HttpService, HttpTestingController],
+  //     (service: HttpService, backend: HttpTestingController) => {
+  //       service.patchShiftsRequest('upcoming', BODYRESP).subscribe((next) => {
+  //         expect(next).toBe(null);
+  //       });
+  //
+  //       backend.expectOne(BASEURL + '/shifts/' + 'upcoming').flush(null, {status: 200, statusText: 'OK'});
+  //     })
+  //   ));
+  // })
 
-    it('should be deleted', async(
-      inject([HttpClient, HttpTestingController], (http: HttpClient, backend: HttpTestingController) => {
-        http.delete(BASEURL + '/shifts/delete' + 'id').subscribe();
-
-        backend.expectOne({
-          url: BASEURL + '/shifts/delete' + 'id',
-          method: 'DELETE'
-        });
-      })
-    ));
-
-    it(`should delete shift`, async(
-      inject([HttpTestingController, HttpService], (backend: HttpTestingController, service: HttpService) => {
-        service.deleteShifts('upcoming').subscribe();
-
-        backend.expectOne((req: HttpRequest<any>) => {
-
-          return req.url === BASEURL + '/shifts/delete/' + 'upcoming'
-            && req.method === 'DELETE'
-            && req.responseType === 'json';
-        }, `DELETE shift`);
-      })
-    ));
-
-    it(`should emit 'true' for 200 Ok`, async(inject([HttpService, HttpTestingController],
-      (service: HttpService, backend: HttpTestingController) => {
-        service.deleteShifts('upcoming').subscribe((next) => {
-          expect(next).toBe(null);
-        });
-
-        backend.expectOne(BASEURL + '/shifts/delete/' + 'upcoming').flush(null, {status: 200, statusText: 'OK'});
-      })
-    ));
-  });
-
-  describe('PATCH request', () => {
+  describe('PATCH request opf markstate', () => {
 
     it('should be edited', async(
       inject([HttpClient, HttpTestingController], (http: HttpClient, backend: HttpTestingController) => {
-        http.patch(BASEURL + '/shifts/' + 'id', BODY).subscribe();
+        http.patch(BASEURL + '/markstate/' + 'id', BODY).subscribe();
 
         backend.expectOne({
-          url: BASEURL + '/shifts/' + 'id',
+          url: BASEURL + '/markstate/' + 'id',
           method: 'PATCH'
         });
       })
@@ -147,27 +193,27 @@ describe('HttpService', () => {
 
     it(`should edit shift`, async(
       inject([HttpTestingController, HttpService], (backend: HttpTestingController, service: HttpService) => {
-        service.patchShiftsRequest('upcoming', BODY).subscribe();
+        service.patchMarkStateRequest('upcoming', BODY).subscribe();
 
         backend.expectOne((req: HttpRequest<any>) => {
 
-          return req.url === BASEURL + '/shifts/' + 'upcoming'
+          return req.url === BASEURL + '/markstate/' + 'upcoming'
             && req.method === 'PATCH'
             && req.responseType === 'json'
             && req.body['field1'] === 'field1'
             && req.body['field2'] === 'field2';
-        }, `PATCH to 'api/shifts/id' with form-encoded fields`);
+        }, `PATCH to 'api/markstate/id' with form-encoded fields`);
       })
     ));
 
     it(`should emit 'true' for 200 Ok`, async(inject([HttpService, HttpTestingController],
       (service: HttpService, backend: HttpTestingController) => {
-        service.patchShiftsRequest('upcoming', BODYRESP).subscribe((next) => {
+        service.patchMarkStateRequest('upcoming', BODYRESP_MARKSTATE).subscribe((next) => {
           expect(next).toBe(null);
         });
 
-        backend.expectOne(BASEURL + '/shifts/' + 'upcoming').flush(null, {status: 200, statusText: 'OK'});
+        backend.expectOne(BASEURL + '/markstate/' + 'upcoming').flush(null, {status: 200, statusText: 'OK'});
       })
     ));
-  })
+  });
 });
