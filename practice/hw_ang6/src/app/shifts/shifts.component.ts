@@ -75,8 +75,6 @@ export class ShiftsComponent implements OnInit, OnDestroy {
 
   private ngUnsubscribe: Subject<void> = new Subject<void>();
 
-  public zzz: any;
-
   /**
    * Creates an instance of ShiftsComponent
    * @param {FlowService} flowService
