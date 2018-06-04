@@ -1,0 +1,28 @@
+{
+  "name": "@angular/shift-try",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Gruwa/gruwa.github.io/tree/master/practice/hw_ang6_libraryNPM"
+  },
+  "author": {
+    "name": "Aleksey Zolotarenko",
+    "email": "alex.zolotarenko@gmail.com"
+  },
+  "keywords": [
+    "angular"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Gruwa/gruwa.github.io/tree/master/practice/hw_ang6_libraryNPM/issues"
+  },
+  "main": "shift-try.umd.js",
+  "module": "shift-try.js",
+  "jsnext:main": "shift-try.js",
+  "typings": "shift-try.d.ts",
+  "peerDependencies": {
+    "@angular/core": "^4.0.0",
+    "rxjs": "^5.1.0",
+    "zone.js": "^0.8.4"
+  }
+}
