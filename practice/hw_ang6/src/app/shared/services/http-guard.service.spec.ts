@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
+import {HttpGuardService} from './http-guard.service';
 
-import { HttpGuardService } from './http-guard.service';
 
-// describe('GuardService', () => {
-//   beforeEach(() => {
-//     TestBed.configureTestingModule({
-//       providers: [GuardService]
-//     });
-//   });
-//
-//   it('should be created', inject([GuardService], (service: GuardService) => {
-//     expect(service).toBeTruthy();
-//   }));
-// });
+describe('HttpGuardService', () => {
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [HttpGuardService]
+    });
+  });
+
+  it('should be created', inject([HttpGuardService], (service: HttpGuardService) => {
+    expect(service).toBeTruthy();
+  }));
+});
