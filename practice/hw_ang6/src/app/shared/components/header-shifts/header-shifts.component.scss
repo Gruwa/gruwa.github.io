@@ -1,3 +1,7 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
 .header-shifts {
   display: flex;
   width: 100%;
@@ -5,6 +9,11 @@
   height: 56px;
   color: white;
   position: relative;
+  flex-direction: column;
+
+  &__header {
+    margin: 25px 0 32px;
+  }
 
   &__container {
     display: flex;
@@ -15,22 +24,23 @@
     flex-grow: 1;
   }
 
-  &__container-group {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-
-    .material-icons {
-      cursor: pointer;
-    }
-  }
-
   &__description {
     margin-left: 16px;
     font-size: 18px;
-    text-transform: capitalize;
     font-weight: 500;
-    margin-top: 2px;
+  }
+
+  &__arrow_down {
+    margin-left: 16px;
+  }
+
+  &__correct-color {
+    color: white;
+    opacity: 0.56;
+  }
+
+  &__correct-font {
+    font-size: 14px;
   }
 
   &__element-save {
@@ -41,6 +51,11 @@
     cursor: pointer;
   }
 
+  &__logoSmall {
+    width: 110px;
+    margin-left: 24px;
+  }
+
   &__element-display-none {
     display: none;
   }
@@ -48,4 +63,5 @@
   &__element-display {
     display: block;
   }
+
 }

@@ -147,4 +147,35 @@ export class DataService {
     jobTitle: 'job title',
     status: 'status'
   };
+
+  public SIDE_BAR_LIST_MENU = [
+    {
+      icon: 'compare_arrows',
+      description: 'shifts'
+    },
+    {
+      icon: 'insert_invitation',
+      description: 'my availability'
+    },
+    {
+      icon: 'phone',
+      description: 'contact info'
+    },
+    {
+      icon: 'settings',
+      description: 'settings'
+    },
+    {
+      icon: 'power_settings_new',
+      description: 'logout'
+    }
+  ];
+
+  public SIDE_BAR_LIST = {
+    shifts: 'shifts',
+    'my availability': 'myrequests',
+    'contact info': 'available',
+    settings: 'settings',
+    logout: 'logout'
+  };
 }

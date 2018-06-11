@@ -1,7 +1,9 @@
 <div class="login-schedule">
   <app-header-shifts [headerDescription]="headerDescription"
                      class="login-schedule__app-header"
-                     [arrowBack]="true">
+                     [arrowBack]="true"
+                     [description]="true"
+                     (outputActionMethod)="goBack($event)">
   </app-header-shifts>
   <div class="login-schedule__content-wrapper">
     <div *ngFor="let group of groups">

@@ -15,6 +15,7 @@ import {Ng2Webstorage} from 'ngx-webstorage';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MaterialsModule} from './shared/components/materials/materials.module';
 import {ToastrModule} from 'ngx-toastr';
+import {SidebarModule} from './sidebar/sidebar.module';
 
 @NgModule({
   imports: [
@@ -29,6 +30,7 @@ import {ToastrModule} from 'ngx-toastr';
     ToastrModule.forRoot({
       timeOut: 1500,
     }),
+    SidebarModule
   ],
   declarations: [
     AppComponent

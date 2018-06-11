@@ -1,0 +1,16 @@
+.side-bar {
+  padding-top: 8px;
+
+  &__row {
+    padding: 20px 0 4px 24px;
+    color: rgba(108, 115, 128, 1);
+    font-size: 16px;
+  }
+
+}
+
+app-main-list {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}

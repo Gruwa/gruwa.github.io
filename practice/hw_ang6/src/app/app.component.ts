@@ -1,7 +1,13 @@
-﻿import {Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
+﻿import {
+  Component,
+  OnDestroy,
+  OnInit, ViewChild,
+  ViewEncapsulation
+} from '@angular/core';
 import {FlowService} from './shared/services/flow.service';
-import {Subject} from 'rxjs/Subject';
-import 'rxjs/add/operator/takeUntil';
+import {Subject} from 'rxjs';
+import {takeUntil} from 'rxjs/operators';
+import {MatSidenav} from '@angular/material';
 
 /**
  * App Component
@@ -31,6 +37,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
   private ngUnsubscribe: Subject<void> = new Subject<void>();
 
+  @ViewChild('sidebar') sideBar: MatSidenav;
+
   /**
    * Creates an instance of AppComponent
    * @param {FlowService} flowService
@@ -47,7 +55,12 @@ export class AppComponent implements OnInit, OnDestroy {
    */
 
   ngOnInit(): void {
-    this.flowService.dataSpinner$.takeUntil(this.ngUnsubscribe).subscribe(this.spinnerShow.bind(this));
+    this.flowService.dataSpinner$.pipe(
+      takeUntil(this.ngUnsubscribe)
+    ).subscribe(this.spinnerShow.bind(this));
+    this.flowService.dataSideBar$.pipe(
+      takeUntil(this.ngUnsubscribe)
+    ).subscribe(this.sideBarShow.bind(this));
   }
 
   /**
@@ -71,4 +84,9 @@ export class AppComponent implements OnInit, OnDestroy {
     this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();
   }
+
+  sideBarShow(event?: any) {
+      this.sideBar.toggle();
+  }
+
 }

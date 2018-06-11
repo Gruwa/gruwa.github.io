@@ -95,6 +95,17 @@ $dcportal-app-theme: mat-light-theme($dcportal-app-primary, $dcportal-app-accent
   font-feature-settings: 'liga'
 }
 
+.mat-toolbar {
+  background: none;
+  color: white;
+
+  .mat-toolbar-row {
+    height: 100%;
+    margin-bottom: 16px;
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+}
+
 [class^="mdl-"] {
   font-family: Lato, Helvetica, Arial, sans-serif
 }

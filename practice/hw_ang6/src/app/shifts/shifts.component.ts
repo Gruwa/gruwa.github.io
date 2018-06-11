@@ -1,7 +1,7 @@
 import {
   Component,
   OnDestroy,
-  OnInit,
+  OnInit, ViewChild,
   ViewEncapsulation
 } from '@angular/core';
 import {HttpService} from '../shared/services/http.service';
@@ -14,6 +14,7 @@ import {
   takeUntil
 } from 'rxjs/operators';
 import {DataService} from '../shared/services/data.service';
+import {MatSidenav} from '@angular/material';
 
 /**
  * Shifts Component
@@ -134,12 +135,22 @@ export class ShiftsComponent implements OnInit, OnDestroy {
   /**
    * Method fo show spinner
    * @returns {void}
+   * @param {any} event
+   * @memberof ShiftsComponent
+   */
+
+  public showSideBar(event?: any): void {
+    this.flowService.dataSideBar$.next(true);
+  }
+
+  /**
+   * Method fo show spinner
+   * @returns {void}
    * @param {boolean} event
    * @memberof ShiftsComponent
    */
 
   spinnerShow(event: boolean): void {
-    console.log('spinnerShow');
     this.spinner = event;
   }
 

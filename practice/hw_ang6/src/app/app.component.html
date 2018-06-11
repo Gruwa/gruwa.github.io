@@ -1,6 +1,21 @@
-﻿<router-outlet>
-  <app-spinner class="app__spinner"
-               [ngClass]="{'app__spinner-display' : spinner}">
-  </app-spinner>
-</router-outlet>
-
+﻿<mat-sidenav-container class="app__container">
+  <mat-sidenav #sidebar role="navigation" class="app__sidenav">
+    <app-header-shifts (outputActionMethod)="sideBarShow($event)"
+                       class="app__app-header"
+                       [arrowBack]="true"
+                       [logoSmall]="true"
+                       [room]="true"
+                       [account_circle]="true"
+                       [roomDescription]=""
+                       [accountDescription]="">
+    </app-header-shifts>
+    <app-side-bar (closeSideBar)="sideBarShow($event)"></app-side-bar>
+  </mat-sidenav>
+  <mat-sidenav-content class="app__content">
+    <router-outlet>
+      <app-spinner class="app__spinner"
+                   [ngClass]="{'app__spinner-display' : spinner}">
+      </app-spinner>
+    </router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

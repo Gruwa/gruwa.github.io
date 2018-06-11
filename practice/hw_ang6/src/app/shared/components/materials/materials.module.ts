@@ -14,6 +14,8 @@ import {
   MatDatepickerModule,
   MatNativeDateModule,
   MatFormFieldModule,
+  MatSidenavModule,
+  MatToolbarModule
 } from '@angular/material';
 import {AmazingTimePickerModule} from 'amazing-time-picker';
 
@@ -35,7 +37,9 @@ import {AmazingTimePickerModule} from 'amazing-time-picker';
     MatDatepickerModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSidenavModule,
+    MatToolbarModule
   ],
   exports: [
     MatTabsModule,
@@ -53,7 +57,9 @@ import {AmazingTimePickerModule} from 'amazing-time-picker';
     MatDatepickerModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSidenavModule,
+    MatToolbarModule
   ]
 })
 export class MaterialsModule {

@@ -7,6 +7,7 @@ import {
 import {FlowService} from '../../shared/services/flow.service';
 import {IGroupRestaurant} from '../../shared/interfaces/group-restaurant.interface';
 import {Router} from '@angular/router';
+import {LocalStorageService} from 'ngx-webstorage';
 
 /**
  * Schedule Login Component
@@ -41,11 +42,13 @@ export class ScheduleLoginComponent implements OnInit, AfterViewInit {
    * Creates an instance of ScheduleLoginComponent
    * @param {FlowService} flowService
    * @param {Router} router
+   * @param {LocalStorageService} localStorage
    * @memberof ScheduleLoginComponent
    */
 
   constructor(public flowService: FlowService,
-              public router: Router) {
+              public router: Router,
+              public localStorage: LocalStorageService) {
   }
 
   /**
@@ -82,8 +85,20 @@ export class ScheduleLoginComponent implements OnInit, AfterViewInit {
    * @memberof ScheduleLoginComponent
    */
 
-  showShifts(): void {
+  public showShifts(): void {
     this.flowService.dataSpinner$.next('true');
+  }
+
+  /**
+   * Method goBackLogin for go back to login page
+   * @param {any} event
+   * @returns {void}
+   * @memberof ScheduleLoginComponent
+   */
+
+  public goBack(event?: any): void {
+    this.localStorage.clear('token');
+    this.router.navigate(['/login']);
   }
 
 }

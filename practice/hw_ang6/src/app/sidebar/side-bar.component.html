@@ -1,0 +1,5 @@
+<mat-toolbar class="side-bar">
+  <mat-toolbar-row class="side-bar__row" *ngFor="let list of dataService.SIDE_BAR_LIST_MENU">
+    <app-main-list  [list]="list" (outputActionMethod)="onClickList($event)"></app-main-list>
+  </mat-toolbar-row>
+</mat-toolbar>

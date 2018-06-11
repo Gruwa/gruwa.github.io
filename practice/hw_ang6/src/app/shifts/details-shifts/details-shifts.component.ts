@@ -282,4 +282,15 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
   spinnerShow(event: boolean): void {
     this.spinner = event;
   }
+
+  /**
+   * Method fo close shift and router on shifts page
+   * @returns {void}
+   * @param {any} event
+   * @memberof DetailsShiftsComponent
+   */
+
+  public closeOurPage(event?: any): void {
+    this.router.navigate(['/' + this.route.snapshot.params['group'], 'shifts']);
+  }
 }

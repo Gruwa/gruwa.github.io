@@ -3,7 +3,9 @@
                      class="details-shifts__app-header"
                      [save]="true"
                      [tab]="tab"
-                     [closePage]="true">
+                     [closePage]="true"
+                     [description]="true"
+                     (outputActionMethod)="closeOurPage($event)">
   </app-header-shifts>
   <div class="details-shifts__content">
     <app-list-fields [shiftActive]="shiftActive"
@@ -11,7 +13,7 @@
                      *ngIf="tab !== 'my requests'">
     </app-list-fields>
     <app-small-spinner [ngClass]="{'global__small-spinner-display' : spinner}"
-    class="global__small-spinner">
+                       class="global__small-spinner">
     </app-small-spinner>
   </div>
   <div class="details-shifts__footer" (click)="clickFooter()">

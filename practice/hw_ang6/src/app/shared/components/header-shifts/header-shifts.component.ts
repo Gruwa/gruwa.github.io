@@ -1,6 +1,6 @@
 import {
-  Component,
-  Input
+  Component, EventEmitter,
+  Input, Output
 } from '@angular/core';
 import {
   ActivatedRoute,
@@ -23,7 +23,23 @@ export class HeaderShiftsComponent {
    * @memberof HeaderShiftsComponent
    */
 
-  @Input() headerDescription: string;
+  @Input() headerDescription: string = 'sSome description here';
+
+  /**
+   * Input variable accountDescription for account description
+   * @type {string}
+   * @memberof HeaderShiftsComponent
+   */
+
+  @Input() accountDescription: string = 'some description here';
+
+  /**
+   * Input variable roomDescription for restaurant description
+   * @type {string}
+   * @memberof HeaderShiftsComponent
+   */
+
+  @Input() roomDescription: string = 'some description here';
 
   /**
    * Input variable sideBar
@@ -66,12 +82,51 @@ export class HeaderShiftsComponent {
   @Input() save: boolean = false;
 
   /**
+   * Input variable room for show group of restaurants
+   * @type {boolean}
+   * @memberof HeaderShiftsComponent
+   */
+
+  @Input() room: boolean = false;
+
+  /**
+   * Input variable room for show group of restaurants
+   * @type {boolean}
+   * @memberof HeaderShiftsComponent
+   */
+
+  @Input() account_circle: boolean = false;
+
+  /**
+   * Input variable logoSmall for show small logo
+   * @type {boolean}
+   * @memberof HeaderShiftsComponent
+   */
+
+  @Input() logoSmall: boolean = false;
+
+  /**
+   * Input variable description for show description of header
+   * @type {boolean}
+   * @memberof HeaderShiftsComponent
+   */
+
+  @Input() description: boolean = false;
+
+  /**
    * Input variable tab
    * @type {string}
    * @memberof HeaderShiftsComponent
    */
 
   @Input() tab: string = '';
+
+  /**
+   * Output action from header
+   * @memberof HeaderShiftsComponent
+   */
+
+  @Output() outputActionMethod = new EventEmitter();
 
   /**
    * Creates an instance of DetailsShiftsComponent
@@ -94,18 +149,8 @@ export class HeaderShiftsComponent {
    * @memberof HeaderShiftsComponent
    */
 
-  closeOurPage(): void {
-    this.router.navigate(['/' + this.route.snapshot.params['group'], 'shifts']);
-  }
-
-  /**
-   * Method showSideBar for show menu
-   * @returns {void}
-   * @memberof HeaderShiftsComponent
-   */
-
-  showSideBar(): void {
-
+  clickEvent() {
+    this.outputActionMethod.emit('header');
   }
 
   /**
@@ -116,17 +161,6 @@ export class HeaderShiftsComponent {
 
   onSave(): void {
     this.flowService.dataSave$.next('save');
-  }
-
-  /**
-   * Method goBackLogin for go back to login page
-   * @returns {void}
-   * @memberof HeaderShiftsComponent
-   */
-
-  goBackLogin(): void {
-    this.localStorage.clear('token');
-    this.router.navigate(['/login']);
   }
 
 }
