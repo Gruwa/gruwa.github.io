@@ -64,7 +64,7 @@ export class LoginComponent implements OnInit, OnDestroy {
    * @memberof LoginComponent
    */
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.initForm();
     // TODO ADD data to the fake server
     // this.httpService.addAllObject().subscribe(); // TODO - delete when will be ready real api
@@ -76,7 +76,7 @@ export class LoginComponent implements OnInit, OnDestroy {
    * @memberof LoginComponent
    */
 
-  initForm(): void {
+  private initForm(): void {
     this.loginForm = this.fb.group({
       login: ['', [Validators.required]],
       password: ['', [Validators.required]],
@@ -90,7 +90,7 @@ export class LoginComponent implements OnInit, OnDestroy {
    * @memberof LoginComponent
    */
 
-  onSubmit(): void {
+  public onSubmit(): void {
     this.flowService.dataSpinner$.next(true);
     const valueOfLogin: object = {
       login: this.loginForm.get('login').value,
@@ -114,7 +114,7 @@ export class LoginComponent implements OnInit, OnDestroy {
    * @memberof ContentShiftsComponent
    */
 
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();
   }

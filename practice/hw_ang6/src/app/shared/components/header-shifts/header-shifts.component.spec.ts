@@ -1,6 +1,10 @@
-import {async, ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
+import {
+  async,
+  ComponentFixture,
+  TestBed
+} from '@angular/core/testing';
 import {HeaderShiftsComponent} from './header-shifts.component';
-import {MatTabsModule} from '@angular/material';
+import {MatTabsModule, MatToolbarModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ShiftsService} from '../../../shifts/services/shifts.service';
 import {By} from '@angular/platform-browser';
@@ -10,6 +14,8 @@ import {PageNotFoundComponent} from '../not-found/not-found.component';
 import {APP_BASE_HREF} from '@angular/common';
 import {Ng2Webstorage} from 'ngx-webstorage';
 import {FlowService} from '../../services/flow.service';
+import {PipeModule} from '../../pipes/pipe.module';
+import {CapitalizeFirstPipe} from '../../pipes/capitalize-first/capitalize-first.pipe';
 
 class FakeShiftsService {
 }
@@ -27,9 +33,11 @@ describe('HeaderShiftsComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         MatTabsModule,
+        MatToolbarModule,
         BrowserAnimationsModule,
         AppRoutingModule,
-        Ng2Webstorage
+        Ng2Webstorage,
+        PipeModule.forRoot()
       ],
       declarations: [
         HeaderShiftsComponent,

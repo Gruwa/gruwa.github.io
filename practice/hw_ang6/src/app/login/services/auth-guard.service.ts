@@ -14,7 +14,7 @@ export class AuthGuardService {
    * @memberof AuthGuardService
    */
 
-  guardLogin(value): Array<IGroupRestaurant> {
+  public guardLogin(value): Array<IGroupRestaurant> {
 
     /**
      * Variable of GuardObj

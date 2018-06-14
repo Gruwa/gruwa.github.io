@@ -10,6 +10,7 @@ import {AuthGuardService} from './auth-guard.service';
 import {ILogin} from '../../shared/interfaces/login.interface';
 import {FlowService} from '../../shared/services/flow.service';
 import {DataService} from '../../shared/services/data.service';
+import {Observable} from 'rxjs';
 
 /**
  * Auth Service
@@ -44,10 +45,11 @@ export class AuthService {
   /**
    * Method for put shifts in flow
    * @param {object} body
+   * @returns {void}
    * @memberof AuthService
    */
 
-  onLogin(body: object) {
+  public onLogin(body: object): void {
     this.flowService.dataLogin$ = this.onLoginRequest(body).pipe(
       map(
         (resp: ILogin) => {
@@ -64,10 +66,11 @@ export class AuthService {
   /**
    * Method for get shifts
    * @param {object} body
+   * @returns {Observable<object>}
    * @memberof AuthService
    */
 
-  onLoginRequest(body: object) {
+  public onLoginRequest(body: object): Observable<object> {
     return this.http.post(this.dataService.BASEURL + '/login', body);
   }
 }
