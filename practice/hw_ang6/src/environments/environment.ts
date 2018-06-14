@@ -9,5 +9,6 @@
 
 export const environment = {
   apiRoot: '/api',
-  production: false
+  production: false,
+  googleAnalyticsKey: ''
 };

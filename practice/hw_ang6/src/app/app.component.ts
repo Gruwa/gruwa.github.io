@@ -12,6 +12,8 @@ import {
   takeUntil
 } from 'rxjs/operators';
 import {MatSidenav} from '@angular/material';
+import {GoogleAnalyticsService} from './shared/services/google-analytics.service';
+import {environment} from '../environments/environment';
 
 /**
  * App Component
@@ -52,10 +54,13 @@ export class AppComponent implements OnInit, OnDestroy {
   /**
    * Creates an instance of AppComponent
    * @param {FlowService} flowService
+   * @param {GoogleAnalyticsService} googleAnalyticsService
    * @memberof AppComponent
    */
 
-  constructor(public flowService: FlowService) {
+  constructor(public flowService: FlowService,
+              private googleAnalyticsService: GoogleAnalyticsService) {
+    this.appendGaTrackingCode();
   }
 
   /**
@@ -95,6 +100,30 @@ export class AppComponent implements OnInit, OnDestroy {
   private sideBarShow(event?: any): void {
     this.sideBar.toggle();
     this.flowService.dataSideBarGroupRestaurants$.next(false);
+  }
+
+  /**
+   * Method appendGaTrackingCode
+   * @returns {void}
+   * @memberof AppComponent
+   */
+
+  private appendGaTrackingCode(): void {
+    try {
+      const script = document.createElement('script');
+      script.innerHTML = `
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', '` + environment.googleAnalyticsKey + `', 'auto');
+      `;
+      document.head.appendChild(script);
+    } catch (ex) {
+      console.error('Error appending google analytics');
+      console.error(ex);
+    }
   }
 
   /**
