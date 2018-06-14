@@ -1,4 +1,9 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output
+} from '@angular/core';
 
 /**
  * Main List Component
@@ -19,19 +24,29 @@ export class MainListComponent {
   @Input() list;
 
   /**
-   * Output action from list
+   * Input data of done
+   * @type {string}
    * @memberof MainListComponent
    */
 
-  @Output() outputActionMethod = new EventEmitter();
+  @Input() done: string;
+
+  /**
+   * Output action from list
+   * @type {EventEmitter<any>}
+   * @memberof MainListComponent
+   */
+
+  @Output() outputActionMethod: EventEmitter<any> = new EventEmitter();
 
   /**
    * Method clickEvent for emit click
    * @returns {void}
+   * @param {any} value
    * @memberof MainListComponent
    */
 
-  clickEvent(value: any): void {
+  public clickEvent(value: any): void {
     this.outputActionMethod.emit(value);
   }
 

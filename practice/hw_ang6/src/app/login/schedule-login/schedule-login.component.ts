@@ -1,6 +1,7 @@
 import {
   AfterViewInit,
   Component,
+  OnDestroy,
   OnInit,
   ViewEncapsulation
 } from '@angular/core';
@@ -8,6 +9,8 @@ import {FlowService} from '../../shared/services/flow.service';
 import {IGroupRestaurant} from '../../shared/interfaces/group-restaurant.interface';
 import {Router} from '@angular/router';
 import {LocalStorageService} from 'ngx-webstorage';
+import {takeUntil} from 'rxjs/operators';
+import {Subject} from 'rxjs';
 
 /**
  * Schedule Login Component
@@ -20,7 +23,7 @@ import {LocalStorageService} from 'ngx-webstorage';
   encapsulation: ViewEncapsulation.None
 
 })
-export class ScheduleLoginComponent implements OnInit, AfterViewInit {
+export class ScheduleLoginComponent implements OnInit, AfterViewInit, OnDestroy {
 
   /**
    * Variable headerDescription
@@ -37,6 +40,14 @@ export class ScheduleLoginComponent implements OnInit, AfterViewInit {
    */
 
   public groups: Array<IGroupRestaurant>;
+
+  /**
+   * Variable of ngUnsubscribe
+   * @type {Subject<void>}
+   * @memberof ScheduleLoginComponent
+   */
+
+  private ngUnsubscribe: Subject<void> = new Subject<void>();
 
   /**
    * Creates an instance of ScheduleLoginComponent
@@ -57,9 +68,11 @@ export class ScheduleLoginComponent implements OnInit, AfterViewInit {
    * @memberof ScheduleLoginComponent
    */
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     if (this.flowService.dataLogin$) {
-      this.flowService.dataLogin$.subscribe((res: Array<IGroupRestaurant>) => {
+      this.flowService.dataLogin$.pipe(
+        takeUntil(this.ngUnsubscribe)
+      ).subscribe((res: Array<IGroupRestaurant>) => {
         this.groups = res;
       });
     } else {
@@ -73,7 +86,7 @@ export class ScheduleLoginComponent implements OnInit, AfterViewInit {
    * @memberof ScheduleLoginComponent
    */
 
-  ngAfterViewInit(): void {
+  public ngAfterViewInit(): void {
     setTimeout(() => {
       this.flowService.dataSpinner$.next(false);
     });
@@ -82,11 +95,12 @@ export class ScheduleLoginComponent implements OnInit, AfterViewInit {
   /**
    * Method showShifts
    * @returns {void}
+   * @param {string} group
    * @memberof ScheduleLoginComponent
    */
 
-  public showShifts(): void {
-    this.flowService.dataSpinner$.next('true');
+  public showShifts(group?: string): void {
+    this.localStorage.store('group', group);
   }
 
   /**
@@ -101,4 +115,14 @@ export class ScheduleLoginComponent implements OnInit, AfterViewInit {
     this.router.navigate(['/login']);
   }
 
+  /**
+   * Method ngOnDestroy
+   * @returns {void}
+   * @memberof ScheduleLoginComponent
+   */
+
+  public ngOnDestroy(): void {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
+  }
 }

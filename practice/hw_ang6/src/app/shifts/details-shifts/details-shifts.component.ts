@@ -128,14 +128,13 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
    * @memberof DetailsShiftsComponent
    */
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.flowService.dataSmallSpinner$.pipe(
       takeUntil(this.ngUnsubscribe)
     ).subscribe(this.spinnerShow.bind(this));
     this.flowService.dataSmallSpinner$.next(true);
     this.tab = this.localStorage.retrieve('tab');
     this.shiftActiveId = this.route.snapshot.params['id'];
-
     if (this.flowService[`${this.dataService.FLOW[this.tab]}`] === undefined) {
       this.httpService.getShifts(this.tab);
       this.flowService[`${this.dataService.FLOW[this.tab]}`].pipe(
@@ -151,23 +150,12 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Method ngOnDestroy
-   * @returns {void}
-   * @memberof DetailsShiftsComponent
-   */
-
-  ngOnDestroy(): void {
-    this.ngUnsubscribe.next();
-    this.ngUnsubscribe.complete();
-  }
-
-  /**
    * Method getDataShift
    * @returns {void}
    * @memberof DetailsShiftsComponent
    */
 
-  getShifts(): void {
+  private getShifts(): void {
     this.flowService[`${this.dataService.FLOW[this.tab]}`].subscribe(
       (value) => {
 
@@ -219,7 +207,7 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
    * @memberof DetailsShiftsComponent
    */
 
-  setFooterRequest(): void {
+  private setFooterRequest(): void {
     if (this.tab === 'upcoming') {
       this.footerActive ? this.footerDescription = this.dataService.FOOTER_REQUESTS[0]
         : this.footerDescription = this.dataService.FOOTER_REQUESTS[1];
@@ -237,7 +225,7 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
    * @memberof DetailsShiftsComponent
    */
 
-  clickFooter(): void {
+  public clickFooter(): void {
     this.footerActive = !this.footerActive;
 
     if (!this.footerActive) {
@@ -279,7 +267,7 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
    * @memberof DetailsShiftsComponent
    */
 
-  spinnerShow(event: boolean): void {
+  private spinnerShow(event: boolean): void {
     this.spinner = event;
   }
 
@@ -292,5 +280,16 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
 
   public closeOurPage(event?: any): void {
     this.router.navigate(['/' + this.route.snapshot.params['group'], 'shifts']);
+  }
+
+  /**
+   * Method ngOnDestroy
+   * @returns {void}
+   * @memberof DetailsShiftsComponent
+   */
+
+  public ngOnDestroy(): void {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
   }
 }

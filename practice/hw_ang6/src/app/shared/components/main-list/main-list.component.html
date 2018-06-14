@@ -1,5 +1,9 @@
-<i class="material-icons header-shifts__element-display-none"
-   (click)="clickEvent(list)">{{list.icon}}</i>
-<span class="main-list__description header-shifts__element-display-none"
+<i class="material-icons"
+   (click)="clickEvent(list)" *ngIf="list.icon">{{list.icon}}</i>
+<i class="material-icons global__element-display-none"
+   [ngClass]="{'global__element-display' : done}"
+   [ngStyle]="{color : list.id === done ? 'rgba(57,129,230,1)' : 'white'}"
+   (click)="clickEvent(list)">done</i>
+<span class="main-list__description"
+      [ngStyle]="{color : list.id === done ? 'rgba(57,129,230,1)' : 'inherit'}"
       (click)="clickEvent(list)">{{list.description | capitalizeFirst}}</span>
-

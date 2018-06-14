@@ -62,28 +62,26 @@ export class AuthInterceptor implements HttpInterceptor {
       && this.route.snapshot.children[0].children[0].params['id']) {
       request = request.clone({
         setHeaders: {
-          token: this.localStorage.retrieve('token'),
+          Authorization: 'Bearer ' + this.localStorage.retrieve('token'),
           'Content-Type': 'application/json',
-          group: this.route.snapshot.children[0].params['group'],
+          groupID: this.route.snapshot.children[0].params['group'], // TODO - change description on id
           id: this.route.snapshot.children[0].children[0].params['id']
         }
       });
     }
-    if (this.localStorage.retrieve('token')
-      && this.route.snapshot.children[0].params['group']) {
+    if (this.localStorage.retrieve('token')) {
       request = request.clone({
         setHeaders: {
-          token: this.localStorage.retrieve('token'),
-          'Content-Type': 'application/json',
-          group: this.route.snapshot.children[0].params['group']
+          Authorization: 'Bearer ' + this.localStorage.retrieve('token'),
+          'Content-Type': 'application/json'
         }
       });
     } else {
       request = request.clone({
         setHeaders: {
-          token: '',
+          Authorization: '',
           'Content-Type': 'application/json',
-          group: ''
+          groupID: ''
         }
       });
     }

@@ -80,7 +80,7 @@ describe('HttpService', () => {
 
     it(`should send an expected login request`, async(
       inject([HttpTestingController, HttpService], (backend: HttpTestingController, service: HttpService) => {
-        service.getShiftsRequest('upcoming').subscribe();
+        service.getShiftsRequest('upcoming', 'group').subscribe();
 
         backend.expectOne((req: HttpRequest<any>) => {
 
@@ -93,7 +93,7 @@ describe('HttpService', () => {
 
     it(`should emit 'true' for 200 Ok`, async(inject([HttpService, HttpTestingController],
       (service: HttpService, backend: HttpTestingController) => {
-        service.getShiftsRequest('upcoming').subscribe((next) => {
+        service.getShiftsRequest('upcoming', 'group').subscribe((next) => {
           expect(next).toBe(null);
         });
 

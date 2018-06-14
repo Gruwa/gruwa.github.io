@@ -4,6 +4,7 @@ import {ILocation} from '../interfaces/location.interface';
 import {IStation} from '../interfaces/station.interface';
 import {IJob} from '../interfaces/job.interface';
 import {IShiftMArkState} from '../interfaces/mark-state-shift.interface';
+import {IGroupRestaurant} from '../interfaces/group-restaurant.interface';
 
 /**
  * Http Guard Service
@@ -15,12 +16,46 @@ import {IShiftMArkState} from '../interfaces/mark-state-shift.interface';
 export class HttpGuardService {
 
   /**
-   * Method for guard mark state
-   * @returns {Array<any>}
-   * @memberof ShiftsService
+   * Method for guard groups of restaurant
+   * @returns {Array<IGroupRestaurant>}
+   * @memberof HttpGuardService
    */
 
-  guardMarkState(value): Array<any> {
+  public guardRestaurants(value): Array<IGroupRestaurant> {
+
+    /**
+     * Variable of GuardObj
+     * @type {Array<IGroupRestaurant>}
+     * @memberof HttpGuardService
+     */
+
+    const GuardObj: Array<IGroupRestaurant> = [];
+
+    for (let i = 0; i < value['Items'].length; i++) {
+
+      /**
+       * Variable of obj
+       * @type {IGroupRestaurant}
+       * @memberof HttpGuardService
+       */
+
+      const obj: IGroupRestaurant = {
+        'id': value['Items'][i].ID,
+        'description': value['Items'][i].Description
+      };
+      GuardObj.push(obj);
+    }
+
+    return GuardObj;
+  }
+
+  /**
+   * Method for guard mark state
+   * @returns {Array<any>}
+   * @memberof HttpGuardService
+   */
+
+  public guardMarkState(value): Array<any> {
 
     const resp: Array<any> = [];
     resp['items'] = [];
@@ -38,10 +73,10 @@ export class HttpGuardService {
   /**
    * Method for guard shifts
    * @returns {Array<any>}
-   * @memberof ShiftsService
+   * @memberof HttpGuardService
    */
 
-  guardReFreshShift(value): Array<any> {
+  public guardReFreshShift(value): Array<any> {
 
     const resp: Array<any> = [];
     resp['items'] = [];
@@ -69,15 +104,15 @@ export class HttpGuardService {
   /**
    * Method for guard shifts
    * @returns {Array<any>}
-   * @memberof ShiftsService
+   * @memberof HttpGuardService
    */
 
-  guardShifts(value): Array<any> {
+  public guardShifts(value): Array<any> {
 
     /**
      * Variable of resp
      * @type {Array<any>}
-     * @memberof ShiftsService
+     * @memberof HttpGuardService
      */
 
     const resp: Array<any> = [];

@@ -1,6 +1,6 @@
 import {
   Component, EventEmitter,
-  Input, Output
+  Input, OnInit, Output
 } from '@angular/core';
 import {
   ActivatedRoute,
@@ -15,7 +15,9 @@ import {FlowService} from '../../services/flow.service';
   templateUrl: './header-shifts.component.html',
   styleUrls: ['./header-shifts.component.scss']
 })
-export class HeaderShiftsComponent {
+export class HeaderShiftsComponent implements OnInit {
+
+  public arrow: boolean = false;
 
   /**
    * Input variable headerDescription
@@ -23,7 +25,7 @@ export class HeaderShiftsComponent {
    * @memberof HeaderShiftsComponent
    */
 
-  @Input() headerDescription: string = 'sSome description here';
+  @Input() headerDescription: string = 'some description here';
 
   /**
    * Input variable accountDescription for account description
@@ -143,6 +145,12 @@ export class HeaderShiftsComponent {
               public flowService: FlowService) {
   }
 
+  ngOnInit() {
+    this.flowService.dataSideBarGroupRestaurants$.subscribe((next) => {
+      this.arrow = next;
+    });
+  }
+
   /**
    * Method closeOurPage for router on shifts page
    * @returns {void}
@@ -161,6 +169,11 @@ export class HeaderShiftsComponent {
 
   onSave(): void {
     this.flowService.dataSave$.next('save');
+  }
+
+  showGroupRestaurants() {
+    this.arrow = !this.arrow;
+    this.flowService.dataSideBarGroupRestaurants$.next(this.arrow);
   }
 
 }

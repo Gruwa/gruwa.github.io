@@ -1,0 +1,5 @@
+<mat-toolbar class="group-schedule">
+  <mat-toolbar-row class="group-schedule__row" *ngFor="let group of groups">
+    <app-main-list  [list]="group" (outputActionMethod)="onClickList($event)" [done]="doneGroup"></app-main-list>
+  </mat-toolbar-row>
+</mat-toolbar>

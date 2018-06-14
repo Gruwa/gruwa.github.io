@@ -4,6 +4,7 @@ import {AppComponentsModule} from '../shared/components/app-components.module';
 import {MaterialsModule} from '../shared/components/materials/materials.module';
 import {ReactiveFormsModule} from '@angular/forms';
 import {SideBarComponent} from './side-bar.component';
+import { GroupScheduleComponent } from './group-schedule/group-schedule.component';
 
 @NgModule({
   imports: [
@@ -13,13 +14,15 @@ import {SideBarComponent} from './side-bar.component';
     MaterialsModule
   ],
   declarations: [
-    SideBarComponent
+    SideBarComponent,
+    GroupScheduleComponent
   ],
   providers: [
     // SideBarService
   ],
   exports: [
-    SideBarComponent
+    SideBarComponent,
+    GroupScheduleComponent
   ]
 })
 export class SidebarModule {

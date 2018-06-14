@@ -20,6 +20,14 @@ export class FlowService {
   public dataSideBar$ = new Subject<any>();
 
   /**
+   * Created flow of dataSideBarGroupRestaurants
+   * @type {Subject<any>}
+   * @memberof DataService
+   */
+
+  public dataSideBarGroupRestaurants$ = new Subject<any>();
+
+  /**
    * Created flow of save
    * @type {Subject<any>}
    * @memberof DataService
@@ -44,6 +52,22 @@ export class FlowService {
   public dataSpinner$ = new Subject<any>();
 
   /**
+   * Created flow of show restaurants spinner
+   * @type {Subject<any>}
+   * @memberof DataService
+   */
+
+  public dataSpinnerRestaurants$ = new Subject<any>();
+
+  /**
+   * Created flow of restaurants
+   * @type {Observable<object>}
+   * @memberof ShiftsService
+   */
+
+  public dataRestaurants$: Observable<object>;
+
+  /**
    * Created flow of login
    * @type {Observable<object>}
    * @memberof ShiftsService
@@ -60,20 +84,20 @@ export class FlowService {
   public dataShiftsUpcoming$: Observable<object>;
 
   /**
-   * Created flow of dataShiftsMyReq$
-   * @type {Observable<object>}
-   * @memberof DataService
-   */
-
-  public dataShiftsMyReq$: Observable<object>;
-
-  /**
    * Created flow of dataShiftsAvailable$
    * @type {Observable<object>}
    * @memberof DataService
    */
 
   public dataShiftsAvailable$: Observable<object>;
+
+  /**
+   * Created flow of dataShiftsMyReq$
+   * @type {Observable<object>}
+   * @memberof DataService
+   */
+
+  public dataShiftsMyReq$: Observable<object>;
 
   /**
    * Creates an instance of dataGroupRestaurant$

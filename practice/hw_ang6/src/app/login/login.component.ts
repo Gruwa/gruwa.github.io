@@ -99,7 +99,9 @@ export class LoginComponent implements OnInit, OnDestroy {
     };
 
     this.authService.onLogin(valueOfLogin);
-    this.flowService.dataLogin$.pipe(takeUntil(this.ngUnsubscribe)).subscribe(
+    this.flowService.dataLogin$.pipe(
+      takeUntil(this.ngUnsubscribe)
+    ).subscribe(
       (resp) => {
         this.router.navigate(['/login/schedule']);
       }

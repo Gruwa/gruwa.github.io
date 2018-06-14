@@ -15,6 +15,8 @@ import {FlowService} from './flow.service';
 import {ITabTypesShifts} from '../interfaces/types.interface';
 import {DataService} from './data.service';
 import {HttpGuardRequestService} from './http-guard-request.service';
+import {LocalStorageService} from 'ngx-webstorage';
+import {Observable} from 'rxjs';
 
 /**
  * Http Service
@@ -48,6 +50,7 @@ export class HttpService {
    * @param {HttpGuardRequestService} httpGuardRequestService
    * @param {FlowService} flowService
    * @param {DataService} dataService
+   * @param {LocalStorageService} localStorage
    * @memberof HttpService
    */
 
@@ -55,19 +58,22 @@ export class HttpService {
               private httpGuardService: HttpGuardService,
               private httpGuardRequestService: HttpGuardRequestService,
               private flowService: FlowService,
-              private dataService: DataService) {
+              private dataService: DataService,
+              private localStorage: LocalStorageService) {
   }
 
   /**
    * Method for get shifts
    * @param {ITabTypesShifts} tab
+   * @returns {void}
    * @memberof HttpService
    */
 
-  getShifts(tab: ITabTypesShifts = 'upcoming') {
+  public getShifts(tab: ITabTypesShifts = 'upcoming'): void {
 
     if (this.dataService.TABS[tab]) {
-      this.flowService[`${this.dataService.FLOW[tab]}`] = this.getShiftsRequest(tab).pipe(
+
+      this.flowService[`${this.dataService.FLOW[tab]}`] = this.getShiftsRequest(tab, this.localStorage.retrieve('group')).pipe(
         map(
           (resp) => {
             console.log('httpService getShifts', resp); // TODO - Delete when ready
@@ -84,21 +90,27 @@ export class HttpService {
   /**
    * Method for get request with shifts
    * @param {ITabTypesShifts} tab
+   * @param {string} group
+   * @returns {Observable<object>}
    * @memberof HttpService
    */
 
-  getShiftsRequest(tab: ITabTypesShifts = 'upcoming') {
-    return this.http.get(this.dataService.BASEURL + '/shifts/' + this.dataService.TABS[tab]);
+  private getShiftsRequest(tab: ITabTypesShifts = 'upcoming', group: string): Observable<object> {
+    return this.http.get(this.dataService.BASEURL + '/shifts/' + this.dataService.TABS[tab],
+      {
+        headers: new HttpHeaders().set('groupID', group)
+      });
   }
 
   /**
    * Method for patch shifts
    * @param {string} id
    * @param {object} body
+   * @returns {Array<any>}
    * @memberof HttpService
    */
 
-  patchMarkState(id: string, body: object): any {
+  public patchMarkState(id: string, body: object): Observable<any> {
     console.log('!!!!!patch MarkState Shifts htttpService!!!!!');
     return this.patchMarkStateRequest(id, this.httpGuardRequestService.guardMarkState(body)).pipe(
       map(
@@ -114,11 +126,43 @@ export class HttpService {
    * Method for patch request with editing shift
    * @param {string} id
    * @param {object} body
+   * @returns {Observable<object>}
    * @memberof HttpService
    */
 
-  patchMarkStateRequest(id: string, body: object) {
+  private patchMarkStateRequest(id: string, body: object): Observable<object> {
     return this.http.patch(this.dataService.BASEURL + '/markstate/' + id, body);
+  }
+
+  /**
+   * Method for get restaurants
+   * @param {ITabTypesShifts} tab
+   * @returns {void}
+   * @memberof HttpService
+   */
+
+  public getRestaurants(): void {
+    this.flowService.dataRestaurants$ = this.getRestaurantsRequest().pipe(
+      map(
+        (resp) => {
+          console.log('httpService getRestaurants', resp); // TODO - Delete when ready
+          return this.httpGuardService.guardRestaurants(resp);
+        }
+      ),
+      publishReplay(1),
+      refCount()
+    );
+    console.log('!!!!!getShifts htttpService!!!!!');
+  }
+
+  /**
+   * Method for get restaurants
+   * @returns {Observable<object>}
+   * @memberof HttpService
+   */
+
+  private getRestaurantsRequest(): Observable<object> {
+    return this.http.get(this.dataService.BASEURL + '/restaurants/');
   }
 
   /**

@@ -101,6 +101,7 @@ $dcportal-app-theme: mat-light-theme($dcportal-app-primary, $dcportal-app-accent
 
   .mat-toolbar-row {
     height: 100%;
+    padding-left: 24px;
     margin-bottom: 16px;
     font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
@@ -126,7 +127,6 @@ select {
 //  -ms-user-select: none;
 //  user-select: none
 //}
-
 
 //
 //dialog {
@@ -1452,13 +1452,54 @@ dc-right-menu {
   }
 }
 
+app-root {
+  height: 100%;
+  display: block;
+}
+
+app-details-shifts {
+  height: 100%;
+  display: block;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+}
+
+app-login {
+  height: 100%;
+  display: block;
+}
+
+app-schedule-login {
+  height: 100%;
+  display: block;
+}
+
+app-main-list {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+app-side-bar {
+  display: block;
+  position: relative;
+}
+
 .global {
 
-  &__small-spinner {
+  &__element-display-none {
     display: none;
   }
 
-  &__small-spinner-display {
+  &__element-display {
     display: block;
   }
+
 }

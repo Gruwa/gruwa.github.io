@@ -1,7 +1,7 @@
 import {
   Component,
   OnDestroy,
-  OnInit, ViewChild,
+  OnInit,
   ViewEncapsulation
 } from '@angular/core';
 import {HttpService} from '../shared/services/http.service';
@@ -14,7 +14,6 @@ import {
   takeUntil
 } from 'rxjs/operators';
 import {DataService} from '../shared/services/data.service';
-import {MatSidenav} from '@angular/material';
 
 /**
  * Shifts Component
@@ -112,18 +111,17 @@ export class ShiftsComponent implements OnInit, OnDestroy {
     }
 
     if (this.localStorage.retrieve('tab') !== null) {
-      console.log(this.localStorage.retrieve('tab'));
       this.tabActive = this.localStorage.retrieve('tab');
     } else {
       this.localStorage.store('tab', this.tabActive);
     }
-
     this.tabIndex = this.dataService.indexTABS.indexOf(this.localStorage.retrieve('tab'));
   }
 
   /**
    * Method for get changes on tab selectedTabChange
    * @returns {void}
+   * @param {any} value
    * @memberof ShiftsComponent
    */
 

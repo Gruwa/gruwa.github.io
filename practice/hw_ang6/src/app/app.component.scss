@@ -1,34 +1,5 @@
 @import "../assets/styles/variables.scss";
 
-app-root {
-  height: 100%;
-  display: block;
-}
-
-app-details-shifts {
-  height: 100%;
-  display: block;
-}
-
-html {
-  height: 100%;
-}
-
-body {
-  margin: 0;
-  height: 100%;
-}
-
-app-login {
-  height: 100%;
-  display: block;
-}
-
-app-schedule-login {
-  height: 100%;
-  display: block;
-}
-
 .app {
 
   &__spinner {
@@ -49,6 +20,7 @@ app-schedule-login {
 
   &__sidenav {
     width: 85%;
+    height: 100%;
   }
 
   &__app-header {

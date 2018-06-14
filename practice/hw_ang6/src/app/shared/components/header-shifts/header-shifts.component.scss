@@ -15,6 +15,7 @@
     margin: 25px 0 32px;
   }
 
+
   &__container {
     display: flex;
     flex-direction: row;
@@ -25,13 +26,13 @@
   }
 
   &__description {
-    margin-left: 16px;
+    margin-left: 24px;
     font-size: 18px;
     font-weight: 500;
   }
 
   &__arrow_down {
-    margin-left: 16px;
+    margin-left: 24px;
   }
 
   &__correct-color {
@@ -62,6 +63,10 @@
 
   &__element-display {
     display: block;
+  }
+
+  &__arrow {
+    opacity: 1;
   }
 
 }

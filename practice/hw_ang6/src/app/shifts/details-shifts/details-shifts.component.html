@@ -12,8 +12,8 @@
                      [status]="status"
                      *ngIf="tab !== 'my requests'">
     </app-list-fields>
-    <app-small-spinner [ngClass]="{'global__small-spinner-display' : spinner}"
-                       class="global__small-spinner">
+    <app-small-spinner [ngClass]="{'global__element-display' : spinner}"
+                       class="global__element-display-none">
     </app-small-spinner>
   </div>
   <div class="details-shifts__footer" (click)="clickFooter()">
