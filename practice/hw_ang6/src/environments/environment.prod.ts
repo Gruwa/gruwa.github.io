@@ -3,7 +3,7 @@
  */
 
 export const environment = {
-  apiRoot: '/our/api/root',
+  apiRoot: '/api',
   production: true,
-  googleAnalyticsKey: ''
+  googleAnalyticsKey: 'UA-92522049-4'
 };

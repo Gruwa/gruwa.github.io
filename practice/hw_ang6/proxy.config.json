@@ -1,18 +1,20 @@
-﻿[
-  {
-    "context": [
-      "/api",
-      "/media",
-      "/static"
-    ],
-    "target": {
-      "host": "localhost",
-      "protocol": "http:",
-      "port": 4334
-    },
-    "secure": false,
+﻿{
+  "/api/*": {
+    "target": "http://localhost:4334",
+    "secure": true,
+    "logLevel": "debug",
     "pathRewrite": {
-      "^/api": "/"
-    }
+      "^/api": ""
+    },
+    "changeOrigin": true
+  },
+  "/dev/*": {
+    "target": "https://dev01.rmdatacentral.com/Shiftworks/api",
+    "secure": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/dev": ""
+    },
+    "changeOrigin": true
   }
-]
+}

@@ -8,7 +8,7 @@
  */
 
 export const environment = {
-  apiRoot: '/api',
+  apiRoot: '/dev',
   production: false,
   googleAnalyticsKey: 'UA-92522049-4'
 };

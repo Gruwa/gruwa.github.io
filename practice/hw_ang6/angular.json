@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "hwAng6": {
+    "shiftworks": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/hwAng6",
+            "outputPath": "dist/shiftworks",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -49,24 +49,35 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true
+            },
+            "dev": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.dev.ts"
+                }
+              ]
             }
           }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "hwAng6:build"
+            "browserTarget": "shiftworks:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "hwAng6:build:production"
+              "browserTarget": "shiftworks:build:production"
+            },
+            "dev": {
+              "browserTarget": "shiftworks:build:dev"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "hwAng6:build"
+            "browserTarget": "shiftworks:build"
           }
         },
         "test": {
@@ -105,7 +116,7 @@
         }
       }
     },
-    "hwAng6-e2e": {
+    "shiftworks-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -113,7 +124,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "hwAng6:serve"
+            "devServerTarget": "shiftworks:serve"
           }
         },
         "lint": {
@@ -128,5 +139,5 @@
       }
     }
   },
-  "defaultProject": "hwAng6"
+  "defaultProject": "shiftworks"
 }
