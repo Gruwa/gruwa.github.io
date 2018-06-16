@@ -9,7 +9,10 @@ import {FlowService} from '../../shared/services/flow.service';
 import {IGroupRestaurant} from '../../shared/interfaces/group-restaurant.interface';
 import {Router} from '@angular/router';
 import {LocalStorageService} from 'ngx-webstorage';
-import {takeUntil} from 'rxjs/operators';
+import {
+  debounceTime,
+  takeUntil
+} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 
 /**
@@ -42,6 +45,14 @@ export class ScheduleLoginComponent implements OnInit, AfterViewInit, OnDestroy 
   public groups: Array<IGroupRestaurant>;
 
   /**
+   * Variable of spinner
+   * @type {boolean}
+   * @memberof SideBarComponent
+   */
+
+  public spinner: boolean = false;
+
+  /**
    * Variable of ngUnsubscribe
    * @type {Subject<void>}
    * @memberof ScheduleLoginComponent
@@ -69,13 +80,22 @@ export class ScheduleLoginComponent implements OnInit, AfterViewInit, OnDestroy 
    */
 
   public ngOnInit(): void {
-    if (this.flowService.dataLogin$) {
-      this.flowService.dataLogin$.pipe(
+    this.flowService.dataSmallSpinner$.pipe(
+      takeUntil(this.ngUnsubscribe),
+      debounceTime(500)
+    ).subscribe((value) => {
+      this.spinner = value;
+    });
+    this.flowService.dataSmallSpinner$.next(true);
+    if (this.flowService.dataRestaurants$) {
+      this.flowService.dataRestaurants$.pipe(
         takeUntil(this.ngUnsubscribe)
       ).subscribe((res: Array<IGroupRestaurant>) => {
         this.groups = res;
+        this.flowService.dataSmallSpinner$.next(false);
       });
     } else {
+      this.localStorage.clear('token');
       this.router.navigate(['/login']);
     }
   }

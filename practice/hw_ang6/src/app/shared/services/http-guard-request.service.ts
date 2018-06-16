@@ -26,4 +26,23 @@ export class HttpGuardRequestService {
 
     return obj;
   }
+
+  /**
+   * Method for login request
+   * @returns {Array<any>}
+   * @memberof ShiftsService
+   */
+
+  guardlogin(value) {
+
+    const obj = {
+      // Data: { // FIXME - fix object on backend
+        'Username': value.login,
+        'Password': value.password,
+        'Remember': value.remember
+      // }
+    };
+
+    return obj;
+  }
 }

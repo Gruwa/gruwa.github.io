@@ -35,7 +35,8 @@ export class DataService {
 
   public httpSuccessResponse = {
     'save': 'Save success',
-    'delete': 'Delete success'
+    'delete': 'Delete success',
+    'login': 'Login success'
   };
 
   /**

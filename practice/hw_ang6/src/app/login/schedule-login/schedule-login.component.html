@@ -6,6 +6,9 @@
                      (outputActionMethod)="goBack($event)">
   </app-header-shifts>
   <div class="login-schedule__content-wrapper">
+    <app-small-spinner [ngClass]="{'global__element-display' : spinner}"
+                       class="global__element-display-none">
+    </app-small-spinner>
     <div *ngFor="let group of groups">
       <button mat-raised-button
               class="login-schedule__button"
