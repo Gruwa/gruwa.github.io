@@ -96,10 +96,7 @@ export class HttpService {
    */
 
   private getShiftsRequest(tab: ITabTypesShifts = 'upcoming', group: string): Observable<object> {
-    return this.http.get(this.dataService.BASEURL + '/shifts/' + this.dataService.TABS[tab],
-      {
-        headers: new HttpHeaders().set('groupID', group)
-      });
+    return this.http.get(this.dataService.BASEURL + '/shifts/' + this.dataService.TABS[tab]);
   }
 
   /**

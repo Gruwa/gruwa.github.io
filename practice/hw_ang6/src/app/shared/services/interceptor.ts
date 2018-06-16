@@ -69,6 +69,16 @@ export class AuthInterceptor implements HttpInterceptor {
         }
       });
     }
+    if (this.localStorage.retrieve('token')
+      && this.route.snapshot.children[0].params['group']) {
+      request = request.clone({
+        setHeaders: {
+          Authorization: 'Bearer ' + this.localStorage.retrieve('token'),
+          'Content-Type': 'application/json',
+          groupID: this.localStorage.retrieve('group'), // TODO - change description on id
+        }
+      });
+    }
     if (this.localStorage.retrieve('token')) {
       request = request.clone({
         setHeaders: {
