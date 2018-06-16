@@ -73,7 +73,7 @@ export class HttpService {
 
     if (this.dataService.TABS[tab]) {
 
-      this.flowService[`${this.dataService.FLOW[tab]}`] = this.getShiftsRequest(tab, this.localStorage.retrieve('group')).pipe(
+      this.flowService[`${this.dataService.FLOW[tab]}`] = this.getShiftsRequest(tab, this.localStorage.retrieve('group').id).pipe(
         map(
           (resp) => {
             console.log('httpService getShifts', resp); // TODO - Delete when ready

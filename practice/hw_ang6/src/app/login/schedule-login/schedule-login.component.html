@@ -13,7 +13,7 @@
       <button mat-raised-button
               class="login-schedule__button"
               [routerLink]="['/', group.id, 'shifts']"
-              (click)="showShifts(group.id)">
+              (click)="showShifts(group)">
         <span class="login-schedule__group">{{group.description}}</span>
         <i class="login-schedule__icon material-icons">keyboard_arrow_right</i>
       </button>

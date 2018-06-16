@@ -97,7 +97,7 @@ export class GroupScheduleComponent implements OnInit, OnDestroy {
       takeUntil(this.ngUnsubscribe)
     ).subscribe((res: Array<IGroupRestaurant>) => {
       this.groups = res;
-      this.doneGroup = this.localStorage.retrieve('group');
+      this.doneGroup = this.localStorage.retrieve('group').id;
       this.flowService.dataSpinnerRestaurants$.next(false);
     });
   }
@@ -116,7 +116,7 @@ export class GroupScheduleComponent implements OnInit, OnDestroy {
         this.httpService.getShifts(<ITabTypesShifts>i);
       }
     }
-    this.localStorage.store('group', $event.id);
+    this.localStorage.store('group', $event);
     this.router.navigate(['/' + $event.id + '/shifts']);
     this.flowService.dataSideBar$.next();
   }

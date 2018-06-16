@@ -14,6 +14,7 @@ import {
 import {MatSidenav} from '@angular/material';
 import {GoogleAnalyticsService} from './shared/services/google-analytics.service';
 import {environment} from '../environments/environment';
+import {LocalStorageService} from 'ngx-webstorage';
 
 /**
  * App Component
@@ -44,6 +45,22 @@ export class AppComponent implements OnInit, OnDestroy {
   private ngUnsubscribe: Subject<void> = new Subject<void>();
 
   /**
+   * Variable of roomDescription
+   * @type {string}
+   * @memberof AppComponent
+   */
+
+  public roomDescription: string;
+
+  /**
+   * Variable of accountDescription
+   * @type {string}
+   * @memberof AppComponent
+   */
+
+  public accountDescription: string;
+
+  /**
    * Variable of sideBar
    * @type {MatSidenav}
    * @memberof AppComponent
@@ -59,7 +76,8 @@ export class AppComponent implements OnInit, OnDestroy {
    */
 
   constructor(public flowService: FlowService,
-              private googleAnalyticsService: GoogleAnalyticsService) {
+              private googleAnalyticsService: GoogleAnalyticsService,
+              private localStorage: LocalStorageService) {
     this.appendGaTrackingCode();
   }
 
@@ -77,6 +95,11 @@ export class AppComponent implements OnInit, OnDestroy {
     this.flowService.dataSideBar$.pipe(
       takeUntil(this.ngUnsubscribe)
     ).subscribe(this.sideBarShow.bind(this));
+    this.roomDescription = this.localStorage.retrieve('group').description;
+    this.accountDescription = this.localStorage.retrieve('user');
+    this.localStorage.observe('group').subscribe((value) => {
+      this.roomDescription = value.description;
+    });
   }
 
   /**

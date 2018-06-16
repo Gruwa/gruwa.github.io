@@ -32,7 +32,7 @@
     <i class="material-icons header-shifts__correct-color header-shifts__element-display-none"
        [ngClass]="{'header-shifts__element-display' : room}" [ngStyle]="{opacity : arrow ? 1 : 0.56}">room</i>
     <span class="header-shifts__description header-shifts__correct-color header-shifts__correct-font header-shifts__element-display-none"
-          [ngClass]="{'header-shifts__element-display' : room}" [ngStyle]="{opacity : arrow ? 1 : 0.56}">{{roomDescription}}</span>
+          [ngClass]="{'header-shifts__element-display' : room}" [ngStyle]="{opacity : arrow ? 1 : 0.56}">{{roomDescription  | capitalizeFirst}}</span>
     <i class="material-icons header-shifts__arrow_down header-shifts__correct-color header-shifts__element-display-none"
        [ngClass]="{'header-shifts__element-display' : room && !arrow}">keyboard_arrow_down</i>
     <i class="material-icons header-shifts__arrow_down header-shifts__correct-color header-shifts__element-display-none"

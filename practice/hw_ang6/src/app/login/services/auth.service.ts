@@ -8,6 +8,7 @@ import {Observable} from 'rxjs';
 import {HttpService} from '../../shared/services/http.service';
 import {ToastrService} from 'ngx-toastr';
 import {Router} from '@angular/router';
+import {LocalStorageService} from 'ngx-webstorage';
 
 /**
  * Auth Service
@@ -42,7 +43,8 @@ export class AuthService {
               private dataService: DataService,
               private toastr: ToastrService,
               private httpService: HttpService,
-              private router: Router) {
+              private router: Router,
+              private localStorage: LocalStorageService) {
   }
 
   /**
@@ -55,6 +57,7 @@ export class AuthService {
   public onLogin(body: object): void {
     this.onLoginRequest(body).subscribe((resp) => {
       this.toastr.success(this.dataService.httpSuccessResponse['login']);
+      this.localStorage.store('user', body['Username']); // TODO - change wen will fix with data object
       this.httpService.getRestaurants();
       this.flowService.dataSmallSpinner$.next(true);
       this.router.navigate(['/login/schedule']);
