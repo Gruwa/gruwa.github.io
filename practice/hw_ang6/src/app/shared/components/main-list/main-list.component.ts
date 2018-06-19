@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   EventEmitter,
   Input,
@@ -12,16 +13,17 @@ import {
 @Component({
   selector: 'app-main-list',
   templateUrl: './main-list.component.html',
-  styleUrls: ['./main-list.component.scss']
+  styleUrls: ['./main-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MainListComponent {
 
   /**
-   * Input data of list
+   * Input data of lists
    * @memberof MainListComponent
    */
 
-  @Input() list;
+  @Input() lists;
 
   /**
    * Input data of done

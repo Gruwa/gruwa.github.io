@@ -10,9 +10,10 @@ import {PipeModule} from '../pipes/pipe.module';
 import {ReactiveFormsModule} from '@angular/forms';
 import {FormInputComponent} from './app-foms/form-input/form-input.component';
 import {FormDateComponent} from './app-foms/form-date/form-date.component';
-import { FormSelectComponent } from './app-foms/form-select/form-select.component';
-import { FormTimeComponent } from './app-foms/form-time/form-time.component';
-import { MainListComponent } from './main-list/main-list.component';
+import {FormSelectComponent} from './app-foms/form-select/form-select.component';
+import {FormTimeComponent} from './app-foms/form-time/form-time.component';
+import {MainListComponent} from './main-list/main-list.component';
+import {SmallListComponent} from './small-list/small-list.component';
 
 @NgModule({
   imports: [
@@ -31,7 +32,8 @@ import { MainListComponent } from './main-list/main-list.component';
     FormDateComponent,
     FormSelectComponent,
     FormTimeComponent,
-    MainListComponent
+    MainListComponent,
+    SmallListComponent
   ],
   exports: [
     ShiftBlockComponent,
@@ -43,7 +45,8 @@ import { MainListComponent } from './main-list/main-list.component';
     FormDateComponent,
     FormSelectComponent,
     FormTimeComponent,
-    MainListComponent
+    MainListComponent,
+    SmallListComponent
   ]
 })
 export class AppComponentsModule {

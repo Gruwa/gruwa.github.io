@@ -3,7 +3,10 @@ import {
   OnDestroy,
   OnInit
 } from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import {
+  ActivatedRoute,
+  Router
+} from '@angular/router';
 import {ShiftsService} from '../services/shifts.service';
 import {LocalStorageService} from 'ngx-webstorage';
 import {HttpService} from '../../shared/services/http.service';
@@ -14,7 +17,6 @@ import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
 import {ToastrService} from 'ngx-toastr';
 import {DataService} from '../../shared/services/data.service';
-import {IShiftMArkState} from '../../shared/interfaces/mark-state-shift.interface';
 
 /**
  * Details Shifts Component
@@ -135,13 +137,13 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
     this.flowService.dataSmallSpinner$.next(true);
     this.tab = this.localStorage.retrieve('tab');
     this.shiftActiveId = this.route.snapshot.params['id'];
+
     if (this.flowService[`${this.dataService.FLOW[this.tab]}`] === undefined) {
       this.httpService.getShifts(this.tab);
       this.flowService[`${this.dataService.FLOW[this.tab]}`].pipe(
         takeUntil(this.ngUnsubscribe)
       ).subscribe();
     }
-
     if (this.shiftActiveId === 'new') {
       this.headerDescription = 'new request';
     }
@@ -216,6 +218,7 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
       this.footerActive ? this.footerDescription = this.dataService.FOOTER_REQUESTS[2]
         : this.footerDescription = this.dataService.FOOTER_REQUESTS[3];
     }
+
     this.flowService.dataSmallSpinner$.next(false);
   }
 

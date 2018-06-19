@@ -4,6 +4,7 @@ import {
   IFooterRequest,
   ITabTypesShifts
 } from '../interfaces/types.interface';
+import {ISettings} from '../interfaces/settings.interface';
 
 /**
  * Data Service
@@ -59,7 +60,6 @@ export class DataService {
 
   public indexTABS: Array<ITabTypesShifts> = [
     'upcoming',
-
     'available'
   ];
 
@@ -149,6 +149,12 @@ export class DataService {
     status: 'status'
   };
 
+  /**
+   * Variable of object of list side bar menu
+   * @type {object}
+   * @memberof DataService
+   */
+
   public SIDE_BAR_LIST_MENU = [
     {
       icon: 'compare_arrows',
@@ -172,6 +178,12 @@ export class DataService {
     }
   ];
 
+  /**
+   * Variable of point of side bar list
+   * @type {object}
+   * @memberof DataService
+   */
+
   public SIDE_BAR_LIST = {
     shifts: 'shifts',
     'my availability': 'myrequests',
@@ -179,4 +191,43 @@ export class DataService {
     settings: 'settings',
     logout: 'logout'
   };
+
+  /**
+   * Array of settings lists
+   * @type {object}
+   * @memberof DataService
+   */
+
+  public SETTINGS_LIST: Array<ISettings> = [
+    {
+      id: 'pickup',
+      description: 'Shift Available for Pickup',
+      checked: false
+    },
+    {
+      id: 'update',
+      description: 'Schedule Update',
+      checked: false
+    },
+    {
+      id: 'delete',
+      description: 'Schedule Delete',
+      checked: false
+    },
+    {
+      id: 'Reminder30',
+      description: 'Reminder 30 min before Shift Start',
+      checked: false
+    },
+    {
+      id: 'Reminder60',
+      description: 'Reminder 1 hour before Shift Start',
+      checked: false
+    },
+    {
+      id: 'Reminder120',
+      description: 'Reminder 2 hours before Shift Start',
+      checked: false
+    }
+  ];
 }

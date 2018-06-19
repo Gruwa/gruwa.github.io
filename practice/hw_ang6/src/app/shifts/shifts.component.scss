@@ -1,15 +1,3 @@
-app-shifts {
-  height: 100%;
-  display: block;
-}
-
-.mat-tab-group.mat-primary .mat-tab-label:not(.mat-tab-disabled):focus,
-.mat-tab-group.mat-primary .mat-tab-link:not(.mat-tab-disabled):focus,
-.mat-tab-nav-bar.mat-primary .mat-tab-label:not(.mat-tab-disabled):focus,
-.mat-tab-nav-bar.mat-primary .mat-tab-link:not(.mat-tab-disabled):focus {
-  background-color: transparent;
-}
-
 .shifts {
   width: 100%;
   height: 100%;
@@ -19,11 +7,6 @@ app-shifts {
   overflow: hidden;
 
   &__app-header {
-    width: 100%;
-    background-color: #222a51;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     flex-shrink: 0;
   }
 

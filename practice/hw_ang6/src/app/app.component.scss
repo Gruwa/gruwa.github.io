@@ -24,15 +24,8 @@
   }
 
   &__app-header {
-    padding-bottom: 8px;
     height: 184px;
-    width: 100%;
     background-color: rgba(57, 80, 191, 1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-shrink: 0;
-    box-sizing: border-box;
   }
 }
 

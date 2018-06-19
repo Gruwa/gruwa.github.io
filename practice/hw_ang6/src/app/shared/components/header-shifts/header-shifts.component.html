@@ -1,41 +1,41 @@
 <mat-toolbar>
   <mat-toolbar-row class="header-shifts__header">
-    <i class="material-icons header-shifts__element-display-none"
+    <i class="material-icons global__element-display-none"
        (click)="clickEvent()"
-       [ngClass]="{'header-shifts__element-display' : sideBar}">menu</i>
-    <i class="material-icons header-shifts__element-display-none"
+       [ngClass]="{'global__element-display' : sideBar}">menu</i>
+    <i class="material-icons global__element-display-none"
        (click)="clickEvent()"
-       [ngClass]="{'header-shifts__element-display' : closePage}">close</i>
-    <i class="material-icons header-shifts__element-display-none"
+       [ngClass]="{'global__element-display' : closePage}">close</i>
+    <i class="material-icons global__element-display-none"
        (click)="clickEvent()"
-       [ngClass]="{'header-shifts__element-display' : arrowBack}">arrow_back</i>
-    <span class="header-shifts__description header-shifts__element-display-none"
-          [ngClass]="{'header-shifts__element-display' : description}">{{headerDescription | capitalizeFirst}}</span>
-    <img src="assets/images/SWLogo.svg" alt="" class="header-shifts__logoSmall header-shifts__element-display-none"
-         [ngClass]="{'header-shifts__element-display' : logoSmall}"/>
+       [ngClass]="{'global__element-display' : arrowBack}">arrow_back</i>
+    <span class="header-shifts__description global__element-display-none"
+          [ngClass]="{'global__element-display' : description}">{{headerDescription | capitalizeFirst}}</span>
+    <img src="assets/images/SWLogo.svg" alt="" class="header-shifts__logoSmall global__element-display-none"
+         [ngClass]="{'global__element-display' : logoSmall}"/>
     <span class="example-spacer"></span>
-    <i class="material-icons header-shifts__element-display-none"
-       [ngClass]="{'header-shifts__element-display' : delete}">delete</i>
-    <span class="header-shifts__element-save header-shifts__element-display-none"
+    <i class="material-icons global__element-display-none"
+       [ngClass]="{'global__element-display' : delete}">delete</i>
+    <span class="header-shifts__element-save global__element-display-none"
           (click)="clickEvent()"
-          [ngClass]="{'header-shifts__element-display' : save && tab === 'my requests'}">save</span>
+          [ngClass]="{'global__element-display' : save && tab === 'my requests'}">save</span>
   </mat-toolbar-row>
 </mat-toolbar>
 <mat-toolbar *ngIf="room || account_circle">
   <mat-toolbar-row>
-    <i class="material-icons header-shifts__correct-color header-shifts__element-display-none"
-       [ngClass]="{'header-shifts__element-display' : account_circle}">account_circle</i>
-    <span class="header-shifts__description header-shifts__correct-color header-shifts__correct-font header-shifts__element-display-none"
-          [ngClass]="{'header-shifts__element-display' : account_circle}">{{accountDescription}}</span>
+    <i class="material-icons header-shifts__correct-color global__element-display-none"
+       [ngClass]="{'global__element-display' : account_circle}">account_circle</i>
+    <span class="header-shifts__description header-shifts__correct-color header-shifts__correct-font global__element-display-none"
+          [ngClass]="{'global__element-display' : account_circle}">{{accountDescription}}</span>
   </mat-toolbar-row>
   <mat-toolbar-row (click)="showGroupRestaurants()">
-    <i class="material-icons header-shifts__correct-color header-shifts__element-display-none"
-       [ngClass]="{'header-shifts__element-display' : room}" [ngStyle]="{opacity : arrow ? 1 : 0.56}">room</i>
-    <span class="header-shifts__description header-shifts__correct-color header-shifts__correct-font header-shifts__element-display-none"
-          [ngClass]="{'header-shifts__element-display' : room}" [ngStyle]="{opacity : arrow ? 1 : 0.56}">{{roomDescription  | capitalizeFirst}}</span>
-    <i class="material-icons header-shifts__arrow_down header-shifts__correct-color header-shifts__element-display-none"
-       [ngClass]="{'header-shifts__element-display' : room && !arrow}">keyboard_arrow_down</i>
-    <i class="material-icons header-shifts__arrow_down header-shifts__correct-color header-shifts__element-display-none"
-       [ngClass]="{'header-shifts__element-display' : room && arrow}" [ngStyle]="{opacity : arrow ? 1 : 0.56}">keyboard_arrow_up</i>
+    <i class="material-icons header-shifts__correct-color global__element-display-none"
+       [ngClass]="{'global__element-display' : room}" [ngStyle]="{opacity : arrow ? 1 : 0.56}">room</i>
+    <span class="header-shifts__description header-shifts__correct-color header-shifts__correct-font global__element-display-none"
+          [ngClass]="{'global__element-display' : room}" [ngStyle]="{opacity : arrow ? 1 : 0.56}">{{roomDescription  | capitalizeFirst}}</span>
+    <i class="material-icons header-shifts__arrow_down header-shifts__correct-color global__element-display-none"
+       [ngClass]="{'global__element-display' : room && !arrow}">keyboard_arrow_down</i>
+    <i class="material-icons header-shifts__arrow_down header-shifts__correct-color global__element-display-none"
+       [ngClass]="{'global__element-display' : room && arrow}" [ngStyle]="{opacity : arrow ? 1 : 0.56}">keyboard_arrow_up</i>
   </mat-toolbar-row>
 </mat-toolbar>

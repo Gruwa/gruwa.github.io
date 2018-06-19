@@ -2,8 +2,7 @@ import {
   AfterViewInit,
   Component,
   OnDestroy,
-  OnInit,
-  ViewEncapsulation
+  OnInit
 } from '@angular/core';
 import {FlowService} from '../../shared/services/flow.service';
 import {IGroupRestaurant} from '../../shared/interfaces/group-restaurant.interface';
@@ -14,6 +13,7 @@ import {
   takeUntil
 } from 'rxjs/operators';
 import {Subject} from 'rxjs';
+import {MainService} from '../../shared/services/main.service';
 
 /**
  * Schedule Login Component
@@ -22,8 +22,7 @@ import {Subject} from 'rxjs';
 @Component({
   selector: 'app-schedule-login',
   templateUrl: './schedule-login.component.html',
-  styleUrls: ['./schedule-login.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./schedule-login.component.scss']
 
 })
 export class ScheduleLoginComponent implements OnInit, AfterViewInit, OnDestroy {
@@ -65,12 +64,14 @@ export class ScheduleLoginComponent implements OnInit, AfterViewInit, OnDestroy 
    * @param {FlowService} flowService
    * @param {Router} router
    * @param {LocalStorageService} localStorage
+   * @param {MainService} mainService
    * @memberof ScheduleLoginComponent
    */
 
   constructor(public flowService: FlowService,
               public router: Router,
-              public localStorage: LocalStorageService) {
+              public localStorage: LocalStorageService,
+              private mainService: MainService) {
   }
 
   /**
@@ -87,6 +88,7 @@ export class ScheduleLoginComponent implements OnInit, AfterViewInit, OnDestroy 
       this.spinner = value;
     });
     this.flowService.dataSmallSpinner$.next(true);
+
     if (this.flowService.dataRestaurants$) {
       this.flowService.dataRestaurants$.pipe(
         takeUntil(this.ngUnsubscribe)
@@ -95,8 +97,7 @@ export class ScheduleLoginComponent implements OnInit, AfterViewInit, OnDestroy 
         this.flowService.dataSmallSpinner$.next(false);
       });
     } else {
-      this.localStorage.clear('token');
-      this.router.navigate(['/login']);
+      this.mainService.logOut();
     }
   }
 
@@ -119,7 +120,8 @@ export class ScheduleLoginComponent implements OnInit, AfterViewInit, OnDestroy 
    * @memberof ScheduleLoginComponent
    */
 
-  public showShifts(group?: string): void {
+  public showShifts(group?: IGroupRestaurant): void {
+    this.router.navigate(['/', group.id, 'shifts']);
     this.localStorage.store('group', group);
   }
 
@@ -131,8 +133,7 @@ export class ScheduleLoginComponent implements OnInit, AfterViewInit, OnDestroy 
    */
 
   public goBack(event?: any): void {
-    this.localStorage.clear('token');
-    this.router.navigate(['/login']);
+    this.mainService.logOut();
   }
 
   /**

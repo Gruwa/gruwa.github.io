@@ -1,6 +1,10 @@
 import {
-  Component, EventEmitter,
-  Input, OnInit, Output
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output
 } from '@angular/core';
 import {
   ActivatedRoute,
@@ -9,13 +13,23 @@ import {
 import {LocalStorageService} from 'ngx-webstorage';
 import {FlowService} from '../../services/flow.service';
 
+/**
+ * Header Shifts Component
+ */
 
 @Component({
   selector: 'app-header-shifts',
   templateUrl: './header-shifts.component.html',
-  styleUrls: ['./header-shifts.component.scss']
+  styleUrls: ['./header-shifts.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderShiftsComponent implements OnInit {
+
+  /**
+   * Variable arrow
+   * @type {boolean}
+   * @memberof HeaderShiftsComponent
+   */
 
   public arrow: boolean = false;
 
@@ -145,7 +159,13 @@ export class HeaderShiftsComponent implements OnInit {
               public flowService: FlowService) {
   }
 
-  ngOnInit() {
+  /**
+   * Method ngOnInit
+   * @returns {void}
+   * @memberof HeaderShiftsComponent
+   */
+
+  public ngOnInit(): void {
     this.flowService.dataSideBarGroupRestaurants$.subscribe((next) => {
       this.arrow = next;
     });
@@ -157,7 +177,7 @@ export class HeaderShiftsComponent implements OnInit {
    * @memberof HeaderShiftsComponent
    */
 
-  clickEvent() {
+  public clickEvent(): void {
     this.outputActionMethod.emit('header');
   }
 
@@ -167,11 +187,17 @@ export class HeaderShiftsComponent implements OnInit {
    * @memberof HeaderShiftsComponent
    */
 
-  onSave(): void {
+  public onSave(): void {
     this.flowService.dataSave$.next('save');
   }
 
-  showGroupRestaurants() {
+  /**
+   * Method show group of restaurants
+   * @returns {void}
+   * @memberof HeaderShiftsComponent
+   */
+
+  public showGroupRestaurants(): void {
     this.arrow = !this.arrow;
     this.flowService.dataSideBarGroupRestaurants$.next(this.arrow);
   }

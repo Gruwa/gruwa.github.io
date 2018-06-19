@@ -3,8 +3,8 @@ import {IShift} from '../interfaces/shift.interface';
 import {ILocation} from '../interfaces/location.interface';
 import {IStation} from '../interfaces/station.interface';
 import {IJob} from '../interfaces/job.interface';
-import {IShiftMArkState} from '../interfaces/mark-state-shift.interface';
 import {IGroupRestaurant} from '../interfaces/group-restaurant.interface';
+import {ISettings} from '../interfaces/settings.interface';
 
 /**
  * Http Guard Service
@@ -14,6 +14,29 @@ import {IGroupRestaurant} from '../interfaces/group-restaurant.interface';
   providedIn: 'root'
 })
 export class HttpGuardService {
+
+  /**
+   * Method for guard settings of user
+   * @returns {Array<ISettings>}
+   * @memberof HttpGuardService
+   */
+
+  public guardSettings(value: any): Array<ISettings> {
+
+    const GuardObj: Array<ISettings> = [];
+
+    for (let i = 0; i < value['Data'].length; i++) {
+
+      const obj: ISettings = {
+        'id': value['Data'][i].ID,
+        'description': value['Data'][i].Description,
+        'checked': value['Data'][i].Checked
+      };
+      GuardObj.push(obj);
+    }
+
+    return GuardObj;
+  }
 
   /**
    * Method for guard groups of restaurant

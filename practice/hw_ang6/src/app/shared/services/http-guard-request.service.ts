@@ -15,7 +15,24 @@ export class HttpGuardRequestService {
    * @memberof ShiftsService
    */
 
-  guardMarkState(value) {
+  public guardSettings(value) {
+
+    const obj = {
+      Data: {
+        'Checked': value
+      }
+    };
+
+    return obj;
+  }
+
+  /**
+   * Method for guard mark state
+   * @returns {Array<any>}
+   * @memberof ShiftsService
+   */
+
+  public guardMarkState(value) {
 
     const obj = {
       data: {
@@ -33,7 +50,7 @@ export class HttpGuardRequestService {
    * @memberof ShiftsService
    */
 
-  guardlogin(value) {
+  public guardlogin(value) {
 
     const obj = {
       // Data: { // FIXME - fix object on backend

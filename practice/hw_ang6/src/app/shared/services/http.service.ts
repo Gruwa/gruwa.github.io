@@ -70,9 +70,7 @@ export class HttpService {
    */
 
   public getShifts(tab: ITabTypesShifts = 'upcoming'): void {
-
     if (this.dataService.TABS[tab]) {
-
       this.flowService[`${this.dataService.FLOW[tab]}`] = this.getShiftsRequest(tab, this.localStorage.retrieve('group').id).pipe(
         map(
           (resp) => {
@@ -84,7 +82,6 @@ export class HttpService {
         refCount()
       );
     }
-    console.log('!!!!!getShifts htttpService!!!!!');
   }
 
   /**
@@ -100,7 +97,7 @@ export class HttpService {
   }
 
   /**
-   * Method for patch shifts
+   * Method for patch guard shifts
    * @param {string} id
    * @param {object} body
    * @returns {Array<any>}
@@ -108,7 +105,6 @@ export class HttpService {
    */
 
   public patchMarkState(id: string, body: object): Observable<any> {
-    console.log('!!!!!patch MarkState Shifts htttpService!!!!!');
     return this.patchMarkStateRequest(id, this.httpGuardRequestService.guardMarkState(body)).pipe(
       map(
         (resp) => {
@@ -132,8 +128,7 @@ export class HttpService {
   }
 
   /**
-   * Method for get restaurants
-   * @param {ITabTypesShifts} tab
+   * Method for get guard restaurants
    * @returns {void}
    * @memberof HttpService
    */
@@ -149,7 +144,6 @@ export class HttpService {
       publishReplay(1),
       refCount()
     );
-    console.log('!!!!!getShifts htttpService!!!!!');
   }
 
   /**
@@ -160,6 +154,67 @@ export class HttpService {
 
   private getRestaurantsRequest(): Observable<object> {
     return this.http.get(this.dataService.BASEURL + '/restaurants/');
+  }
+
+  /**
+   * Method for get guard settings
+   * @returns {void}
+   * @memberof HttpService
+   */
+
+  public getSettings(): void {
+    this.flowService.dataSettings$ = this.getSettingsRequest().pipe(
+      map(
+        (resp) => {
+          console.log('getSettings getRestaurants', resp); // TODO - Delete when ready
+
+          return this.httpGuardService.guardSettings(resp);
+        }
+      ),
+      publishReplay(1),
+      refCount()
+    );
+  }
+
+  /**
+   * Method for get settings
+   * @returns {Observable<object>}
+   * @memberof HttpService
+   */
+
+  private getSettingsRequest(): Observable<object> {
+    return this.http.get(this.dataService.BASEURL + '/settings/');
+  }
+
+  /**
+   * Method for patch guard settings
+   * @param {string} id
+   * @param {object} body
+   * @returns {Array<any>}
+   * @memberof HttpService
+   */
+
+  public patchSettings(id: string, body: boolean): Observable<any> {
+    return this.patchSettingsRequest(id, this.httpGuardRequestService.guardSettings(body)).pipe(
+      map(
+        (resp) => {
+          console.log('httpService patchMarkState', resp); // TODO - Delete when ready
+          return this.httpGuardService.guardSettings(resp);
+        }
+      )
+    );
+  }
+
+  /**
+   * Method for patch request settings
+   * @param {string} id
+   * @param {object} body
+   * @returns {Observable<object>}
+   * @memberof HttpService
+   */
+
+  private patchSettingsRequest(id: string, body: object): Observable<object> {
+    return this.http.patch(this.dataService.BASEURL + '/settings/' + id, body);
   }
 
   /**

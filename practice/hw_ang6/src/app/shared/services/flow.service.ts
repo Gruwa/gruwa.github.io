@@ -92,19 +92,19 @@ export class FlowService {
   public dataShiftsAvailable$: Observable<object>;
 
   /**
+   * Creates an instance of dataSettings$
+   * @memberof DataService
+   */
+
+  public dataSettings$: Observable<object>;
+
+  /**
    * Created flow of dataShiftsMyReq$
    * @type {Observable<object>}
    * @memberof DataService
    */
 
   public dataShiftsMyReq$: Observable<object>;
-
-  /**
-   * Creates an instance of dataGroupRestaurant$
-   * @memberof DataService
-   */
-
-  public dataGroupRestaurant$: Observable<object>;
 
   /**
    * Created flow of active shift

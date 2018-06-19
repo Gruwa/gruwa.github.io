@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   ViewEncapsulation
 } from '@angular/core';
@@ -11,6 +12,7 @@ import {
   selector: 'app-small-spinner',
   templateUrl: './small-spinner.component.html',
   styleUrls: ['./small-spinner.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None
 })
 export class SmallSpinnerComponent {

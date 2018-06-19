@@ -21,6 +21,7 @@ import {LocalStorageService} from 'ngx-webstorage';
 import {FlowService} from './flow.service';
 import {ToastrService} from 'ngx-toastr';
 import {DataService} from './data.service';
+import {MainService} from './main.service';
 
 /**
  * Injectable
@@ -37,6 +38,7 @@ export class AuthInterceptor implements HttpInterceptor {
    * @param {FlowService} flowService
    * @param {ToastrService} toastr
    * @param {DataService} dataService
+   * @param {MainService} mainService
    * @memberof AuthInterceptor
    */
 
@@ -45,7 +47,8 @@ export class AuthInterceptor implements HttpInterceptor {
               private localStorage: LocalStorageService,
               private flowService: FlowService,
               private toastr: ToastrService,
-              private dataService: DataService) {
+              private dataService: DataService,
+              private mainService: MainService) {
   }
 
   /**
@@ -120,7 +123,7 @@ export class AuthInterceptor implements HttpInterceptor {
               console.log('error 401');
               this.toastr.error(this.dataService.httpErrorResponse['401']);
               this.flowService.dataSpinner$.next(false);
-              this.router.navigate(['/login']);
+              this.mainService.logOut();
             }
             if (err.status === 500) {
               console.log('error 500'); // other error on backend part

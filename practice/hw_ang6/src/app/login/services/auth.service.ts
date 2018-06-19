@@ -33,6 +33,7 @@ export class AuthService {
    * @param {DataService} dataService
    * @param {ToastrService} toastr
    * @param {HttpService} httpService
+   * @param {LocalStorageService} localStorage
    * @param {Router} router
    * @memberof AuthService
    */

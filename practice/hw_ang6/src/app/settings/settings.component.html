@@ -1,0 +1,15 @@
+<div class="settings">
+  <app-header-shifts [headerDescription]="headerDescription"
+                     class="global__app-header"
+                     [sideBar]="true"
+                     [description]="true"
+                     (outputActionMethod)="showSideBar($event)">
+  </app-header-shifts>
+  <div class="settings__content">
+    <app-small-list [lists]="lists"
+                    [toggle]="true"
+                    [spinner]="spinner"
+                    (outputActionToggle)="changeToggle($event)">
+    </app-small-list>
+  </div>
+</div>

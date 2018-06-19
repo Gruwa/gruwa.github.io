@@ -12,6 +12,7 @@ import {
   debounceTime,
   takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
+import {MainService} from '../shared/services/main.service';
 
 /**
  * Side Bar Component
@@ -61,14 +62,16 @@ export class SideBarComponent implements OnInit, OnDestroy {
    * @param {FlowService} flowService
    * @param {Router} router
    * @param {LocalStorageService} localStorage
-   * @param {DataService} dataService
+   * @param {DataService} dataService,
+   * @param {MainService} mainService
    * @memberof SideBarComponent
    */
 
   constructor(private flowService: FlowService,
               public dataService: DataService,
               private localStorage: LocalStorageService,
-              private router: Router) {
+              private router: Router,
+              private mainService: MainService) {
   }
 
   /**
@@ -101,11 +104,15 @@ export class SideBarComponent implements OnInit, OnDestroy {
   public onClickList($event?: any): void {
     if (this.dataService.SIDE_BAR_LIST[$event.description] === this.dataService.SIDE_BAR_LIST['shifts']) {
       this.closeSideBar.emit();
+      this.router.navigate([this.localStorage.retrieve('group').id + '/shifts']);
     }
     if (this.dataService.SIDE_BAR_LIST[$event.description] === this.dataService.SIDE_BAR_LIST['logout']) {
       this.closeSideBar.emit();
-      this.localStorage.clear('token');
-      this.router.navigate(['/login']);
+      this.mainService.logOut();
+    }
+    if (this.dataService.SIDE_BAR_LIST[$event.description] === this.dataService.SIDE_BAR_LIST['settings']) {
+      this.closeSideBar.emit();
+      this.router.navigate(['/settings']);
     }
   }
 

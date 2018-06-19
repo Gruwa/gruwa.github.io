@@ -1,22 +1,14 @@
 <div class="login-schedule">
   <app-header-shifts [headerDescription]="headerDescription"
-                     class="login-schedule__app-header"
+                     class="global__app-header login-schedule__app-header"
                      [arrowBack]="true"
                      [description]="true"
                      (outputActionMethod)="goBack($event)">
   </app-header-shifts>
-  <div class="login-schedule__content-wrapper">
-    <app-small-spinner [ngClass]="{'global__element-display' : spinner}"
-                       class="global__element-display-none">
-    </app-small-spinner>
-    <div *ngFor="let group of groups">
-      <button mat-raised-button
-              class="login-schedule__button"
-              [routerLink]="['/', group.id, 'shifts']"
-              (click)="showShifts(group)">
-        <span class="login-schedule__group">{{group.description}}</span>
-        <i class="login-schedule__icon material-icons">keyboard_arrow_right</i>
-      </button>
-    </div>
-  </div>
+  <app-small-list class="global__small-list"
+                  [schedule]="true"
+                  [lists]="groups"
+                  [spinner]="spinner"
+                  (outputActionMethod)="showShifts($event)">
+  </app-small-list>
 </div>

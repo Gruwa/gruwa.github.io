@@ -1,0 +1,28 @@
+.small-list {
+  position: relative;
+
+  &__toolbar {
+    padding-top: 8px;
+  }
+
+  &__row {
+    padding: 18px 18px 21px 24px;
+    color: rgba(108, 115, 128, 1);
+    font-size: 14px;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: rgba(218, 222, 230, 1) 1px solid;
+    box-sizing: border-box;
+  }
+
+  &__group {
+    font-size: 16px;
+    font-family: Lato, Helvetica, Arial, sans-serif;
+    color: #39404c;
+  }
+
+  &__icon {
+    color: #39404c;
+  }
+}

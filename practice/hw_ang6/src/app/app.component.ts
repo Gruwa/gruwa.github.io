@@ -2,8 +2,7 @@
   Component,
   OnDestroy,
   OnInit,
-  ViewChild,
-  ViewEncapsulation
+  ViewChild
 } from '@angular/core';
 import {FlowService} from './shared/services/flow.service';
 import {Subject} from 'rxjs';
@@ -23,8 +22,7 @@ import {LocalStorageService} from 'ngx-webstorage';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, OnDestroy {
 
@@ -72,6 +70,7 @@ export class AppComponent implements OnInit, OnDestroy {
    * Creates an instance of AppComponent
    * @param {FlowService} flowService
    * @param {GoogleAnalyticsService} googleAnalyticsService
+   * @param {LocalStorageService} localStorage
    * @memberof AppComponent
    */
 
@@ -95,10 +94,16 @@ export class AppComponent implements OnInit, OnDestroy {
     this.flowService.dataSideBar$.pipe(
       takeUntil(this.ngUnsubscribe)
     ).subscribe(this.sideBarShow.bind(this));
-    this.roomDescription = this.localStorage.retrieve('group').description;
+
+    if (this.localStorage.retrieve('group')) {
+      this.roomDescription = this.localStorage.retrieve('group').description;
+    }
+
     this.accountDescription = this.localStorage.retrieve('user');
     this.localStorage.observe('group').subscribe((value) => {
-      this.roomDescription = value.description;
+      if (value) {
+        this.roomDescription = value.description;
+      }
     });
   }
 

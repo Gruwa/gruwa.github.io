@@ -94,7 +94,7 @@ export class ContentShiftsComponent implements OnInit, OnDestroy {
    * @memberof ContentShiftsComponent
    */
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.tab = this.dataService.indexTABS[this.tabActive];
     this.flowService.dataSmallSpinner$.next(true);
     this.flowService[`${this.dataService.FLOW[this.tab]}`].pipe(
@@ -117,7 +117,7 @@ export class ContentShiftsComponent implements OnInit, OnDestroy {
    * @memberof ContentShiftsComponent
    */
 
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();
   }
@@ -128,7 +128,7 @@ export class ContentShiftsComponent implements OnInit, OnDestroy {
    * @memberof ContentShiftsComponent
    */
 
-  getShifts(value: Array<IShift>): void {
+  private getShifts(value: Array<IShift>): void {
     this.sortShifts = this.shiftsService.sortShifts(value);
     console.log('sortShifts', this.sortShifts);
   }

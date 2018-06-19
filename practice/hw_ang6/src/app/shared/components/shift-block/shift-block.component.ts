@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   Input
 } from '@angular/core';
@@ -10,7 +11,8 @@ import {
 @Component({
   selector: 'app-shift-block',
   templateUrl: './shift-block.component.html',
-  styleUrls: ['./shift-block.component.scss']
+  styleUrls: ['./shift-block.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ShiftBlockComponent {
 
