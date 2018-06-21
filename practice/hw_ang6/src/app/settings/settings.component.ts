@@ -28,7 +28,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
   /**
    * Variable headerDescription
    * @type {string}
-   * @memberof ContactInfoComponent
+   * @memberof SettingsComponent
    */
 
   public headerDescription: string = 'Settings';
@@ -36,7 +36,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
   /**
    * Variable lists
    * @type {any}
-   * @memberof ContactInfoComponent
+   * @memberof SettingsComponent
    */
 
   public lists;
@@ -44,7 +44,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
   /**
    * Variable of spinner
    * @type {boolean}
-   * @memberof ContactInfoComponent
+   * @memberof SettingsComponent
    */
 
   public spinner: boolean = false;
@@ -52,18 +52,18 @@ export class SettingsComponent implements OnInit, OnDestroy {
   /**
    * Variable of ngUnsubscribe
    * @type {Subject<void>}
-   * @memberof ContactInfoComponent
+   * @memberof SettingsComponent
    */
 
   private ngUnsubscribe: Subject<void> = new Subject<void>();
 
   /**
-   * Creates an instance of ContactInfoComponent
+   * Creates an instance of SettingsComponent
    * @param {HttpService} httpService
    * @param {FlowService} flowService
    * @param {ToastrService} toastr
    * @param {DataService} dataService
-   * @memberof ContactInfoComponent
+   * @memberof SettingsComponent
    */
 
   constructor(private flowService: FlowService,
@@ -75,7 +75,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
   /**
    * Method ngOnInit
    * @returns {void}
-   * @memberof ContactInfoComponent
+   * @memberof SettingsComponent
    */
 
   public ngOnInit(): void {
@@ -103,7 +103,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
    * Method fo show side bar
    * @returns {void}
    * @param {any} event
-   * @memberof ContactInfoComponent
+   * @memberof SettingsComponent
    */
 
   public showSideBar(event?: any): void {
@@ -114,7 +114,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
    * Method fo show spinner
    * @returns {void}
    * @param {any} event
-   * @memberof ContactInfoComponent
+   * @memberof SettingsComponent
    */
 
   public changeToggle(event?: any): void {
@@ -133,7 +133,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
   /**
    * Method ngOnDestroy
    * @returns {void}
-   * @memberof ContactInfoComponent
+   * @memberof SettingsComponent
    */
 
   public ngOnDestroy(): void {

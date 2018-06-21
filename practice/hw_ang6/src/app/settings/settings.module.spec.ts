@@ -1,6 +1,6 @@
 import { SettingsModule } from './settings.module';
 
-describe('ContactInfoModule', () => {
+describe('SettingsModule', () => {
   let settingsModule: SettingsModule;
 
   beforeEach(() => {
