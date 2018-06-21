@@ -20,10 +20,10 @@ import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-settings',
-  templateUrl: './settings.component.html',
-  styleUrls: ['./settings.component.scss']
+  templateUrl: './contact-info.component.html',
+  styleUrls: ['./contact-info.component.scss']
 })
-export class SettingsComponent implements OnInit, OnDestroy {
+export class ContactInfoComponent implements OnInit, OnDestroy {
 
   /**
    * Variable headerDescription
@@ -31,7 +31,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
    * @memberof ContactInfoComponent
    */
 
-  public headerDescription: string = 'Settings';
+  public headerDescription: string = 'contact info';
 
   /**
    * Variable lists

@@ -9,7 +9,7 @@
     "changeOrigin": true
   },
   "/dev/*": {
-    "target": "https://dev01.rmdatacentral.com/Shiftworks/api",
+    "target": "https://dev01.rmdatacentral.com/Shiftworks/api/api",
     "secure": true,
     "logLevel": "debug",
     "pathRewrite": {

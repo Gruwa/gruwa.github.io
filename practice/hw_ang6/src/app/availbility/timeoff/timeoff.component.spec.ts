@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SettingsComponent } from './settings.component';
+import { TimeoffComponent } from './timeoff.component';
 
-describe('ContactInfoComponent', () => {
-  let component: SettingsComponent;
-  let fixture: ComponentFixture<SettingsComponent>;
+describe('TimeoffComponent', () => {
+  let component: TimeoffComponent;
+  let fixture: ComponentFixture<TimeoffComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SettingsComponent ]
+      declarations: [ TimeoffComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SettingsComponent);
+    fixture = TestBed.createComponent(TimeoffComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

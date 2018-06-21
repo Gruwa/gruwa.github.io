@@ -78,6 +78,7 @@ export class GroupScheduleComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this.flowService.dataSpinnerRestaurants$.next(true);
+
     if (this.flowService.dataRestaurants$) {
       this.getRestaurants();
     } else {
@@ -116,6 +117,7 @@ export class GroupScheduleComponent implements OnInit, OnDestroy {
         this.httpService.getShifts(<ITabTypesShifts>i);
       }
     }
+
     this.localStorage.store('group', $event);
     this.router.navigate(['/' + $event.id + '/shifts']);
     this.flowService.dataSideBar$.next();

@@ -102,6 +102,7 @@ export class SideBarComponent implements OnInit, OnDestroy {
    */
 
   public onClickList($event?: any): void {
+    console.log($event);
     if (this.dataService.SIDE_BAR_LIST[$event.description] === this.dataService.SIDE_BAR_LIST['shifts']) {
       this.closeSideBar.emit();
       this.router.navigate([this.localStorage.retrieve('group').id + '/shifts']);
@@ -113,6 +114,14 @@ export class SideBarComponent implements OnInit, OnDestroy {
     if (this.dataService.SIDE_BAR_LIST[$event.description] === this.dataService.SIDE_BAR_LIST['settings']) {
       this.closeSideBar.emit();
       this.router.navigate(['/settings']);
+    }
+    if (this.dataService.SIDE_BAR_LIST[$event.description] === this.dataService.SIDE_BAR_LIST['my availability']) {
+      this.closeSideBar.emit();
+      this.router.navigate(['/availbility']);
+    }
+    if (this.dataService.SIDE_BAR_LIST[$event.description] === this.dataService.SIDE_BAR_LIST['contact info']) {
+      this.closeSideBar.emit();
+      this.router.navigate(['/contactinfo']);
     }
   }
 

@@ -106,8 +106,10 @@ export class ContentShiftsComponent implements OnInit, OnDestroy {
     );
     this.flowService.dataSideBar$.pipe(
       takeUntil(this.ngUnsubscribe)
-    ).subscribe(() => {
-      this.ngOnInit();
+    ).subscribe((event) => {
+      if (!event) {
+        this.ngOnInit();
+      }
     });
   }
 

@@ -3,7 +3,7 @@
  */
 
 export const environment = {
-  apiRoot: '/api',
+  apiRoot: '/Shiftworks/api',
   production: true,
   googleAnalyticsKey: 'UA-92522049-4'
 };

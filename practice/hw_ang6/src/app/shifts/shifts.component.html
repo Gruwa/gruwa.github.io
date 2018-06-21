@@ -5,6 +5,11 @@
                      [description]="true"
                      (outputActionMethod)="showSideBar($event)">
   </app-header-shifts>
+  <!--<app-tab class="shifts__content" (tabChange)="selectedTabChange($event)">-->
+      <!--<app-content-shifts [tabActive]="tabCount"></app-content-shifts>-->
+  <!--</app-tab>-->
+
+
   <div class="shifts__content">
     <mat-tab-group (selectedTabChange)="selectedTabChange($event)"
                    [selectedIndex]=tabIndex>

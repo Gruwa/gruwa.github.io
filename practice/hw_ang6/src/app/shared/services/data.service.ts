@@ -186,8 +186,8 @@ export class DataService {
 
   public SIDE_BAR_LIST = {
     shifts: 'shifts',
-    'my availability': 'myrequests',
-    'contact info': 'available',
+    'my availability': 'availbility',
+    'contact info': 'contactinfo',
     settings: 'settings',
     logout: 'logout'
   };

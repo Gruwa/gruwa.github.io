@@ -1,7 +1,7 @@
 import {
-  Component,
+  Component, ContentChild,
   OnDestroy,
-  OnInit,
+  OnInit, TemplateRef,
   ViewEncapsulation
 } from '@angular/core';
 import {HttpService} from '../shared/services/http.service';
@@ -72,6 +72,8 @@ export class ShiftsComponent implements OnInit, OnDestroy {
    * @type {Subject<void>}
    * @memberof ShiftsComponent
    */
+
+  @ContentChild(TemplateRef) tabActive2: TemplateRef<any>;
 
   private ngUnsubscribe: Subject<void> = new Subject<void>();
 

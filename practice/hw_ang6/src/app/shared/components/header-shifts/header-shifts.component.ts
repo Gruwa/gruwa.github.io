@@ -142,7 +142,7 @@ export class HeaderShiftsComponent implements OnInit {
    * @memberof HeaderShiftsComponent
    */
 
-  @Output() outputActionMethod = new EventEmitter();
+  @Output() outputActionMethod: EventEmitter<any> = new EventEmitter();
 
   /**
    * Creates an instance of DetailsShiftsComponent

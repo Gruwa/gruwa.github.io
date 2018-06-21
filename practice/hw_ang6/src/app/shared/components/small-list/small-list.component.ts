@@ -57,14 +57,14 @@ export class SmallListComponent {
    * @memberof SmallListComponent
    */
 
-  @Output() outputActionMethod = new EventEmitter();
+  @Output() outputActionMethod: EventEmitter<any> = new EventEmitter();
 
   /**
    * Output action from Action Toggle
    * @memberof SmallListComponent
    */
 
-  @Output() outputActionToggle = new EventEmitter();
+  @Output() outputActionToggle: EventEmitter<any> = new EventEmitter();
 
   /**
    * Creates an instance of SmallListComponent

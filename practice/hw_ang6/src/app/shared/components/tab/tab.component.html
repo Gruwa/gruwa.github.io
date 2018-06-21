@@ -1,0 +1,16 @@
+<mat-tab-group (selectedTabChange)="selectedTabChange($event)"
+               [selectedIndex]=tabIndex>
+  <div *ngFor="let tab of dataService.indexTABS; let l = index">
+    <mat-tab label={{tab}}
+             position=0
+             class="mat-tab-label">
+      <ng-template matTabContent>
+        <ng-content></ng-content>
+        <!--<app-content-shifts [tabActive]="l"></app-content-shifts>-->
+        <app-small-spinner [ngClass]="{'global__element-display' : spinner}"
+                           class="global__element-display-none">
+        </app-small-spinner>
+      </ng-template>
+    </mat-tab>
+  </div>
+</mat-tab-group>

@@ -98,11 +98,22 @@ export class AppComponent implements OnInit, OnDestroy {
     if (this.localStorage.retrieve('group')) {
       this.roomDescription = this.localStorage.retrieve('group').description;
     }
+    if (this.localStorage.retrieve('user')) {
+      this.accountDescription = this.localStorage.retrieve('user');
+    }
 
-    this.accountDescription = this.localStorage.retrieve('user');
-    this.localStorage.observe('group').subscribe((value) => {
+    this.localStorage.observe('group').pipe(
+      takeUntil(this.ngUnsubscribe)
+    ).subscribe((value) => {
       if (value) {
         this.roomDescription = value.description;
+      }
+    });
+    this.localStorage.observe('user').pipe(
+      takeUntil(this.ngUnsubscribe)
+    ).subscribe((value) => {
+      if (value) {
+        this.accountDescription = value;
       }
     });
   }
