@@ -16,7 +16,7 @@ export class RealDatePipe implements PipeTransform {
 
   transform(value: string, arg?: string): string {
     if (value) {
-      return moment(new Date(value)).utcOffset(0, false).format(arg);
+      return moment(new Date(value)).format(arg);
     }
     return value;
   }

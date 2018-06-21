@@ -53,11 +53,11 @@ export class HttpGuardRequestService {
   public guardlogin(value) {
 
     const obj = {
-      // Data: { // FIXME - fix object on backend
+      Data: {
         'Username': value.login,
         'Password': value.password,
         'Remember': value.remember
-      // }
+      }
     };
 
     return obj;

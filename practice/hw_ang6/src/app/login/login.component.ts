@@ -13,7 +13,6 @@ import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
 import {FlowService} from '../shared/services/flow.service';
 import {AuthService} from './services/auth.service';
-import {HttpGuardRequestService} from '../shared/services/http-guard-request.service';
 
 
 /**
@@ -49,7 +48,6 @@ export class LoginComponent implements OnInit, OnDestroy {
    * @param {FlowService} flowService
    * @param {FormBuilder} fb
    * @param {Router} router
-   * @param {HttpGuardRequestService} httpGuardRequestService
    * @memberof LoginComponent
    */
 
@@ -57,8 +55,7 @@ export class LoginComponent implements OnInit, OnDestroy {
               public authService: AuthService,
               public flowService: FlowService,
               // public httpService: HttpService, // TODO - delete when will be ready real api
-              private fb: FormBuilder,
-              private httpGuardRequestService: HttpGuardRequestService) {
+              private fb: FormBuilder) {
   }
 
   /**
@@ -101,7 +98,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       remember: this.loginForm.get('remember').value
     };
 
-    this.authService.onLogin(this.httpGuardRequestService.guardlogin(valueOfLogin));
+    this.authService.onLogin(valueOfLogin);
   }
 
   /**
