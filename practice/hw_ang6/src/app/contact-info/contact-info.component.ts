@@ -87,16 +87,16 @@ export class ContactInfoComponent implements OnInit, OnDestroy {
     });
     this.flowService.dataSmallSpinner$.next(true);
 
-    if (!this.flowService.dataSettings$) {
-      this.httpService.getSettings();
-    }
-
-    this.flowService.dataSettings$.pipe(
-      takeUntil(this.ngUnsubscribe)
-    ).subscribe((value: Array<ISettings>) => {
-      this.lists = value;
-      this.flowService.dataSmallSpinner$.next(false);
-    });
+    // if (!this.flowService.dataSettings$) {
+    //   this.httpService.getSettings();
+    // }
+    //
+    // this.flowService.dataSettings$.pipe(
+    //   takeUntil(this.ngUnsubscribe)
+    // ).subscribe((value: Array<ISettings>) => {
+    //   this.lists = value;
+    //   this.flowService.dataSmallSpinner$.next(false);
+    // });
   }
 
   /**
@@ -118,16 +118,16 @@ export class ContactInfoComponent implements OnInit, OnDestroy {
    */
 
   public changeToggle(event?: any): void {
-    this.httpService.patchSettings(event.id, event.action).subscribe((resp) => {
-      this.toastr.success(this.dataService.httpSuccessResponse['save']);
-      this.flowService.dataSettings$.subscribe((data) => {
-        for (const key in data) {
-          if (data[key].id === resp[0].id) {
-            data[key] = resp[0];
-          }
-        }
-      });
-    });
+    // this.httpService.patchSettings(event.id, event.action).subscribe((resp) => {
+    //   this.toastr.success(this.dataService.httpSuccessResponse['save']);
+    //   this.flowService.dataSettings$.subscribe((data) => {
+    //     for (const key in data) {
+    //       if (data[key].id === resp[0].id) {
+    //         data[key] = resp[0];
+    //       }
+    //     }
+    //   });
+    // });
   }
 
   /**

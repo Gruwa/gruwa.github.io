@@ -25,6 +25,8 @@ export class HttpGuardService {
 
     const GuardObj: Array<ISettings> = [];
 
+    console.log(value);
+
     for (let i = 0; i < value['Data'].length; i++) {
 
       const obj: ISettings = {

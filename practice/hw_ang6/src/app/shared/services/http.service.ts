@@ -124,7 +124,7 @@ export class HttpService {
    */
 
   private patchMarkStateRequest(id: string, body: object): Observable<object> {
-    return this.http.patch(this.dataService.BASEURL + '/markstate/' + id, body);
+    return this.http.patch(this.dataService.BASEURL + '/shifts/' + id + '/markstate', body);
   }
 
   /**
@@ -153,7 +153,7 @@ export class HttpService {
    */
 
   private getRestaurantsRequest(): Observable<object> {
-    return this.http.get(this.dataService.BASEURL + '/restaurants/');
+    return this.http.get(this.dataService.BASEURL + '/restaurants');
   }
 
   /**
@@ -183,7 +183,9 @@ export class HttpService {
    */
 
   private getSettingsRequest(): Observable<object> {
-    return this.http.get(this.dataService.BASEURL + '/settings/');
+    return this.http.get(this.dataService.BASEURL + '/settings', {
+      headers: new HttpHeaders().set('groupID', this.localStorage.retrieve('group').id)
+  });
   }
 
   /**
@@ -194,8 +196,8 @@ export class HttpService {
    * @memberof HttpService
    */
 
-  public patchSettings(id: string, body: boolean): Observable<any> {
-    return this.patchSettingsRequest(id, this.httpGuardRequestService.guardSettings(body)).pipe(
+  public patchSettings(body: boolean): Observable<any> {
+    return this.patchSettingsRequest(this.httpGuardRequestService.guardSettings(body)).pipe(
       map(
         (resp) => {
           console.log('httpService patchMarkState', resp); // TODO - Delete when ready
@@ -213,8 +215,10 @@ export class HttpService {
    * @memberof HttpService
    */
 
-  private patchSettingsRequest(id: string, body: object): Observable<object> {
-    return this.http.patch(this.dataService.BASEURL + '/settings/' + id, body);
+  private patchSettingsRequest(body: object): Observable<object> {
+    return this.http.patch(this.dataService.BASEURL + '/settings', body, {
+      headers: new HttpHeaders().set('groupID', this.localStorage.retrieve('group').id)
+    });
   }
 
   /**

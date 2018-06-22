@@ -35,7 +35,7 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
    * @memberof DetailsShiftsComponent
    */
 
-  public headerDescription: string = 'New request';
+  public headerDescription: string = "Shift's title";
 
   /**
    * Variable spinner
@@ -178,7 +178,8 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
         if (this.shiftActive['item'] === undefined) {
           this.router.navigate(['/' + this.route.snapshot.params['group'], 'shifts']);
         } else {
-          this.headerDescription = this.shiftActive['item'].shiftTitle;
+          this.headerDescription = this.shiftActive['item'].shiftTitle === undefined ?
+            "Shift's title" : this.shiftActive['item'].shiftTitle;
           // if (this.tab === 'upcoming' || this.tab === 'available') {
           if (this.shiftActive['item'].isDropRequest && this.shiftActive['item'].isPickupRequest) {
             this.status = this.dataService.STATUS[`${this.dataService.SHIFT_REQUEST[this.tab]}`];

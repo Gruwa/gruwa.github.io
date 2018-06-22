@@ -18,11 +18,8 @@ export class HttpGuardRequestService {
   public guardSettings(value) {
 
     const obj = {
-      Data: {
-        'Checked': value
-      }
+      Data: value
     };
-
     return obj;
   }
 
@@ -35,7 +32,7 @@ export class HttpGuardRequestService {
   public guardMarkState(value) {
 
     const obj = {
-      data: {
+      Data: {
         'IsDropRequest': value.isDropRequest,
         'IsPickupRequest': value.isPickupRequest
       }

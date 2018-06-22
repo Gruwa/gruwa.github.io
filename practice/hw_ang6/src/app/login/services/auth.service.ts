@@ -58,8 +58,6 @@ export class AuthService {
   public onLogin(body: object): void {
     this.onLoginRequest(this.httpGuardRequestService.guardlogin(body)).subscribe((resp) => {
       this.toastr.success(this.dataService.httpSuccessResponse['login']);
-
-      console.log(body);
       this.localStorage.store('user', body['login']);
       this.httpService.getRestaurants();
       this.flowService.dataSmallSpinner$.next(true);

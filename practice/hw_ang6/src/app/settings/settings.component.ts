@@ -118,7 +118,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
    */
 
   public changeToggle(event?: any): void {
-    this.httpService.patchSettings(event.id, event.action).subscribe((resp) => {
+    this.httpService.patchSettings(event).subscribe((resp) => {
       this.toastr.success(this.dataService.httpSuccessResponse['save']);
       this.flowService.dataSettings$.subscribe((data) => {
         for (const key in data) {

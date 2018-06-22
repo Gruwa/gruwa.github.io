@@ -97,11 +97,12 @@ export class SmallListComponent {
    */
 
   public onToggle(action: boolean, id: string): void {
-    const event = {
-      action: action['checked'],
-      id: id
-    };
-    this.outputActionToggle.emit(event);
+    for (let i = 0; i < this.lists.length; i++) {
+      if (this.lists[i].id === id) {
+        this.lists[i].checked = action['checked'];
+      }
+    }
+    this.outputActionToggle.emit(this.lists);
   }
 
 }

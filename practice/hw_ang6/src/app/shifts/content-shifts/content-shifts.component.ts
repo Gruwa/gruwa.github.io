@@ -132,7 +132,6 @@ export class ContentShiftsComponent implements OnInit, OnDestroy {
 
   private getShifts(value: Array<IShift>): void {
     this.sortShifts = this.shiftsService.sortShifts(value);
-    console.log('sortShifts', this.sortShifts);
   }
 
   // TODO - method for side bar

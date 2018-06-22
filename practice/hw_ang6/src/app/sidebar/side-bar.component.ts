@@ -102,7 +102,6 @@ export class SideBarComponent implements OnInit, OnDestroy {
    */
 
   public onClickList($event?: any): void {
-    console.log($event);
     if (this.dataService.SIDE_BAR_LIST[$event.description] === this.dataService.SIDE_BAR_LIST['shifts']) {
       this.closeSideBar.emit();
       this.router.navigate([this.localStorage.retrieve('group').id + '/shifts']);
