@@ -102,9 +102,11 @@ export class AuthInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(
       map(
         (resp) => {
+          console.log(resp);
           if (resp.type !== 0) {
             const token = <object>resp;
             this.localStorage.store('token', token['body']['Token']);
+            console.log(this.localStorage.retrieve('token'));
           }
           return resp;
         }

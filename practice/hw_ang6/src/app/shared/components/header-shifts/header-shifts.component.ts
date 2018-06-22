@@ -26,12 +26,12 @@ import {FlowService} from '../../services/flow.service';
 export class HeaderShiftsComponent implements OnInit {
 
   /**
-   * Variable arrow
+   * Input variable arrow
    * @type {boolean}
    * @memberof HeaderShiftsComponent
    */
 
-  public arrow: boolean = false;
+  @Input() arrow: boolean = false;
 
   /**
    * Input variable headerDescription
@@ -145,6 +145,13 @@ export class HeaderShiftsComponent implements OnInit {
   @Output() outputActionMethod: EventEmitter<any> = new EventEmitter();
 
   /**
+   * Output action from list items
+   * @memberof HeaderShiftsComponent
+   */
+
+  @Output() outputListItems: EventEmitter<any> = new EventEmitter();
+
+  /**
    * Creates an instance of DetailsShiftsComponent
    * @param {ActivatedRoute} route
    * @param {LocalStorageService} localStorage
@@ -166,9 +173,6 @@ export class HeaderShiftsComponent implements OnInit {
    */
 
   public ngOnInit(): void {
-    this.flowService.dataSideBarGroupRestaurants$.subscribe((next) => {
-      this.arrow = next;
-    });
   }
 
   /**
@@ -198,8 +202,7 @@ export class HeaderShiftsComponent implements OnInit {
    */
 
   public showGroupRestaurants(): void {
-    this.arrow = !this.arrow;
-    this.flowService.dataSideBarGroupRestaurants$.next(this.arrow);
+    this.outputListItems.emit('list');
   }
 
 }

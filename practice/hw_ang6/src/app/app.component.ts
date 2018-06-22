@@ -27,6 +27,14 @@ import {LocalStorageService} from 'ngx-webstorage';
 export class AppComponent implements OnInit, OnDestroy {
 
   /**
+   * Variable arrow
+   * @type {boolean}
+   * @memberof AppComponent
+   */
+
+  public arrow: boolean = false;
+
+  /**
    * Variable spinner
    * @type {boolean}
    * @memberof AppComponent
@@ -132,13 +140,28 @@ export class AppComponent implements OnInit, OnDestroy {
   /**
    * Method fo show sideBar
    * @returns {void}
-   * @param {any} event
+   * @param {any} $event
    * @memberof AppComponent
    */
 
-  private sideBarShow(event?: any): void {
+  private sideBarShow($event?: any): void {
     this.sideBar.toggle();
+    if (this.arrow) {
+      this.arrow = !this.arrow;
+    }
     this.flowService.dataSideBarGroupRestaurants$.next(false);
+  }
+
+  /**
+   * Method fo show list Bar
+   * @returns {void}
+   * @param {any} $event
+   * @memberof AppComponent
+   */
+
+  public listBarShow($event: any): void {
+    this.arrow = !this.arrow;
+    this.flowService.dataSideBarGroupRestaurants$.next(this.arrow);
   }
 
   /**
