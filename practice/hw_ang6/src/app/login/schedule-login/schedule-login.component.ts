@@ -14,6 +14,9 @@ import {
 } from 'rxjs/operators';
 import {Subject} from 'rxjs';
 import {MainService} from '../../shared/services/main.service';
+import {ITabTypesShifts} from '../../shared/interfaces/types.interface';
+import {HttpService} from '../../shared/services/http.service';
+import {DataService} from '../../shared/services/data.service';
 
 /**
  * Schedule Login Component
@@ -64,6 +67,8 @@ export class ScheduleLoginComponent implements OnInit, AfterViewInit, OnDestroy 
    * @param {FlowService} flowService
    * @param {Router} router
    * @param {LocalStorageService} localStorage
+   * @param {HttpService} httpService
+   * @param {DataService} dataService
    * @param {MainService} mainService
    * @memberof ScheduleLoginComponent
    */
@@ -71,7 +76,9 @@ export class ScheduleLoginComponent implements OnInit, AfterViewInit, OnDestroy 
   constructor(public flowService: FlowService,
               public router: Router,
               public localStorage: LocalStorageService,
-              private mainService: MainService) {
+              private mainService: MainService,
+              private httpService: HttpService,
+              public dataService: DataService) {
   }
 
   /**
@@ -123,6 +130,11 @@ export class ScheduleLoginComponent implements OnInit, AfterViewInit, OnDestroy 
   public showShifts(group?: IGroupRestaurant): void {
     this.router.navigate(['/', group.id, 'shifts']);
     this.localStorage.store('group', group);
+
+    for (const i in this.dataService.FLOW) {
+      this.flowService[`${this.dataService.FLOW[i]}`] = undefined;
+      this.httpService.getShifts(<ITabTypesShifts>i);
+    }
   }
 
   /**

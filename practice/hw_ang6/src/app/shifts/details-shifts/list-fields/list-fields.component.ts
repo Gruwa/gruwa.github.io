@@ -1,6 +1,6 @@
 import {
   Component,
-  Input,
+  Input, OnDestroy,
   OnInit
 } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
@@ -8,6 +8,8 @@ import {IShift} from '../../../shared/interfaces/shift.interface';
 import {LocalStorageService} from 'ngx-webstorage';
 import {FlowService} from '../../../shared/services/flow.service';
 import {DataService} from '../../../shared/services/data.service';
+import {takeUntil} from 'rxjs/operators';
+import {Subject} from 'rxjs';
 
 /**
  * List Fields Component
@@ -19,7 +21,7 @@ import {DataService} from '../../../shared/services/data.service';
   templateUrl: './list-fields.component.html',
   styleUrls: ['./list-fields.component.scss']
 })
-export class ListFieldsComponent implements OnInit {
+export class ListFieldsComponent implements OnInit, OnDestroy {
 
   /**
    * Variable shift
@@ -46,6 +48,14 @@ export class ListFieldsComponent implements OnInit {
   @Input() status: string;
 
   /**
+   * Variable of ngUnsubscribe
+   * @type {Subject<void>}
+   * @memberof ListFieldsComponent
+   */
+
+  private ngUnsubscribe: Subject<void> = new Subject<void>();
+
+  /**
    * Creates an instance of ListFieldsComponent
    * @param {ActivatedRoute} route
    * @param {LocalStorageService} localStorage
@@ -68,7 +78,9 @@ export class ListFieldsComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.shiftActive === undefined) {
-      this.flowService[this.dataService.FLOW[this.localStorage.retrieve('tab')]].subscribe((resp) => {
+      this.flowService[this.dataService.FLOW[this.localStorage.retrieve('tab')]].pipe(
+        takeUntil(this.ngUnsubscribe)
+      ).subscribe((resp) => {
         let array = [];
 
         for (const key in resp) {
@@ -83,6 +95,17 @@ export class ListFieldsComponent implements OnInit {
     } else {
       this.shift = this.shiftActive['item'];
     }
+  }
+
+  /**
+   * Method ngOnDestroy
+   * @returns {void}
+   * @memberof ListFieldsComponent
+   */
+
+  public ngOnDestroy(): void {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
   }
 
 }

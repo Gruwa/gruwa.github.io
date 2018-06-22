@@ -35,7 +35,7 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
    * @memberof DetailsShiftsComponent
    */
 
-  public headerDescription: string = "Shift's title";
+  public headerDescription: string;
 
   /**
    * Variable spinner
@@ -158,7 +158,9 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
    */
 
   private getShifts(): void {
-    this.flowService[`${this.dataService.FLOW[this.tab]}`].subscribe(
+    this.flowService[`${this.dataService.FLOW[this.tab]}`].pipe(
+      takeUntil(this.ngUnsubscribe)
+    ).subscribe(
       (value) => {
 
         for (const i in this.dataService.FLOW) {
@@ -175,12 +177,14 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
           stationList: value.stationList,
           jobList: value.jobList
         };
+
         if (this.shiftActive['item'] === undefined) {
           this.router.navigate(['/' + this.route.snapshot.params['group'], 'shifts']);
         } else {
+          this.headerDescription = this.tab === 'upcoming' ? 'Upcoming shift' : 'Available shift';
           this.headerDescription = this.shiftActive['item'].shiftTitle === undefined ?
-            "Shift's title" : this.shiftActive['item'].shiftTitle;
-          // if (this.tab === 'upcoming' || this.tab === 'available') {
+            this.headerDescription : this.shiftActive['item'].shiftTitle;
+
           if (this.shiftActive['item'].isDropRequest && this.shiftActive['item'].isPickupRequest) {
             this.status = this.dataService.STATUS[`${this.dataService.SHIFT_REQUEST[this.tab]}`];
             this.footerActive = false;
@@ -197,6 +201,7 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
             this.status = this.dataService.STATUS['drop request'];
             this.footerActive = false;
           }
+
           this.setFooterRequest();
         }
 
@@ -234,6 +239,7 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
 
     if (!this.footerActive) {
       this.shiftActive['item'][`${this.dataService.SHIFT_ACTIVE[this.tab]}`] = true;
+
       if (this.tab === 'upcoming') {
         this.status = this.dataService.STATUS['drop request'];
       }
@@ -251,9 +257,13 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
       'isPickupRequest': this.shiftActive['item'].isPickupRequest
     };
 
-    this.httpService.patchMarkState(this.route.snapshot.params['id'], markState).subscribe((resp) => {
+    this.httpService.patchMarkState(this.route.snapshot.params['id'], markState).pipe(
+      takeUntil(this.ngUnsubscribe)
+    ).subscribe((resp) => {
       this.toastr.success(this.dataService.httpSuccessResponse['save']);
-      this.flowService[`${this.dataService.FLOW[this.tab]}`].subscribe((data) => {
+      this.flowService[`${this.dataService.FLOW[this.tab]}`].pipe(
+        takeUntil(this.ngUnsubscribe)
+      ).subscribe((data) => {
         for (const key in data['items']) {
           if (data['items'][key].shiftID === resp.items[0].shiftID) {
             data['items'][key] = resp.items[0];

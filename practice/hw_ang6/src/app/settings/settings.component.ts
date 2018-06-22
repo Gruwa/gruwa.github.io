@@ -121,9 +121,13 @@ export class SettingsComponent implements OnInit, OnDestroy {
    */
 
   public changeToggle(event?: any): void {
-    this.httpService.patchSettings(event).subscribe((resp) => {
+    this.httpService.patchSettings(event).pipe(
+      takeUntil(this.ngUnsubscribe)
+    ).subscribe((resp) => {
       this.toastr.success(this.dataService.httpSuccessResponse['save']);
-      this.flowService.dataSettings$.subscribe((data) => {
+      this.flowService.dataSettings$.pipe(
+        takeUntil(this.ngUnsubscribe)
+      ).subscribe((data) => {
         for (const key in data) {
           if (data[key].id === resp[0].id) {
             data[key] = resp[0];

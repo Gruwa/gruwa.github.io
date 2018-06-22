@@ -159,7 +159,9 @@ export class FormComponent implements OnInit, OnDestroy {
 
   getShift(): void {
     if (this.shiftActive === undefined) {
-      this.flowService[this.dataService.FLOW[this.localStorage.retrieve('tab')]].subscribe((resp) => {
+      this.flowService[this.dataService.FLOW[this.localStorage.retrieve('tab')]].pipe(
+        takeUntil(this.ngUnsubscribe)
+      ).subscribe((resp) => {
         let array = [];
 
         for (const key in resp) {

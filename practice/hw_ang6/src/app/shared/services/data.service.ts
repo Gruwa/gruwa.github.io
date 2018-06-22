@@ -71,7 +71,6 @@ export class DataService {
 
   public FLOW = {
     upcoming: 'dataShiftsUpcoming$',
-
     available: 'dataShiftsAvailable$'
   };
 

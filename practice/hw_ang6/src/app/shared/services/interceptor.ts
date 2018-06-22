@@ -63,6 +63,7 @@ export class AuthInterceptor implements HttpInterceptor {
     if (this.localStorage.retrieve('token')
       && this.route.snapshot.children[0].params['group']
       && this.route.snapshot.children[0].children[0].params['id']) {
+      console.log('444444');
       request = request.clone({
         setHeaders: {
           Authorization: 'Bearer ' + this.localStorage.retrieve('token'),
@@ -71,9 +72,9 @@ export class AuthInterceptor implements HttpInterceptor {
           id: this.route.snapshot.children[0].children[0].params['id']
         }
       });
-    }
-    if (this.localStorage.retrieve('token')
+    } else if (this.localStorage.retrieve('token')
       && this.route.snapshot.children[0].params['group']) {
+      console.log('3333333');
       request = request.clone({
         setHeaders: {
           Authorization: 'Bearer ' + this.localStorage.retrieve('token'),
@@ -81,8 +82,8 @@ export class AuthInterceptor implements HttpInterceptor {
           groupID: this.localStorage.retrieve('group').id
         }
       });
-    }
-    if (this.localStorage.retrieve('token')) {
+    } else if (this.localStorage.retrieve('token')) {
+      console.log('2222222');
       request = request.clone({
         setHeaders: {
           Authorization: 'Bearer ' + this.localStorage.retrieve('token'),
@@ -90,6 +91,7 @@ export class AuthInterceptor implements HttpInterceptor {
         }
       });
     } else {
+      console.log('111111');
       request = request.clone({
         setHeaders: {
           Authorization: '',
@@ -114,6 +116,7 @@ export class AuthInterceptor implements HttpInterceptor {
       tap(() => {
         },
         (err: any) => {
+          console.log('errrrrrre');
           if (err instanceof HttpErrorResponse) {
             if (err.status === 404) {
               console.log('error 404');

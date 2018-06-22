@@ -1,7 +1,9 @@
 import {
-  Component, ContentChild,
+  Component,
+  ContentChild,
   OnDestroy,
-  OnInit, TemplateRef,
+  OnInit,
+  TemplateRef,
   ViewEncapsulation
 } from '@angular/core';
 import {HttpService} from '../shared/services/http.service';
@@ -110,6 +112,7 @@ export class ShiftsComponent implements OnInit, OnDestroy {
       if (this.flowService[`${this.dataService.FLOW[i]}`] === undefined) {
         this.httpService.getShifts(<ITabTypesShifts>i);
       }
+
     }
 
     if (this.localStorage.retrieve('tab') !== null) {
@@ -117,6 +120,7 @@ export class ShiftsComponent implements OnInit, OnDestroy {
     } else {
       this.localStorage.store('tab', this.tabActive);
     }
+
     this.tabIndex = this.dataService.indexTABS.indexOf(this.localStorage.retrieve('tab'));
   }
 
