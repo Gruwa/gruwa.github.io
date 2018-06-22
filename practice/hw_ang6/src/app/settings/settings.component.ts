@@ -13,6 +13,7 @@ import {
 } from 'rxjs/operators';
 import {Subject} from 'rxjs';
 import {ToastrService} from 'ngx-toastr';
+import {LocalStorageService} from 'ngx-webstorage';
 
 /**
  * Settings Component
@@ -63,13 +64,15 @@ export class SettingsComponent implements OnInit, OnDestroy {
    * @param {FlowService} flowService
    * @param {ToastrService} toastr
    * @param {DataService} dataService
+   * @param {LocalStorageService} localStorage
    * @memberof SettingsComponent
    */
 
   constructor(private flowService: FlowService,
               public dataService: DataService,
               public httpService: HttpService,
-              private toastr: ToastrService) {
+              private toastr: ToastrService,
+              private localStorage: LocalStorageService) {
   }
 
   /**

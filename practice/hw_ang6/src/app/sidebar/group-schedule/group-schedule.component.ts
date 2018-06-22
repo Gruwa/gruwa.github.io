@@ -115,6 +115,7 @@ export class GroupScheduleComponent implements OnInit, OnDestroy {
       for (const i in this.dataService.FLOW) {
         this.flowService[`${this.dataService.FLOW[i]}`] = undefined;
         this.httpService.getShifts(<ITabTypesShifts>i);
+        this.httpService.getSettings();
       }
     }
 
