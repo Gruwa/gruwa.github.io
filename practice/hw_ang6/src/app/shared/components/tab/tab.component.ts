@@ -1,4 +1,5 @@
-import {Component, ContentChild, EventEmitter, OnInit, Output, TemplateRef} from '@angular/core';
+import {Component, ContentChild, EventEmitter, OnInit, Output, TemplateRef, ElementRef, ViewChild} from '@angular/core';
+import {DataService} from '../../services/data.service';
 
 @Component({
   selector: 'app-tab',
@@ -9,12 +10,21 @@ export class TabComponent implements OnInit {
 
   @Output() tabChange: EventEmitter<any> = new EventEmitter();
 
+  // @Output() tabIndex: EventEmitter<any> = new EventEmitter();
+
   // @ContentChild(TemplateRef) tabActive: TemplateRef<any>;
 
-  constructor() {
+  // @ContentChild('contentL') header: ElementRef;
+
+  @ViewChild('as') as: ElementRef;
+
+
+  constructor(public dataService: DataService) {
   }
 
   ngOnInit() {
+
+    console.log(this.as);
   }
 
   /**
@@ -25,7 +35,10 @@ export class TabComponent implements OnInit {
    */
 
   selectedTabChange(value: any): void {
+    // this.dataService.indexTABS.indexOf(tab);
+    console.log('change tab');
     this.tabChange.emit(value);
   }
+
 
 }

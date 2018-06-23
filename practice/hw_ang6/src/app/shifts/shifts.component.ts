@@ -122,6 +122,7 @@ export class ShiftsComponent implements OnInit, OnDestroy {
     }
 
     this.tabIndex = this.dataService.indexTABS.indexOf(this.localStorage.retrieve('tab'));
+    console.log(this.tabIndex);
   }
 
   /**
@@ -132,8 +133,11 @@ export class ShiftsComponent implements OnInit, OnDestroy {
    */
 
   selectedTabChange(value: any): void {
+
+
     this.tabActive = this.dataService.indexTABS[value.index];
     this.localStorage.store('tab', this.dataService.indexTABS[value.index]);
+    console.log(this.dataService.indexTABS.indexOf(this.tabActive));
   }
 
   /**
