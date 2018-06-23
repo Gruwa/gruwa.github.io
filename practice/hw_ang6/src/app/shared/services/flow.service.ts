@@ -68,12 +68,12 @@ export class FlowService {
   public dataRestaurants$: Observable<object>;
 
   /**
-   * Created flow of login
+   * Created flow of contact info
    * @type {Observable<object>}
    * @memberof ShiftsService
    */
 
-  public dataLogin$: Observable<object>;
+  public dataContactInfo$: Observable<object>;
 
   /**
    * Created flow of ShiftsUpcoming$

@@ -190,7 +190,6 @@ export class HttpService {
 
   /**
    * Method for patch guard settings
-   * @param {string} id
    * @param {object} body
    * @returns {Array<any>}
    * @memberof HttpService
@@ -209,7 +208,6 @@ export class HttpService {
 
   /**
    * Method for patch request settings
-   * @param {string} id
    * @param {object} body
    * @returns {Observable<object>}
    * @memberof HttpService
@@ -217,6 +215,69 @@ export class HttpService {
 
   private patchSettingsRequest(body: object): Observable<object> {
     return this.http.patch(this.dataService.BASEURL + '/settings', body, {
+      headers: new HttpHeaders().set('groupID', this.localStorage.retrieve('group').id)
+    });
+  }
+
+  /**
+   * Method for get guard contact info
+   * @returns {void}
+   * @memberof HttpService
+   */
+
+  public getContactInfo(): void {
+    this.flowService.dataContactInfo$ = this.getContactInfoRequest().pipe(
+      map(
+        (resp) => {
+          console.log('getSettings getRestaurants', resp); // TODO - Delete when ready
+
+          return this.httpGuardService.guardContactInfo(resp);
+        }
+      ),
+      publishReplay(1),
+      refCount()
+    );
+  }
+
+  /**
+   * Method for get contact info
+   * @returns {Observable<object>}
+   * @memberof HttpService
+   */
+
+  private getContactInfoRequest(): Observable<object> {
+    return this.http.get(this.dataService.BASEURL + '/contactinfo', {
+      headers: new HttpHeaders().set('groupID', this.localStorage.retrieve('group').id)
+    });
+  }
+
+  /**
+   * Method for patch contact info
+   * @param {object} body
+   * @returns {Array<any>}
+   * @memberof HttpService
+   */
+
+  public patchContactInfo(body: boolean): Observable<any> {
+    return this.patchContactInfoRequest(this.httpGuardRequestService.guardContactInfo(body)).pipe(
+      map(
+        (resp) => {
+          console.log('httpService patchMarkState', resp); // TODO - Delete when ready
+          return this.httpGuardService.guardSettings(resp);
+        }
+      )
+    );
+  }
+
+  /**
+   * Method for patch contact info
+   * @param {object} body
+   * @returns {Observable<object>}
+   * @memberof HttpService
+   */
+
+  private patchContactInfoRequest(body: object): Observable<object> {
+    return this.http.patch(this.dataService.BASEURL + '/contactinfo', body, {
       headers: new HttpHeaders().set('groupID', this.localStorage.retrieve('group').id)
     });
   }

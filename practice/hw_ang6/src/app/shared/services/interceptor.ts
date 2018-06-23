@@ -63,7 +63,6 @@ export class AuthInterceptor implements HttpInterceptor {
     if (this.localStorage.retrieve('token')
       && this.route.snapshot.children[0].params['group']
       && this.route.snapshot.children[0].children[0].params['id']) {
-      console.log('444444');
       request = request.clone({
         setHeaders: {
           Authorization: 'Bearer ' + this.localStorage.retrieve('token'),
@@ -74,7 +73,6 @@ export class AuthInterceptor implements HttpInterceptor {
       });
     } else if (this.localStorage.retrieve('token')
       && this.route.snapshot.children[0].params['group']) {
-      console.log('3333333');
       request = request.clone({
         setHeaders: {
           Authorization: 'Bearer ' + this.localStorage.retrieve('token'),
@@ -83,7 +81,6 @@ export class AuthInterceptor implements HttpInterceptor {
         }
       });
     } else if (this.localStorage.retrieve('token')) {
-      console.log('2222222');
       request = request.clone({
         setHeaders: {
           Authorization: 'Bearer ' + this.localStorage.retrieve('token'),
@@ -91,7 +88,6 @@ export class AuthInterceptor implements HttpInterceptor {
         }
       });
     } else {
-      console.log('111111');
       request = request.clone({
         setHeaders: {
           Authorization: '',
@@ -104,11 +100,9 @@ export class AuthInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(
       map(
         (resp) => {
-          console.log(resp);
           if (resp.type !== 0) {
             const token = <object>resp;
             this.localStorage.store('token', token['body']['Token']);
-            console.log(this.localStorage.retrieve('token'));
           }
           return resp;
         }
@@ -116,7 +110,6 @@ export class AuthInterceptor implements HttpInterceptor {
       tap(() => {
         },
         (err: any) => {
-          console.log('errrrrrre');
           if (err instanceof HttpErrorResponse) {
             if (err.status === 404) {
               console.log('error 404');

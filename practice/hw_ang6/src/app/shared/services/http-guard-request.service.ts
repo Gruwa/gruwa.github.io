@@ -10,6 +10,20 @@ import {Injectable} from '@angular/core';
 export class HttpGuardRequestService {
 
   /**
+   * Method for guard contact info
+   * @returns {Array<any>}
+   * @memberof ShiftsService
+   */
+
+  public guardContactInfo(value) {
+
+    const obj = {
+      Data: value
+    };
+    return obj;
+  }
+
+  /**
    * Method for guard mark state
    * @returns {Array<any>}
    * @memberof ShiftsService

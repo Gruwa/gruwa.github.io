@@ -21,6 +21,31 @@ export class HttpGuardService {
    * @memberof HttpGuardService
    */
 
+  public guardContactInfo(value: any): Array<ISettings> { // TODO - Rewrite when we will have more information
+
+    const GuardObj: Array<ISettings> = [];
+
+    console.log(value);
+
+    for (let i = 0; i < value['Data'].length; i++) {
+
+      const obj: ISettings = {
+        'id': value['Data'][i].ID,
+        'description': value['Data'][i].Description,
+        'checked': value['Data'][i].Checked
+      };
+      GuardObj.push(obj);
+    }
+
+    return GuardObj;
+  }
+
+  /**
+   * Method for guard settings of user
+   * @returns {Array<ISettings>}
+   * @memberof HttpGuardService
+   */
+
   public guardSettings(value: any): Array<ISettings> {
 
     const GuardObj: Array<ISettings> = [];
@@ -147,51 +172,51 @@ export class HttpGuardService {
     // resp['stationList'] = [];
     // resp['jobList'] = [];
     // for (let i = 0; i < value['LocationList'].length; i++) {
-      //   const obj: ILocation = {
-      //     'id': value['LocationList'][i].ID,
-      //     'description': value['LocationList'][i].Description
-      //   };
-      //
-      //   resp['locationList'].push(obj);
-      // }
-      // for (let i = 0; i < value['StationList'].length; i++) {
-      //   const obj: IStation = {
-      //     'id': value['StationList'][i].ID,
-      //     'description': value['StationList'][i].Description
-      //   };
-      //
-      //   resp['stationList'].push(obj);
-      // }
-      // for (let i = 0; i < value['JobList'].length; i++) {
-      //   const obj: IJob = {
-      //     'id': value['JobList'][i].ID,
-      //     'description': value['JobList'][i].Description
-      //   };
-      //
-      //   resp['jobList'].push(obj);
-      // }
-      // TODO - for timeoff
+    //   const obj: ILocation = {
+    //     'id': value['LocationList'][i].ID,
+    //     'description': value['LocationList'][i].Description
+    //   };
+    //
+    //   resp['locationList'].push(obj);
+    // }
+    // for (let i = 0; i < value['StationList'].length; i++) {
+    //   const obj: IStation = {
+    //     'id': value['StationList'][i].ID,
+    //     'description': value['StationList'][i].Description
+    //   };
+    //
+    //   resp['stationList'].push(obj);
+    // }
+    // for (let i = 0; i < value['JobList'].length; i++) {
+    //   const obj: IJob = {
+    //     'id': value['JobList'][i].ID,
+    //     'description': value['JobList'][i].Description
+    //   };
+    //
+    //   resp['jobList'].push(obj);
+    // }
+    // TODO - for timeoff
 
-      for (let i = 0; i < value['Data'].length; i++) {
-        const obj: IShift = {
-          'shiftTitle': value['Data'][i].ShiftTitle,
-          'shiftID': value['Data'][i].ShiftID,
-          'isDropRequest': value['Data'][i].IsDropRequest,
-          'isPickupRequest': value['Data'][i].IsPickupRequest,
-          'job': value['Data'][i].Job,
-          'jobID': value['Data'][i].JobID,
-          'station': value['Data'][i].Station,
-          'stationID': value['Data'][i].StationID,
-          'dateFrom': value['Data'][i].DateFrom,
-          'dateTo': value['Data'][i].DateTo,
-          'location': value['Data'][i].Location,
-          'locationID': value['Data'][i].LocationID
-        };
+    for (let i = 0; i < value['Data'].length; i++) {
+      const obj: IShift = {
+        'shiftTitle': value['Data'][i].ShiftTitle,
+        'shiftID': value['Data'][i].ShiftID,
+        'isDropRequest': value['Data'][i].IsDropRequest,
+        'isPickupRequest': value['Data'][i].IsPickupRequest,
+        'job': value['Data'][i].Job,
+        'jobID': value['Data'][i].JobID,
+        'station': value['Data'][i].Station,
+        'stationID': value['Data'][i].StationID,
+        'dateFrom': value['Data'][i].DateFrom,
+        'dateTo': value['Data'][i].DateTo,
+        'location': value['Data'][i].Location,
+        'locationID': value['Data'][i].LocationID
+      };
 
-        resp['items'].push(obj);
-      }
-
-      console.log('http-guard guardShifts', resp); // TODO - Delete when ready
-      return resp;
+      resp['items'].push(obj);
     }
+
+    console.log('http-guard guardShifts', resp); // TODO - Delete when ready
+    return resp;
   }
+}

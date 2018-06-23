@@ -87,9 +87,9 @@ export class ContactInfoComponent implements OnInit, OnDestroy {
     });
     this.flowService.dataSmallSpinner$.next(true);
 
-    // if (!this.flowService.dataSettings$) {
-    //   this.httpService.getSettings();
-    // }
+    if (!this.flowService.dataContactInfo$) {
+      this.httpService.getContactInfo();
+    }
     //
     // this.flowService.dataSettings$.pipe(
     //   takeUntil(this.ngUnsubscribe)
