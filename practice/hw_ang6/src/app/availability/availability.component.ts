@@ -17,7 +17,7 @@ import {LocalStorageService} from 'ngx-webstorage';
 import {ITabTypesAvailability} from '../shared/interfaces/types.interface';
 
 @Component({
-  selector: 'app-availbility',
+  selector: 'app-availability',
   templateUrl: './availability.component.html',
   styleUrls: ['./availability.component.scss'],
   encapsulation: ViewEncapsulation.None
