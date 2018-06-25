@@ -20,8 +20,7 @@ export class MainService {
    */
 
   constructor(private localStorage: LocalStorageService,
-              private router: Router,
-              private flowService: FlowService) {
+              private router: Router) {
   }
 
   /**
@@ -35,7 +34,6 @@ export class MainService {
     this.localStorage.clear('group');
     this.localStorage.clear('user');
     this.localStorage.clear('tab');
-    // this.flowService.datalogOutCloseSideBar$.next(true);
     this.router.navigate(['/login']);
   }
 }

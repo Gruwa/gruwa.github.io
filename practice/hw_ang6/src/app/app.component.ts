@@ -97,11 +97,6 @@ export class AppComponent implements OnInit, OnDestroy {
    */
 
   public ngOnInit(): void {
-    this.flowService.datalogOutCloseSideBar$.pipe(
-      takeUntil(this.ngUnsubscribe)
-    ).subscribe(() => {
-      this.sideBar.toggle();
-    });
     this.flowService.dataSpinner$.pipe(
       takeUntil(this.ngUnsubscribe),
       debounceTime(500)

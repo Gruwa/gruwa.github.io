@@ -20,14 +20,6 @@ export class FlowService {
   public dataSideBar$ = new Subject<any>();
 
   /**
-   * Created flow of logOut for sideBar
-   * @type {Subject<any>}
-   * @memberof DataService
-   */
-
-  public datalogOutCloseSideBar$ = new Subject<any>();
-
-  /**
    * Created flow of dataSideBarGroupRestaurants
    * @type {Subject<any>}
    * @memberof DataService
