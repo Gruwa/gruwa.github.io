@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
 import {environment} from '../../../environments/environment';
 import {
-  IFooterRequest, ITabTypesAvailbility,
+  IFooterRequest,
+  ITabTypesAvailability,
   ITabTypesShifts
 } from '../interfaces/types.interface';
 import {ISettings} from '../interfaces/settings.interface';
@@ -64,23 +65,23 @@ export class DataService {
   ];
 
   /**
-   * variable for TABS of availbility
+   * variable for TABS of availability
    * @param {object} value - object of tabs
    * @memberof DataService
    */
 
-  public TABS_AVAILBILITY = {
+  public TABS_AVAILABILITY = {
     'time off': 'timeoff',
     volunteer: 'volunteer'
   };
 
   /**
-   * variable for TABS of availbility
-   * @param {Array<ITabTypesAvailbility>} value - array of tabs for index of availbility
+   * variable for TABS of availability
+   * @param {Array<ITabTypesAvailability>} value - array of tabs for index of availability
    * @memberof DataService
    */
 
-  public indexTABSAvailbility: Array<ITabTypesAvailbility> = [
+  public indexTABS_AVAILABILITY: Array<ITabTypesAvailability> = [
     'time off',
     'volunteer'
   ];
@@ -207,7 +208,7 @@ export class DataService {
 
   public SIDE_BAR_LIST = {
     shifts: 'shifts',
-    'my availability': 'availbility',
+    'my availability': 'availability',
     'contact info': 'contactinfo',
     settings: 'settings',
     logout: 'logout'

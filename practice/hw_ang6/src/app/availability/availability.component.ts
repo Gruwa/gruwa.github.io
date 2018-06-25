@@ -1,19 +1,28 @@
-import {Component, ContentChild, OnInit, TemplateRef, ViewEncapsulation} from '@angular/core';
-import {ITabTypesAvailbility, ITabTypesShifts} from '../shared/interfaces/types.interface';
+import {
+  Component,
+  ContentChild,
+  OnInit,
+  TemplateRef,
+  ViewEncapsulation
+} from '@angular/core';
 import {HttpService} from '../shared/services/http.service';
 import {FlowService} from '../shared/services/flow.service';
 import {Subject} from 'rxjs';
 import {DataService} from '../shared/services/data.service';
-import {debounceTime, takeUntil} from 'rxjs/operators';
+import {
+  debounceTime,
+  takeUntil
+} from 'rxjs/operators';
 import {LocalStorageService} from 'ngx-webstorage';
+import {ITabTypesAvailability} from '../shared/interfaces/types.interface';
 
 @Component({
   selector: 'app-availbility',
-  templateUrl: './availbility.component.html',
-  styleUrls: ['./availbility.component.scss'],
+  templateUrl: './availability.component.html',
+  styleUrls: ['./availability.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class AvailbilityComponent implements OnInit {
+export class AvailabilityComponent implements OnInit {
 
   /**
    * Variable headerDescription
@@ -21,7 +30,7 @@ export class AvailbilityComponent implements OnInit {
    * @memberof ShiftsComponent
    */
 
-  public headerDescription: string = 'my availbility';
+  public headerDescription: string = 'my availability';
 
   /**
    * Variable of tab
@@ -29,7 +38,7 @@ export class AvailbilityComponent implements OnInit {
    * @memberof ShiftsComponent
    */
 
-  public tab: ITabTypesAvailbility = 'time off';
+  public tab: ITabTypesAvailability = 'time off';
 
   /**
    * Variable of tabIndex
@@ -53,7 +62,7 @@ export class AvailbilityComponent implements OnInit {
    * @memberof ShiftsComponent
    */
 
-  public tabActive: ITabTypesAvailbility = 'time off';
+  public tabActive: ITabTypesAvailability = 'time off';
 
   /**
    * Variable of ngUnsubscribe
@@ -92,20 +101,20 @@ export class AvailbilityComponent implements OnInit {
       ).subscribe(this.spinnerShow.bind(this));
     this.flowService.dataSmallSpinner$.next(true);
 
-    for (const i in this.dataService.FLOW) {
-      if (this.flowService[`${this.dataService.FLOW[i]}`] === undefined) {
-        this.httpService.getShifts(<ITabTypesShifts>i);
-      }
-
-    }
-
-    if (this.localStorage.retrieve('tab') !== null) {
-      this.tabActive = this.localStorage.retrieve('tab');
-    } else {
-      this.localStorage.store('tab', this.tabActive);
-    }
-
-    this.tabIndex = this.dataService.indexTABS.indexOf(this.localStorage.retrieve('tab'));
+    // for (const i in this.dataService.FLOW) {
+    //   if (this.flowService[`${this.dataService.FLOW[i]}`] === undefined) {
+    //     this.httpService.getShifts(<ITabTypesShifts>i);
+    //   }
+    //
+    // }
+    //
+    // if (this.localStorage.retrieve('tab') !== null) {
+    //   this.tabActive = this.localStorage.retrieve('tab');
+    // } else {
+    //   this.localStorage.store('tab', this.tabActive);
+    // }
+    //
+    // this.tabIndex = this.dataService.indexTABS.indexOf(this.localStorage.retrieve('tab'));
   }
 
   /**
@@ -116,8 +125,8 @@ export class AvailbilityComponent implements OnInit {
    */
 
   selectedTabChange(value: any): void {
-    this.tabActive = this.dataService.indexTABSAvailbility[value.index];
-    this.localStorage.store('tab', this.dataService.indexTABS[value.index]);
+    this.tabActive = this.dataService.indexTABS_AVAILABILITY[value.index];
+    this.localStorage.store('tab', this.dataService.indexTABS_AVAILABILITY[value.index]);
   }
 
   /**

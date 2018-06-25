@@ -38,13 +38,13 @@ const MONTH: Array<string> =
 
 const DAY: Array<string> =
   [
+    'Sunday',
     'Monday',
     'Tuesday',
     'Wednesday',
     'Thursday',
     'Friday',
-    'Saturday',
-    'Sunday'
+    'Saturday'
   ];
 
 /**
@@ -117,6 +117,9 @@ export class ShiftsService {
        */
 
       const date: any = new Date(dateStr);
+
+      console.log(date);
+      console.log(date.getDay());
 
       return DAY[date.getDay()] + ',' + ' ' + MONTH[date.getMonth()] + ' ' + date.getDate();
     }

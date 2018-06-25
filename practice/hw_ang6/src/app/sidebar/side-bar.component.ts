@@ -116,7 +116,7 @@ export class SideBarComponent implements OnInit, OnDestroy {
     }
     if (this.dataService.SIDE_BAR_LIST[$event.description] === this.dataService.SIDE_BAR_LIST['my availability']) {
       this.closeSideBar.emit();
-      this.router.navigate(['/availbility']);
+      this.router.navigate(['/availability']);
     }
     if (this.dataService.SIDE_BAR_LIST[$event.description] === this.dataService.SIDE_BAR_LIST['contact info']) {
       this.closeSideBar.emit();

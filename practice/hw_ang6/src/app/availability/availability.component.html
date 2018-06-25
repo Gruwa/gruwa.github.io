@@ -8,7 +8,7 @@
   <div class="availbility__content">
     <mat-tab-group (selectedTabChange)="selectedTabChange($event)"
                    [selectedIndex]=tabIndex>
-      <div *ngFor="let tab of dataService.indexTABSAvailbility; let l = index">
+      <div *ngFor="let tab of dataService.indexTABS_AVAILABILITY; let l = index">
         <mat-tab label={{tab}}
                  position=0
                  class="mat-tab-label">

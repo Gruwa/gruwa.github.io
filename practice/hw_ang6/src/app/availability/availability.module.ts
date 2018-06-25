@@ -4,14 +4,14 @@ import {MaterialsModule} from '../shared/components/materials/materials.module';
 import {RouterModule, Routes} from '@angular/router';
 import {ReactiveFormsModule} from '@angular/forms';
 import {AppComponentsModule} from '../shared/components/app-components.module';
-import {AvailbilityComponent} from './availbility.component';
+import {AvailabilityComponent} from './availability.component';
 import {TimeoffComponent} from './timeoff/timeoff.component';
 import {VolunteerComponent} from './volunteer/volunteer.component';
 
 export const routes: Routes = [
   {
     path: '',
-    component: AvailbilityComponent,
+    component: AvailabilityComponent,
     pathMatch: 'full'
   },
   {
@@ -37,15 +37,15 @@ export const routes: Routes = [
     MaterialsModule
   ],
   declarations: [
-    AvailbilityComponent,
+    AvailabilityComponent,
     TimeoffComponent,
     VolunteerComponent
   ],
   exports: [
-    AvailbilityComponent,
+    AvailabilityComponent,
     TimeoffComponent,
     VolunteerComponent
   ]
 })
-export class AvailbilityModule {
+export class AvailabilityModule {
 }

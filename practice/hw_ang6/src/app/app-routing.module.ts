@@ -6,7 +6,7 @@ const appRoutes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: 'login', loadChildren: './login/login.module#LoginModule'},
   {path: 'settings', loadChildren: './settings/settings.module#SettingsModule'},
-  {path: 'availbility', loadChildren: './availbility/availbility.module#AvailbilityModule'},
+  {path: 'availability', loadChildren: './availability/availability.module#AvailabilityModule'},
   {path: 'contactinfo', loadChildren: './contact-info/contact-info.module#ContactInfoModule'},
   {path: '404', component: PageNotFoundComponent},
   {path: ':group', loadChildren: './shifts/shifts.module#ShiftsModule'},

@@ -101,6 +101,7 @@ export class ContentShiftsComponent implements OnInit, OnDestroy {
       takeUntil(this.ngUnsubscribe)
     ).subscribe(
       (value) => {
+        console.log(value);
         this.getShifts(value['items']);
       }
     );
@@ -114,6 +115,17 @@ export class ContentShiftsComponent implements OnInit, OnDestroy {
   }
 
   /**
+   * Method for get Shifts
+   * @returns {void}
+   * @memberof ContentShiftsComponent
+   */
+
+  private getShifts(value: Array<IShift>): void {
+    this.sortShifts = this.shiftsService.sortShifts(value);
+    console.log(this.sortShifts);
+  }
+
+  /**
    * Method ngOnDestroy
    * @returns {void}
    * @memberof ContentShiftsComponent
@@ -122,16 +134,6 @@ export class ContentShiftsComponent implements OnInit, OnDestroy {
   public ngOnDestroy(): void {
     this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();
-  }
-
-  /**
-   * Method for get Shifts
-   * @returns {void}
-   * @memberof ContentShiftsComponent
-   */
-
-  private getShifts(value: Array<IShift>): void {
-    this.sortShifts = this.shiftsService.sortShifts(value);
   }
 
   // TODO - method for side bar
