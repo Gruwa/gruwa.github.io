@@ -1,16 +1,16 @@
-<mat-form-field
-  [class.app-forms__error-input-block]="control.hasError('required')"
-  [class.app-forms__success-input-block]="!control.hasError('required')">
-  <mat-select [placeholder]="placeholder"
-              [formControl]="control"
-              [required]="required"
-              [(value)]="control.value">
-    <mat-option *ngFor="let element of elements" [value]="element['id']">
-      {{ element['description'] }}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
-<div class="app-forms__input-component__alert-danger"
-     [ngClass]="{'app-forms__input-component__display': control.hasError('required') && control.touched}">
-  {{'Title field is required'}}
-</div>
+<!--<mat-form-field-->
+  <!--[class.app-forms__error-input-block]="control.hasError('required')"-->
+  <!--[class.app-forms__success-input-block]="!control.hasError('required')">-->
+  <!--<mat-select [placeholder]="placeholder"-->
+              <!--[formControl]="control"-->
+              <!--[required]="required"-->
+              <!--[(value)]="control.value">-->
+    <!--<mat-option *ngFor="let element of elements" [value]="element['id']">-->
+      <!--{{ element['description'] }}-->
+    <!--</mat-option>-->
+  <!--</mat-select>-->
+<!--</mat-form-field>-->
+<!--<div class="app-forms__input-component__alert-danger"-->
+     <!--[ngClass]="{'app-forms__input-component__display': control.hasError('required') && control.touched}">-->
+  <!--{{'Title field is required'}}-->
+<!--</div>-->

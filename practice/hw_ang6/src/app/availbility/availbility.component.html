@@ -1,3 +1,26 @@
-<p>
-  availbility works!
-</p>
+<div class="availbility">
+  <app-header-shifts [headerDescription]="headerDescription"
+                     class="global__app-header availbility__app-header"
+                     [sideBar]="true"
+                     [description]="true"
+                     (outputActionMethod)="showSideBar($event)">
+  </app-header-shifts>
+  <div class="availbility__content">
+    <mat-tab-group (selectedTabChange)="selectedTabChange($event)"
+                   [selectedIndex]=tabIndex>
+      <div *ngFor="let tab of dataService.indexTABSAvailbility; let l = index">
+        <mat-tab label={{tab}}
+                 position=0
+                 class="mat-tab-label">
+          <ng-template matTabContent>
+
+            <!--<app-content-shifts [tabActive]="l"></app-content-shifts>-->
+            <app-small-spinner [ngClass]="{'global__element-display' : spinner}"
+                               class="global__element-display-none">
+            </app-small-spinner>
+          </ng-template>
+        </mat-tab>
+      </div>
+    </mat-tab-group>
+  </div>
+</div>

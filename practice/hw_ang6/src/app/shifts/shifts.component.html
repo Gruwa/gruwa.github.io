@@ -5,16 +5,6 @@
                      [description]="true"
                      (outputActionMethod)="showSideBar($event)">
   </app-header-shifts>
-  <!--<app-tab class="shifts__content" (tabChange)="selectedTabChange($event)">-->
-    <!--<tab-one>-->
-      <!--<app-content-shifts [tabActive]='0'></app-content-shifts>-->
-    <!--</tab-one>-->
-    <!--<tab-two>-->
-      <!--<app-content-shifts [tabActive]='1'></app-content-shifts>-->
-    <!--</tab-two>-->
-  <!--</app-tab>-->
-
-
   <div class="shifts__content">
     <mat-tab-group (selectedTabChange)="selectedTabChange($event)"
                    [selectedIndex]=tabIndex>
@@ -31,34 +21,6 @@
           </ng-template>
         </mat-tab>
       </div>
-
-
-      <!--<mat-tab label={{dataService.indexTABS[0]}}-->
-      <!--position=0-->
-      <!--class="mat-tab-label">-->
-      <!--<ng-template matTabContent>-->
-
-      <!--<app-content-shifts [tabActive]='0'></app-content-shifts>-->
-      <!--<app-small-spinner [ngClass]="{'global__element-display' : spinner}"-->
-      <!--class="global__element-display-none">-->
-      <!--</app-small-spinner>-->
-      <!--</ng-template>-->
-      <!--</mat-tab>-->
-      <!--<mat-tab label={{dataService.indexTABS[1]}}-->
-      <!--position=0-->
-      <!--class="mat-tab-label">-->
-      <!--<ng-template matTabContent>-->
-
-      <!--<app-content-shifts [tabActive]='1'></app-content-shifts>-->
-      <!--<app-small-spinner [ngClass]="{'global__element-display' : spinner}"-->
-      <!--class="global__element-display-none">-->
-      <!--</app-small-spinner>-->
-      <!--</ng-template>-->
-      <!--</mat-tab>-->
-
-
     </mat-tab-group>
   </div>
-
-
 </div>

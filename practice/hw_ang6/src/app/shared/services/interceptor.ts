@@ -67,7 +67,7 @@ export class AuthInterceptor implements HttpInterceptor {
         setHeaders: {
           Authorization: 'Bearer ' + this.localStorage.retrieve('token'),
           'Content-Type': 'application/json',
-          groupID: this.route.snapshot.children[0].params['group'], // TODO - change description on id
+          groupID: this.localStorage.retrieve('group').id, // TODO - change description on id
           id: this.route.snapshot.children[0].children[0].params['id']
         }
       });

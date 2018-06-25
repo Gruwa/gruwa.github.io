@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {LocalStorageService} from 'ngx-webstorage';
 import {Router} from '@angular/router';
+import {FlowService} from './flow.service';
 
 /**
  * Main Service
@@ -19,7 +20,8 @@ export class MainService {
    */
 
   constructor(private localStorage: LocalStorageService,
-              private router: Router) {
+              private router: Router,
+              private flowService: FlowService) {
   }
 
   /**
@@ -33,6 +35,7 @@ export class MainService {
     this.localStorage.clear('group');
     this.localStorage.clear('user');
     this.localStorage.clear('tab');
+    // this.flowService.datalogOutCloseSideBar$.next(true);
     this.router.navigate(['/login']);
   }
 }

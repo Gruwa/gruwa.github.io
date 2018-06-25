@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {environment} from '../../../environments/environment';
 import {
-  IFooterRequest,
+  IFooterRequest, ITabTypesAvailbility,
   ITabTypesShifts
 } from '../interfaces/types.interface';
 import {ISettings} from '../interfaces/settings.interface';
@@ -61,6 +61,28 @@ export class DataService {
   public indexTABS: Array<ITabTypesShifts> = [
     'upcoming',
     'available'
+  ];
+
+  /**
+   * variable for TABS of availbility
+   * @param {object} value - object of tabs
+   * @memberof DataService
+   */
+
+  public TABS_AVAILBILITY = {
+    'time off': 'timeoff',
+    volunteer: 'volunteer'
+  };
+
+  /**
+   * variable for TABS of availbility
+   * @param {Array<ITabTypesAvailbility>} value - array of tabs for index of availbility
+   * @memberof DataService
+   */
+
+  public indexTABSAvailbility: Array<ITabTypesAvailbility> = [
+    'time off',
+    'volunteer'
   ];
 
   /**

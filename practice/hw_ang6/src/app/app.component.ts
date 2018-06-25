@@ -14,6 +14,7 @@ import {MatSidenav} from '@angular/material';
 import {GoogleAnalyticsService} from './shared/services/google-analytics.service';
 import {environment} from '../environments/environment';
 import {LocalStorageService} from 'ngx-webstorage';
+import {VERSION} from './shared/services/version';
 
 /**
  * App Component
@@ -86,6 +87,7 @@ export class AppComponent implements OnInit, OnDestroy {
               private googleAnalyticsService: GoogleAnalyticsService,
               private localStorage: LocalStorageService) {
     this.appendGaTrackingCode();
+    console.info('Version of Shiftworks', VERSION);
   }
 
   /**
@@ -95,6 +97,11 @@ export class AppComponent implements OnInit, OnDestroy {
    */
 
   public ngOnInit(): void {
+    this.flowService.datalogOutCloseSideBar$.pipe(
+      takeUntil(this.ngUnsubscribe)
+    ).subscribe(() => {
+      this.sideBar.toggle();
+    });
     this.flowService.dataSpinner$.pipe(
       takeUntil(this.ngUnsubscribe),
       debounceTime(500)
@@ -144,7 +151,7 @@ export class AppComponent implements OnInit, OnDestroy {
    * @memberof AppComponent
    */
 
-  private sideBarShow($event?: any): void {
+  public sideBarShow($event?: any): void {
     this.sideBar.toggle();
     if (this.arrow) {
       this.arrow = !this.arrow;

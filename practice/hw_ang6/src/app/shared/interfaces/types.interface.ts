@@ -5,6 +5,12 @@
 export type ITabTypesShifts = 'upcoming' | 'my requests' | 'available';
 
 /**
+ * Export type for tab of availbility
+ */
+
+export type ITabTypesAvailbility = 'time off' | 'volunteer';
+
+/**
  * Export type for footer requests
  */
 
