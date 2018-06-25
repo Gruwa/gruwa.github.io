@@ -101,7 +101,6 @@ export class ContentShiftsComponent implements OnInit, OnDestroy {
       takeUntil(this.ngUnsubscribe)
     ).subscribe(
       (value) => {
-        console.log(value);
         this.getShifts(value['items']);
       }
     );
@@ -122,7 +121,6 @@ export class ContentShiftsComponent implements OnInit, OnDestroy {
 
   private getShifts(value: Array<IShift>): void {
     this.sortShifts = this.shiftsService.sortShifts(value);
-    console.log(this.sortShifts);
   }
 
   /**
