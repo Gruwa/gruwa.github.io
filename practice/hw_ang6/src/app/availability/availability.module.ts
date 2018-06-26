@@ -21,6 +21,10 @@ export const routes: Routes = [
     component: EditAvailabilityComponent
   },
   {
+    path: 'new',
+    component: EditAvailabilityComponent
+  },
+  {
     path: '**',
     redirectTo: '/404'
   }

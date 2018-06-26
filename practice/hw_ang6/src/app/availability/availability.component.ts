@@ -109,7 +109,6 @@ export class AvailabilityComponent implements OnInit, OnDestroy {
       if (this.flowService[`${this.dataService.FLOW_AVAILABILITY[i]}`] === undefined) {
         this.httpService.getAvailability(<ITabTypesAvailability>i);
       }
-
     }
 
     if (this.localStorage.retrieve('tabAvailability') !== null) {
@@ -119,7 +118,7 @@ export class AvailabilityComponent implements OnInit, OnDestroy {
     }
 
     this.tabIndex = this.dataService.indexTABS_AVAILABILITY.indexOf(this.localStorage.retrieve('tabAvailability'));
-    this.tabChange(this.tab);
+    this.tabChange(this.tabActive);
   }
 
   /**
@@ -130,6 +129,7 @@ export class AvailabilityComponent implements OnInit, OnDestroy {
    */
 
   public selectedTabChange(value: any): void {
+    console.log(value.index);
     this.tabActive = this.dataService.indexTABS_AVAILABILITY[value.index];
     this.tabChange(this.tabActive);
     this.localStorage.store('tabAvailability', this.dataService.indexTABS_AVAILABILITY[value.index]);
@@ -171,6 +171,10 @@ export class AvailabilityComponent implements OnInit, OnDestroy {
 
   spinnerShow(event: boolean): void {
     this.spinner = event;
+  }
+
+  addNewAvailability() {
+    this.router.navigate(['/availability/', 'new']);
   }
 
   /**

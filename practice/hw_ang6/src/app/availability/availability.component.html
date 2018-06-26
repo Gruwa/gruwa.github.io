@@ -13,14 +13,16 @@
                  position=0
                  class="mat-tab-label">
           <ng-template matTabContent>
-
-            <!--<app-content-shifts [tabActive]="l"></app-content-shifts>-->
             <app-small-list class="global__small-list"
                             [schedule]="true"
                             [lists]="listTimeOff"
                             [spinner]="spinner"
                             (outputActionMethod)="showAvailability($event)">
             </app-small-list>
+            <button mat-fab class="availability__button"
+                    (click)="addNewAvailability()">
+              <i class="material-icons">add</i>
+            </button>
           </ng-template>
         </mat-tab>
       </div>

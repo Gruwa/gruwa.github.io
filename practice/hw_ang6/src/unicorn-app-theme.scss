@@ -1488,6 +1488,7 @@ app-main-list {
 }
 
 app-small-list {
+
   .mat-button-wrapper {
     display: flex;
     flex-direction: row;
@@ -1514,7 +1515,7 @@ app-side-bar {
   position: relative;
 }
 
-app-shifts, app-availability {
+app-shifts {
   height: 100%;
   display: block;
 
@@ -1523,6 +1524,35 @@ app-shifts, app-availability {
   .mat-tab-nav-bar.mat-primary .mat-tab-label:not(.mat-tab-disabled):focus,
   .mat-tab-nav-bar.mat-primary .mat-tab-link:not(.mat-tab-disabled):focus {
     background-color: transparent;
+  }
+}
+
+app-availability {
+  height: 100%;
+  display: block;
+
+  .mat-tab-group.mat-primary .mat-tab-label:not(.mat-tab-disabled):focus,
+  .mat-tab-group.mat-primary .mat-tab-link:not(.mat-tab-disabled):focus,
+  .mat-tab-nav-bar.mat-primary .mat-tab-label:not(.mat-tab-disabled):focus,
+  .mat-tab-nav-bar.mat-primary .mat-tab-link:not(.mat-tab-disabled):focus {
+    background-color: transparent;
+  }
+
+  .availability__button {
+    border-radius: 50%;
+    background-color: rgb(33, 148, 81) !important;
+    box-shadow: 0px 2px 6px 0px rgba(108, 115, 128, 0.5);
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+    width: 64px;
+    height: 64px;
+    z-index: 797;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
   }
 }
 
