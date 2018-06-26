@@ -5,7 +5,7 @@ import {IStation} from '../interfaces/station.interface';
 import {IJob} from '../interfaces/job.interface';
 import {IGroupRestaurant} from '../interfaces/group-restaurant.interface';
 import {ISettings} from '../interfaces/settings.interface';
-import {ITimeOff} from '../interfaces/timeoff';
+import {ITimeOff} from '../interfaces/timeoff.interface';
 
 /**
  * Http Guard Service

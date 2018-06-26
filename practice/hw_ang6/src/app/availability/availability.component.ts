@@ -14,7 +14,7 @@ import {
 } from 'rxjs/operators';
 import {LocalStorageService} from 'ngx-webstorage';
 import {ITabTypesAvailability} from '../shared/interfaces/types.interface';
-import {ITimeOff} from '../shared/interfaces/timeoff';
+import {ITimeOff} from '../shared/interfaces/timeoff.interface';
 import {Router} from '@angular/router';
 
 @Component({
