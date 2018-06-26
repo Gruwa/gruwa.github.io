@@ -12,7 +12,7 @@ import {
   refCount
 } from 'rxjs/operators';
 import {FlowService} from './flow.service';
-import {ITabTypesShifts} from '../interfaces/types.interface';
+import {ITabTypesAvailability, ITabTypesShifts} from '../interfaces/types.interface';
 import {DataService} from './data.service';
 import {HttpGuardRequestService} from './http-guard-request.service';
 import {LocalStorageService} from 'ngx-webstorage';
@@ -94,6 +94,41 @@ export class HttpService {
 
   private getShiftsRequest(tab: ITabTypesShifts = 'upcoming', group: string): Observable<object> {
     return this.http.get(this.dataService.BASEURL + '/shifts/' + this.dataService.TABS[tab]);
+  }
+
+  /**
+   * Method for get shifts
+   * @param {ITabTypesShifts} tab
+   * @returns {void}
+   * @memberof HttpService
+   */
+
+  public getAvailability(tab: ITabTypesAvailability = 'time off'): void {
+    if (this.dataService.TABS_AVAILABILITY[tab]) {
+      this.flowService[`${this.dataService.FLOW_AVAILABILITY[tab]}`] =
+        this.getAvailabilityRequest(tab, this.localStorage.retrieve('group').id).pipe(
+          map(
+            (resp) => {
+              console.log('httpService getAvailability', resp); // TODO - Delete when ready
+              return this.httpGuardService.guardAvailability(resp);
+            }
+          ),
+          publishReplay(1),
+          refCount()
+        );
+    }
+  }
+
+  /**
+   * Method for get request with shifts
+   * @param {ITabTypesShifts} tab
+   * @param {string} group
+   * @returns {Observable<object>}
+   * @memberof HttpService
+   */
+
+  private getAvailabilityRequest(tab: ITabTypesAvailability = 'time off', group: string): Observable<object> {
+    return this.http.get(this.dataService.BASEURL + '/availability/' + this.dataService.TABS_AVAILABILITY[tab] + 's');
   }
 
   /**
@@ -183,9 +218,7 @@ export class HttpService {
    */
 
   private getSettingsRequest(): Observable<object> {
-    return this.http.get(this.dataService.BASEURL + '/settings', {
-      headers: new HttpHeaders().set('groupID', this.localStorage.retrieve('group').id)
-  });
+    return this.http.get(this.dataService.BASEURL + '/settings');
   }
 
   /**
@@ -214,9 +247,7 @@ export class HttpService {
    */
 
   private patchSettingsRequest(body: object): Observable<object> {
-    return this.http.patch(this.dataService.BASEURL + '/settings', body, {
-      headers: new HttpHeaders().set('groupID', this.localStorage.retrieve('group').id)
-    });
+    return this.http.patch(this.dataService.BASEURL + '/settings', body);
   }
 
   /**
@@ -277,9 +308,7 @@ export class HttpService {
    */
 
   private patchContactInfoRequest(body: object): Observable<object> {
-    return this.http.patch(this.dataService.BASEURL + '/contactinfo', body, {
-      headers: new HttpHeaders().set('groupID', this.localStorage.retrieve('group').id)
-    });
+    return this.http.patch(this.dataService.BASEURL + '/contactinfo', body);
   }
 
   /**

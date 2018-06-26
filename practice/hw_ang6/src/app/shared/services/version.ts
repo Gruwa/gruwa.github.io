@@ -12,7 +12,7 @@ const versions = [
   {
     version: '0.0.0.3',
     date: '06/25/2018',
-    description: 'Story 11704'
+    description: 'Story 11705'
   }
 ];
 

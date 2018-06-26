@@ -34,6 +34,7 @@ export class MainService {
     this.localStorage.clear('group');
     this.localStorage.clear('user');
     this.localStorage.clear('tab');
+    this.localStorage.clear('tabAvailability');
     this.router.navigate(['/login']);
   }
 }

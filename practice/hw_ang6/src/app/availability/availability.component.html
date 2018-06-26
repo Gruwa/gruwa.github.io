@@ -1,11 +1,11 @@
-<div class="availbility">
+<div class="availability">
   <app-header-shifts [headerDescription]="headerDescription"
-                     class="global__app-header availbility__app-header"
+                     class="global__app-header availability__app-header"
                      [sideBar]="true"
                      [description]="true"
                      (outputActionMethod)="showSideBar($event)">
   </app-header-shifts>
-  <div class="availbility__content">
+  <div class="availability__content">
     <mat-tab-group (selectedTabChange)="selectedTabChange($event)"
                    [selectedIndex]=tabIndex>
       <div *ngFor="let tab of dataService.indexTABS_AVAILABILITY; let l = index">
@@ -15,9 +15,12 @@
           <ng-template matTabContent>
 
             <!--<app-content-shifts [tabActive]="l"></app-content-shifts>-->
-            <app-small-spinner [ngClass]="{'global__element-display' : spinner}"
-                               class="global__element-display-none">
-            </app-small-spinner>
+            <app-small-list class="global__small-list"
+                            [schedule]="true"
+                            [lists]="listTimeOff"
+                            [spinner]="spinner"
+                            (outputActionMethod)="showAvailability($event)">
+            </app-small-list>
           </ng-template>
         </mat-tab>
       </div>

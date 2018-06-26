@@ -5,6 +5,7 @@ import {IStation} from '../interfaces/station.interface';
 import {IJob} from '../interfaces/job.interface';
 import {IGroupRestaurant} from '../interfaces/group-restaurant.interface';
 import {ISettings} from '../interfaces/settings.interface';
+import {ITimeOff} from '../interfaces/timeoff';
 
 /**
  * Http Guard Service
@@ -156,6 +157,51 @@ export class HttpGuardService {
    * @returns {Array<any>}
    * @memberof HttpGuardService
    */
+
+  public guardAvailability(value): Array<any> {
+
+    /**
+     * Variable of resp
+     * @type {Array<any>}
+     * @memberof HttpGuardService
+     */
+
+    const resp: Array<any> = [];
+    resp['items'] = [];
+
+    resp['frequencyList'] = [];
+
+    for (let i = 0; i < value.Data['FrequencyList'].length; i++) {
+      const obj: ILocation = {
+        'id': value.Data['FrequencyList'][i].ID,
+        'description': value.Data['FrequencyList'][i].Description
+      };
+
+      resp['frequencyList'].push(obj);
+    }
+
+    resp['items'] = [];
+
+    console.log(value.Data.TimeOffs);
+    for (let i = 0; i < value.Data.TimeOffs.length; i++) {
+      const obj: ITimeOff = {
+        'comment': value.Data.TimeOffs[i].Comment,
+        'dateFrom': value.Data.TimeOffs[i].DateFrom,
+        'dateTrough': value.Data.TimeOffs[i].DateTrough,
+        'startTime': value.Data.TimeOffs[i].StartTime,
+        'endTime': value.Data.TimeOffs[i].EndTime,
+        'frequency': value.Data.TimeOffs[i].Frequency,
+        'id': value.Data.TimeOffs[i].ID,
+        'title': value.Data.TimeOffs[i].Title,
+        'description': value.Data.TimeOffs[i].Title
+      };
+
+      resp['items'].push(obj);
+    }
+
+    return resp;
+
+  }
 
   public guardShifts(value): Array<any> {
 

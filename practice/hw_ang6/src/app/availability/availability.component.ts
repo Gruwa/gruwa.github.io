@@ -1,8 +1,7 @@
 import {
   Component,
-  ContentChild,
+  OnDestroy,
   OnInit,
-  TemplateRef,
   ViewEncapsulation
 } from '@angular/core';
 import {HttpService} from '../shared/services/http.service';
@@ -15,6 +14,8 @@ import {
 } from 'rxjs/operators';
 import {LocalStorageService} from 'ngx-webstorage';
 import {ITabTypesAvailability} from '../shared/interfaces/types.interface';
+import {ITimeOff} from '../shared/interfaces/timeoff';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-availability',
@@ -22,7 +23,7 @@ import {ITabTypesAvailability} from '../shared/interfaces/types.interface';
   styleUrls: ['./availability.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class AvailabilityComponent implements OnInit {
+export class AvailabilityComponent implements OnInit, OnDestroy {
 
   /**
    * Variable headerDescription
@@ -70,6 +71,8 @@ export class AvailabilityComponent implements OnInit {
    * @memberof ShiftsComponent
    */
 
+  public listTimeOff: Array<ITimeOff>;
+
   private ngUnsubscribe: Subject<void> = new Subject<void>();
 
   /**
@@ -84,7 +87,8 @@ export class AvailabilityComponent implements OnInit {
   constructor(private httpService: HttpService,
               private flowService: FlowService,
               private localStorage: LocalStorageService,
-              public dataService: DataService) {
+              public dataService: DataService,
+              private router: Router) {
   }
 
   /**
@@ -101,20 +105,21 @@ export class AvailabilityComponent implements OnInit {
       ).subscribe(this.spinnerShow.bind(this));
     this.flowService.dataSmallSpinner$.next(true);
 
-    // for (const i in this.dataService.FLOW) {
-    //   if (this.flowService[`${this.dataService.FLOW[i]}`] === undefined) {
-    //     this.httpService.getShifts(<ITabTypesShifts>i);
-    //   }
-    //
-    // }
-    //
-    // if (this.localStorage.retrieve('tab') !== null) {
-    //   this.tabActive = this.localStorage.retrieve('tab');
-    // } else {
-    //   this.localStorage.store('tab', this.tabActive);
-    // }
-    //
-    // this.tabIndex = this.dataService.indexTABS.indexOf(this.localStorage.retrieve('tab'));
+    for (const i in this.dataService.FLOW_AVAILABILITY) {
+      if (this.flowService[`${this.dataService.FLOW_AVAILABILITY[i]}`] === undefined) {
+        this.httpService.getAvailability(<ITabTypesAvailability>i);
+      }
+
+    }
+
+    if (this.localStorage.retrieve('tabAvailability') !== null) {
+      this.tabActive = this.localStorage.retrieve('tabAvailability');
+    } else {
+      this.localStorage.store('tabAvailability', this.tabActive);
+    }
+
+    this.tabIndex = this.dataService.indexTABS_AVAILABILITY.indexOf(this.localStorage.retrieve('tabAvailability'));
+    this.tabChange(this.tab);
   }
 
   /**
@@ -124,9 +129,26 @@ export class AvailabilityComponent implements OnInit {
    * @memberof ShiftsComponent
    */
 
-  selectedTabChange(value: any): void {
+  public selectedTabChange(value: any): void {
     this.tabActive = this.dataService.indexTABS_AVAILABILITY[value.index];
-    this.localStorage.store('tab', this.dataService.indexTABS_AVAILABILITY[value.index]);
+    this.tabChange(this.tabActive);
+    this.localStorage.store('tabAvailability', this.dataService.indexTABS_AVAILABILITY[value.index]);
+  }
+
+
+  private tabChange(tab: any) {
+    this.flowService[`${this.dataService.FLOW_AVAILABILITY[tab]}`].pipe(
+      takeUntil(this.ngUnsubscribe)
+    ).subscribe(
+      (value) => {
+        this.listTimeOff = value['items'];
+        this.flowService.dataSmallSpinner$.next(false);
+      }
+    );
+  }
+
+  public showAvailability(event: ITimeOff) {
+    this.router.navigate(['/availability/', event.id]);
   }
 
   /**

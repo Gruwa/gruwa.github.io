@@ -99,19 +99,19 @@ export class FlowService {
   public dataSettings$: Observable<object>;
 
   /**
-   * Created flow of dataShiftsMyReq$
+   * Created flow of dataTimeOff$
    * @type {Observable<object>}
    * @memberof DataService
    */
 
-  public dataShiftsMyReq$: Observable<object>;
+  public dataTimeOff$: Observable<object>;
 
   /**
-   * Created flow of active shift
+   * Created flow of dataVolunteer$
    * @type {Subject<any>}
    * @memberof DataService
    */
 
-  public dataActiveShift$: Observable<object>;
+  public dataVolunteer$: Observable<object>;
 
 }

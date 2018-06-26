@@ -98,6 +98,17 @@ export class DataService {
   };
 
   /**
+   * variable for FLOW of availability
+   * @param {object} value - FLOW for api link
+   * @memberof DataService
+   */
+
+  public FLOW_AVAILABILITY = {
+    'time off': 'dataTimeOff$',
+    'volunteer': 'dataVolunteer$'
+  };
+
+  /**
    * variable for BASEURL
    * @param {string} value - base url for api link
    * @memberof DataService

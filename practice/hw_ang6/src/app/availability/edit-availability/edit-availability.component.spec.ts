@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { VolunteerComponent } from './volunteer.component';
+import { EditAvailabilityComponent } from './edit-availability.component';
 
-describe('VolunteerComponent', () => {
-  let component: VolunteerComponent;
-  let fixture: ComponentFixture<VolunteerComponent>;
+describe('EditAvailabilityComponent', () => {
+  let component: EditAvailabilityComponent;
+  let fixture: ComponentFixture<EditAvailabilityComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ VolunteerComponent ]
+      declarations: [ EditAvailabilityComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(VolunteerComponent);
+    fixture = TestBed.createComponent(EditAvailabilityComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

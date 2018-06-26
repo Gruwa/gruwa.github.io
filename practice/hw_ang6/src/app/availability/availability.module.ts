@@ -1,12 +1,14 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {MaterialsModule} from '../shared/components/materials/materials.module';
-import {RouterModule, Routes} from '@angular/router';
+import {
+  RouterModule,
+  Routes
+} from '@angular/router';
 import {ReactiveFormsModule} from '@angular/forms';
 import {AppComponentsModule} from '../shared/components/app-components.module';
 import {AvailabilityComponent} from './availability.component';
-import {TimeoffComponent} from './timeoff/timeoff.component';
-import {VolunteerComponent} from './volunteer/volunteer.component';
+import {EditAvailabilityComponent} from './edit-availability/edit-availability.component';
 
 export const routes: Routes = [
   {
@@ -15,12 +17,8 @@ export const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: '/timeoff',
-    component: TimeoffComponent
-  },
-  {
-    path: '/volunteer',
-    component: VolunteerComponent
+    path: ':id',
+    component: EditAvailabilityComponent
   },
   {
     path: '**',
@@ -38,13 +36,10 @@ export const routes: Routes = [
   ],
   declarations: [
     AvailabilityComponent,
-    TimeoffComponent,
-    VolunteerComponent
+    EditAvailabilityComponent
   ],
   exports: [
-    AvailabilityComponent,
-    TimeoffComponent,
-    VolunteerComponent
+    AvailabilityComponent
   ]
 })
 export class AvailabilityModule {
