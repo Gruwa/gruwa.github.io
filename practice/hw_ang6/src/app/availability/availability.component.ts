@@ -14,8 +14,11 @@ import {
 } from 'rxjs/operators';
 import {LocalStorageService} from 'ngx-webstorage';
 import {ITabTypesAvailability} from '../shared/interfaces/types.interface';
-import {ITimeOff} from '../shared/interfaces/timeoff.interface';
 import {Router} from '@angular/router';
+
+/**
+ * Availability Component
+ */
 
 @Component({
   selector: 'app-availability',
@@ -28,7 +31,7 @@ export class AvailabilityComponent implements OnInit, OnDestroy {
   /**
    * Variable headerDescription
    * @type {string}
-   * @memberof ShiftsComponent
+   * @memberof AvailabilityComponent
    */
 
   public headerDescription: string = 'my availability';
@@ -36,7 +39,7 @@ export class AvailabilityComponent implements OnInit, OnDestroy {
   /**
    * Variable of tab
    * @type {ITabTypesShifts}
-   * @memberof ShiftsComponent
+   * @memberof AvailabilityComponent
    */
 
   public tab: ITabTypesAvailability = 'time off';
@@ -44,7 +47,7 @@ export class AvailabilityComponent implements OnInit, OnDestroy {
   /**
    * Variable of tabIndex
    * @type {number}
-   * @memberof ShiftsComponent
+   * @memberof AvailabilityComponent
    */
 
   public tabIndex: number;
@@ -52,7 +55,7 @@ export class AvailabilityComponent implements OnInit, OnDestroy {
   /**
    * Variable spinner
    * @type {boolean}
-   * @memberof ShiftsComponent
+   * @memberof AvailabilityComponent
    */
 
   public spinner: boolean = false;
@@ -60,7 +63,7 @@ export class AvailabilityComponent implements OnInit, OnDestroy {
   /**
    * Variable of tabActive
    * @type {ITabTypesShifts}
-   * @memberof ShiftsComponent
+   * @memberof AvailabilityComponent
    */
 
   public tabActive: ITabTypesAvailability = 'time off';
@@ -68,20 +71,19 @@ export class AvailabilityComponent implements OnInit, OnDestroy {
   /**
    * Variable of ngUnsubscribe
    * @type {Subject<void>}
-   * @memberof ShiftsComponent
+   * @memberof AvailabilityComponent
    */
-
-  public listTimeOff: Array<ITimeOff>;
 
   private ngUnsubscribe: Subject<void> = new Subject<void>();
 
   /**
-   * Creates an instance of ShiftsComponent
+   * Creates an instance of AvailabilityComponent
    * @param {FlowService} flowService
    * @param {LocalStorageService} localStorage
    * @param {HttpService} httpService
    * @param {DataService} dataService
-   * @memberof ShiftsComponent
+   * @param {Router} router
+   * @memberof AvailabilityComponent
    */
 
   constructor(private httpService: HttpService,
@@ -94,7 +96,7 @@ export class AvailabilityComponent implements OnInit, OnDestroy {
   /**
    * Method ngOnInit
    * @returns {void}
-   * @memberof ShiftsComponent
+   * @memberof AvailabilityComponent
    */
 
   ngOnInit(): void {
@@ -118,44 +120,25 @@ export class AvailabilityComponent implements OnInit, OnDestroy {
     }
 
     this.tabIndex = this.dataService.indexTABS_AVAILABILITY.indexOf(this.localStorage.retrieve('tabAvailability'));
-    this.tabChange(this.tabActive);
   }
 
   /**
    * Method for get changes on tab selectedTabChange
    * @returns {void}
    * @param {any} value
-   * @memberof ShiftsComponent
+   * @memberof AvailabilityComponent
    */
 
   public selectedTabChange(value: any): void {
-    console.log(value.index);
     this.tabActive = this.dataService.indexTABS_AVAILABILITY[value.index];
-    this.tabChange(this.tabActive);
     this.localStorage.store('tabAvailability', this.dataService.indexTABS_AVAILABILITY[value.index]);
-  }
-
-
-  private tabChange(tab: any) {
-    this.flowService[`${this.dataService.FLOW_AVAILABILITY[tab]}`].pipe(
-      takeUntil(this.ngUnsubscribe)
-    ).subscribe(
-      (value) => {
-        this.listTimeOff = value['items'];
-        this.flowService.dataSmallSpinner$.next(false);
-      }
-    );
-  }
-
-  public showAvailability(event: ITimeOff) {
-    this.router.navigate(['/availability/', event.id]);
   }
 
   /**
    * Method fo show spinner
    * @returns {void}
    * @param {any} event
-   * @memberof ShiftsComponent
+   * @memberof AvailabilityComponent
    */
 
   public showSideBar(event?: any): void {
@@ -166,21 +149,27 @@ export class AvailabilityComponent implements OnInit, OnDestroy {
    * Method fo show spinner
    * @returns {void}
    * @param {boolean} event
-   * @memberof ShiftsComponent
+   * @memberof AvailabilityComponent
    */
 
-  spinnerShow(event: boolean): void {
+  private spinnerShow(event: boolean): void {
     this.spinner = event;
   }
 
-  addNewAvailability() {
+  /**
+   * Method for add new availability
+   * @returns {void}
+   * @memberof AvailabilityComponent
+   */
+
+  public addNewAvailability(): void {
     this.router.navigate(['/availability/', 'new']);
   }
 
   /**
    * Method ngOnDestroy
    * @returns {void}
-   * @memberof ShiftsComponent
+   * @memberof AvailabilityComponent
    */
 
   ngOnDestroy(): void {

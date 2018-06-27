@@ -1,3 +1,5 @@
+@import "../../assets/styles/variables.scss";
+
 .availability {
   width: 100%;
   height: 100%;
@@ -26,7 +28,7 @@
 
       .mat-tab-label {
         text-transform: uppercase;
-        color: #63749b;
+        color: $cLynch;
         font-size: 14px;
         padding: 0 16px;
         min-width: inherit;
@@ -35,10 +37,10 @@
         opacity: 1;
 
         &:hover {
-          color: #b2bbd2;
+          color: $cCasper;
 
           &.mat-tab-label-active {
-            color: #4c93ff;
+            color: $cBlue;
           }
         }
       }
@@ -48,7 +50,7 @@
       }
 
       .mat-tab-header {
-        background-color: #222a51;
+        background-color: $cPickledBlue;
         border-bottom: none;
         height: 48px;
         flex-shrink: 0;
@@ -62,7 +64,7 @@
 
       .mat-ink-bar {
         height: 3px;
-        color: #4c93ff;
+        color: $cBlue;
       }
 
       .mat-tab-label-active {
@@ -86,12 +88,12 @@
         }
 
         &-chevron {
-          border-color: rgba(255, 255, 255, 0.9);
+          border-color: rgba($cWhite, 0.9);
         }
 
         &-disabled {
           .mat-tab-header-pagination-chevron {
-            border-color: rgba(255, 255, 255, 0.3);
+            border-color: rgba($cWhite, 0.3);
           }
         }
       }
@@ -99,3 +101,12 @@
   }
 }
 
+@media(max-width: 480px) {
+    .availability__content {
+        .mat-tab-group {
+            .mat-tab-label {
+                min-width: 50%;
+            }
+        }
+    }
+}

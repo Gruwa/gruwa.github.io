@@ -182,7 +182,6 @@ export class HttpGuardService {
 
     resp['items'] = [];
 
-    console.log(value.Data.TimeOffs);
     for (let i = 0; i < value.Data.TimeOffs.length; i++) {
       const obj: ITimeOff = {
         'comment': value.Data.TimeOffs[i].Comment,

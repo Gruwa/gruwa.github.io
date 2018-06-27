@@ -1,3 +1,20 @@
+@import "../../../../assets/styles/variables.scss";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  padding: 0;
+  width: 100%;
+  background-color: $cPickledBlue;
+  box-sizing: border-box;
+
+  .material-icons {
+      cursor: pointer;
+  }
+}
+
 .example-spacer {
   flex: 1 1 auto;
 }
@@ -12,7 +29,7 @@
   flex-direction: column;
 
   &__header {
-    margin: 25px 0 32px;
+    margin: 8px 0;
   }
 
 

@@ -14,7 +14,7 @@ import {MatSidenav} from '@angular/material';
 import {GoogleAnalyticsService} from './shared/services/google-analytics.service';
 import {environment} from '../environments/environment';
 import {LocalStorageService} from 'ngx-webstorage';
-import {VERSION} from './shared/services/version';
+import * as version from './shared/services/version';
 
 /**
  * App Component
@@ -26,6 +26,22 @@ import {VERSION} from './shared/services/version';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, OnDestroy {
+
+  /**
+   * Variable currentYear
+   * @type {number}
+   * @memberof AppComponent
+   */
+
+  public currentYear: number = (new Date()).getFullYear();
+
+  /**
+   * Variable currentVersion
+   * @type {string}
+   * @memberof AppComponent
+   */
+
+  public currentVersion: string = version.VERSION['version'];
 
   /**
    * Variable arrow
@@ -87,7 +103,7 @@ export class AppComponent implements OnInit, OnDestroy {
               private googleAnalyticsService: GoogleAnalyticsService,
               private localStorage: LocalStorageService) {
     this.appendGaTrackingCode();
-    console.info('Version of Shiftworks', VERSION);
+    console.info('Version of Shiftworks', version.VERSION);
   }
 
   /**
@@ -148,6 +164,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   public sideBarShow($event?: any): void {
     this.sideBar.toggle();
+
     if (this.arrow) {
       this.arrow = !this.arrow;
     }
@@ -200,5 +217,4 @@ export class AppComponent implements OnInit, OnDestroy {
     this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();
   }
-
 }

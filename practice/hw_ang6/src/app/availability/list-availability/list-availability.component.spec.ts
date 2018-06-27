@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SmallListComponent } from './small-list.component';
+import { ListAvailabilityComponent } from './list-availability.component';
 
-describe('SmallListComponent', () => {
-  let component: SmallListComponent;
-  let fixture: ComponentFixture<SmallListComponent>;
+describe('ListAvailabilityComponent', () => {
+  let component: ListAvailabilityComponent;
+  let fixture: ComponentFixture<ListAvailabilityComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SmallListComponent ]
+      declarations: [ ListAvailabilityComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SmallListComponent);
+    fixture = TestBed.createComponent(ListAvailabilityComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

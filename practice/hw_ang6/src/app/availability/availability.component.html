@@ -13,12 +13,7 @@
                  position=0
                  class="mat-tab-label">
           <ng-template matTabContent>
-            <app-small-list class="global__small-list"
-                            [schedule]="true"
-                            [lists]="listTimeOff"
-                            [spinner]="spinner"
-                            (outputActionMethod)="showAvailability($event)">
-            </app-small-list>
+            <app-list-availability [tabActive]="l" ></app-list-availability>
             <button mat-fab class="availability__button"
                     (click)="addNewAvailability()">
               <i class="material-icons">add</i>

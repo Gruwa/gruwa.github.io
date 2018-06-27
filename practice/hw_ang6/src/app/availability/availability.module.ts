@@ -9,6 +9,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {AppComponentsModule} from '../shared/components/app-components.module';
 import {AvailabilityComponent} from './availability.component';
 import {EditAvailabilityComponent} from './edit-availability/edit-availability.component';
+import {ListAvailabilityComponent} from './list-availability/list-availability.component';
 
 export const routes: Routes = [
   {
@@ -40,10 +41,13 @@ export const routes: Routes = [
   ],
   declarations: [
     AvailabilityComponent,
-    EditAvailabilityComponent
+    EditAvailabilityComponent,
+    ListAvailabilityComponent
   ],
   exports: [
-    AvailabilityComponent
+    AvailabilityComponent,
+    EditAvailabilityComponent,
+    ListAvailabilityComponent
   ]
 })
 export class AvailabilityModule {

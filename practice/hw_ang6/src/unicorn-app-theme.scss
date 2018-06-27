@@ -101,7 +101,7 @@ $dcportal-app-theme: mat-light-theme($dcportal-app-primary, $dcportal-app-accent
 
   .mat-toolbar-row {
     height: 100%;
-    padding-left: 24px;
+    padding: 0 24px;
     margin-bottom: 16px;
     font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
@@ -1134,6 +1134,15 @@ dc-right-menu {
   }
 }
 
+.overlay-container {
+  .toast-container {
+    .toast {
+      width: auto;
+      box-shadow: 0 0 12px rgba($cBlack, 0.3);
+    }
+  }
+}
+
 @media print {
   *,
   *:before,
@@ -1407,6 +1416,10 @@ dc-right-menu {
     margin: 0;
     border: 0;
   }
+
+  .mat-form-field-label {
+    line-height: 1.1;
+  }
 }
 
 .app-forms {
@@ -1476,17 +1489,6 @@ app-login {
   display: block;
 }
 
-app-schedule-login {
-  height: 100%;
-  display: block;
-}
-
-app-main-list {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-}
-
 app-small-list {
 
   .mat-button-wrapper {
@@ -1499,23 +1501,13 @@ app-small-list {
   .mat-raised-button {
     width: 100%;
     height: 56px;
+    padding: 0 24px;
     box-shadow: none !important;
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   }
 }
 
-app-header-shifts {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-}
-
-app-side-bar {
-  display: block;
-  position: relative;
-}
-
-app-shifts {
+app-shifts, app-availbility {
   height: 100%;
   display: block;
 
@@ -1564,29 +1556,6 @@ app-availability {
 
   &__element-display {
     display: block !important;
-  }
-
-  &__app-header {
-    padding-bottom: 8px;
-    width: 100%;
-    background-color: #222a51;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-shrink: 0;
-    box-sizing: border-box;
-  }
-
-  &__small-list {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    max-width: 360px;
-    background-color: white;
-    overflow: auto;
-    flex-grow: 1;
-    position: relative;
   }
 
 }

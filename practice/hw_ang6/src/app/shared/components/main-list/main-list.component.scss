@@ -1,8 +1,16 @@
+:host {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 .main-list {
   padding-top: 8px;
 
   &__row {
-    padding: 20px 0 4px 24px;
+    min-height: 64px;
+    padding: 8px 24px;
+    margin-bottom: 0;
     color: rgba(108, 115, 128, 1);
     font-size: 16px;
   }

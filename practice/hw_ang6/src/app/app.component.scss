@@ -19,13 +19,24 @@
   }
 
   &__sidenav {
-    width: 85%;
+    display: flex;
+    flex-direction: column;
+    width: 320px;
     height: 100%;
   }
 
   &__app-header {
-    height: 184px;
+    flex-shrink: 0;
     background-color: rgba(57, 80, 191, 1);
   }
-}
 
+  &__app-footer {
+    flex-shrink: 0;
+    padding: 16px 16px 16px 72px;
+    font-size: 12px;
+    color: $cGrayLight2;
+    width: 100%;
+    line-height: 1.3em;
+    box-sizing: border-box;
+  }
+}

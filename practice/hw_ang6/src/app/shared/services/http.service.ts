@@ -201,8 +201,7 @@ export class HttpService {
     this.flowService.dataSettings$ = this.getSettingsRequest().pipe(
       map(
         (resp) => {
-          console.log('getSettings getRestaurants', resp); // TODO - Delete when ready
-
+          console.log('getSettings getSettings', resp); // TODO - Delete when ready
           return this.httpGuardService.guardSettings(resp);
         }
       ),
@@ -232,7 +231,7 @@ export class HttpService {
     return this.patchSettingsRequest(this.httpGuardRequestService.guardSettings(body)).pipe(
       map(
         (resp) => {
-          console.log('httpService patchMarkState', resp); // TODO - Delete when ready
+          console.log('httpService patchSettings', resp); // TODO - Delete when ready
           return this.httpGuardService.guardSettings(resp);
         }
       )
@@ -260,8 +259,7 @@ export class HttpService {
     this.flowService.dataContactInfo$ = this.getContactInfoRequest().pipe(
       map(
         (resp) => {
-          console.log('getSettings getRestaurants', resp); // TODO - Delete when ready
-
+          console.log('getSettings getContactInfo', resp); // TODO - Delete when ready
           return this.httpGuardService.guardContactInfo(resp);
         }
       ),
@@ -277,9 +275,7 @@ export class HttpService {
    */
 
   private getContactInfoRequest(): Observable<object> {
-    return this.http.get(this.dataService.BASEURL + '/contactinfo', {
-      headers: new HttpHeaders().set('groupID', this.localStorage.retrieve('group').id)
-    });
+    return this.http.get(this.dataService.BASEURL + '/contactinfo');
   }
 
   /**
@@ -293,7 +289,7 @@ export class HttpService {
     return this.patchContactInfoRequest(this.httpGuardRequestService.guardContactInfo(body)).pipe(
       map(
         (resp) => {
-          console.log('httpService patchMarkState', resp); // TODO - Delete when ready
+          console.log('httpService patchContactInfo', resp); // TODO - Delete when ready
           return this.httpGuardService.guardSettings(resp);
         }
       )
