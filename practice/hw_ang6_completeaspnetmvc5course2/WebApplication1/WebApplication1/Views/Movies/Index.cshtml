@@ -1,8 +1,7 @@
-﻿@model TModel
-
+﻿@model WebApplication1.Models.Movie
 @{
     ViewBag.Title = "Random"; // show on title page
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Random</h2>
+<h2>@Model.Name</h2>
