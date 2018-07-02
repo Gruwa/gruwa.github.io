@@ -1,3 +1,5 @@
+@import "../../../../assets/styles/variables.scss";
+
 :host {
   display: flex;
   align-items: center;
@@ -11,8 +13,9 @@
     min-height: 64px;
     padding: 8px 24px;
     margin-bottom: 0;
-    color: rgba(108, 115, 128, 1);
+    color: $cPaleSky;
     font-size: 16px;
+    cursor: pointer;
   }
 
   &__description {

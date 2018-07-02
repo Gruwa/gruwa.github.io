@@ -101,6 +101,7 @@ $dcportal-app-theme: mat-light-theme($dcportal-app-primary, $dcportal-app-accent
 
   .mat-toolbar-row {
     height: 100%;
+    min-height: 32px;
     padding: 0 24px;
     margin-bottom: 16px;
     font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -299,7 +300,7 @@ dialog.mdl-dialog {
   width: 340px;
 
   .mdl-dialog__title {
-    color: #6c737f;
+    color: $cPaleSky;
     font-size: 20px;
     padding: 10px 24px 24px
   }
@@ -749,7 +750,7 @@ nav {
       height: 56px;
       padding: 16px;
       cursor: pointer;
-      color: #6c737f;
+      color: $cPaleSky;
       box-sizing: border-box;
 
       &:hover {
@@ -944,8 +945,95 @@ nav {
   color: $cWhite;
 }
 
-.mat-ink-bar {
-  background-color: $cBlue;
+.app__content {
+  .mat-tab-group {
+    flex-grow: 1;
+    -webkit-tap-highlight-color: transparent;
+
+    .mat-ink-bar {
+      height: 4px;
+      background-color: $cBlue;
+    }
+
+    .mat-tab-label .mat-ripple .ng-star-inserted {
+      padding: 0;
+    }
+
+    .mat-tab-label {
+      text-transform: uppercase;
+      color: $cWhite;
+      font-size: 14px;
+      padding: 0 16px;
+      min-width: inherit;
+      font-weight: 400;
+      font-family: Lato, Helvetica, Arial, sans-serif;
+      opacity: 0.5;
+
+      &:hover {
+        opacity: 1;
+
+        &.mat-tab-label-active {
+          opacity: 1;
+        }
+      }
+    }
+
+    .mat-tab {
+      position: relative;
+    }
+
+    .mat-tab-header {
+      background-color: $cPickledBlue;
+      border-bottom: none;
+      height: 48px;
+      flex-shrink: 0;
+      padding: 0 8px;
+    }
+
+    .mat-tab-label-container {
+      max-width: 1008px;
+      margin: auto;
+    }
+
+    .mat-tab-body-wrapper {
+      flex-grow: 1;
+      overflow: auto;
+      height: 100%;
+      position: relative;
+    }
+
+    .mat-tab-body-content {
+      display: flex;
+      flex-direction: column;
+      overflow: auto;
+      overflow: overlay;
+    }
+
+    .mat-tab-header-pagination {
+      &-before {
+        margin-left: -8px;
+      }
+
+      &-after {
+        margin-right: -8px;
+      }
+
+      &-chevron {
+          border-color: rgba($cWhite, 0.9);
+      }
+
+      &-disabled {
+        .mat-tab-header-pagination-chevron {
+          border-color: rgba($cWhite, 0.3);
+        }
+      }
+    }
+
+    .mat-tab-label-active {
+      opacity: 1;
+    }
+
+  }
 }
 
 dc-right-menu {
@@ -981,10 +1069,17 @@ dc-right-menu {
 }
 
 .mat-slide-toggle {
+  .mat-slide-toggle-thumb {
+    background-color: $cGrayLight2;
+  }
+  .mat-slide-toggle-bar {
+    background-color: rgba($cGrayLight2, 0.5);
+  }
+
   &.mat-checked {
     &:not(.mat-disabled) {
       .mat-slide-toggle-thumb {
-        background-color: #4c97ff;
+        background-color: $cBlue;
       }
     }
   }
@@ -1285,6 +1380,13 @@ dc-right-menu {
       }
     }
   }
+  .app__content {
+    .mat-tab-group {
+      .mat-tab-label {
+        min-width: 50%;
+      }
+    }
+  }
 }
 
 @media(max-width: 375px) {
@@ -1403,7 +1505,7 @@ dc-right-menu {
   .mat-input-underline {
     margin-top: 0;
     /*border-top: 2px solid $cGray3;*/
-    border-top: 2px solid rgba(#6c737f, 0.502);
+    border-top: 2px solid rgba($cPaleSky, 0.5);
   }
 
   .mat-input-wrapper {
@@ -1503,7 +1605,7 @@ app-small-list {
     height: 56px;
     padding: 0 24px;
     box-shadow: none !important;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid $cGeyser;
   }
 }
 
@@ -1532,7 +1634,10 @@ app-availability {
 
   .availability__button {
     border-radius: 50%;
-    background-color: rgb(33, 148, 81) !important;
+    background: #1c9f53;
+    background: -moz-linear-gradient(top, $jungleGreen 0%, $jewel 100%);
+    background: -webkit-linear-gradient(top, $jungleGreen 0%, $jewel 100%);
+    background: linear-gradient(to bottom, $jungleGreen 0%, $jewel 100%);
     box-shadow: 0px 2px 6px 0px rgba(108, 115, 128, 0.5);
     position: absolute;
     right: 24px;

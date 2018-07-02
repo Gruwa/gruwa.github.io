@@ -3,8 +3,7 @@ import {
   ContentChild,
   OnDestroy,
   OnInit,
-  TemplateRef,
-  ViewEncapsulation
+  TemplateRef
 } from '@angular/core';
 import {HttpService} from '../shared/services/http.service';
 import {FlowService} from '../shared/services/flow.service';
@@ -24,8 +23,7 @@ import {DataService} from '../shared/services/data.service';
 @Component({
   selector: 'app-shifts',
   templateUrl: './shifts.component.html',
-  styleUrls: ['./shifts.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./shifts.component.scss']
 })
 export class ShiftsComponent implements OnInit, OnDestroy {
 

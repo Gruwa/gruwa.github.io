@@ -38,5 +38,9 @@
     width: 100%;
     line-height: 1.3em;
     box-sizing: border-box;
+
+    &:first-letter {
+      font-size: 13px;
+    }
   }
 }

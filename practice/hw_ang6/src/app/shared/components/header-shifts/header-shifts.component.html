@@ -28,7 +28,7 @@
     <span class="header-shifts__description header-shifts__correct-color header-shifts__correct-font global__element-display-none"
           [ngClass]="{'global__element-display' : account_circle}">{{accountDescription}}</span>
   </mat-toolbar-row>
-  <mat-toolbar-row (click)="showGroupRestaurants()">
+  <mat-toolbar-row class="header-shifts__choose-schedule" (click)="showGroupRestaurants()">
     <i class="material-icons header-shifts__correct-color global__element-display-none"
        [ngClass]="{'global__element-display' : room}" [ngStyle]="{opacity : arrow ? 1 : 0.56}">room</i>
     <span class="header-shifts__description header-shifts__correct-color header-shifts__correct-font global__element-display-none"

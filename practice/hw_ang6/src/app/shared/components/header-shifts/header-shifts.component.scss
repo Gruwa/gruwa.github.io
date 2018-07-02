@@ -9,10 +9,6 @@
   width: 100%;
   background-color: $cPickledBlue;
   box-sizing: border-box;
-
-  .material-icons {
-      cursor: pointer;
-  }
 }
 
 .example-spacer {
@@ -30,6 +26,10 @@
 
   &__header {
     margin: 8px 0;
+
+    .material-icons {
+      cursor: pointer;
+    }
   }
 
 
@@ -44,8 +44,9 @@
 
   &__description {
     margin-left: 24px;
-    font-size: 18px;
-    font-weight: 500;
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: -3px;
   }
 
   &__arrow_down {
@@ -76,6 +77,13 @@
 
   &__arrow {
     opacity: 1;
+  }
+
+  &__choose-schedule {
+    cursor: pointer;
+    padding: 16px 24px;
+    margin: -16px 0 0;
+    height: 56px;
   }
 
 }

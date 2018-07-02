@@ -1,8 +1,7 @@
 import {
   Component,
   OnDestroy,
-  OnInit,
-  ViewEncapsulation
+  OnInit
 } from '@angular/core';
 import {HttpService} from '../shared/services/http.service';
 import {FlowService} from '../shared/services/flow.service';
@@ -23,8 +22,7 @@ import {Router} from '@angular/router';
 @Component({
   selector: 'app-availability',
   templateUrl: './availability.component.html',
-  styleUrls: ['./availability.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./availability.component.scss']
 })
 export class AvailabilityComponent implements OnInit, OnDestroy {
 

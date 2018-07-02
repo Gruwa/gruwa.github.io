@@ -78,7 +78,6 @@ form {
   background: -moz-linear-gradient(top, $jungleGreen 0%, $jewel 100%);
   background: -webkit-linear-gradient(top, $jungleGreen 0%, $jewel 100%);
   background: linear-gradient(to bottom, $jungleGreen 0%, $jewel 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$jungleGreen', endColorstr='$jewel', GradientType=0);
   cursor: pointer;
 
   &[disabled] {
@@ -86,7 +85,6 @@ form {
     background: -moz-linear-gradient(top, $cGrayLight1 0%, $cGray2 100%);
     background: -webkit-linear-gradient(top, $cGrayLight1 0%, $cGray2 100%);
     background: linear-gradient(to bottom, $cGrayLight1 0%, $cGray2 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$cGrayLight1', endColorstr='$cGray2', GradientType=0);
     cursor: default;
     color: $cWhite;
   }

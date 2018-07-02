@@ -1,8 +1,9 @@
+@import "../../../../assets/styles/variables.scss";
+
 :host {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100%;
     background-color: white;
     overflow: auto;
     flex-grow: 1;
@@ -11,34 +12,37 @@
 }
 
 .small-list {
-  position: relative;
-  flex-grow: 1;
-  width: 100%;
-  max-width: 1024px;
+    position: relative;
+    flex-grow: 1;
+    width: 100%;
+    max-width: 1024px;
 
-  &__toolbar {
-    padding-top: 8px;
-  }
+    &__row {
+        min-height: 56px;
+        padding: 8px 24px;
+        color: $cPaleSky;
+        font-size: 14px;
+        margin-bottom: 0;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid $cGeyser;
+        box-sizing: border-box;
+    }
 
-  &__row {
-    padding: 18px 18px 21px 24px;
-    color: rgba(108, 115, 128, 1);
-    font-size: 14px;
-    margin-bottom: 0;
-    display: flex;
-    justify-content: space-between;
-    border-bottom: rgba(218, 222, 230, 1) 1px solid;
-    box-sizing: border-box;
-  }
+    &__group {
+        flex-grow: 1;
+        margin-right: 16px;
+        overflow: hidden;
+        font-size: 16px;
+        font-family: Lato, Helvetica, Arial, sans-serif;
+        color: $cBrightGray;
+        font-weight: 400;
+        text-align: left;
+        text-overflow: ellipsis;
+    }
 
-  &__group {
-    font-size: 16px;
-    font-family: Lato, Helvetica, Arial, sans-serif;
-    color: #39404c;
-  }
-
-  &__icon {
-    margin-right: -8px;
-    color: #39404c;
-  }
+    &__icon {
+        margin-right: -8px;
+        color: $cPaleSky;
+    }
 }

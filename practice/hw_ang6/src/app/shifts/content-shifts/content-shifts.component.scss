@@ -1,5 +1,9 @@
-.app-shift-block {
-  height: 100%;
+@import "../../../assets/styles/variables.scss";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .content-shifts {
@@ -7,9 +11,9 @@
   height: 100%;
   /*overflow-y: auto;
   overflow-x: hidden;*/
-
   background-color: #f2f4f7;
   box-sizing: border-box;
+  flex-grow: 1;
 
   &__title {
     margin-bottom: 16px;
@@ -17,7 +21,7 @@
   }
 
   &__wrapper {
-    max-width: 960px;
+    max-width: 976px;
     padding: 24px;
     margin: auto;
   }

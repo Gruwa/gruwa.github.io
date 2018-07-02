@@ -16,7 +16,9 @@
                        class="global__element-display-none">
     </app-small-spinner>
   </div>
-  <div class="details-shifts__footer" (click)="clickFooter()">
+  <div class="details-shifts__footer"
+       [class.details-shifts__status-button]="status==='pickup request' || status==='drop request'"
+       (click)="clickFooter()">
     {{footerDescription}}
   </div>
 </div>
