@@ -10,10 +10,8 @@ import {
   Validators
 } from '@angular/forms';
 import {Subject} from 'rxjs';
-import {takeUntil} from 'rxjs/operators';
 import {FlowService} from '../shared/services/flow.service';
 import {AuthService} from './services/auth.service';
-
 
 /**
  * Login Component
@@ -54,7 +52,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   constructor(private router: Router,
               public authService: AuthService,
               public flowService: FlowService,
-              // public httpService: HttpService, // TODO - delete when will be ready real api
               private fb: FormBuilder) {
   }
 
@@ -66,8 +63,6 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this.initForm();
-    // TODO ADD data to the fake server
-    // this.httpService.addAllObject().subscribe(); // TODO - delete when will be ready real api
   }
 
   /**
@@ -82,6 +77,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       password: ['', [Validators.required]],
       remember: [false, []]
     });
+    this.flowService.dataSpinner$.next(false);
   }
 
   /**
@@ -91,7 +87,6 @@ export class LoginComponent implements OnInit, OnDestroy {
    */
 
   public onSubmit(): void {
-    this.flowService.dataSpinner$.next(true);
     const valueOfLogin: object = {
       login: this.loginForm.get('login').value,
       password: this.loginForm.get('password').value,

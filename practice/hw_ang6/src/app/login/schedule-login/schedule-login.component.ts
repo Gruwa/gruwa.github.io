@@ -1,5 +1,4 @@
 import {
-  AfterViewInit,
   Component,
   OnDestroy,
   OnInit
@@ -28,7 +27,7 @@ import {DataService} from '../../shared/services/data.service';
   styleUrls: ['./schedule-login.component.scss']
 
 })
-export class ScheduleLoginComponent implements OnInit, AfterViewInit, OnDestroy {
+export class ScheduleLoginComponent implements OnInit, OnDestroy {
 
   /**
    * Variable headerDescription
@@ -106,18 +105,6 @@ export class ScheduleLoginComponent implements OnInit, AfterViewInit, OnDestroy 
     } else {
       this.mainService.logOut();
     }
-  }
-
-  /**
-   * Method ngAfterViewInit
-   * @returns {void}
-   * @memberof ScheduleLoginComponent
-   */
-
-  public ngAfterViewInit(): void {
-    setTimeout(() => {
-      this.flowService.dataSpinner$.next(false);
-    });
   }
 
   /**

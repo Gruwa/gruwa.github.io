@@ -183,6 +183,22 @@ export class DataService {
   };
 
   /**
+   * Variable LIST_DESCRIPTIONS
+   * @type {object}
+   * @memberof DataService
+   */
+
+  public LIST_DESCRIPTIONS = {
+    title: 'time off title',
+    dateFrom: 'date from',
+    dateThrough: 'date through',
+    startTime: 'start time',
+    endTime: 'end time',
+    frequency: 'frequency',
+    comment: 'comment'
+  };
+
+  /**
    * Variable of object of list side bar menu
    * @type {object}
    * @memberof DataService

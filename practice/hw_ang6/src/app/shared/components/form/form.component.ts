@@ -1,11 +1,9 @@
 import {
   Component,
   Input,
-  OnDestroy,
   OnInit,
   ViewEncapsulation
 } from '@angular/core';
-import {ITabTypesShifts} from '../../interfaces/types.interface';
 import {ActivatedRoute, Router} from '@angular/router';
 import {IForm} from '../../interfaces/form.interface';
 import {
@@ -14,13 +12,7 @@ import {
   Validators
 } from '@angular/forms';
 import * as moment from 'moment';
-import {LocalStorageService} from 'ngx-webstorage';
-import {FlowService} from '../../services/flow.service';
-import {Subject} from 'rxjs';
-import {takeUntil} from 'rxjs/operators';
-import {IShift} from '../../interfaces/shift.interface';
-import {DataService} from '../../services/data.service';
-import {ShiftsService} from '../../../shifts/services/shifts.service';
+
 
 /**
  * Content Form Component
@@ -32,23 +24,7 @@ import {ShiftsService} from '../../../shifts/services/shifts.service';
   styleUrls: ['./form.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class FormComponent implements OnInit, OnDestroy {
-
-  /**
-   * Variable shift
-   * @type {IShift}
-   * @memberof FormComponent
-   */
-
-  public shift: object;
-
-  /**
-   * Variable availbleInput
-   * @type {boolean}
-   * @memberof FormComponent
-   */
-
-  public availbleInput: boolean;
+export class FormComponent implements OnInit {
 
   /**
    * Variable shiftForm
@@ -56,15 +32,7 @@ export class FormComponent implements OnInit, OnDestroy {
    * @memberof FormComponent
    */
 
-  public shiftGroup: FormGroup;
-
-  /**
-   * Variable of ngUnsubscribe
-   * @type {Subject<void>}
-   * @memberof FormComponent
-   */
-
-  private ngUnsubscribe: Subject<void> = new Subject<void>();
+  public dataGroup: FormGroup;
 
   /**
    * Input variable status
@@ -72,43 +40,27 @@ export class FormComponent implements OnInit, OnDestroy {
    * @memberof FormComponent
    */
 
-  @Input() status: string;
+  @Input() data: object;
 
   /**
-   * Input variable shiftActive
-   * @type {object}
+   * Input variable description of form inputs
+   * @type {array}
    * @memberof FormComponent
    */
 
-  @Input() shiftActive: IShift;
-
-  /**
-   * Variable tab
-   * @type {ITabTypesShifts}
-   * @memberof FormComponent
-   */
-
-  @Input() tab: ITabTypesShifts;
+  @Input() descriptions: object;
 
   /**
    * Creates an instance of FormComponent
-   * @param {FlowService} flowService
-   * @param {LocalStorageService} localStorage
    * @param {Router} router
    * @param {ActivatedRoute} route
    * @param {FormBuilder} fb
-   * @param {DataService} dataService
-   * @param {ShiftsService} shiftsService
    * @memberof FormComponent
    */
 
   constructor(private router: Router,
               private route: ActivatedRoute,
-              private localStorage: LocalStorageService,
-              private flowService: FlowService,
-              private fb: FormBuilder,
-              private dataService: DataService,
-              private shiftsService: ShiftsService) {
+              private fb: FormBuilder) {
   }
 
   /**
@@ -118,13 +70,6 @@ export class FormComponent implements OnInit, OnDestroy {
    */
 
   ngOnInit(): void {
-    this.flowService.dataSave$.pipe(
-      takeUntil(this.ngUnsubscribe)
-    ).subscribe(this.setBody.bind(this));
-    // this.tab === 'my requests' ? this.availbleInput = false : this.availbleInput = true;
-
-    // console.log('shiftActive details', this.shiftActive);
-
     this.initForm();
   }
 
@@ -135,60 +80,15 @@ export class FormComponent implements OnInit, OnDestroy {
    */
 
   initForm(): void {
-    this.shiftGroup = this.fb.group({
-      shiftTitle: ['', [Validators.required, Validators.minLength(1)]],
-      date: ['', [Validators.required]],
+    this.dataGroup = this.fb.group({
+      dataTitle: ['', [Validators.required, Validators.minLength(1)]],
+      dateFrom: ['', [Validators.required]],
+      dateThrough: ['', [Validators.required]],
       startTime: ['', [Validators.required]],
       endTime: ['', [Validators.required]],
-      locationID: ['', [Validators.required]],
-      stationID: ['', [Validators.required]],
-      jobID: ['', [Validators.required]],
-      status: ['', [Validators.required]]
+      frequencyID: ['', [Validators.required]],
+      comment: ['', []]
     });
-    this.shift = {
-      item: {},
-      locationList: [],
-      stationList: [],
-      jobList: []
-    };
-
-    if (this.route.snapshot.params['id'] !== 'new') {
-      this.getShift();
-    }
-  }
-
-  getShift(): void {
-    if (this.shiftActive === undefined) {
-      this.flowService[this.dataService.FLOW[this.localStorage.retrieve('tab')]].pipe(
-        takeUntil(this.ngUnsubscribe)
-      ).subscribe((resp) => {
-        let array = [];
-
-        for (const key in resp) {
-          if (key === 'items') {
-            array = array.concat(resp[key]);
-
-            const item = array.find(value => value.shiftID === this.route.snapshot.params['id']);
-
-            this.shift = {
-              item: item,
-              locationList: resp.locationList,
-              stationList: resp.stationList,
-              jobList: resp.jobList
-            };
-            if (!this.shift['item'].isDropRequest && !this.shift['item'].isPickupRequest) {
-              this.status = this.dataService.STATUS['scheduled'];
-            } else {
-              this.status = ' ';
-            }
-            this.setDataForm();
-          }
-        }
-      });
-    } else {
-      this.shift = this.shiftActive;
-      this.setDataForm();
-    }
   }
 
   /**
@@ -198,26 +98,16 @@ export class FormComponent implements OnInit, OnDestroy {
    */
 
   setDataForm(): void {
-    this.shiftGroup = this.fb.group({
-      shiftTitle: this.shift['item'].shiftTitle,
-      date: this.shift['item'].dateFrom,
-      startTime: moment(this.shift['item'].dateFrom).utcOffset(0, false).format('HH:mm'),
-      endTime: moment(this.shift['item'].dateTo).utcOffset(0, false).format('HH:mm'),
-      locationID: this.shift['item'].locationID,
-      stationID: this.shift['item'].stationID,
-      jobID: this.shift['item'].jobID,
-      status: this.status
+    this.dataGroup = this.fb.group({
+      // shiftTitle: this.shift['item'].shiftTitle,
+      // date: this.shift['item'].dateFrom,
+      // startTime: moment(this.shift['item'].dateFrom).utcOffset(0, false).format('HH:mm'),
+      // endTime: moment(this.shift['item'].dateTo).utcOffset(0, false).format('HH:mm'),
+      // locationID: this.shift['item'].locationID,
+      // stationID: this.shift['item'].stationID,
+      // jobID: this.shift['item'].jobID,
+      // status: this.status
     });
-  }
-
-  /**
-   * Method for set data in form
-   * @returns {void}
-   * @memberof FormComponent
-   */
-
-  setNewData(): void {
-
   }
 
   /**
@@ -226,44 +116,33 @@ export class FormComponent implements OnInit, OnDestroy {
    * @memberof FormComponent
    */
 
-  setBody(value: string): void {
-    if (value === 'save') {
-      if (!this.shiftGroup.invalid) {
-        const body = {
-          'ShiftTitle': this.shiftGroup.get('shiftTitle').value,
-          'JobID': this.shiftGroup.get('jobID').value,
-          'StationID': this.shiftGroup.get('stationID').value,
-          'DateFrom': this.shiftsService.createDate(
-            this.shiftGroup.get('date').value,
-            this.shiftGroup.get('startTime').value,
-            this.shiftGroup.get('endTime').value)[0],
-          'DateTo': this.shiftsService.createDate(
-            this.shiftGroup.get('date').value,
-            this.shiftGroup.get('startTime').value,
-            this.shiftGroup.get('endTime').value)[1],
-          'LocationID': this.shiftGroup.get('locationID').value,
-          'ShiftID': this.shift['item'].shiftID,
-          'IsDropRequest': this.shift['item'].isDropRequest,
-          'IsPickupRequest': this.shift['item'].isPickupRequest,
-          'Job': this.shift['jobList'].find(job => job.id === this.shiftGroup.get('jobID').value)['description'],
-          'Station': this.shift['stationList'].find(station => station.id === this.shiftGroup.get('stationID').value)['description'],
-          'Location': this.shift['locationList'].find(location => location.id === this.shiftGroup.get('locationID').value)['description'],
-        };
-        this.flowService.dataSave$.next(body);
-      }
-    }
-  }
-
-  /**
-   * Method ngOnDestroy
-   * @returns {void}
-   * @memberof FormComponent
-   */
-
-  ngOnDestroy(): void {
-    this.ngUnsubscribe.next();
-    this.ngUnsubscribe.complete();
-  }
+  // setBody(value: string): void {
+  //   if (value === 'save') {
+  //     if (!this.shiftGroup.invalid) {
+  //       const body = {
+  //         'ShiftTitle': this.shiftGroup.get('shiftTitle').value,
+  //         'JobID': this.shiftGroup.get('jobID').value,
+  //         'StationID': this.shiftGroup.get('stationID').value,
+  //         'DateFrom': this.shiftsService.createDate(
+  //           this.shiftGroup.get('date').value,
+  //           this.shiftGroup.get('startTime').value,
+  //           this.shiftGroup.get('endTime').value)[0],
+  //         'DateTo': this.shiftsService.createDate(
+  //           this.shiftGroup.get('date').value,
+  //           this.shiftGroup.get('startTime').value,
+  //           this.shiftGroup.get('endTime').value)[1],
+  //         'LocationID': this.shiftGroup.get('locationID').value,
+  //         'ShiftID': this.shift['item'].shiftID,
+  //         'IsDropRequest': this.shift['item'].isDropRequest,
+  //         'IsPickupRequest': this.shift['item'].isPickupRequest,
+  //         'Job': this.shift['jobList'].find(job => job.id === this.shiftGroup.get('jobID').value)['description'],
+  //         'Station': this.shift['stationList'].find(station => station.id === this.shiftGroup.get('stationID').value)['description'],
+  //         'Location': this.shift['locationList'].find(location => location.id === this.shiftGroup.get('locationID').value)['description'],
+  //       };
+  //       this.flowService.dataSave$.next(body);
+  //     }
+  //   }
+  // }
 
 }
 

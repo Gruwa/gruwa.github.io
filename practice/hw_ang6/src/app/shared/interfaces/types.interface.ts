@@ -21,3 +21,9 @@ export type IFooterRequest = 'request pickup' | 'cancel request pickup' | 'reque
  */
 
 export type IStatus = 'scheduled' | 'drop request' | 'pickup request';
+
+/**
+ * Export type for form availability description
+ */
+
+export type IFormAvailabilityDescription = 'title' & 'dateFrom' & 'dateThrough' & 'startTime' & 'endTime' & 'frequency' & 'comment';

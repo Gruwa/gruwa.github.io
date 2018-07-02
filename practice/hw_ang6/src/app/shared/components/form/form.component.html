@@ -1,43 +1,42 @@
-<form class="form-component" [formGroup]="shiftGroup">
+<form class="form-component" [formGroup]="dataGroup">
   <app-form-input class="form-component__input-group"
-                  placeholder="Request title"
-                  [control]="shiftGroup.get('shiftTitle')">
+                  placeholder="{{descriptions['title'] | capitalizeFirst}}"
+                  [control]="dataGroup.get('dataTitle')">
   </app-form-input>
+  <app-form-select class="form-component__input-group"
+                   placeholder="{{descriptions['frequency'] | capitalizeFirst}}"
+
+                   [control]="dataGroup.get('frequencyID')">
+  </app-form-select>
+
+  <!--[elements]="data['frequencyList']"-->
   <app-form-date class="form-component__input-group"
-                 placeholder="Date"
+                 placeholder="{{descriptions['dateFrom'] | capitalizeFirst}}"
                  readonly="true"
                  type="'date"
-                 [control]="shiftGroup.get('date')">
+                 [control]="dataGroup.get('dateFrom')">
+  </app-form-date>
+  <app-form-date class="form-component__input-group"
+                 placeholder="{{descriptions['dateThrough'] | capitalizeFirst}}"
+                 readonly="true"
+                 type="'date"
+                 [control]="dataGroup.get('dateThrough')">
   </app-form-date>
   <app-form-time class="form-component__input-group"
                  type="time"
-                 placeholder="Start time"
-                 [control]="shiftGroup.get('startTime')">
+                 placeholder="{{descriptions['startTime'] | capitalizeFirst}}"
+                 [control]="dataGroup.get('startTime')">
   </app-form-time>
   <app-form-time class="form-component__input-group"
                  type="time"
-                 placeholder="End time"
-                 [control]="shiftGroup.get('endTime')">
+                 placeholder="{{descriptions['endTime'] | capitalizeFirst}}"
+                 [control]="dataGroup.get('endTime')">
   </app-form-time>
-  <app-form-select class="form-component__input-group"
-                   placeholder="Location"
-                   [elements]="shift['locationList']"
-                   [control]="shiftGroup.get('locationID')">
-  </app-form-select>
-  <app-form-select class="form-component__input-group"
-                   placeholder="Station"
-                   [elements]="shift['stationList']"
-                   [control]="shiftGroup.get('stationID')">
-  </app-form-select>
-  <app-form-select class="form-component__input-group"
-                   placeholder="Job title"
-                   [elements]="shift['jobList']"
-                   [control]="shiftGroup.get('jobID')">
-  </app-form-select>
   <app-form-input class="form-component__input-group"
-                  placeholder="Status"
+                  placeholder="{{descriptions['comment'] | capitalizeFirst}}"
                   readonly="true"
                   required="false"
-                  [control]="shiftGroup.get('status')">
+                  [control]="dataGroup.get('comment')">
   </app-form-input>
 </form>
+

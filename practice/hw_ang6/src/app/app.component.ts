@@ -115,8 +115,9 @@ export class AppComponent implements OnInit, OnDestroy {
   public ngOnInit(): void {
     this.flowService.dataSpinner$.pipe(
       takeUntil(this.ngUnsubscribe),
-      debounceTime(500)
+      debounceTime(50)
     ).subscribe(this.spinnerShow.bind(this));
+    this.flowService.dataSpinner$.next(true);
     this.flowService.dataSideBar$.pipe(
       takeUntil(this.ngUnsubscribe)
     ).subscribe(this.sideBarShow.bind(this));
