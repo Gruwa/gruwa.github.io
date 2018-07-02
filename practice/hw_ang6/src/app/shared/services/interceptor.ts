@@ -116,6 +116,7 @@ export class AuthInterceptor implements HttpInterceptor {
         }
       ),
       tap(() => {
+          this.flowService.dataSpinner$.next(false);
         },
         (err: any) => {
           if (err instanceof HttpErrorResponse) {

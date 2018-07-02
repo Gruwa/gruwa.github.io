@@ -99,6 +99,10 @@ export class ScheduleLoginComponent implements OnInit, OnDestroy {
       this.flowService.dataRestaurants$.pipe(
         takeUntil(this.ngUnsubscribe)
       ).subscribe((res: Array<IGroupRestaurant>) => {
+        if (res.length === 1) {
+          this.showShifts(res[0]);
+        }
+
         this.groups = res;
         this.flowService.dataSmallSpinner$.next(false);
       });
