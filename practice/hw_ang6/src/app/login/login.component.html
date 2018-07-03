@@ -1,8 +1,8 @@
 ﻿<div class="login-block-wrap">
   <div class="login-header">
-    <div class="rmdl-navheader__brand">
-      <img src="assets/images/SWLogo.svg" alt=""/>
-    </div>
+      <app-header class="rmdl-navheader__brand"
+                         [img]="img">
+      </app-header>
   </div>
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div class="dc-login-form">

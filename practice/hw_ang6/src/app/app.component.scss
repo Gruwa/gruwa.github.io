@@ -18,6 +18,11 @@
     height: 100%;
   }
 
+  &__logo {
+    width: 110px;
+    margin-left: 24px;
+  }
+
   &__sidenav {
     display: flex;
     flex-direction: column;

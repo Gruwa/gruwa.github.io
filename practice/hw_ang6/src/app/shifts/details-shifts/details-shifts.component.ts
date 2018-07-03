@@ -30,12 +30,20 @@ import {DataService} from '../../shared/services/data.service';
 export class DetailsShiftsComponent implements OnInit, OnDestroy {
 
   /**
+   * Variable of spinner
+   * @type {boolean}
+   * @memberof DetailsShiftsComponent
+   */
+
+  public iconLeft: string = 'close';
+
+  /**
    * Variable headerDescription
    * @type {string}
    * @memberof DetailsShiftsComponent
    */
 
-  public headerDescription: string;
+  public descriptionLeft: string;
 
   /**
    * Variable spinner
@@ -144,9 +152,6 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
         takeUntil(this.ngUnsubscribe)
       ).subscribe();
     }
-    if (this.shiftActiveId === 'new') {
-      this.headerDescription = 'new request';
-    }
 
     this.getShifts();
   }
@@ -181,9 +186,9 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
         if (this.shiftActive['item'] === undefined) {
           this.router.navigate(['/' + this.route.snapshot.params['group'], 'shifts']);
         } else {
-          this.headerDescription = this.tab === 'upcoming' ? 'Upcoming shift' : 'Available shift';
-          this.headerDescription = this.shiftActive['item'].shiftTitle === undefined ?
-            this.headerDescription : this.shiftActive['item'].shiftTitle;
+          this.descriptionLeft = this.tab === 'upcoming' ? 'Upcoming shift' : 'Available shift';
+          this.descriptionLeft = this.shiftActive['item'].shiftTitle === undefined ?
+            this.descriptionLeft : this.shiftActive['item'].shiftTitle;
 
           if (this.shiftActive['item'].isDropRequest && this.shiftActive['item'].isPickupRequest) {
             this.status = this.dataService.STATUS[`${this.dataService.SHIFT_REQUEST[this.tab]}`];
@@ -293,7 +298,9 @@ export class DetailsShiftsComponent implements OnInit, OnDestroy {
    */
 
   public closeOurPage(event?: any): void {
-    this.router.navigate(['/' + this.route.snapshot.params['group'], 'shifts']);
+    if (event === 'iconLeft') {
+      this.router.navigate(['/' + this.route.snapshot.params['group'], 'shifts']);
+    }
   }
 
   /**

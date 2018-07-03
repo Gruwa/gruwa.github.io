@@ -30,12 +30,12 @@ import {DataService} from '../../shared/services/data.service';
 export class ScheduleLoginComponent implements OnInit, OnDestroy {
 
   /**
-   * Variable headerDescription
+   * Variable descriptionLeft
    * @type {string}
    * @memberof ScheduleLoginComponent
    */
 
-  public headerDescription: string = 'Choose schedule';
+  public descriptionLeft: string = 'Choose schedule';
 
   /**
    * Variable groups
@@ -48,10 +48,18 @@ export class ScheduleLoginComponent implements OnInit, OnDestroy {
   /**
    * Variable of spinner
    * @type {boolean}
-   * @memberof SideBarComponent
+   * @memberof ScheduleLoginComponent
    */
 
   public spinner: boolean = false;
+
+  /**
+   * Variable of iconLeft
+   * @type {boolean}
+   * @memberof ScheduleLoginComponent
+   */
+
+  public iconLeft: string = 'arrow_back';
 
   /**
    * Variable of ngUnsubscribe
@@ -136,7 +144,9 @@ export class ScheduleLoginComponent implements OnInit, OnDestroy {
    */
 
   public goBack(event?: any): void {
-    this.mainService.logOut();
+    if (event === 'iconLeft') {
+      this.mainService.logOut();
+    }
   }
 
   /**

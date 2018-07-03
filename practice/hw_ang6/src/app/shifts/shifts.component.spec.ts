@@ -4,7 +4,7 @@ import {ShiftsComponent} from './shifts.component';
 import {MatDividerModule, MatListModule, MatTabsModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {DebugElement, Injector} from '@angular/core';
-import {HeaderShiftsComponent} from '../shared/components/header-shifts/header-shifts.component';
+import {HeaderComponent} from '../shared/components/header/header.component';
 import {ContentShiftsComponent} from './content-shifts/content-shifts.component';
 import {ShiftBlockComponent} from '../shared/components/shift-block/shift-block.component';
 import {HttpClientModule} from '@angular/common/http';
@@ -42,7 +42,7 @@ describe('ShiftsComponent', () => {
             ],
             declarations: [
                 ShiftsComponent,
-                HeaderShiftsComponent,
+                HeaderComponent,
                 ContentShiftsComponent,
                 ShiftBlockComponent
             ],

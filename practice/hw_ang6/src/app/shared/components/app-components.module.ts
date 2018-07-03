@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {ShiftBlockComponent} from './shift-block/shift-block.component';
 import {MaterialsModule} from './materials/materials.module';
 import {PageNotFoundComponent} from './not-found/not-found.component';
-import {HeaderShiftsComponent} from './header-shifts/header-shifts.component';
+import {HeaderComponent} from './header/header.component';
 import {SpinnerComponent} from './spinner/spinner.component';
 import {SmallSpinnerComponent} from './small-spinner/small-spinner.component';
 import {PipeModule} from '../pipes/pipe.module';
@@ -26,7 +26,7 @@ import {FormComponent} from './form/form.component';
   declarations: [
     ShiftBlockComponent,
     PageNotFoundComponent,
-    HeaderShiftsComponent,
+    HeaderComponent,
     SpinnerComponent,
     SmallSpinnerComponent,
     FormInputComponent,
@@ -40,7 +40,7 @@ import {FormComponent} from './form/form.component';
   exports: [
     ShiftBlockComponent,
     PageNotFoundComponent,
-    HeaderShiftsComponent,
+    HeaderComponent,
     SpinnerComponent,
     SmallSpinnerComponent,
     FormInputComponent,

@@ -1,9 +1,7 @@
 import {
   Component,
-  ContentChild,
   OnDestroy,
-  OnInit,
-  TemplateRef
+  OnInit
 } from '@angular/core';
 import {HttpService} from '../shared/services/http.service';
 import {FlowService} from '../shared/services/flow.service';
@@ -28,12 +26,20 @@ import {DataService} from '../shared/services/data.service';
 export class ShiftsComponent implements OnInit, OnDestroy {
 
   /**
+   * Variable of spinner
+   * @type {boolean}
+   * @memberof ShiftsComponent
+   */
+
+  public iconLeft: string = 'menu';
+
+  /**
    * Variable headerDescription
    * @type {string}
    * @memberof ShiftsComponent
    */
 
-  public headerDescription: string = 'Shifts';
+  public descriptionLeft: string = 'shifts';
 
   /**
    * Variable of tab
@@ -139,8 +145,10 @@ export class ShiftsComponent implements OnInit, OnDestroy {
    * @memberof ShiftsComponent
    */
 
-  public showSideBar(event?: any): void {
-    this.flowService.dataSideBar$.next(true);
+  public showSideBar(event?: string): void {
+    if (event === 'iconLeft') {
+      this.flowService.dataSideBar$.next('iconLeft');
+    }
   }
 
   /**

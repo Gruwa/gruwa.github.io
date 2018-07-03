@@ -1,10 +1,9 @@
 <div class="shifts">
-  <app-header-shifts [headerDescription]="headerDescription"
-                     class="global__app-header shifts__app-header"
-                     [sideBar]="true"
-                     [description]="true"
-                     (outputActionMethod)="showSideBar($event)">
-  </app-header-shifts>
+  <app-header class="global__app-header shifts__app-header"
+              [iconLeft]="iconLeft"
+              [descriptionLeft]="descriptionLeft"
+              (outputActionMethod)="showSideBar($event)">
+  </app-header>
   <div class="shifts__content">
     <mat-tab-group (selectedTabChange)="selectedTabChange($event)"
                    [selectedIndex]=tabIndex>

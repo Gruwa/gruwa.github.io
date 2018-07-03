@@ -26,12 +26,20 @@ import {ToastrService} from 'ngx-toastr';
 export class ContactInfoComponent implements OnInit, OnDestroy {
 
   /**
+   * Variable of spinner
+   * @type {string}
+   * @memberof ContactInfoComponent
+   */
+
+  public iconLeft: string = 'menu';
+
+  /**
    * Variable headerDescription
    * @type {string}
    * @memberof ContactInfoComponent
    */
 
-  public headerDescription: string = 'contact info';
+  public descriptionLeft: string = 'contact information';
 
   /**
    * Variable lists
@@ -107,7 +115,7 @@ export class ContactInfoComponent implements OnInit, OnDestroy {
    */
 
   public showSideBar(event?: any): void {
-    this.flowService.dataSideBar$.next(true);
+    this.flowService.dataSideBar$.next('iconLeft');
   }
 
   /**

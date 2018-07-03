@@ -103,23 +103,23 @@ export class SideBarComponent implements OnInit, OnDestroy {
 
   public onClickList($event?: any): void {
     if (this.dataService.SIDE_BAR_LIST[$event.description] === this.dataService.SIDE_BAR_LIST['shifts']) {
-      this.closeSideBar.emit();
+      this.closeSideBar.emit('iconLeft');
       this.router.navigate([this.localStorage.retrieve('group').id + '/shifts']);
     }
     if (this.dataService.SIDE_BAR_LIST[$event.description] === this.dataService.SIDE_BAR_LIST['logout']) {
-      this.closeSideBar.emit();
+      this.closeSideBar.emit('iconLeft');
       this.mainService.logOut();
     }
     if (this.dataService.SIDE_BAR_LIST[$event.description] === this.dataService.SIDE_BAR_LIST['settings']) {
-      this.closeSideBar.emit();
+      this.closeSideBar.emit('iconLeft');
       this.router.navigate(['/settings']);
     }
     if (this.dataService.SIDE_BAR_LIST[$event.description] === this.dataService.SIDE_BAR_LIST['my availability']) {
-      this.closeSideBar.emit();
+      this.closeSideBar.emit('iconLeft');
       this.router.navigate(['/availability']);
     }
     if (this.dataService.SIDE_BAR_LIST[$event.description] === this.dataService.SIDE_BAR_LIST['contact info']) {
-      this.closeSideBar.emit();
+      this.closeSideBar.emit('iconLeft');
       this.router.navigate(['/contactinfo']);
     }
   }

@@ -3,6 +3,7 @@ import {takeUntil} from 'rxjs/operators';
 import {Validators} from '@angular/forms';
 import {IFormAvailabilityDescription} from '../../shared/interfaces/types.interface';
 import {DataService} from '../../shared/services/data.service';
+import {FlowService} from '../../shared/services/flow.service';
 
 @Component({
   selector: 'app-edit-availability',
@@ -18,6 +19,16 @@ export class EditAvailabilityComponent implements OnInit {
    */
 
   public formDescriptions;
+
+  /**
+   * Variable headerDescription
+   * @type {string}
+   * @memberof ShiftsComponent
+   */
+
+  public headerDescription: string = 'time off';
+
+
   //
   // /**
   //  * Variable availbleInput
@@ -76,7 +87,8 @@ export class EditAvailabilityComponent implements OnInit {
    * @memberof FormComponent
    */
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService,
+              private flowService: FlowService) { }
 
   ngOnInit() {
     this.formDescriptions = this.dataService.LIST_DESCRIPTIONS;
@@ -88,6 +100,18 @@ export class EditAvailabilityComponent implements OnInit {
     // // console.log('shiftActive details', this.shiftActive);
     //
     // this.initForm();
+  }
+
+
+  /**
+   * Method fo show spinner
+   * @returns {void}
+   * @param {any} event
+   * @memberof ShiftsComponent
+   */
+
+  public showSideBar(event?: any): void {
+    this.flowService.dataSideBar$.next(true);
   }
 
   // /**

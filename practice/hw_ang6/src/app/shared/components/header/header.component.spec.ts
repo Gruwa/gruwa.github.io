@@ -3,7 +3,7 @@ import {
   ComponentFixture,
   TestBed
 } from '@angular/core/testing';
-import {HeaderShiftsComponent} from './header-shifts.component';
+import {HeaderComponent} from './header.component';
 import {MatTabsModule, MatToolbarModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ShiftsService} from '../../../shifts/services/shifts.service';
@@ -23,9 +23,9 @@ class FakeShiftsService {
 class FakeFlowService {
 }
 
-describe('HeaderShiftsComponent', () => {
-  let component: HeaderShiftsComponent;
-  let fixture: ComponentFixture<HeaderShiftsComponent>;
+describe('HeaderComponent', () => {
+  let component: HeaderComponent;
+  let fixture: ComponentFixture<HeaderComponent>;
   let debugElement: DebugElement;
   let htmlElement: HTMLElement;
 
@@ -40,7 +40,7 @@ describe('HeaderShiftsComponent', () => {
         PipeModule.forRoot()
       ],
       declarations: [
-        HeaderShiftsComponent,
+        HeaderComponent,
         PageNotFoundComponent
       ],
       providers: [
@@ -62,7 +62,7 @@ describe('HeaderShiftsComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HeaderShiftsComponent);
+    fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
     component.headerDescription = 'shifts';
 

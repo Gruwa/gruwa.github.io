@@ -27,12 +27,20 @@ import {LocalStorageService} from 'ngx-webstorage';
 export class SettingsComponent implements OnInit, OnDestroy {
 
   /**
+   * Variable of spinner
+   * @type {string}
+   * @memberof SettingsComponent
+   */
+
+  public iconLeft: string = 'menu';
+
+  /**
    * Variable headerDescription
    * @type {string}
    * @memberof SettingsComponent
    */
 
-  public headerDescription: string = 'Settings';
+  public descriptionLeft: string = 'settings';
 
   /**
    * Variable lists
@@ -110,7 +118,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
    */
 
   public showSideBar(event?: any): void {
-    this.flowService.dataSideBar$.next(true);
+    this.flowService.dataSideBar$.next('iconLeft');
   }
 
   /**

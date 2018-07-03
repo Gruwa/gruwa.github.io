@@ -96,6 +96,23 @@ export class ContentShiftsComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this.tab = this.dataService.indexTABS[this.tabActive];
+    this.getDataShifts();
+    this.flowService.dataSideBar$.pipe(
+      takeUntil(this.ngUnsubscribe)
+    ).subscribe((event) => {
+      if (event === 'iconLeft') {
+        this.getDataShifts();
+      }
+    });
+  }
+
+  /**
+   * Method getDataShifts
+   * @returns {void}
+   * @memberof ContentShiftsComponent
+   */
+
+  private getDataShifts(): void {
     this.flowService.dataSmallSpinner$.next(true);
     this.flowService[`${this.dataService.FLOW[this.tab]}`].pipe(
       takeUntil(this.ngUnsubscribe)
@@ -104,13 +121,6 @@ export class ContentShiftsComponent implements OnInit, OnDestroy {
         this.getShifts(value['items']);
       }
     );
-    this.flowService.dataSideBar$.pipe(
-      takeUntil(this.ngUnsubscribe)
-    ).subscribe((event) => {
-      if (!event) {
-        this.ngOnInit();
-      }
-    });
   }
 
   /**
@@ -133,15 +143,4 @@ export class ContentShiftsComponent implements OnInit, OnDestroy {
     this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();
   }
-
-  // TODO - method for side bar
-  // /**
-  //  * Method for add new request
-  //  * @returns {void}
-  //  * @memberof ContentShiftsComponent
-  //  */
-  //
-  // addNewMyRequest() {
-  //   this.router.navigate(['/' + this.route.snapshot.params['group'], 'shifts', 'new']);
-  // }
 }

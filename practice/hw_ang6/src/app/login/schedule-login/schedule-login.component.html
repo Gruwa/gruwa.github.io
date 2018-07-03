@@ -1,10 +1,9 @@
 <div class="login-schedule">
-  <app-header-shifts [headerDescription]="headerDescription"
-                     class="global__app-header login-schedule__app-header"
-                     [arrowBack]="true"
-                     [description]="true"
+  <app-header class="global__app-header login-schedule__app-header"
+                     [iconLeft]="iconLeft"
+                     [descriptionLeft]="descriptionLeft"
                      (outputActionMethod)="goBack($event)">
-  </app-header-shifts>
+  </app-header>
   <app-small-list class="global__small-list"
                   [schedule]="true"
                   [lists]="groups"

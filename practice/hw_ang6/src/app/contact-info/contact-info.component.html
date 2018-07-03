@@ -1,10 +1,9 @@
 <div class="settings">
-  <app-header-shifts [headerDescription]="headerDescription"
-                     class="global__app-header"
-                     [sideBar]="true"
-                     [description]="true"
-                     (outputActionMethod)="showSideBar($event)">
-  </app-header-shifts>
+  <app-header class="global__app-header"
+              [iconLeft]="iconLeft"
+              [descriptionLeft]="descriptionLeft"
+              (outputActionMethod)="showSideBar($event)">
+  </app-header>
   <div class="settings__content">
     <p>Contact Info Component</p>
   </div>

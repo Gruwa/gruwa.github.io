@@ -28,6 +28,30 @@ import * as version from './shared/services/version';
 export class AppComponent implements OnInit, OnDestroy {
 
   /**
+   * Variable of spinner
+   * @type {boolean}
+   * @memberof ShiftsComponent
+   */
+
+  public iconLeft: string = 'arrow_back';
+
+  /**
+   * Variable of img
+   * @type {object}
+   * @memberof ShiftsComponent
+   */
+
+  public img: object;
+
+  /**
+   * Variable of items
+   * @type {Array<object>}
+   * @memberof ShiftsComponent
+   */
+
+  public items: Array<object>;
+
+  /**
    * Variable currentYear
    * @type {number}
    * @memberof AppComponent
@@ -134,6 +158,7 @@ export class AppComponent implements OnInit, OnDestroy {
     ).subscribe((value) => {
       if (value) {
         this.roomDescription = value.description;
+        this.initHeader();
       }
     });
     this.localStorage.observe('user').pipe(
@@ -141,8 +166,36 @@ export class AppComponent implements OnInit, OnDestroy {
     ).subscribe((value) => {
       if (value) {
         this.accountDescription = value;
+        this.initHeader();
       }
     });
+    this.initHeader();
+  }
+
+  /**
+   * Method initHeader
+   * @returns {void}
+   * @memberof AppComponent
+   */
+
+  private initHeader(): void {
+    this.img = {
+      url: 'assets/images/SWLogo.svg',
+      class: 'app__logo'
+    };
+    this.items = [
+      {
+        iconLeft: 'account_circle',
+        description: this.accountDescription
+      },
+      {
+        iconLeft: 'room',
+        description: this.roomDescription,
+        iconRight: 'keyboard_arrow_up',
+        iconRightSecond: 'keyboard_arrow_down',
+        id: 'groupRestaurants'
+      }
+    ];
   }
 
   /**
@@ -159,17 +212,24 @@ export class AppComponent implements OnInit, OnDestroy {
   /**
    * Method fo show sideBar
    * @returns {void}
-   * @param {any} $event
+   * @param {string} event
    * @memberof AppComponent
    */
 
-  public sideBarShow($event?: any): void {
-    this.sideBar.toggle();
+  public sideBarShow(event?: string): void {
+    if (event === 'iconLeft') {
+      this.sideBar.toggle();
 
-    if (this.arrow) {
-      this.arrow = !this.arrow;
+      // if (this.arrow) {
+      //   this.arrow = !this.arrow;
+      // }
+      this.arrow = false;
+      this.flowService.dataSideBarGroupRestaurants$.next(false);
     }
-    this.flowService.dataSideBarGroupRestaurants$.next(false);
+    if (event === 'groupRestaurants') {
+      this.arrow = !this.arrow;
+      this.flowService.dataSideBarGroupRestaurants$.next(this.arrow);
+    }
   }
 
   /**

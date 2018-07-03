@@ -1,12 +1,9 @@
 <div class="details-shifts">
-  <app-header-shifts [headerDescription]="headerDescription"
-                     class="global__app-header details-shifts__app-header"
-                     [save]="true"
-                     [tab]="tab"
-                     [closePage]="true"
-                     [description]="true"
-                     (outputActionMethod)="closeOurPage($event)">
-  </app-header-shifts>
+  <app-header class="global__app-header details-shifts__app-header"
+              [iconLeft]="iconLeft"
+              [descriptionLeft]="descriptionLeft"
+              (outputActionMethod)="closeOurPage($event)">
+  </app-header>
   <div class="details-shifts__content">
     <app-list-fields [shiftActive]="shiftActive"
                      [status]="status"

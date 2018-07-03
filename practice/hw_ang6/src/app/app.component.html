@@ -1,19 +1,17 @@
 ﻿<mat-sidenav-container class="app__container">
   <mat-sidenav #sidebar role="navigation" class="app__sidenav">
-    <app-header-shifts (outputActionMethod)="sideBarShow($event)"
-                       class="global__app-header app__app-header"
-                       [arrowBack]="true"
-                       [logoSmall]="true"
-                       [room]="true"
-                       [account_circle]="true"
-                       [roomDescription]="roomDescription"
-                       [accountDescription]="accountDescription">
-    </app-header-shifts>
+    <app-header class="global__app-header app__app-header"
+                [iconLeft]="iconLeft"
+                [img]="img"
+                [items]="items"
+                [arrow]="arrow"
+                (outputActionMethod)="sideBarShow($event)">
+    </app-header>
     <app-side-bar (closeSideBar)="sideBarShow($event)"></app-side-bar>
     <div class="app__app-footer">
-        &copy; {{currentYear}} Restaurant Magic Software.
-        <br>All Rights Reserved.
-        <br>{{currentVersion}}
+      &copy; {{currentYear}} Restaurant Magic Software.
+      <br>All Rights Reserved.
+      <br>{{currentVersion}}
     </div>
   </mat-sidenav>
   <mat-sidenav-content class="app__content">

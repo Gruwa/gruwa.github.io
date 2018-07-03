@@ -41,6 +41,14 @@ export class LoginComponent implements OnInit, OnDestroy {
   public loginForm: FormGroup;
 
   /**
+   * Variable img
+   * @type {object}
+   * @memberof LoginComponent
+   */
+
+  public img: object;
+
+  /**
    * Creates an instance of LoginComponent
    * @param {AuthService} authService
    * @param {FlowService} flowService
@@ -62,7 +70,21 @@ export class LoginComponent implements OnInit, OnDestroy {
    */
 
   public ngOnInit(): void {
+    this.initHeader();
     this.initForm();
+  }
+
+  /**
+   * Method initForm
+   * @returns {void}
+   * @memberof LoginComponent
+   */
+
+  private initHeader(): void {
+    this.img = {
+      url: 'assets/images/SWLogo.svg',
+      class: 'rmdl-navheader__brand__img'
+    };
   }
 
   /**

@@ -105,13 +105,13 @@ export class GroupScheduleComponent implements OnInit, OnDestroy {
 
   /**
    * Method onClickList
-   * @param {any} $event
+   * @param {any} event
    * @returns {void}
    * @memberof GroupScheduleComponent
    */
 
-  public onClickList($event?: any): void {
-    if (this.route.snapshot.children[0].params['group'] !== $event.id) {
+  public onClickList(event?: any): void {
+    if (this.route.snapshot.children[0].params['group'] !== event.id) {
       for (const i in this.dataService.FLOW) {
         this.flowService[`${this.dataService.FLOW[i]}`] = undefined;
         this.httpService.getShifts(<ITabTypesShifts>i);
@@ -119,9 +119,9 @@ export class GroupScheduleComponent implements OnInit, OnDestroy {
       }
     }
 
-    this.localStorage.store('group', $event);
-    this.router.navigate(['/' + $event.id + '/shifts']);
-    this.flowService.dataSideBar$.next();
+    this.localStorage.store('group', event);
+    this.router.navigate(['/' + event.id + '/shifts']);
+    this.flowService.dataSideBar$.next('iconLeft');
   }
 
   /**
