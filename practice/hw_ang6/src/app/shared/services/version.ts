@@ -25,6 +25,11 @@ const versions: Array<object> = [
     version: '0.0.1.0',
     date: '06/27/2018',
     description: 'Sprint Demo'
+  },
+  {
+    version: '0.0.1.1',
+    date: '07/03/2018',
+    description: 'Rewrite header component'
   }
 ];
 

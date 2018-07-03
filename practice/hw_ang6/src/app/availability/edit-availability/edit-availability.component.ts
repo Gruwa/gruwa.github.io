@@ -21,14 +21,20 @@ export class EditAvailabilityComponent implements OnInit {
   public formDescriptions;
 
   /**
-   * Variable headerDescription
+   * Variable of spinner
    * @type {string}
-   * @memberof ShiftsComponent
+   * @memberof SettingsComponent
    */
 
-  public headerDescription: string = 'time off';
+  public iconLeft: string = 'close';
 
+  /**
+   * Variable headerDescription
+   * @type {string}
+   * @memberof SettingsComponent
+   */
 
+  public descriptionLeft: string = 'time off';
   //
   // /**
   //  * Variable availbleInput
