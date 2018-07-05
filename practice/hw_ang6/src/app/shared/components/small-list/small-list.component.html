@@ -12,11 +12,10 @@
   <mat-toolbar class="small-list__toolbar global__element-display-none"
                [ngClass]="{'global__element-display' : toggle}">
     <mat-toolbar-row class="small-list__row" *ngFor="let list of lists">
-      <span class="small-list__group">{{list.description | capitalizeFirst}}</span>
       <mat-slide-toggle class="global__element-display-none"
                         [ngClass]="{'global__element-display' : toggle}"
                         [checked]="list.checked"
-                        (change)="onToggle($event, list.id)"></mat-slide-toggle>
+                        (change)="onToggle($event, list.id)">{{list.description | capitalizeFirst}}</mat-slide-toggle>
     </mat-toolbar-row>
   </mat-toolbar>
 </div>

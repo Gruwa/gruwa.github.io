@@ -15,21 +15,6 @@ import {ISettings} from '../interfaces/settings.interface';
 export class DataService {
 
   /**
-   * variable for HttpErrorResponse
-   * @param {object} value - description of errors
-   * @memberof DataService
-   */
-
-  public httpErrorResponse = {
-    '404': 'Page not found',
-    '401': 'Authorisation error',
-    '500': 'Global error',
-    '550': 'Try again later',
-    '551': 'Please refresh your data',
-    '552': 'Error ID Group'
-  };
-
-  /**
    * variable for HttpSuccessResponse
    * @param {object} value - description of success
    * @memberof DataService

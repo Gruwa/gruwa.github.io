@@ -14,14 +14,20 @@
   flex-grow: 1;
 
   &__title {
-    margin-bottom: 16px;
+    margin-bottom: 13px;
+    padding: 0 16px;
     color: #6c7380;
+    font-family: Lato, Helvetica, Arial, sans-serif;
   }
 
   &__wrapper {
     max-width: 976px;
     padding: 13px 24px;
     margin: auto;
+
+    &:first-child {
+        padding-top: 26px;
+    }
   }
 
   &__content {

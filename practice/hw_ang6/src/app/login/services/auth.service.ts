@@ -56,6 +56,7 @@ export class AuthService {
   /**
    * Method for put shifts in flow
    * @param {object} body
+   * @param {string} redirecturl
    * @returns {void}
    * @memberof AuthService
    */
@@ -69,7 +70,6 @@ export class AuthService {
       if (!redirecturl || redirecturl === '/login/schedule') {
         this.router.navigate(['/login/schedule']);
       } else {
-        console.log(this.activeRoute.queryParams['value'].redirecturl);
         this.router.navigate([redirecturl]);
       }
     });

@@ -27,20 +27,12 @@ import {Router} from '@angular/router';
 export class AvailabilityComponent implements OnInit, OnDestroy {
 
   /**
-   * Variable of spinner
-   * @type {string}
-   * @memberof AvailabilityComponent
-   */
-
-  public iconLeft: string = 'menu';
-
-  /**
    * Variable headerDescription
    * @type {string}
    * @memberof AvailabilityComponent
    */
 
-  public descriptionLeft: string = 'my availability';
+  public headerDescription: string = 'my availability';
 
   /**
    * Variable of tab
@@ -148,7 +140,7 @@ export class AvailabilityComponent implements OnInit, OnDestroy {
    */
 
   public showSideBar(event?: any): void {
-    this.flowService.dataSideBar$.next('iconLeft');
+    this.flowService.dataSideBar$.next(true);
   }
 
   /**

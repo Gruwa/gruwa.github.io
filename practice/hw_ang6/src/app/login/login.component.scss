@@ -48,11 +48,6 @@ form {
   flex-direction: row;
   align-items: center;
   align-content: center;
-
-  &__img {
-    max-width: 260px;
-    margin: auto;
-  }
 }
 
 .dc-login-form {
@@ -117,7 +112,7 @@ form {
 .login-block-wrap {
   flex-grow: 1;
   background-color: #fafbfc;
-  height: 100%;
+  min-height: 100%;
 
   &__display {
     display: block;

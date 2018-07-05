@@ -16,5 +16,14 @@
       "^/dev": ""
     },
     "changeOrigin": true
+  },
+  "/err/*": {
+    "target": "http://localhost:3000/api/err",
+    "secure": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/err": ""
+    },
+    "changeOrigin": true
   }
 }

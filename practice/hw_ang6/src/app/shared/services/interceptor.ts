@@ -8,8 +8,12 @@ import {
   HttpInterceptor,
   HttpErrorResponse
 } from '@angular/common/http';
-import {Observable} from 'rxjs';
 import {
+  Observable,
+  throwError
+} from 'rxjs';
+import {
+  catchError,
   map,
   tap
 } from 'rxjs/operators';
@@ -22,6 +26,7 @@ import {FlowService} from './flow.service';
 import {ToastrService} from 'ngx-toastr';
 import {DataService} from './data.service';
 import {MainService} from './main.service';
+import {HttpErrorResponseService} from './http-error-response.service';
 
 /**
  * Injectable
@@ -39,6 +44,7 @@ export class AuthInterceptor implements HttpInterceptor {
    * @param {ToastrService} toastr
    * @param {DataService} dataService
    * @param {MainService} mainService
+   * @param {HttpErrorResponseService} httpErrorResponseService
    * @memberof AuthInterceptor
    */
 
@@ -48,7 +54,8 @@ export class AuthInterceptor implements HttpInterceptor {
               private flowService: FlowService,
               private toastr: ToastrService,
               private dataService: DataService,
-              private mainService: MainService) {
+              private mainService: MainService,
+              private httpErrorResponseService: HttpErrorResponseService) {
   }
 
   /**
@@ -117,50 +124,32 @@ export class AuthInterceptor implements HttpInterceptor {
       ),
       tap(() => {
           this.flowService.dataSpinner$.next(false);
-        },
-        (err: any) => {
-          if (err instanceof HttpErrorResponse) {
-            if (err.status === 404) {
-              console.log('error 404');
-              this.toastr.error(this.dataService.httpErrorResponse['404']);
-              this.flowService.dataSpinner$.next(false);
-              this.router.navigate(['/404']);
-            }
-            if (err.status === 401) {
-              console.log('error 401');
-              this.toastr.error(this.dataService.httpErrorResponse['401']);
-              this.flowService.dataSpinner$.next(false);
-              this.mainService.logOut();
-            }
-            if (err.status === 500) {
-              console.log('error 500'); // other error on backend part
-              this.toastr.error(this.dataService.httpErrorResponse['500']);
-              this.flowService.dataSmallSpinner$.next(false);
-            }
-            if (err.status === 550) {
-              console.log('error 550'); // other error on backend part
-              this.toastr.error(this.dataService.httpErrorResponse['550']);
-              this.flowService.dataSmallSpinner$.next(false);
-            }
-            if (err.status === 551) {
-              console.log('error 551'); // if data on mobile is old
-              this.toastr.error(this.dataService.httpErrorResponse['551']);
-              this.flowService.dataSmallSpinner$.next(false);
-              setTimeout(() => {
-                window.location.href = '/' +
-                  this.route.snapshot.children[0].params['group'] + '/' +
-                  'shifts' + '/' +
-                  this.route.snapshot.children[0].children[0].params['id'];
-              }, 1200);
-            }
-            if (err.status === 552) {
-              console.log('error 552'); // other error on backend part
-              this.toastr.error(this.dataService.httpErrorResponse['552']);
-              this.flowService.dataSmallSpinner$.next(false);
-            }
-          }
         }
-      )
+      ),
+      catchError((err: any) => {
+        if (err instanceof HttpErrorResponse) {
+          switch ((<HttpErrorResponse>err).status) {
+            case 404:
+              return this.httpErrorResponseService.handle404Error(err);
+            case 401:
+              return this.httpErrorResponseService.handle401Error(err);
+            case 400:
+              return this.httpErrorResponseService.handle400Error(err);
+            case 500:
+              return this.httpErrorResponseService.handle500Error(err);
+            case 403:
+              return this.httpErrorResponseService.handle403Error(err);
+            case 422:
+              return this.httpErrorResponseService.handle422Error(err);
+            case 402:
+              return this.httpErrorResponseService.handle402Error(err);
+            default:
+              return this.httpErrorResponseService.handleDefaultError(err);
+          }
+        } else {
+          return throwError(err);
+        }
+      })
     );
   }
 }

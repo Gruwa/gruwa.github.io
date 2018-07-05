@@ -39,6 +39,13 @@ export class MainService {
     this.flowService.dataSmallSpinner$.next(false);
     this.flowService.dataSpinner$.next(false);
     this.flowService.dataSpinnerRestaurants$.next(false);
+    this.flowService.dataRestaurants$ = undefined;
+    this.flowService.dataContactInfo$ = undefined;
+    this.flowService.dataShiftsUpcoming$ = undefined;
+    this.flowService.dataShiftsAvailable$ = undefined;
+    this.flowService.dataSettings$ = undefined;
+    this.flowService.dataTimeOff$ = undefined;
+    this.flowService.dataVolunteer$ = undefined;
     this.router.navigate(['/login'], {queryParams: {redirectUrl: this.router.url}});
   }
 }

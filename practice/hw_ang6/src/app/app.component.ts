@@ -127,7 +127,7 @@ export class AppComponent implements OnInit, OnDestroy {
               private googleAnalyticsService: GoogleAnalyticsService,
               private localStorage: LocalStorageService) {
     this.appendGaTrackingCode();
-    console.info('Version of Shiftworks', version.VERSION);
+    console.log('Version of Shiftworks', version.VERSION);
   }
 
   /**
@@ -224,10 +224,6 @@ export class AppComponent implements OnInit, OnDestroy {
   public sideBarShow(event?: string): void {
     if (event === 'iconLeft') {
       this.sideBar.toggle();
-
-      // if (this.arrow) {
-      //   this.arrow = !this.arrow;
-      // }
       this.arrow = false;
       this.flowService.dataSideBarGroupRestaurants$.next(false);
     }
@@ -235,18 +231,6 @@ export class AppComponent implements OnInit, OnDestroy {
       this.arrow = !this.arrow;
       this.flowService.dataSideBarGroupRestaurants$.next(this.arrow);
     }
-  }
-
-  /**
-   * Method fo show list Bar
-   * @returns {void}
-   * @param {any} $event
-   * @memberof AppComponent
-   */
-
-  public listBarShow($event: any): void {
-    this.arrow = !this.arrow;
-    this.flowService.dataSideBarGroupRestaurants$.next(this.arrow);
   }
 
   /**
