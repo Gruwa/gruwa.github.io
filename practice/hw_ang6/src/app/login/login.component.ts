@@ -3,7 +3,7 @@
   OnInit,
   OnDestroy
 } from '@angular/core';
-import {Router} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import {
   FormBuilder,
   FormGroup,
@@ -53,14 +53,14 @@ export class LoginComponent implements OnInit, OnDestroy {
    * @param {AuthService} authService
    * @param {FlowService} flowService
    * @param {FormBuilder} fb
-   * @param {Router} router
+   * @param {ActivatedRoute} activeRoute
    * @memberof LoginComponent
    */
 
-  constructor(private router: Router,
-              public authService: AuthService,
+  constructor(public authService: AuthService,
               public flowService: FlowService,
-              private fb: FormBuilder) {
+              private fb: FormBuilder,
+              private activeRoute: ActivatedRoute) {
   }
 
   /**
@@ -115,7 +115,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       remember: this.loginForm.get('remember').value
     };
 
-    this.authService.onLogin(valueOfLogin);
+    this.authService.onLogin(valueOfLogin, this.activeRoute.snapshot.queryParams.redirectUrl);
   }
 
   /**

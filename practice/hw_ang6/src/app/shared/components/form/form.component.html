@@ -9,7 +9,7 @@
                    [control]="dataGroup.get('frequencyID')">
   </app-form-select>
 
-  <!--[elements]="data['frequencyList']"-->
+  <!--&lt;!&ndash;[elements]="data['frequencyList']"&ndash;&gt;-->
   <app-form-date class="form-component__input-group"
                  placeholder="{{descriptions['dateFrom'] | capitalizeFirst}}"
                  readonly="true"
@@ -17,10 +17,10 @@
                  [control]="dataGroup.get('dateFrom')">
   </app-form-date>
   <app-form-date class="form-component__input-group"
-                 placeholder="{{descriptions['dateThrough'] | capitalizeFirst}}"
+                 placeholder="{{descriptions['dateTrough'] | capitalizeFirst}}"
                  readonly="true"
                  type="'date"
-                 [control]="dataGroup.get('dateThrough')">
+                 [control]="dataGroup.get('dateTrough')">
   </app-form-date>
   <app-form-time class="form-component__input-group"
                  type="time"

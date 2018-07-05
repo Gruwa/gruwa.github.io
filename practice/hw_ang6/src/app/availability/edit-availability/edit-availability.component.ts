@@ -1,16 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {takeUntil} from 'rxjs/operators';
 import {Validators} from '@angular/forms';
-import {IFormAvailabilityDescription} from '../../shared/interfaces/types.interface';
+import {IFormAvailabilityDescription, ITabTypesAvailability} from '../../shared/interfaces/types.interface';
 import {DataService} from '../../shared/services/data.service';
 import {FlowService} from '../../shared/services/flow.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {ITimeOff} from '../../shared/interfaces/timeoff.interface';
+import {LocalStorageService} from 'ngx-webstorage';
+import {forEach} from '@angular/router/src/utils/collection';
+import {Subject} from 'rxjs';
+import {HttpService} from '../../shared/services/http.service';
 
 @Component({
   selector: 'app-edit-availability',
   templateUrl: './edit-availability.component.html',
   styleUrls: ['./edit-availability.component.scss']
 })
-export class EditAvailabilityComponent implements OnInit {
+export class EditAvailabilityComponent implements OnInit, OnDestroy {
 
   /**
    * Variable formDescription
@@ -21,12 +27,20 @@ export class EditAvailabilityComponent implements OnInit {
   public formDescriptions;
 
   /**
-   * Variable of spinner
+   * Variable of iconLeft
    * @type {string}
    * @memberof SettingsComponent
    */
 
   public iconLeft: string = 'close';
+
+  /**
+   * Variable of iconRight
+   * @type {string}
+   * @memberof SettingsComponent
+   */
+
+  public iconRight: string = 'delete';
 
   /**
    * Variable headerDescription
@@ -35,6 +49,23 @@ export class EditAvailabilityComponent implements OnInit {
    */
 
   public descriptionLeft: string = 'time off';
+
+  /**
+   * Variable availabilityActiveID
+   * @type {object}
+   * @memberof FormComponent
+   */
+
+  public availabilityActiveID: string;
+
+  /**
+   * Variable availabilityActive
+   * @type {object}
+   * @memberof FormComponent
+   */
+
+  public availabilityActive: ITimeOff;
+
   //
   // /**
   //  * Variable availbleInput
@@ -52,13 +83,13 @@ export class EditAvailabilityComponent implements OnInit {
   //
   // public shiftGroup: FormGroup;
   //
-  // /**
-  //  * Variable of ngUnsubscribe
-  //  * @type {Subject<void>}
-  //  * @memberof FormComponent
-  //  */
-  //
-  // private ngUnsubscribe: Subject<void> = new Subject<void>();
+  /**
+   * Variable of ngUnsubscribe
+   * @type {Subject<void>}
+   * @memberof FormComponent
+   */
+
+  private ngUnsubscribe: Subject<void> = new Subject<void>();
   //
   // /**
   //  * Input variable status
@@ -68,13 +99,7 @@ export class EditAvailabilityComponent implements OnInit {
   //
   // @Input() status: string;
   //
-  // /**
-  //  * Input variable shiftActive
-  //  * @type {object}
-  //  * @memberof FormComponent
-  //  */
-  //
-  // @Input() shiftActive: IShift;
+
   //
   // /**
   //  * Variable tab
@@ -90,14 +115,44 @@ export class EditAvailabilityComponent implements OnInit {
    * @param {ActivatedRoute} route
    * @param {FormBuilder} fb
    * @param {DataService} dataService
+   * @Param {Router} router
    * @memberof FormComponent
    */
 
   constructor(private dataService: DataService,
-              private flowService: FlowService) { }
+              private router: Router,
+              private route: ActivatedRoute,
+              private localStorage: LocalStorageService,
+              private flowService: FlowService,
+              private httpService: HttpService) {
+  }
 
   ngOnInit() {
     this.formDescriptions = this.dataService.LIST_DESCRIPTIONS;
+    // this.availabilityActiveID = this.route.snapshot.params['id'];
+
+    for (const i in this.dataService.FLOW_AVAILABILITY) {
+      if (this.flowService[`${this.dataService.FLOW_AVAILABILITY[i]}`] === undefined) {
+        this.httpService.getAvailability(<ITabTypesAvailability>i);
+      }
+    }
+
+    if (this.route.snapshot.params['id'] !== 'new') {
+      this.flowService[`${this.dataService.FLOW_AVAILABILITY[this.localStorage.retrieve('tabavailability')]}`].pipe(
+        takeUntil(this.ngUnsubscribe)
+      ).subscribe(
+        (items) => {
+          console.log(items);
+          items['items'].forEach((item) => {
+            if (item.id === this.route.snapshot.params['id']) {
+              this.availabilityActive = item;
+            }
+          });
+          // this.flowService.dataSmallSpinner$.next(false);
+        });
+    }
+
+
     // this.flowService.dataSave$.pipe(
     //   takeUntil(this.ngUnsubscribe)
     // ).subscribe(this.setBody.bind(this));
@@ -117,7 +172,9 @@ export class EditAvailabilityComponent implements OnInit {
    */
 
   public showSideBar(event?: any): void {
-    this.flowService.dataSideBar$.next(true);
+    if (event === 'iconLeft') {
+      this.router.navigate(['/availability']);
+    }
   }
 
   // /**
@@ -246,15 +303,15 @@ export class EditAvailabilityComponent implements OnInit {
   //   }
   // }
   //
-  // /**
-  //  * Method ngOnDestroy
-  //  * @returns {void}
-  //  * @memberof FormComponent
-  //  */
-  //
-  // ngOnDestroy(): void {
-  //   this.ngUnsubscribe.next();
-  //   this.ngUnsubscribe.complete();
-  // }
+  /**
+   * Method ngOnDestroy
+   * @returns {void}
+   * @memberof FormComponent
+   */
+
+  ngOnDestroy(): void {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
+  }
 
 }

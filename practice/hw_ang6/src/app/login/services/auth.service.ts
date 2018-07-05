@@ -6,7 +6,10 @@ import {DataService} from '../../shared/services/data.service';
 import {Observable} from 'rxjs';
 import {HttpService} from '../../shared/services/http.service';
 import {ToastrService} from 'ngx-toastr';
-import {Router} from '@angular/router';
+import {
+  ActivatedRoute,
+  Router
+} from '@angular/router';
 import {LocalStorageService} from 'ngx-webstorage';
 import {HttpGuardRequestService} from '../../shared/services/http-guard-request.service';
 
@@ -35,6 +38,7 @@ export class AuthService {
    * @param {LocalStorageService} localStorage
    * @param {HttpGuardRequestService} httpGuardRequestService
    * @param {Router} router
+   * @param {ActivatedRoute} activeRoute
    * @memberof AuthService
    */
 
@@ -45,7 +49,8 @@ export class AuthService {
               private httpService: HttpService,
               private router: Router,
               private localStorage: LocalStorageService,
-              private httpGuardRequestService: HttpGuardRequestService) {
+              private httpGuardRequestService: HttpGuardRequestService,
+              private activeRoute: ActivatedRoute) {
   }
 
   /**
@@ -55,13 +60,18 @@ export class AuthService {
    * @memberof AuthService
    */
 
-  public onLogin(body: object): void {
+  public onLogin(body: object, redirecturl: string): void {
     this.onLoginRequest(this.httpGuardRequestService.guardlogin(body)).subscribe((resp) => {
-      this.toastr.success(this.dataService.httpSuccessResponse['login']);
       this.localStorage.store('user', body['login']);
       this.httpService.getRestaurants();
       this.flowService.dataSmallSpinner$.next(true);
-      this.router.navigate(['/login/schedule']);
+
+      if (!redirecturl || redirecturl === '/login/schedule') {
+        this.router.navigate(['/login/schedule']);
+      } else {
+        console.log(this.activeRoute.queryParams['value'].redirecturl);
+        this.router.navigate([redirecturl]);
+      }
     });
   }
 

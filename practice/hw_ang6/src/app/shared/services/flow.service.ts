@@ -28,12 +28,12 @@ export class FlowService {
   public dataSideBarGroupRestaurants$ = new Subject<any>();
 
   /**
-   * Created flow of save
+   * Created flow of SideBarClose$
    * @type {Subject<any>}
    * @memberof DataService
    */
 
-  public dataSave$ = new Subject<any>();
+  public dataSideBarClose$ = new Subject<any>();
 
   /**
    * Created flow of data small spinner

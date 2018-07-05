@@ -191,7 +191,7 @@ export class DataService {
   public LIST_DESCRIPTIONS = {
     title: 'time off title',
     dateFrom: 'date from',
-    dateThrough: 'date through',
+    dateTrough: 'date through',
     startTime: 'start time',
     endTime: 'end time',
     frequency: 'frequency',

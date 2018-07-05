@@ -14,7 +14,7 @@ import {HttpService} from '../../shared/services/http.service';
 import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
 import {DataService} from '../../shared/services/data.service';
-import {ITabTypesShifts} from '../../shared/interfaces/types.interface';
+import {ITabTypesAvailability, ITabTypesShifts} from '../../shared/interfaces/types.interface';
 
 /**
  * Group Schedule Component
@@ -115,8 +115,12 @@ export class GroupScheduleComponent implements OnInit, OnDestroy {
       for (const i in this.dataService.FLOW) {
         this.flowService[`${this.dataService.FLOW[i]}`] = undefined;
         this.httpService.getShifts(<ITabTypesShifts>i);
-        this.httpService.getSettings();
       }
+      for (const k in this.dataService.FLOW_AVAILABILITY) {
+        this.httpService.getAvailability(<ITabTypesAvailability>k);
+      }
+
+      this.httpService.getSettings();
     }
 
     this.localStorage.store('group', event);

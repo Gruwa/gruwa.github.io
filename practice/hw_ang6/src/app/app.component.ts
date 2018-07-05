@@ -145,6 +145,11 @@ export class AppComponent implements OnInit, OnDestroy {
     this.flowService.dataSideBar$.pipe(
       takeUntil(this.ngUnsubscribe)
     ).subscribe(this.sideBarShow.bind(this));
+    this.flowService.dataSideBarClose$.pipe(
+      takeUntil(this.ngUnsubscribe)
+    ).subscribe(() => {
+      this.sideBar.close();
+    });
 
     if (this.localStorage.retrieve('group')) {
       this.roomDescription = this.localStorage.retrieve('group').description;
@@ -181,7 +186,7 @@ export class AppComponent implements OnInit, OnDestroy {
   private initHeader(): void {
     this.img = {
       url: 'assets/images/SWLogo.svg',
-      class: 'app__logo'
+      class: 'header__logo'
     };
     this.items = [
       {

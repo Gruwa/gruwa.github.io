@@ -22,14 +22,19 @@ const versions: Array<object> = [
     description: 'Story 11705'
   },
   {
-    version: '0.0.1.0',
+    version: '0.1.0.0',
     date: '06/27/2018',
     description: 'Sprint Demo'
   },
   {
-    version: '0.0.1.1',
+    version: '0.1.1.0',
     date: '07/03/2018',
     description: 'Rewrite header component'
+  },
+  {
+    version: '0.1.3.0',
+    date: '07/03/2018',
+    description: 'Component availability'
   }
 ];
 

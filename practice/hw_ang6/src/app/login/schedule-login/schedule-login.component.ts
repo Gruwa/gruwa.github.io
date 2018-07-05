@@ -13,7 +13,7 @@ import {
 } from 'rxjs/operators';
 import {Subject} from 'rxjs';
 import {MainService} from '../../shared/services/main.service';
-import {ITabTypesShifts} from '../../shared/interfaces/types.interface';
+import {ITabTypesAvailability, ITabTypesShifts} from '../../shared/interfaces/types.interface';
 import {HttpService} from '../../shared/services/http.service';
 import {DataService} from '../../shared/services/data.service';
 
@@ -133,6 +133,10 @@ export class ScheduleLoginComponent implements OnInit, OnDestroy {
     for (const i in this.dataService.FLOW) {
       this.flowService[`${this.dataService.FLOW[i]}`] = undefined;
       this.httpService.getShifts(<ITabTypesShifts>i);
+    }
+    for (const i in this.dataService.FLOW_AVAILABILITY) {
+      this.flowService[`${this.dataService.FLOW_AVAILABILITY[i]}`] = undefined;
+        this.httpService.getAvailability(<ITabTypesAvailability>i);
     }
   }
 

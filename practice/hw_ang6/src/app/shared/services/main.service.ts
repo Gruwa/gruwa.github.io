@@ -16,11 +16,13 @@ export class MainService {
    * Creates an instance of HttpService
    * @param {Router} router
    * @param {LocalStorageService} localStorage
+   * @param {FlowService} flowService
    * @memberof HttpService
    */
 
   constructor(private localStorage: LocalStorageService,
-              private router: Router) {
+              private router: Router,
+              private flowService: FlowService) {
   }
 
   /**
@@ -31,10 +33,12 @@ export class MainService {
 
   public logOut(): void {
     this.localStorage.clear('token');
-    this.localStorage.clear('group');
     this.localStorage.clear('user');
-    this.localStorage.clear('tab');
-    this.localStorage.clear('tabAvailability');
-    this.router.navigate(['/login']);
+    this.flowService.dataSideBarClose$.next();
+    this.flowService.dataSideBarGroupRestaurants$.next(false);
+    this.flowService.dataSmallSpinner$.next(false);
+    this.flowService.dataSpinner$.next(false);
+    this.flowService.dataSpinnerRestaurants$.next(false);
+    this.router.navigate(['/login'], {queryParams: {redirectUrl: this.router.url}});
   }
 }

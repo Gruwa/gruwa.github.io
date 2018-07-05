@@ -71,6 +71,7 @@ export class FormComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
+    console.log(this.data);
   }
 
   /**
@@ -83,12 +84,15 @@ export class FormComponent implements OnInit {
     this.dataGroup = this.fb.group({
       dataTitle: ['', [Validators.required, Validators.minLength(1)]],
       dateFrom: ['', [Validators.required]],
-      dateThrough: ['', [Validators.required]],
+      dateTrough: ['', [Validators.required]],
       startTime: ['', [Validators.required]],
       endTime: ['', [Validators.required]],
       frequencyID: ['', [Validators.required]],
       comment: ['', []]
     });
+    if (this.data) {
+      this.setDataForm();
+    }
   }
 
   /**
@@ -99,14 +103,13 @@ export class FormComponent implements OnInit {
 
   setDataForm(): void {
     this.dataGroup = this.fb.group({
-      // shiftTitle: this.shift['item'].shiftTitle,
-      // date: this.shift['item'].dateFrom,
-      // startTime: moment(this.shift['item'].dateFrom).utcOffset(0, false).format('HH:mm'),
-      // endTime: moment(this.shift['item'].dateTo).utcOffset(0, false).format('HH:mm'),
-      // locationID: this.shift['item'].locationID,
-      // stationID: this.shift['item'].stationID,
-      // jobID: this.shift['item'].jobID,
-      // status: this.status
+      dataTitle: this.data['title'],
+      dateFrom: this.data['dateFrom'],
+      dateTrough: this.data['dateTrough'],
+      startTime: moment(this.data['startTime']).utcOffset(0, false).format('HH:mm'),
+      endTime: moment(this.data['endTime']).utcOffset(0, false).format('HH:mm'),
+      frequencyID: this.data['frequency'],
+      comment: this.data['comment']
     });
   }
 

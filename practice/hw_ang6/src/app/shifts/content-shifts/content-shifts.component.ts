@@ -114,13 +114,26 @@ export class ContentShiftsComponent implements OnInit, OnDestroy {
 
   private getDataShifts(): void {
     this.flowService.dataSmallSpinner$.next(true);
-    this.flowService[`${this.dataService.FLOW[this.tab]}`].pipe(
-      takeUntil(this.ngUnsubscribe)
-    ).subscribe(
-      (value) => {
-        this.getShifts(value['items']);
-      }
-    );
+
+    if (this.flowService[`${this.dataService.FLOW[this.tab]}`] !== undefined) {
+      this.flowService[`${this.dataService.FLOW[this.tab]}`].pipe(
+        takeUntil(this.ngUnsubscribe)
+      ).subscribe(
+        (value) => {
+          this.getShifts(value['items']);
+        },
+        (error) => {
+          if (error.status === 401) {
+            console.log('401');
+            this.flowService[`${this.dataService.FLOW[this.tab]}`] = undefined;
+            this.httpService.getShifts();
+
+            this.getDataShifts();
+          }
+        }
+      );
+
+    }
   }
 
   /**
