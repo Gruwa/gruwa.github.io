@@ -196,6 +196,13 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
   private setBody(value?: string): void {
 
     if (!this.dataGroup.invalid) {
+      if (!this.dataGroup.get('dateFrom').value) {
+        this.dataGroup.get('dateFrom').setValue('0001-01-01');
+      }
+      if (!this.dataGroup.get('dateTrough').value) {
+        this.dataGroup.get('dateTrough').setValue('0001-01-01');
+      }
+
       const data = {
         'title': this.dataGroup.get('dataTitle').value,
         'comment': this.dataGroup.get('comment').value,
@@ -204,12 +211,19 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
         'startTime': moment(this.dataGroup.get('startTime').value, 'HH:mm').format('hh:mm A'),
         'endTime': moment(this.dataGroup.get('endTime').value, 'HH:mm').format('hh:mm A')
       };
-      console.log(data);
-
 
       if (this.router.url === '/availability/new') {
-        console.log('save');
-
+        this.httpService.postAvailability(data).pipe(
+          takeUntil(this.ngUnsubscribe)
+        ).subscribe((next) => {
+          this.flowService[`${this.dataService.FLOW_AVAILABILITY[this.localStorage.retrieve('tabavailability')]}`].pipe(
+            takeUntil(this.ngUnsubscribe)
+          ).subscribe(
+            (items) => {
+              items['items'].push(next['Data']);
+              this.router.navigate(['/availability']);
+            });
+        });
       } else {
         this.httpService.patchAvailability(data, this.route.snapshot.params['id']).pipe(
           takeUntil(this.ngUnsubscribe)

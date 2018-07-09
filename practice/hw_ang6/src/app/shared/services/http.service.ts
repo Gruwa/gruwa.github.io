@@ -367,4 +367,34 @@ export class HttpService {
     return this.http.patch(this.dataService.BASEURL + '/availability/'
       + this.dataService.TABS_AVAILABILITY[this.localStorage.retrieve('tabavailability')] + 's/' + id, body);
   }
+
+  /**
+   * Method for post availability
+   * @param {object} body
+   * @returns {void}
+   * @memberof HttpService
+   */
+
+  public postAvailability(body: object): Observable<object> {
+    return this.paostAvailabilityRequest(this.httpGuardRequestService.guardAvailability(body)).pipe(
+      map(
+        (resp) => {
+          console.log('httpService postAvailability', resp); // TODO - Delete when ready
+          return this.httpGuardService.guardAvailability(resp);
+        }
+      )
+    );
+  }
+
+  /**
+   * Method for post availability request
+   * @param {object} body
+   * @returns {Observable<object>}
+   * @memberof HttpService
+   */
+
+  public paostAvailabilityRequest(body: object): Observable<object> {
+    return this.http.post(this.dataService.BASEURL + '/availability/'
+      + this.dataService.TABS_AVAILABILITY[this.localStorage.retrieve('tabavailability')] + 's/', body);
+  }
 }
