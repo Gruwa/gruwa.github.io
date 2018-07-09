@@ -45,6 +45,11 @@ const versions: Array<object> = [
     version: '0.1.3.3',
     date: '07/05/2018',
     description: 'Rewrite interceptor'
+  },
+  {
+    version: '0.1.4.1',
+    date: '07/09/2018',
+    description: 'Edit availability'
   }
 ];
 
