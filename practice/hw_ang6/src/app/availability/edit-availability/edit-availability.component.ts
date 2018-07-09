@@ -16,7 +16,6 @@ import {Subject} from 'rxjs';
 import {HttpService} from '../../shared/services/http.service';
 import {AvailabilityService} from '../services/availability.service';
 import {ToastrService} from 'ngx-toastr';
-import {HttpGuardService} from '../../shared/services/http-guard.service';
 
 @Component({
   selector: 'app-edit-availability',
@@ -110,8 +109,7 @@ export class EditAvailabilityComponent implements OnInit, OnDestroy {
               private flowService: FlowService,
               private httpService: HttpService,
               private toastr: ToastrService,
-              private availabilityService: AvailabilityService,
-              private httpGuardService: HttpGuardService) {
+              private availabilityService: AvailabilityService) {
   }
 
   /**
