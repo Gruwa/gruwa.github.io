@@ -15,6 +15,11 @@ import {FlowService} from '../../services/flow.service';
 
 /**
  * Header Shifts Component
+ *
+ * 1. For universal component need global class in unicorn-app-theme.scss
+ * global__element-display for show it
+ * 2. COmponent has 1 Output for all actions. Actions has different key:
+ * iconLeft, iconRight, descriptionRight and item.id for second part
  */
 
 @Component({
@@ -74,6 +79,14 @@ export class HeaderComponent implements OnInit {
   @Input() descriptionRight: string;
 
   /**
+   * Input variable descriptionActive on right
+   * @type {boolean}
+   * @memberof HeaderComponent
+   */
+
+  @Input() descriptionRightActive: 'VALID' | 'INVALID' = 'VALID';
+
+  /**
    * Input variable img
    * @type {string}
    * @memberof HeaderComponent
@@ -121,7 +134,6 @@ export class HeaderComponent implements OnInit {
   public clickEvent(event: string): void {
     this.outputActionMethod.emit(event);
   }
-
 
 
 }

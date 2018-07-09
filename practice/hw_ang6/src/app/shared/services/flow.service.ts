@@ -52,6 +52,14 @@ export class FlowService {
   public dataSpinner$ = new Subject<any>();
 
   /**
+   * Created flow of save time off
+   * @type {Subject<any>}
+   * @memberof DataService
+   */
+
+  public dataEventTimeOff$ = new Subject<any>();
+
+  /**
    * Created flow of show restaurants spinner
    * @type {Subject<any>}
    * @memberof DataService

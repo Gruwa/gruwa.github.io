@@ -1,7 +1,7 @@
 import {
   ChangeDetectionStrategy,
-  Component,
-  Input
+  Component, EventEmitter,
+  Input, Output
 } from '@angular/core';
 import {FormControl} from '@angular/forms';
 
@@ -60,4 +60,21 @@ export class FormTimeComponent {
    */
 
   @Input() readonly: boolean = false;
+
+  /**
+   * Output action from form select
+   * @memberof FormTimeComponent
+   */
+
+  @Output() outputActionMethod: EventEmitter<any> = new EventEmitter();
+
+  /**
+   * Method selectionChange
+   * @returns {void}
+   * @memberof FormTimeComponent
+   */
+
+  public selectionChange(event: string): void {
+    this.outputActionMethod.emit(event);
+  }
 }

@@ -15,6 +15,7 @@ import {FormTimeComponent} from './app-foms/form-time/form-time.component';
 import {MainListComponent} from './main-list/main-list.component';
 import {SmallListComponent} from './small-list/small-list.component';
 import {FormComponent} from './form/form.component';
+import {FormTextAreaComponent} from './app-foms/form-text-area/form-text-area.component';
 
 @NgModule({
   imports: [
@@ -35,7 +36,8 @@ import {FormComponent} from './form/form.component';
     FormTimeComponent,
     MainListComponent,
     SmallListComponent,
-    FormComponent
+    FormComponent,
+    FormTextAreaComponent
   ],
   exports: [
     ShiftBlockComponent,
@@ -49,7 +51,8 @@ import {FormComponent} from './form/form.component';
     FormTimeComponent,
     MainListComponent,
     SmallListComponent,
-    FormComponent
+    FormComponent,
+    FormTextAreaComponent
   ]
 })
 export class AppComponentsModule {

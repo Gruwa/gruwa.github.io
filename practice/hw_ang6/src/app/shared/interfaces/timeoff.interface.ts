@@ -1,3 +1,5 @@
+import {IFrequency} from './frequency.interface';
+
 /**
  * Export interface TimeOff
  */
@@ -7,7 +9,7 @@ export interface ITimeOff {
   /**
    * Variable contain comment
    * @type {string}
-   * @memberof TimeOff
+   * @memberof ITimeOff
    */
 
   comment: string;
@@ -15,7 +17,7 @@ export interface ITimeOff {
   /**
    * Variable contain dateFrom
    * @type {any}
-   * @memberof TimeOff
+   * @memberof ITimeOff
    */
 
   dateFrom: any;
@@ -23,7 +25,7 @@ export interface ITimeOff {
   /**
    * Variable contain endDate
    * @type {any}
-   * @memberof TimeOff
+   * @memberof ITimeOff
    */
 
   dateTrough: any;
@@ -31,7 +33,7 @@ export interface ITimeOff {
   /**
    * Variable contain startTime
    * @type {string}
-   * @memberof TimeOff
+   * @memberof ITimeOff
    */
 
   startTime: string;
@@ -39,7 +41,7 @@ export interface ITimeOff {
   /**
    * Variable contain frequency
    * @type {string}
-   * @memberof TimeOff
+   * @memberof ITimeOff
    */
 
   frequency: string;
@@ -47,7 +49,7 @@ export interface ITimeOff {
   /**
    * Variable contain id
    * @type {string}
-   * @memberof TimeOff
+   * @memberof ITimeOff
    */
 
   id: string;
@@ -55,7 +57,7 @@ export interface ITimeOff {
   /**
    * Variable contain endTime
    * @type {string}
-   * @memberof TimeOff
+   * @memberof ITimeOff
    */
 
   endTime: string;
@@ -63,7 +65,7 @@ export interface ITimeOff {
   /**
    * Variable contain title
    * @type {string}
-   * @memberof TimeOff
+   * @memberof ITimeOff
    */
 
   title: string;
@@ -71,9 +73,17 @@ export interface ITimeOff {
   /**
    * Variable contain description
    * @type {string}
-   * @memberof TimeOff
+   * @memberof ITimeOff
    */
 
   description: string;
+
+  /**
+   * Variable contain frequencyList
+   * @type {Array<IFrequency>}
+   * @memberof ITimeOff
+   */
+
+  frequencyList?: Array<IFrequency>;
 
 }

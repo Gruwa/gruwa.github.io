@@ -1,42 +1,44 @@
 <form class="form-component" [formGroup]="dataGroup">
   <app-form-input class="form-component__input-group"
                   placeholder="{{descriptions['title'] | capitalizeFirst}}"
-                  [control]="dataGroup.get('dataTitle')">
+                  [control]="dataGroup.get('dataTitle')"
+                  (outputActionMethod)="changeForm($event)">
   </app-form-input>
   <app-form-select class="form-component__input-group"
                    placeholder="{{descriptions['frequency'] | capitalizeFirst}}"
-
-                   [control]="dataGroup.get('frequencyID')">
+                   [elements]="data ? data['frequencyList'] : ''"
+                   [control]="dataGroup.get('frequencyID')"
+                   (outputActionMethod)="changeForm($event)">
   </app-form-select>
-
-  <!--&lt;!&ndash;[elements]="data['frequencyList']"&ndash;&gt;-->
   <app-form-date class="form-component__input-group"
                  placeholder="{{descriptions['dateFrom'] | capitalizeFirst}}"
-                 readonly="true"
-                 type="'date"
-                 [control]="dataGroup.get('dateFrom')">
+                 [required]="false"
+                 [control]="dataGroup.get('dateFrom')"
+                 (outputActionMethod)="changeForm($event)">
   </app-form-date>
   <app-form-date class="form-component__input-group"
                  placeholder="{{descriptions['dateTrough'] | capitalizeFirst}}"
-                 readonly="true"
-                 type="'date"
-                 [control]="dataGroup.get('dateTrough')">
+                 required="false"
+                 [control]="dataGroup.get('dateTrough')"
+                 (outputActionMethod)="changeForm($event)">
   </app-form-date>
   <app-form-time class="form-component__input-group"
                  type="time"
                  placeholder="{{descriptions['startTime'] | capitalizeFirst}}"
-                 [control]="dataGroup.get('startTime')">
+                 [control]="dataGroup.get('startTime')"
+                 (outputActionMethod)="changeForm($event)">
   </app-form-time>
   <app-form-time class="form-component__input-group"
                  type="time"
                  placeholder="{{descriptions['endTime'] | capitalizeFirst}}"
-                 [control]="dataGroup.get('endTime')">
+                 [control]="dataGroup.get('endTime')"
+                 (outputActionMethod)="changeForm($event)">
   </app-form-time>
-  <app-form-input class="form-component__input-group"
-                  placeholder="{{descriptions['comment'] | capitalizeFirst}}"
-                  readonly="true"
-                  required="false"
-                  [control]="dataGroup.get('comment')">
-  </app-form-input>
+  <app-form-text-area class="form-component__input-group"
+                      placeholder="{{descriptions['comment'] | capitalizeFirst}}"
+                      required="false"
+                      [control]="dataGroup.get('comment')"
+                      (outputActionMethod)="changeForm($event)">
+  </app-form-text-area>
 </form>
 

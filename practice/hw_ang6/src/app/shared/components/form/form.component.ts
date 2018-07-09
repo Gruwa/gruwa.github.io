@@ -1,7 +1,7 @@
 import {
-  Component,
-  Input,
-  OnInit,
+  Component, EventEmitter,
+  Input, OnChanges, OnDestroy,
+  OnInit, Output,
   ViewEncapsulation
 } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -12,6 +12,9 @@ import {
   Validators
 } from '@angular/forms';
 import * as moment from 'moment';
+import {FlowService} from '../../services/flow.service';
+import {debounceTime, takeUntil} from 'rxjs/operators';
+import {Subject} from 'rxjs';
 
 
 /**
@@ -24,7 +27,7 @@ import * as moment from 'moment';
   styleUrls: ['./form.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class FormComponent implements OnInit {
+export class FormComponent implements OnInit, OnChanges, OnDestroy {
 
   /**
    * Variable shiftForm
@@ -58,9 +61,25 @@ export class FormComponent implements OnInit {
    * @memberof FormComponent
    */
 
+  /**
+   * Output action from form select
+   * @memberof FormSelectComponent
+   */
+
+  @Output() outputActionMethod: EventEmitter<any> = new EventEmitter();
+
+  /**
+   * Variable of ngUnsubscribe
+   * @type {Subject<void>}
+   * @memberof AppComponent
+   */
+
+  private ngUnsubscribe: Subject<void> = new Subject<void>();
+
   constructor(private router: Router,
               private route: ActivatedRoute,
-              private fb: FormBuilder) {
+              private fb: FormBuilder,
+              private flowService: FlowService) {
   }
 
   /**
@@ -70,8 +89,19 @@ export class FormComponent implements OnInit {
    */
 
   ngOnInit(): void {
+
+    this.flowService.dataEventTimeOff$.pipe(
+      takeUntil(this.ngUnsubscribe)
+    ).subscribe((event) => {
+      if (event === 'save') {
+        this.setBody();
+      }
+    });
     this.initForm();
-    console.log(this.data);
+  }
+
+  ngOnChanges() {
+    this.setDataForm();
   }
 
   /**
@@ -82,17 +112,21 @@ export class FormComponent implements OnInit {
 
   initForm(): void {
     this.dataGroup = this.fb.group({
-      dataTitle: ['', [Validators.required, Validators.minLength(1)]],
-      dateFrom: ['', [Validators.required]],
-      dateTrough: ['', [Validators.required]],
+      dataTitle: ['', [Validators.required]],
+      dateFrom: ['', []],
+      dateTrough: ['', []],
       startTime: ['', [Validators.required]],
       endTime: ['', [Validators.required]],
       frequencyID: ['', [Validators.required]],
       comment: ['', []]
     });
-    if (this.data) {
-      this.setDataForm();
-    }
+
+    this.dataGroup.statusChanges.pipe(
+      takeUntil(this.ngUnsubscribe)
+    ).subscribe( val => {
+      this.changeForm(val);
+    });
+    this.setDataForm();
   }
 
   /**
@@ -102,15 +136,29 @@ export class FormComponent implements OnInit {
    */
 
   setDataForm(): void {
-    this.dataGroup = this.fb.group({
-      dataTitle: this.data['title'],
-      dateFrom: this.data['dateFrom'],
-      dateTrough: this.data['dateTrough'],
-      startTime: moment(this.data['startTime']).utcOffset(0, false).format('HH:mm'),
-      endTime: moment(this.data['endTime']).utcOffset(0, false).format('HH:mm'),
-      frequencyID: this.data['frequency'],
-      comment: this.data['comment']
-    });
+    if (this.data) {
+      if (this.data['availabilityActive']) {
+        this.dataGroup = this.fb.group({
+          dataTitle: this.data['availabilityActive']['title'],
+          dateFrom: this.data['availabilityActive']['dateFrom'],
+          dateTrough: this.data['availabilityActive']['dateTrough'],
+          startTime: moment(this.data['availabilityActive']['startTime'], 'hh:mm A').format('HH:mm'),
+          endTime: moment(this.data['availabilityActive']['endTime'], 'hh:mm A').format('HH:mm'),
+          frequencyID: this.data['availabilityActive']['frequency'],
+          comment: this.data['availabilityActive']['comment']
+        });
+      }
+    }
+  }
+
+  /**
+   * Method closeOurPage for router on shifts page
+   * @returns {void}
+   * @memberof HeaderComponent
+   */
+
+  public changeForm(event: any): void {
+    this.outputActionMethod.emit(event);
   }
 
   /**
@@ -118,6 +166,22 @@ export class FormComponent implements OnInit {
    * @returns {void}
    * @memberof FormComponent
    */
+
+  setBody(value?: string): void {
+
+    if (!this.dataGroup.invalid) {
+      const data = {
+        'title': this.dataGroup.get('dataTitle').value,
+        'comment': this.dataGroup.get('comment').value,
+        'dateFrom': moment(new Date(this.dataGroup.get('dateFrom').value)).format('YYYY-MM-DD') + 'T00:00:00.000Z',
+        'dateTrough': moment(new Date(this.dataGroup.get('dateTrough').value)).format('YYYY-MM-DD') + 'T00:00:00.000Z',
+        'startTime': moment(this.dataGroup.get('startTime').value, 'HH:mm').format('hh:mm A'),
+        'endTime': moment(this.dataGroup.get('endTime').value, 'HH:mm').format('hh:mm A')
+      };
+      console.log(data);
+      // this.flowService.dataSave$.next(data);
+    }
+  }
 
   // setBody(value: string): void {
   //   if (value === 'save') {
@@ -146,6 +210,17 @@ export class FormComponent implements OnInit {
   //     }
   //   }
   // }
+
+  /**
+   * Method ngOnDestroy
+   * @returns {void}
+   * @memberof AppComponent
+   */
+
+  public ngOnDestroy(): void {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
+  }
 
 }
 

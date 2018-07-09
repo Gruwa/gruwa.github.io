@@ -10,6 +10,7 @@ import {AppComponentsModule} from '../shared/components/app-components.module';
 import {AvailabilityComponent} from './availability.component';
 import {EditAvailabilityComponent} from './edit-availability/edit-availability.component';
 import {ListAvailabilityComponent} from './list-availability/list-availability.component';
+import {AvailabilityService} from './services/availability.service';
 
 export const routes: Routes = [
   {
@@ -48,7 +49,10 @@ export const routes: Routes = [
     AvailabilityComponent,
     EditAvailabilityComponent,
     ListAvailabilityComponent
-  ]
+  ],
+  providers: [
+    AvailabilityService
+  ],
 })
 export class AvailabilityModule {
 }

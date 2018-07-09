@@ -16,7 +16,8 @@
        (click)="clickEvent('iconRight')"
        [ngClass]="{'global__element-display' : iconRight}">{{iconRight}}</i>
     <span class="header__element-save global__element-display-none"
-          (click)="clickEvent('descriptionRight')"
+          (click)="clickEvent(descriptionRightActive ===  'VALID' ? 'descriptionRight' : 'descriptionRightDeactivate')"
+          [ngStyle]="{opacity : descriptionRightActive ===  'VALID'  ? 1 : 0.56}"
           [ngClass]="{'global__element-display' : descriptionRight}">{{descriptionRight}}</span>
   </mat-toolbar-row>
 </mat-toolbar>

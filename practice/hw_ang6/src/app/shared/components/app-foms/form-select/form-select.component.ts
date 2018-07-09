@@ -1,7 +1,7 @@
 import {
   ChangeDetectionStrategy,
-  Component,
-  Input
+  Component, EventEmitter,
+  Input, Output
 } from '@angular/core';
 import {FormControl} from '@angular/forms';
 
@@ -68,4 +68,22 @@ export class FormSelectComponent {
    */
 
   @Input() elements: Array<object>;
+
+  /**
+   * Output action from form select
+   * @memberof FormSelectComponent
+   */
+
+  @Output() outputActionMethod: EventEmitter<any> = new EventEmitter();
+
+  /**
+   * Method selectionChange
+   * @returns {void}
+   * @param {object} event
+   * @memberof HeaderComponent
+   */
+
+  public selectionChange(event: object): void {
+    this.outputActionMethod.emit(event);
+  }
 }

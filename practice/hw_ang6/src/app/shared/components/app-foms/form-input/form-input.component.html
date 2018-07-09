@@ -6,7 +6,8 @@
          [placeholder]="placeholder"
          [formControl]="control"
          [readonly]="readonly"
-         [required]="required">
+         [required]="required"
+         (keydown)="selectionChange($event)">
 </mat-form-field>
 <div class="app-forms__input-component__alert-danger"
      [ngClass]="{'app-forms__input-component__display': control.hasError('required') && control.touched}">

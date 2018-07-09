@@ -1,73 +1,71 @@
 import {
   ChangeDetectionStrategy,
-  Component, EventEmitter,
-  Input, Output
+  Component,
+  EventEmitter,
+  Input,
+  Output
 } from '@angular/core';
 import {FormControl} from '@angular/forms';
 
-/**
- * Form Date Component
- */
-
 @Component({
-  selector: 'app-form-date',
-  templateUrl: './form-date.component.html',
-  styleUrls: ['./form-date.component.scss'],
+  selector: 'app-form-text-area',
+  templateUrl: './form-text-area.component.html',
+  styleUrls: ['./form-text-area.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class FormDateComponent {
+export class FormTextAreaComponent {
 
   /**
-   * Variable for form-date type
+   * Variable for form-input type
    * @type {string}
-   * @memberof FormDateComponent
+   * @memberof FormInputComponent
    */
 
   @Input() type: string = 'text';
 
   /**
-   * Variable for form-date required
+   * Variable for form-input required
    * @type {boolean}
-   * @memberof FormDateComponent
+   * @memberof FormInputComponent
    */
 
   @Input() required: boolean = true;
 
   /**
-   * Variable for form-date placeholder
+   * Variable for form-input placeholder
    * @type {string}
-   * @memberof FormDateComponent
+   * @memberof FormInputComponent
    */
 
   @Input() placeholder: string = '';
 
   /**
-   * Variable for form-date control
+   * Variable for form-input control
    * @type {FormControl}
-   * @memberof FormDateComponent
+   * @memberof FormInputComponent
    */
 
   @Input() control: FormControl;
 
   /**
-   * Variable for form-date label
+   * Variable for form-input label
    * @type {string}
-   * @memberof FormDateComponent
+   * @memberof FormInputComponent
    */
 
   @Input() label: string = '';
 
   /**
-   * Variable for form-date readonly
+   * Variable for form-input readonly
    * @type {boolean}
-   * @memberof FormDateComponent
+   * @memberof FormInputComponent
    */
 
   @Input() readonly: boolean = false;
 
   /**
    * Output action from form select
-   * @memberof FormDateComponent
+   * @memberof FormInputComponent
    */
 
   @Output() outputActionMethod: EventEmitter<any> = new EventEmitter();
@@ -75,10 +73,12 @@ export class FormDateComponent {
   /**
    * Method selectionChange
    * @returns {void}
-   * @memberof FormDateComponent
+   * @memberof FormInputComponent
    */
 
   public selectionChange(event: string): void {
-    this.outputActionMethod.emit(event);
+    this.control.statusChanges.subscribe(val => {
+      this.outputActionMethod.emit(val);
+    });
   }
 }

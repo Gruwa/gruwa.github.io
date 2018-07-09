@@ -1,3 +1,12 @@
-<p>
-  edit-availability works!
-</p>
+<app-header class="global__app-header shifts__app-header"
+            [iconLeft]="iconLeft"
+            [iconRight]="iconRight"
+            [descriptionLeft]="descriptionLeft"
+            [descriptionRight]="descriptionRight"
+            [descriptionRightActive]="descriptionRightActive"
+            (outputActionMethod)="showSideBar($event)">
+</app-header>
+<app-form [descriptions]="formDescriptions"
+          [data]="availabilityActive"
+          (outputActionMethod)="changeForm($event)">
+</app-form>
