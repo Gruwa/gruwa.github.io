@@ -12,7 +12,6 @@ import {LocalStorageService} from 'ngx-webstorage';
 import {DataService} from '../../shared/services/data.service';
 import {FlowService} from '../../shared/services/flow.service';
 import {ITabTypesAvailability, ITabTypesShifts} from '../../shared/interfaces/types.interface';
-import {HttpService} from '../../shared/services/http.service';
 
 /**
  * List Availability Component
@@ -24,14 +23,6 @@ import {HttpService} from '../../shared/services/http.service';
   styleUrls: ['./list-availability.component.scss']
 })
 export class ListAvailabilityComponent implements OnInit, OnDestroy {
-
-  /**
-   * Input variable tabActive
-   * @type {number}
-   * @memberof ListAvailabilityComponent
-   */
-
-  @Input() tabActive: number;
 
   /**
    * Variable of tab
@@ -66,6 +57,14 @@ export class ListAvailabilityComponent implements OnInit, OnDestroy {
   public listAvailability: Array<ITimeOff>;
 
   /**
+   * Input variable tabActive
+   * @type {number}
+   * @memberof ListAvailabilityComponent
+   */
+
+  @Input() tabActive: number;
+
+  /**
    * Creates an instance of ListAvailabilityComponent
    * @param {FlowService} flowService
    * @param {LocalStorageService} localStorage
@@ -77,8 +76,7 @@ export class ListAvailabilityComponent implements OnInit, OnDestroy {
   constructor(private router: Router,
               private flowService: FlowService,
               private localStorage: LocalStorageService,
-              public dataService: DataService,
-              private httpService: HttpService) {
+              public dataService: DataService) {
   }
 
   /**
@@ -87,38 +85,26 @@ export class ListAvailabilityComponent implements OnInit, OnDestroy {
    * @memberof ListAvailabilityComponent
    */
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.tab = this.dataService.indexTABS_AVAILABILITY[this.tabActive];
     this.flowService.dataSmallSpinner$.next(true);
     this.getData();
   }
 
-  private getData(): void {
-  //   for (const i in this.dataService.FLOW_AVAILABILITY) {
-  //     if (this.flowService[`${this.dataService.FLOW_AVAILABILITY[i]}`] === undefined) {
-  //       this.httpService.getAvailability(<ITabTypesAvailability>i);
-  //     }
-  //   }
+  /**
+   * Method getData
+   * @returns {void}
+   * @memberof ListAvailabilityComponent
+   */
 
+  private getData(): void {
     this.flowService[`${this.dataService.FLOW_AVAILABILITY[this.tab]}`].pipe(
       takeUntil(this.ngUnsubscribe)
     ).subscribe(
       (value) => {
-        console.log(value);
         this.listAvailability = value['items'];
         this.flowService.dataSmallSpinner$.next(false);
       }
-      // (error) => {
-      //   // FIXME - BUG with 401 error - same in shifts
-      //   console.log('errorerrorerrorerror', error);
-      //   console.log(error.status);
-      //   if (error.status === 401) {
-      //     console.log('401');
-      //     // this.httpService.getAvailability(this.tab);
-      //     this.flowService[`${this.dataService.FLOW_AVAILABILITY[this.tab]}`] = undefined;
-      //     this.getData();
-      //   }
-      // }
     );
   }
 
@@ -139,7 +125,7 @@ export class ListAvailabilityComponent implements OnInit, OnDestroy {
    * @memberof ListAvailabilityComponent
    */
 
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();
   }

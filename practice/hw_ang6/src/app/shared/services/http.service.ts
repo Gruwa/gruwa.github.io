@@ -308,6 +308,35 @@ export class HttpService {
   }
 
   /**
+   * Method for delete availability
+   * @param {string} id
+   * @memberof HttpService
+   */
+
+  deleteAvailability(id: string): Observable<any> {
+    return this.deleteAvailabilityRequest(id).pipe(
+      map(
+        (resp) => {
+          console.log('httpService deleteAvailability', resp);
+          return resp;
+        }
+      )
+    );
+  }
+
+  /**
+   * Method for delete availability request
+   * @param {string} id
+   * @returns {Observable<object>}
+   * @memberof HttpService
+   */
+
+  private deleteAvailabilityRequest(id: string): Observable<object> {
+    return this.http.delete(this.dataService.BASEURL + '/availability/'
+      + this.dataService.TABS_AVAILABILITY[this.localStorage.retrieve('tabavailability')] + 's/' + id);
+  }
+
+  /**
    * Method add all object to db
    * @memberof HttpService
    */

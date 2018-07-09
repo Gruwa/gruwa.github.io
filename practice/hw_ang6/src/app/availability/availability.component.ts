@@ -105,7 +105,7 @@ export class AvailabilityComponent implements OnInit, OnDestroy {
    * @memberof AvailabilityComponent
    */
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.flowService.dataSmallSpinner$
       .pipe(
         takeUntil(this.ngUnsubscribe),
@@ -178,7 +178,7 @@ export class AvailabilityComponent implements OnInit, OnDestroy {
    * @memberof AvailabilityComponent
    */
 
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();
   }

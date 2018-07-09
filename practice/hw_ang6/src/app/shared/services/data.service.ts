@@ -27,6 +27,16 @@ export class DataService {
   };
 
   /**
+   * variable for httpErrorResponse
+   * @param {object} value - description of success
+   * @memberof DataService
+   */
+
+  public errorResponse = {
+    'emptyRequired': 'You have empty required fields'
+  };
+
+  /**
    * variable for TABS
    * @param {object} value - object of tabs
    * @memberof DataService

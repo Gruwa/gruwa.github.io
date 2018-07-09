@@ -1,10 +1,17 @@
 import {
-  Component, EventEmitter,
-  Input, OnChanges, OnDestroy,
-  OnInit, Output,
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  Output,
   ViewEncapsulation
 } from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import {
+  ActivatedRoute,
+  Router
+} from '@angular/router';
 import {IForm} from '../../interfaces/form.interface';
 import {
   FormBuilder,
@@ -13,7 +20,7 @@ import {
 } from '@angular/forms';
 import * as moment from 'moment';
 import {FlowService} from '../../services/flow.service';
-import {debounceTime, takeUntil} from 'rxjs/operators';
+import {takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 
 
@@ -38,6 +45,14 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
   public dataGroup: FormGroup;
 
   /**
+   * Variable of ngUnsubscribe
+   * @type {Subject<void>}
+   * @memberof FormComponent
+   */
+
+  private ngUnsubscribe: Subject<void> = new Subject<void>();
+
+  /**
    * Input variable status
    * @type {string}
    * @memberof FormComponent
@@ -54,27 +69,20 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
   @Input() descriptions: object;
 
   /**
-   * Creates an instance of FormComponent
-   * @param {Router} router
-   * @param {ActivatedRoute} route
-   * @param {FormBuilder} fb
-   * @memberof FormComponent
-   */
-
-  /**
    * Output action from form select
-   * @memberof FormSelectComponent
+   * @memberof FormComponent
    */
 
   @Output() outputActionMethod: EventEmitter<any> = new EventEmitter();
 
   /**
-   * Variable of ngUnsubscribe
-   * @type {Subject<void>}
-   * @memberof AppComponent
+   * Creates an instance of FormComponent
+   * @param {Router} router
+   * @param {ActivatedRoute} route
+   * @param {FormBuilder} fb
+   * @param {FlowService} flowService
+   * @memberof FormComponent
    */
-
-  private ngUnsubscribe: Subject<void> = new Subject<void>();
 
   constructor(private router: Router,
               private route: ActivatedRoute,
@@ -88,7 +96,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
    * @memberof FormComponent
    */
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
 
     this.flowService.dataEventTimeOff$.pipe(
       takeUntil(this.ngUnsubscribe)
@@ -100,7 +108,13 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     this.initForm();
   }
 
-  ngOnChanges() {
+  /**
+   * Method ngOnChanges
+   * @returns {void}
+   * @memberof FormComponent
+   */
+
+  public ngOnChanges(): void {
     this.setDataForm();
   }
 
@@ -110,7 +124,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
    * @memberof FormComponent
    */
 
-  initForm(): void {
+  private initForm(): void {
     this.dataGroup = this.fb.group({
       dataTitle: ['', [Validators.required]],
       dateFrom: ['', []],
@@ -123,7 +137,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
 
     this.dataGroup.statusChanges.pipe(
       takeUntil(this.ngUnsubscribe)
-    ).subscribe( val => {
+    ).subscribe(val => {
       this.changeForm(val);
     });
     this.setDataForm();
@@ -135,7 +149,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
    * @memberof FormComponent
    */
 
-  setDataForm(): void {
+  private setDataForm(): void {
     if (this.data) {
       if (this.data['availabilityActive']) {
         this.dataGroup = this.fb.group({
@@ -154,7 +168,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
   /**
    * Method closeOurPage for router on shifts page
    * @returns {void}
-   * @memberof HeaderComponent
+   * @memberof FormComponent
    */
 
   public changeForm(event: any): void {
@@ -167,7 +181,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
    * @memberof FormComponent
    */
 
-  setBody(value?: string): void {
+  private setBody(value?: string): void {
 
     if (!this.dataGroup.invalid) {
       const data = {
@@ -214,7 +228,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
   /**
    * Method ngOnDestroy
    * @returns {void}
-   * @memberof AppComponent
+   * @memberof FormComponent
    */
 
   public ngOnDestroy(): void {
