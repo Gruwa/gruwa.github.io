@@ -158,7 +158,7 @@ export class HttpGuardService {
    * @memberof HttpGuardService
    */
 
-  public guardAvailability(value): Array<any> {
+  public guardAvailabilities(value): Array<any> {
 
     /**
      * Variable of resp
@@ -202,6 +202,24 @@ export class HttpGuardService {
 
   }
 
+  public guardAvailability(value) {
+
+    const obj = {
+      Data: {
+        'comment': value.Comment,
+        'dateFrom': value.DateFrom,
+        'dateTrough': value.DateTrough,
+        'startTime': value.StartTime,
+        'endTime': value.EndTime,
+        'frequency': value.Frequency,
+        'id': value.ID,
+        'title': value.Title
+      }
+    };
+
+    return obj;
+  }
+
   public guardShifts(value): Array<any> {
 
     /**
@@ -212,35 +230,6 @@ export class HttpGuardService {
 
     const resp: Array<any> = [];
     resp['items'] = [];
-
-    // resp['locationList'] = [];
-    // resp['stationList'] = [];
-    // resp['jobList'] = [];
-    // for (let i = 0; i < value['LocationList'].length; i++) {
-    //   const obj: ILocation = {
-    //     'id': value['LocationList'][i].ID,
-    //     'description': value['LocationList'][i].Description
-    //   };
-    //
-    //   resp['locationList'].push(obj);
-    // }
-    // for (let i = 0; i < value['StationList'].length; i++) {
-    //   const obj: IStation = {
-    //     'id': value['StationList'][i].ID,
-    //     'description': value['StationList'][i].Description
-    //   };
-    //
-    //   resp['stationList'].push(obj);
-    // }
-    // for (let i = 0; i < value['JobList'].length; i++) {
-    //   const obj: IJob = {
-    //     'id': value['JobList'][i].ID,
-    //     'description': value['JobList'][i].Description
-    //   };
-    //
-    //   resp['jobList'].push(obj);
-    // }
-    // TODO - for timeoff
 
     for (let i = 0; i < value['Data'].length; i++) {
       const obj: IShift = {

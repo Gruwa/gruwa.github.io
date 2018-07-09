@@ -16,6 +16,7 @@ import {Subject} from 'rxjs';
 import {HttpService} from '../../shared/services/http.service';
 import {AvailabilityService} from '../services/availability.service';
 import {ToastrService} from 'ngx-toastr';
+import {HttpGuardService} from '../../shared/services/http-guard.service';
 
 @Component({
   selector: 'app-edit-availability',
@@ -109,7 +110,8 @@ export class EditAvailabilityComponent implements OnInit, OnDestroy {
               private flowService: FlowService,
               private httpService: HttpService,
               private toastr: ToastrService,
-              private availabilityService: AvailabilityService) {
+              private availabilityService: AvailabilityService,
+              private httpGuardService: HttpGuardService) {
   }
 
   /**
@@ -167,18 +169,16 @@ export class EditAvailabilityComponent implements OnInit, OnDestroy {
       } else {
         this.httpService.deleteAvailability(this.route.snapshot.params['id']).subscribe((resp) => {
           if (resp['Data'].Success) {
-            console.log('ffff');
-
             this.flowService[`${this.dataService.FLOW_AVAILABILITY[this.localStorage.retrieve('tabavailability')]}`].pipe(
               takeUntil(this.ngUnsubscribe)
             ).subscribe(
               (data) => {
-                  for (const key in data['items']) {
-                    if (data['items'][key].id === this.route.snapshot.params['id']) {
-                      data['items'].splice(key, 1);
-                      this.router.navigate(['/availability']);
-                    }
+                for (const key in data['items']) {
+                  if (data['items'][key].id === this.route.snapshot.params['id']) {
+                    data['items'].splice(key, 1);
+                    this.router.navigate(['/availability']);
                   }
+                }
               });
           }
         });
@@ -186,7 +186,6 @@ export class EditAvailabilityComponent implements OnInit, OnDestroy {
     }
     if (event === 'descriptionRight') {
       this.flowService.dataEventTimeOff$.next('save');
-      console.log('save');
     }
     if (event === 'descriptionRightDeactivate') {
       this.toastr.error(this.dataService.errorResponse['emptyRequired']);

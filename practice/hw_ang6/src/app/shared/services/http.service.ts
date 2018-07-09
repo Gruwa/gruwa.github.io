@@ -110,7 +110,7 @@ export class HttpService {
           map(
             (resp) => {
               console.log('httpService getAvailability', resp); // TODO - Delete when ready
-              return this.httpGuardService.guardAvailability(resp);
+              return this.httpGuardService.guardAvailabilities(resp);
             }
           ),
           publishReplay(1),
@@ -281,11 +281,11 @@ export class HttpService {
   /**
    * Method for patch contact info
    * @param {object} body
-   * @returns {Array<any>}
+   * @returns {Observable<any>}
    * @memberof HttpService
    */
 
-  public patchContactInfo(body: boolean): Observable<any> {
+  public patchContactInfo(body: object): Observable<any> {
     return this.patchContactInfoRequest(this.httpGuardRequestService.guardContactInfo(body)).pipe(
       map(
         (resp) => {
@@ -313,7 +313,7 @@ export class HttpService {
    * @memberof HttpService
    */
 
-  deleteAvailability(id: string): Observable<any> {
+  public deleteAvailability(id: string): Observable<any> {
     return this.deleteAvailabilityRequest(id).pipe(
       map(
         (resp) => {
@@ -337,14 +337,34 @@ export class HttpService {
   }
 
   /**
-   * Method add all object to db
+   * Method for patch availability
+   * @param {object} body
+   * @param {string} id
+   * @returns {Observable<any>}
    * @memberof HttpService
    */
 
-  addAllObject() {
-    // TODO - delete for real api request
-    console.log('!!!!!htttp addAllObject!!!!!');
-    return this.http.get(this.dataService.BASEURL + '');
+  public patchAvailability(body: object, id: string): Observable<any> {
+    return this.patchAvailabilityRequest(this.httpGuardRequestService.guardAvailability(body), id).pipe(
+      map(
+        (resp) => {
+          console.log('httpService patchContactInfo', resp); // TODO - Delete when ready
+          return this.httpGuardService.guardAvailability(resp);
+        }
+      )
+    );
   }
 
+  /**
+   * Method for patch availability request
+   * @param {object} body
+   * @param {string} id
+   * @returns {Observable<object>}
+   * @memberof HttpService
+   */
+
+  private patchAvailabilityRequest(body: object, id: string): Observable<object> {
+    return this.http.patch(this.dataService.BASEURL + '/availability/'
+      + this.dataService.TABS_AVAILABILITY[this.localStorage.retrieve('tabavailability')] + 's/' + id, body);
+  }
 }

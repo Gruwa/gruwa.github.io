@@ -22,6 +22,10 @@ import * as moment from 'moment';
 import {FlowService} from '../../services/flow.service';
 import {takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
+import {HttpGuardService} from '../../services/http-guard.service';
+import {LocalStorageService} from 'ngx-webstorage';
+import {HttpService} from '../../services/http.service';
+import {DataService} from '../../services/data.service';
 
 
 /**
@@ -87,7 +91,11 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
   constructor(private router: Router,
               private route: ActivatedRoute,
               private fb: FormBuilder,
-              private flowService: FlowService) {
+              private flowService: FlowService,
+              private httpGuardService: HttpGuardService,
+              private localStorage: LocalStorageService,
+              private dataService: DataService,
+              private httpService: HttpService) {
   }
 
   /**
@@ -193,37 +201,30 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
         'endTime': moment(this.dataGroup.get('endTime').value, 'HH:mm').format('hh:mm A')
       };
       console.log(data);
-      // this.flowService.dataSave$.next(data);
+
+
+      if (this.router.url === '/availability/new') {
+        console.log('save');
+
+      } else {
+        this.httpService.patchAvailability(data, this.route.snapshot.params['id']).pipe(
+          takeUntil(this.ngUnsubscribe)
+        ).subscribe((next) => {
+          this.flowService[`${this.dataService.FLOW_AVAILABILITY[this.localStorage.retrieve('tabavailability')]}`].pipe(
+            takeUntil(this.ngUnsubscribe)
+          ).subscribe(
+            (items) => {
+              for (const key in items['items']) {
+                if (items['items'][key].id === next['Data'].id) {
+                  items['items'][key] = next['Data'];
+                }
+              }
+              this.router.navigate(['/availability']);
+            });
+        });
+      }
     }
   }
-
-  // setBody(value: string): void {
-  //   if (value === 'save') {
-  //     if (!this.shiftGroup.invalid) {
-  //       const body = {
-  //         'ShiftTitle': this.shiftGroup.get('shiftTitle').value,
-  //         'JobID': this.shiftGroup.get('jobID').value,
-  //         'StationID': this.shiftGroup.get('stationID').value,
-  //         'DateFrom': this.shiftsService.createDate(
-  //           this.shiftGroup.get('date').value,
-  //           this.shiftGroup.get('startTime').value,
-  //           this.shiftGroup.get('endTime').value)[0],
-  //         'DateTo': this.shiftsService.createDate(
-  //           this.shiftGroup.get('date').value,
-  //           this.shiftGroup.get('startTime').value,
-  //           this.shiftGroup.get('endTime').value)[1],
-  //         'LocationID': this.shiftGroup.get('locationID').value,
-  //         'ShiftID': this.shift['item'].shiftID,
-  //         'IsDropRequest': this.shift['item'].isDropRequest,
-  //         'IsPickupRequest': this.shift['item'].isPickupRequest,
-  //         'Job': this.shift['jobList'].find(job => job.id === this.shiftGroup.get('jobID').value)['description'],
-  //         'Station': this.shift['stationList'].find(station => station.id === this.shiftGroup.get('stationID').value)['description'],
-  //         'Location': this.shift['locationList'].find(location => location.id === this.shiftGroup.get('locationID').value)['description'],
-  //       };
-  //       this.flowService.dataSave$.next(body);
-  //     }
-  //   }
-  // }
 
   /**
    * Method ngOnDestroy

@@ -24,6 +24,29 @@ export class HttpGuardRequestService {
   }
 
   /**
+   * Method for guard contact info
+   * @returns {Array<any>}
+   * @memberof ShiftsService
+   */
+
+  public guardAvailability(value) {
+
+    const obj = {
+      Data: {
+        'Comment': value.comment,
+        'DateFrom': value.dateFrom,
+        'DateTrough': value.dateTrough,
+        'StartTime': value.startTime,
+        'EndTime': value.endTime,
+        'Frequency': value.frequency,
+        'ID': value.id,
+        'Title': value.title
+      }
+    };
+    return obj;
+  }
+
+  /**
    * Method for guard mark state
    * @returns {Array<any>}
    * @memberof ShiftsService

@@ -49,7 +49,17 @@ const versions: Array<object> = [
   {
     version: '0.1.4.1',
     date: '07/09/2018',
-    description: 'Edit availability'
+    description: 'Create availability'
+  },
+  {
+    version: '0.1.4.2',
+    date: '07/09/2018',
+    description: 'DELETE availability'
+  },
+  {
+    version: '0.1.4.3',
+    date: '07/09/2018',
+    description: 'EDIT availability'
   }
 ];
 

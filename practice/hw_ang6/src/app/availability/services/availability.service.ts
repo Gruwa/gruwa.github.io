@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {ITimeOff} from '../../shared/interfaces/timeoff.interface';
+import {takeUntil} from 'rxjs/operators';
 
 /**
  * Availability Service
@@ -24,22 +25,18 @@ export class AvailabilityService {
   //  * @memberof AvailabilityService
   //  */
   //
-  // public setAvailability(items: any, id: string): ITimeOff {
-  //   items['items'].find(item => item.id === id);
-  //
-  //   this.dataService[`${FLOW[this.tab]}`].subscribe((data) => {
-  //     for (const key in data['items']) {
-  //       if (data['items'][key].shiftID === resp.items[0].shiftID) {
-  //         data['items'][key] = resp.items[0];
+  // public setAvailability(id: string) {
+  //   this.flowService[`${this.dataService.FLOW_AVAILABILITY[this.localStorage.retrieve('tabavailability')]}`].pipe(
+  //     takeUntil(this.ngUnsubscribe)
+  //   ).subscribe(
+  //     (data) => {
+  //       for (const key in data['items']) {
+  //         if (data['items'][key].id === id) {
+  //           data['items'].splice(key, 1);
+  //           this.router.navigate(['/availability']);
+  //         }
   //       }
-  //     }
-  //   });
-  //
-  //   for (let i = 0; i > items.length; i++) {
-  //     if (items[i].id === id) {
-  //       items.splice(i, 1);
-  //     }
-  //   }
+  //     });
   //
   // }
 }
