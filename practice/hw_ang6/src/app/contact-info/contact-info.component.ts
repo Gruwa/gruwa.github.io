@@ -6,7 +6,6 @@ import {
 import {FlowService} from '../shared/services/flow.service';
 import {DataService} from '../shared/services/data.service';
 import {HttpService} from '../shared/services/http.service';
-import {ISettings} from '../shared/interfaces/settings.interface';
 import {
   debounceTime,
   takeUntil
@@ -47,7 +46,7 @@ export class ContactInfoComponent implements OnInit, OnDestroy {
    * @memberof ContactInfoComponent
    */
 
-  public lists;
+  public lists: object;
 
   /**
    * Variable of spinner
@@ -88,9 +87,9 @@ export class ContactInfoComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this.flowService.dataSmallSpinner$.pipe(
-        takeUntil(this.ngUnsubscribe),
-        debounceTime(500)
-      ).subscribe((value) => {
+      takeUntil(this.ngUnsubscribe),
+      debounceTime(500)
+    ).subscribe((value) => {
       this.spinner = value;
     });
     this.flowService.dataSmallSpinner$.next(true);
@@ -98,7 +97,15 @@ export class ContactInfoComponent implements OnInit, OnDestroy {
     if (!this.flowService.dataContactInfo$) {
       this.httpService.getContactInfo();
     }
-    //
+
+    this.flowService.dataContactInfo$.pipe(
+      takeUntil(this.ngUnsubscribe)
+    ).subscribe((value: object) => {
+      console.log(value);
+      this.lists = value;
+      this.flowService.dataSmallSpinner$.next(false);
+    });
+
     // this.flowService.dataSettings$.pipe(
     //   takeUntil(this.ngUnsubscribe)
     // ).subscribe((value: Array<ISettings>) => {

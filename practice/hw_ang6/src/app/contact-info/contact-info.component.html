@@ -5,6 +5,8 @@
               (outputActionMethod)="showSideBar($event)">
   </app-header>
   <div class="settings__content">
-    <p>Contact Info Component</p>
+    <app-form-contact-info [data]="lists"
+                           (outputActionMethod)="changeForm($event)">
+    </app-form-contact-info>
   </div>
 </div>

@@ -8,6 +8,8 @@ import {
   RouterModule,
   Routes
 } from '@angular/router';
+import {FormContactInfoComponent} from './form-contact-info/form-contact-info.component';
+import {PipeModule} from '../shared/pipes/pipe.module';
 
 export const routes: Routes = [
   {
@@ -27,10 +29,17 @@ export const routes: Routes = [
     RouterModule.forChild(routes),
     AppComponentsModule,
     ReactiveFormsModule,
-    MaterialsModule
+    MaterialsModule,
+    PipeModule.forRoot()
   ],
-  declarations: [ContactInfoComponent],
-  exports: [ContactInfoComponent]
+  declarations: [
+    ContactInfoComponent,
+    FormContactInfoComponent
+  ],
+  exports: [
+    ContactInfoComponent,
+    FormContactInfoComponent
+  ]
 })
 export class ContactInfoModule {
 }

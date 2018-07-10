@@ -6,6 +6,9 @@ import {IJob} from '../interfaces/job.interface';
 import {IGroupRestaurant} from '../interfaces/group-restaurant.interface';
 import {ISettings} from '../interfaces/settings.interface';
 import {ITimeOff} from '../interfaces/timeoff.interface';
+import {IContactInfoField} from '../interfaces/contact-info.interface';
+import {ICellProviders} from '../interfaces/cell-providers.interface';
+import {IState} from '../interfaces/state.interface';
 
 /**
  * Http Guard Service
@@ -22,20 +25,44 @@ export class HttpGuardService {
    * @memberof HttpGuardService
    */
 
-  public guardContactInfo(value: any): Array<ISettings> { // TODO - Rewrite when we will have more information
-
-    const GuardObj: Array<ISettings> = [];
+  public guardContactInfo(value: any): any { // TODO - Rewrite when we will have more information
 
     console.log(value);
 
-    for (let i = 0; i < value['Data'].length; i++) {
+    const GuardObj = {};
 
-      const obj: ISettings = {
-        'id': value['Data'][i].ID,
-        'description': value['Data'][i].Description,
-        'checked': value['Data'][i].Checked
+    GuardObj['cellProvidersList'] = [];
+
+    for (let i = 0; i < value.Data['CellProvidersList'].length; i++) {
+      const obj: ICellProviders = {
+        'id': value.Data['CellProvidersList'][i].ID,
+        'description': value.Data['CellProvidersList'][i].Description
       };
-      GuardObj.push(obj);
+
+      GuardObj['cellProvidersList'].push(obj);
+    }
+
+    GuardObj['statesList'] = [];
+
+    for (let i = 0; i < value.Data['StatesList'].length; i++) {
+      const obj: IState = {
+        'id': value.Data['StatesList'][i].ID,
+        'description': value.Data['StatesList'][i].Description
+      };
+
+      GuardObj['statesList'].push(obj);
+    }
+
+    GuardObj['contactInfo'] = [];
+
+    for (let i = 0; i < value['Data']['ContactInfo'].length; i++) {
+
+      const obj: IContactInfoField = {
+        'id': value['Data']['ContactInfo'][i].ID,
+        'description': value['Data']['ContactInfo'][i].Description,
+        'value': value['Data']['ContactInfo'][i].Value
+      };
+      GuardObj['contactInfo'].push(obj);
     }
 
     return GuardObj;

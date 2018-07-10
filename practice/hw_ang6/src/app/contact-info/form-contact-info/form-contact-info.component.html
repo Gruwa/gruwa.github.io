@@ -1,0 +1,51 @@
+<form class="form-component" [formGroup]="dataGroup">
+  <app-form-input class="form-component__input-group"
+                  placeholder="{{descriptions['email'] | capitalizeFirst}}"
+                  type="email"
+                  [control]="dataGroup.get('email')"
+                  [required]="false"
+                  (outputActionMethod)="changeForm($event)">
+  </app-form-input>
+  <app-form-input class="form-component__input-group"
+                  placeholder="{{descriptions['phonePrimary'] | capitalizeFirst}}"
+                  [control]="dataGroup.get('phonePrimary')"
+                  [required]="false"
+                  (outputActionMethod)="changeForm($event)">
+  </app-form-input>
+  <app-form-select class="form-component__input-group"
+                   placeholder="{{descriptions['cellProvider'] | capitalizeFirst}}"
+                   [elements]="data ? data['cellProvidersList'] : ''"
+                   [control]="dataGroup.get('cellProvider')"
+                   (outputActionMethod)="changeForm($event)">
+  </app-form-select>
+  <app-form-input class="form-component__input-group"
+                  placeholder="{{descriptions['address1'] | capitalizeFirst}}"
+                  [control]="dataGroup.get('address1')"
+                  [required]="false"
+                  (outputActionMethod)="changeForm($event)">
+  </app-form-input>
+  <app-form-input class="form-component__input-group"
+                  placeholder="{{descriptions['address2'] | capitalizeFirst}}"
+                  [control]="dataGroup.get('address2')"
+                  [required]="false"
+                  (outputActionMethod)="changeForm($event)">
+  </app-form-input>
+  <app-form-input class="form-component__input-group"
+                  placeholder="{{descriptions['city'] | capitalizeFirst}}"
+                  [control]="dataGroup.get('city')"
+                  [required]="false"
+                  (outputActionMethod)="changeForm($event)">
+  </app-form-input>
+  <!--<app-form-select class="form-component__input-group"-->
+                   <!--placeholder="{{descriptions['frequency'] | capitalizeFirst}}"-->
+                   <!--[elements]="data ? data['statesList'] : ''"-->
+                   <!--[control]="dataGroup.get('state')"-->
+                   <!--(outputActionMethod)="changeForm($event)">-->
+  <!--</app-form-select>-->
+  <app-form-input class="form-component__input-group"
+                  placeholder="{{descriptions['zip'] | capitalizeFirst}}"
+                  [control]="dataGroup.get('zip')"
+                  [required]="false"
+                  (outputActionMethod)="changeForm($event)">
+  </app-form-input>
+</form>

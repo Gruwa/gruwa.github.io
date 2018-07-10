@@ -161,6 +161,22 @@ export class DataService {
   };
 
   /**
+   * Variable LIST_DESCRIPTIONS
+   * @type {object}
+   * @memberof DataService
+   */
+
+  public LIST_DESCRIPTIONS = {
+    title: 'time off title',
+    dateFrom: 'date from',
+    dateTrough: 'date through',
+    startTime: 'start time',
+    endTime: 'end time',
+    frequency: 'frequency',
+    comment: 'comment'
+  };
+
+  /**
    * Variable LIST_FIELDS
    * @type {object}
    * @memberof DataService
@@ -178,20 +194,40 @@ export class DataService {
   };
 
   /**
-   * Variable LIST_DESCRIPTIONS
+   * Variable LIST_FIELDS
    * @type {object}
    * @memberof DataService
    */
 
-  public LIST_DESCRIPTIONS = {
-    title: 'time off title',
-    dateFrom: 'date from',
-    dateTrough: 'date through',
-    startTime: 'start time',
-    endTime: 'end time',
-    frequency: 'frequency',
-    comment: 'comment'
+  public LIST_FIELDS_FORM_INFO = {
+    email: 'email',
+    phonePrimary: 'phone',
+    enableSMS: 'enable SMS',
+    cellProvider: 'cell provider',
+    address1: 'address line 1',
+    address2: 'address line 2',
+    city: 'city',
+    state: 'state',
+    zip: 'ZIP'
   };
+
+  /**
+   * Variable LIST_FIELDS
+   * @type {object}
+   * @memberof DataService
+   */
+
+  public LIST_FIELDS_KEY_FORM_INFO = [
+    'email',
+    'phonePrimary',
+    'enableSMS',
+    'cellProvider',
+    'address1',
+    'address2',
+    'city',
+    'state',
+    'zip'
+  ];
 
   /**
    * Variable of object of list side bar menu

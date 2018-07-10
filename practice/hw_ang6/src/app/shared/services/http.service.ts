@@ -259,7 +259,7 @@ export class HttpService {
     this.flowService.dataContactInfo$ = this.getContactInfoRequest().pipe(
       map(
         (resp) => {
-          console.log('getSettings getContactInfo', resp); // TODO - Delete when ready
+          console.log('httpService getContactInfo', resp); // TODO - Delete when ready
           return this.httpGuardService.guardContactInfo(resp);
         }
       ),
