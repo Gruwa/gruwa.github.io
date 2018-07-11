@@ -1,8 +1,6 @@
 import {Injectable} from '@angular/core';
 import {IShift} from '../interfaces/shift.interface';
 import {ILocation} from '../interfaces/location.interface';
-import {IStation} from '../interfaces/station.interface';
-import {IJob} from '../interfaces/job.interface';
 import {IGroupRestaurant} from '../interfaces/group-restaurant.interface';
 import {ISettings} from '../interfaces/settings.interface';
 import {ITimeOff} from '../interfaces/timeoff.interface';
@@ -31,26 +29,26 @@ export class HttpGuardService {
 
     const GuardObj = {};
 
-    GuardObj['cellProvidersList'] = [];
+    GuardObj['cellProviderList'] = [];
 
-    for (let i = 0; i < value.Data['CellProvidersList'].length; i++) {
+    for (let i = 0; i < value.Data['CellProviderList'].length; i++) {
       const obj: ICellProviders = {
-        'id': value.Data['CellProvidersList'][i].ID,
-        'description': value.Data['CellProvidersList'][i].Description
+        'id': value.Data['CellProviderList'][i].ID,
+        'description': value.Data['CellProviderList'][i].Description
       };
 
-      GuardObj['cellProvidersList'].push(obj);
+      GuardObj['cellProviderList'].push(obj);
     }
 
-    GuardObj['statesList'] = [];
+    GuardObj['stateList'] = [];
 
-    for (let i = 0; i < value.Data['StatesList'].length; i++) {
+    for (let i = 0; i < value.Data['StateList'].length; i++) {
       const obj: IState = {
-        'id': value.Data['StatesList'][i].ID,
-        'description': value.Data['StatesList'][i].Description
+        'id': value.Data['StateList'][i].ID,
+        'description': value.Data['StateList'][i].Description
       };
 
-      GuardObj['statesList'].push(obj);
+      GuardObj['stateList'].push(obj);
     }
 
     GuardObj['contactInfo'] = [];

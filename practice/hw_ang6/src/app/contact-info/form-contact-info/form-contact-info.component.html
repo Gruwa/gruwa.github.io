@@ -12,12 +12,12 @@
                   [required]="false"
                   (outputActionMethod)="changeForm($event)">
   </app-form-input>
-  <app-form-select class="form-component__input-group"
-                   placeholder="{{descriptions['cellProvider'] | capitalizeFirst}}"
-                   [elements]="data ? data['cellProvidersList'] : ''"
-                   [control]="dataGroup.get('cellProvider')"
-                   (outputActionMethod)="changeForm($event)">
-  </app-form-select>
+  <!--<app-form-select class="form-component__input-group"-->
+                   <!--placeholder="{{descriptions['cellProvider'] | capitalizeFirst}}"-->
+                   <!--[elements]="data ? data['cellProviderList'] : ''"-->
+                   <!--[control]="dataGroup.get('cellProvider')"-->
+                   <!--(outputActionMethod)="changeForm($event)">-->
+  <!--</app-form-select>-->
   <app-form-input class="form-component__input-group"
                   placeholder="{{descriptions['address1'] | capitalizeFirst}}"
                   [control]="dataGroup.get('address1')"

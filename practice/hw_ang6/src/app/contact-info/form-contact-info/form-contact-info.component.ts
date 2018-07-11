@@ -140,10 +140,6 @@ export class FormContactInfoComponent implements OnInit, OnChanges {
         for (let i = 0; i < this.dataService.LIST_FIELDS_KEY_FORM_INFO.length; i++) {
           for (let k = 0; k < this.data['contactInfo'].length; k++) {
             if (this.data['contactInfo'][k].id === this.dataService.LIST_FIELDS_KEY_FORM_INFO[i]) {
-              // if (this.data['contactInfo'][k].id === 'city') {
-              console.log(this.data['contactInfo'][k]);
-                console.log(this.data['contactInfo'][k].value);
-              // }
               this.dataGroup.get(this.dataService.LIST_FIELDS_KEY_FORM_INFO[i]).setValue(this.data['contactInfo'][k].value);
             }
           }
