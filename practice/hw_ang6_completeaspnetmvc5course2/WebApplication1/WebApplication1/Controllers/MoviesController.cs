@@ -20,6 +20,8 @@ namespace WebApplication1.Controllers
 //            return new EmptyResult(); // получисм на выходе пустую страницу
             return RedirectToAction(actionName: "Index", controllerName: "Home", routeValues: new { page = 1, sortBy = "name"}); // редирект на другую страницу со страницей 1 и сортировкой по имени
         }
+        
+//        [Route("movies/released/{year}/{month:regex(\\d{2}):range(1, 12)}")]
 
         public ActionResult Edit(int id)
         {
@@ -38,7 +40,7 @@ namespace WebApplication1.Controllers
             return Content(content: String.Format(format: "pageIndex={0}&sortBy={1}", arg0: pageIndex, arg1: sortBy));
         }
 
-        public ActionResult ByReleaseDate(int year, int month)
+        public ActionResult ByReleaseYear(int year, int month)
         {
             return Content(content: year + "/" + month);
         }

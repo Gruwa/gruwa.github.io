@@ -1,0 +1,14 @@
+﻿<Properties StartupConfiguration="{76A6CB72-26CC-4BE2-956E-AF8FECD134E9}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="WebApplication1/Controllers/MoviesController.cs">
+    <Files>
+      <File FileName="WebApplication1/Controllers/MoviesController.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.WebApplication1 PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>
