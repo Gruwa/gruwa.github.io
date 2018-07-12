@@ -24,6 +24,7 @@ export class MainListComponent {
    */
 
   @Input() lists;
+  @Input() activeItem: string;
 
   /**
    * Input data of done

@@ -376,7 +376,7 @@ export class HttpService {
    */
 
   public postAvailability(body: object): Observable<object> {
-    return this.paostAvailabilityRequest(this.httpGuardRequestService.guardAvailability(body)).pipe(
+    return this.postAvailabilityRequest(this.httpGuardRequestService.guardAvailability(body)).pipe(
       map(
         (resp) => {
           console.log('httpService postAvailability', resp); // TODO - Delete when ready
@@ -393,7 +393,7 @@ export class HttpService {
    * @memberof HttpService
    */
 
-  public paostAvailabilityRequest(body: object): Observable<object> {
+  public postAvailabilityRequest(body: object): Observable<object> {
     return this.http.post(this.dataService.BASEURL + '/availability/'
       + this.dataService.TABS_AVAILABILITY[this.localStorage.retrieve('tabavailability')] + 's/', body);
   }

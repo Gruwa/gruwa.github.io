@@ -62,8 +62,9 @@ app-form-contact-info {
     }
   }
 
-  .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
-    line-height: 45px;
+  .mat-form-field-label {
+    font-weight: normal;
+    color: #6c7380;
   }
 
   .form-component__input-group {
@@ -80,6 +81,18 @@ app-form-contact-info {
 
     &:nth-child(3) {
       margin-right: 8%;
+    }
+  }
+
+  .mat-form-field {
+    &.mat-focused {
+      .mat-form-field-label {
+        color: $cBlue;
+      }
+
+      .mat-form-field-ripple {
+        background-color: $cBlue;
+      }
     }
   }
 }

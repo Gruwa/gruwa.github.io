@@ -1,6 +1,6 @@
 <mat-toolbar class="main-list">
   <ng-container *ngFor="let list of lists">
-    <mat-toolbar-row class="main-list__row" (click)="clickEvent(list)">
+    <mat-toolbar-row class="main-list__row" (click)="clickEvent(list)" [class.active]="list.description === activeItem">
       <i class="material-icons"
          *ngIf="list.icon">{{list.icon}}</i>
       <i class="material-icons global__element-display-none"

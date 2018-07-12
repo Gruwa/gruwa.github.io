@@ -1,6 +1,7 @@
 <app-main-list class="side-bar"
                *ngIf="!groupRestaurantShow"
                [lists]="dataService.SIDE_BAR_LIST_MENU"
+               [activeItem]="activeItem"
                (outputActionMethod)="onClickList($event)">
 </app-main-list>
 <app-group-schedule *ngIf="groupRestaurantShow">

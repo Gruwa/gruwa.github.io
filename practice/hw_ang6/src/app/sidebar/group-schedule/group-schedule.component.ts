@@ -121,6 +121,7 @@ export class GroupScheduleComponent implements OnInit, OnDestroy {
       }
 
       this.httpService.getSettings();
+      this.httpService.getContactInfo();
     }
 
     this.localStorage.store('group', event);

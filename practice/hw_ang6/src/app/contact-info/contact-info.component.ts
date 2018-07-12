@@ -1,7 +1,8 @@
 import {
   Component,
   OnDestroy,
-  OnInit
+  OnInit,
+  ViewEncapsulation
 } from '@angular/core';
 import {FlowService} from '../shared/services/flow.service';
 import {DataService} from '../shared/services/data.service';
@@ -20,7 +21,8 @@ import {ToastrService} from 'ngx-toastr';
 @Component({
   selector: 'app-settings',
   templateUrl: './contact-info.component.html',
-  styleUrls: ['./contact-info.component.scss']
+  styleUrls: ['./contact-info.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ContactInfoComponent implements OnInit, OnDestroy {
 
@@ -143,6 +145,19 @@ export class ContactInfoComponent implements OnInit, OnDestroy {
     //     }
     //   });
     // });
+  }
+
+  /**
+   * Method fo change form
+   * @returns {void}
+   * @param {any} event
+   * @memberof ContactInfoComponent
+   */
+
+  public changeForm(event: any): void {
+    // this.descriptionRightActive = event;
+    // this.iconRight = undefined;
+    // this.descriptionRight = 'save';
   }
 
   /**

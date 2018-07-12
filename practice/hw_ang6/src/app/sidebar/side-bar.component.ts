@@ -3,14 +3,17 @@ import {
   EventEmitter,
   OnDestroy,
   OnInit,
-  Output} from '@angular/core';
+  Output
+} from '@angular/core';
+import {Location} from '@angular/common';
 import {FlowService} from '../shared/services/flow.service';
 import {DataService} from '../shared/services/data.service';
 import {LocalStorageService} from 'ngx-webstorage';
 import {Router} from '@angular/router';
 import {
   debounceTime,
-  takeUntil} from 'rxjs/operators';
+  takeUntil
+} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 import {MainService} from '../shared/services/main.service';
 
@@ -24,6 +27,8 @@ import {MainService} from '../shared/services/main.service';
   styleUrls: ['./side-bar.component.scss']
 })
 export class SideBarComponent implements OnInit, OnDestroy {
+
+  public activeItem: string;
 
   /**
    * Variable of groupRestaurantShow
@@ -71,7 +76,8 @@ export class SideBarComponent implements OnInit, OnDestroy {
               public dataService: DataService,
               private localStorage: LocalStorageService,
               private router: Router,
-              private mainService: MainService) {
+              private mainService: MainService,
+              public location: Location) {
   }
 
   /**
@@ -92,6 +98,7 @@ export class SideBarComponent implements OnInit, OnDestroy {
     ).subscribe((next) => {
       this.groupRestaurantShow = next;
     });
+    //this.activeItem = this.getPath();
   }
 
   /**
@@ -105,23 +112,28 @@ export class SideBarComponent implements OnInit, OnDestroy {
     if (this.dataService.SIDE_BAR_LIST[$event.description] === this.dataService.SIDE_BAR_LIST['shifts']) {
       this.closeSideBar.emit('iconLeft');
       this.router.navigate([this.localStorage.retrieve('group').id + '/shifts']);
+      // this.activeItem = 'shifts';
     }
     if (this.dataService.SIDE_BAR_LIST[$event.description] === this.dataService.SIDE_BAR_LIST['logout']) {
       this.closeSideBar.emit('iconLeft');
       this.mainService.logOut();
     }
     if (this.dataService.SIDE_BAR_LIST[$event.description] === this.dataService.SIDE_BAR_LIST['settings']) {
-      this.closeSideBar.emit('iconLeft');
       this.router.navigate(['/settings']);
+      this.closeSideBar.emit('iconLeft');
+      // this.activeItem = 'settings';
     }
     if (this.dataService.SIDE_BAR_LIST[$event.description] === this.dataService.SIDE_BAR_LIST['my availability']) {
       this.closeSideBar.emit('iconLeft');
       this.router.navigate(['/availability']);
+      // this.activeItem = 'my availability';
     }
     if (this.dataService.SIDE_BAR_LIST[$event.description] === this.dataService.SIDE_BAR_LIST['contact info']) {
       this.closeSideBar.emit('iconLeft');
       this.router.navigate(['/contactinfo']);
+      // this.activeItem = 'contact info';
     }
+
   }
 
   /**
@@ -135,4 +147,16 @@ export class SideBarComponent implements OnInit, OnDestroy {
     this.ngUnsubscribe.complete();
   }
 
+  // private getPath(): string {
+  //   let path = this.location.path().split('/'); // /availability ['', 'availability'] // /1234_LoneStar101/shifts ['', '/shifts ['', '', 'shifts']
+  //   let activeItem = path[1];
+  //   if (path[2] === this.dataService.SIDE_BAR_LIST['shifts']) activeItem = path[2];
+  //   activeItem = this.getKeyByValue(this.dataService.SIDE_BAR_LIST, activeItem);
+  //
+  //   return activeItem;
+  // }
+  //
+  // private getKeyByValue(object, value) {
+  //   return Object.keys(object).find(key => object[key] === value);
+  // }
 }
