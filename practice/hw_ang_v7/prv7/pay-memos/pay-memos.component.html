@@ -1,0 +1,88 @@
+<rmc-document-editor [title]="payMemosService.pageTitlePayMemos$ | async"
+                     [busy]="payMemosService.busy$ | async"
+                     [readOnly]="true">
+    <rmd-editor-tab description="PAY MEMOS">
+        <rmd-document-grid name="card"
+                           [readOnly]="false"
+                           [lines]="payMemosService.payMemosActiveList$ | async">
+            <rmd-document-column [name]="'employee'"
+                                 [description]="'Employee'">
+            </rmd-document-column>
+            <rmd-document-column [name]="'businessDate'"
+                                 [description]="'Business Date'">
+            </rmd-document-column>
+            <rmd-document-column [name]="'memo'"
+                                 [description]="'Pay Type'">
+            </rmd-document-column>
+            <rmd-document-column [name]="'job'"
+                                 [description]="'Job'">
+            </rmd-document-column>
+            <rmd-document-column [name]="'hours'"
+                                 [description]="'Hours'">
+            </rmd-document-column>
+            <rmd-document-column [name]="'amount'"
+                                 [currentPipe]="'currency'"
+                                 [description]="'Amount'">
+            </rmd-document-column>
+            <rmd-document-column [name]="'payMemoID'"
+                                 [description]="''">
+                <ng-template rmd-grid-column-cell let-value="value">
+                    <rmc-editor-table-cell-link value="card/{{value}}"></rmc-editor-table-cell-link>
+                </ng-template>
+            </rmd-document-column>
+        </rmd-document-grid>
+    </rmd-editor-tab>
+
+    <rmd-document-menu (applyChanges)="applyFilter($event)">
+        <rmd-menu-field name="dateFrom"
+                        description="Date From"
+                        [boundedField]="'dateThrough'"
+                        [boundedType]="boundType.less"
+                        [value]="payMemosService.fromDate$ | async"
+                        [editor]="'calendarDateFrom'"
+                        [lookupRequest$]="payMemosService.periodPayMemos$"
+                        (valueChange)="payMemosService.fromDateNew$.next($event)">
+        </rmd-menu-field>
+        <rmd-menu-field name="dateThrough"
+                        description="Date Through"
+                        [boundedField]="'dateFrom'"
+                        [boundedType]="boundType.greater"
+                        [value]="payMemosService.thruDate$ | async"
+                        [editor]="'calendarDateThrough'"
+                        [lookupRequest$]="payMemosService.periodPayMemos$"
+                        (valueChange)="payMemosService.thruDateNew$.next($event)">
+        </rmd-menu-field>
+        <rmd-menu-field name="storeEmployee"
+                        [allowAll]="true"
+                        description="Employee"
+                        [value]="payMemosService.storeEmployeeID$ | async"
+                        [editor]="'search-filter-with-radio-group'"
+                        [lookupRequest$]="payMemosService.dataPayMemosEmployees$"
+                        (valueChange)="payMemosService.storeEmployeeIDNew$.next($event)">
+        </rmd-menu-field>
+        <ng-template let-editor$="editor$"
+                     let-document_field$="document_field$">
+            <ng-container #currentParameter="var" [var]="document_field$ | async"
+                          [ngSwitch]="editor$ | async">
+                <rmc-weekend-selector *ngSwitchCase="'calendarDateFrom'"
+                                      [value]="currentParameter.var.tempValue"
+                                      (changeValue)="currentParameter.var.tempValueID = $event"
+                                      [enabledDates]="currentParameter.var.lookupRequest | async"
+                                      (listValue)="payMemosService.changeDateFrom$.next($event)">
+                </rmc-weekend-selector>
+                <rmc-weekend-selector *ngSwitchCase="'calendarDateThrough'"
+                                      [value]="currentParameter.var.tempValue"
+                                      (changeValue)="currentParameter.var.tempValueID = $event"
+                                      [enabledDates]="currentParameter.var.lookupRequest | async"
+                                      (listValue)="payMemosService.changeDateThrough$.next($event)">
+                </rmc-weekend-selector>
+                <rmc-search-filter-with-radio-group *ngSwitchCase="'search-filter-with-radio-group'"
+                                                    [allowAll]="currentParameter.var.allowAll"
+                                                    [(value)]="currentParameter.var.tempValue"
+                                                    [list]="currentParameter.var.lookupType | async"
+                                                    errorMsg="">
+                </rmc-search-filter-with-radio-group>
+            </ng-container>
+        </ng-template>
+    </rmd-document-menu>
+</rmc-document-editor>

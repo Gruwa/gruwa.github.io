@@ -1,0 +1,128 @@
+<rmc-document-editor [title]="payMemosService.pageTitlePayMemos$ | async"
+                     [busy]="payMemosService.busy$ | async"
+                     [readOnly]="readonly$ | async"
+                     [savedCallback]="payMemosService.dataSavedResult$"
+                     (isChanged)="changed$ = !$event"
+                     (delete)="onDelete()"
+                     (save)="onSave($event)">
+    <rmd-editor-tab description="REVIEW PAY MEMO">
+        <rmd-document-group name="editPayMemo"
+                            [document]="payMemosService.dataPayMemo$ | async">
+            <rmd-document-field [name]="'employee'"
+                                [editor]="'search-filter-with-radio-group'"
+                                [description]="'Employee'"
+                                [required]="true"
+                                (valueChange)="payMemosService.storePayMemos$ = {employee: $event}"
+                                [lookupRequest$]="payMemosService.dataPayMemosEmployees$"
+                                [disabled]="!(payMemosService.generalFieldDisabled$ | async)">
+            </rmd-document-field>
+            <rmd-document-field [name]="'businessDate'"
+                                [editor]="'calendar'"
+                                [required]="true"
+                                (valueChange)="payMemosService.storePayMemos$ = {businessDate: $event}"
+                                [lookupList]="payMemosService.periodPayMemos$ | async"
+                                [description]="'Business Date'"
+                                [disabled]="!(payMemosService.generalFieldDisabled$ | async)">
+            </rmd-document-field>
+            <rmd-document-field [name]="'memo'"
+                                [editor]="'single-select'"
+                                [description]="'Pay Type'"
+                                [required]="true"
+                                (valueChange)="payMemosService.storePayMemos$ = {memo: $event}"
+                                [lookupList]="payMemosService.dataPayMemoMemos$ | async"
+                                [disabled]="!(payMemosService.generalFieldDisabled$ | async)">
+            </rmd-document-field>
+            <rmd-document-field [name]="'job'"
+                                [editor]="'single-select'"
+                                [description]="'Job'"
+                                [required]="true"
+                                (valueChange)="payMemosService.storePayMemos$ = {job: $event}"
+                                [lookupList]="payMemosService.dataEmployeePayMemoJobs$ | async"
+                                [disabled]="!(payMemosService.generalFieldDisabled$ | async)">
+            </rmd-document-field>
+            <rmd-document-field [name]="'hours'"
+                                [description]="'Hours'"
+                                [editor]="'calculatorHours'"
+                                [required]="true"
+                                (valueChange)="payMemosService.storePayMemos$ = {hours: $event}"
+                                [disabled]="!(payMemosService.generalFieldDisabled$ | async) ||
+                                !(payMemosService.editHoursDisabled$ | async)">
+            </rmd-document-field>
+            <rmd-document-field [name]="'amount'"
+                                [description]="'Amount'"
+                                [editor]="'calculator'"
+                                [required]="true"
+                                [currentPipe]="'currency'"
+                                (valueChange)="payMemosService.storePayMemos$ = {amount: $event}"
+                                [disabled]="!(payMemosService.generalFieldDisabled$ | async) ||
+                                !(payMemosService.mandatoryAmountDisabled$ | async)">
+            </rmd-document-field>
+            <rmd-document-field [name]="'originalAmount'"
+                                [description]="'Original Amount'"
+                                [editor]="'time'"
+                                [required]="true"
+                                [currentPipe]="'currency'"
+                                (valueChange)="payMemosService.storePayMemos$ = {originalAmount: $event}"
+                                [disabled]="!(payMemosService.generalFieldDisabled$ | async) || true">
+            </rmd-document-field>
+            <rmd-document-field [name]="'origin'"
+                                [description]="'Origin'"
+                                [editor]="'time'"
+                                [required]="true"
+                                (valueChange)="payMemosService.storePayMemos$ = {origin: $event}"
+                                [disabled]="!(payMemosService.generalFieldDisabled$ | async) || true">
+            </rmd-document-field>
+            <rmd-document-field-input [name]="'comment'"
+                                      [description]="'Comment'"
+                                      [maxLengthSymbols]="100"
+                                      [required]="true"
+                                      [disabled]="!(payMemosService.generalFieldDisabled$ | async)">
+            </rmd-document-field-input>
+        </rmd-document-group>
+    </rmd-editor-tab>
+
+    <rmd-document-toolbar>
+        <rmd-document-button-save></rmd-document-button-save>
+        <rmd-document-button-delete [hidden]="!changed$ | async"></rmd-document-button-delete>
+    </rmd-document-toolbar>
+
+    <rmd-document-menu>
+        <ng-template let-editor$="editor$"
+                     let-document_field$="document_field$">
+            <ng-container #currentParameter="var" [var]="document_field$ | async"
+                          [ngSwitch]="editor$ | async">
+                <rmc-weekend-selector *ngSwitchCase="'calendar'"
+                                      [value]="currentParameter.var.tempValue"
+                                      (changeValue)="currentParameter.var.tempValueID = $event"
+                                      [enabledDates]="currentParameter.var.lookupRequest | async">
+                </rmc-weekend-selector>
+                <rmc-menu-single-select *ngSwitchCase="'single-select'"
+                                        [(value)]="currentParameter.var.tempValueID"
+                                        [allowAll]="currentParameter.var.allowAll"
+                                        [selectedValue]="currentParameter.var.currentValueID"
+                                        [valueList]="currentParameter.var.lookupRequest | async">
+                </rmc-menu-single-select>
+                <rmc-search-filter-with-radio-group *ngSwitchCase="'search-filter-with-radio-group'"
+                                                    [(value)]="currentParameter.var.tempValue"
+                                                    [list]="currentParameter.var.lookupType | async"
+                                                    errorMsg="">
+                </rmc-search-filter-with-radio-group>
+                <rmc-menu-calculator *ngSwitchCase="'calculator'"
+                                     [digit]="dataPayMemosService.DATA_CURRENCY_AND_DIGIT_AFTER_POINT.digit"
+                                     [currency]="dataPayMemosService.DATA_CURRENCY_AND_DIGIT_AFTER_POINT.currency"
+                                     [value]="currentParameter.var.tempValue$ | async"
+                                     (valueChange)="currentParameter.var.tempValue$ = $event">
+                </rmc-menu-calculator>
+                <rmc-menu-calculator *ngSwitchCase="'calculatorHours'"
+                                     [digit]="0"
+                                     [value]="currentParameter.var.tempValue$ | async"
+                                     (valueChange)="currentParameter.var.tempValue$ = $event">
+                </rmc-menu-calculator>
+                <rmc-timepicker *ngSwitchCase="'time'"
+                                [(value)]="currentParameter.var.tempValue">
+                </rmc-timepicker>
+            </ng-container>
+        </ng-template>
+    </rmd-document-menu>
+
+</rmc-document-editor>
