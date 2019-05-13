@@ -7,6 +7,9 @@ import { Product } from '../product';
 import { ProductService } from '../product.service';
 import { GenericValidator } from '../../shared/generic-validator';
 import { NumberValidators } from '../../shared/number.validator';
+import {select, Store} from '@ngrx/store';
+import * as fromProduct from '../state/product.reducer';
+import * as fromAction from '../state/product.action';
 
 @Component({
   selector: 'pm-product-edit',
@@ -27,7 +30,8 @@ export class ProductEditComponent implements OnInit, OnDestroy {
   private genericValidator: GenericValidator;
 
   constructor(private fb: FormBuilder,
-              private productService: ProductService) {
+              private productService: ProductService,
+              private store: Store<fromProduct.State>) {
 
     // Defines all of the validation messages for the form.
     // These could instead be retrieved from a file or database.
@@ -62,7 +66,13 @@ export class ProductEditComponent implements OnInit, OnDestroy {
     });
 
     // Watch for changes to the currently selected product
-    this.sub = this.productService.selectedProductChanges$.subscribe(
+    this.store
+      .pipe(
+        select(
+          fromProduct.getCurrentProduct
+        )
+      )
+      .subscribe(
       selectedProduct => this.displayProduct(selectedProduct)
     );
 
@@ -73,7 +83,6 @@ export class ProductEditComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.sub.unsubscribe();
   }
 
   // Also validate on blur
@@ -117,13 +126,13 @@ export class ProductEditComponent implements OnInit, OnDestroy {
     if (this.product && this.product.id) {
       if (confirm(`Really delete the product: ${this.product.productName}?`)) {
         this.productService.deleteProduct(this.product.id).subscribe(
-          () => this.productService.changeSelectedProduct(null),
+          () => this.store.dispatch(new fromAction.ClearCurrentProduct()),
           (err: any) => this.errorMessage = err.error
         );
       }
     } else {
       // No need to delete, it was never saved
-      this.productService.changeSelectedProduct(null);
+      this.store.dispatch(new fromAction.ClearCurrentProduct());
     }
   }
 
@@ -137,12 +146,12 @@ export class ProductEditComponent implements OnInit, OnDestroy {
 
         if (p.id === 0) {
           this.productService.createProduct(p).subscribe(
-            product => this.productService.changeSelectedProduct(product),
+            product => this.store.dispatch(new fromAction.SetCurrentProduct(product)),
             (err: any) => this.errorMessage = err.error
           );
         } else {
           this.productService.updateProduct(p).subscribe(
-            product => this.productService.changeSelectedProduct(product),
+            product => this.store.dispatch(new fromAction.SetCurrentProduct(product)),
             (err: any) => this.errorMessage = err.error
           );
         }

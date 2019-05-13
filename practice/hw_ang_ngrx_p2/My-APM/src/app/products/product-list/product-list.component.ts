@@ -9,6 +9,7 @@ import {PRODUCT_ACTION} from '../state/product.action';
 import {filter} from 'rxjs/operators';
 import {p} from '@angular/core/src/render3';
 import * as fromProduct from '../state/product.reducer';
+import * as fromActionProduct from '../state/product.action';
 
 @Component({
   selector: 'pm-product-list',
@@ -34,7 +35,11 @@ export class ProductListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.sub = this.productService.selectedProductChanges$.subscribe(
+    this.store
+      .pipe(
+        select(fromProduct.getCurrentProduct)
+      )
+      .subscribe(
       selectedProduct => this.selectedProduct = selectedProduct
     );
 
@@ -45,31 +50,27 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
     this.store
       .pipe(
-        select(fromProduct.getShowProductCode),
-        filter(f => !!f),
+        select(fromProduct.getShowProductCode)
       )
       .subscribe(showProductCode => {
+        console.log(showProductCode);
         this.displayCode = showProductCode;
       });
   }
 
   ngOnDestroy(): void {
-    this.sub.unsubscribe();
   }
 
   checkChanged(value: boolean): void {
-    this.store.dispatch({
-      type: PRODUCT_ACTION.TOGGLE_PRODUCT_CODE,
-      payload: value
-    });
+    this.store.dispatch(new fromActionProduct.ToggleProduct(value));
   }
 
   newProduct(): void {
-    this.productService.changeSelectedProduct(this.productService.newProduct());
+    this.store.dispatch(new fromActionProduct.InitializeCurrentProduct());
   }
 
   productSelected(product: Product): void {
-    this.productService.changeSelectedProduct(product);
+    this.store.dispatch(new fromActionProduct.SetCurrentProduct(product));
   }
 
 }

@@ -11,4 +11,4 @@ export class MaskUser implements Action {
   }
 }
 
-export type USER = MaskUser;
+export type UserActionTypes = MaskUser;

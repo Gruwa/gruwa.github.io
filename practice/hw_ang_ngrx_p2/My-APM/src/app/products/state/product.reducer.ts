@@ -1,4 +1,4 @@
-import {PRODUCT, PRODUCT_ACTION} from './product.action';
+import {ProductType, PRODUCT_ACTION} from './product.action';
 import {Product} from '../product';
 import * as fromRoot from '../../state/app.state';
 import {createFeatureSelector, createSelector} from '@ngrx/store';
@@ -36,13 +36,39 @@ export const getProducts = createSelector( // создаем селектор н
   state => state.products
 );
 
-export function productReducer(state: ProductState = initialState, action: PRODUCT): ProductState {
+export function productReducer(state: ProductState = initialState, action: ProductType): ProductState {
   switch (action.type) {
+
     case PRODUCT_ACTION.TOGGLE_PRODUCT_CODE:
       return {
         ...state,
         showProductCode: action.payload
       };
+
+    case PRODUCT_ACTION.CLEAR_CURRENT_PRODUCT:
+      return {
+        ...state,
+        currentProduct: null
+      };
+
+    case PRODUCT_ACTION.INITIALIZE_CURRENT_PRODUCT:
+      return {
+        ...state,
+        currentProduct: {
+          id: 0,
+          productName: '',
+          productCode: 'New',
+          description: '',
+          starRating: 0,
+        }
+      };
+
+    case PRODUCT_ACTION.SET_CURRENT_PRODUCT:
+      return {
+        ...state,
+        currentProduct: {...action.payload}
+      };
+
     default:
       return state;
   }
