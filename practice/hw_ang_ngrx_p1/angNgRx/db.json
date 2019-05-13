@@ -1,0 +1,39 @@
+{
+  "cars": [
+    {
+      "id": 1,
+      "name": "Subaru",
+      "date": "13122013",
+      "model": "Forester",
+      "isSold": false
+    },
+    {
+      "id": 2,
+      "name": "Subaru",
+      "date": "12122012",
+      "model": "Impreza",
+      "isSold": true
+    },
+    {
+      "id": 3,
+      "name": "Subaru",
+      "date": "11112011",
+      "model": "Outback",
+      "isSold": false
+    },
+    {
+      "name": "123",
+      "date": "Sat May 11 2019 18:50:01 GMT+0300 (Eastern European Summer Time)",
+      "model": "123",
+      "isSold": false,
+      "id": 4
+    },
+    {
+      "name": "324",
+      "date": "Sat May 11 2019 19:06:38 GMT+0300 (Eastern European Summer Time)",
+      "model": "234",
+      "isSold": false,
+      "id": 5
+    }
+  ]
+}
