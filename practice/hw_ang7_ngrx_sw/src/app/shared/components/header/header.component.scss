@@ -1,0 +1,93 @@
+@import "../../../../assets/styles/variables.scss";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  padding: 0;
+  width: 100%;
+  background-color: $cPickledBlue;
+  box-sizing: border-box;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.header {
+  display: flex;
+  width: 100%;
+  max-width: 1024px;
+  height: 56px;
+  color: white;
+  position: relative;
+  flex-direction: column;
+
+  &__header {
+    margin: 8px 0;
+
+    .material-icons {
+      cursor: pointer;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    flex-grow: 1;
+  }
+
+  &__description {
+    margin-left: 24px;
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: -3px;
+  }
+
+  &__arrow_down {
+    margin-left: 24px;
+  }
+
+  &__correct-color {
+    color: white;
+    opacity: 0.56;
+  }
+
+  &__correct-font {
+    font-size: 14px;
+  }
+
+  &__element-save {
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 3px;
+    cursor: pointer;
+  }
+
+  &__logo {
+    width: 110px;
+    margin-left: 24px;
+  }
+
+  &__brand__img {
+    max-width: 260px;
+    margin: auto;
+  }
+
+  &__arrow {
+    opacity: 1;
+  }
+
+  &__choose-schedule {
+    cursor: pointer;
+    padding: 16px 24px;
+    margin: -16px 0 0;
+    height: 56px;
+  }
+
+}

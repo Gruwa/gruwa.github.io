@@ -1,0 +1,81 @@
+<form class="form-component" [formGroup]="dataGroup">
+  <sw-app-form-input class="form-component__input-group"
+                     placeholder="{{descriptions['email'] | capitalizeFirst}}"
+                     type="email"
+                     [control]="dataGroup.get('email')"
+                     [required]="true"
+                     readonly="true"
+                     (outputActionMethod)="changeForm($event)">
+  </sw-app-form-input>
+  <sw-app-form-input class="form-component__input-group form-component__phone form-component__margin-11"
+                     placeholder="{{'area' | capitalizeFirst}}"
+                     [control]="dataGroup.get('phonePrimary0')"
+                     [required]="true"
+                     type="number"
+                     [requiredDescription]="'enter 3 digits'"
+                     (outputActionMethod)="changeForm($event)">
+  </sw-app-form-input>
+  <sw-app-form-input class="form-component__input-group form-component__phone form-component__margin-11"
+                     placeholder="{{'code' | capitalizeFirst}}"
+                     [control]="dataGroup.get('phonePrimary1')"
+                     [required]="true"
+                     type="number"
+                     [requiredDescription]="'enter 3 digits'"
+                     (outputActionMethod)="changeForm($event)">
+  </sw-app-form-input>
+  <sw-app-form-input class="form-component__input-group form-component__phone"
+                     placeholder="{{'number' | capitalizeFirst}}"
+                     [control]="dataGroup.get('phonePrimary2')"
+                     [required]="true"
+                     type="number"
+                     [requiredDescription]="'enter 4 digits'"
+                     (outputActionMethod)="changeForm($event)">
+  </sw-app-form-input>
+  <sw-app-small-list class="form-component__input-group form-component__toggle"
+                     [list]="list"
+                     [toggle]="true"
+                     (outputActionToggle)="changeForm($event)">
+  </sw-app-small-list>
+  <sw-app-form-select class="form-component__input-group global__element-display-none"
+                      placeholder="{{descriptions['cellProvider'] | capitalizeFirst}}"
+                      [elements]="data ? data['cellProviderList'] : ''"
+                      [control]="dataGroup.get('cellProvider')"
+                      [required]="false"
+                      (outputActionMethod)="changeForm($event)">
+  </sw-app-form-select>
+  <sw-app-form-input class="form-component__input-group"
+                     placeholder="{{descriptions['address1'] | capitalizeFirst}}"
+                     [control]="dataGroup.get('address1')"
+                     [required]="false"
+                     readonly="true"
+                     (outputActionMethod)="changeForm($event)">
+  </sw-app-form-input>
+  <sw-app-form-input class="form-component__input-group"
+                     placeholder="{{descriptions['address2'] | capitalizeFirst}}"
+                     [control]="dataGroup.get('address2')"
+                     [required]="false"
+                     readonly="true"
+                     (outputActionMethod)="changeForm($event)">
+  </sw-app-form-input>
+  <sw-app-form-input class="form-component__input-group"
+                     placeholder="{{descriptions['city'] | capitalizeFirst}}"
+                     [control]="dataGroup.get('city')"
+                     [required]="false"
+                     readonly="true"
+                     (outputActionMethod)="changeForm($event)">
+  </sw-app-form-input>
+  <sw-app-form-input class="form-component__input-group form-component__state"
+                     placeholder="{{descriptions['state'] | capitalizeFirst}}"
+                     [control]="dataGroup.get('state')"
+                     [required]="false"
+                     readonly="true"
+                     (outputActionMethod)="changeForm($event)">
+  </sw-app-form-input>
+  <sw-app-form-input class="form-component__input-group form-component__zip"
+                     placeholder="{{descriptions['zip'] | capitalizeFirst}}"
+                     [control]="dataGroup.get('zip')"
+                     [required]="false"
+                     readonly="true"
+                     (outputActionMethod)="changeForm($event)">
+  </sw-app-form-input>
+</form>

@@ -1,0 +1,25 @@
+<div class="popup">
+  <form class="popup__form"
+        [formGroup]="popupForm"
+        (ngSubmit)="onSubmit()">
+    <div class="popup__form">
+      <mat-card>
+        <mat-card-content>
+          <mat-form-field>
+            <input matInput type="password" placeholder="Password" formControlName="password" autofocus>
+          </mat-form-field>
+          <div class="alert popup__danger"
+               [ngClass]="{'popup__display': popupForm.get('password').hasError('required') && popupForm.get('password').touched}">
+            Password field is required.
+          </div>
+          <div class="popup__footer-wrap">
+            <button id="popup-submit-btn" type="submit" mat-fab [disabled]="(buttonAuth$ | async) || popupForm.invalid">
+              <mat-icon class="mat-icon material-icons">arrow_forward</mat-icon>
+            </button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </form>
+  <div class="popup__click" (click)="ClosePopup.emit(false)"></div>
+</div>

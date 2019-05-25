@@ -1,0 +1,15 @@
+<mat-form-field
+  [class.app-forms__error-input-block]="control.hasError('required')"
+  [class.app-forms__success-input-block]="!control.hasError('required')">
+  <input matInput
+         [type]="type"
+         [placeholder]="placeholder"
+         [formControl]="control"
+         [readonly]="readonly"
+         [required]="required"
+         (keydown)="selectionChange($event)">
+</mat-form-field>
+<div class="app-forms__input-component__alert-danger"
+     [ngClass]="{'app-forms__input-component__display': control.status === 'INVALID' && control.touched}">
+  {{(requiredDescription ? requiredDescription : 'field is required') | capitalizeFirst}}
+</div>

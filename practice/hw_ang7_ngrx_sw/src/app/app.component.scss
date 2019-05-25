@@ -1,0 +1,63 @@
+@import "../assets/styles/variables.scss";
+
+.app {
+
+  &__spinner, &__popup {
+    display: none;
+  }
+
+  &__spinner-display, &__popup-display {
+    display: block;
+  }
+
+  &__container {
+    height: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  &__content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__logo {
+    width: 110px;
+    margin-left: 24px;
+  }
+
+  &__sidenav {
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+    height: 100%;
+  }
+
+  &__app-header {
+    flex-shrink: 0;
+    background-color: rgba(57, 80, 191, 1);
+  }
+
+  &__app-footer {
+    flex-shrink: 0;
+    padding: 16px 16px 16px 72px;
+    font-size: 12px;
+    color: $cGrayLight2;
+    width: 100%;
+    line-height: 1.3em;
+    box-sizing: border-box;
+
+    &:first-letter {
+      font-size: 13px;
+    }
+  }
+}
+
+@media (min-height: 503px) {
+  .app {
+    &__app-footer {
+      position: absolute;
+      bottom: 0;
+    }
+  }
+}

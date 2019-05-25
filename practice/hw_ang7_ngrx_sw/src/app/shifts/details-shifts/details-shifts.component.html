@@ -1,0 +1,21 @@
+<div class="details-shifts">
+  <sw-app-header class="global__app-header details-shifts__app-header"
+              [iconLeft]="iconLeft"
+              [descriptionLeft]="descriptionLeft"
+              (outputActionMethod)="closeOurPage($event)">
+  </sw-app-header>
+  <div class="details-shifts__content">
+    <sw-app-list-fields [shiftActive]="shiftActive"
+                     [status]="status"
+                     *ngIf="tab !== 'my requests'">
+    </sw-app-list-fields>
+    <sw-app-small-spinner [ngClass]="{'global__element-display' : spinner}"
+                       class="global__element-display-none">
+    </sw-app-small-spinner>
+  </div>
+  <div class="details-shifts__footer"
+       [class.details-shifts__status-button]="footerActive"
+       (click)="clickFooter()">
+    {{footerDescription}}
+  </div>
+</div>

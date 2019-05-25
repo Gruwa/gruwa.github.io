@@ -1,0 +1,7 @@
+<sw-app-small-list class="global__small-list"
+                [schedule]="true"
+                *ngIf="list"
+                [list]="list[this.tab]"
+                [spinner]="spinner"
+                (outputActionMethod)="showAvailability($event)">
+</sw-app-small-list>

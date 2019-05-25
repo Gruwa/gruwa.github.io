@@ -1,0 +1,75 @@
+@import "../../../../assets/styles/variables.scss";
+
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+.shift-block {
+  width: 100%;
+  line-height: 1.45em;
+  margin-bottom: 2px;
+  border-radius: 4px;
+  font-family: Lato, Helvetica, Arial, sans-serif;
+
+  &.mat-raised-button {
+      box-shadow: 0 1px 4px $cGeyser;
+
+      &:active {
+          box-shadow: 0 1px 5px darken($cGeyser, 20%) !important;
+      }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 200px;
+    overflow: hidden;
+  }
+
+  &__wrapper {
+    min-height: 88px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__point {
+    font-size: 8px;
+    margin-right: 10px;
+    color: $cBlue;
+    display: none;
+  }
+
+  &__icons-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: $cPaleSky;
+  }
+
+  &__job {
+    font-size: 18px;
+    font-weight: 600;
+    color: $cBrightGray;
+    text-transform: capitalize;
+  }
+
+  &__date-from {
+    font-size: 14px;
+    font-weight: 600;
+    color: $cBrightGray;
+    margin-bottom: 5px;
+  }
+
+  &__date-loc {
+    font-size: 14px;
+    font-weight: 400;
+    color: $cPaleSky;
+  }
+
+  &__display-true {
+    display: block;
+  }
+}

@@ -1,0 +1,44 @@
+@import "../../../../assets/styles/variables.scss";
+
+.list-fields {
+  width: 100%;
+  max-width: 312px;
+  margin: auto;
+  font-family: Lato, Helvetica, Arial, sans-serif;
+
+  &__group {
+    display: flex;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 22px;
+    border-bottom: 1px solid rgba($cPaleSky, 0.502);
+  }
+
+  &__group &__field {
+    width: 49%;
+  }
+
+  &__group &__field:last-child {
+    margin-left: 7.5%;
+  }
+
+  &__label {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: $cPaleSky;
+    line-height: 1.286;
+  }
+
+  &__value {
+    margin-bottom: 7px;
+    font-size: 18px;
+    color: $cBigStone;
+    font-weight: bold;
+    line-height: 1;
+  }
+
+}

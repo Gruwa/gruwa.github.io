@@ -1,0 +1,30 @@
+﻿<mat-sidenav-container class="app__container">
+  <mat-sidenav #sidebar role="navigation" class="app__sidenav">
+    <sw-app-header class="global__app-header app__app-header"
+                   [iconLeft]="iconLeft"
+                   [img]="img"
+                   [items]="items"
+                   [arrow]="arrow"
+                   (outputActionMethod)="sideBarShow($event)">
+    </sw-app-header>
+    <sw-app-side-bar (closeSideBar)="sideBarShow($event)"></sw-app-side-bar>
+    <div class="app__app-footer">
+      &copy; {{currentYear}} Restaurant Magic Software.
+      <br>All Rights Reserved.
+      <br>{{currentVersion}}
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content class="app__content">
+    <router-outlet>
+      <sw-app-spinner class="app__spinner"
+                      [ngClass]="{'app__spinner-display' : spinner}">
+      </sw-app-spinner>
+      <sw-app-popup class="app__popup"
+                    [ngClass]="{'app__popup-display' : flowService.dataPopupActive$ | async}"
+                    (dataOutput)="flowService.dataPopupPassword$.next($event)"
+                    [buttonBehavior]="flowService.buttonAuth$ | async"
+                    (ClosePopup)="flowService.dataPopupActive$.next(false)">
+      </sw-app-popup>
+    </router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

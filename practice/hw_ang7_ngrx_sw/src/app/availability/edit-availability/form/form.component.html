@@ -1,0 +1,61 @@
+<form class="form-component" [formGroup]="dataGroup">
+  <sw-app-form-input class="form-component__input-group"
+                  placeholder="{{descriptions['title'] | capitalizeFirst}}"
+                  [control]="dataGroup.get('title')">
+  </sw-app-form-input>
+  <sw-app-form-input class="form-component__input-group global__element-display-none"
+                  placeholder="{{descriptions['requestStatus'] | capitalizeFirst}}"
+                  *ngIf="this.router.url !== '/availability/new'"
+                  [ngClass]="{'global__element-display' :
+                  localStorage.retrieve(this.dataService.LOCAL_STORAGE['tabavailability']) === 'time off'}"
+                  [control]="dataGroup.get('requestDescription')"
+                  [required]="false"
+                  [readonly]="true">
+  </sw-app-form-input>
+  <sw-app-form-select class="form-component__input-group"
+                   placeholder="{{descriptions['frequency'] | capitalizeFirst}}"
+                   [elements]="data ? data['frequencyList'] : null"
+                   [control]="dataGroup.get('frequency')">
+  </sw-app-form-select>
+  <sw-app-form-select class="form-component__input-group global__element-display-none"
+                   placeholder="{{descriptions['frequencyOption'] | capitalizeFirst}}"
+                   [elements]="
+                   dataGroup.get('frequency').value === 'W' ? dataService.FREQUENCY_WEEKLY_LIST_AVAILABILITY['W'] : null
+                   || dataGroup.get('frequency').value === 'M' ? dataService.FREQUENCY_WEEKLY_LIST_AVAILABILITY['M'] : null"
+                   [ngClass]="{
+                   'global__element-display' : dataGroup.get('frequency').value === 'W'
+                   ||  dataGroup.get('frequency').value === 'M'}"
+                   [control]="dataGroup.get('frequencyOption')"
+                   [required]="false">
+  </sw-app-form-select>
+  <sw-app-form-date class="form-component__input-group form-component__margin-8"
+                 placeholder="{{descriptions['dateFrom'] | capitalizeFirst}}"
+                 [required]="false"
+                 [control]="dataGroup.get('dateFrom')">
+  </sw-app-form-date>
+  <sw-app-form-date class="form-component__input-group"
+                 placeholder="{{descriptions['dateTrough'] | capitalizeFirst}}"
+                 [required]="false"
+                 [control]="dataGroup.get('dateTrough')"
+                 [datepickerFilter]="datepickerFilterDateTrough">
+  </sw-app-form-date>
+  <sw-app-form-time class="form-component__input-group form-component__margin-8"
+                 type="time"
+                 [required]="false"
+                 placeholder="{{descriptions['startTime'] | capitalizeFirst}}"
+                 [control]="dataGroup.get('startTime')">
+  </sw-app-form-time>
+  <sw-app-form-time class="form-component__input-group"
+                 type="time"
+                 [required]="false"
+                 placeholder="{{descriptions['endTime'] | capitalizeFirst}}"
+                 [control]="dataGroup.get('endTime')">
+  </sw-app-form-time>
+  <sw-app-form-text-area class="form-component__input-group"
+                      *ngIf="this.router.url !== '/availability/new'"
+                      placeholder="{{descriptions['comment'] | capitalizeFirst}}"
+                      [required]="false"
+                      [readonly]="true"
+                      [control]="dataGroup.get('comment')">
+  </sw-app-form-text-area>
+</form>

@@ -1,0 +1,12 @@
+<div class="content-shifts">
+  <div *ngFor="let shifts of sortShifts" class="content-shifts__wrapper">
+    <div class="content-shifts__title">{{shifts.dateFormated}}</div>
+    <div *ngFor="let shift of shifts.shifts" class="content-shifts__content">
+      <sw-app-shift-block [shift]="shift"
+                       [variable]="variable"
+                       class="app-shift-block"
+                       [routerLink]="['/shifts', shift.shiftID]">
+      </sw-app-shift-block>
+    </div>
+  </div>
+</div>

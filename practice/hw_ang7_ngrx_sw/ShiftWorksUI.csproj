@@ -1,0 +1,341 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <ProjectGuid>{5E0E4709-1F39-4CC4-9B05-50083D62C3F9}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <OutputPath>bin</OutputPath>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <TypeScriptToolsVersion>2.5</TypeScriptToolsVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup>
+    <TypeScriptCompileBlocked>True</TypeScriptCompileBlocked>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>3278</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:3278/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <TypeScriptRemoveComments>true</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>false</TypeScriptSourceMap>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="dev_api\controllers\error.js" />
+    <Content Include="dev_api\controllers\login.js" />
+    <Content Include="dev_api\controllers\shifts.js" />
+    <Content Include="dev_api\routes.js" />
+    <Content Include="dev_api\server.js" />
+    <Content Include="e2e\protractor.conf.js" />
+    <Content Include="src\app\app.component.html" />
+    <Content Include="src\app\availability\availability.component.html" />
+    <Content Include="package-lock.json" />
+    <Content Include="ngsw-config.json" />
+    <None Include="src\app\availability\edit-availability\edit-availability.component.scss" />
+    <Content Include="src\app\availability\edit-availability\edit-availability.component.html" />
+    <Content Include="src\app\availability\edit-availability\form\form.component.html" />
+    <Content Include="src\app\availability\list-availability\list-availability.component.html" />
+    <Content Include="src\app\contact-info\contact-info.component.html" />
+    <Content Include="src\app\contact-info\form-contact-info\form-contact-info.component.html" />
+    <Content Include="src\app\login\login.component.html" />
+    <Content Include="src\app\login\schedule-login\schedule-login.component.html" />
+    <Content Include="src\app\settings\settings.component.html" />
+    <Content Include="src\app\shared\components\app-foms\form-date\form-date.component.html" />
+    <Content Include="src\app\shared\components\app-foms\form-input\form-input.component.html" />
+    <Content Include="src\app\shared\components\app-foms\form-select\form-select.component.html" />
+    <Content Include="src\app\shared\components\app-foms\form-text-area\form-text-area.component.html" />
+    <Content Include="src\app\shared\components\app-foms\form-time\form-time.component.html" />
+    <Content Include="src\app\shared\components\header\header.component.html" />
+    <Content Include="src\app\shared\components\main-list\main-list.component.html" />
+    <Content Include="src\app\shared\components\not-found\not-found.component.html" />
+    <Content Include="src\app\shared\components\popup\popup.component.html" />
+    <Content Include="src\app\shared\components\shift-block\shift-block.component.html" />
+    <Content Include="src\app\shared\components\small-list\small-list.component.html" />
+    <Content Include="src\app\shared\components\small-spinner\small-spinner.component.html" />
+    <Content Include="src\app\shared\components\spinner\spinner.component.html" />
+    <Content Include="src\app\shifts\content-shifts\content-shifts.component.html" />
+    <Content Include="src\app\shifts\details-shifts\details-shifts.component.html" />
+    <Content Include="src\app\shifts\details-shifts\list-fields\list-fields.component.html" />
+    <Content Include="src\app\shifts\shifts.component.html" />
+    <Content Include="src\app\sidebar\group-schedule\group-schedule.component.html" />
+    <Content Include="src\app\sidebar\side-bar.component.html" />
+    <Content Include="src\assets\fonts\Lato.css" />
+    <Content Include="src\assets\icons\sw-128x128.png" />
+    <Content Include="src\assets\icons\sw-144x144.png" />
+    <Content Include="src\assets\icons\sw-152x152.png" />
+    <Content Include="src\assets\icons\sw-192x192.png" />
+    <Content Include="src\assets\icons\sw-72x72.png" />
+    <Content Include="src\assets\icons\sw-96x96.png" />
+    <Content Include="src\assets\images\icon-close-circle-outline.svg" />
+    <Content Include="src\assets\images\icon-marked-circle-outline.svg" />
+    <Content Include="src\assets\images\icon-tune.svg" />
+    <Content Include="src\assets\images\SWLogo.svg" />
+    <Content Include="src\assets\material-icons\MaterialIcons-Regular.svg" />
+    <Content Include="src\assets\images\favicon.ico" />
+    <Content Include="src\index.html" />
+    <Content Include="src\karma.conf.js" />
+    <Content Include="src\styles.css" />
+    <Content Include="web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="tsconfig.json" />
+    <Content Include="tslint.json" />
+    <Content Include="angular.json" />
+    <Content Include="package.json" />
+    <Content Include="proxy.config.json" />
+    <Content Include="src\app\app.component.scss" />
+    <Content Include="src\app\login\login.component.scss" />
+    <Content Include="src\app\login\schedule-login\schedule-login.component.scss" />
+    <Content Include="src\app\shared\components\app-foms\form-date\form-date.component.scss" />
+    <Content Include="src\app\shared\components\app-foms\form-input\form-input.component.scss" />
+    <Content Include="src\app\shared\components\app-foms\form-select\form-select.component.scss" />
+    <Content Include="src\app\shared\components\app-foms\form-time\form-time.component.scss" />
+    <Content Include="src\app\shared\components\shift-block\shift-block.component.scss" />
+    <Content Include="src\app\shared\components\small-spinner\small-spinner.component.scss" />
+    <Content Include="src\app\shared\components\spinner\spinner.component.scss" />
+    <Content Include="src\app\shifts\content-shifts\content-shifts.component.scss" />
+    <Content Include="src\app\shifts\details-shifts\details-shifts.component.scss" />
+    <Content Include="src\app\shifts\shifts.component.scss" />
+    <Content Include="src\assets\fonts\Lato\Lato-Black.ttf" />
+    <Content Include="src\assets\fonts\Lato\Lato-BlackItalic.ttf" />
+    <Content Include="src\assets\fonts\Lato\Lato-Bold.ttf" />
+    <Content Include="src\assets\fonts\Lato\Lato-BoldItalic.ttf" />
+    <Content Include="src\assets\fonts\Lato\Lato-Hairline.ttf" />
+    <Content Include="src\assets\fonts\Lato\Lato-HairlineItalic.ttf" />
+    <Content Include="src\assets\fonts\Lato\Lato-Italic.ttf" />
+    <Content Include="src\assets\fonts\Lato\Lato-Light.ttf" />
+    <Content Include="src\assets\fonts\Lato\Lato-LightItalic.ttf" />
+    <Content Include="src\assets\fonts\Lato\Lato-Medium.ttf" />
+    <Content Include="src\assets\fonts\Lato\Lato-Regular.ttf" />
+    <Content Include="src\assets\fonts\Lato\Lato-Semibold.ttf" />
+    <Content Include="src\assets\material-icons\MaterialIcons-Regular.eot" />
+    <Content Include="src\assets\material-icons\MaterialIcons-Regular.ijmap" />
+    <Content Include="src\assets\material-icons\MaterialIcons-Regular.ttf" />
+    <Content Include="src\assets\material-icons\MaterialIcons-Regular.woff" />
+    <Content Include="src\assets\material-icons\MaterialIcons-Regular.woff2" />
+    <Content Include="src\assets\styles\fonts.scss" />
+    <Content Include="src\assets\styles\reset.scss" />
+    <Content Include="src\assets\styles\start.scss" />
+    <Content Include="src\assets\styles\variables.scss" />
+    <Content Include="src\styles.scss" />
+    <Content Include="src\tsconfig.app.json" />
+    <Content Include="src\tsconfig.spec.json" />
+    <Content Include="src\unicorn-app-theme.scss" />
+    <Content Include="e2e\tsconfig.e2e.json" />
+    <Content Include="src\app\shifts\details-shifts\list-fields\list-fields.component.scss" />
+    <Content Include="src\app\shared\components\main-list\main-list.component.scss" />
+    <Content Include="src\app\sidebar\side-bar.component.scss" />
+    <Content Include="src\app\sidebar\group-schedule\group-schedule.component.scss" />
+    <Content Include="src\app\settings\settings.component.scss" />
+    <Content Include="src\app\contact-info\contact-info.component.scss" />
+    <Content Include="src\app\shared\components\small-list\small-list.component.scss" />
+    <Content Include="src\app\availability\availability.component.scss" />
+    <Content Include="src\app\availability\list-availability\list-availability.component.scss" />
+    <Content Include="src\app\shared\components\header\header.component.scss" />
+    <Content Include="src\app\shared\components\app-foms\form-text-area\form-text-area.component.scss" />
+    <Content Include="src\app\contact-info\form-contact-info\form-contact-info.component.scss" />
+    <Content Include="src\web.config" />
+    <Content Include="src\app\availability\edit-availability\form\form.component.scss" />
+    <Content Include="src\app\shared\components\not-found\not-found.component.scss" />
+    <Content Include="src\manifest.json" />
+    <Content Include="src\app\shared\components\popup\popup.component.scss" />
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="dev_api\.git\" />
+    <Folder Include="dist\" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="e2e\src\app.e2e-spec.ts" />
+    <TypeScriptCompile Include="e2e\src\app.po.ts" />
+    <TypeScriptCompile Include="src\app\app-routing.module.ts" />
+    <TypeScriptCompile Include="src\app\app.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\app.component.ts" />
+    <TypeScriptCompile Include="src\app\app.module.ts" />
+    <TypeScriptCompile Include="src\app\availability\availability.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\availability\availability.component.ts" />
+    <TypeScriptCompile Include="src\app\availability\availability.module.spec.ts" />
+    <TypeScriptCompile Include="src\app\availability\availability.module.ts" />
+    <TypeScriptCompile Include="src\app\availability\edit-availability\edit-availability.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\availability\edit-availability\edit-availability.component.ts" />
+    <TypeScriptCompile Include="src\app\availability\edit-availability\form\form.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\availability\edit-availability\form\form.component.ts" />
+    <TypeScriptCompile Include="src\app\availability\list-availability\list-availability.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\availability\list-availability\list-availability.component.ts" />
+    <TypeScriptCompile Include="src\app\availability\services\availability.service.spec.ts" />
+    <TypeScriptCompile Include="src\app\availability\services\availability.service.ts" />
+    <TypeScriptCompile Include="src\app\contact-info\contact-info.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\contact-info\contact-info.component.ts" />
+    <TypeScriptCompile Include="src\app\contact-info\contact-info.module.spec.ts" />
+    <TypeScriptCompile Include="src\app\contact-info\contact-info.module.ts" />
+    <TypeScriptCompile Include="src\app\contact-info\form-contact-info\form-contact-info.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\contact-info\form-contact-info\form-contact-info.component.ts" />
+    <TypeScriptCompile Include="src\app\contact-info\services\contact-info.service.spec.ts" />
+    <TypeScriptCompile Include="src\app\contact-info\services\contact-info.service.ts" />
+    <TypeScriptCompile Include="src\app\globals.ts" />
+    <TypeScriptCompile Include="src\app\login\login.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\login\login.component.ts" />
+    <TypeScriptCompile Include="src\app\login\login.module.ts" />
+    <TypeScriptCompile Include="src\app\login\schedule-login\schedule-login.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\login\schedule-login\schedule-login.component.ts" />
+    <TypeScriptCompile Include="src\app\login\services\auth.service.spec.ts" />
+    <TypeScriptCompile Include="src\app\login\services\auth.service.ts" />
+    <TypeScriptCompile Include="src\app\settings\services\settings.service.spec.ts" />
+    <TypeScriptCompile Include="src\app\settings\services\settings.service.ts" />
+    <TypeScriptCompile Include="src\app\settings\settings.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\settings\settings.component.ts" />
+    <TypeScriptCompile Include="src\app\settings\settings.module.spec.ts" />
+    <TypeScriptCompile Include="src\app\settings\settings.module.ts" />
+    <TypeScriptCompile Include="src\app\shared\components\app-components.module.ts" />
+    <TypeScriptCompile Include="src\app\shared\components\app-foms\form-date\form-date.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\shared\components\app-foms\form-date\form-date.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\components\app-foms\form-input\form-input.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\shared\components\app-foms\form-input\form-input.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\components\app-foms\form-select\form-select.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\shared\components\app-foms\form-select\form-select.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\components\app-foms\form-text-area\form-text-area.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\shared\components\app-foms\form-text-area\form-text-area.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\components\app-foms\form-time\form-time.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\shared\components\app-foms\form-time\form-time.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\components\header\header.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\shared\components\header\header.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\components\main-list\main-list.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\shared\components\main-list\main-list.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\components\materials\materials.module.ts" />
+    <TypeScriptCompile Include="src\app\shared\components\not-found\not-found.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\components\popup\popup.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\shared\components\popup\popup.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\components\shift-block\shift-block.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\shared\components\shift-block\shift-block.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\components\small-list\small-list.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\shared\components\small-list\small-list.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\components\small-spinner\small-spinner.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\shared\components\small-spinner\small-spinner.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\components\spinner\spinner.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\shared\components\spinner\spinner.component.ts" />
+    <TypeScriptCompile Include="src\app\shared\interfaces\any-object.interface.ts" />
+    <TypeScriptCompile Include="src\app\shared\interfaces\cell-providers.interface.ts" />
+    <TypeScriptCompile Include="src\app\shared\interfaces\contact-info.interface.ts" />
+    <TypeScriptCompile Include="src\app\shared\interfaces\form.interface.ts" />
+    <TypeScriptCompile Include="src\app\shared\interfaces\frequency.interface.ts" />
+    <TypeScriptCompile Include="src\app\shared\interfaces\group-restaurant.interface.ts" />
+    <TypeScriptCompile Include="src\app\shared\interfaces\job.interface.ts" />
+    <TypeScriptCompile Include="src\app\shared\interfaces\location.interface.ts" />
+    <TypeScriptCompile Include="src\app\shared\interfaces\login.interface.ts" />
+    <TypeScriptCompile Include="src\app\shared\interfaces\mark-state-shift.interface.ts" />
+    <TypeScriptCompile Include="src\app\shared\interfaces\settings.interface.ts" />
+    <TypeScriptCompile Include="src\app\shared\interfaces\shift.interface.ts" />
+    <TypeScriptCompile Include="src\app\shared\interfaces\state.interface.ts" />
+    <TypeScriptCompile Include="src\app\shared\interfaces\station.interface.ts" />
+    <TypeScriptCompile Include="src\app\shared\interfaces\timeoff.interface.ts" />
+    <TypeScriptCompile Include="src\app\shared\interfaces\types.interface.ts" />
+    <TypeScriptCompile Include="src\app\shared\models\decorators.ts" />
+    <TypeScriptCompile Include="src\app\shared\pipes\capitalize-first\capitalize-first.pipe.ts" />
+    <TypeScriptCompile Include="src\app\shared\pipes\capitalize-first\capitalize-first.spec.ts" />
+    <TypeScriptCompile Include="src\app\shared\pipes\pipe.module.ts" />
+    <TypeScriptCompile Include="src\app\shared\pipes\real-date\real-date.pipe.spec.ts" />
+    <TypeScriptCompile Include="src\app\shared\pipes\real-date\real-date.pipe.ts" />
+    <TypeScriptCompile Include="src\app\shared\services\data.service.spec.ts" />
+    <TypeScriptCompile Include="src\app\shared\services\data.service.ts" />
+    <TypeScriptCompile Include="src\app\shared\services\fake.service.spec.ts" />
+    <TypeScriptCompile Include="src\app\shared\services\fake.service.ts" />
+    <TypeScriptCompile Include="src\app\shared\services\flow.service.spec.ts" />
+    <TypeScriptCompile Include="src\app\shared\services\flow.service.ts" />
+    <TypeScriptCompile Include="src\app\shared\services\google-analytics.service.spec.ts" />
+    <TypeScriptCompile Include="src\app\shared\services\google-analytics.service.ts" />
+    <TypeScriptCompile Include="src\app\shared\services\http-error-response.service.spec.ts" />
+    <TypeScriptCompile Include="src\app\shared\services\http-error-response.service.ts" />
+    <TypeScriptCompile Include="src\app\shared\services\http-guard-request.service.spec.ts" />
+    <TypeScriptCompile Include="src\app\shared\services\http-guard-request.service.ts" />
+    <TypeScriptCompile Include="src\app\shared\services\http-guard.service.spec.ts" />
+    <TypeScriptCompile Include="src\app\shared\services\http-guard.service.ts" />
+    <TypeScriptCompile Include="src\app\shared\services\http.service.spec.ts" />
+    <TypeScriptCompile Include="src\app\shared\services\http.service.ts" />
+    <TypeScriptCompile Include="src\app\shared\services\interceptor.ts" />
+    <TypeScriptCompile Include="src\app\shared\services\main.service.spec.ts" />
+    <TypeScriptCompile Include="src\app\shared\services\main.service.ts" />
+    <TypeScriptCompile Include="src\app\shared\services\swipe.service.spec.ts" />
+    <TypeScriptCompile Include="src\app\shared\services\swipe.service.ts" />
+    <TypeScriptCompile Include="src\app\shared\services\version.ts" />
+    <TypeScriptCompile Include="src\app\shared\url-serializer.service.ts" />
+    <TypeScriptCompile Include="src\app\shifts\content-shifts\content-shifts.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\shifts\content-shifts\content-shifts.component.ts" />
+    <TypeScriptCompile Include="src\app\shifts\details-shifts\details-shifts.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\shifts\details-shifts\details-shifts.component.ts" />
+    <TypeScriptCompile Include="src\app\shifts\details-shifts\list-fields\list-fields.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\shifts\details-shifts\list-fields\list-fields.component.ts" />
+    <TypeScriptCompile Include="src\app\shifts\services\shifts.service.spec.ts" />
+    <TypeScriptCompile Include="src\app\shifts\services\shifts.service.ts" />
+    <TypeScriptCompile Include="src\app\shifts\shifts.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\shifts\shifts.component.ts" />
+    <TypeScriptCompile Include="src\app\shifts\shifts.module.ts" />
+    <TypeScriptCompile Include="src\app\sidebar\group-schedule\group-schedule.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\sidebar\group-schedule\group-schedule.component.ts" />
+    <TypeScriptCompile Include="src\app\sidebar\side-bar.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\sidebar\side-bar.component.ts" />
+    <TypeScriptCompile Include="src\app\sidebar\sidebar.module.spec.ts" />
+    <TypeScriptCompile Include="src\app\sidebar\sidebar.module.ts" />
+    <TypeScriptCompile Include="src\environments\environment.loc.ts" />
+    <TypeScriptCompile Include="src\environments\environment.dev.ts" />
+    <TypeScriptCompile Include="src\environments\environment.prod.ts" />
+    <TypeScriptCompile Include="src\environments\environment.ts" />
+    <TypeScriptCompile Include="src\main.ts" />
+    <TypeScriptCompile Include="src\polyfills.ts" />
+    <TypeScriptCompile Include="src\test.ts" />
+    <TypeScriptCompile Include="src\typings.d.ts" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="AfterBuild">
+    <Exec Command="ng build" WorkingDirectory="$(ProjectDir)" Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' " />
+    <Exec Command="npm run build" WorkingDirectory="$(ProjectDir)" Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' " />
+  </Target>
+</Project>

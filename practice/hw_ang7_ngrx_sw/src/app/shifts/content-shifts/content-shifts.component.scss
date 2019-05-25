@@ -1,0 +1,69 @@
+@import "../../../assets/styles/variables.scss";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.content-shifts {
+  width: 100%;
+  height: 100%;
+  background-color: #f2f4f7;
+  box-sizing: border-box;
+  flex-grow: 1;
+
+  &__title {
+    margin-bottom: 13px;
+    padding: 0 16px;
+    color: #6c7380;
+    font-family: Lato, Helvetica, Arial, sans-serif;
+  }
+
+  &__wrapper {
+    max-width: 976px;
+    padding: 13px 24px;
+    margin: auto;
+
+    &:first-child {
+        padding-top: 26px;
+    }
+  }
+
+  &__content {
+
+  }
+
+  &__buttons {
+    min-height: 90px;
+  }
+
+  &__button {
+    border-radius: 50%;
+    background-color: rgb(33, 148, 81);
+    box-shadow: 0px 2px 6px 0px rgba(108, 115, 128, 0.5);
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+    width: 64px;
+    height: 64px;
+    z-index: 797;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.material-icons {
+  color: white;
+  font-size: 28px;
+}
+
+@media (min-width: 1024px) {
+  .content-shifts__button {
+    right: 50%;
+    margin-right: -490px;
+  }
+}

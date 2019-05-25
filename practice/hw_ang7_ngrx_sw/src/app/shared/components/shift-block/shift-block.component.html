@@ -1,0 +1,14 @@
+<button mat-raised-button class="shift-block">
+  <span class="shift-block__wrapper">
+    <span class="shift-block__content">
+      <span class="shift-block__job">{{shift.job}}</span>
+      <span class="shift-block__date-from">{{shift.dateFrom | realDate:"LT"}} - {{shift.dateTo | realDate:"LT"}}</span>
+      <span class="shift-block__date-loc">{{shift.location}}</span>
+    </span>
+    <span class="shift-block__icons-wrapper">
+      <i class="material-icons shift-block__point"
+         [ngClass]="{'shift-block__display-true' : (shift.isDropRequest && variable) || (shift.isPickupRequest && !variable)}">lens</i>
+      <i class="material-icons">keyboard_arrow_right</i>
+    </span>
+  </span>
+</button>

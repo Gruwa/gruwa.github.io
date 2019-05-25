@@ -1,0 +1,12 @@
+<sw-app-main-list class="side-bar"
+               *ngIf="!groupRestaurantShow"
+               [lists]="dataService.SIDE_BAR_LIST_MENU"
+               [activeItem]="flowService.activeItem$ | async"
+               (outputActionMethod)="onClickList($event)">
+</sw-app-main-list>
+<sw-app-group-schedule *ngIf="groupRestaurantShow"
+                    (outputActiveItem)="getActiveItem($event)">
+</sw-app-group-schedule>
+<sw-app-small-spinner [ngClass]="{'global__element-display' : spinner}"
+                   class="global__element-display-none">
+</sw-app-small-spinner>

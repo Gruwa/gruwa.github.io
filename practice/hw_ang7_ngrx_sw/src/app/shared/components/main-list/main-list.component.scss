@@ -1,0 +1,41 @@
+@import "../../../../assets/styles/variables.scss";
+
+:host {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.main-list {
+  padding-top: 2px;
+
+  &__row {
+    min-height: 56px;
+    padding: 8px 24px;
+    margin-bottom: 0;
+    color: $cPaleSky;
+    font-size: 16px;
+    cursor: pointer;
+
+    &.active {
+      color: $cBlue;
+      background-color: rgba($cBlue, 0.1);
+
+      .main-list-icon {
+        color: $cBlue;
+      }
+    }
+  }
+
+  &__description {
+    margin-left: 24px;
+  }
+}
+
+i, span {
+  cursor: pointer;
+}
+
+.main-list-icon {
+  color: $cWhite;
+}

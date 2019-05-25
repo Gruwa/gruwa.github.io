@@ -1,0 +1,38 @@
+﻿{
+  "/api/*": {
+    "target": "http://localhost:4334",
+    "secure": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/api": ""
+    },
+    "changeOrigin": true
+  },
+  "/dev/*": {
+    "target": "https://dev01.rmdatacentral.com/Shiftworks1234/api",
+    "secure": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/dev": ""
+    },
+    "changeOrigin": true
+  },
+  "/err/*": {
+    "target": "http://localhost:3000/api/err",
+    "secure": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/err": ""
+    },
+    "changeOrigin": true
+  },
+  "/loc/*": {
+    "target": "http://localhost:10429",
+    "secure": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/loc": ""
+    },
+    "changeOrigin": true
+  }
+}

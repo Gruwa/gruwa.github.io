@@ -1,0 +1,25 @@
+<div class="availability">
+  <sw-app-header class="global__app-header availability__app-header"
+              [iconLeft]="iconLeft"
+              [descriptionLeft]="descriptionLeft"
+              (outputActionMethod)="showSideBar($event)">
+  </sw-app-header>
+  <div class="availability__content">
+    <mat-tab-group (selectedTabChange)="selectedTabChange($event)"
+                   [selectedIndex]=tabIndex>
+      <div *ngFor="let tab of dataService.indexTABS_AVAILABILITY; let l = index">
+        <mat-tab label={{tab}}
+                 position=0
+                 class="mat-tab-label">
+          <ng-template matTabContent >
+            <sw-app-list-availability [tabActive]="l" [list]="flowService.dataAvailability$ | async"></sw-app-list-availability>
+            <button mat-fab class="availability__button"
+                    (click)="addNewAvailability()">
+              <i class="material-icons">add</i>
+            </button>
+          </ng-template>
+        </mat-tab>
+      </div>
+    </mat-tab-group>
+  </div>
+</div>

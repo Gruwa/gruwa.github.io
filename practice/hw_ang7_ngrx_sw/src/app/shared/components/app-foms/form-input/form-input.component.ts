@@ -1,0 +1,90 @@
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output
+} from '@angular/core';
+import {FormControl} from '@angular/forms';
+
+@Component({
+  selector: 'sw-app-form-input',
+  templateUrl: './form-input.component.html',
+  styleUrls: ['./form-input.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class FormInputComponent {
+
+  /**
+   * Variable for form-input type
+   * @type {string}
+   * @memberof FormInputComponent
+   */
+
+  @Input() type: string = 'text';
+
+  /**
+   * Variable for form-input required
+   * @type {boolean}
+   * @memberof FormInputComponent
+   */
+
+  @Input() required: boolean = true;
+
+  /**
+   * Variable for requiredDescription
+   * @type {string}
+   * @memberof FormInputComponent
+   */
+
+  @Input() requiredDescription: string;
+
+  /**
+   * Variable for form-input placeholder
+   * @type {string}
+   * @memberof FormInputComponent
+   */
+
+  @Input() placeholder: string = '';
+
+  /**
+   * Variable for form-input control
+   * @type {FormControl}
+   * @memberof FormInputComponent
+   */
+
+  @Input() control: FormControl;
+
+  /**
+   * Variable for form-input label
+   * @type {string}
+   * @memberof FormInputComponent
+   */
+
+  @Input() label: string = '';
+
+  /**
+   * Variable for form-input readonly
+   * @type {boolean}
+   * @memberof FormInputComponent
+   */
+
+  @Input() readonly: boolean = false;
+
+  /**
+   * Output action from form select
+   * @memberof FormInputComponent
+   */
+
+  @Output() outputActionMethod: EventEmitter<any> = new EventEmitter();
+
+  /**
+   * Method selectionChange
+   * @returns {void}
+   * @memberof FormInputComponent
+   */
+
+  public selectionChange(event: object): void {
+    this.outputActionMethod.emit(event);
+  }
+}

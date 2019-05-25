@@ -1,0 +1,26 @@
+<div class="small-list">
+    <sw-app-small-spinner [ngClass]="{'global__element-display' : spinner}"
+                       class="global__element-display-none">
+    </sw-app-small-spinner>
+    <button mat-raised-button
+            *ngFor="let point of list$ | async" class="global__element-display-none"
+            [ngClass]="{'global__element-display' : schedule}"
+            (click)="onClickAction(point)">
+        <i class="small-list__icon--left material-icons global__element-display-none"
+           [ngClass]="{'global__element-display' : point.requestStatus}"
+           [ngStyle]="{'color': point.requestStatusColor}">{{point.requestStatus}}</i>
+        <span class="small-list__group">{{point.description | capitalizeFirst}}</span>
+        <i class="small-list__icon material-icons">keyboard_arrow_right</i>
+    </button>
+    <mat-toolbar class="small-list__toolbar global__element-display-none"
+                 [ngClass]="{'global__element-display' : toggle}">
+        <mat-toolbar-row class="small-list__row" *ngFor="let point of list">
+            <mat-slide-toggle class="global__element-display-none"
+                              [ngClass]="{'global__element-display' : toggle}"
+                              [checked]="point.value"
+                              (change)="onToggle($event, point.id)">
+                {{point.description | capitalizeFirst}}
+            </mat-slide-toggle>
+        </mat-toolbar-row>
+    </mat-toolbar>
+</div>

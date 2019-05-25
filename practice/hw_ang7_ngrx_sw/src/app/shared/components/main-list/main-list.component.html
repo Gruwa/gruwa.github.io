@@ -1,0 +1,11 @@
+<mat-toolbar class="main-list">
+  <ng-container *ngFor="let list of lists">
+    <mat-toolbar-row class="main-list__row" (click)="clickEvent(list)" [class.active]="list.description === activeItem || (list.id && list.id === done)">
+      <i class="material-icons"
+         *ngIf="list.icon">{{list.icon}}</i>
+      <i class="material-icons global__element-display-none main-list-icon"
+         [ngClass]="{'global__element-display' : done}">done</i>
+      <span class="main-list__description">{{list.description | capitalizeFirst}}</span>
+    </mat-toolbar-row>
+  </ng-container>
+</mat-toolbar>

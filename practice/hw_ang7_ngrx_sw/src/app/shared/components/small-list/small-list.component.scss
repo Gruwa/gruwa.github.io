@@ -1,0 +1,52 @@
+@import "../../../../assets/styles/variables.scss";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: $cWhite;
+  overflow: auto;
+  flex-grow: 1;
+  position: relative;
+  align-items: center;
+}
+
+.small-list {
+  position: relative;
+  flex-grow: 1;
+  width: 100%;
+  max-width: 1024px;
+
+  &__row {
+    min-height: 56px;
+    padding: 8px 24px;
+    color: $cPaleSky;
+    font-size: 14px;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid $cGeyser;
+    box-sizing: border-box;
+  }
+
+  &__group {
+    flex-grow: 1;
+    margin-right: 16px;
+    overflow: hidden;
+    font-size: 16px;
+    font-family: Lato, Helvetica, Arial, sans-serif;
+    color: $cBrightGray;
+    font-weight: 400;
+    text-align: left;
+    text-overflow: ellipsis;
+  }
+
+  &__icon {
+    margin-right: -8px;
+    color: $cPaleSky;
+
+    &--left {
+      margin-right: 16px;
+    }
+  }
+}

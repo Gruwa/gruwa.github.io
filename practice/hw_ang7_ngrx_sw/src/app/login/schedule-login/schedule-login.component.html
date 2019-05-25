@@ -1,0 +1,13 @@
+<div class="login-schedule">
+    <sw-app-header class="global__app-header login-schedule__app-header"
+                [iconLeft]="iconLeft"
+                [descriptionLeft]="descriptionLeft"
+                (outputActionMethod)="goBack($event)">
+    </sw-app-header>
+    <sw-app-small-list class="global__small-list"
+                    [schedule]="true"
+                    [list]="groups"
+                    [spinner]="spinner"
+                    (outputActionMethod)="showShifts($event)">
+    </sw-app-small-list>
+</div>

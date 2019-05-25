@@ -1,0 +1,5 @@
+C:\rmdc2\alpha\ShiftWorks\ShiftWorksUI\bin\ShiftWorksUI.dll
+C:\rmdc2\alpha\ShiftWorks\ShiftWorksUI\bin\ShiftWorksUI.pdb
+C:\rmdc2\alpha\ShiftWorks\ShiftWorksUI\obj\Debug\ShiftWorksUI.csproj.CoreCompileInputs.cache
+C:\rmdc2\alpha\ShiftWorks\ShiftWorksUI\obj\Debug\ShiftWorksUI.dll
+C:\rmdc2\alpha\ShiftWorks\ShiftWorksUI\obj\Debug\ShiftWorksUI.pdb

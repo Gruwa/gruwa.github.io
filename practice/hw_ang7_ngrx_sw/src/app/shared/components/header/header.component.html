@@ -1,0 +1,43 @@
+<mat-toolbar class="header">
+  <mat-toolbar-row class="header__header">
+    <i class="material-icons global__element-display-none"
+       (click)="clickEvent('iconLeft')"
+       [ngClass]="{'global__element-display' : iconLeft}">{{iconLeft}}</i>
+    <span class="header__description"
+          id="header-title"
+          [ngClass]="{'header__correct-color header__correct-font': items}"
+          [ngStyle]="{'display' : descriptionLeft ? 'block' : 'none'}">{{descriptionLeft | capitalizeFirst}}</span>
+    <img class="header__img"
+         [src]="img ? img['url'] : ''"
+         [ngStyle]="{'display' : img ? 'block' : 'none'}"
+         alt="logo"
+         [ngClass]="img ? img['class'] : ''"/>
+    <span class="example-spacer"></span>
+    <i class="material-icons global__element-display-none"
+       (click)="clickEvent('iconRight')"
+       [ngClass]="{'global__element-display' : iconRight}">{{iconRight}}</i>
+    <span class="header__element-save global__element-display-none"
+          (click)="clickEvent(descriptionRightActive ===  'VALID' ? 'descriptionRight' : 'descriptionRightDeactivate')"
+          [ngStyle]="{opacity : descriptionRightActive ===  'VALID'  ? 1 : 0.56}"
+          [ngClass]="{'global__element-display' : descriptionRight}">{{descriptionRight}}</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-toolbar class="global__element-display-none"
+             [ngClass]="{'global__element-display' : items}">
+  <mat-toolbar-row class="header__choose-schedule"
+                   (click)="clickEvent(item['id'])"
+                   *ngFor="let item of items">
+    <i class="material-icons header__correct-color global__element-display-none"
+       [ngClass]="{'global__element-display' : item.iconLeft}"
+       [ngStyle]="{opacity : arrow && item.iconRightSecond ? 1 : 0.56}">{{item['iconLeft']}}</i>
+    <span
+      class="header__description header__correct-color header__correct-font global__element-display-none"
+      [ngClass]="{'global__element-display' : item.iconLeft}"
+      [ngStyle]="{opacity : arrow && item.iconRightSecond ? 1 : 0.56}">{{item['description']  | capitalizeFirst}}</span>
+    <i class="material-icons header__arrow_down header__correct-color global__element-display-none"
+       [ngClass]="{'global__element-display' : item.iconLeft && item.iconRightSecond && !arrow}">{{item['iconRightSecond']}}</i>
+    <i class="material-icons header__arrow_down header__correct-color global__element-display-none"
+       [ngClass]="{'global__element-display' : item.iconLeft && arrow}"
+       [ngStyle]="{opacity : arrow ? 1 : 0.56}">{{item['iconRight']}}</i>
+  </mat-toolbar-row>
+</mat-toolbar>
