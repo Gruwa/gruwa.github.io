@@ -1,0 +1,14 @@
+/Users/aleksey/projects/gruwa.github.io/practice/hw_webapi/WebAPI/WebAPI/bin/Debug/netcoreapp2.1/WebAPI.deps.json
+/Users/aleksey/projects/gruwa.github.io/practice/hw_webapi/WebAPI/WebAPI/bin/Debug/netcoreapp2.1/WebAPI.runtimeconfig.json
+/Users/aleksey/projects/gruwa.github.io/practice/hw_webapi/WebAPI/WebAPI/bin/Debug/netcoreapp2.1/WebAPI.runtimeconfig.dev.json
+/Users/aleksey/projects/gruwa.github.io/practice/hw_webapi/WebAPI/WebAPI/bin/Debug/netcoreapp2.1/WebAPI.dll
+/Users/aleksey/projects/gruwa.github.io/practice/hw_webapi/WebAPI/WebAPI/bin/Debug/netcoreapp2.1/WebAPI.pdb
+/Users/aleksey/projects/gruwa.github.io/practice/hw_webapi/WebAPI/WebAPI/obj/Debug/netcoreapp2.1/WebAPI.csprojAssemblyReference.cache
+/Users/aleksey/projects/gruwa.github.io/practice/hw_webapi/WebAPI/WebAPI/obj/Debug/netcoreapp2.1/WebAPI.csproj.CoreCompileInputs.cache
+/Users/aleksey/projects/gruwa.github.io/practice/hw_webapi/WebAPI/WebAPI/obj/Debug/netcoreapp2.1/WebAPI.RazorAssemblyInfo.cache
+/Users/aleksey/projects/gruwa.github.io/practice/hw_webapi/WebAPI/WebAPI/obj/Debug/netcoreapp2.1/WebAPI.RazorAssemblyInfo.cs
+/Users/aleksey/projects/gruwa.github.io/practice/hw_webapi/WebAPI/WebAPI/obj/Debug/netcoreapp2.1/WebAPI.AssemblyInfoInputs.cache
+/Users/aleksey/projects/gruwa.github.io/practice/hw_webapi/WebAPI/WebAPI/obj/Debug/netcoreapp2.1/WebAPI.AssemblyInfo.cs
+/Users/aleksey/projects/gruwa.github.io/practice/hw_webapi/WebAPI/WebAPI/obj/Debug/netcoreapp2.1/WebAPI.RazorTargetAssemblyInfo.cache
+/Users/aleksey/projects/gruwa.github.io/practice/hw_webapi/WebAPI/WebAPI/obj/Debug/netcoreapp2.1/WebAPI.dll
+/Users/aleksey/projects/gruwa.github.io/practice/hw_webapi/WebAPI/WebAPI/obj/Debug/netcoreapp2.1/WebAPI.pdb

@@ -74,6 +74,11 @@ const versions: Array<object> = [
     version: '0.2.0.0',
     date: '07/10/2018',
     description: 'Demo 20180712'
+  },
+  {
+    version: '0.2.0.1',
+    date: '07/10/2018',
+    description: 'Edit Contact Info'
   }
 ];
 

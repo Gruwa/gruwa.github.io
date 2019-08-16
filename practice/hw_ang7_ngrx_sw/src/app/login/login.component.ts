@@ -10,6 +10,11 @@ import {
 } from '@angular/forms';
 import {FlowService} from '../shared/services/flow.service';
 import {AuthService} from './services/auth.service';
+import * as fromReducerLogin from './state/login.reducer';
+import * as fromActionLogin from './state/login.action';
+import * as fromActionApp from '../state/app.action';
+import {ILoginUser, IState} from './interfaces/login.state.interface';
+import {Store} from '@ngrx/store';
 
 /**
  * Login Component
@@ -50,7 +55,8 @@ export class LoginComponent implements OnInit {
   constructor(public authService: AuthService,
               public flowService: FlowService,
               private fb: FormBuilder,
-              private activeRoute: ActivatedRoute) {
+              private activeRoute: ActivatedRoute,
+              private store: Store<IState>) {
   }
 
   /**
@@ -96,6 +102,8 @@ export class LoginComponent implements OnInit {
       password: ['', [Validators.required]],
       remember: [false, []]
     });
+
+    this.store.dispatch(new fromActionApp.)
     this.flowService.dataSpinner$.next(false);
   }
 
@@ -107,15 +115,18 @@ export class LoginComponent implements OnInit {
 
   public onSubmit(): void {
     this.flowService.buttonAuth$.next(true);
-    const valueOfLogin: object = {
+    const valueOfLogin: ILoginUser = {
       login: this.loginForm.get('login').value,
       password: this.loginForm.get('password').value,
       remember: this.loginForm.get('remember').value
     };
+    this.store.dispatch(new fromActionLogin.LoginDataLogin(valueOfLogin));
 
     this.flowService.login$.next(valueOfLogin);
     setTimeout(() => {
       this.flowService.login$.next(null);
+
+      this.store.dispatch(new fromActionLogin.LoginDataLogin(null));
     }, 120000);
     this.authService.onLogin(valueOfLogin, this.activeRoute.snapshot.queryParams.redirectUrl);
   }

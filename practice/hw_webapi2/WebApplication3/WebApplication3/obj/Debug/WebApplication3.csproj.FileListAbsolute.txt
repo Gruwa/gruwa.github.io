@@ -1,0 +1,2 @@
+/Users/aleksey/projects/gruwa.github.io/practice/hw_webapi2/WebApplication3/WebApplication3/obj/Debug/WebApplication3.csprojAssemblyReference.cache
+/Users/aleksey/projects/gruwa.github.io/practice/hw_webapi2/WebApplication3/WebApplication3/obj/Debug/WebApplication3.csproj.CoreCompileInputs.cache

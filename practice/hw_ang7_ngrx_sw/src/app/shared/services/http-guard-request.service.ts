@@ -140,9 +140,9 @@ export class HttpGuardRequestService {
         'Remember': value.remember,
         'GroupID': value.groupId,
         'ServerName': value.serverName,
-         'Group': value.group,
-         'UnitID': value.unitID,
-         'LocalEmployeeID': value.localEmployeeID
+        'Group': value.group,
+        'UnitID': value.unitID,
+        'LocalEmployeeID': value.localEmployeeID
       }
     };
 

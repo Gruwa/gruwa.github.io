@@ -5,7 +5,7 @@ import {
 } from '@angular/core';
 import {FlowService} from '../../shared/services/flow.service';
 import {IGroupRestaurant} from '../../shared/interfaces/group-restaurant.interface';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {LocalStorageService} from 'ngx-webstorage';
 import {
   debounceTime,
@@ -16,7 +16,10 @@ import {MainService} from '../../shared/services/main.service';
 import {HttpService} from '../../shared/services/http.service';
 import {DataService} from '../../shared/services/data.service';
 import {AuthService} from '../services/auth.service';
-
+import {select, Store} from '@ngrx/store';
+import * as fromReducerLogin from '../state/login.reducer';
+import * as fromActionLogin from '../state/login.action';
+import {ILoginUser, IState} from '../interfaces/login.state.interface';
 /**
  * Schedule Login Component
  */
@@ -87,7 +90,8 @@ export class ScheduleLoginComponent implements OnInit, OnDestroy {
               private mainService: MainService,
               private authService: AuthService,
               private httpService: HttpService,
-              public dataService: DataService) {
+              public dataService: DataService,
+              private store: Store<IState>) {
   }
 
   /**
@@ -130,7 +134,7 @@ export class ScheduleLoginComponent implements OnInit, OnDestroy {
     this.flowService.login$.pipe(
       takeUntil(this.ngUnsubscribe)
     ).subscribe(value => {
-        if (value) {
+      if (value) {
             value['groupId'] = group.id;
             value['group'] = group.description;
             value['serverName'] = group.serverName;
@@ -141,6 +145,24 @@ export class ScheduleLoginComponent implements OnInit, OnDestroy {
         this.mainService.logOut();
       }
     });
+
+    this.store.pipe(
+      select(fromReducerLogin.getLoginData),
+      takeUntil(this.ngUnsubscribe)
+    ).subscribe(value => {
+      console.log(value);
+      if (value) {
+        value['groupId'] = group.id;
+        value['group'] = group.description;
+        value['serverName'] = group.serverName;
+        value['unitID'] = group.unitID;
+        value['localEmployeeID'] = group.localEmployeeID;
+        // this.authService.onLogin(value);
+      } else {
+        // this.mainService.logOut();
+      }
+    });
+
     this.flowService.activeItem$.next('shifts');
   }
 

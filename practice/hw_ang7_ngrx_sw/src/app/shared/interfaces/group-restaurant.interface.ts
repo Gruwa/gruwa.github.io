@@ -5,7 +5,7 @@
 export interface IGroupRestaurant {
 
   /**
-   * Variable id
+   * Variable id it's groupId
    * @type {string}
    * @memberof IGroupRestaurant
    */
@@ -13,7 +13,7 @@ export interface IGroupRestaurant {
   id: string;
 
   /**
-   * Variable description
+   * Variable description of group
    * @type {string}
    * @memberof IGroupRestaurant
    */
@@ -26,22 +26,21 @@ export interface IGroupRestaurant {
    * @memberof IGroupRestaurant
    */
 
-    serverName: string;
+  serverName: string;
 
-    /**
-     * Variable unitID
-     * @type {number}
-     * @memberof IGroupRestaurant
-     */
+  /**
+   * Variable unitID
+   * @type {number}
+   * @memberof IGroupRestaurant
+   */
 
-    unitID: number;
+  unitID: number;
 
-    /**
-     * Variable LocalEmployeeID
-     * @type {any}
-     * @memberof IGroupRestaurant
-     */
+  /**
+   * Variable LocalEmployeeID
+   * @type {any}
+   * @memberof IGroupRestaurant
+   */
 
-    localEmployeeID: any;
-    
+  localEmployeeID: string;
 }

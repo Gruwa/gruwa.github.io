@@ -119,8 +119,8 @@ export class SideBarComponent implements OnInit, OnDestroy {
       this.mainService.logOut();
     }
     if (this.dataService.SIDE_BAR_LIST[$event.description] === this.dataService.SIDE_BAR_LIST['settings']) {
-      this.router.navigate(['/settings']);
       this.closeSideBar.emit('iconLeft');
+      this.router.navigate(['/settings']);
       // this.activeItem = 'settings';
     }
     if (this.dataService.SIDE_BAR_LIST[$event.description] === this.dataService.SIDE_BAR_LIST['my availability']) {

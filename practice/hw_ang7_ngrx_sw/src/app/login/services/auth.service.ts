@@ -82,6 +82,7 @@ export class AuthService implements OnDestroy {
    */
 
   public onLogin(body: object, redirecturl?: string): void {
+    console.log(body);
     this.httpService.onLoginRequest(this.httpGuardRequestService.guardlogin(body)).pipe(
       takeUntil(this.ngUnsubscribe)
     ).subscribe((value) => {
@@ -102,12 +103,7 @@ export class AuthService implements OnDestroy {
           }
         } else {
           this.flowService.dataSmallSpinner$.next(true);
-          //if (!redirecturl || redirecturl === '/login/schedule') {
-            this.router.navigate(['/login/schedule']);
-          //} else {
-            //body['groupId'] = this.localStorage.retrieve('group').id;
-            //this.onLogin(body, redirecturl);
-          //}
+          this.router.navigate(['/login/schedule']);
         }
       } else {
         this.localStorage.clear('tab');

@@ -1,0 +1,14 @@
+﻿<Properties StartupConfiguration="{FC0C63FE-F226-4FB1-9502-B66FC0A33BF6}|">
+  <MonoDevelop.Ide.ItemProperties.WebApplication3 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Source Control Explorer">
+    <Files>
+      <File FileName="Source Control Explorer" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

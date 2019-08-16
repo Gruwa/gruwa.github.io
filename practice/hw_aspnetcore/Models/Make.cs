@@ -9,5 +9,8 @@
                 
         public ICollection<Model> Models { get; set; }
 
-
+        public Make() {
+            Models = new Collection<Models>();
+        }
     }
+}
