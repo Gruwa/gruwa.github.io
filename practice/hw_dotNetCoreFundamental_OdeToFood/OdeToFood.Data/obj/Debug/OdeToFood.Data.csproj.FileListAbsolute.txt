@@ -1,0 +1,8 @@
+/Users/aleksey/projects/gruwa.github.io/practice/hw_dotNetCoreFundamental_OdeToFood/OdeToFood/OdeToFood.Data/bin/Debug/OdeToFood.Data.pdb
+/Users/aleksey/projects/gruwa.github.io/practice/hw_dotNetCoreFundamental_OdeToFood/OdeToFood/OdeToFood.Data/obj/Debug/OdeToFood.Data.csprojAssemblyReference.cache
+/Users/aleksey/projects/gruwa.github.io/practice/hw_dotNetCoreFundamental_OdeToFood/OdeToFood/OdeToFood.Data/obj/Debug/OdeToFood.Data.csproj.CoreCompileInputs.cache
+/Users/aleksey/projects/gruwa.github.io/practice/hw_dotNetCoreFundamental_OdeToFood/OdeToFood/OdeToFood.Data/obj/Debug/OdeToFood.Data.dll
+/Users/aleksey/projects/gruwa.github.io/practice/hw_dotNetCoreFundamental_OdeToFood/OdeToFood/OdeToFood.Data/obj/Debug/OdeToFood.Data.pdb
+/Users/aleksey/projects/gruwa.github.io/practice/hw_dotNetCoreFundamental_OdeToFood/OdeToFood/OdeToFood.Data/bin/Debug/OdeToFood.Core.dll
+/Users/aleksey/projects/gruwa.github.io/practice/hw_dotNetCoreFundamental_OdeToFood/OdeToFood/OdeToFood.Data/bin/Debug/OdeToFood.Core.pdb
+/Users/aleksey/projects/gruwa.github.io/practice/hw_dotNetCoreFundamental_OdeToFood/OdeToFood/OdeToFood.Data/obj/Debug/OdeToFood.Data.csproj.CopyComplete

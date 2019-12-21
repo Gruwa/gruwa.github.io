@@ -1,0 +1,14 @@
+/Users/aleksey/projects/gruwa.github.io/practice/hw_dotNetCoreFundamental_OdeToFood/OdeToFood2/OdeToFood2/bin/Debug/netcoreapp2.2/OdeToFood2.deps.json
+/Users/aleksey/projects/gruwa.github.io/practice/hw_dotNetCoreFundamental_OdeToFood/OdeToFood2/OdeToFood2/bin/Debug/netcoreapp2.2/OdeToFood2.runtimeconfig.json
+/Users/aleksey/projects/gruwa.github.io/practice/hw_dotNetCoreFundamental_OdeToFood/OdeToFood2/OdeToFood2/bin/Debug/netcoreapp2.2/OdeToFood2.runtimeconfig.dev.json
+/Users/aleksey/projects/gruwa.github.io/practice/hw_dotNetCoreFundamental_OdeToFood/OdeToFood2/OdeToFood2/bin/Debug/netcoreapp2.2/OdeToFood2.dll
+/Users/aleksey/projects/gruwa.github.io/practice/hw_dotNetCoreFundamental_OdeToFood/OdeToFood2/OdeToFood2/bin/Debug/netcoreapp2.2/OdeToFood2.pdb
+/Users/aleksey/projects/gruwa.github.io/practice/hw_dotNetCoreFundamental_OdeToFood/OdeToFood2/OdeToFood2/obj/Debug/netcoreapp2.2/OdeToFood2.csprojAssemblyReference.cache
+/Users/aleksey/projects/gruwa.github.io/practice/hw_dotNetCoreFundamental_OdeToFood/OdeToFood2/OdeToFood2/obj/Debug/netcoreapp2.2/OdeToFood2.csproj.CoreCompileInputs.cache
+/Users/aleksey/projects/gruwa.github.io/practice/hw_dotNetCoreFundamental_OdeToFood/OdeToFood2/OdeToFood2/obj/Debug/netcoreapp2.2/OdeToFood2.RazorAssemblyInfo.cache
+/Users/aleksey/projects/gruwa.github.io/practice/hw_dotNetCoreFundamental_OdeToFood/OdeToFood2/OdeToFood2/obj/Debug/netcoreapp2.2/OdeToFood2.RazorAssemblyInfo.cs
+/Users/aleksey/projects/gruwa.github.io/practice/hw_dotNetCoreFundamental_OdeToFood/OdeToFood2/OdeToFood2/obj/Debug/netcoreapp2.2/OdeToFood2.AssemblyInfoInputs.cache
+/Users/aleksey/projects/gruwa.github.io/practice/hw_dotNetCoreFundamental_OdeToFood/OdeToFood2/OdeToFood2/obj/Debug/netcoreapp2.2/OdeToFood2.AssemblyInfo.cs
+/Users/aleksey/projects/gruwa.github.io/practice/hw_dotNetCoreFundamental_OdeToFood/OdeToFood2/OdeToFood2/obj/Debug/netcoreapp2.2/OdeToFood2.RazorTargetAssemblyInfo.cache
+/Users/aleksey/projects/gruwa.github.io/practice/hw_dotNetCoreFundamental_OdeToFood/OdeToFood2/OdeToFood2/obj/Debug/netcoreapp2.2/OdeToFood2.dll
+/Users/aleksey/projects/gruwa.github.io/practice/hw_dotNetCoreFundamental_OdeToFood/OdeToFood2/OdeToFood2/obj/Debug/netcoreapp2.2/OdeToFood2.pdb
