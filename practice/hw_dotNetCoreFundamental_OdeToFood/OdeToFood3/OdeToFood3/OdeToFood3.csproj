@@ -21,4 +21,7 @@
   <ItemGroup>
     <Content Remove="Pages\Restaurants\_23.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OdeToFood.Data\OdeToFood.Data.csproj" />
+  </ItemGroup>
 </Project>

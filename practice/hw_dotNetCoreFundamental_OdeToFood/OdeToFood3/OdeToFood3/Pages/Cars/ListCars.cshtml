@@ -3,4 +3,17 @@
 @{
 }
 
-@Model.CarName
+<h1>Cars</h1>
+
+<table class="table">
+   @foreach (var c in Model.Cars)
+   {
+      <tr>
+         <td>@c.Model</td>
+         <td>@c.Color</td>
+         <td>@c.Wheel</td>
+      </tr>
+   }
+</table>
+
+<div>@Model.CarName</div>

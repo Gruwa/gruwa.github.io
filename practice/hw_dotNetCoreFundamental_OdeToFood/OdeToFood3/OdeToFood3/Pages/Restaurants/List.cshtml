@@ -5,4 +5,15 @@
 
 <h1>Restaurants</h1>
 
-@Model.Message
+<table class="table">
+    @foreach (var r in Model.Restaurants)
+    {
+        <tr>
+            <td>@r.Name</td>
+            <td>@r.Location</td>
+            <td>@r.Cuisine</td>
+        </tr>
+    }
+</table>
+
+<div>@Model.Message</div>
