@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using OdeToFood.Core;
+using OdeToFood.Core.Car;
 
 namespace OdeToFood.Data
 {

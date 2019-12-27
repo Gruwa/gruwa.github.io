@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using OdeToFood.Core;
+using OdeToFood.Core.Restaurant;
 
 namespace OdeToFood.Data
 {
     public interface IrestaurantData
     {
-        IEnumerable<Restaurant> GetAll();
+        IEnumerable<Restaurant> GetRestByName(string name);
+        Restaurant GetById(int id);
     }
 
     public class InMemoryRestaurantData : IrestaurantData
@@ -23,12 +25,18 @@ namespace OdeToFood.Data
                 new Restaurant {Id = 3, Name = "Me pizzaa", Location = "Harkiv", Cuisine = CuisineType.Mexican}
             };
         }
-        
-        public IEnumerable<Restaurant> GetAll()
+
+        public IEnumerable<Restaurant> GetRestByName(string name = null)
         {
             return from r in _restaurants
+                where string.IsNullOrEmpty(name) || r.Name.Contains(name)
                 orderby r.Name
                 select r;
+        }
+
+        public Restaurant GetById(int id)
+        {
+            return _restaurants.SingleOrDefault(r => r.Id == id);
         }
     }
 }

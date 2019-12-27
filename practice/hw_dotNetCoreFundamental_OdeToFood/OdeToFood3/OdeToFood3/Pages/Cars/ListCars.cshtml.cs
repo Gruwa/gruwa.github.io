@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Configuration;
 using OdeToFood.Core;
+using OdeToFood.Core.Car;
 using OdeToFood.Data;
 
 namespace OdeToFood3.Pages.Cars

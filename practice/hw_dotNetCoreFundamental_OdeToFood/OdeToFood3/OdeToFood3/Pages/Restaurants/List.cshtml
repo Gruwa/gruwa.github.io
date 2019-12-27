@@ -1,9 +1,23 @@
 ﻿@page
+@using OdeToFood.Core.Restaurant
 @model ListModel
 @{
 }
 
 <h1>Restaurants</h1>
+
+<form method="get">
+    <div class="form-group">
+        <div class="input-group">
+            <input type="search" class="form-control" asp-for="SearchTerm"/>
+            <span class="input-group-btn">
+                <button class="btn btn-primary">
+                    <i class="glyphicon glyphicon-search">>></i>
+                </button>
+            </span>
+        </div>
+    </div>
+</form>
 
 <table class="table">
     @foreach (var r in Model.Restaurants)
@@ -12,6 +26,14 @@
             <td>@r.Name</td>
             <td>@r.Location</td>
             <td>@r.Cuisine</td>
+            <td>
+            <a class="btn btn-lg"
+               @*href="/Restaurants/Details?restaurantId=@r.Id" 
+                можно так записать, а можно как показано нижею Тут в ручную формирем, а ниже делает фреймворк за нас*@ 
+               asp-page="./Details"
+               asp-route-restaurantId="@r.Id" 
+               >>>>></a>
+            </td>
         </tr>
     }
 </table>
