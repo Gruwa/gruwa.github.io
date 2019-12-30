@@ -19,8 +19,7 @@ namespace OdeToFood3.Pages.Cars
         public string CarName { get; set; }
         public IEnumerable<Car> Cars { get; set; }
 
-        public string SearchTermCar { get; set; }
-        
+        [BindProperty(SupportsGet = true)] public string SearchTermCar { get; set; }
         public ListCarsModel(IConfiguration config, ICarData carData)
         {
             this._config = config;
