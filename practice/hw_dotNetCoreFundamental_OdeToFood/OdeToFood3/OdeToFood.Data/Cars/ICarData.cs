@@ -7,7 +7,9 @@ namespace OdeToFood.Data
 {
     public interface ICarData
     {
-        IEnumerable<Car> GetAllCar();
+        IEnumerable<Car> GetRestByName(string name);
+
+        Car GetById(int id);
     }
 
     public class InMemoryCarData : ICarData
@@ -49,11 +51,17 @@ namespace OdeToFood.Data
             };
         }
 
-        public IEnumerable<Car> GetAllCar()
+        public IEnumerable<Car> GetRestByName(string name = null)
         {
             return from c in _cars
+                where string.IsNullOrEmpty(name) || c.Model.ToString().Contains(name)
                 orderby c.Model
                 select c;
+        }
+
+        public Car GetById(int id)
+        {
+            return _cars.SingleOrDefault(c => c.Id == id);
         }
     }
 }

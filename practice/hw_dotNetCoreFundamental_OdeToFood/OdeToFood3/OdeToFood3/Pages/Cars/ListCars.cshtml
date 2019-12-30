@@ -6,14 +6,17 @@
 <h1>Cars</h1>
 
 <table class="table">
-   @foreach (var c in Model.Cars)
-   {
-      <tr>
-         <td>@c.Model</td>
-         <td>@c.Color</td>
-         <td>@c.Wheel</td>
-      </tr>
-   }
+    @foreach (var c in Model.Cars)
+    {
+        <tr>
+            <td>@c.Model</td>
+            <td>@c.Color</td>
+            <td>@c.Wheel</td>
+            <td>
+                <a class="btn btn-primary" asp-page="./DetailsCar" asp-route-carId="@c.Id">>>>></a>
+            </td>
+        </tr>
+    }
 </table>
 
 <div>@Model.CarName</div>

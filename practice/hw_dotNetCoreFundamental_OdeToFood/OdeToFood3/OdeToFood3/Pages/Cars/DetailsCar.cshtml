@@ -1,0 +1,21 @@
+@page "{carId:int}"
+@model OdeToFood3.Pages.Cars.DetailsCar
+
+@{
+}
+
+<h2>@Model.Car.Model</h2>
+
+<div>
+    Id: @Model.Car.Id
+</div>
+
+<div>
+    Color: @Model.Car.Color
+</div>
+
+<div>
+    Wheel: @Model.Car.Wheel
+</div>
+
+<a asp-page="./listCars" class="btn btn-primary">All Cars</a>
