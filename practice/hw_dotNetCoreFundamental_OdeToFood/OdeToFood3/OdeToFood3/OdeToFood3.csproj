@@ -16,12 +16,15 @@
 
   <ItemGroup>
     <Folder Include="Pages\Restaurants\" />
-    <Folder Include="Pages\Cars\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="Pages\Restaurants\_23.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OdeToFood.Data\OdeToFood.Data.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages\Cars\DetailsCar.cshtml" />
+    <_ContentIncludedByDefault Remove="Pages\Cars\ListCars.cshtml" />
   </ItemGroup>
 </Project>

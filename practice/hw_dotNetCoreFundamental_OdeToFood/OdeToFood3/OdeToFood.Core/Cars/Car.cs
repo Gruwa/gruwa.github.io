@@ -1,4 +1,6 @@
-namespace OdeToFood.Core.Car
+using System.Data.Common;
+
+namespace OdeToFood.Core
 {
     public class Car : ICar
     {

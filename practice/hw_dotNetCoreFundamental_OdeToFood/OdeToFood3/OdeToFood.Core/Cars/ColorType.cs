@@ -1,4 +1,4 @@
-namespace OdeToFood.Core.Car
+namespace OdeToFood.Core
 {
     public enum EColorType
     {
