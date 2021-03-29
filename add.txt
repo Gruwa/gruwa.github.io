@@ -1,0 +1,46 @@
+const { pathsToModuleNameMapper } = require("ts-jest/utils");
+const { compilerOptions } = require("./tsconfig.spec");
+
+module.exports = {
+  preset: "jest-preset-angular",
+  roots: ["<rootDir>/src/"],
+  setupFiles: ["jest-canvas-mock"],
+  setupFilesAfterEnv: ["<rootDir>/setup-jest.ts"],
+  transformIgnorePatterns: [
+    "node_modules/(?!@ngrx|ngx-socket-io)", // List any packages here that error
+  ],
+  testPathIgnorePatterns: [
+    "<rootDir>/node_modules/",
+    "<rootDir>/dist/",
+    "<rootDir>/cypress/",
+    "<rootDir>/src/test.ts",
+    "<rootDir>/src/environments/",
+    // TODO https://devforum.okta.com/t/okta-sign-in-widget-breaks-neutrino-jest-tests/2874
+    "<rootDir>/src/app/app.component.spec.ts",
+    "<rootDir>/src/app/core/modules/okta/components/sign-in-page/",
+    "<rootDir>/src/app/core/modules/okta/components/auth-callback/",
+    "<rootDir>/src/app/core/modules/okta/components/permissible-purpose/",
+    "<rootDir>/src/app/core/modules/okta/components/session-expiration-dialog/",
+    "<rootDir>/src/app/features/ui-elements/",
+  ],
+  collectCoverageFrom: [
+    "**/*component.ts",
+    "**/*guard.ts",
+    "**/*interceptor.ts",
+    "**/*service.ts",
+    "!**/src/app/*.ts",
+    "!**/src/app/core/modules/okta/components/**/*.ts",
+    "!**/src/app/features/ui-elements/**/*.ts",
+  ],
+  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths || {}, {
+    prefix: "<rootDir>/",
+  }),
+  coverageThreshold: {
+    global: {
+      branches: 10,
+      functions: 40,
+      lines: 50,
+      statements: 50,
+    },
+  },
+};
