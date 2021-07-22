@@ -38,7 +38,7 @@
     "ngx-webstorage": "^2.0.1",
     "primeng": "^5.0.2",
     "rxjs": "^5.5.2",
-    "xlsx": "^0.12.1",
+    "xlsx": "^0.17.0",
     "zone.js": "^0.8.14"
   },
   "devDependencies": {
