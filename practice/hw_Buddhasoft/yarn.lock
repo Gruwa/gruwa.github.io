@@ -2,6 +2,12 @@
 # yarn lockfile v1
 
 
+"@angular/cdk@^2.0.0-beta.12":
+  version "2.0.0-beta.12"
+  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-2.0.0-beta.12.tgz#3a243cb62b93f4e039120ba70f900dc9e235622e"
+  dependencies:
+    tslib "^1.7.1"
+
 "@angular/common@~4.2.0":
   version "4.2.6"
   resolved "https://registry.yarnpkg.com/@angular/common/-/common-4.2.6.tgz#210ace4bd24e375f8b41ba52feb34b18a887d5da"
@@ -4217,7 +4223,7 @@ ng2-imageupload@^1.4.2:
   version "1.4.2"
   resolved "https://registry.yarnpkg.com/ng2-imageupload/-/ng2-imageupload-1.4.2.tgz#eece669cb94317181d6676f65eeee6c01a33b50d"
 
-ngx-contextmenu@^2.0.0-beta.4:
+ngx-contextmenu@^2.0.0-beta.7:
   version "2.0.0-beta.7"
   resolved "https://registry.yarnpkg.com/ngx-contextmenu/-/ngx-contextmenu-2.0.0-beta.7.tgz#123e626787f2b127b3d74db1c15786e7371abbee"
 
@@ -5253,8 +5259,8 @@ qs@6.4.0, qs@~6.4.0:
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.4.0.tgz#13e26d28ad6b0ffaa91312cd3bf708ed351e7233"
 
 qs@~6.3.0:
-  version "6.3.2"
-  resolved "https://registry.yarnpkg.com/qs/-/qs-6.3.2.tgz#e75bd5f6e268122a2a0e0bda630b2550c166502c"
+  version "6.3.3"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-6.3.3.tgz#645c23bd6def4d552f258f0aadfeea6fd57f5a86"
 
 query-string@^4.1.0, query-string@^4.3.2:
   version "4.3.4"
