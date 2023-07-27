@@ -1,0 +1,24 @@
+.mat-button-toggle-group {
+  border-radius: 31.5px !important;
+  border: 1px solid #000 !important;
+}
+
+.mat-button-toggle {
+  width: 115px !important;
+}
+
+.mat-button-toggle-label-content {
+  font-family: Mulish, sans-serif !important;
+  font-size: 16px !important;
+  line-height: initial !important;
+  padding: 12px 0 !important;
+}
+
+.mat-button-toggle-checked {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+.mat-button-toggle-group-appearance-standard .mat-button-toggle + .mat-button-toggle {
+  border-left: solid 1px #000 !important;
+}

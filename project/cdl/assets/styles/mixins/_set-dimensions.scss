@@ -1,0 +1,4 @@
+@mixin setDimensions($width, $height) {
+  width: $width;
+  height: $height;
+}

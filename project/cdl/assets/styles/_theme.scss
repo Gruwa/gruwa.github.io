@@ -1,0 +1,115 @@
+@use '@angular/material' as mat;
+
+$md-green-palette: (
+  50: #e4f5f1,
+  100: #bbe6dd,
+  200: #8ed6c6,
+  300: #61c6af,
+  400: #3fb99d,
+  500: #1dad8c,
+  600: #1aa684,
+  700: #159c79,
+  800: #11936f,
+  900: #0a835c,
+  A100: #b3ffe3,
+  A200: #80ffd1,
+  A400: #4dffbf,
+  A700: #33ffb6,
+  contrast: (
+    50: #000,
+    100: #000,
+    200: #000,
+    300: #000,
+    400: #000,
+    500: #fff,
+    600: #fff,
+    700: #fff,
+    800: #fff,
+    900: #fff,
+    A100: #000,
+    A200: #000,
+    A400: #000,
+    A700: #000,
+  ),
+);
+
+$md-grey-palette: (
+  50: #fcfcfd,
+  100: #f7f9fa,
+  200: #f2f5f7,
+  300: #edf0f3,
+  400: #e9edf1,
+  500: #e5eaee,
+  600: #e2e7ec,
+  700: #dee4e9,
+  800: #dae1e7,
+  900: #d3dbe2,
+  A100: #fff,
+  A200: #fff,
+  A400: #fff,
+  A700: #fff,
+  contrast: (
+    50: #000,
+    100: #000,
+    200: #000,
+    300: #000,
+    400: #000,
+    500: #000,
+    600: #000,
+    700: #000,
+    800: #000,
+    900: #000,
+    A100: #000,
+    A200: #000,
+    A400: #000,
+    A700: #000,
+  ),
+);
+
+$md-dark-grey-palette: (
+  50: #f3f5f6,
+  100: #e0e5e9,
+  200: #ccd4da,
+  300: #b7c2cb,
+  400: #a7b5bf,
+  500: #98a8b4,
+  600: #90a0ad,
+  700: #8597a4,
+  800: #7b8d9c,
+  900: #6a7d8c,
+  A100: #fff,
+  A200: #d3eafe,
+  A400: #9fd3ff,
+  A700: #85c7ff,
+  contrast: (
+    50: #000,
+    100: #000,
+    200: #000,
+    300: #000,
+    400: #000,
+    500: #000,
+    600: #000,
+    700: #000,
+    800: #000,
+    900: #fff,
+    A100: #000,
+    A200: #000,
+    A400: #000,
+    A700: #000,
+  ),
+);
+
+@include mat.core();
+$my-primary: mat.define-palette($md-grey-palette, 500);
+$my-accent: mat.define-palette($md-green-palette, 500);
+
+$my-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $my-primary,
+      accent: $my-accent,
+    ),
+  )
+);
+
+@include mat.all-component-themes($my-theme);

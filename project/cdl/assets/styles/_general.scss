@@ -1,0 +1,41 @@
+@import './variables';
+
+.container {
+  padding: 0 80px;
+}
+
+h2 {
+  font-weight: 700;
+  color: $title;
+  font-size: 50px;
+  margin: 0;
+}
+
+h3 {
+  font-weight: 700;
+  color: $title;
+  font-size: 40px;
+  margin: 0;
+}
+
+h4 {
+  font-weight: 700;
+  color: $title;
+  font-size: 25px;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+  line-height: 22px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
