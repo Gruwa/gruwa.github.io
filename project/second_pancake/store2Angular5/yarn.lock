@@ -1131,11 +1131,12 @@ center-align@^0.1.1:
     align-text "^0.1.3"
     lazy-cache "^1.0.3"
 
-cfb@~1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/cfb/-/cfb-1.0.6.tgz#d0107fa579a8d79c53a31074a755abcb898017f0"
+cfb@^1.1.4:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/cfb/-/cfb-1.2.0.tgz#6a4d0872b525ed60349e1ef51fb4b0bf73eca9a8"
   dependencies:
-    commander "^2.14.1"
+    adler-32 "~1.2.0"
+    crc-32 "~1.2.0"
     printj "~1.1.2"
 
 chalk@^1.1.1, chalk@^1.1.3:
@@ -1304,9 +1305,9 @@ codelyzer@^4.0.1:
     source-map "^0.5.6"
     sprintf-js "^1.0.3"
 
-codepage@~1.12.1:
-  version "1.12.2"
-  resolved "https://registry.yarnpkg.com/codepage/-/codepage-1.12.2.tgz#fd4424448c8bf1db5d7e01f9ecf9e8346582a195"
+codepage@~1.14.0:
+  version "1.14.0"
+  resolved "https://registry.yarnpkg.com/codepage/-/codepage-1.14.0.tgz#8cbe25481323559d7d307571b0fff91e7a1d2f99"
   dependencies:
     commander "~2.14.1"
     exit-on-epipe "~1.0.1"
@@ -1356,11 +1357,15 @@ commander@2.12.x:
   version "2.12.2"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.12.2.tgz#0f5946c427ed9ec0d91a46bb9def53e54650e555"
 
-commander@2.15.1, commander@^2.14.1:
+commander@2.15.1:
   version "2.15.1"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.15.1.tgz#df46e867d0fc2aec66a34662b406a9ccafff5b0f"
 
-commander@^2.9.0, commander@~2.13.0:
+commander@^2.9.0, commander@~2.17.1:
+  version "2.17.1"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-2.17.1.tgz#bd77ab7de6de94205ceacc72f1716d29f20a77bf"
+
+commander@~2.13.0:
   version "2.13.0"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.13.0.tgz#6964bca67685df7c1f1430c584f07d7597885b9c"
 
@@ -2224,7 +2229,7 @@ event-emitter@~0.3.5:
 
 event-stream@latest:
   version "3.3.4"
-  resolved "http://registry.npmjs.org/event-stream/-/event-stream-3.3.4.tgz#4ab4c9a0f5a54db9338b4c34d86bfce8f4b35571"
+  resolved "https://registry.npmjs.org/event-stream/-/event-stream-3.3.4.tgz#4ab4c9a0f5a54db9338b4c34d86bfce8f4b35571"
   dependencies:
     duplexer "~0.1.1"
     from "~0"
@@ -2458,6 +2463,10 @@ faye-websocket@^0.10.0:
   resolved "https://registry.yarnpkg.com/faye-websocket/-/faye-websocket-0.10.0.tgz#4e492f8d04dfb6f89003507f6edbf2d501e7c6f4"
   dependencies:
     websocket-driver ">=0.5.1"
+
+fflate@^0.3.8:
+  version "0.3.11"
+  resolved "https://registry.yarnpkg.com/fflate/-/fflate-0.3.11.tgz#2c440d7180fdeb819e64898d8858af327b042a5d"
 
 file-loader@^1.1.5:
   version "1.1.6"
@@ -6220,9 +6229,9 @@ sprintf-js@~1.0.2:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
 
-ssf@~0.10.2:
-  version "0.10.2"
-  resolved "https://registry.yarnpkg.com/ssf/-/ssf-0.10.2.tgz#65b2b4fcdfd967bc8e8383a41349009893115976"
+ssf@~0.11.2:
+  version "0.11.2"
+  resolved "https://registry.yarnpkg.com/ssf/-/ssf-0.11.2.tgz#0b99698b237548d088fc43cdf2b70c1a7512c06c"
   dependencies:
     frac "~1.1.2"
 
@@ -7148,6 +7157,14 @@ window-size@0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/window-size/-/window-size-0.1.0.tgz#5438cd2ea93b202efa3a19fe8887aee7c94f9c9d"
 
+wmf@~1.0.1:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/wmf/-/wmf-1.0.2.tgz#7d19d621071a08c2bdc6b7e688a9c435298cc2da"
+
+word@~0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/word/-/word-0.3.0.tgz#8542157e4f8e849f4a363a288992d47612db9961"
+
 wordwrap@0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/wordwrap/-/wordwrap-0.0.2.tgz#b79669bb42ecb409f83d583cad52ca17eaa1643f"
@@ -7192,17 +7209,20 @@ wtf-8@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/wtf-8/-/wtf-8-1.0.0.tgz#392d8ba2d0f1c34d1ee2d630f15d0efb68e1048a"
 
-xlsx@^0.12.1:
-  version "0.12.9"
-  resolved "https://registry.yarnpkg.com/xlsx/-/xlsx-0.12.9.tgz#839bad5107531f63d1a7229d97121e5ef00abe38"
+xlsx@^0.17.0:
+  version "0.17.0"
+  resolved "https://registry.yarnpkg.com/xlsx/-/xlsx-0.17.0.tgz#028176a0140967dcee1817d221678461e47481c8"
   dependencies:
     adler-32 "~1.2.0"
-    cfb "~1.0.6"
-    codepage "~1.12.1"
-    commander "~2.14.1"
+    cfb "^1.1.4"
+    codepage "~1.14.0"
+    commander "~2.17.1"
     crc-32 "~1.2.0"
     exit-on-epipe "~1.0.1"
-    ssf "~0.10.2"
+    fflate "^0.3.8"
+    ssf "~0.11.2"
+    wmf "~1.0.1"
+    word "~0.3.0"
 
 xml-char-classes@^1.0.0:
   version "1.0.0"
