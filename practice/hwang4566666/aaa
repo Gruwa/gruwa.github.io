@@ -1,0 +1,447 @@
+import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+export interface IT {
+	id: TKey;
+
+	[key: string]: any;
+}
+
+export type TKey = string | boolean | number;
+
+export enum EActive {
+	inactive,
+	active,
+}
+
+export class IActiveValue<T> {
+	value?: T;
+	active: number;
+}
+
+@Injectable()
+export class DataService<T> {
+
+	private store = new BehaviorSubject<Map<TKey, T>>(new Map());
+	private storeActiveElement = new BehaviorSubject<Map<TKey, IActiveValue<T>>>(new Map());
+
+	static compareType(id: TKey | TKey[]): boolean {
+		return (typeof id === 'string' && id !== '') || typeof id === 'boolean' || typeof id === 'number';
+	}
+
+	constructor() {
+		this.activateStore();
+	}
+
+	private activateStore() {
+		// this.store;
+	}
+
+	set(value: IT[]) {
+		const _store = new Map();
+		const _storeActive = <Map<TKey, IActiveValue<T>>>(new Map());
+
+		value.map((item: IT) => {
+			_store.set(
+				item.id,
+				item,
+			);
+			_storeActive.set(
+				item.id,
+				{
+					value: undefined,
+					active: EActive.inactive,
+				}
+			);
+		});
+
+		this.store.next(_store);
+		this.storeActiveElement.next(_storeActive);
+	}
+
+	/**
+	 * Method for update current item of store
+	 * @param id
+	 * @param value
+	 */
+	update(id: TKey, value: T) {
+		if (this.store.getValue().has(id)) {
+			const _store = this.store.getValue();
+
+			_store.set(id, value);
+
+			this.store.next(_store);
+		}
+	}
+
+	/**
+	 * Method for add current item to the store
+	 * @param id
+	 * @param value
+	 */
+	add(id: TKey, value: T) {
+		const _store = this.store.getValue();
+		const _storeActive = <Map<TKey, IActiveValue<T>>>(new Map());
+
+		_store.set(id, value);
+		_storeActive.set(
+			id,
+			{
+				value: undefined,
+				active: EActive.inactive,
+			}
+		);
+
+		this.store.next(_store);
+		this.storeActiveElement.next(_storeActive);
+	}
+
+	/**
+	 * Method for clear store
+	 */
+	clear() {
+		this.store.next(new Map());
+		this.storeActiveElement.next(new Map());
+	}
+
+	/**
+	 * Method for delete item from the store
+	 * @param id
+	 */
+	delete(id: TKey): void {
+		const _store = this.store.getValue();
+
+		_store.delete(id);
+
+		this.store.next(_store);
+	}
+
+	/**
+	 * Method for subscribe on the all store or all store
+	 * @param id
+	 */
+	select(id?: TKey): Observable<T[] | T> {
+		if (DataService.compareType(id)) {
+			return this.store
+				.pipe(
+					map(m => {
+						return m.has(id) ? m.get(id) : undefined;
+					}),
+				);
+		} else {
+			return this.store
+				.pipe(
+					map(m => {
+						const _array = [];
+
+						m.forEach((value) => {
+							_array.push(value);
+						});
+
+						return <T[]>_array;
+					}),
+				);
+		}
+	}
+
+	/**
+	 * Method for get current item of store or array items of store
+	 * @param id
+	 */
+	get(id?: TKey | TKey[]): T | T[] {
+		if (!!!id) {
+			const _array = [];
+
+			this.store.getValue().forEach((value) => {
+				_array.push(value);
+			});
+
+			return <T[]>_array;
+		} else if (typeof id === 'object' && id.length > 0) {
+			return prepareData(id, this.store.getValue());
+		} else if (DataService.compareType(id)) {
+			return prepareData(<TKey[]>[id], this.store.getValue());
+		}
+
+		function prepareData(value: TKey[], store: Map<TKey, T>): T[] | T {
+			let _array: T[] | T;
+
+			if (value.length > 1) {
+				value.map((itemId: TKey) => {
+					if (store.has(itemId)) (<T[]>_array).push(store.get(itemId));
+				});
+			} else {
+				if (store.has(value[0])) _array = store.get(value[0]);
+			}
+
+			return _array;
+		}
+	}
+
+	/**
+	 * Set active item of store
+	 * @param id
+	 */
+	setActive(id: TKey) {
+		const _storeActiveElement = this.storeActiveElement.getValue();
+		const _store = this.store.getValue();
+
+		if (!!this.getActiveId() || typeof this.getActiveId() === 'boolean') {
+			_storeActiveElement.set(
+				this.getActiveId(),
+				{
+					value: undefined,
+					active: EActive.inactive,
+				}
+			);
+		}
+
+		_storeActiveElement.set(
+			id,
+			{
+				value: _store.get(id),
+				active: EActive.active,
+			}
+		);
+
+		this.storeActiveElement.next(_storeActiveElement);
+	}
+
+	/**
+	 * Method for subscribe on active item of store
+	 */
+	selectActive(): Observable<T> {
+		return this.storeActiveElement
+			.pipe(
+				map(m => {
+					return m.has(this.getActiveId()) ? m.get(this.getActiveId()).value : undefined;
+				}),
+			);
+	}
+
+	/**
+	 * Method for get id of active item of store
+	 */
+	getActiveId(): TKey {
+		const _storeActiveElement = this.storeActiveElement.getValue();
+		let activeId: TKey;
+
+		_storeActiveElement.forEach((value, key) => {
+			if (value.active === EActive.active) activeId = key;
+		});
+
+		return activeId;
+	}
+
+	/**
+	 * Method for get value of active item of store
+	 */
+	getActive(): T {
+		const _storeActiveElement = this.storeActiveElement.getValue();
+
+		return _storeActiveElement.get(this.getActiveId()).value;
+	}
+
+	/**
+	 * Update active element in the store
+	 * @param activeData
+	 */
+	updateActive(activeData: T) {
+		const _storeActiveElement = this.storeActiveElement.getValue();
+		const _store = this.store.getValue();
+
+		if (!!activeData) {
+			_storeActiveElement.set(
+				this.getActiveId(),
+				{
+					active: EActive.active,
+					value: activeData,
+				}
+			);
+			_store.set(
+				this.getActiveId(),
+				activeData
+			);
+
+			this.storeActiveElement.next(_storeActiveElement);
+			this.store.next(_store);
+		}
+	}
+
+	setMultiActive(id: TKey | TKey[]) {
+		// let data: Map<TKey, number>;
+		//
+		// if (this.compareType(id)) {
+		// 	const _storeActiveElement = this.storeActiveElement.getValue();
+		//
+		// 	_storeActiveElement.forEach((value, key) => {
+		// 		if (value === EActive.active) value = EActive.inactive;
+		// 	});
+		//
+		// 	data = prepareData(<TKey[]>[id], _storeActiveElement);
+		// }
+		// if (typeof id === 'object' && id !== null && id.length > 0) {
+		// 	data = prepareData(id, this.storeActiveElement.getValue());
+		// }
+		//
+		// this.storeActiveElement.next(data);
+		//
+		// function prepareData(value: TKey[], activeElement: Map<TKey, number>): Map<TKey, number> {
+		//
+		// 	if (value.length > 1) {
+		// 		value.map((itemId: TKey) => {
+		// 			if (activeElement.has(itemId)) activeElement.set(itemId, EActive.active);
+		// 		});
+		// 	} else {
+		// 		if (activeElement.has(value[0])) activeElement.set(value[0], EActive.active);
+		// 	}
+		//
+		// 	return activeElement;
+		// }
+	}
+
+	/**
+	 * Subscribe on active elements in the store
+	 * allow subscribe on one or a few active elements
+	 * with id - subscribe on current active element
+	 * without id - subscribe on array of active elements or one element
+	 * @param id
+	 */
+	// selectMultiActive(id?: TKey): Observable<T[] | T> {
+	// 	const _storeActiveElement = this.storeActiveElement.getValue();
+	// 	const _store = this.store.getValue();
+	// 	console.log('s');
+	// 	if (this.compareType(id)) {
+	// 		if (_storeActiveElement.has(id) && _storeActiveElement.get(id) === EActive.active) {
+	// 			return this.store
+	// 				.pipe(
+	// 					map(m => {
+	// 						return m.has(id) ? m.get(id) : undefined;
+	// 					}),
+	// 				);
+	// 		}
+	// 	} else {
+	// 		const _activeElements = [];
+	//
+	// 		_storeActiveElement.forEach((value, key) => {
+	// 			console.log(value, key);
+	// 			if (value === EActive.active) _activeElements.push(key);
+	// 		});
+	//
+	// 		if (_activeElements.length > 1) {
+	// 			return this.store
+	// 				.pipe(
+	// 					map(items => {
+	// 						const _activeData: T[] = [];
+	//
+	// 						_activeElements.map(elementId => {
+	// 							if (items.has(elementId)) _activeData.push(items.get(elementId));
+	// 						});
+	//
+	// 						return _activeData.length > 1 ? _activeData : _activeData[0];
+	// 					}),
+	// 				);
+	// 		} else {
+	// 			return this.store
+	// 				.pipe(
+	// 					map(m => {
+	// 						return m.has(_activeElements[0]) ? m.get(_activeElements[0]) : undefined;
+	// 					}),
+	// 				);
+	// 		}
+	// 	}
+	// }
+
+	// getMultiActive(id?: TKey): T | T[] {
+	// 	const _storeActiveElement = this.storeActiveElement.getValue();
+	// 	const _store = this.store.getValue();
+	//
+	// 	if (this.compareType(id)) {
+	// 		if (_storeActiveElement.has(id) && _storeActiveElement.get(id) === EActive.active) {
+	// 			return _store.get(id);
+	// 		}
+	// 	} else {
+	// 		const _activeElements = [];
+	//
+	// 		_storeActiveElement.forEach((value, key) => {
+	// 			if (value === EActive.active) _activeElements.push(_store.get(key));
+	// 		});
+	//
+	// 		return _activeElements.length > 1 ? _activeElements : _activeElements[0];
+	// 	}
+	// }
+
+	updateMultiActive(value: any, active?: IT | IT[]) {
+		// const _storeActiveElement = this.storeActiveElement.getValue();
+		// const _store = this.store.getValue();
+		//
+		// if (!!active) {
+		//
+		// } else {
+		// 	_storeActiveElement.forEach((value, key) => {
+		// 		if (value === EActive.active) _store.set(key,);
+		// 	});
+		// }
+		// if (this.compareType(id)) {
+		// 	if (_storeActiveElement.has(<TKey>id) && _storeActiveElement.get(<TKey>id) === EActive.active) {
+		// 		_store.set();
+		// 	}
+		// } else {
+		// 	const _activeElements = [];
+		//
+		// 	_storeActiveElement.forEach((value, key) => {
+		// 		if (value === EActive.active) _activeElements.push(_store.get(key));
+		// 	});
+		//
+		// 	return _activeElements.length > 1 ? _activeElements : _activeElements[0];
+		// }
+		//
+		// this.store.next();
+	}
+
+	private updateStore(id: string, value: T): void {
+
+		const _store = this.store.getValue();
+
+		_store.set(id, value);
+
+		this.store.next(_store);
+
+		// function update(employee: INativeEmployeesEmployee) {
+		// 	const _employee = { ...employee };
+		// 	const jobIndex = _employee.jobs.findIndex(f => f.job.id === job[0].job.id);
+		// 	const _employeeJobs = [..._employee.jobs];
+		//
+		// 	_employeeJobs[jobIndex] = job[0];
+		// 	_employee.jobs = _employeeJobs;
+		//
+		// 	return _employee;
+		// }
+		//
+		// this.visibleAddRateHistory$.next(false);
+		//
+		// const items = this.store$.getValue();
+		// const itemIndex = items.findIndex(card => card.id === id);
+		// const newItem = items.slice(0);
+		//
+		// if (changes) {
+		// 	refreshTime ? changes['refreshTime'] = moment().format() : changes['refreshTime'] = changes['refreshTime'];
+		//
+		// 	if (itemIndex === -1) {
+		// 		changes['refreshTime'] = moment().format();
+		// 		newItem.push(changes);
+		// 	} else {
+		// 		newItem[itemIndex] = {
+		// 			...items[itemIndex],
+		// 			...changes,
+		// 		};
+		// 	}
+		// } else {
+		// 	if (itemIndex !== -1) {
+		// 		newItem.splice(itemIndex, 1);
+		// 	}
+		// }
+		// this.store$.next(newItem);
+	}
+}
